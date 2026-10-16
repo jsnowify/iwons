@@ -6,6 +6,7 @@ test('retired course links redirect while Path tools remain available',async({pa
  }
  await page.goto('/visualizer/');await expect(page.getByRole('heading',{name:'See the pattern move.'})).toBeVisible();
  await expect(page.locator('a[href^="/learn"]')).toHaveCount(0);
+ await page.getByRole('button',{name:'Open the workbench',exact:true}).click();const board=page.getByRole('region',{name:'Binary search',exact:true});await expect(board).toContainText('Step 1 of');await board.getByRole('button',{name:'Step forward',exact:true}).click();await expect(board).toContainText('Step 2 of');await page.getByRole('combobox',{name:'Algorithm',exact:true}).selectOption('sort');await expect(page.getByRole('region',{name:'Insertion sort',exact:true})).toBeVisible();
  await page.goto('/warm-up/');await expect(page.getByRole('heading',{name:'Daily Warm-up 3'})).toBeVisible();
  await page.getByRole('button',{name:/Find today/}).click();await expect(page.getByRole('heading',{name:'A fresh page for now.'})).toBeVisible();
  await page.goto('/settings/');await expect(page.getByText('Lesson language',{exact:true})).toHaveCount(0);

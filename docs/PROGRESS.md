@@ -1,8 +1,8 @@
 # Learn removal and performance pass
 
-Updated 2026-10-16. Active brief: attachment d002c792-687c-4811-998f-86e1391ef587. This replaces course expansion. English only; preserve all personal data and backup compatibility.
+Updated 2026-10-17. Active brief: attachment d002c792-687c-4811-998f-86e1391ef587. This replaces course expansion. English only; preserve all personal data and backup compatibility.
 
-Current phase: P5 engagement verification. P1 removal is complete; archived personal data remains compatible.
+Current phase: P6 final measurements/report. P1 removal is complete; archived personal data remains compatible.
 
 | Phase | State | Remaining |
 | --- | --- | --- |
@@ -12,7 +12,7 @@ Current phase: P5 engagement verification. P1 removal is complete; archived pers
 | P3 Build/bundle | Done | Turbopack export + static workers; 56.9s build, 544 tests, five browser checks pass |
 | P4 Runtime | Done | Editor/runtime interaction gates, seven Lighthouse audits and bundle graph; final repeat P6 |
 | P4b Footer | Done | 80 route/width/theme observations pass; server footer and clean document flow |
-| P5 Engagement | Planned | Path/runners/Watch/XP/Tik/Warm-up/Visualizer/notes smoke |
+| P5 Engagement | Done | 547 unit tests and all 43 browser tests pass; real JS/TS/Python, honest Java guard |
 | P5b Creator | Done | About section and shared footer link to Snowi portfolio; browser check passed |
 | P6 Verify | Planned | Before/after, full tests, bottom matrix, final PERF report |
 
@@ -22,4 +22,4 @@ Live HTTP 200 confirms preview-domain image URLs and no Learn nav. Config is sta
 
 Blockers: none for removal. Java browser checks require a configured endpoint; keep this honest. Do not retry Docker. Leave user dev server alone.
 
-NEXT ACTION: Run full browser suite including Path/Warm-up/Visualizer/rewards/Watch/runners; finish creator credit and final performance report.
+NEXT ACTION: Repeat cold-dev/Lighthouse/build/bundle metrics, finalize PERF.md and restoration instructions, commit final performance pipeline.

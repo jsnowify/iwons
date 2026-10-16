@@ -6,7 +6,8 @@ const first = references[0];
 import { readFile } from "node:fs/promises";
 async function editor(page: Page, code: string) {
   const openEditor = page.getByRole("button", {name:"Open code editor",exact:true});
-  if(await page.locator(".monaco-editor").count() === 0) await openEditor.click();
+  await page.locator(".monaco-editor").or(openEditor).first().waitFor();
+  if(await openEditor.isVisible()) await openEditor.click();
   await page.locator(".monaco-editor").waitFor();
   await page.evaluate(async (value) => {
     await new Promise<void>((resolve, reject) => {
@@ -71,7 +72,8 @@ test("onboarding → solve → saved draft, notes, submissions, progress, review
   await page.waitForTimeout(700);
   await page.reload();
   const openEditor = page.getByRole("button", {name:"Open code editor",exact:true});
-  if(await page.locator(".monaco-editor").count() === 0) await openEditor.click();
+  await page.locator(".monaco-editor").or(openEditor).first().waitFor();
+  if(await openEditor.isVisible()) await openEditor.click();
   await page.locator(".monaco-editor").waitFor();
   await expect(page.locator(".view-lines")).toContainText("out");
   await page.getByRole("button", { name: "Notes", exact: true }).click();
@@ -87,7 +89,17 @@ test("onboarding → solve → saved draft, notes, submissions, progress, review
   await expect(page.locator(".stat-card").first()).toContainText("1");
   await page.goto("/review/");
   await expect(page.getByText("All clear for now.")).toBeVisible();
+  await page.goto("/warm-up/");
+  await page.getByRole("button",{name:/Find today/}).click();
+  await expect(page.getByRole("heading",{name:first.problem.title,exact:true})).toBeVisible();
+  await page.getByRole("textbox",{name:"Your recall"}).fill("Trace each reading, transform it, and check an empty input.");
+  await page.getByRole("button",{name:"Show approach",exact:true}).click();
+  await expect(page.locator(".screen-note")).toContainText(first.problem.overview);
+  await page.getByRole("button",{name:"Good",exact:true}).click();
+  await expect(page.getByRole("heading",{name:"Your warm-up is complete."})).toBeVisible();
   await page.goto("/progress/");
+  await expect(page.getByText(/First solve.*Earned/)).toBeVisible();
+  await expect(page.locator(".profile-text")).toContainText("125 XP");
   const flexDownload = page.waitForEvent("download");
   await page.getByRole("button", { name: "Flex Card" }).click();
   const flex = await flexDownload;
@@ -220,7 +232,8 @@ test("responsive dark and light pages, SEO HTML, and offline refresh", async ({
       await page.getByRole("button", { name: "Code & results" }).click();
     }
     const openEditor = page.getByRole("button", {name:"Open code editor",exact:true});
-  if(await page.locator(".monaco-editor").count() === 0) await openEditor.click();
+  await page.locator(".monaco-editor").or(openEditor).first().waitFor();
+  if(await openEditor.isVisible()) await openEditor.click();
   await page.locator(".monaco-editor").waitFor();
     expect(
       await page.evaluate(

@@ -42,3 +42,7 @@ No color, font or layout token changes. No new runtime dependencies. English UI 
 | 2026-10-17 | Remove remaining translation-review document; preserve it in archive branch | Final scan found an overlooked obsolete translation plan | Restore from archive/learn-v1 |
 
 | 2026-10-17 | Credit Snowi at end of About and in shared footer, portfolio link only | Names the creator with existing retro styling and no personal contact details | Remove About credit and footer credit text |
+
+| 2026-10-17 | Deterministic local-day fallback rotation for Warm-up, due cards first and at most three unique known problems | Initial prefix sort accidentally repeated alphabetical cards; three behavior tests cover due/retired/solved/daily contracts | Restore previous queue selection |
+| 2026-10-17 | Keep Java unavailable without an explicitly configured endpoint | No endpoint exists; browser smoke checks honest configuration failure, not simulated Java execution | Configure and independently verify a real endpoint |
+| 2026-10-17 | Browser helpers wait for either explicit editor opener or already-opening mobile editor | Code & results itself activates the editor, so the opener is intentionally absent then | Update helpers if editor activation changes |

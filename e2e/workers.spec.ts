@@ -14,3 +14,9 @@ test('static disposable JS and strict TypeScript workers execute without page ch
  });
  for(const item of result)expect(item).toMatchObject({verdict:'accepted'});
 });
+
+test('Java remains explicitly unavailable without a configured endpoint',async({page})=>{
+ await page.goto('/');await expect(page.getByRole('img',{name:'Tik, a little typewriter with a page of code'})).toBeVisible();
+ const result=await page.evaluate(()=>new Promise(resolve=>{const worker=new Worker('/runners/java.worker.js');worker.onmessage=event=>{worker.terminate();resolve(event.data);};worker.postMessage({code:'class Solution {}',cases:[],timeLimitMs:2000,judgeUrl:''});}));
+ expect(result).toMatchObject({verdict:'runtime_error',compileError:{message:expect.stringContaining('Java Beta needs your self-hosted Judge0 CE URL')}});
+});
