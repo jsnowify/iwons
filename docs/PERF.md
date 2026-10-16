@@ -59,3 +59,5 @@ One local mobile/throttled run per URL, not a field percentile. Results on this 
 P0 complete apart from the recorded dev cold-request timeout limitation. Typecheck/lint passed, 600 unit tests passed, current build/export checks passed. Archive Learn browser probes passed; active removal checks will replace those in P1.
 
 P1-P6 pending. Final report will fill the After column, record blockers and restoration instructions. No speedup is claimed yet.
+
+P2 checkpoint: Next trace 103.736467 seconds, 644 entries, zero OG/Learn entries. 501 static images (500 problems plus home); unchanged run generated zero. 544 unit tests, lint/typecheck, export privacy/image checks and metadata browser check pass. This is an intermediate measurement, not the final result.

@@ -19,6 +19,40 @@
       "source": "/ceb/:path*",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/og/:slug/",
+      "destination": "/og/:slug.png",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/og/:file([a-z0-9-]+\\.[a-f0-9]{16}\\.png)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/_next/static/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/og/:slug.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, must-revalidate"
+        }
+      ]
     }
   ]
 }

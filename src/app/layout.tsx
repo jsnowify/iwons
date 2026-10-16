@@ -1,3 +1,4 @@
+import { ogImage } from "@/lib/og";
 import { siteUrl } from "@/lib/site-url";
 import type { Metadata, Viewport } from "next";
 import {
@@ -55,7 +56,7 @@ export const metadata: Metadata = {
     title: "Iwons — Type it. Test it. Own it.",
     description: "Build the habit. Learn the patterns. Own every solve.",
     type: "website",
-    images: ["/og/receipt-arithmetic-proof-strip/"],
+    images: [ogImage("home")],
   },
   twitter: { card: "summary_large_image" },
   icons: { icon: "/icon.svg", apple: "/icons/192/" },

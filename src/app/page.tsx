@@ -1,3 +1,4 @@
+export const metadata = {alternates:{canonical:"/"}};
 import { siteUrl } from "@/lib/site-url";
 import { Landing } from "@/components/landing";
 export default function Home() {

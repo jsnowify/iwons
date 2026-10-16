@@ -18,3 +18,6 @@ No color, font or layout token changes. No new runtime dependencies. English UI 
 | 2026-10-16 | Remove active courses and locale UI, retain compatibility-only v4-v6 schemas | Preserve backup import/export and original namespaces without shipping course content | Restore from archive/learn-v1 |
 | 2026-10-16 | Move Warm-up to existing Path SRS and Visualizer to an on-demand standalone tool | Keep reusable engagement after course removal | Restore archived wrappers |
 | 2026-10-16 | Remove one obsolete generated dev route type before rebuilding | Deleted source left stale Next-generated imports; fresh build regenerates current route types | Regenerate with Next |
+
+| 2026-10-16 | Bottom audit before layout edits: 80 route/width/theme observations; 70 lack a footer, only homepage has one; zero horizontal overflows | Shared footer missing on seven main route views; problem workspace uses bounded inner scroll regions | Before screenshots and JSON in artifacts/bottom-layout/before.* |
+| 2026-10-16 | Keep individual problem OG images with content-hashed filenames and stable compatibility aliases | Retains problem-specific social previews; recurring build skips Satori for unchanged content | Restore archived route handler |

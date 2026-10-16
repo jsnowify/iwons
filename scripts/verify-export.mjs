@@ -1,13 +1,13 @@
 import fs from "node:fs";
 import assert from "node:assert/strict";
-import path from "node:path";
+
 const manifest=JSON.parse(fs.readFileSync("src/data/curriculum.json","utf8"));
 for(const p of manifest) {
   const html=fs.readFileSync(`out/problems/${p.slug}/index.html`,"utf8");
   assert(!html.includes("hiddenCases")&&!html.includes("referenceSolutions"),`Private data in initial HTML: ${p.slug}`);
   const pack=JSON.parse(fs.readFileSync(`out/problem-data/${p.slug}.json`,"utf8"));
   assert(pack.hiddenCases.length>=6&&pack.editorialMd.length>0,`Missing lazy pack: ${p.slug}`);
-  const image=fs.readFileSync(`out/og/${p.slug}`);
+  const image=fs.readFileSync(`out/og/${p.slug}.png`);
   assert.equal(image.subarray(1,4).toString(),"PNG",`Missing social image: ${p.slug}`);
   assert.equal(image.readUInt32BE(16),1200);assert.equal(image.readUInt32BE(20),630);
 }

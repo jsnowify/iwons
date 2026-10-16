@@ -1,3 +1,4 @@
+import { ogImage } from "@/lib/og";
 import { siteUrl } from "@/lib/site-url";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -25,12 +26,12 @@ export async function generateMetadata({
     openGraph: {
       title: `${p.title} | Iwons`,
       description: p.overview,
-      images: [`/og/${slug}/`],
+      images: [ogImage(slug)],
     },
     twitter: {
       card: "summary_large_image",
       title: `${p.title} | Iwons`,
-      images: [`/og/${slug}/`],
+      images: [ogImage(slug)],
     },
   };
 }
