@@ -49,6 +49,7 @@ http
           ? "image/png"
           : "application/octet-stream"),
     );
+    if (/\.[a-f0-9]{16}\.png$/.test(file) || pathname.startsWith("/_next/static/")) res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
     if (file.endsWith("sw.js")) res.setHeader("Cache-Control", "no-cache");
     res.setHeader("Vary", "Accept-Encoding");
     const compress =

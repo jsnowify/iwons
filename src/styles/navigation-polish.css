@@ -106,3 +106,9 @@
   :root select { appearance: auto; background-image: none; padding-inline-end: 8px; }
 }
 
+
+.editor-preview { height: 100%; overflow: auto; padding: calc(var(--spacing) * 6); }
+.editor-preview pre { white-space: pre-wrap; overflow-wrap: anywhere; margin-bottom: calc(var(--spacing) * 6); font: 13px var(--font-code); }
+
+.chapter-stamps .option-row { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,180px),1fr)); }
+.chapter-stamps .stamp { min-width: 0; min-height: 80px; }

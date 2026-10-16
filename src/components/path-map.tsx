@@ -152,11 +152,11 @@ export function LevelAccess({ level }: { level: PathLevel }) {
     );
   if (!store.hydrated)
     return (
-      <div className="skeleton" style={{ height: 56, marginBottom: 24 }} />
+      <div className="skeleton" style={{ height: 60, marginBottom: 24 }} />
     );
   if (unlocked)
     return (
-      <div className="screen-note row" style={{ marginBottom: 24 }}>
+      <div className="screen-note row" style={{ marginBottom: 24, minHeight:60 }}>
         <Check size={15} />
         {store.settings.freeBrowse
           ? "Free browse is on."

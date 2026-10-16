@@ -105,9 +105,6 @@ export function Workspace({
   }, [watch.log]);
   const pastSubmissions = store.submissions.filter((s) => s.problemId === p.id);
   useEffect(() => {
-    if (matchMedia("(min-width: 1024px)").matches) setEditorEnabled(true);
-  }, []);
-  useEffect(() => {
     start.current = Date.now();
     setElapsed(0);
     setHints(0);
@@ -753,9 +750,9 @@ export function Workspace({
                 onChange={setCode}
                 onBurst={logTypingBurst}
               />
-            ) : (
-              <EditorSkeleton />
-            )}
+            ) : loaded ? (
+              <div className="editor-preview"><pre aria-label="Saved code preview">{code}</pre><button className="btn" type="button" onClick={()=>setEditorEnabled(true)}>Open code editor</button><p className="muted">Your draft is ready. Open the editor when you want to type.</p></div>
+            ) : <EditorSkeleton />}
           </div>
           <div className="editor-bottom">
             <span>

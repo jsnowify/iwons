@@ -5,6 +5,8 @@ const references: {slug:string; js:string; typescript:string; python:string; jav
 const first = references[0];
 import { readFile } from "node:fs/promises";
 async function editor(page: Page, code: string) {
+  const openEditor = page.getByRole("button", {name:"Open code editor",exact:true});
+  if(await page.locator(".monaco-editor").count() === 0) await openEditor.click();
   await page.locator(".monaco-editor").waitFor();
   await page.evaluate(async (value) => {
     await new Promise<void>((resolve, reject) => {
@@ -68,6 +70,8 @@ test("onboarding → solve → saved draft, notes, submissions, progress, review
     .fill("## Pattern\nNormalize the name before greeting.");
   await page.waitForTimeout(700);
   await page.reload();
+  const openEditor = page.getByRole("button", {name:"Open code editor",exact:true});
+  if(await page.locator(".monaco-editor").count() === 0) await openEditor.click();
   await page.locator(".monaco-editor").waitFor();
   await expect(page.locator(".view-lines")).toContainText("out");
   await page.getByRole("button", { name: "Notes", exact: true }).click();
@@ -215,7 +219,9 @@ test("responsive dark and light pages, SEO HTML, and offline refresh", async ({
     if (width < 1024) {
       await page.getByRole("button", { name: "Code & results" }).click();
     }
-    await page.locator(".monaco-editor").waitFor();
+    const openEditor = page.getByRole("button", {name:"Open code editor",exact:true});
+  if(await page.locator(".monaco-editor").count() === 0) await openEditor.click();
+  await page.locator(".monaco-editor").waitFor();
     expect(
       await page.evaluate(
         () => document.documentElement.scrollWidth <= innerWidth,

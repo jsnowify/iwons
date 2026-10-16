@@ -165,7 +165,7 @@ export function ProgressPage({problems}:{problems:CatalogEntry[]}) {
           Flex Card
         </Button>
       </div>
-      <section className="card" style={{ marginBottom: 28, padding: 24 }}>
+      <section className="card chapter-stamps" style={{ marginBottom: 28, padding: 24 }}>
         <div className="card-heading">
           <h2>Chapter stamps</h2>
           <Link className="text-link" href="/path/">

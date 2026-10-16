@@ -69,7 +69,7 @@ const core = new Set([
   "/icons/512/",
 ]);
 // Preserve offline typography without downloading every feature's JavaScript.
-const coreAssets = new Set([...fontPaths, ...files.filter(file => file.endsWith(".woff2"))]);
+const coreAssets = new Set(fontPaths);
 for (const route of core) {
   const documentPath = path.join("out", route, "index.html");
   if (!fs.existsSync(documentPath)) continue;

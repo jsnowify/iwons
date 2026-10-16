@@ -46,11 +46,29 @@
       ]
     },
     {
-      "source": "/og/:slug.png",
+      "source": "/og/:slug([a-z0-9-]+).png",
       "headers": [
         {
           "key": "Cache-Control",
           "value": "public, max-age=3600, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/runners/js/:file(chunk-[A-Z0-9]+\\.js)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/runners/js/worker.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
         }
       ]
     }

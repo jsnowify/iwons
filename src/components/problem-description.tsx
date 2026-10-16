@@ -58,7 +58,7 @@ export function ProblemDescription({ problem: p, related = [] }: { problem: Prob
           <h2>Keep the pattern going</h2>
           <div className="stack" style={{ gap: 12 }}>
             {related.map((r) => (
-              <Link prefetch={false} className="text-link" href={problemUrl(r)} key={r.id}>
+              <Link className="text-link" href={problemUrl(r)} key={r.id}>
                 {r.title} →
               </Link>
             ))}

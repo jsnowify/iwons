@@ -82,8 +82,9 @@ function ShellContent({ children }: { children: ReactNode }) {
     const unsubscribe = useStore.persist.onFinishHydration(() => useStore.getState().hydrate());
     void useStore.persist.rehydrate();
     const controller = new AbortController();
-    void configureOffline(process.env.NODE_ENV === "production", controller.signal).catch(() => {});
-    return () => { unsubscribe(); controller.abort(); window.removeEventListener("iwons:storage-error", storageError); };
+    // Let first-view fonts and route assets finish before the offline install competes for bandwidth.
+    const offlineTimer = setTimeout(() => { void configureOffline(process.env.NODE_ENV === "production", controller.signal).catch(() => {}); }, process.env.NODE_ENV === "production" ? 2500 : 0);
+    return () => { clearTimeout(offlineTimer); unsubscribe(); controller.abort(); window.removeEventListener("iwons:storage-error", storageError); };
   }, []);
   useEffect(() => {
     document.documentElement.dataset.theme = store.settings.theme;

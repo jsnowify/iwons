@@ -28,3 +28,9 @@ No color, font or layout token changes. No new runtime dependencies. English UI 
 | 2026-10-16 | Explicit webpackBuildWorker and four export workers; CI caches .next/cache | Worker was already default for webpack; retain supported fallback and avoid excessive parallel memory | Remove experimental options and workflow cache |
 | 2026-10-16 | Keep remaining dependencies after manual import scan | Monaco, Sucrase, Zustand, icons and styling all have active consumers | Re-audit when features change |
 | 2026-10-16 | Retain Next-generated AGENTS documentation block | Confirmed generate-agent-files.js adds version-matched documentation guidance | Next dev regenerates it |
+
+| 2026-10-16 | Explicit editor activation with saved-code preview; runners only on Run and Visualizer only on Open | No Monaco/runtime requests on first problem view, confirmed in browser | Restore desktop eager activation |
+| 2026-10-16 | Keep all existing font families/weights, Latin subsets and swap | Every family has an active token role; optional fonts already do not preload | Re-audit actual usage |
+| 2026-10-16 | Remove eager offline download of every font and defer production offline install 2.5s | Reduce competition with first-view route/fonts; offline still available after registration | Restore immediate registration/precache |
+| 2026-10-16 | Stable stamp grid and equal level-access skeleton height | Lighthouse attributed Progress CLS to stamp reflow; level skeleton previously shifted content | Restore prior styles |
+| 2026-10-16 | Exclude generated public/out assets from TypeScript source checking | Static compiler libraries and exported assets are not application source | Remove exclusions |

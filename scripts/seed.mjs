@@ -43,4 +43,4 @@ process.argv.push("--record");
 await import("./verify-curriculum.mjs");
 console.log(`Published local catalog: ${publicCatalog.length} original problems, ${units.length} validated units.`);
 
-// Learn maps are structure-only until runtime and content gates pass.
+
