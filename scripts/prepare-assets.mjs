@@ -12,3 +12,9 @@ if (!fs.existsSync("public/monaco/vs/loader.js") || copied !== version)
   });
 fs.writeFileSync("public/monaco/version.txt", version);
 console.log("Monaco assets ready (self-hosted).");
+await import("./prepare-learn-assets.mjs");
+// Existing dev dependency; loaded only by the dedicated Foundations TS worker.
+fs.mkdirSync("public/runners/ts-lib", {recursive:true});
+for (const name of fs.readdirSync("node_modules/typescript/lib").filter(name=>/^lib\..*\.d\.ts$/.test(name))) {
+  fs.copyFileSync(`node_modules/typescript/lib/${name}`,`public/runners/ts-lib/${name}`);
+}

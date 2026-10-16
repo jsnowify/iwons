@@ -6,8 +6,8 @@ export interface Translated<T> {
   translations: Record<LessonLanguage, T | null> & { en: T };
   translationStatus: Record<LessonLanguage, TranslationStatus>;
 }
-export type CourseId = "cp1" | "cp2";
-export type ExerciseKind = "predict" | "fix" | "fill" | "code" | "program" | "project";
+export type CourseId = "cp1" | "cp2" | "dsa";
+export type ExerciseKind = "predict" | "fix" | "fill" | "code" | "program" | "project" | "build" | "parsons" | "trace";
 export interface Course {
   id: CourseId;
   slug: CourseId;

@@ -1,0 +1,169 @@
+{
+  "lessonId": "cp1-m1-l4",
+  "tracks": {
+    "java": {
+      "expectedOutput": "Welcome, Rin",
+      "predict": {
+        "answer": "Welcome, Rin",
+        "reason": "The reading statement stores Rin under name before the output joins Welcome, with that text.",
+        "nextStep": "Compare the messages character by character, then inspect the trace."
+      },
+      "trace": {
+        "answer": "Rin",
+        "reason": "The reading statement stores Rin under name before the output joins Welcome, with that text.",
+        "nextStep": "Return to the first trace snapshot and name the next operation."
+      },
+      "modify": {
+        "cases": [
+          {
+            "id": "changed-message",
+            "stdin": "Rin\n",
+            "expected": "Hi, Rin"
+          }
+        ],
+        "referenceSolution": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner desk = new Scanner(System.in);\n        String name = desk.nextLine();\n        System.out.println(\"Hi, \" + name);\n    }\n}"
+      },
+      "recall": {
+        "cp1-m1-l4-choice": {
+          "answer": "Rin",
+          "reason": "Rin is the supplied input text; the greeting before it is fixed.",
+          "nextStep": "Read the original example, then predict one small change."
+        },
+        "cp1-m1-l4-short": {
+          "answer": "Welcome, Jo",
+          "reason": "Use the stated message or input and preserve the order, spaces and capitalization.",
+          "nextStep": "Compare the output statement with the supplied input before answering again."
+        },
+        "cp1-m1-l4-fill": {
+          "answer": "input",
+          "reason": "Input supplies the name to the program; output displays the constructed greeting.",
+          "nextStep": "Return to the short explanation and identify the term in its example.",
+          "caseSensitive": false
+        }
+      }
+    },
+    "python": {
+      "expectedOutput": "Welcome, Rin",
+      "predict": {
+        "answer": "Welcome, Rin",
+        "reason": "The reading statement stores Rin under name before the output joins Welcome, with that text.",
+        "nextStep": "Compare the messages character by character, then inspect the trace."
+      },
+      "trace": {
+        "answer": "Rin",
+        "reason": "The reading statement stores Rin under name before the output joins Welcome, with that text.",
+        "nextStep": "Return to the first trace snapshot and name the next operation."
+      },
+      "modify": {
+        "cases": [
+          {
+            "id": "changed-message",
+            "stdin": "Rin\n",
+            "expected": "Hi, Rin"
+          }
+        ],
+        "referenceSolution": "name = input()\nprint(\"Hi, \" + name)"
+      },
+      "recall": {
+        "cp1-m1-l4-choice": {
+          "answer": "Rin",
+          "reason": "Rin is the supplied input text; the greeting before it is fixed.",
+          "nextStep": "Read the original example, then predict one small change."
+        },
+        "cp1-m1-l4-short": {
+          "answer": "Welcome, Jo",
+          "reason": "Use the stated message or input and preserve the order, spaces and capitalization.",
+          "nextStep": "Compare the output statement with the supplied input before answering again."
+        },
+        "cp1-m1-l4-fill": {
+          "answer": "input",
+          "reason": "Input supplies the name to the program; output displays the constructed greeting.",
+          "nextStep": "Return to the short explanation and identify the term in its example.",
+          "caseSensitive": false
+        }
+      }
+    },
+    "javascript": {
+      "expectedOutput": "Welcome, Rin",
+      "predict": {
+        "answer": "Welcome, Rin",
+        "reason": "The reading statement stores Rin under name before the output joins Welcome, with that text.",
+        "nextStep": "Compare the messages character by character, then inspect the trace."
+      },
+      "trace": {
+        "answer": "Rin",
+        "reason": "The reading statement stores Rin under name before the output joins Welcome, with that text.",
+        "nextStep": "Return to the first trace snapshot and name the next operation."
+      },
+      "modify": {
+        "cases": [
+          {
+            "id": "changed-message",
+            "stdin": "Rin\n",
+            "expected": "Hi, Rin"
+          }
+        ],
+        "referenceSolution": "const name = require(\"fs\").readFileSync(0, \"utf8\").replace(/\\r?\\n$/, \"\");\nconsole.log(\"Hi, \" + name);"
+      },
+      "recall": {
+        "cp1-m1-l4-choice": {
+          "answer": "Rin",
+          "reason": "Rin is the supplied input text; the greeting before it is fixed.",
+          "nextStep": "Read the original example, then predict one small change."
+        },
+        "cp1-m1-l4-short": {
+          "answer": "Welcome, Jo",
+          "reason": "Use the stated message or input and preserve the order, spaces and capitalization.",
+          "nextStep": "Compare the output statement with the supplied input before answering again."
+        },
+        "cp1-m1-l4-fill": {
+          "answer": "input",
+          "reason": "Input supplies the name to the program; output displays the constructed greeting.",
+          "nextStep": "Return to the short explanation and identify the term in its example.",
+          "caseSensitive": false
+        }
+      }
+    },
+    "typescript": {
+      "expectedOutput": "Welcome, Rin",
+      "predict": {
+        "answer": "Welcome, Rin",
+        "reason": "The reading statement stores Rin under name before the output joins Welcome, with that text.",
+        "nextStep": "Compare the messages character by character, then inspect the trace."
+      },
+      "trace": {
+        "answer": "Rin",
+        "reason": "The reading statement stores Rin under name before the output joins Welcome, with that text.",
+        "nextStep": "Return to the first trace snapshot and name the next operation."
+      },
+      "modify": {
+        "cases": [
+          {
+            "id": "changed-message",
+            "stdin": "Rin\n",
+            "expected": "Hi, Rin"
+          }
+        ],
+        "referenceSolution": "const name: string = require(\"fs\").readFileSync(0, \"utf8\").replace(/\\r?\\n$/, \"\");\nconsole.log(\"Hi, \" + name);"
+      },
+      "recall": {
+        "cp1-m1-l4-choice": {
+          "answer": "Rin",
+          "reason": "Rin is the supplied input text; the greeting before it is fixed.",
+          "nextStep": "Read the original example, then predict one small change."
+        },
+        "cp1-m1-l4-short": {
+          "answer": "Welcome, Jo",
+          "reason": "Use the stated message or input and preserve the order, spaces and capitalization.",
+          "nextStep": "Compare the output statement with the supplied input before answering again."
+        },
+        "cp1-m1-l4-fill": {
+          "answer": "input",
+          "reason": "Input supplies the name to the program; output displays the constructed greeting.",
+          "nextStep": "Return to the short explanation and identify the term in its example.",
+          "caseSensitive": false
+        }
+      }
+    }
+  }
+}

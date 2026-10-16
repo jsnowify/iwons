@@ -1,0 +1,107 @@
+{
+  "id": "tool-demo",
+  "moduleId": "tool-demo",
+  "translations": {
+    "en": {
+      "questions": [
+        {
+          "id": "message",
+          "prompt": "Which word appears when the original program runs?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ready"
+            },
+            {
+              "id": "b",
+              "text": "Open"
+            },
+            {
+              "id": "c",
+              "text": "Nothing"
+            }
+          ]
+        },
+        {
+          "id": "quotes",
+          "prompt": "Are the surrounding quote marks printed by this example?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Yes"
+            },
+            {
+              "id": "b",
+              "text": "No"
+            },
+            {
+              "id": "c",
+              "text": "Only on the first run"
+            }
+          ]
+        },
+        {
+          "id": "lines",
+          "prompt": "How many output lines does the original program produce? Answer with a digit.",
+          "options": [
+            {
+              "id": "a",
+              "text": "0"
+            },
+            {
+              "id": "b",
+              "text": "2"
+            },
+            {
+              "id": "c",
+              "text": "1"
+            }
+          ]
+        },
+        {
+          "id": "change",
+          "prompt": "Where do you change the message in this example?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Inside the quotes"
+            },
+            {
+              "id": "b",
+              "text": "In the step ribbon"
+            },
+            {
+              "id": "c",
+              "text": "In the output panel"
+            }
+          ]
+        },
+        {
+          "id": "observe",
+          "prompt": "After editing the program, how do you observe its new output?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Keep reading the old output"
+            },
+            {
+              "id": "b",
+              "text": "Run the changed program"
+            },
+            {
+              "id": "c",
+              "text": "Rename the lesson"
+            }
+          ]
+        }
+      ]
+    },
+    "fil": null,
+    "ceb": null
+  },
+  "translationStatus": {
+    "en": "reviewed",
+    "fil": "draft",
+    "ceb": "draft"
+  }
+}

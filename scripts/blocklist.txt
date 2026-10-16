@@ -38,3 +38,14 @@ rotting oranges
 daily temperatures
 design twitter
 koko eating bananas
+
+introduction to algorithms
+the algorithm design manual
+algorithms fourth edition
+clrs
+sedgewick
+skiena
+neetcode
+leetcode
+freecodecamp
+visualgo

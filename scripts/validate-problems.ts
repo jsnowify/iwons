@@ -34,7 +34,8 @@ export async function validateUnit(unit:string) {
   }
   const dir=path.join(root,"artifacts/curriculum-validation",unit);fs.mkdirSync(dir,{recursive:true});
   for(const name of ["compare","nodes"])fs.writeFileSync(path.join(dir,`${name}.mjs`),transform(fs.readFileSync(`src/lib/harness/${name}.ts`,"utf8"),{transforms:["typescript"]}).code);
-  fs.writeFileSync(path.join(dir,"worker.mjs"),transform(fs.readFileSync("src/lib/runners/js.worker.ts","utf8").replace("@/lib/harness/compare","./compare.mjs").replace("@/lib/harness/nodes","./nodes.mjs"),{transforms:["typescript"]}).code);
+  fs.writeFileSync(path.join(dir,"program-shim.mjs"),transform(fs.readFileSync("src/lib/runners/program-shim.ts","utf8"),{transforms:["typescript"]}).code);
+  fs.writeFileSync(path.join(dir,"worker.mjs"),transform(fs.readFileSync("src/lib/runners/js.worker.ts","utf8").replace("@/lib/harness/compare","./compare.mjs").replace("@/lib/harness/nodes","./nodes.mjs").replace("./program-shim","./program-shim.mjs"),{transforms:["typescript"]}).code);
   fs.writeFileSync(path.join(dir,"bridge.mjs"),"import {parentPort} from 'node:worker_threads';globalThis.self={postMessage:m=>parentPort.postMessage(m)};await import('./worker.mjs');parentPort.on('message',data=>self.onmessage({data}));");
   const worker=new Worker(path.join(dir,"bridge.mjs"));
   try {

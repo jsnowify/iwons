@@ -1,0 +1,165 @@
+{
+  "lessonId": "tool-demo",
+  "tracks": {
+    "java": {
+      "expectedOutput": "Ready",
+      "predict": {
+        "answer": "Ready",
+        "reason": "The letters inside the quotes become the output.",
+        "nextStep": "Read the message inside the quotes, then try the trace."
+      },
+      "trace": {
+        "answer": "1",
+        "reason": "The single output statement runs once.",
+        "nextStep": "Step back to the output statement and count its executions."
+      },
+      "modify": {
+        "cases": [
+          {
+            "id": "message",
+            "stdin": "",
+            "expected": "Open"
+          }
+        ],
+        "referenceSolution": "public class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Open\");\n    }\n}"
+      },
+      "recall": {
+        "demo-word": {
+          "answer": "Ready",
+          "reason": "Ready is the original message inside the quotes.",
+          "nextStep": "Look at the original program and read only the quoted word."
+        },
+        "demo-lines": {
+          "answer": "1",
+          "reason": "There is one execution of the output statement.",
+          "nextStep": "Return to the trace and count the output statements that run."
+        },
+        "demo-fill": {
+          "answer": "line",
+          "reason": "One output line contains the message.",
+          "nextStep": "Inspect the output panel and count the printed lines."
+        }
+      }
+    },
+    "python": {
+      "expectedOutput": "Ready",
+      "predict": {
+        "answer": "Ready",
+        "reason": "The letters inside the quotes become the output.",
+        "nextStep": "Read the message inside the quotes, then try the trace."
+      },
+      "trace": {
+        "answer": "1",
+        "reason": "The single output statement runs once.",
+        "nextStep": "Step back to the output statement and count its executions."
+      },
+      "modify": {
+        "cases": [
+          {
+            "id": "message",
+            "stdin": "",
+            "expected": "Open"
+          }
+        ],
+        "referenceSolution": "print(\"Open\")"
+      },
+      "recall": {
+        "demo-word": {
+          "answer": "Ready",
+          "reason": "Ready is the original message inside the quotes.",
+          "nextStep": "Look at the original program and read only the quoted word."
+        },
+        "demo-lines": {
+          "answer": "1",
+          "reason": "There is one execution of the output statement.",
+          "nextStep": "Return to the trace and count the output statements that run."
+        },
+        "demo-fill": {
+          "answer": "line",
+          "reason": "One output line contains the message.",
+          "nextStep": "Inspect the output panel and count the printed lines."
+        }
+      }
+    },
+    "javascript": {
+      "expectedOutput": "Ready",
+      "predict": {
+        "answer": "Ready",
+        "reason": "The letters inside the quotes become the output.",
+        "nextStep": "Read the message inside the quotes, then try the trace."
+      },
+      "trace": {
+        "answer": "1",
+        "reason": "The single output statement runs once.",
+        "nextStep": "Step back to the output statement and count its executions."
+      },
+      "modify": {
+        "cases": [
+          {
+            "id": "message",
+            "stdin": "",
+            "expected": "Open"
+          }
+        ],
+        "referenceSolution": "console.log(\"Open\");"
+      },
+      "recall": {
+        "demo-word": {
+          "answer": "Ready",
+          "reason": "Ready is the original message inside the quotes.",
+          "nextStep": "Look at the original program and read only the quoted word."
+        },
+        "demo-lines": {
+          "answer": "1",
+          "reason": "There is one execution of the output statement.",
+          "nextStep": "Return to the trace and count the output statements that run."
+        },
+        "demo-fill": {
+          "answer": "line",
+          "reason": "One output line contains the message.",
+          "nextStep": "Inspect the output panel and count the printed lines."
+        }
+      }
+    },
+    "typescript": {
+      "expectedOutput": "Ready",
+      "predict": {
+        "answer": "Ready",
+        "reason": "The letters inside the quotes become the output.",
+        "nextStep": "Read the message inside the quotes, then try the trace."
+      },
+      "trace": {
+        "answer": "1",
+        "reason": "The single output statement runs once.",
+        "nextStep": "Step back to the output statement and count its executions."
+      },
+      "modify": {
+        "cases": [
+          {
+            "id": "message",
+            "stdin": "",
+            "expected": "Open"
+          }
+        ],
+        "referenceSolution": "console.log(\"Open\");"
+      },
+      "recall": {
+        "demo-word": {
+          "answer": "Ready",
+          "reason": "Ready is the original message inside the quotes.",
+          "nextStep": "Look at the original program and read only the quoted word."
+        },
+        "demo-lines": {
+          "answer": "1",
+          "reason": "There is one execution of the output statement.",
+          "nextStep": "Return to the trace and count the output statements that run."
+        },
+        "demo-fill": {
+          "answer": "line",
+          "reason": "One output line contains the message.",
+          "nextStep": "Inspect the output panel and count the printed lines."
+        }
+      }
+    }
+  }
+}

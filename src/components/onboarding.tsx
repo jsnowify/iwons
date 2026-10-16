@@ -110,7 +110,7 @@ export function Onboarding({
                 avatar: name.trim().slice(0, 1).toUpperCase(),
                 onboarded: true,
               });
-              store.updateSettings({ language });
+              store.updateSettings({ language, codeTrack: language });
               toast("Your space is ready. Make the first solve yours.");
               onClose();
             }

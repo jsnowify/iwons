@@ -1,0 +1,141 @@
+{
+  "id": "cp1-m1-e8",
+  "slug": "complete-a-welcome-slip",
+  "moduleId": "cp1-m1",
+  "afterLessonId": "cp1-m1-l4",
+  "kind": "fill",
+  "track": "foundations",
+  "ioMode": "program",
+  "rung": "completion",
+  "conceptId": "line-input",
+  "javaMinVersion": 8,
+  "xp": 20,
+  "shared": {
+    "translations": {
+      "en": {
+        "title": "Complete a welcome slip",
+        "statement": "Complete the fixed greeting so the program prints Welcome, followed by one space and the input line. Preserve the provided input-reading setup and the name identifier. An input line may contain spaces or be empty.",
+        "hints": [
+          "Separate the fixed greeting from the name received on the input line.",
+          "Keep name outside the quoted greeting, so its stored text becomes part of the output.",
+          "Print the fixed text Welcome, with a space after the comma, joined to name."
+        ]
+      },
+      "fil": null,
+      "ceb": null
+    },
+    "translationStatus": {
+      "en": "reviewed",
+      "fil": "draft",
+      "ceb": "draft"
+    }
+  },
+  "cases": [
+    {
+      "id": "slip-1",
+      "input": [],
+      "stdin": "Rin\n",
+      "expected": "Welcome, Rin"
+    },
+    {
+      "id": "slip-2",
+      "input": [],
+      "stdin": "Jo Lee\n",
+      "expected": "Welcome, Jo Lee"
+    },
+    {
+      "id": "slip-3",
+      "input": [],
+      "stdin": "\n",
+      "expected": "Welcome, "
+    },
+    {
+      "id": "slip-4",
+      "input": [],
+      "stdin": "ñame\n",
+      "expected": "Welcome, ñame"
+    },
+    {
+      "id": "slip-5",
+      "input": [],
+      "stdin": "  West\n",
+      "expected": "Welcome,   West"
+    },
+    {
+      "id": "slip-6",
+      "input": [],
+      "stdin": "A-B\n",
+      "expected": "Welcome, A-B"
+    },
+    {
+      "id": "slip-7",
+      "input": [],
+      "stdin": "0123\n",
+      "expected": "Welcome, 0123"
+    },
+    {
+      "id": "slip-8",
+      "input": [],
+      "stdin": "End!\n",
+      "expected": "Welcome, End!"
+    }
+  ],
+  "variants": {
+    "java": {
+      "starterCode": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner desk = new Scanner(System.in);\n        String name = desk.nextLine();\n        System.out.println(\"____\" + name);\n    }\n}",
+      "functionName": "main",
+      "concepts": [
+        "output",
+        "line-input"
+      ],
+      "introducedIn": {
+        "output": "cp1-m1-l1",
+        "execution-order": "cp1-m1-l2",
+        "source-punctuation": "cp1-m1-l3",
+        "line-input": "cp1-m1-l4"
+      }
+    },
+    "python": {
+      "starterCode": "name = input()\nprint(\"____\" + name)",
+      "functionName": "main",
+      "concepts": [
+        "output",
+        "line-input"
+      ],
+      "introducedIn": {
+        "output": "cp1-m1-l1",
+        "execution-order": "cp1-m1-l2",
+        "source-punctuation": "cp1-m1-l3",
+        "line-input": "cp1-m1-l4"
+      }
+    },
+    "javascript": {
+      "starterCode": "const name = require(\"fs\").readFileSync(0, \"utf8\").replace(/\\r?\\n$/, \"\");\nconsole.log(\"____\" + name);",
+      "functionName": "main",
+      "concepts": [
+        "output",
+        "line-input"
+      ],
+      "introducedIn": {
+        "output": "cp1-m1-l1",
+        "execution-order": "cp1-m1-l2",
+        "source-punctuation": "cp1-m1-l3",
+        "line-input": "cp1-m1-l4"
+      }
+    },
+    "typescript": {
+      "starterCode": "const name: string = require(\"fs\").readFileSync(0, \"utf8\").replace(/\\r?\\n$/, \"\");\nconsole.log(\"____\" + name);",
+      "functionName": "main",
+      "concepts": [
+        "output",
+        "line-input"
+      ],
+      "introducedIn": {
+        "output": "cp1-m1-l1",
+        "execution-order": "cp1-m1-l2",
+        "source-punctuation": "cp1-m1-l3",
+        "line-input": "cp1-m1-l4"
+      }
+    }
+  }
+}

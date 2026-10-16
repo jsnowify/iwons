@@ -1,5 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
+// Next's export can emit a notFound page as an HTML file. A development-only
+// route must be absent on plain static hosts so it really returns HTTP 404.
+const exportRoot = path.resolve("out");
+const devContentRoot = path.resolve(exportRoot, "dev");
+if (!devContentRoot.startsWith(exportRoot + path.sep)) throw new Error("Invalid development export cleanup path.");
+fs.rmSync(devContentRoot, {recursive:true,force:true});
 const files = [];
 function walk(dir) {
   for (const item of fs.readdirSync(dir, { withFileTypes: true })) {

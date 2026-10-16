@@ -53,7 +53,7 @@ describe("v1 work survives the Path release", () => {
       window.localStorage.getItem("iwons:v1:drafts:001:javascript"),
     ).toContain("oldWork");
     const exported = storage.export();
-    expect(JSON.parse(exported).schemaVersion).toBe(4);
+    expect(JSON.parse(exported).schemaVersion).toBe(6);
     storage.clear();
     storage.import(exported);
     expect(storage.readArchive()?.data).toMatchObject(original);
@@ -75,7 +75,7 @@ describe("v1 work survives the Path release", () => {
     );
     const real = window.localStorage.setItem.bind(window.localStorage);
     window.localStorage.setItem = (key, value) => {
-      if (key === "iwons:v4:notes")
+      if (key === "iwons:v6:notes")
         throw new DOMException("Full", "QuotaExceededError");
       real(key, value);
     };

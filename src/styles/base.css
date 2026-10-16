@@ -1749,7 +1749,7 @@ kbd {
   .topbar .breadcrumb {
     font-size: 13px;
   }
-  .topbar .breadcrumb svg {
+  .topbar .breadcrumb > svg {
     display: none;
   }
   .topbar-actions .search-trigger {

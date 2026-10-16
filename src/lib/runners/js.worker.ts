@@ -8,10 +8,11 @@ import {
   serializeNode,
 } from "@/lib/harness/nodes";
 import type { RunRequest, RunResult, CaseResult, Language } from "@/lib/types";
+import { programShim, normalizeProgramOutput } from "./program-shim";
 const scope = self as unknown as {
   onmessage:
     ((event: MessageEvent<RunRequest & { language: Language }>) => void) | null;
-  postMessage: (message: RunResult) => void;
+  postMessage: (message: RunResult | {status:"ready"}) => void;
 };
 scope.onmessage = async (
   event: MessageEvent<RunRequest & { language: Language }>,
@@ -19,6 +20,19 @@ scope.onmessage = async (
   const req = event.data;
   const results: CaseResult[] = [];
   let code = req.code;
+  let diagnostics:RunResult["diagnostics"];
+  if (req.language === "typescript" && req.strictTypes) {
+    try {
+      const {checkTypes} = await import("./strict-types");
+      diagnostics = await checkTypes(code);
+    } catch(error) {
+      scope.postMessage({verdict:"compile_error",cases:[],compileError:{message:error instanceof Error ? error.message : String(error)}});return;
+    }
+    if (diagnostics.length && req.action === "submit") {
+      scope.postMessage({verdict:"compile_error",cases:[],compileError:diagnostics[0],diagnostics}); return;
+    }
+  }
+  if(req.language === "typescript" && req.strictTypes) scope.postMessage({status:"ready"});
   try {
     code = transform(code, {
       transforms: req.language === "typescript" ? ["typescript"] : [],
@@ -49,6 +63,16 @@ scope.onmessage = async (
               .join(" "),
           );
       };
+      if(req.mode === "program") {
+        let stdout="";
+        const append=(value:string)=>{ if(stdout.length<10000)stdout+=value.slice(0,10000-stdout.length); };
+        const shim=programShim(test.stdin??req.stdin??"",append);
+        const consolePrint=(...values:unknown[])=>append(values.map(value=>typeof value==="string"?value:JSON.stringify(value)).join(" ")+"\n");
+        new Function("require","process","console",code)(shim.require,shim.process,{log:consolePrint,warn:consolePrint,error:consolePrint,info:consolePrint});
+        await shim.finish();
+        results.push({id:test.id,passed:normalizeProgramOutput(stdout)===normalizeProgramOutput(test.expected),actual:stdout,expected:test.expected,stdout,runtimeMs:performance.now()-start});
+        continue;
+      }
       const fn = new Function(
         "console",
         "ListNode",
@@ -120,5 +144,6 @@ scope.onmessage = async (
         ? "accepted"
         : "wrong_answer",
     cases: results,
+    diagnostics,
   } satisfies RunResult);
 };

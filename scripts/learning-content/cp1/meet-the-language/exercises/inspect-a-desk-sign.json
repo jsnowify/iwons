@@ -1,0 +1,183 @@
+{
+  "id": "cp1-m1-e1",
+  "slug": "inspect-a-desk-sign",
+  "moduleId": "cp1-m1",
+  "afterLessonId": "cp1-m1-l1",
+  "kind": "fill",
+  "track": "foundations",
+  "ioMode": "program",
+  "rung": "worked",
+  "conceptId": "output",
+  "javaMinVersion": 8,
+  "xp": 5,
+  "shared": {
+    "translations": {
+      "en": {
+        "title": "Inspect a desk sign",
+        "statement": "The complete example prints Desk open. Read each labeled step, distinguish the message from its delimiters, then run the supplied program unchanged. Explain which characters become the message before continuing.",
+        "hints": [
+          "Compare the requested message with the quoted text in the program.",
+          "Read the message characters separately from the punctuation that encloses them.",
+          "Preserve the required capitalization, spaces and statement order, then check again."
+        ]
+      },
+      "fil": null,
+      "ceb": null
+    },
+    "translationStatus": {
+      "en": "reviewed",
+      "fil": "draft",
+      "ceb": "draft"
+    }
+  },
+  "cases": [
+    {
+      "id": "sign",
+      "input": [],
+      "stdin": "",
+      "expected": "Desk open"
+    }
+  ],
+  "variants": {
+    "java": {
+      "starterCode": "public class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Desk open\");\n    }\n}",
+      "functionName": "main",
+      "concepts": [
+        "output"
+      ],
+      "introducedIn": {
+        "output": "cp1-m1-l1"
+      },
+      "workedSteps": {
+        "translations": {
+          "en": {
+            "steps": [
+              {
+                "label": "Locate the message",
+                "code": "\"Desk open\"",
+                "prompt": "Identify the message characters, then identify the surrounding delimiters. Which part is printed?"
+              },
+              {
+                "label": "Run the complete program",
+                "code": "public class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Desk open\");\n    }\n}",
+                "prompt": "Predict the complete output before running. What role does the surrounding code have?"
+              }
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      }
+    },
+    "python": {
+      "starterCode": "print(\"Desk open\")",
+      "functionName": "main",
+      "concepts": [
+        "output"
+      ],
+      "introducedIn": {
+        "output": "cp1-m1-l1"
+      },
+      "workedSteps": {
+        "translations": {
+          "en": {
+            "steps": [
+              {
+                "label": "Locate the message",
+                "code": "\"Desk open\"",
+                "prompt": "Identify the message characters, then identify the surrounding delimiters. Which part is printed?"
+              },
+              {
+                "label": "Run the complete program",
+                "code": "print(\"Desk open\")",
+                "prompt": "Predict the complete output before running. What role does the surrounding code have?"
+              }
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      }
+    },
+    "javascript": {
+      "starterCode": "console.log(\"Desk open\");",
+      "functionName": "main",
+      "concepts": [
+        "output"
+      ],
+      "introducedIn": {
+        "output": "cp1-m1-l1"
+      },
+      "workedSteps": {
+        "translations": {
+          "en": {
+            "steps": [
+              {
+                "label": "Locate the message",
+                "code": "\"Desk open\"",
+                "prompt": "Identify the message characters, then identify the surrounding delimiters. Which part is printed?"
+              },
+              {
+                "label": "Run the complete program",
+                "code": "console.log(\"Desk open\");",
+                "prompt": "Predict the complete output before running. What role does the surrounding code have?"
+              }
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      }
+    },
+    "typescript": {
+      "starterCode": "console.log(\"Desk open\");",
+      "functionName": "main",
+      "concepts": [
+        "output"
+      ],
+      "introducedIn": {
+        "output": "cp1-m1-l1"
+      },
+      "workedSteps": {
+        "translations": {
+          "en": {
+            "steps": [
+              {
+                "label": "Locate the message",
+                "code": "\"Desk open\"",
+                "prompt": "Identify the message characters, then identify the surrounding delimiters. Which part is printed?"
+              },
+              {
+                "label": "Run the complete program",
+                "code": "console.log(\"Desk open\");",
+                "prompt": "Predict the complete output before running. What role does the surrounding code have?"
+              }
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      }
+    }
+  }
+}

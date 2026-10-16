@@ -1,0 +1,123 @@
+/* Native selects retain their OS picker and keyboard interaction. The ink
+   chevron has its own margin-stop compartment, shared across both themes. */
+:root select {
+  appearance: none;
+  min-height: 44px;
+  max-width: 100%;
+  padding: 10px 40px 10px 12px;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  background-color: var(--surface);
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%), linear-gradient(var(--ink), var(--ink));
+  background-position: calc(100% - 17px) center, calc(100% - 11px) center, calc(100% - 32px) center;
+  background-size: 6px 6px, 6px 6px, 2px 100%;
+  background-repeat: no-repeat;
+  text-overflow: ellipsis;
+}
+:root select:focus-visible { outline: 3px dashed var(--accent); outline-offset: 4px; }
+:root select option { color: var(--ink); background: var(--surface); }
+.workspace-toolbar select { min-height: 44px; padding-right: 40px; }
+.learn-language { width: min(100%, 260px); margin-block: 24px; }
+.learn-language label { display: grid; gap: 8px; }
+.learn-language select { width: 100%; }
+.learn-language:has(p) { width: 100%; }
+.learn-language:has(p) select { max-width: 260px; }
+
+.learn-nav-courses { list-style: none; display: grid; gap: 2px; margin: 4px 12px 12px 26px; padding: 0 0 0 16px; border-left: 2px solid var(--ink); }
+.learn-nav-courses a { display: block; overflow-wrap: anywhere; min-height: 44px; padding: 10px 8px; border: 2px solid transparent; border-radius: var(--radius-sm); font-size: 12px; line-height: 1.3; }
+.learn-nav-courses a > span { font-size: 11px; font-weight: 700; min-width: 32px; }
+.learn-nav-courses a:hover { background: var(--elevated); border-color: var(--ink); }
+.learn-nav-courses a[aria-current] { background: var(--accent-2); color: var(--on-accent); border-color: var(--key-border); }
+.learn-nav-courses a:focus-visible { outline: 3px dashed var(--accent); outline-offset: 2px; }
+
+.learn-entry-keys { padding-block: 28px 36px; border-bottom: 2px solid var(--ink); }
+.learn-entry-keys h2 { font-size: 24px; margin-bottom: 20px; }
+.learn-entry-keys nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 2px solid var(--ink); background: var(--surface); box-shadow: 4px 4px 0 var(--shadow-ink); }
+.learn-entry-keys nav a { display: grid; align-content: start; gap: 10px; padding: 24px; min-width: 0; }
+.learn-entry-keys nav a + a { border-left: 2px solid var(--ink); }
+.learn-entry-keys nav a > span { color: var(--muted); font-size: 13px; }
+.learn-entry-keys nav strong { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 17px; }
+.learn-entry-keys nav strong svg { flex-shrink: 0; }
+.learn-entry-keys nav small { font-size: 12px; }
+.learn-entry-keys nav a:hover { background: var(--accent-soft); }
+.learn-entry-keys nav a:focus-visible { outline: 3px dashed var(--accent); outline-offset: -7px; }
+
+.filterbar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-areas: "search search search sort" "level difficulty topic status"; gap: 16px; align-items: end; }
+.filterbar .search-field { grid-area: search; min-width: 0; width: auto; min-height: 48px; }
+.filterbar .search-field input { min-height: 48px; }
+.filterbar .search-field svg { top: 50%; transform: translateY(-50%); }
+.filterbar .problem-filter { display: grid; gap: 6px; min-width: 0; margin: 0; }
+.problem-filter-options { display: contents; }
+.filter-toggle { display: none; }
+.problem-filter > span { font-size: 12px; font-weight: 700; }
+.filterbar .problem-filter select { width: 100%; min-width: 0; min-height: 48px; font-size: 12px; padding: 10px 40px 10px 12px; }
+.filter-level { grid-area: level; }
+.filter-difficulty { grid-area: difficulty; }
+.filter-topic { grid-area: topic; }
+.filter-status { grid-area: status; }
+.filter-sort { grid-area: sort; }
+
+@media (max-width: 1023px) {
+  .filterbar { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "search search" "level difficulty" "topic topic" "status sort"; gap: 14px 12px; }
+}
+@media (max-width: 767px) {
+  .filterbar { grid-template-areas: "search search" "toggle toggle"; }
+  .filterbar[data-open="true"] { grid-template-areas: "search search" "toggle toggle" "level difficulty" "topic topic" "status sort"; }
+  .filterbar[data-open="false"] .problem-filter-options { display: none; }
+  .filter-toggle { grid-area: toggle; display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 10px 12px; border: 2px solid var(--ink); border-radius: var(--radius-sm); background: var(--surface); color: var(--ink); font-size: 12px; font-weight: 700; text-align: left; }
+  .filter-toggle small { margin-left: auto; font-size: 11px; }
+  .filter-toggle > svg:last-child { margin-left: auto; }
+  .filterbar[data-open="true"] .filter-toggle > svg:last-child { transform: rotate(180deg); }
+  .learn-entry-keys nav { grid-template-columns: minmax(0, 1fr); }
+  .learn-entry-keys nav a { padding: 20px; }
+  .learn-entry-keys nav a + a { border-left: 0; border-top: 2px solid var(--ink); }
+  .shell:not(.landing-shell) .topbar { min-height: 68px; height: 68px; padding: 0 12px; gap: 8px; }
+  .shell:not(.landing-shell) .topbar .breadcrumb { display: flex; align-items: center; gap: 4px; min-width: 0; flex: 1; }
+  .shell:not(.landing-shell) .topbar .breadcrumb strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; }
+  .shell:not(.landing-shell) .mobile-menu { display: inline-flex; flex-shrink: 0; width: 44px; height: 44px; }
+  .shell:not(.landing-shell) .mobile-menu svg { display: block; }
+  .mobile-home { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 40px; min-height: 44px; }
+  .mobile-home .brand-icon { width: 28px; height: 28px; font-size: 18px; }
+  .shell:not(.landing-shell) .topbar-actions { display: flex; gap: 6px; margin-left: 0; flex-shrink: 0; }
+  .shell:not(.landing-shell) .topbar-actions :is(.search-trigger, .icon-button) { display: inline-flex; align-items: center; justify-content: center; width: 44px; min-width: 44px; height: 44px; min-height: 44px; padding: 0; border: 2px solid var(--ink); border-radius: var(--radius-sm); background: var(--surface); color: var(--ink); box-shadow: 2px 2px 0 var(--shadow-ink); }
+  .shell:not(.landing-shell) .topbar-actions .search-trigger > :is(span, kbd) { display: none; }
+  .shell:not(.landing-shell) .topbar-actions :is(.search-trigger, .icon-button):active { transform: translate(2px, 2px); box-shadow: none; }
+  .shell:not(.landing-shell) .main-shell { padding-bottom: 0; }
+  .shell:not(.landing-shell) :is(.content, .learn-page) { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
+  .workspace { height: calc(100dvh - 144px - env(safe-area-inset-bottom)); }
+  .mobile-nav { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; height: auto; min-height: 74px; padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); border-top: 2px solid var(--ink); background: var(--surface); }
+  .mobile-nav :is(a, button) { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; min-width: 0; min-height: 56px; padding: 5px 0; border: 2px solid transparent; border-radius: var(--radius-sm); background: transparent; color: var(--ink); font: inherit; font-size: 11px; line-height: 1.2; text-align: center; text-decoration: none; cursor: pointer; }
+  .mobile-nav a.active { border: 2px solid var(--key-border); background: var(--accent-2); color: var(--on-accent); box-shadow: 2px 2px 0 var(--shadow-ink); }
+  .mobile-nav :is(a, button) svg { width: 20px; height: 20px; flex-shrink: 0; }
+  .mobile-nav :is(a, button):focus-visible { outline: 3px dashed var(--accent); outline-offset: 1px; }
+}
+@media (max-width: 359px) {
+  .shell:not(.landing-shell) .topbar { padding-inline: 8px; }
+  .shell:not(.landing-shell) .topbar-actions > a { display: none; }
+  .shell:not(.landing-shell) .topbar .breadcrumb strong { display: block; }
+  .mobile-nav { gap: 4px; padding-inline: 8px; }
+  .filterbar .problem-filter select { padding-left: 10px; }
+}
+@media (max-width: 279px) {
+  .shell:not(.landing-shell) .mobile-home, .shell:not(.landing-shell) .topbar .breadcrumb strong { display: none; }
+  .filterbar { grid-template-columns: minmax(0, 1fr); grid-template-areas: "search" "toggle"; }
+  .filterbar[data-open="true"] { grid-template-areas: "search" "toggle" "level" "difficulty" "topic" "status" "sort"; }
+  .filter-toggle { flex-wrap: wrap; }
+  .filter-toggle small { margin-left: 0; }
+  .problem-row { grid-template-columns: 24px minmax(0, 1fr); grid-template-areas: "status title" ". difficulty" ". bookmark"; }
+  .problem-row .problem-index { grid-area: status; }
+  .problem-row .problem-title { grid-area: title; min-width: 0; padding-left: 0; overflow-wrap: anywhere; }
+  .problem-row .problem-title small { overflow-wrap: anywhere; }
+  .problem-row > span:not(.problem-index) { grid-area: difficulty; }
+  .problem-row > button { grid-area: bookmark; justify-self: end; min-width: 44px; min-height: 44px; }
+  .mobile-nav :is(a, button) span { max-width: 100%; overflow-wrap: anywhere; }
+}
+@media (forced-colors: active) {
+  :root select { appearance: auto; background-image: none; padding-inline-end: 8px; }
+}
+
+/* Full course names remain legible at mobile widths and browser zoom. */
+.learn-page .btn { white-space: normal; text-align: center; min-height: 44px; max-width: 100%; }
+.learn-course { min-width: 0; }
+.learn-file-label { max-width: 100%; overflow-wrap: anywhere; }

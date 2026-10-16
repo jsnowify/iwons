@@ -1,4 +1,4 @@
-import json, io, contextlib, time, traceback
+import json, io, contextlib, time, traceback, sys
 
 class ListNode:
     def __init__(self, val=0, next=None): self.val, self.next = val, next
@@ -57,9 +57,22 @@ def iwons_execute(req):
         start, output = time.perf_counter(), io.StringIO()
         result = {'id':test['id'], 'expected':test['expected'], 'actual':None, 'passed':False, 'stdout':'', 'runtimeMs':0}
         try:
-            namespace = {'ListNode':ListNode, 'TreeNode':TreeNode}
+            namespace = {'ListNode':ListNode, 'TreeNode':TreeNode, '__name__':'__main__'}
             args = json.loads(json.dumps(test['input']))
             with contextlib.redirect_stdout(output), contextlib.redirect_stderr(output):
+                if req.get('mode') == 'program':
+                    original_stdin = sys.stdin
+                    try:
+                        sys.stdin = io.StringIO(test.get('stdin', req.get('stdin', '')))
+                        exec(compiled, namespace)
+                    finally:
+                        sys.stdin = original_stdin
+                    result['actual'] = output.getvalue()[:10000]
+                    result['passed'] = True
+                    result['stdout'] = result['actual']
+                    result['runtimeMs'] = (time.perf_counter()-start)*1000
+                    results.append(result)
+                    continue
                 exec(compiled, namespace)
                 fn = namespace[req['functionName']]
                 if req.get('mode') == 'operations':
@@ -79,6 +92,6 @@ def iwons_execute(req):
         result['stdout'] = output.getvalue()[:10000]
         result['runtimeMs'] = (time.perf_counter()-start)*1000
         results.append(result)
-    return {'verdict':'runtime_error' if any('error' in r for r in results) else 'accepted', 'cases':results}
+    return {'verdict':'runtime_error' if any('error' in r for r in results) else 'accepted', 'cases':results, 'runtimeVersion':sys.version.split()[0]}
 
 json.dumps(iwons_execute(json.loads(iwons_request)))

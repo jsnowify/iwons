@@ -1,0 +1,952 @@
+{
+  "id": "cp1-m1-l2",
+  "moduleId": "cp1-m1",
+  "course": "cp1",
+  "slug": "how-code-runs",
+  "concepts": [
+    "execution-order"
+  ],
+  "introducedIn": {
+    "java": {
+      "execution-order": "cp1-m1-l2"
+    },
+    "python": {
+      "execution-order": "cp1-m1-l2"
+    },
+    "javascript": {
+      "execution-order": "cp1-m1-l2"
+    },
+    "typescript": {
+      "execution-order": "cp1-m1-l2"
+    }
+  },
+  "interactionTypes": [
+    "guess",
+    "run",
+    "trace",
+    "change",
+    "quiz"
+  ],
+  "opening": "predict",
+  "estimatedMinutes": 7,
+  "shared": {
+    "translations": {
+      "en": {
+        "title": "How code runs",
+        "story": "A desk sign can contain two lines. This program has two output statements, and each prints one message. Before running it, put the messages in the order you expect to see them. Use a new line between the two words on your guess slip. The runtime carries out these statements from top to bottom. Source code is a set of instructions; output is the result of carrying them out. Reading the last line first does not make that instruction run first.",
+        "idea": "Follow one statement at a time. At the start the output is empty. After the first statement, it contains Open on its first line. After the second statement, Ready appears on the next line. The second statement adds output rather than replacing the first message. This example has no decisions or repetition, so each output statement runs once in the written order. The trace is a snapshot after each action, not a second program. Move backward in the trace to inspect an earlier snapshot; that control does not erase output in a real run.",
+        "make": "Swap the messages so Ready appears before Open. You may exchange the two complete output statements or exchange their quoted text. Predict both lines before checking. The block arrangement exercise asks you to organize complete statements, which lets you concentrate on order without typing their punctuation. Its tests run the assembled program. When a result differs, compare the first output line before inspecting the second; one misplaced statement can explain both differences.",
+        "recap": "In this straight-line example, statements run from top to bottom. Each output statement contributes its own line. Two correct messages can still form the wrong result when their order changes. Explain the difference between reading a program and running it: reading forms a prediction, while running executes the instructions. Cover the example and recall which message appears first, then use the trace to check your explanation. Later lessons introduce decisions and repetition; this lesson's order claim applies to the simple sequence shown here."
+      },
+      "fil": null,
+      "ceb": null
+    },
+    "translationStatus": {
+      "en": "reviewed",
+      "fil": "draft",
+      "ceb": "draft"
+    }
+  },
+  "tracks": {
+    "java": {
+      "code": "public class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Open\");\n        System.out.println(\"Ready\");\n    }\n}",
+      "stdin": "",
+      "predict": {
+        "translations": {
+          "en": {
+            "prompt": "Write the two output lines in order."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "annotations": {
+        "translations": {
+          "en": {
+            "items": [
+              {
+                "line": 3,
+                "text": "Send the quoted text to output. Each output call here ends its line."
+              },
+              {
+                "line": 1,
+                "text": "Main is this program's class. The supplied main method is its starting point; edit the output statements inside it."
+              }
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "notes": {
+        "translations": {
+          "en": {
+            "items": [
+              "Save the complete program as Main.java. Browser Java checks require your configured endpoint. Locally, use javac --release 8 Main.java with JDK 9 or later, then java Main; JDK 8 uses javac Main.java."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "trace": {
+        "translations": {
+          "en": {
+            "steps": [
+              {
+                "line": 3,
+                "state": "Output: empty",
+                "message": "The first output statement has not run."
+              },
+              {
+                "line": 3,
+                "state": "Output: Open",
+                "message": "The first statement has run. The second has not run yet."
+              },
+              {
+                "line": 4,
+                "state": "Output: Open\nReady",
+                "message": "The first statement prints Open; the second adds Ready on its next line."
+              }
+            ],
+            "question": "Which word has already printed after the first statement?"
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "commonMistakes": {
+        "translations": {
+          "en": {
+            "items": [
+              "The quote marks organize source text. They do not surround the message in this output."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "modify": {
+        "translations": {
+          "en": {
+            "prompt": "Make Ready the first output line and Open the second."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "breakIt": {
+        "translations": {
+          "en": {
+            "prompt": "Remove the second output statement. Predict which line disappears, then check your edited program. Restore the statement afterward."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "recallCards": [
+        {
+          "id": "cp1-m1-l2-choice",
+          "concept": "execution-order",
+          "format": "multiple-choice",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Does the second output statement erase the first line?",
+                "options": [
+                  "No",
+                  "Yes"
+                ]
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "cp1-m1-l2-short",
+          "concept": "execution-order",
+          "format": "short-answer",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Which word appears on the second line of the original program?"
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "cp1-m1-l2-fill",
+          "concept": "execution-order",
+          "format": "fill-in",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Complete the direction: These statements execute from top to ___."
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        }
+      ],
+      "ladder": [
+        {
+          "exerciseId": "cp1-m1-e3",
+          "slug": "arrange-two-desk-lines",
+          "title": "Arrange two desk lines",
+          "rung": "parsons",
+          "concept": "execution-order"
+        },
+        {
+          "exerciseId": "cp1-m1-e4",
+          "slug": "predict-the-reversed-sign",
+          "title": "Predict the reversed sign",
+          "rung": "completion",
+          "concept": "execution-order"
+        }
+      ],
+      "skippedRungs": [
+        {
+          "concept": "execution-order",
+          "rung": "worked",
+          "reason": "This lesson isolates statement order with blocks and prediction; typing a second near-identical output program would repeat the same decision."
+        },
+        {
+          "concept": "execution-order",
+          "rung": "fix",
+          "reason": "This lesson isolates statement order with blocks and prediction; typing a second near-identical output program would repeat the same decision."
+        },
+        {
+          "concept": "execution-order",
+          "rung": "write",
+          "reason": "This lesson isolates statement order with blocks and prediction; typing a second near-identical output program would repeat the same decision."
+        }
+      ]
+    },
+    "python": {
+      "code": "print(\"Open\")\nprint(\"Ready\")",
+      "stdin": "",
+      "predict": {
+        "translations": {
+          "en": {
+            "prompt": "Write the two output lines in order."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "annotations": {
+        "translations": {
+          "en": {
+            "items": [
+              {
+                "line": 1,
+                "text": "Send the quoted text to output. Each output call here ends its line."
+              }
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "notes": {
+        "translations": {
+          "en": {
+            "items": [
+              "print sends text to output. Parentheses surround its argument. Preserve indentation when arranging supplied blocks."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "trace": {
+        "translations": {
+          "en": {
+            "steps": [
+              {
+                "line": 1,
+                "state": "Output: empty",
+                "message": "The first output statement has not run."
+              },
+              {
+                "line": 1,
+                "state": "Output: Open",
+                "message": "The first statement has run. The second has not run yet."
+              },
+              {
+                "line": 2,
+                "state": "Output: Open\nReady",
+                "message": "The first statement prints Open; the second adds Ready on its next line."
+              }
+            ],
+            "question": "Which word has already printed after the first statement?"
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "commonMistakes": {
+        "translations": {
+          "en": {
+            "items": [
+              "The quote marks organize source text. They do not surround the message in this output."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "modify": {
+        "translations": {
+          "en": {
+            "prompt": "Make Ready the first output line and Open the second."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "breakIt": {
+        "translations": {
+          "en": {
+            "prompt": "Remove the second output statement. Predict which line disappears, then check your edited program. Restore the statement afterward."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "recallCards": [
+        {
+          "id": "cp1-m1-l2-choice",
+          "concept": "execution-order",
+          "format": "multiple-choice",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Does the second output statement erase the first line?",
+                "options": [
+                  "No",
+                  "Yes"
+                ]
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "cp1-m1-l2-short",
+          "concept": "execution-order",
+          "format": "short-answer",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Which word appears on the second line of the original program?"
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "cp1-m1-l2-fill",
+          "concept": "execution-order",
+          "format": "fill-in",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Complete the direction: These statements execute from top to ___."
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        }
+      ],
+      "ladder": [
+        {
+          "exerciseId": "cp1-m1-e3",
+          "slug": "arrange-two-desk-lines",
+          "title": "Arrange two desk lines",
+          "rung": "parsons",
+          "concept": "execution-order"
+        },
+        {
+          "exerciseId": "cp1-m1-e4",
+          "slug": "predict-the-reversed-sign",
+          "title": "Predict the reversed sign",
+          "rung": "completion",
+          "concept": "execution-order"
+        }
+      ],
+      "skippedRungs": [
+        {
+          "concept": "execution-order",
+          "rung": "worked",
+          "reason": "This lesson isolates statement order with blocks and prediction; typing a second near-identical output program would repeat the same decision."
+        },
+        {
+          "concept": "execution-order",
+          "rung": "fix",
+          "reason": "This lesson isolates statement order with blocks and prediction; typing a second near-identical output program would repeat the same decision."
+        },
+        {
+          "concept": "execution-order",
+          "rung": "write",
+          "reason": "This lesson isolates statement order with blocks and prediction; typing a second near-identical output program would repeat the same decision."
+        }
+      ]
+    },
+    "javascript": {
+      "code": "console.log(\"Open\");\nconsole.log(\"Ready\");",
+      "stdin": "",
+      "predict": {
+        "translations": {
+          "en": {
+            "prompt": "Write the two output lines in order."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "annotations": {
+        "translations": {
+          "en": {
+            "items": [
+              {
+                "line": 1,
+                "text": "Send the quoted text to output. Each output call here ends its line."
+              }
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "notes": {
+        "translations": {
+          "en": {
+            "items": [
+              "console.log sends text to the program results area. The final semicolon ends the supplied statement."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "trace": {
+        "translations": {
+          "en": {
+            "steps": [
+              {
+                "line": 1,
+                "state": "Output: empty",
+                "message": "The first output statement has not run."
+              },
+              {
+                "line": 1,
+                "state": "Output: Open",
+                "message": "The first statement has run. The second has not run yet."
+              },
+              {
+                "line": 2,
+                "state": "Output: Open\nReady",
+                "message": "The first statement prints Open; the second adds Ready on its next line."
+              }
+            ],
+            "question": "Which word has already printed after the first statement?"
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "commonMistakes": {
+        "translations": {
+          "en": {
+            "items": [
+              "The quote marks organize source text. They do not surround the message in this output."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "modify": {
+        "translations": {
+          "en": {
+            "prompt": "Make Ready the first output line and Open the second."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "breakIt": {
+        "translations": {
+          "en": {
+            "prompt": "Remove the second output statement. Predict which line disappears, then check your edited program. Restore the statement afterward."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "recallCards": [
+        {
+          "id": "cp1-m1-l2-choice",
+          "concept": "execution-order",
+          "format": "multiple-choice",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Does the second output statement erase the first line?",
+                "options": [
+                  "No",
+                  "Yes"
+                ]
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "cp1-m1-l2-short",
+          "concept": "execution-order",
+          "format": "short-answer",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Which word appears on the second line of the original program?"
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "cp1-m1-l2-fill",
+          "concept": "execution-order",
+          "format": "fill-in",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Complete the direction: These statements execute from top to ___."
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        }
+      ],
+      "ladder": [
+        {
+          "exerciseId": "cp1-m1-e3",
+          "slug": "arrange-two-desk-lines",
+          "title": "Arrange two desk lines",
+          "rung": "parsons",
+          "concept": "execution-order"
+        },
+        {
+          "exerciseId": "cp1-m1-e4",
+          "slug": "predict-the-reversed-sign",
+          "title": "Predict the reversed sign",
+          "rung": "completion",
+          "concept": "execution-order"
+        }
+      ],
+      "skippedRungs": [
+        {
+          "concept": "execution-order",
+          "rung": "worked",
+          "reason": "This lesson isolates statement order with blocks and prediction; typing a second near-identical output program would repeat the same decision."
+        },
+        {
+          "concept": "execution-order",
+          "rung": "fix",
+          "reason": "This lesson isolates statement order with blocks and prediction; typing a second near-identical output program would repeat the same decision."
+        },
+        {
+          "concept": "execution-order",
+          "rung": "write",
+          "reason": "This lesson isolates statement order with blocks and prediction; typing a second near-identical output program would repeat the same decision."
+        }
+      ]
+    },
+    "typescript": {
+      "code": "console.log(\"Open\");\nconsole.log(\"Ready\");",
+      "stdin": "",
+      "predict": {
+        "translations": {
+          "en": {
+            "prompt": "Write the two output lines in order."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "annotations": {
+        "translations": {
+          "en": {
+            "items": [
+              {
+                "line": 1,
+                "text": "Send the quoted text to output. Each output call here ends its line."
+              }
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "notes": {
+        "translations": {
+          "en": {
+            "items": [
+              "console.log sends text to the program results area. The final semicolon ends the supplied statement."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "trace": {
+        "translations": {
+          "en": {
+            "steps": [
+              {
+                "line": 1,
+                "state": "Output: empty",
+                "message": "The first output statement has not run."
+              },
+              {
+                "line": 1,
+                "state": "Output: Open",
+                "message": "The first statement has run. The second has not run yet."
+              },
+              {
+                "line": 2,
+                "state": "Output: Open\nReady",
+                "message": "The first statement prints Open; the second adds Ready on its next line."
+              }
+            ],
+            "question": "Which word has already printed after the first statement?"
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "commonMistakes": {
+        "translations": {
+          "en": {
+            "items": [
+              "The quote marks organize source text. They do not surround the message in this output."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "modify": {
+        "translations": {
+          "en": {
+            "prompt": "Make Ready the first output line and Open the second."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "breakIt": {
+        "translations": {
+          "en": {
+            "prompt": "Remove the second output statement. Predict which line disappears, then check your edited program. Restore the statement afterward."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "recallCards": [
+        {
+          "id": "cp1-m1-l2-choice",
+          "concept": "execution-order",
+          "format": "multiple-choice",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Does the second output statement erase the first line?",
+                "options": [
+                  "No",
+                  "Yes"
+                ]
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "cp1-m1-l2-short",
+          "concept": "execution-order",
+          "format": "short-answer",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Which word appears on the second line of the original program?"
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "cp1-m1-l2-fill",
+          "concept": "execution-order",
+          "format": "fill-in",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Complete the direction: These statements execute from top to ___."
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        }
+      ],
+      "ladder": [
+        {
+          "exerciseId": "cp1-m1-e3",
+          "slug": "arrange-two-desk-lines",
+          "title": "Arrange two desk lines",
+          "rung": "parsons",
+          "concept": "execution-order"
+        },
+        {
+          "exerciseId": "cp1-m1-e4",
+          "slug": "predict-the-reversed-sign",
+          "title": "Predict the reversed sign",
+          "rung": "completion",
+          "concept": "execution-order"
+        }
+      ],
+      "skippedRungs": [
+        {
+          "concept": "execution-order",
+          "rung": "worked",
+          "reason": "This lesson isolates statement order with blocks and prediction; typing a second near-identical output program would repeat the same decision."
+        },
+        {
+          "concept": "execution-order",
+          "rung": "fix",
+          "reason": "This lesson isolates statement order with blocks and prediction; typing a second near-identical output program would repeat the same decision."
+        },
+        {
+          "concept": "execution-order",
+          "rung": "write",
+          "reason": "This lesson isolates statement order with blocks and prediction; typing a second near-identical output program would repeat the same decision."
+        }
+      ]
+    }
+  }
+}

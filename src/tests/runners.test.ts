@@ -31,7 +31,9 @@ beforeAll(() => {
     );
   const code = readFileSync("src/lib/runners/js.worker.ts", "utf8")
     .replace("@/lib/harness/compare", "./compare.mjs")
-    .replace("@/lib/harness/nodes", "./nodes.mjs");
+    .replace("@/lib/harness/nodes", "./nodes.mjs")
+    .replace("./program-shim", "./program-shim.mjs");
+  writeFileSync(`${dir}/program-shim.mjs`,transform(readFileSync("src/lib/runners/program-shim.ts","utf8"),{transforms:["typescript"]}).code);
   writeFileSync(
     `${dir}/js.worker.mjs`,
     transform(code, { transforms: ["typescript"] }).code,
@@ -120,6 +122,16 @@ describe("actual JavaScript / TypeScript worker harness", () => {
       request(ref, ref.js.replace("{", '{console.log("hello");')),
     );
     expect(result.cases[0].stdout).toBe("hello");
+  });
+  it("runs UTF-8 stdin programs through fs, readline events and async iteration",async()=>{
+    for(const code of [
+      'const fs=require("fs"); const [a,b]=fs.readFileSync(0,"utf8").trim().split(/\\s+/).map(Number); console.log(a+b);',
+      'const rl=require("readline").createInterface({input:process.stdin});let sum=0;rl.on("line",line=>{sum+=Number(line)});rl.on("close",()=>console.log(sum));',
+      '(async()=>{const rl=require("readline").createInterface({input:process.stdin});let sum=0;for await(const line of rl)sum+=Number(line);console.log(sum);})();',
+    ]) {const result=await run({code,mode:"program",functionName:"main",timeLimitMs:2000,cases:[{id:"stdin",input:[],stdin:"8\n9\n",expected:"17"}]});expect(result.verdict,JSON.stringify(result)).toBe("accepted");}
+  });
+  it("retains operations mode for build-style structures",async()=>{
+    const result=await run({code:'class Counter { constructor(){this.value=0;} add(n){this.value+=n;} read(){return this.value;} }',mode:"operations",functionName:"Counter",timeLimitMs:2000,cases:[{id:"ops",input:[["Counter","add","read"],[[],[7],[]]],expected:[null,null,7]}]});expect(result.verdict).toBe("accepted");
   });
 });
 describe("Python reference solutions in the exact Python harness", () => {

@@ -9,6 +9,7 @@ import {
   Bookmark,
   Plus,
   SlidersHorizontal,
+  ChevronDown,
 } from "lucide-react";
 import { problems, topics, problemUrl } from "@/lib/catalog";
 import { useStore } from "@/store/use-store";
@@ -17,6 +18,7 @@ export function ProblemList({ initialTopic = "" }: { initialTopic?: string }) {
   const store = useStore(),
     toast = useToast();
   const [query, setQuery] = useState(""),
+    [filtersOpen, setFiltersOpen] = useState(false),
     [difficulty, setDifficulty] = useState(""),
     [level, setLevel] = useState(""),
     [topic, setTopic] = useState(initialTopic),
@@ -35,6 +37,7 @@ export function ProblemList({ initialTopic = "" }: { initialTopic?: string }) {
     setStatus(q.get("status") ?? "");
   }, [initialTopic]);
   const all = [...problems, ...store.customProblems];
+  const activeFilterCount = [level, difficulty, topic, status].filter(Boolean).length + (sort !== "default" ? 1 : 0);
   const bookmarked = new Set(store.lists.flatMap((l) => l.problemIds));
   const filtered = useMemo(() => {
     let list = all.filter(
@@ -124,7 +127,7 @@ export function ProblemList({ initialTopic = "" }: { initialTopic?: string }) {
           </button>
         ))}
       </div>
-      <div className="filterbar">
+      <div className="filterbar" data-open={filtersOpen}>
         <div className="search-field">
           <Search size={15} />
           <input
@@ -137,7 +140,9 @@ export function ProblemList({ initialTopic = "" }: { initialTopic?: string }) {
             }}
           />
         </div>
-        <select
+        <button type="button" className="filter-toggle" aria-expanded={filtersOpen} aria-controls="problem-filter-options" onClick={()=>setFiltersOpen(value=>!value)}><SlidersHorizontal size={16} aria-hidden="true"/><span>Filters and order</span><small>{activeFilterCount ? `${activeFilterCount} active` : "All problems"}</small><ChevronDown size={16} aria-hidden="true"/></button>
+        <div className="problem-filter-options" id="problem-filter-options">
+        <label className="problem-filter filter-level"><span>Level</span><select
           aria-label="Level filter"
           value={level}
           onChange={(e) => {
@@ -145,14 +150,14 @@ export function ProblemList({ initialTopic = "" }: { initialTopic?: string }) {
             filterParam("level", e.target.value);
           }}
         >
-          <option value="">All levels</option>
+          <option value="">All</option>
           {Array.from({ length: 9 }, (_, l) => l).map((l) => (
             <option key={l} value={l}>
               Level {l}
             </option>
           ))}
-        </select>
-        <select
+        </select></label>
+        <label className="problem-filter filter-difficulty"><span>Difficulty</span><select
           aria-label="Difficulty filter"
           value={difficulty}
           onChange={(e) => {
@@ -160,12 +165,12 @@ export function ProblemList({ initialTopic = "" }: { initialTopic?: string }) {
             filterParam("difficulty", e.target.value);
           }}
         >
-          <option value="">All difficulties</option>
+          <option value="">All</option>
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
           <option value="hard">Hard</option>
-        </select>
-        <select
+        </select></label>
+        <label className="problem-filter filter-topic"><span>Topic</span><select
           aria-label="Topic filter"
           value={topic}
           onChange={(e) => {
@@ -177,8 +182,8 @@ export function ProblemList({ initialTopic = "" }: { initialTopic?: string }) {
           {topics.map((t) => (
             <option key={t}>{t}</option>
           ))}
-        </select>
-        <select
+        </select></label>
+        <label className="problem-filter filter-status"><span>Status</span><select
           aria-label="Status filter"
           value={status}
           onChange={(e) => {
@@ -186,20 +191,21 @@ export function ProblemList({ initialTopic = "" }: { initialTopic?: string }) {
             filterParam("status", e.target.value);
           }}
         >
-          <option value="">Any status</option>
+          <option value="">Any</option>
           <option value="solved">Solved</option>
           <option value="attempted">Attempted</option>
           <option value="unsolved">Unsolved</option>
-        </select>
-        <select
+        </select></label>
+        <label className="problem-filter filter-sort"><span>Order</span><select
           aria-label="Sort problems"
           value={sort}
           onChange={(e) => setSort(e.target.value)}
         >
-          <option value="default">Default order</option>
+          <option value="default">Path order</option>
           <option value="title">Title A–Z</option>
           <option value="difficulty">Difficulty</option>
-        </select>
+        </select></label>
+        </div>
       </div>
       <div className="problem-table">
         <div className="table-header">

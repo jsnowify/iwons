@@ -1,0 +1,7 @@
+{
+  "redirects": [
+    { "source": "/learn/:track/cp1/:rest*", "destination": "/learn/:track/computer-programming-1/:rest*", "permanent": true },
+    { "source": "/learn/:track/cp2/:rest*", "destination": "/learn/:track/computer-programming-2/:rest*", "permanent": true },
+    { "source": "/learn/:track/dsa/:rest*", "destination": "/learn/:track/data-structures-and-algorithms/:rest*", "permanent": true }
+  ]
+}

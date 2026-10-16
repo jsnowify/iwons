@@ -15,7 +15,7 @@ export interface TestCase {
   stdin?: string;
 }
 export interface Problem {
-  track?: "path" | "foundations";
+  track?: "path" | "foundations" | "dsa";
   kind?: import("./foundations/types").ExerciseKind;
   ioMode?: "function" | "program";
   javaMinVersion?: number;
@@ -63,6 +63,8 @@ export interface CaseResult {
   error?: string;
 }
 export interface RunRequest {
+  strictTypes?: boolean;
+  action?: "run" | "submit";
   code: string;
   functionName: string;
   cases: TestCase[];
@@ -75,6 +77,8 @@ export interface RunRequest {
   javaParams?: string[];
 }
 export interface RunResult {
+  diagnostics?: {message:string;line?:number}[];
+  runtimeVersion?: string;
   verdict: Verdict;
   cases: CaseResult[];
   compileError?: { message: string; line?: number };
@@ -140,6 +144,7 @@ export interface StudyList {
   problemIds: string[];
 }
 export interface Settings {
+  codeTrack: import("./foundations/model-v2").Track;
   lessonLanguage: import("./foundations/types").LessonLanguage;
   theme: "dark" | "light";
   language: Language;

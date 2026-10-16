@@ -1,6 +1,22 @@
 ﻿# Iwons redesign verification
 
-## Latest: Foundations infrastructure, 2026-10-16
+## Latest: marked UI/UX fixes, 2026-10-16
+
+The Learn hierarchy, landing choices, native selects, responsive filters, mobile header and bottom navigation passed **568 unit tests**, **32 browser tests**, typecheck, lint and the **1,338-entry production build**. All **26 Paper/Night Axe scans** at 360/768/1280/1920 px passed with zero violations, overflow or page errors. Four additional collapsed/expanded filter checks at 180 CSS px also have no horizontal overflow. The running development Problems page returns 200 with no page errors and no floating dev-tools badge.
+
+See [the UI/UX record and screenshots](UI-UX-POLISH.md), `artifacts/ui-polish-playwright.json` and `artifacts/ui-polish/`. No data schema, runtime or dependency changed in this follow-up. Earlier Lighthouse measurements below describe their named builds and were not rerun for this styling/navigation change.
+
+## Earlier: Foundations v2 visibility and multi-track infrastructure
+
+The new Learn hub and all four track maps passed **568 unit tests**, **30 browser regressions**, ESLint and the **1,338-entry production build**. Subsequent small changes record exact runtime baselines, highlight the saved default track, and disable automatic prefetch on new Learn links. The final visibility/preference regression, build and 18-scan visual/accessibility sweep passed after those changes. The live development `/learn/` and `/dev/content/` both return 200 with expected content; production diagnostics return 404.
+
+The new hub, module map and three-visualizer workbench passed **18 Axe scans** across Paper/Night at 360, 768 and 1,280 px: zero violations, horizontal overflows or page errors. Screenshots and machine-readable results are in `artifacts/learn-v2/`. Browser report: `artifacts/learn-v2-playwright.json`. Actual JavaScript, TypeScript and Python program workers passed Hello World and stdin; Python reports **3.14.2**, matching the local interpreter. TypeScript diagnostics allow Run warnings and block submission checks.
+
+Final Lighthouse mobile Learn-hub scores: **96 performance / 100 accessibility / 100 best practices / 100 SEO**, with a successful managed-browser audit. Report: `artifacts/learn-v2/lighthouse.json`. The audit uses the already available Lighthouse installation; no dependency was added. The heavy TypeScript compiler stays in the dedicated worker's lazy path.
+
+Storage is now v5 with v4 Foundations progress assigned to Java, retaining original namespaces. The manifest publishes **planned structure**, not lessons: 3 courses, 44 modules, 176 planned lessons, zero ready bodies. Live Java remains blocked by the missing endpoint and insufficient local setup space. Full curriculum, translations, ready lesson/exercise rendering and authored-content validators remain unfinished. See [the v2 audit](FOUNDATIONS-V2-AUDIT.md) and [implementation record](FOUNDATIONS-V2-IMPLEMENTATION.md).
+
+## Earlier: Foundations v1 infrastructure
 
 The authorized infrastructure slice passed typecheck, ESLint, **555 unit tests**, the **1,142-entry production build**, and **all 24 browser tests** in 2.0 minutes. Browser coverage includes v3-to-v4 migration, lesson-language persistence, v4 backup restore, quota-failure export of intact v3 data, existing solves/drafts, legacy archives, hydration, responsive Paper/Night dialogs and the sidebar edge tab. Evidence: `artifacts/foundations-infrastructure-playwright.json`.
 

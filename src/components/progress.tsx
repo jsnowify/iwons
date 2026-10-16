@@ -1,4 +1,6 @@
 "use client";
+import { useState } from "react";
+import { LearningProgress } from "./learning-progress";
 import Link from "next/link";
 import {
   Download,
@@ -18,6 +20,7 @@ import { problems, topics, languageNames, topicSlug } from "@/lib/catalog";
 import { Heatmap } from "./heatmap";
 import { Button, ProgressBar, useToast } from "./ui";
 export function ProgressPage() {
+  const [patternsExpanded, setPatternsExpanded] = useState(false);
   const store = useStore(),
     toast = useToast();
   const stats = getStats(store.submissions);
@@ -200,6 +203,7 @@ export function ProgressPage() {
         ))}
       </div>
       <div className="dash-grid">
+        <LearningProgress />
         <section className="card fullspan">
           <div className="card-heading">
             <h2>Practice, one square at a time</h2>
@@ -209,11 +213,25 @@ export function ProgressPage() {
           </div>
           <Heatmap />
         </section>
-        <section className="card">
+        <section className="card" aria-labelledby="pattern-strength-heading" style={{ alignSelf: "start" }}>
           <div className="card-heading">
-            <h2>Pattern strength</h2>
+            <h2 id="pattern-strength-heading">Pattern strength</h2>
+            {topics.length > 5 && (
+              <Button
+                type="button"
+                aria-expanded={patternsExpanded}
+                aria-controls="pattern-strength-list"
+                onClick={() => setPatternsExpanded(!patternsExpanded)}
+              >
+                {patternsExpanded ? "Collapse" : "Expand"}
+              </Button>
+            )}
           </div>
-          {topics.map((t) => {
+          <p className="muted" style={{ fontSize: 12, marginBottom: 16 }}>
+            {patternsExpanded ? topics.length : Math.min(5, topics.length)} of {topics.length} patterns
+          </p>
+          <div id="pattern-strength-list">
+          {(patternsExpanded ? topics : topics.slice(0, 5)).map((t) => {
             const list = problems.filter((p) => p.topics.includes(t)),
               count = list.filter((p) => stats.solved.has(p.id)).length;
             return (
@@ -230,6 +248,7 @@ export function ProgressPage() {
               </div>
             );
           })}
+          </div>
         </section>
         <div className="stack">
           <section className="card">

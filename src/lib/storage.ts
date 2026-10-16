@@ -4,9 +4,15 @@ import { migrateV2Data } from "./migrations/v3";
 import { migrateV3Data } from "./migrations/v4";
 import { validateFoundationsProgress } from "./foundations/validate-progress";
 import { isLessonLanguage } from "./foundations/translations";
-import { emptyFoundationsProgress } from "./foundations/types";
+import { emptyLearnProgress, isTrack } from "./foundations/model-v2";
+import { validateLearnProgress } from "./foundations/validate-progress-v2";
+import { migrateV4Data } from "./migrations/v5";
 import type { LegacyArchive } from "./types";
-const PREFIX = "iwons:v4:",
+import { migrateV5Data } from "./migrations/v6";
+import { validateLearningState } from "./foundations/learning-state";
+const PREFIX = "iwons:v6:",
+  TRACK_PREFIX = "iwons:v5:",
+  FOUNDATIONS_PREFIX = "iwons:v4:",
   PATH_PREFIX = "iwons:v3:",
   PREVIOUS_PREFIX = "iwons:v2:",
   LEGACY_PREFIX = "iwons:v1:";
@@ -18,7 +24,12 @@ function finite(value: unknown) {
   return typeof value === "number" && Number.isFinite(value);
 }
 function validateImport(data: Record<string, unknown>) {
-  if (data.foundations !== undefined) validateFoundationsProgress(data.foundations);
+  if (data.learning !== undefined) validateLearningState(data.learning);
+  if (data.foundations !== undefined) {
+    if (record(data.foundations) && "java" in data.foundations) validateLearnProgress(data.foundations);
+    else validateFoundationsProgress(data.foundations);
+  }
+  if (record(data.settings) && data.settings.codeTrack !== undefined && !isTrack(data.settings.codeTrack)) throw new Error("Invalid code track in backup.");
   if (record(data.settings) && data.settings.lessonLanguage !== undefined && !isLessonLanguage(data.settings.lessonLanguage)) throw new Error("Invalid lesson language in backup.");
   const p = data.profile;
   if (
@@ -136,6 +147,7 @@ export const DATA_KEYS = [
   "plans",
   "archive",
   "foundations",
+  "learning",
 ] as const;
 function available() {
   return typeof window !== "undefined";
@@ -152,7 +164,7 @@ function allKeys() {
   if (!available()) return [];
   try {
     return Object.keys(window.localStorage).filter(
-      (k) => [PREFIX, PATH_PREFIX, PREVIOUS_PREFIX, LEGACY_PREFIX].some(prefix => k.startsWith(prefix)),
+      (k) => [PREFIX, TRACK_PREFIX, FOUNDATIONS_PREFIX, PATH_PREFIX, PREVIOUS_PREFIX, LEGACY_PREFIX].some(prefix => k.startsWith(prefix)),
     );
   } catch {
     return [];
@@ -233,7 +245,7 @@ export const storage = {
   },
   write(key: string, value: unknown) {
     if (!available()) return false;
-    if (this.read<number>("schemaVersion", 0) !== 4 && !this.migrate()) return false;
+    if (this.read<number>("schemaVersion", 0) !== 6 && !this.migrate()) return false;
     try {
       setRaw(PREFIX + key, value);
       return true;
@@ -267,18 +279,20 @@ export const storage = {
     return resolveArchive(archive);
   },
   export() {
-    const current = this.read<number>("schemaVersion", 0) === 4;
+    const current = this.read<number>("schemaVersion", 0) === 6;
+    const trackEdition = Object.keys(namespace(TRACK_PREFIX)).length > 0;
+    const foundationsEdition = Object.keys(namespace(FOUNDATIONS_PREFIX)).length > 0;
     const pathEdition = Object.keys(namespace(PATH_PREFIX)).length > 0;
     const previous = Object.keys(namespace(PREVIOUS_PREFIX)).length > 0;
     const data: Record<string, unknown> = current
       ? namespace(PREFIX)
-      : namespace(pathEdition ? PATH_PREFIX : previous ? PREVIOUS_PREFIX : LEGACY_PREFIX);
+      : namespace(trackEdition ? TRACK_PREFIX : foundationsEdition ? FOUNDATIONS_PREFIX : pathEdition ? PATH_PREFIX : previous ? PREVIOUS_PREFIX : LEGACY_PREFIX);
     if (current && data.archive) data.archive = this.readArchive();
     else if (data.archive) data.archive = resolveArchive(data.archive as LegacyArchive);
     return JSON.stringify(
       {
         app: "Iwons",
-        schemaVersion: current ? 4 : pathEdition ? 3 : previous ? 2 : 1,
+        schemaVersion: current ? 6 : trackEdition ? 5 : foundationsEdition ? 4 : pathEdition ? 3 : previous ? 2 : 1,
         exportedAt: new Date().toISOString(),
         data,
       },
@@ -291,10 +305,10 @@ export const storage = {
     if (
       !record(doc) ||
       doc.app !== "Iwons" ||
-      ![1, 2, 3, 4].includes(doc.schemaVersion as number) ||
+      ![1, 2, 3, 4, 5, 6].includes(doc.schemaVersion as number) ||
       !record(doc.data)
     )
-      throw new Error("Choose an Iwons version 1, 2, 3 or 4 backup.");
+      throw new Error("Choose an Iwons version 1, 2, 3, 4, 5 or 6 backup.");
     let data = doc.data;
     validateEnvelope(data);
     if (doc.schemaVersion === 1)
@@ -305,8 +319,10 @@ export const storage = {
       });
     else if (doc.schemaVersion === 2)
       data = migrateV2Data(data, { schemaVersion: 2, migratedAt: Date.now(), data });
-    if (doc.schemaVersion !== 4) data = migrateV3Data(data);
-    else data = { ...data, foundations: data.foundations ?? emptyFoundationsProgress() };
+    if (Number(doc.schemaVersion) < 4) data = migrateV3Data(data);
+    if (Number(doc.schemaVersion) < 5) data = migrateV4Data(data);
+    else { data = { ...data, foundations: data.foundations ?? emptyLearnProgress() }; validateLearnProgress(data.foundations); }
+    data = migrateV5Data(data);
     if (record(data.settings))
       data.settings = {
         readableText: false,
@@ -314,6 +330,7 @@ export const storage = {
         sound: false,
         freeBrowse: false,
         lessonLanguage: "en",
+        codeTrack: record(data.settings) && isTrack(data.settings.language) ? data.settings.language : "java",
         ...data.settings,
       };
     const backup = Object.fromEntries(
@@ -322,7 +339,7 @@ export const storage = {
     try {
       // Replace the active edition, retaining the original v1/v2/v3 namespaces.
       for (const key of allKeys().filter(key => key.startsWith(PREFIX))) window.localStorage.removeItem(key);
-      for (const [key, value] of Object.entries({ ...data, schemaVersion: 4 }))
+      for (const [key, value] of Object.entries({ ...data, schemaVersion: 6 }))
         setRaw(PREFIX + key, value);
       migrationReady = true;
     } catch (e) {
@@ -339,15 +356,21 @@ export const storage = {
   },
   migrate() {
     if (!available()) return false;
-    if (this.read<number>("schemaVersion", 0) === 4) {
+    if (this.read<number>("schemaVersion", 0) === 6) {
       migrationReady = true;
       return true;
     }
     const before = Object.fromEntries(allKeys().filter(key => key.startsWith(PREFIX)).map(key => [key, window.localStorage.getItem(key)!]));
     try {
+      const currentTracks = namespace(TRACK_PREFIX);
+      const currentFoundations = namespace(FOUNDATIONS_PREFIX);
       const currentPath = namespace(PATH_PREFIX), previous = namespace(PREVIOUS_PREFIX), old = namespace(LEGACY_PREFIX);
       let migrated: Record<string, unknown> = {};
-      if (Object.keys(currentPath).length) {
+      if (Object.keys(currentTracks).length) {
+        migrated = currentTracks;
+      } else if (Object.keys(currentFoundations).length) {
+        migrated = currentFoundations;
+      } else if (Object.keys(currentPath).length) {
         migrated = currentPath;
       } else if (Object.keys(previous).length) {
         const next = migrateV2Data(previous, { schemaVersion: 2, migratedAt: Date.now(), sourcePrefix: PREVIOUS_PREFIX });
@@ -360,8 +383,8 @@ export const storage = {
         });
         migrated = next;
       }
-      for (const [key, value] of Object.entries(migrateV3Data(migrated))) if (key !== "schemaVersion") setRaw(PREFIX + key, value);
-      setRaw(PREFIX + "schemaVersion", 4);
+      for (const [key, value] of Object.entries(migrateV5Data(Object.keys(currentTracks).length ? migrated : migrateV4Data(Object.keys(currentFoundations).length ? migrated : migrateV3Data(migrated))))) if (key !== "schemaVersion") setRaw(PREFIX + key, value);
+      setRaw(PREFIX + "schemaVersion", 6);
       migrationReady = true;
       return true;
     } catch (e) {

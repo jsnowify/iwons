@@ -1,0 +1,125 @@
+{
+  "agentId": "/root/review_learning_engine",
+  "reviewedAt": "2026-10-16",
+  "scope": "Independent static editorial and source/key review only. No runtime execution, browser verification, built-HTML inspection, readiness or publication decision.",
+  "openDefects": [],
+  "engagement": {
+    "engagement": "The desk-sign prediction and small message edits provide immediate actions; the later personalized welcome slip changes the task meaningfully. Repeated output examples may feel slow to quicker beginners, but the supplied input ladder gives a concrete next challenge. This is editorial judgment, not measured learner engagement.",
+    "variety": "Prediction compares a mental model with execution; the two-line trace and Parsons exercise isolate statement order; punctuation experiments distinguish source failures from wrong output; the input trace now separates reading, storing and printing. The independent welcome output applies fixed-versus-received text across several names.",
+    "passiveScreens": "Recap and Make remain mainly reading and navigation, and the single-message trace repeats output prediction. The revised worked example separates a quoted string from a complete program, while varied break experiments remove a statement or misspell an operation, reducing repeated quote-removal tasks.",
+    "nextSteps": "All inspected answer feedback contains an action. Lesson-specific prediction, trace and fill reasons now explain the relevant print, ordering, boundary or input fact; checkpoint explanations direct a trace, character comparison or repair. Natural-language quote terms accept equivalent names, while programming output retains case-sensitive matching."
+  },
+  "samples": {
+    "java": {
+      "lessonIds": [
+        "cp1-m1-l1",
+        "cp1-m1-l2",
+        "cp1-m1-l3",
+        "cp1-m1-l4"
+      ],
+      "exerciseIds": [
+        "cp1-m1-e1",
+        "cp1-m1-e2",
+        "cp1-m1-e3",
+        "cp1-m1-e4",
+        "cp1-m1-e5",
+        "cp1-m1-e6",
+        "cp1-m1-e7",
+        "cp1-m1-e8",
+        "cp1-m1-e9"
+      ],
+      "checkpoint": true
+    },
+    "python": {
+      "lessonIds": [
+        "cp1-m1-l1",
+        "cp1-m1-l2",
+        "cp1-m1-l3",
+        "cp1-m1-l4"
+      ],
+      "exerciseIds": [
+        "cp1-m1-e1",
+        "cp1-m1-e2",
+        "cp1-m1-e3",
+        "cp1-m1-e4",
+        "cp1-m1-e5",
+        "cp1-m1-e6",
+        "cp1-m1-e7",
+        "cp1-m1-e8",
+        "cp1-m1-e9"
+      ],
+      "checkpoint": true
+    },
+    "javascript": {
+      "lessonIds": [
+        "cp1-m1-l1",
+        "cp1-m1-l2",
+        "cp1-m1-l3",
+        "cp1-m1-l4"
+      ],
+      "exerciseIds": [
+        "cp1-m1-e1",
+        "cp1-m1-e2",
+        "cp1-m1-e3",
+        "cp1-m1-e4",
+        "cp1-m1-e5",
+        "cp1-m1-e6",
+        "cp1-m1-e7",
+        "cp1-m1-e8",
+        "cp1-m1-e9"
+      ],
+      "checkpoint": true
+    },
+    "typescript": {
+      "lessonIds": [
+        "cp1-m1-l1",
+        "cp1-m1-l2",
+        "cp1-m1-l3",
+        "cp1-m1-l4"
+      ],
+      "exerciseIds": [
+        "cp1-m1-e1",
+        "cp1-m1-e2",
+        "cp1-m1-e3",
+        "cp1-m1-e4",
+        "cp1-m1-e5",
+        "cp1-m1-e6",
+        "cp1-m1-e7",
+        "cp1-m1-e8",
+        "cp1-m1-e9"
+      ],
+      "checkpoint": true
+    }
+  },
+  "reviewedFiles": {
+    "checkpoint.json": "ade3b33c23b56d8830a833f5a913804d591a0ac67ffc4ec7a844007baa1b7b43",
+    "exercises/arrange-two-desk-lines.json": "2ed2805172881ed30995d5b70448f02786979514ac4330bb2fb62f59e22311ce",
+    "exercises/complete-a-desk-sign.json": "9eda4785423f9e17280bf206af31ac0744f88c2c9c3e46bec62c23ed3c24183f",
+    "exercises/complete-a-welcome-slip.json": "183627c84cbb5e2c29e3158b945895777202aca8ac6f96d118d668ff52befd7f",
+    "exercises/inspect-a-desk-sign.json": "54dbf67f17fb28aa45b5dba9aef9620474388dfda551a2beaec71449494b2ad5",
+    "exercises/inspect-a-welcome-slip.json": "9e74c3f5d30798f0f2096f38a918b85a7c69f8d5f2fc66881c231736e817bd40",
+    "exercises/predict-the-reversed-sign.json": "3443ecfca54e7c19152570bec12824cd5eb420b8cb9de870c69fb97f4df7450a",
+    "exercises/repair-a-tray-sign.json": "299e25a22f23a52659b0f4d67df76783fe5f37ba6eafeafb93f83228f64db273",
+    "exercises/trace-a-quoted-message.json": "ea115bca5f9aa876d1232f6b88df2f9ecdb67e9ae15e4f9f575612a89277dc24",
+    "exercises/write-a-welcome-slip.json": "cb6544efa567739c31d5b182b6b9905fe1e823e3ab9e5a87f25192f2994959e5",
+    "keys/checkpoint.json": "f51553bbf1cce65def5038d9f3c7fa9c993906efc0adf4e9472ac271290324cc",
+    "keys/exercise-arrange-two-desk-lines.json": "098f3198a480efcba274d0199bd59ba0e0811ed7a890f177819c0b3d0447e974",
+    "keys/exercise-complete-a-desk-sign.json": "0bd15789102468eef11ec24ebece35552a1516b9b84a1483db8ef5491edee0d0",
+    "keys/exercise-complete-a-welcome-slip.json": "2edc350db0fb538b576d0020b8e1d10c1f5b831b661fe7a207ef77ca94f6071e",
+    "keys/exercise-inspect-a-desk-sign.json": "987dcc867de00cf112efa10f2d2800f9c09ce1b4710bf076e6992c769e28cb67",
+    "keys/exercise-inspect-a-welcome-slip.json": "1712528930eb2ff398d32d828cf9d33e69a84dc14098e49acb88b2eddc0490f3",
+    "keys/exercise-predict-the-reversed-sign.json": "fa1d24310531f21b2d8c5389e9390655501dd39f2fc5f30391c87d237880c58a",
+    "keys/exercise-repair-a-tray-sign.json": "5c66f4a14b8d1e35d96ff81b582d68b296779515f9d2ca1a9f755e0e2b6bd0ac",
+    "keys/exercise-trace-a-quoted-message.json": "3c19f3e407b83fc172597006fe96e5a1ef80b8e511b9e074f1374e598afc72e9",
+    "keys/exercise-write-a-welcome-slip.json": "275a30a10736d73a4cce3397183dc1b3dada72749bea43c363abc174474ce9a1",
+    "keys/how-code-runs.json": "380c1a130d0ed118c7218d78790b1a3346aee0506e1c9cc13ce684a3b00da2e9",
+    "keys/reading-a-program.json": "f87f27d29ea1ac4a47ead2aca61ca936e26ebdd5d84c97b2c325fc5e67912ab7",
+    "keys/the-first-message.json": "d536c3ae8b106baf451823d7a0002febbf538b14cd14faf13954674d377bd154",
+    "keys/the-input-desk.json": "b5e5ce2390524a24bf403e0fe37d38116160ac616288c23f62c512b0747d53e8",
+    "lessons/how-code-runs.json": "a148f72c4c65d45b627388b5ec69a1b04d69762615d37fa280dba2b36e5b6a04",
+    "lessons/reading-a-program.json": "34133eec15de191427a8309a2f755437b32161a291413e13bf2b6976e637d422",
+    "lessons/the-first-message.json": "2d6f800fad32c13305dd872a7cf5b4d0e7f793b2ea811fde3260d14f81547c51",
+    "lessons/the-input-desk.json": "39f7f929cf6388bc527dc7b176ab25e72734ad05fff9eb3e0542ba5cf04380ea",
+    "module.json": "4ae8bd943ab89ba8661bc451cc62a60aeb6b4fdb3ad7873d002e00873da5d921"
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "exerciseId": "tool-demo-parsons",
+  "hiddenCases": [
+    {
+      "id": "label-3",
+      "input": [],
+      "stdin": "ñame\n",
+      "expected": "Desk: ñame"
+    },
+    {
+      "id": "label-4",
+      "input": [],
+      "stdin": "  West\n",
+      "expected": "Desk:   West"
+    },
+    {
+      "id": "label-5",
+      "input": [],
+      "stdin": "A-B\n",
+      "expected": "Desk: A-B"
+    },
+    {
+      "id": "label-6",
+      "input": [],
+      "stdin": "0123\n",
+      "expected": "Desk: 0123"
+    },
+    {
+      "id": "label-7",
+      "input": [],
+      "stdin": "End!\n",
+      "expected": "Desk: End!"
+    }
+  ],
+  "variants": {
+    "java": {
+      "referenceSolution": "import java.util.Scanner;\npublic class Main { public static void main(String[] args) {\nString prefix = \"Desk: \";\nString name = new Scanner(System.in).nextLine();\nSystem.out.println(prefix + name);\n} }",
+      "explanations": {
+        "translations": {
+          "en": {
+            "text": "The prefix and name combine into the output line. Compare the first failing input with your output, then check the prefix and rerun."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "alternativeOrders": [
+        [
+          "header",
+          "prefix",
+          "input",
+          "output"
+        ],
+        [
+          "header",
+          "input",
+          "prefix",
+          "output"
+        ]
+      ]
+    },
+    "python": {
+      "referenceSolution": "prefix = \"Desk: \"\nname = input()\nprint(prefix + name)",
+      "explanations": {
+        "translations": {
+          "en": {
+            "text": "The prefix and name combine into the output line. Compare the first failing input with your output, then check the prefix and rerun."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "alternativeOrders": [
+        [
+          "prefix",
+          "input",
+          "output"
+        ],
+        [
+          "input",
+          "prefix",
+          "output"
+        ]
+      ]
+    },
+    "javascript": {
+      "referenceSolution": "const prefix = \"Desk: \";\nconst name = require(\"fs\").readFileSync(0, \"utf8\").replace(/\\r?\\n$/, \"\");\nconsole.log(prefix + name);",
+      "explanations": {
+        "translations": {
+          "en": {
+            "text": "The prefix and name combine into the output line. Compare the first failing input with your output, then check the prefix and rerun."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "alternativeOrders": [
+        [
+          "prefix",
+          "input",
+          "output"
+        ],
+        [
+          "input",
+          "prefix",
+          "output"
+        ]
+      ]
+    },
+    "typescript": {
+      "referenceSolution": "const prefix: string = \"Desk: \";\nconst name: string = require(\"fs\").readFileSync(0, \"utf8\").replace(/\\r?\\n$/, \"\");\nconsole.log(prefix + name);",
+      "explanations": {
+        "translations": {
+          "en": {
+            "text": "The prefix and name combine into the output line. Compare the first failing input with your output, then check the prefix and rerun."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "alternativeOrders": [
+        [
+          "prefix",
+          "input",
+          "output"
+        ],
+        [
+          "input",
+          "prefix",
+          "output"
+        ]
+      ]
+    }
+  }
+}

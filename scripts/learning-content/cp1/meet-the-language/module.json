@@ -1,0 +1,39 @@
+{
+  "id": "cp1-m1",
+  "course": "cp1",
+  "slug": "meet-the-language",
+  "copy": {
+    "translations": {
+      "en": {
+        "title": "Meet the language",
+        "intro": "A program starts as instructions you can read, predict and change. In this module, you will make a small desk sign, put two printed lines in order, distinguish message text from source punctuation, and greet a name received through input. Each lesson begins with a concrete program so you can try an idea before learning every symbol around it. Choose Java, Python, JavaScript or TypeScript; switching tracks keeps separate work, and the underlying idea stays the same.\n\nBegin with a guess, then run the example and compare what happened. Investigate one statement at a time before making the requested change. The exercise ladder offers supplied examples, smaller completions and one independent welcome-slip program. You can revisit a rung whenever that support is useful. Hints are optional and reveal one next step at a time.\n\nYour final checkpoint asks you to retrieve these ideas without the lesson in front of you. It is a chance to find what needs another look, not a countdown or an integrity test. Progress and explanations stay on this device. Java browser runs require your configured endpoint; local JDK instructions remain available when browser execution is unavailable.",
+        "recallPrompt": "Before opening the first lesson, what is the difference between an instruction you write and the output you expect it to produce?"
+      },
+      "fil": null,
+      "ceb": null
+    },
+    "translationStatus": {
+      "en": "reviewed",
+      "fil": "draft",
+      "ceb": "draft"
+    }
+  },
+  "lessonFiles": [
+    "lessons/the-first-message.json",
+    "lessons/how-code-runs.json",
+    "lessons/reading-a-program.json",
+    "lessons/the-input-desk.json"
+  ],
+  "exerciseFiles": [
+    "exercises/inspect-a-desk-sign.json",
+    "exercises/complete-a-desk-sign.json",
+    "exercises/arrange-two-desk-lines.json",
+    "exercises/predict-the-reversed-sign.json",
+    "exercises/trace-a-quoted-message.json",
+    "exercises/repair-a-tray-sign.json",
+    "exercises/inspect-a-welcome-slip.json",
+    "exercises/complete-a-welcome-slip.json",
+    "exercises/write-a-welcome-slip.json"
+  ],
+  "checkpointFile": "checkpoint.json"
+}

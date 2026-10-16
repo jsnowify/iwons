@@ -2,9 +2,10 @@
 import { create } from "zustand";
 import { persist, type PersistStorage } from "zustand/middleware";
 import { retainSubmissions } from "@/lib/retain-submissions";
+import { emptyLearningState, validateLearningState, type LearningState } from "@/lib/foundations/learning-state";
 import { storage, DATA_KEYS } from "@/lib/storage";
-import { emptyFoundationsProgress, type FoundationsProgress } from "@/lib/foundations/types";
-import { validateFoundationsProgress } from "@/lib/foundations/validate-progress";
+import { emptyLearnProgress, type LearnProgress } from "@/lib/foundations/model-v2";
+import { validateLearnProgress } from "@/lib/foundations/validate-progress-v2";
 import type {
   Profile,
   Settings,
@@ -16,6 +17,7 @@ import type {
   LegacyArchive,
 } from "@/lib/types";
 export const DEFAULT_SETTINGS: Settings = {
+  codeTrack: "java",
   lessonLanguage: "en",
   theme: "light",
   readableText:false,motion:true,sound:false,freeBrowse:false,
@@ -29,7 +31,8 @@ export const DEFAULT_SETTINGS: Settings = {
   autoSubmit: false,
 };
 interface Data {
-  foundations: FoundationsProgress;
+  learning: LearningState;
+  foundations: LearnProgress;
   archive:LegacyArchive|null;
   profile: Profile;
   settings: Settings;
@@ -44,7 +47,8 @@ interface Data {
   plans: Record<string, number>;
 }
 interface Store extends Data {
-  setFoundationsProgress: (progress: FoundationsProgress) => void;
+  setLearning: (learning: LearningState) => void;
+  setFoundationsProgress: (progress: LearnProgress) => void;
   hydrated: boolean;
   hydrate: () => void;
   updateProfile: (p: Partial<Profile>) => void;
@@ -59,7 +63,8 @@ interface Store extends Data {
   cleanup: () => void;
 }
 const defaults: Data = {
-  foundations: emptyFoundationsProgress(),
+  learning: emptyLearningState(),
+  foundations: emptyLearnProgress(),
   archive:null,
   profile: { name: "Coder", avatar: "J", onboarded: false },
   settings: DEFAULT_SETTINGS,
@@ -78,7 +83,7 @@ const adapter: PersistStorage<Data> = {
     state: Object.fromEntries(
       DATA_KEYS.map((k) => [k, k==="settings"?{...DEFAULT_SETTINGS,...storage.read(k,DEFAULT_SETTINGS)}:storage.read(k, defaults[k])]),
     ) as unknown as Data,
-    version: 4,
+    version: 6,
   });
   },
   setItem: (_, value) => {
@@ -90,7 +95,8 @@ export const useStore = create<Store>()(
   persist(
     (set, get) => ({
       ...defaults,
-      setFoundationsProgress: (foundations) => { validateFoundationsProgress(foundations); set({ foundations }); },
+      setLearning: (learning) => { validateLearningState(learning); set({ learning }); },
+      setFoundationsProgress: (foundations) => { validateLearnProgress(foundations); set({ foundations }); },
       hydrated: false,
       hydrate: () => {
         if(storage.migrate())set({ hydrated: true });
@@ -137,7 +143,7 @@ export const useStore = create<Store>()(
     }),
     {
       name: "Iwons",
-      version: 4,
+      version: 6,
       storage: adapter,
       skipHydration: true,
       partialize: (s) =>

@@ -15,6 +15,7 @@ import { storage, downloadExport } from "@/lib/storage";
 import { languageNames } from "@/lib/presentation";
 import type { Language } from "@/lib/types";
 import { lessonLanguageNames, isLessonLanguage } from "@/lib/foundations/translations";
+import { tracks, trackNames, isTrack } from "@/lib/foundations/model-v2";
 import { Button, Modal, ProgressBar, useToast } from "./ui";
 import { Onboarding } from "./onboarding";
 import { ArchivePanel } from "./archive-panel";
@@ -111,6 +112,7 @@ export function SettingsPage() {
             </select>
           </label>
           <p>Saved for Foundations. Lessons are not available yet; missing translations will use English.</p>
+          <label>Learning code track<select value={store.settings.codeTrack} onChange={event=>{if(isTrack(event.target.value))store.updateSettings({codeTrack:event.target.value});}}>{tracks.map(track=><option key={track} value={track}>{trackNames[track]}</option>)}</select></label>
         </div>
       </section>
       <section className="settings-section">

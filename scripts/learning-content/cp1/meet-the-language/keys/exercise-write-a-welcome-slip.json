@@ -1,0 +1,105 @@
+{
+  "exerciseId": "cp1-m1-e9",
+  "hiddenCases": [
+    {
+      "id": "slip-4",
+      "input": [],
+      "stdin": "ñame\n",
+      "expected": "Welcome, ñame"
+    },
+    {
+      "id": "slip-5",
+      "input": [],
+      "stdin": "  West\n",
+      "expected": "Welcome,   West"
+    },
+    {
+      "id": "slip-6",
+      "input": [],
+      "stdin": "A-B\n",
+      "expected": "Welcome, A-B"
+    },
+    {
+      "id": "slip-7",
+      "input": [],
+      "stdin": "0123\n",
+      "expected": "Welcome, 0123"
+    },
+    {
+      "id": "slip-8",
+      "input": [],
+      "stdin": "End!\n",
+      "expected": "Welcome, End!"
+    }
+  ],
+  "variants": {
+    "java": {
+      "referenceSolution": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner desk = new Scanner(System.in);\n        String name = desk.nextLine();\n        System.out.println(\"Welcome, \" + name);\n    }\n}",
+      "explanations": {
+        "translations": {
+          "en": {
+            "text": "The greeting is fixed text joined to the line received as name. Compare another input, then check that its text stays unchanged."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      }
+    },
+    "python": {
+      "referenceSolution": "name = input()\nprint(\"Welcome, \" + name)",
+      "explanations": {
+        "translations": {
+          "en": {
+            "text": "The greeting is fixed text joined to the line received as name. Compare another input, then check that its text stays unchanged."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      }
+    },
+    "javascript": {
+      "referenceSolution": "const name = require(\"fs\").readFileSync(0, \"utf8\").replace(/\\r?\\n$/, \"\");\nconsole.log(\"Welcome, \" + name);",
+      "explanations": {
+        "translations": {
+          "en": {
+            "text": "The greeting is fixed text joined to the line received as name. Compare another input, then check that its text stays unchanged."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      }
+    },
+    "typescript": {
+      "referenceSolution": "const name: string = require(\"fs\").readFileSync(0, \"utf8\").replace(/\\r?\\n$/, \"\");\nconsole.log(\"Welcome, \" + name);",
+      "explanations": {
+        "translations": {
+          "en": {
+            "text": "The greeting is fixed text joined to the line received as name. Compare another input, then check that its text stays unchanged."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      }
+    }
+  }
+}

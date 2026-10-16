@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getLevels, getLevel, getProblems } from "@/lib/problems";
 import { LevelAccess } from "@/components/path-map";
 import unitData from "@/data/units.json";
+import { StudyFirst } from "@/components/study-first";
 export const dynamicParams = false;
 export function generateStaticParams() {
   return getLevels().map((l) => ({ level: String(l.id) }));
@@ -54,6 +55,7 @@ export default async function Page({
         <span className="level-key">0{l.id}</span>
       </div>
       <LevelAccess level={l} />
+      <StudyFirst units={unitData.filter(unit=>unit.level===l.id).map(unit=>unit.slug)}/>
       <article className="primer">
         <h2 style={{ marginBottom: 20 }}>Before you start typing.</h2>
         <div className="primer-body">
@@ -78,6 +80,7 @@ export default async function Page({
           <h2>Try your hand.</h2>
           {unitData.filter(unit => unit.level === l.id).map(unit => <section className="path-unit" key={unit.slug} id={unit.slug}>
           <h2>{unit.name}</h2><p>{unit.intro}</p>
+          <StudyFirst units={[unit.slug]}/>
           {problems.filter(p => p.unit === unit.slug).map((p, i) => (
             <Link
               href={`/problems/${p.slug}/`}

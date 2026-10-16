@@ -11,14 +11,17 @@
     "test:e2e": "playwright test",
     "seed": "node --experimental-strip-types scripts/seed.mjs",
     "predev": "node scripts/prepare-assets.mjs",
-    "prebuild": "node scripts/prepare-assets.mjs && npm run contrast && npm run verify:curriculum",
-    "postbuild": "node scripts/build-offline.mjs && node scripts/verify-export.mjs",
+    "prebuild": "node scripts/prepare-assets.mjs && npm run contrast && npm run verify:curriculum && npm run validate:foundations && npm run validate:dsa",
+    "postbuild": "node scripts/build-learn-redirects.mjs && node --experimental-strip-types scripts/validate-course-names.ts && node scripts/build-offline.mjs && node scripts/verify-export.mjs",
     "lint": "eslint src e2e scripts --quiet",
     "contrast": "node --experimental-strip-types scripts/check-contrast.ts",
-    "pretest": "npm run contrast",
+    "pretest": "node scripts/prepare-assets.mjs && npm run contrast",
     "validate:problems": "node --experimental-strip-types scripts/validate-problems.ts",
     "verify:curriculum": "node scripts/verify-curriculum.mjs",
-    "validate:foundations": "node --experimental-strip-types scripts/validate-foundations.ts"
+    "validate:foundations": "node --experimental-strip-types scripts/validate-foundations.ts",
+    "validate:dsa": "node --experimental-strip-types scripts/validate-dsa.ts",
+    "validate:learning": "node --experimental-strip-types scripts/validate-learning-content.ts",
+    "validate:i18n": "node --experimental-strip-types scripts/validate-i18n.ts"
   },
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",

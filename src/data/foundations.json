@@ -1,0 +1,3734 @@
+{
+  "schemaVersion": 2,
+  "courses": [
+    {
+      "id": "cp1",
+      "title": "Computer Programming 1",
+      "description": "Structured fundamentals, from your first message to small complete programs.",
+      "recommended": "Start here if you are new to coding.",
+      "modules": [
+        {
+          "id": "cp1-m1",
+          "slug": "meet-the-language",
+          "title": "Meet the language",
+          "status": "ready",
+          "availability": {
+            "java": "ready",
+            "python": "ready",
+            "javascript": "ready",
+            "typescript": "ready"
+          },
+          "lessons": [
+            {
+              "id": "cp1-m1-l1",
+              "slug": "the-first-message",
+              "title": "The first message",
+              "status": "ready",
+              "availability": {
+                "java": "ready",
+                "python": "ready",
+                "javascript": "ready",
+                "typescript": "ready"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {
+                "java": {
+                  "concepts": [
+                    "output"
+                  ],
+                  "introducedIn": {
+                    "output": "cp1-m1-l1"
+                  },
+                  "contentFile": "cp1/meet-the-language/lessons/the-first-message.json"
+                },
+                "python": {
+                  "concepts": [
+                    "output"
+                  ],
+                  "introducedIn": {
+                    "output": "cp1-m1-l1"
+                  },
+                  "contentFile": "cp1/meet-the-language/lessons/the-first-message.json"
+                },
+                "javascript": {
+                  "concepts": [
+                    "output"
+                  ],
+                  "introducedIn": {
+                    "output": "cp1-m1-l1"
+                  },
+                  "contentFile": "cp1/meet-the-language/lessons/the-first-message.json"
+                },
+                "typescript": {
+                  "concepts": [
+                    "output"
+                  ],
+                  "introducedIn": {
+                    "output": "cp1-m1-l1"
+                  },
+                  "contentFile": "cp1/meet-the-language/lessons/the-first-message.json"
+                }
+              }
+            },
+            {
+              "id": "cp1-m1-l2",
+              "slug": "how-code-runs",
+              "title": "How code runs",
+              "status": "ready",
+              "availability": {
+                "java": "ready",
+                "python": "ready",
+                "javascript": "ready",
+                "typescript": "ready"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {
+                "java": {
+                  "concepts": [
+                    "execution-order"
+                  ],
+                  "introducedIn": {
+                    "execution-order": "cp1-m1-l2"
+                  },
+                  "contentFile": "cp1/meet-the-language/lessons/how-code-runs.json"
+                },
+                "python": {
+                  "concepts": [
+                    "execution-order"
+                  ],
+                  "introducedIn": {
+                    "execution-order": "cp1-m1-l2"
+                  },
+                  "contentFile": "cp1/meet-the-language/lessons/how-code-runs.json"
+                },
+                "javascript": {
+                  "concepts": [
+                    "execution-order"
+                  ],
+                  "introducedIn": {
+                    "execution-order": "cp1-m1-l2"
+                  },
+                  "contentFile": "cp1/meet-the-language/lessons/how-code-runs.json"
+                },
+                "typescript": {
+                  "concepts": [
+                    "execution-order"
+                  ],
+                  "introducedIn": {
+                    "execution-order": "cp1-m1-l2"
+                  },
+                  "contentFile": "cp1/meet-the-language/lessons/how-code-runs.json"
+                }
+              }
+            },
+            {
+              "id": "cp1-m1-l3",
+              "slug": "reading-a-program",
+              "title": "Reading a program",
+              "status": "ready",
+              "availability": {
+                "java": "ready",
+                "python": "ready",
+                "javascript": "ready",
+                "typescript": "ready"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {
+                "java": {
+                  "concepts": [
+                    "source-punctuation"
+                  ],
+                  "introducedIn": {
+                    "source-punctuation": "cp1-m1-l3"
+                  },
+                  "contentFile": "cp1/meet-the-language/lessons/reading-a-program.json"
+                },
+                "python": {
+                  "concepts": [
+                    "source-punctuation"
+                  ],
+                  "introducedIn": {
+                    "source-punctuation": "cp1-m1-l3"
+                  },
+                  "contentFile": "cp1/meet-the-language/lessons/reading-a-program.json"
+                },
+                "javascript": {
+                  "concepts": [
+                    "source-punctuation"
+                  ],
+                  "introducedIn": {
+                    "source-punctuation": "cp1-m1-l3"
+                  },
+                  "contentFile": "cp1/meet-the-language/lessons/reading-a-program.json"
+                },
+                "typescript": {
+                  "concepts": [
+                    "source-punctuation"
+                  ],
+                  "introducedIn": {
+                    "source-punctuation": "cp1-m1-l3"
+                  },
+                  "contentFile": "cp1/meet-the-language/lessons/reading-a-program.json"
+                }
+              }
+            },
+            {
+              "id": "cp1-m1-l4",
+              "slug": "the-input-desk",
+              "title": "The input desk",
+              "status": "ready",
+              "availability": {
+                "java": "ready",
+                "python": "ready",
+                "javascript": "ready",
+                "typescript": "ready"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {
+                "java": {
+                  "concepts": [
+                    "line-input"
+                  ],
+                  "introducedIn": {
+                    "line-input": "cp1-m1-l4"
+                  },
+                  "contentFile": "cp1/meet-the-language/lessons/the-input-desk.json"
+                },
+                "python": {
+                  "concepts": [
+                    "line-input"
+                  ],
+                  "introducedIn": {
+                    "line-input": "cp1-m1-l4"
+                  },
+                  "contentFile": "cp1/meet-the-language/lessons/the-input-desk.json"
+                },
+                "javascript": {
+                  "concepts": [
+                    "line-input"
+                  ],
+                  "introducedIn": {
+                    "line-input": "cp1-m1-l4"
+                  },
+                  "contentFile": "cp1/meet-the-language/lessons/the-input-desk.json"
+                },
+                "typescript": {
+                  "concepts": [
+                    "line-input"
+                  ],
+                  "introducedIn": {
+                    "line-input": "cp1-m1-l4"
+                  },
+                  "contentFile": "cp1/meet-the-language/lessons/the-input-desk.json"
+                }
+              }
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp1-m2",
+          "slug": "variables-and-types",
+          "title": "Variables and types",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp1-m2-l1",
+              "slug": "names-and-values",
+              "title": "Names and values",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m2-l2",
+              "slug": "choosing-a-type",
+              "title": "Choosing a type",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m2-l3",
+              "slug": "changing-a-value",
+              "title": "Changing a value",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m2-l4",
+              "slug": "constants-and-conversion",
+              "title": "Constants and conversion",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp1-m3",
+          "slug": "operators",
+          "title": "Operators",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp1-m3-l1",
+              "slug": "arithmetic",
+              "title": "Arithmetic",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m3-l2",
+              "slug": "division-and-remainder",
+              "title": "Division and remainder",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m3-l3",
+              "slug": "comparisons",
+              "title": "Comparisons",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m3-l4",
+              "slug": "combining-expressions",
+              "title": "Combining expressions",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp1-m4",
+          "slug": "input-and-output",
+          "title": "Input and output",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp1-m4-l1",
+              "slug": "reading-a-line",
+              "title": "Reading a line",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m4-l2",
+              "slug": "reading-numbers",
+              "title": "Reading numbers",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m4-l3",
+              "slug": "formatting-a-report",
+              "title": "Formatting a report",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m4-l4",
+              "slug": "input-boundaries",
+              "title": "Input boundaries",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp1-m5",
+          "slug": "decisions",
+          "title": "Decisions",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp1-m5-l1",
+              "slug": "one-decision",
+              "title": "One decision",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m5-l2",
+              "slug": "choosing-between-paths",
+              "title": "Choosing between paths",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m5-l3",
+              "slug": "several-alternatives",
+              "title": "Several alternatives",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m5-l4",
+              "slug": "decision-tables",
+              "title": "Decision tables",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp1-m6",
+          "slug": "while-loops",
+          "title": "While loops",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp1-m6-l1",
+              "slug": "repeating-a-task",
+              "title": "Repeating a task",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m6-l2",
+              "slug": "stopping-safely",
+              "title": "Stopping safely",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m6-l3",
+              "slug": "sentinel-input",
+              "title": "Sentinel input",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m6-l4",
+              "slug": "tracing-a-loop",
+              "title": "Tracing a loop",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp1-m7",
+          "slug": "for-loops",
+          "title": "For loops",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp1-m7-l1",
+              "slug": "counting-repetitions",
+              "title": "Counting repetitions",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m7-l2",
+              "slug": "traversing-values",
+              "title": "Traversing values",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m7-l3",
+              "slug": "nested-loops",
+              "title": "Nested loops",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m7-l4",
+              "slug": "break-and-continue",
+              "title": "Break and continue",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp1-m8",
+          "slug": "methods-and-functions",
+          "title": "Methods and functions",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp1-m8-l1",
+              "slug": "naming-a-task",
+              "title": "Naming a task",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m8-l2",
+              "slug": "parameters-and-returns",
+              "title": "Parameters and returns",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m8-l3",
+              "slug": "scope",
+              "title": "Scope",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m8-l4",
+              "slug": "values-and-references",
+              "title": "Values and references",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp1-m9",
+          "slug": "arrays-and-sequences",
+          "title": "Arrays and sequences",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp1-m9-l1",
+              "slug": "indexed-storage",
+              "title": "Indexed storage",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m9-l2",
+              "slug": "traversal",
+              "title": "Traversal",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m9-l3",
+              "slug": "updating-sequences",
+              "title": "Updating sequences",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m9-l4",
+              "slug": "searching-a-sequence",
+              "title": "Searching a sequence",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp1-m10",
+          "slug": "strings",
+          "title": "Strings",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp1-m10-l1",
+              "slug": "text-and-characters",
+              "title": "Text and characters",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m10-l2",
+              "slug": "comparing-text",
+              "title": "Comparing text",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m10-l3",
+              "slug": "text-immutability",
+              "title": "Text immutability",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m10-l4",
+              "slug": "building-a-report",
+              "title": "Building a report",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp1-m11",
+          "slug": "debugging-and-tracing",
+          "title": "Debugging and tracing",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp1-m11-l1",
+              "slug": "reading-errors",
+              "title": "Reading errors",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m11-l2",
+              "slug": "following-state",
+              "title": "Following state",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m11-l3",
+              "slug": "finding-a-boundary-bug",
+              "title": "Finding a boundary bug",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m11-l4",
+              "slug": "testing-an-assumption",
+              "title": "Testing an assumption",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp1-m12",
+          "slug": "computer-programming-1-capstone",
+          "title": "Computer Programming 1 capstone",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp1-m12-l1",
+              "slug": "plan-a-receipt-desk",
+              "title": "Plan a receipt desk",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m12-l2",
+              "slug": "build-a-shift-log",
+              "title": "Build a shift log",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m12-l3",
+              "slug": "build-a-stock-counter",
+              "title": "Build a stock counter",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp1-m12-l4",
+              "slug": "review-the-three-programs",
+              "title": "Review the three programs",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        }
+      ]
+    },
+    {
+      "id": "cp2",
+      "title": "Computer Programming 2",
+      "description": "Objects, collections, recursion and thoughtful program design.",
+      "recommended": "Computer Programming 1 is recommended; you can explore freely.",
+      "modules": [
+        {
+          "id": "cp2-m1",
+          "slug": "two-dimensional-arrays",
+          "title": "Two-dimensional arrays",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp2-m1-l1",
+              "slug": "rows-and-columns",
+              "title": "Rows and columns",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m1-l2",
+              "slug": "building-independent-rows",
+              "title": "Building independent rows",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m1-l3",
+              "slug": "traversing-a-grid",
+              "title": "Traversing a grid",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m1-l4",
+              "slug": "grid-boundaries",
+              "title": "Grid boundaries",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp2-m2",
+          "slug": "classes-and-objects",
+          "title": "Classes and objects",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp2-m2-l1",
+              "slug": "model-a-desk-item",
+              "title": "Model a desk item",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m2-l2",
+              "slug": "construct-an-object",
+              "title": "Construct an object",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m2-l3",
+              "slug": "object-identity",
+              "title": "Object identity",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m2-l4",
+              "slug": "describe-an-object",
+              "title": "Describe an object",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp2-m3",
+          "slug": "encapsulation",
+          "title": "Encapsulation",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp2-m3-l1",
+              "slug": "protecting-state",
+              "title": "Protecting state",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m3-l2",
+              "slug": "accessors-and-properties",
+              "title": "Accessors and properties",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m3-l3",
+              "slug": "class-members",
+              "title": "Class members",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m3-l4",
+              "slug": "maintaining-invariants",
+              "title": "Maintaining invariants",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp2-m4",
+          "slug": "object-design",
+          "title": "Object design",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp2-m4-l1",
+              "slug": "composition",
+              "title": "Composition",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m4-l2",
+              "slug": "responsibilities",
+              "title": "Responsibilities",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m4-l3",
+              "slug": "working-with-collaborators",
+              "title": "Working with collaborators",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m4-l4",
+              "slug": "review-a-small-model",
+              "title": "Review a small model",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp2-m5",
+          "slug": "inheritance",
+          "title": "Inheritance",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp2-m5-l1",
+              "slug": "shared-behavior",
+              "title": "Shared behavior",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m5-l2",
+              "slug": "specializing-a-class",
+              "title": "Specializing a class",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m5-l3",
+              "slug": "calling-a-parent",
+              "title": "Calling a parent",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m5-l4",
+              "slug": "choosing-composition",
+              "title": "Choosing composition",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp2-m6",
+          "slug": "polymorphism-and-abstraction",
+          "title": "Polymorphism and abstraction",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp2-m6-l1",
+              "slug": "one-contract-many-objects",
+              "title": "One contract many objects",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m6-l2",
+              "slug": "dispatch",
+              "title": "Dispatch",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m6-l3",
+              "slug": "abstract-behavior",
+              "title": "Abstract behavior",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m6-l4",
+              "slug": "substitution",
+              "title": "Substitution",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp2-m7",
+          "slug": "interfaces-and-ordering",
+          "title": "Interfaces and ordering",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp2-m7-l1",
+              "slug": "behavior-contracts",
+              "title": "Behavior contracts",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m7-l2",
+              "slug": "implementing-a-contract",
+              "title": "Implementing a contract",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m7-l3",
+              "slug": "ordering-objects",
+              "title": "Ordering objects",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m7-l4",
+              "slug": "comparison-strategies",
+              "title": "Comparison strategies",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp2-m8",
+          "slug": "exceptions",
+          "title": "Exceptions",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp2-m8-l1",
+              "slug": "failure-paths",
+              "title": "Failure paths",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m8-l2",
+              "slug": "handling-errors",
+              "title": "Handling errors",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m8-l3",
+              "slug": "custom-exceptions",
+              "title": "Custom exceptions",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m8-l4",
+              "slug": "resource-cleanup",
+              "title": "Resource cleanup",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp2-m9",
+          "slug": "collections-and-generics",
+          "title": "Collections and generics",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp2-m9-l1",
+              "slug": "resizable-sequences",
+              "title": "Resizable sequences",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m9-l2",
+              "slug": "maps-and-sets",
+              "title": "Maps and sets",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m9-l3",
+              "slug": "iteration",
+              "title": "Iteration",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m9-l4",
+              "slug": "generic-contracts-and-type-hints",
+              "title": "Generic contracts and type hints",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp2-m10",
+          "slug": "functional-style",
+          "title": "Functional style",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp2-m10-l1",
+              "slug": "functions-as-values",
+              "title": "Functions as values",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m10-l2",
+              "slug": "transform-and-filter",
+              "title": "Transform and filter",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m10-l3",
+              "slug": "aggregation",
+              "title": "Aggregation",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m10-l4",
+              "slug": "readable-pipelines",
+              "title": "Readable pipelines",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp2-m11",
+          "slug": "recursion-searching-and-sorting",
+          "title": "Recursion searching and sorting",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp2-m11-l1",
+              "slug": "base-cases",
+              "title": "Base cases",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m11-l2",
+              "slug": "the-call-stack",
+              "title": "The call stack",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m11-l3",
+              "slug": "search-strategies",
+              "title": "Search strategies",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m11-l4",
+              "slug": "sorting-strategies",
+              "title": "Sorting strategies",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        },
+        {
+          "id": "cp2-m12",
+          "slug": "files-and-computer-programming-2-capstone",
+          "title": "Files and Computer Programming 2 capstone",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "cp2-m12-l1",
+              "slug": "reading-files",
+              "title": "Reading files",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m12-l2",
+              "slug": "writing-safely",
+              "title": "Writing safely",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m12-l3",
+              "slug": "plan-a-lending-desk",
+              "title": "Plan a lending desk",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "cp2-m12-l4",
+              "slug": "build-and-review-the-lending-desk",
+              "title": "Build and review the lending desk",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": []
+        }
+      ]
+    },
+    {
+      "id": "dsa",
+      "title": "Data Structures and Algorithms",
+      "description": "Learn the structures and patterns, then practise on the Iwons Path.",
+      "recommended": "Computer Programming 1 is recommended. Computer Programming 2 helps with nodes, trees and graphs.",
+      "modules": [
+        {
+          "id": "dsa-m1",
+          "slug": "thinking-in-algorithms",
+          "title": "Thinking in algorithms",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "dsa-m1-l1",
+              "slug": "a-repeatable-procedure",
+              "title": "A repeatable procedure",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m1-l2",
+              "slug": "pseudocode",
+              "title": "Pseudocode",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m1-l3",
+              "slug": "tracing-state",
+              "title": "Tracing state",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m1-l4",
+              "slug": "correctness-examples",
+              "title": "Correctness examples",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": [
+            "receipt-arithmetic",
+            "stamp-gates",
+            "ribbon-totals",
+            "reset-tallies",
+            "digit-workshop"
+          ]
+        },
+        {
+          "id": "dsa-m2",
+          "slug": "big-o-and-cost",
+          "title": "Big-O and cost",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "dsa-m2-l1",
+              "slug": "counting-operations",
+              "title": "Counting operations",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m2-l2",
+              "slug": "growth-rates",
+              "title": "Growth rates",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m2-l3",
+              "slug": "space-costs",
+              "title": "Space costs",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m2-l4",
+              "slug": "reading-constraints",
+              "title": "Reading constraints",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": [
+            "receipt-arithmetic",
+            "ribbon-totals"
+          ]
+        },
+        {
+          "id": "dsa-m3",
+          "slug": "arrays-and-strings-in-depth",
+          "title": "Arrays and strings in depth",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "dsa-m3-l1",
+              "slug": "storage-and-indices",
+              "title": "Storage and indices",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m3-l2",
+              "slug": "in-place-changes",
+              "title": "In-place changes",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m3-l3",
+              "slug": "grid-traversal",
+              "title": "Grid traversal",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m3-l4",
+              "slug": "text-traversal",
+              "title": "Text traversal",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": [
+            "neighbor-notes",
+            "ribbon-runs",
+            "positive-trays",
+            "drawer-grids",
+            "word-slips"
+          ]
+        },
+        {
+          "id": "dsa-m4",
+          "slug": "hash-maps-and-sets",
+          "title": "Hash maps and sets",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "dsa-m4-l1",
+              "slug": "hashing-and-collisions",
+              "title": "Hashing and collisions",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m4-l2",
+              "slug": "frequency-tables",
+              "title": "Frequency tables",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m4-l3",
+              "slug": "membership-and-deduplication",
+              "title": "Membership and deduplication",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m4-l4",
+              "slug": "choosing-a-map",
+              "title": "Choosing a map",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": [
+            "frequency-files",
+            "first-arrivals",
+            "shared-drawers",
+            "remainder-boxes"
+          ]
+        },
+        {
+          "id": "dsa-m5",
+          "slug": "sorting-basics-and-comparators",
+          "title": "Sorting basics and comparators",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "dsa-m5-l1",
+              "slug": "selection-sort",
+              "title": "Selection sort",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m5-l2",
+              "slug": "insertion-sort",
+              "title": "Insertion sort",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m5-l3",
+              "slug": "stability",
+              "title": "Stability",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m5-l4",
+              "slug": "custom-ordering",
+              "title": "Custom ordering",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": [
+            "magnitude-order",
+            "insertion-tabs"
+          ]
+        },
+        {
+          "id": "dsa-m6",
+          "slug": "two-pointers-and-sliding-window",
+          "title": "Two pointers and sliding window",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "dsa-m6-l1",
+              "slug": "opposite-pointers",
+              "title": "Opposite pointers",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m6-l2",
+              "slug": "fast-and-slow-scans",
+              "title": "Fast and slow scans",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m6-l3",
+              "slug": "fixed-windows",
+              "title": "Fixed windows",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m6-l4",
+              "slug": "variable-windows",
+              "title": "Variable windows",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": [
+            "facing-cards",
+            "duplicate-carriage",
+            "fixed-panels",
+            "expanding-panels"
+          ]
+        },
+        {
+          "id": "dsa-m7",
+          "slug": "prefix-sums-and-difference-arrays",
+          "title": "Prefix sums and difference arrays",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "dsa-m7-l1",
+              "slug": "cumulative-totals",
+              "title": "Cumulative totals",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m7-l2",
+              "slug": "range-queries",
+              "title": "Range queries",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m7-l3",
+              "slug": "range-updates",
+              "title": "Range updates",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m7-l4",
+              "slug": "boundary-accounting",
+              "title": "Boundary accounting",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": [
+            "prefix-stencils",
+            "paired-drawers"
+          ]
+        },
+        {
+          "id": "dsa-m8",
+          "slug": "stacks-queues-and-deques",
+          "title": "Stacks queues and deques",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "dsa-m8-l1",
+              "slug": "last-in-first-out",
+              "title": "Last in first out",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m8-l2",
+              "slug": "first-in-first-out",
+              "title": "First in first out",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m8-l3",
+              "slug": "double-ended-queues",
+              "title": "Double-ended queues",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m8-l4",
+              "slug": "monotonic-stacks",
+              "title": "Monotonic stacks",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": [
+            "canceling-stamps",
+            "taller-keycaps",
+            "round-desk",
+            "window-pegs",
+            "undo-drawer"
+          ]
+        },
+        {
+          "id": "dsa-m9",
+          "slug": "recursion-and-divide-and-conquer",
+          "title": "Recursion and divide and conquer",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "dsa-m9-l1",
+              "slug": "stack-frames",
+              "title": "Stack frames",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m9-l2",
+              "slug": "recursive-contracts",
+              "title": "Recursive contracts",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m9-l3",
+              "slug": "splitting-work",
+              "title": "Splitting work",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m9-l4",
+              "slug": "combining-results",
+              "title": "Combining results",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": [
+            "recursive-shelves"
+          ]
+        },
+        {
+          "id": "dsa-m10",
+          "slug": "merge-sort-quicksort-and-binary-search",
+          "title": "Merge sort quicksort and binary search",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "dsa-m10-l1",
+              "slug": "merge-sort",
+              "title": "Merge sort",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m10-l2",
+              "slug": "partitioning",
+              "title": "Partitioning",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m10-l3",
+              "slug": "binary-search",
+              "title": "Binary search",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m10-l4",
+              "slug": "searching-an-answer",
+              "title": "Searching an answer",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": [
+            "sorting-press",
+            "insertion-tabs",
+            "square-gauges"
+          ]
+        },
+        {
+          "id": "dsa-m11",
+          "slug": "bit-manipulation",
+          "title": "Bit manipulation",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "dsa-m11-l1",
+              "slug": "binary-representation",
+              "title": "Binary representation",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m11-l2",
+              "slug": "masks",
+              "title": "Masks",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m11-l3",
+              "slug": "bit-operations",
+              "title": "Bit operations",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m11-l4",
+              "slug": "bit-counting",
+              "title": "Bit counting",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": [
+            "bit-ribbons",
+            "xor-register"
+          ]
+        },
+        {
+          "id": "dsa-m12",
+          "slug": "linked-lists",
+          "title": "Linked lists",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "dsa-m12-l1",
+              "slug": "nodes-and-links",
+              "title": "Nodes and links",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m12-l2",
+              "slug": "insertion-and-removal",
+              "title": "Insertion and removal",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m12-l3",
+              "slug": "doubly-linked-lists",
+              "title": "Doubly linked lists",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m12-l4",
+              "slug": "fast-and-slow-pointers",
+              "title": "Fast and slow pointers",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": [
+            "chain-inspection",
+            "chain-turntable",
+            "midpoint-chain"
+          ],
+          "beforeYouStart": "Computer Programming 2 classes and objects are recommended before building nodes. This is advice, not a lock."
+        },
+        {
+          "id": "dsa-m13",
+          "slug": "trees-and-bsts",
+          "title": "Trees and BSTs",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "dsa-m13-l1",
+              "slug": "tree-structure",
+              "title": "Tree structure",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m13-l2",
+              "slug": "depth-first-traversals",
+              "title": "Depth-first traversals",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m13-l3",
+              "slug": "breadth-first-traversal",
+              "title": "Breadth-first traversal",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m13-l4",
+              "slug": "search-tree-operations",
+              "title": "Search tree operations",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": [
+            "branch-notebook",
+            "floor-register",
+            "catalog-branches"
+          ],
+          "beforeYouStart": "Computer Programming 2 classes and objects are recommended before building nodes. This is advice, not a lock."
+        },
+        {
+          "id": "dsa-m14",
+          "slug": "heaps-and-priority-queues",
+          "title": "Heaps and priority queues",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "dsa-m14-l1",
+              "slug": "the-heap-invariant",
+              "title": "The heap invariant",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m14-l2",
+              "slug": "push-and-pop",
+              "title": "Push and pop",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m14-l3",
+              "slug": "building-a-heap",
+              "title": "Building a heap",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m14-l4",
+              "slug": "priority-scheduling",
+              "title": "Priority scheduling",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": [
+            "priority-basket"
+          ]
+        },
+        {
+          "id": "dsa-m15",
+          "slug": "graphs",
+          "title": "Graphs",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "dsa-m15-l1",
+              "slug": "representations",
+              "title": "Representations",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m15-l2",
+              "slug": "bfs-and-grid-search",
+              "title": "BFS and grid search",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m15-l3",
+              "slug": "dfs-and-topological-order",
+              "title": "DFS and topological order",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m15-l4",
+              "slug": "shortest-paths",
+              "title": "Shortest paths",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": [
+            "switchboard-rings",
+            "dispatch-order",
+            "weighted-lines",
+            "island-ledgers"
+          ],
+          "beforeYouStart": "Computer Programming 2 classes and objects are recommended before building nodes. This is advice, not a lock."
+        },
+        {
+          "id": "dsa-m16",
+          "slug": "union-find",
+          "title": "Union-find",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "dsa-m16-l1",
+              "slug": "disjoint-groups",
+              "title": "Disjoint groups",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m16-l2",
+              "slug": "finding-a-representative",
+              "title": "Finding a representative",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m16-l3",
+              "slug": "union-by-size",
+              "title": "Union by size",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m16-l4",
+              "slug": "path-compression",
+              "title": "Path compression",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": [
+            "cable-families"
+          ]
+        },
+        {
+          "id": "dsa-m17",
+          "slug": "tries",
+          "title": "Tries",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "dsa-m17-l1",
+              "slug": "prefix-nodes",
+              "title": "Prefix nodes",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m17-l2",
+              "slug": "insert-and-lookup",
+              "title": "Insert and lookup",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m17-l3",
+              "slug": "prefix-queries",
+              "title": "Prefix queries",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m17-l4",
+              "slug": "trie-boundaries",
+              "title": "Trie boundaries",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": [
+            "prefix-cabinet"
+          ]
+        },
+        {
+          "id": "dsa-m18",
+          "slug": "greedy-thinking",
+          "title": "Greedy thinking",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "dsa-m18-l1",
+              "slug": "local-choices",
+              "title": "Local choices",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m18-l2",
+              "slug": "exchange-arguments",
+              "title": "Exchange arguments",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m18-l3",
+              "slug": "counterexamples",
+              "title": "Counterexamples",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m18-l4",
+              "slug": "scheduling-decisions",
+              "title": "Scheduling decisions",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": [
+            "booking-rack",
+            "selection-proof"
+          ]
+        },
+        {
+          "id": "dsa-m19",
+          "slug": "dynamic-programming",
+          "title": "Dynamic programming",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "dsa-m19-l1",
+              "slug": "choosing-state",
+              "title": "Choosing state",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m19-l2",
+              "slug": "memoization",
+              "title": "Memoization",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m19-l3",
+              "slug": "tabulation",
+              "title": "Tabulation",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m19-l4",
+              "slug": "two-dimensional-tables",
+              "title": "Two-dimensional tables",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": [
+            "tiling-ribbon",
+            "postage-drawer",
+            "parcel-budget",
+            "rising-labels",
+            "paid-reservations"
+          ]
+        },
+        {
+          "id": "dsa-m20",
+          "slug": "backtracking-intervals-and-the-pattern-playbook",
+          "title": "Backtracking intervals and the pattern playbook",
+          "status": "planned",
+          "availability": {
+            "java": "planned",
+            "javascript": "planned",
+            "typescript": "planned",
+            "python": "planned"
+          },
+          "lessons": [
+            {
+              "id": "dsa-m20-l1",
+              "slug": "decision-trees",
+              "title": "Decision trees",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m20-l2",
+              "slug": "undoing-choices",
+              "title": "Undoing choices",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m20-l3",
+              "slug": "intervals",
+              "title": "Intervals",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            },
+            {
+              "id": "dsa-m20-l4",
+              "slug": "choosing-a-pattern",
+              "title": "Choosing a pattern",
+              "status": "planned",
+              "availability": {
+                "java": "planned",
+                "javascript": "planned",
+                "typescript": "planned",
+                "python": "planned"
+              },
+              "languages": [
+                "en"
+              ],
+              "variants": {}
+            }
+          ],
+          "practiceUnits": [
+            "press-parentheses",
+            "roster-proof",
+            "booking-rack"
+          ]
+        }
+      ]
+    }
+  ]
+}

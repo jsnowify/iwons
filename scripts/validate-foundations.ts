@@ -5,6 +5,7 @@ import { spawnSync } from "node:child_process";
 import { pathToFileURL } from "node:url";
 import { validateFoundationsManifest, validateJava8Source, validateTranslations } from "../src/lib/foundations/validate.ts";
 import { compare } from "../src/lib/harness/compare.ts";
+import { validateLearnStructure } from "./validate-learn.ts";
 import type { ExerciseContent, ExercisePrivate, FoundationsManifest, LessonContent, ModuleContent, Checkpoint, CheckpointPrivate } from "../src/lib/foundations/types";
 
 const root = path.resolve(".");
@@ -153,6 +154,9 @@ if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.ar
   const file = "src/data/foundations.json";
   assert(fs.existsSync(file), "Foundations content is gated: no approved manifest exists. No lessons were generated.");
   const manifest = read<FoundationsManifest>(file);
-  validateFoundationsManifest(manifest);
-  for (const moduleId of process.argv[2] ? [process.argv[2]] : manifest.modules.map(courseModule => courseModule.id)) console.log(JSON.stringify(validateFoundationsModule(manifest, moduleId)));
+  if(Number(manifest.schemaVersion)===2) validateLearnStructure(["cp1","cp2"]);
+  else {
+    validateFoundationsManifest(manifest);
+    for (const moduleId of process.argv[2] ? [process.argv[2]] : manifest.modules.map(courseModule => courseModule.id)) console.log(JSON.stringify(validateFoundationsModule(manifest, moduleId)));
+  }
 }

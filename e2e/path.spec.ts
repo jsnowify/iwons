@@ -115,7 +115,7 @@ test("v1 work is readable and exportable from the archive; retired URLs explain 
   await page.getByRole("button", { name: "Export everything" }).click();
   const file = await wait;
   const backup = JSON.parse(await readFile((await file.path())!, "utf8"));
-  expect(backup.schemaVersion).toBe(4);
+  expect(backup.schemaVersion).toBe(5);
   expect(backup.data.archive.data["drafts:001:javascript"]).toContain(
     "oldDraft",
   );

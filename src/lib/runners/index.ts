@@ -1,5 +1,6 @@
 import type { Language, RunRequest, RunResult, Settings } from "@/lib/types";
 import { compare } from "@/lib/harness/compare";
+import { normalizeProgramOutput } from "./program-shim";
 export function runCode(
   language: Language,
   req: RunRequest,
@@ -7,12 +8,6 @@ export function runCode(
   onStatus: (s: string) => void,
   signal?: AbortSignal,
 ): Promise<RunResult> {
-  if (req.mode === "program" && language !== "java")
-    return Promise.resolve({
-      verdict: "compile_error",
-      cases: [],
-      compileError: { message: "Whole-program mode currently requires Java." },
-    });
   if (language === "java" && settings.javaBackend === "cheerpj")
     return Promise.resolve({
       verdict: "compile_error",
@@ -55,7 +50,7 @@ export function runCode(
       });
     timer = setTimeout(
       timeout,
-      language === "python"
+      language === "python" || (language === "typescript" && req.strictTypes)
         ? 90000
         : language === "java"
           ? 60000
@@ -79,7 +74,7 @@ export function runCode(
       const result = e.data as RunResult;
       if (language === "python" || language === "java") {
         for (const c of result.cases)
-          c.passed = !c.error && compare(c.actual, c.expected, req.comparison);
+          c.passed = !c.error && (req.mode === "program" ? normalizeProgramOutput(c.actual) === normalizeProgramOutput(c.expected) : compare(c.actual, c.expected, req.comparison));
         if (result.verdict === "accepted" || result.verdict === "wrong_answer")
           result.verdict = result.cases.every((c) => c.passed)
             ? "accepted"

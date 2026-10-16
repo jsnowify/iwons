@@ -19,7 +19,8 @@ import {
   Moon,
   ChevronRight,
   ShieldCheck,
-  Command,
+  CircleHelp,
+  MoreHorizontal,
   FileClock,
   Terminal,
   HardDrive,
@@ -36,6 +37,7 @@ import { downloadExport } from "@/lib/storage";
 import { configureOffline } from "@/lib/offline";
 import { ToastProvider, Modal, Button } from "./ui";
 import { Sidebar, NavigationItem, navigation as nav } from "./sidebar";
+import { isTrack } from "@/lib/foundations/model-v2";
 export function Shell({ children }: { children: ReactNode }) {
   return (
     <ToastProvider>
@@ -68,6 +70,8 @@ function ShellContent({ children }: { children: ReactNode }) {
   const [searchError, setSearchError] = useState(false);
   const [searchRetry, setSearchRetry] = useState(0);
   const landing = pathname === "/";
+  const routeTrack = pathname.split("/")[2];
+  const learnTrack = isTrack(routeTrack) ? routeTrack : store.settings.codeTrack;
   const current =
     nav.find((n) =>
       n.href === "/"
@@ -135,7 +139,7 @@ function ShellContent({ children }: { children: ReactNode }) {
       <a className="sr-only focus:not-sr-only" href="#main">
         Skip to content
       </a>
-      {!landing ? <Sidebar current={current} due={due} count={curriculumStats.problems} collapsed={collapsed} onCollapse={() => setCollapsed(!collapsed)} profile={store.profile} xp={stats.xp} level={stats.level} /> : null}
+      {!landing ? <Sidebar current={current} currentPath={pathname} learnTrack={learnTrack} due={due} count={curriculumStats.problems} collapsed={collapsed} onCollapse={() => setCollapsed(!collapsed)} profile={store.profile} xp={stats.xp} level={stats.level} /> : null}
       <div className="main-shell">
         <header className="topbar">
           {landing ? (
@@ -167,10 +171,10 @@ function ShellContent({ children }: { children: ReactNode }) {
             <Link
               prefetch={false}
               href="/"
-              className="show-mobile brand-icon"
+              className="show-mobile mobile-home"
               aria-label="Iwons home"
             >
-              ı
+              <span className="brand-icon" aria-hidden="true">ı</span>
             </Link>
             <span>Workspace</span>
             <ChevronRight size={12} />
@@ -210,7 +214,7 @@ function ShellContent({ children }: { children: ReactNode }) {
               className="icon-button"
               aria-label="About Iwons"
             >
-              <Command size={16} />
+              <CircleHelp size={18} aria-hidden="true" />
             </Link>
           </div>
         </header>
@@ -222,10 +226,9 @@ function ShellContent({ children }: { children: ReactNode }) {
             .filter((n) =>
               [
                 "/dashboard/",
+                "/learn/",
                 "/path/",
                 "/problems/",
-                "/review/",
-                "/contest/",
               ].includes(n.href),
             )
             .map((n) => (
@@ -235,11 +238,13 @@ function ShellContent({ children }: { children: ReactNode }) {
                 key={n.href}
                 className={current === n.label ? "active" : ""}
                 aria-current={current === n.label ? "page" : undefined}
+                aria-label={n.label}
               >
-                <n.icon size={19} />
-                {n.label === "Review queue" ? "Review" : n.label}
+                <n.icon size={20} aria-hidden="true" />
+                <span>{n.label === "Your desk" ? "Desk" : n.label === "The Path" ? "Path" : n.label}</span>
               </Link>
             ))}
+          <button type="button" aria-label="More pages" aria-haspopup="dialog" aria-expanded={mobileMenu} onClick={() => setMobileMenu(true)}><MoreHorizontal size={20} aria-hidden="true"/><span>More</span></button>
         </nav>
       ) : null}
       <Modal open={mobileMenu} onClose={() => setMobileMenu(false)} title="Your workspace">

@@ -1,0 +1,5 @@
+import Link from "next/link";
+import { Visualizer } from "@/components/visualizer";
+import { binarySearchFrames, insertionSortFrames, gridBfsFrames } from "@/lib/foundations/visualizers";
+export const metadata={title:"Algorithm workbench",description:"Step through binary search, insertion sort and breadth-first grid search.",alternates:{canonical:"/learn/visualizers/"}};
+export default function Page(){return <div className="learn-page"><Link prefetch={false} href="/learn/">Back to Learn</Link><h1>Move one card. See one idea.</h1><p>The algorithm workbench previews three tools for the Data Structures and Algorithms course. Highlighted cards have an arrow and label as well as colour. Nothing plays until you choose Play.</p><Visualizer title="Binary search" frames={binarySearchFrames([3,8,14,22,29,41,56],29)}/><Visualizer title="Insertion sort" frames={insertionSortFrames([17,6,12,4])}/><Visualizer title="BFS on a grid" frames={gridBfsFrames([[0,0,1,0],[1,0,0,0],[0,0,1,0]],[0,0])}/></div>;}

@@ -1,0 +1,915 @@
+{
+  "id": "tool-demo",
+  "moduleId": "tool-demo",
+  "course": "cp1",
+  "slug": "tool-demo",
+  "concepts": [
+    "output"
+  ],
+  "introducedIn": {
+    "java": {
+      "output": "tool-demo"
+    },
+    "python": {
+      "output": "tool-demo"
+    },
+    "javascript": {
+      "output": "tool-demo"
+    },
+    "typescript": {
+      "output": "tool-demo"
+    }
+  },
+  "interactionTypes": [
+    "guess",
+    "run",
+    "trace",
+    "fill"
+  ],
+  "opening": "predict",
+  "estimatedMinutes": 5,
+  "shared": {
+    "translations": {
+      "en": {
+        "title": "Learning tools demonstration",
+        "story": "A small office sign needs a message before the desk opens. Read the short program above and write the exact word you think will appear. Keep your guess even if you are unsure: comparing it with a real run gives you something concrete to investigate. This page demonstrates the lesson controls, rather than adding a completed course lesson to your record. Nothing here changes your course progress or earns rewards. You can return to any step using the numbered ribbon, so there is no need to remember an answer while hunting through a long page.",
+        "idea": "The program sends a short message to its output. The surrounding punctuation tells the language where that message begins and ends; it is not part of the printed word. Run the unchanged example before editing it. Then compare the output with your guess slip. If they differ, look at the letters inside the quotes one at a time. The trace step shows the same operation in a smaller view, giving you a way to check your reasoning before making a change.",
+        "make": "A real lesson connects this step to a small exercise ladder. You would first inspect a worked example, then complete a missing piece, arrange blocks, repair a mistake and write an independent program. This demonstration leaves those course links out. Use the next step to try retrieval instead: answer before revealing the explanation, then choose how difficult remembering felt.",
+        "recap": "You have compared a prediction with a run, stepped through output and tried changing a message. Recall checks ask you to retrieve an idea before seeing the answer. A useful next action is to explain which characters belong to the output and which belong to the program. The real lesson records your learning and schedules its cards; this tool demonstration deliberately keeps those records untouched."
+      },
+      "fil": null,
+      "ceb": null
+    },
+    "translationStatus": {
+      "en": "reviewed",
+      "fil": "draft",
+      "ceb": "draft"
+    }
+  },
+  "tracks": {
+    "java": {
+      "code": "public class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Ready\");\n    }\n}",
+      "stdin": "",
+      "annotations": {
+        "translations": {
+          "en": {
+            "items": [
+              {
+                "line": 3,
+                "text": "This statement prints the quoted message once."
+              }
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "notes": {
+        "translations": {
+          "en": {
+            "items": [
+              "This Java program needs your configured endpoint for a browser run; use the local JDK otherwise."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "predict": {
+        "translations": {
+          "en": {
+            "prompt": "What exact word will this program print? Write a guess before running it."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "trace": {
+        "translations": {
+          "en": {
+            "steps": [
+              {
+                "line": 3,
+                "state": "Output is empty.",
+                "message": "The output statement has not run yet."
+              },
+              {
+                "line": 3,
+                "state": "One line has been printed.",
+                "message": "The output statement runs once, then this program ends."
+              }
+            ],
+            "question": "How many lines does this program print?"
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "commonMistakes": {
+        "translations": {
+          "en": {
+            "items": [
+              "The quote marks belong to the program. They are not printed around the word."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "modify": {
+        "translations": {
+          "en": {
+            "prompt": "Change the printed message to Open. Keep the capitalization exactly as shown."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "breakIt": {
+        "translations": {
+          "en": {
+            "prompt": "Remove a closing quote, then check the program. Find the first error line before putting the quote back."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "recallCards": [
+        {
+          "id": "demo-word",
+          "concept": "output",
+          "format": "multiple-choice",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Which word does the original program print?",
+                "options": [
+                  "Ready",
+                  "Open",
+                  "Nothing"
+                ]
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "demo-lines",
+          "concept": "output",
+          "format": "short-answer",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "How many output lines does the original program produce? Answer with a digit."
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "demo-fill",
+          "concept": "output",
+          "format": "fill-in",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Complete using the term for a row of output: The program prints one ___."
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        }
+      ],
+      "ladder": [
+        {
+          "exerciseId": "tool-demo",
+          "rung": "worked",
+          "concept": "output"
+        }
+      ],
+      "skippedRungs": [
+        {
+          "concept": "output",
+          "rung": "completion",
+          "reason": "This is a temporary tool demonstration, not a published course lesson."
+        },
+        {
+          "concept": "output",
+          "rung": "parsons",
+          "reason": "This is a temporary tool demonstration, not a published course lesson."
+        },
+        {
+          "concept": "output",
+          "rung": "fix",
+          "reason": "This is a temporary tool demonstration, not a published course lesson."
+        },
+        {
+          "concept": "output",
+          "rung": "write",
+          "reason": "This is a temporary tool demonstration, not a published course lesson."
+        }
+      ]
+    },
+    "python": {
+      "code": "print(\"Ready\")",
+      "stdin": "",
+      "annotations": {
+        "translations": {
+          "en": {
+            "items": [
+              {
+                "line": 1,
+                "text": "This statement prints the quoted message once."
+              }
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "notes": {
+        "translations": {
+          "en": {
+            "items": [
+              "Python uses print to send the message to its output."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "predict": {
+        "translations": {
+          "en": {
+            "prompt": "What exact word will this program print? Write a guess before running it."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "trace": {
+        "translations": {
+          "en": {
+            "steps": [
+              {
+                "line": 1,
+                "state": "Output is empty.",
+                "message": "The output statement has not run yet."
+              },
+              {
+                "line": 1,
+                "state": "One line has been printed.",
+                "message": "The output statement runs once, then this program ends."
+              }
+            ],
+            "question": "How many lines does this program print?"
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "commonMistakes": {
+        "translations": {
+          "en": {
+            "items": [
+              "The quote marks belong to the program. They are not printed around the word."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "modify": {
+        "translations": {
+          "en": {
+            "prompt": "Change the printed message to Open. Keep the capitalization exactly as shown."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "breakIt": {
+        "translations": {
+          "en": {
+            "prompt": "Remove a closing quote, then check the program. Find the first error line before putting the quote back."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "recallCards": [
+        {
+          "id": "demo-word",
+          "concept": "output",
+          "format": "multiple-choice",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Which word does the original program print?",
+                "options": [
+                  "Ready",
+                  "Open",
+                  "Nothing"
+                ]
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "demo-lines",
+          "concept": "output",
+          "format": "short-answer",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "How many output lines does the original program produce? Answer with a digit."
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "demo-fill",
+          "concept": "output",
+          "format": "fill-in",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Complete using the term for a row of output: The program prints one ___."
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        }
+      ],
+      "ladder": [
+        {
+          "exerciseId": "tool-demo",
+          "rung": "worked",
+          "concept": "output"
+        }
+      ],
+      "skippedRungs": [
+        {
+          "concept": "output",
+          "rung": "completion",
+          "reason": "This is a temporary tool demonstration, not a published course lesson."
+        },
+        {
+          "concept": "output",
+          "rung": "parsons",
+          "reason": "This is a temporary tool demonstration, not a published course lesson."
+        },
+        {
+          "concept": "output",
+          "rung": "fix",
+          "reason": "This is a temporary tool demonstration, not a published course lesson."
+        },
+        {
+          "concept": "output",
+          "rung": "write",
+          "reason": "This is a temporary tool demonstration, not a published course lesson."
+        }
+      ]
+    },
+    "javascript": {
+      "code": "console.log(\"Ready\");",
+      "stdin": "",
+      "annotations": {
+        "translations": {
+          "en": {
+            "items": [
+              {
+                "line": 1,
+                "text": "This statement prints the quoted message once."
+              }
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "notes": {
+        "translations": {
+          "en": {
+            "items": [
+              "The output appears in the results area, not on the webpage itself."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "predict": {
+        "translations": {
+          "en": {
+            "prompt": "What exact word will this program print? Write a guess before running it."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "trace": {
+        "translations": {
+          "en": {
+            "steps": [
+              {
+                "line": 1,
+                "state": "Output is empty.",
+                "message": "The output statement has not run yet."
+              },
+              {
+                "line": 1,
+                "state": "One line has been printed.",
+                "message": "The output statement runs once, then this program ends."
+              }
+            ],
+            "question": "How many lines does this program print?"
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "commonMistakes": {
+        "translations": {
+          "en": {
+            "items": [
+              "The quote marks belong to the program. They are not printed around the word."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "modify": {
+        "translations": {
+          "en": {
+            "prompt": "Change the printed message to Open. Keep the capitalization exactly as shown."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "breakIt": {
+        "translations": {
+          "en": {
+            "prompt": "Remove a closing quote, then check the program. Find the first error line before putting the quote back."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "recallCards": [
+        {
+          "id": "demo-word",
+          "concept": "output",
+          "format": "multiple-choice",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Which word does the original program print?",
+                "options": [
+                  "Ready",
+                  "Open",
+                  "Nothing"
+                ]
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "demo-lines",
+          "concept": "output",
+          "format": "short-answer",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "How many output lines does the original program produce? Answer with a digit."
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "demo-fill",
+          "concept": "output",
+          "format": "fill-in",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Complete using the term for a row of output: The program prints one ___."
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        }
+      ],
+      "ladder": [
+        {
+          "exerciseId": "tool-demo",
+          "rung": "worked",
+          "concept": "output"
+        }
+      ],
+      "skippedRungs": [
+        {
+          "concept": "output",
+          "rung": "completion",
+          "reason": "This is a temporary tool demonstration, not a published course lesson."
+        },
+        {
+          "concept": "output",
+          "rung": "parsons",
+          "reason": "This is a temporary tool demonstration, not a published course lesson."
+        },
+        {
+          "concept": "output",
+          "rung": "fix",
+          "reason": "This is a temporary tool demonstration, not a published course lesson."
+        },
+        {
+          "concept": "output",
+          "rung": "write",
+          "reason": "This is a temporary tool demonstration, not a published course lesson."
+        }
+      ]
+    },
+    "typescript": {
+      "code": "console.log(\"Ready\");",
+      "stdin": "",
+      "annotations": {
+        "translations": {
+          "en": {
+            "items": [
+              {
+                "line": 1,
+                "text": "This statement prints the quoted message once."
+              }
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "notes": {
+        "translations": {
+          "en": {
+            "items": [
+              "The output appears in the results area, not on the webpage itself."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "predict": {
+        "translations": {
+          "en": {
+            "prompt": "What exact word will this program print? Write a guess before running it."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "trace": {
+        "translations": {
+          "en": {
+            "steps": [
+              {
+                "line": 1,
+                "state": "Output is empty.",
+                "message": "The output statement has not run yet."
+              },
+              {
+                "line": 1,
+                "state": "One line has been printed.",
+                "message": "The output statement runs once, then this program ends."
+              }
+            ],
+            "question": "How many lines does this program print?"
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "commonMistakes": {
+        "translations": {
+          "en": {
+            "items": [
+              "The quote marks belong to the program. They are not printed around the word."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "modify": {
+        "translations": {
+          "en": {
+            "prompt": "Change the printed message to Open. Keep the capitalization exactly as shown."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "breakIt": {
+        "translations": {
+          "en": {
+            "prompt": "Remove a closing quote, then check the program. Find the first error line before putting the quote back."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "recallCards": [
+        {
+          "id": "demo-word",
+          "concept": "output",
+          "format": "multiple-choice",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Which word does the original program print?",
+                "options": [
+                  "Ready",
+                  "Open",
+                  "Nothing"
+                ]
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "demo-lines",
+          "concept": "output",
+          "format": "short-answer",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "How many output lines does the original program produce? Answer with a digit."
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "demo-fill",
+          "concept": "output",
+          "format": "fill-in",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Complete using the term for a row of output: The program prints one ___."
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        }
+      ],
+      "ladder": [
+        {
+          "exerciseId": "tool-demo",
+          "rung": "worked",
+          "concept": "output"
+        }
+      ],
+      "skippedRungs": [
+        {
+          "concept": "output",
+          "rung": "completion",
+          "reason": "This is a temporary tool demonstration, not a published course lesson."
+        },
+        {
+          "concept": "output",
+          "rung": "parsons",
+          "reason": "This is a temporary tool demonstration, not a published course lesson."
+        },
+        {
+          "concept": "output",
+          "rung": "fix",
+          "reason": "This is a temporary tool demonstration, not a published course lesson."
+        },
+        {
+          "concept": "output",
+          "rung": "write",
+          "reason": "This is a temporary tool demonstration, not a published course lesson."
+        }
+      ]
+    }
+  }
+}

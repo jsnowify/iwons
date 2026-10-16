@@ -443,8 +443,8 @@ select:focus-visible,
 }
 .filterbar select,
 .search-field input {
-  border: 1px solid var(--ink) !important;
-  background: var(--surface) !important;
+  border: 2px solid var(--ink);
+  background-color: var(--surface);
   min-height: 42px;
 }
 .problem-table {

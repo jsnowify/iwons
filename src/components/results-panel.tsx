@@ -12,6 +12,8 @@ export const ResultsPanel = memo(function ResultsPanel({
   custom,
   onCustom,
   failureInput,
+  failureStdin,
+  programMode=false,
 }: {
   result: RunResult | null;
   tests: TestCase[];
@@ -20,6 +22,8 @@ export const ResultsPanel = memo(function ResultsPanel({
   custom: string;
   onCustom: (s: string) => void;
   failureInput?: unknown[];
+  failureStdin?: string;
+  programMode?: boolean;
 }) {
   const [tab, setTab] = useState("testcases"),
     [index, setIndex] = useState(0);
@@ -63,6 +67,7 @@ export const ResultsPanel = memo(function ResultsPanel({
         </button>
       </div>
       <div className="results-content" aria-live="polite">
+        {result?.diagnostics?.length ? <div><p>{result.verdict==="compile_error"?"Submission paused for type errors.":"Run completed with type warnings."} Fix the reported lines before submitting.</p>{result.diagnostics.map((diagnostic,index)=><pre key={index}>Line {diagnostic.line??"?"}: {diagnostic.message}</pre>)}</div>:null}
         {running ? (
           <div className="row muted" style={{ fontSize: 12 }}>
             <Loader2 size={16} className="animate-spin" />
@@ -72,7 +77,7 @@ export const ResultsPanel = memo(function ResultsPanel({
           <div className="stack" style={{ gap: 12 }}>
             <label>
               Custom cases{" "}
-              <small>JSON array of {"{ input: [...], expected: ... }"}</small>
+              <small>JSON array of {programMode?'{ input: [], stdin: "...", expected: "..." }':'{ input: [...], expected: ... }'}</small>
               <textarea
                 rows={3}
                 className="mono"
@@ -111,28 +116,29 @@ export const ResultsPanel = memo(function ResultsPanel({
                 </span>
               </div>
               {result.compileError ? (
-                <pre className="danger">{result.compileError.message}</pre>
+                <><p>The check needs attention. Start with the first reported line, then run again.</p><pre className="danger">{result.compileError.message}</pre></>
               ) : failed ? (
                 <>
-                  <div className="case-field" style={{ marginBottom: 12 }}>
+                  {!programMode?<div className="case-field" style={{ marginBottom: 12 }}>
                     <label>First failing input</label>
                     <pre>
-                      {JSON.stringify(
+                      {programMode?(failureStdin??selectedFailed?.stdin??"Hidden input"):JSON.stringify(
                         failureInput ?? selectedFailed?.input ?? "Hidden case",
                       )}
                     </pre>
-                  </div>
-                  <div className="case-fields">
+                  </div>:null}
+                  <div className={`case-fields ${programMode?"program-case-fields":""}`}>
+                    {programMode?<div className="case-field"><label>Input (stdin)</label><pre>{failureStdin??selectedFailed?.stdin??"Hidden input"}</pre></div>:null}
                     <div className="case-field">
                       <label>Expected</label>
                       <pre className="success">
-                        {JSON.stringify(failed.expected)}
+                        {programMode?String(failed.expected):JSON.stringify(failed.expected)}
                       </pre>
                     </div>
                     <div className="case-field">
                       <label>Actual</label>
                       <pre className="danger">
-                        {failed.error || JSON.stringify(failed.actual)}
+                        {failed.error || (programMode?String(failed.actual):JSON.stringify(failed.actual))}
                       </pre>
                     </div>
                   </div>
@@ -174,7 +180,7 @@ export const ResultsPanel = memo(function ResultsPanel({
               <div className="case-fields">
                 <div className="case-field">
                   <label>Input</label>
-                  <pre>{JSON.stringify(test.input)}</pre>
+                  <pre>{test.stdin!==undefined?test.stdin:JSON.stringify(test.input)}</pre>
                 </div>
                 <div className="case-field">
                   <label>{r ? "Actual → expected" : "Expected"}</label>

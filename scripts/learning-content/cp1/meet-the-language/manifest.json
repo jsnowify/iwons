@@ -1,0 +1,225 @@
+{
+  "id": "cp1-m1",
+  "slug": "meet-the-language",
+  "status": "ready",
+  "availability": {
+    "java": "ready",
+    "python": "ready",
+    "javascript": "ready",
+    "typescript": "ready"
+  },
+  "lessons": [
+    {
+      "id": "cp1-m1-l1",
+      "slug": "the-first-message",
+      "title": "The first message",
+      "status": "ready",
+      "availability": {
+        "java": "ready",
+        "python": "ready",
+        "javascript": "ready",
+        "typescript": "ready"
+      },
+      "languages": [
+        "en"
+      ],
+      "variants": {
+        "java": {
+          "concepts": [
+            "output"
+          ],
+          "introducedIn": {
+            "output": "cp1-m1-l1"
+          },
+          "contentFile": "cp1/meet-the-language/lessons/the-first-message.json"
+        },
+        "python": {
+          "concepts": [
+            "output"
+          ],
+          "introducedIn": {
+            "output": "cp1-m1-l1"
+          },
+          "contentFile": "cp1/meet-the-language/lessons/the-first-message.json"
+        },
+        "javascript": {
+          "concepts": [
+            "output"
+          ],
+          "introducedIn": {
+            "output": "cp1-m1-l1"
+          },
+          "contentFile": "cp1/meet-the-language/lessons/the-first-message.json"
+        },
+        "typescript": {
+          "concepts": [
+            "output"
+          ],
+          "introducedIn": {
+            "output": "cp1-m1-l1"
+          },
+          "contentFile": "cp1/meet-the-language/lessons/the-first-message.json"
+        }
+      }
+    },
+    {
+      "id": "cp1-m1-l2",
+      "slug": "how-code-runs",
+      "title": "How code runs",
+      "status": "ready",
+      "availability": {
+        "java": "ready",
+        "python": "ready",
+        "javascript": "ready",
+        "typescript": "ready"
+      },
+      "languages": [
+        "en"
+      ],
+      "variants": {
+        "java": {
+          "concepts": [
+            "execution-order"
+          ],
+          "introducedIn": {
+            "execution-order": "cp1-m1-l2"
+          },
+          "contentFile": "cp1/meet-the-language/lessons/how-code-runs.json"
+        },
+        "python": {
+          "concepts": [
+            "execution-order"
+          ],
+          "introducedIn": {
+            "execution-order": "cp1-m1-l2"
+          },
+          "contentFile": "cp1/meet-the-language/lessons/how-code-runs.json"
+        },
+        "javascript": {
+          "concepts": [
+            "execution-order"
+          ],
+          "introducedIn": {
+            "execution-order": "cp1-m1-l2"
+          },
+          "contentFile": "cp1/meet-the-language/lessons/how-code-runs.json"
+        },
+        "typescript": {
+          "concepts": [
+            "execution-order"
+          ],
+          "introducedIn": {
+            "execution-order": "cp1-m1-l2"
+          },
+          "contentFile": "cp1/meet-the-language/lessons/how-code-runs.json"
+        }
+      }
+    },
+    {
+      "id": "cp1-m1-l3",
+      "slug": "reading-a-program",
+      "title": "Reading a program",
+      "status": "ready",
+      "availability": {
+        "java": "ready",
+        "python": "ready",
+        "javascript": "ready",
+        "typescript": "ready"
+      },
+      "languages": [
+        "en"
+      ],
+      "variants": {
+        "java": {
+          "concepts": [
+            "source-punctuation"
+          ],
+          "introducedIn": {
+            "source-punctuation": "cp1-m1-l3"
+          },
+          "contentFile": "cp1/meet-the-language/lessons/reading-a-program.json"
+        },
+        "python": {
+          "concepts": [
+            "source-punctuation"
+          ],
+          "introducedIn": {
+            "source-punctuation": "cp1-m1-l3"
+          },
+          "contentFile": "cp1/meet-the-language/lessons/reading-a-program.json"
+        },
+        "javascript": {
+          "concepts": [
+            "source-punctuation"
+          ],
+          "introducedIn": {
+            "source-punctuation": "cp1-m1-l3"
+          },
+          "contentFile": "cp1/meet-the-language/lessons/reading-a-program.json"
+        },
+        "typescript": {
+          "concepts": [
+            "source-punctuation"
+          ],
+          "introducedIn": {
+            "source-punctuation": "cp1-m1-l3"
+          },
+          "contentFile": "cp1/meet-the-language/lessons/reading-a-program.json"
+        }
+      }
+    },
+    {
+      "id": "cp1-m1-l4",
+      "slug": "the-input-desk",
+      "title": "The input desk",
+      "status": "ready",
+      "availability": {
+        "java": "ready",
+        "python": "ready",
+        "javascript": "ready",
+        "typescript": "ready"
+      },
+      "languages": [
+        "en"
+      ],
+      "variants": {
+        "java": {
+          "concepts": [
+            "line-input"
+          ],
+          "introducedIn": {
+            "line-input": "cp1-m1-l4"
+          },
+          "contentFile": "cp1/meet-the-language/lessons/the-input-desk.json"
+        },
+        "python": {
+          "concepts": [
+            "line-input"
+          ],
+          "introducedIn": {
+            "line-input": "cp1-m1-l4"
+          },
+          "contentFile": "cp1/meet-the-language/lessons/the-input-desk.json"
+        },
+        "javascript": {
+          "concepts": [
+            "line-input"
+          ],
+          "introducedIn": {
+            "line-input": "cp1-m1-l4"
+          },
+          "contentFile": "cp1/meet-the-language/lessons/the-input-desk.json"
+        },
+        "typescript": {
+          "concepts": [
+            "line-input"
+          ],
+          "introducedIn": {
+            "line-input": "cp1-m1-l4"
+          },
+          "contentFile": "cp1/meet-the-language/lessons/the-input-desk.json"
+        }
+      }
+    }
+  ]
+}

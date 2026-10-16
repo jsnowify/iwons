@@ -1,5 +1,6 @@
 node_modules/
 .next/
+.next-engine-check/
 out/
 dist/
 coverage/
