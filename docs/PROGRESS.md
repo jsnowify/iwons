@@ -2,7 +2,7 @@
 
 Updated 2026-10-16. Active brief: attachment d002c792-687c-4811-998f-86e1391ef587. This replaces course expansion. English only; preserve all personal data and backup compatibility.
 
-Current phase: P4b shared footer. P1 removal is complete; archived personal data remains compatible.
+Current phase: P5 engagement verification. P1 removal is complete; archived personal data remains compatible.
 
 | Phase | State | Remaining |
 | --- | --- | --- |
@@ -11,7 +11,7 @@ Current phase: P4b shared footer. P1 removal is complete; archived personal data
 | P2 OG/metadata | Done | 501 cached images; 644 route entries; metadata browser check passed |
 | P3 Build/bundle | Done | Turbopack export + static workers; 56.9s build, 544 tests, five browser checks pass |
 | P4 Runtime | Done | Editor/runtime interaction gates, seven Lighthouse audits and bundle graph; final repeat P6 |
-| P4b Footer | Planned | Bottom audit, shared server footer, safe areas, checks |
+| P4b Footer | Done | 80 route/width/theme observations pass; server footer and clean document flow |
 | P5 Engagement | Planned | Path/runners/Watch/XP/Tik/Warm-up/Visualizer/notes smoke |
 | P5b Creator | Planned | Snowi portfolio credit and metadata |
 | P6 Verify | Planned | Before/after, full tests, bottom matrix, final PERF report |
@@ -22,4 +22,4 @@ Live HTTP 200 confirms preview-domain image URLs and no Learn nav. Config is sta
 
 Blockers: none for removal. Java browser checks require a configured endpoint; keep this honest. Do not retry Docker. Leave user dev server alone.
 
-NEXT ACTION: Integrate one server-rendered footer through root layout, fix problem document flow and mobile reserves, run the 80-view bottom matrix.
+NEXT ACTION: Run full browser suite including Path/Warm-up/Visualizer/rewards/Watch/runners; finish creator credit and final performance report.

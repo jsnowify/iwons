@@ -150,21 +150,7 @@ export function Landing() {
           ))}
         </div>
       </section>
-      <footer className="landing-footer">
-        <Link prefetch={false} className="wordmark" href="/">
-          Iwons
-          <span className="brand-dot" />
-        </Link>
-        <span className="muted">A little ink. A lot of possibility.</span>
-        <div className="landing-footer-links">
-          <Link prefetch={false} href="/about/">
-            Our little manifesto
-          </Link>
-          <Link prefetch={false} href="/dashboard/">
-            Your desk ↗
-          </Link>
-        </div>
-      </footer>
+
     </div>
   );
 }

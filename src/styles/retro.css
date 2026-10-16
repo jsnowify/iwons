@@ -1073,23 +1073,9 @@ select:focus-visible,
   color: var(--muted);
   max-width: 280px;
 }
-.landing-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 24px 0 32px;
-  border-top: 2px solid var(--ink);
-  font-size: 11px;
-}
-.landing-footer .wordmark {
-  padding: 0;
-  font-size: 26px;
-}
-.landing-footer-links {
-  display: flex;
-  gap: 24px;
-}
+
+
+
 .path-intro {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -1431,9 +1417,7 @@ select:focus-visible,
     font-size: 10px;
     gap: 12px;
   }
-  .landing-footer {
-    font-size: 10px;
-  }
+  
   .primer-body {
     font-size: 16px;
   }
@@ -1731,19 +1715,9 @@ select:focus-visible,
   .how-step p {
     max-width: none;
   }
-  .landing-footer {
-    flex-wrap: wrap;
-    gap: 20px;
-    padding-bottom: 24px;
-  }
-  .landing-footer > .muted {
-    order: 3;
-    flex: 1 0 100%;
-  }
-  .landing-footer-links {
-    gap: 20px;
-    font-size: 11px;
-  }
+  
+  
+  
   .path-map {
     grid-template-columns: 1fr;
     gap: 24px;

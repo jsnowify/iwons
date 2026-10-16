@@ -37,14 +37,14 @@ import { downloadExport } from "@/lib/storage";
 import { configureOffline } from "@/lib/offline";
 import { ToastProvider, Modal, Button } from "./ui";
 import { Sidebar, NavigationItem, navigation as nav } from "./sidebar";
-export function Shell({ children }: { children: ReactNode }) {
+export function Shell({ children, footer }: { children: ReactNode; footer: ReactNode }) {
   return (
     <ToastProvider>
-      <ShellContent>{children}</ShellContent>
+      <ShellContent footer={footer}>{children}</ShellContent>
     </ToastProvider>
   );
 }
-function ShellContent({ children }: { children: ReactNode }) {
+function ShellContent({ children, footer }: { children: ReactNode; footer: ReactNode }) {
   // Use the rendered route tree for structural UI. A rewritten or cached URL
   // can differ from the server route while React is hydrating that tree.
   const segments = useSelectedLayoutSegments().filter(segment => !segment.startsWith("("));
@@ -217,6 +217,7 @@ function ShellContent({ children }: { children: ReactNode }) {
           </div>
         </header>
         <main id="main">{children}</main>
+        {footer}
       </div>
       {!landing ? (
         <nav className="mobile-nav" aria-label="Mobile navigation">

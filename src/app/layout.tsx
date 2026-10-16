@@ -9,6 +9,7 @@ import {
   JetBrains_Mono,
 } from "next/font/google";
 import { palette } from "@/lib/design-tokens";
+import { Footer } from "@/components/footer";
 import { Shell } from "@/components/shell";
 import "./globals.css";
 const geist = Geist({
@@ -72,7 +73,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <body
         className={`${geist.variable} ${space.variable} ${courier.variable} ${elite.variable} ${jetbrains.variable}`}
       >
-        <Shell>{children}</Shell>
+        <Shell footer={<Footer />}>{children}</Shell>
       </body>
     </html>
   );

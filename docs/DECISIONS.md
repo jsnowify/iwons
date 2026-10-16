@@ -34,3 +34,9 @@ No color, font or layout token changes. No new runtime dependencies. English UI 
 | 2026-10-16 | Remove eager offline download of every font and defer production offline install 2.5s | Reduce competition with first-view route/fonts; offline still available after registration | Restore immediate registration/precache |
 | 2026-10-16 | Stable stamp grid and equal level-access skeleton height | Lighthouse attributed Progress CLS to stamp reflow; level skeleton previously shifted content | Restore prior styles |
 | 2026-10-16 | Exclude generated public/out assets from TypeScript source checking | Static compiler libraries and exported assets are not application source | Remove exclusions |
+
+| 2026-10-17 | One Footer instantiated in root server layout and passed through Shell as markup | Same semantic bottom across all pages, no additional client component or dependency | Remove root footer slot and restore archived landing footer |
+| 2026-10-17 | Flex-column 100dvh shell, main flex 1, mobile bar/safe-area reserve and existing Tailwind spacing scale | No Iwons spacing tokens existed; reuse existing --spacing without changing any tokens | Restore prior layout styles |
+| 2026-10-17 | Normal problem document flow, natural-height output, wrapping tabs and long identifiers | Removes bounded-pane double scrolling and fixes actual 360px text overflow | Restore bounded workspace styles |
+| 2026-10-17 | Footer geometry waits for fonts and allows one-pixel browser rounding | Tests final layout while keeping explicit viewport/content/nav edge checks | Tighten tolerance if browser rounding changes |
+| 2026-10-17 | Remove remaining translation-review document; preserve it in archive branch | Final scan found an overlooked obsolete translation plan | Restore from archive/learn-v1 |

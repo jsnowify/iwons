@@ -29,4 +29,4 @@ Screenshots:
 - [Sidebar hierarchy and language control](../artifacts/ui-polish/learn-light-1280.png)
 - [Landing choices](../artifacts/ui-polish/landing-light-1920.png)
 
-Machine-readable accessibility, reflow and development-page results are adjacent to these images. The earlier Foundations runtime/content gate is unaffected by this UI work.
+Machine-readable accessibility, reflow and development-page results are adjacent to these images.
