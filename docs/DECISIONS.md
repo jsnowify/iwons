@@ -40,3 +40,5 @@ No color, font or layout token changes. No new runtime dependencies. English UI 
 | 2026-10-17 | Normal problem document flow, natural-height output, wrapping tabs and long identifiers | Removes bounded-pane double scrolling and fixes actual 360px text overflow | Restore bounded workspace styles |
 | 2026-10-17 | Footer geometry waits for fonts and allows one-pixel browser rounding | Tests final layout while keeping explicit viewport/content/nav edge checks | Tighten tolerance if browser rounding changes |
 | 2026-10-17 | Remove remaining translation-review document; preserve it in archive branch | Final scan found an overlooked obsolete translation plan | Restore from archive/learn-v1 |
+
+| 2026-10-17 | Credit Snowi at end of About and in shared footer, portfolio link only | Names the creator with existing retro styling and no personal contact details | Remove About credit and footer credit text |

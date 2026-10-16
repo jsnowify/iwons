@@ -92,6 +92,7 @@ export default function About() {
       <Link href="/problems/" className="btn">
         Find your next challenge <ArrowRight size={14} />
       </Link>
+      <section aria-label="Made by Snowi"><h2>Made by Snowi</h2><p>Made by <a className="text-link" href="https://snowi-cambronero.vercel.app/">Snowi</a>, a creative web designer and developer.</p></section>
     </div>
   );
 }

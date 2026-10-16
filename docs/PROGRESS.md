@@ -13,7 +13,7 @@ Current phase: P5 engagement verification. P1 removal is complete; archived pers
 | P4 Runtime | Done | Editor/runtime interaction gates, seven Lighthouse audits and bundle graph; final repeat P6 |
 | P4b Footer | Done | 80 route/width/theme observations pass; server footer and clean document flow |
 | P5 Engagement | Planned | Path/runners/Watch/XP/Tik/Warm-up/Visualizer/notes smoke |
-| P5b Creator | Planned | Snowi portfolio credit and metadata |
+| P5b Creator | Done | About section and shared footer link to Snowi portfolio; browser check passed |
 | P6 Verify | Planned | Before/after, full tests, bottom matrix, final PERF report |
 
 Baseline: Next trace 151.801507 seconds, 1,641 entries (518 OG, 457 Learn). .next 811,532,226 bytes; cache 348,398,488. Catalog 398,817 bytes; curriculum 376,748. Full unit suite 600 passed; typecheck/lint passed. Archived Learn browser probes passed after export postprocessing. The second module remains an unfinished verification candidate.
