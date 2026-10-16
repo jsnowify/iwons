@@ -1,3 +1,4 @@
+import { problems } from "@/lib/catalog";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { topics, topicSlug } from "@/lib/catalog";
@@ -27,5 +28,5 @@ export default async function Topic({
   const { topic } = await params;
   const t = topics.find((t) => topicSlug(t) === topic);
   if (!t) notFound();
-  return <ProblemList initialTopic={t} />;
+  return <ProblemList problems={problems.map(({id,slug,title,difficulty,level,topics,patterns,unit,stage,boss,revisit,summary,order})=>({id,slug,title,difficulty,level,topics,patterns,unit,stage,boss,revisit,summary,order}))} initialTopic={t} />;
 }

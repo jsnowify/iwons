@@ -83,7 +83,7 @@ export default async function ProblemPage({
           __html: JSON.stringify(json).replace(/</g, "\\u003c"),
         }}
       />
-      <Workspace problem={p} description={<ProblemDescription problem={p} />} />
+      <Workspace problem={p} description={<ProblemDescription problem={p} related={getProblems().filter(x=>x.id!==p.id && x.topics.some(t=>p.topics.includes(t))).slice(0,3).map(({id,slug,title})=>({id,slug,title}))} />} />
     </>
   );
 }

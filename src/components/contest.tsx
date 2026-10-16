@@ -1,4 +1,6 @@
 "use client";
+import type { ProblemSummary } from "@/lib/types";
+type CatalogEntry = Pick<ProblemSummary, "id" | "slug" | "title" | "difficulty" | "level" | "topics">;
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -12,12 +14,12 @@ import {
   ArrowRight,
   Flag,
 } from "lucide-react";
-import { problems, problemUrl } from "@/lib/catalog";
+import { problemUrl } from "@/lib/presentation";
 import { isLevelUnlocked } from "@/lib/path";
 import { useStore } from "@/store/use-store";
 import { Button, Badge, Modal, useToast } from "./ui";
 import { Onboarding } from "./onboarding";
-export function ContestPage() {
+export function ContestPage({problems}:{problems:CatalogEntry[]}) {
   const store = useStore(),
     router = useRouter(),
     toast = useToast();

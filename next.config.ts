@@ -7,6 +7,6 @@ const config: NextConfig = {
   output: "export",
   trailingSlash: true,
   images: { unoptimized: true },
-  experimental: { cpus: 4 },
+  experimental: { cpus: 4, webpackBuildWorker: true },
 };
 export default config;

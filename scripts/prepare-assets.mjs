@@ -17,3 +17,5 @@ fs.mkdirSync("public/runners/ts-lib", {recursive:true});
 for (const name of fs.readdirSync("node_modules/typescript/lib").filter(name=>/^lib\..*\.d\.ts$/.test(name))) {
   fs.copyFileSync(`node_modules/typescript/lib/${name}`,`public/runners/ts-lib/${name}`);
 }
+
+await import("./build-workers.mjs");

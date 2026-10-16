@@ -1,4 +1,6 @@
 "use client";
+import type { ProblemSummary } from "@/lib/types";
+type CatalogEntry = Pick<ProblemSummary, "id" | "slug" | "title" | "difficulty" | "level" | "topics">;
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
@@ -10,16 +12,11 @@ import {
   Code2,
 } from "lucide-react";
 import { useStore } from "@/store/use-store";
-import {
-  problems,
-  verdictNames,
-  languageNames,
-  problemUrl,
-} from "@/lib/catalog";
+import { verdictNames, languageNames, problemUrl } from "@/lib/presentation";
 import { storage } from "@/lib/storage";
 import { integrityKind } from "@/lib/watch/badge";
 import { Badge, Empty, Button, useToast } from "./ui";
-export function SubmissionsPage() {
+export function SubmissionsPage({problems}:{problems:CatalogEntry[]}) {
   const store = useStore();
   const [status, setStatus] = useState("");
   const list = store.submissions.filter(
@@ -107,7 +104,7 @@ export function SubmissionsPage() {
     </div>
   );
 }
-export function SubmissionDetail() {
+export function SubmissionDetail({problems}:{problems:CatalogEntry[]}) {
   const store = useStore(),
     toast = useToast();
   const [id, setId] = useState("");

@@ -14,3 +14,5 @@ playwright-report/
 artifacts/
 public/monaco/
 .vercel/
+
+public/runners/js/

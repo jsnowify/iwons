@@ -1,12 +1,14 @@
 "use client";
+import type { ProblemSummary } from "@/lib/types";
+type CatalogEntry = Pick<ProblemSummary, "id" | "slug" | "title" | "difficulty" | "level" | "topics" | "patterns" | "overview" | "complexity">;
 import { useState } from "react";
 import Link from "next/link";
 import { RotateCcw, ArrowRight, BookOpen, CheckCheck } from "lucide-react";
 import { useStore } from "@/store/use-store";
-import { problems, problemUrl } from "@/lib/catalog";
+import { problemUrl } from "@/lib/presentation";
 import { rateReview, intervals, type Rating } from "@/lib/srs";
 import { Button, Empty, Badge, useToast } from "./ui";
-export function ReviewPage() {
+export function ReviewPage({problems}:{problems:CatalogEntry[]}) {
   const store = useStore(),
     toast = useToast();
   const [shown, setShown] = useState(false);

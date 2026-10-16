@@ -1,11 +1,13 @@
 "use client";
+import type { ProblemSummary } from "@/lib/types";
+type CatalogEntry = Pick<ProblemSummary, "id" | "slug" | "title" | "difficulty" | "level" | "topics">;
 import Link from "next/link";
 import { useState } from "react";
 import { Plus, Layers, ArrowRight, Trash2, ListChecks } from "lucide-react";
 import { useStore } from "@/store/use-store";
-import { problems, problemUrl } from "@/lib/catalog";
+import { problemUrl } from "@/lib/presentation";
 import { Button, Modal, Empty, ProgressBar, useToast, Badge } from "./ui";
-export function ListsPage() {
+export function ListsPage({problems}:{problems:CatalogEntry[]}) {
   const store = useStore(),
     toast = useToast();
   const [creating, setCreating] = useState(false),

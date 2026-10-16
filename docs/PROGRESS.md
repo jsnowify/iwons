@@ -2,14 +2,14 @@
 
 Updated 2026-10-16. Active brief: attachment d002c792-687c-4811-998f-86e1391ef587. This replaces course expansion. English only; preserve all personal data and backup compatibility.
 
-Current phase: P3 build and bundle. P1 removal is complete; archived personal data remains compatible.
+Current phase: P4 runtime. P1 removal is complete; archived personal data remains compatible.
 
 | Phase | State | Remaining |
 | --- | --- | --- |
 | P0 Safety/baseline | Done | Dev first requests timed out; repeat after P3 |
 | P1 Remove Learn/locales | Done | 544 unit tests, typecheck/lint/build and six browser checks passed |
 | P2 OG/metadata | Done | 501 cached images; 644 route entries; metadata browser check passed |
-| P3 Build/bundle | Planned | Server JSON, client slices, bundlers, dead code/cache |
+| P3 Build/bundle | Done | Turbopack export + static workers; 56.9s build, 544 tests, five browser checks pass |
 | P4 Runtime | Planned | Lazy code, fonts, hydration, assets and measurements |
 | P4b Footer | Planned | Bottom audit, shared server footer, safe areas, checks |
 | P5 Engagement | Planned | Path/runners/Watch/XP/Tik/Warm-up/Visualizer/notes smoke |
@@ -22,4 +22,4 @@ Live HTTP 200 confirms preview-domain image URLs and no Learn nav. Config is sta
 
 Blockers: none for removal. Java browser checks require a configured endpoint; keep this honest. Do not retry Docker. Leave user dev server alone.
 
-NEXT ACTION: Move catalog reads to server filesystem modules, pass reduced client props, test Turbopack and preserve lazy runtimes.
+NEXT ACTION: Gate editor on explicit interaction, reduce offline/font eager loads, audit runtime bundles/Lighthouse, then implement shared footer.

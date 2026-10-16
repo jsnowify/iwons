@@ -1,11 +1,13 @@
 "use client";
+import type { ProblemSummary } from "@/lib/types";
+type CatalogEntry = Pick<ProblemSummary, "id" | "slug" | "title" | "difficulty" | "level" | "topics" | "patterns" | "overview" | "complexity">;
 import { useState } from "react";
 import Link from "next/link";
 import { useStore } from "@/store/use-store";
-import { problems, problemUrl } from "@/lib/catalog";
+import { problemUrl } from "@/lib/presentation";
 import { rateReview, type Rating } from "@/lib/srs";
 
-export function WarmUp(){
+export function WarmUp({problems}:{problems:CatalogEntry[]}){
  const store=useStore(),[queue,setQueue]=useState<string[]|null>(null),[index,setIndex]=useState(0),[answer,setAnswer]=useState(""),[revealed,setRevealed]=useState(false);
  const problem=queue?problems.find(problem=>problem.id===queue[index]):undefined;
  function start(){

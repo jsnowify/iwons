@@ -61,3 +61,5 @@ P0 complete apart from the recorded dev cold-request timeout limitation. Typeche
 P1-P6 pending. Final report will fill the After column, record blockers and restoration instructions. No speedup is claimed yet.
 
 P2 checkpoint: Next trace 103.736467 seconds, 644 entries, zero OG/Learn entries. 501 static images (500 problems plus home); unchanged run generated zero. 544 unit tests, lint/typecheck, export privacy/image checks and metadata browser check pass. This is an intermediate measurement, not the final result.
+
+P3 checkpoint: Next trace 56.920672 seconds, 644 entries. Fresh isolated Turbopack dev ready 3.679s, homepage first request 15.898s and first problem 11.329s (baseline webpack both timed out at 45s). Progress initial referenced JS 663,000 bytes / 208,697 gzip versus 1,141,401 / 246,275. Static JS and strict TypeScript workers both accepted real cases in Chromium; Path gates, archive export and settings passed. 544 unit tests, lint/typecheck and production export passed. esbuild is build-time only; no runtime dependency added. Cache measurements include historical webpack files until final cleanup/report.

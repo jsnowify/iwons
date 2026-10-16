@@ -1,4 +1,4 @@
-import catalog from "@/data/catalog.json";
+import { problems as catalog } from "./catalog";
 import levelData from "@/data/levels.json";
 import legacy from "@/data/legacy-problems.json";
 import { readFileSync } from "node:fs";

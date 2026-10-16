@@ -25,7 +25,7 @@ export function runCode(
         ? new Worker("/runners/py.worker.js", { type: "module" })
         : language === "java"
           ? new Worker("/runners/java.worker.js")
-          : new Worker(new URL("./js.worker.ts", import.meta.url));
+          : new Worker("/runners/js/worker.js", { type: "module" });
     const finish = (result: RunResult) => {
       if (settled) return;
       settled = true;

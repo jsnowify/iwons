@@ -1,4 +1,6 @@
 "use client";
+import type { ProblemSummary } from "@/lib/types";
+type CatalogEntry = Pick<ProblemSummary, "id" | "slug" | "title" | "difficulty" | "level" | "topics">;
 import { useState } from "react";
 import Link from "next/link";
 import {
@@ -15,10 +17,11 @@ import { useStore } from "@/store/use-store";
 import { getStats } from "@/lib/stats";
 import { levelProgress } from "@/lib/path";
 import { levels } from "@/lib/levels";
-import { problems, topics, languageNames, topicSlug } from "@/lib/catalog";
+import { languageNames, topicSlug } from "@/lib/presentation";
 import { Heatmap } from "./heatmap";
 import { Button, ProgressBar, useToast } from "./ui";
-export function ProgressPage() {
+export function ProgressPage({problems}:{problems:CatalogEntry[]}) {
+  const topics = [...new Set(problems.flatMap(p=>p.topics))];
   const [patternsExpanded, setPatternsExpanded] = useState(false);
   const store = useStore(),
     toast = useToast();

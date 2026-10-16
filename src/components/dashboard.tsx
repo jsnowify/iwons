@@ -1,4 +1,6 @@
 "use client";
+import type { ProblemSummary } from "@/lib/types";
+type CatalogEntry = Pick<ProblemSummary, "id" | "slug" | "title" | "difficulty" | "level" | "topics" | "patterns">;
 import Link from "next/link";
 import { useState } from "react";
 import {
@@ -18,13 +20,14 @@ import {
   BookOpen,
 } from "lucide-react";
 import { useStore } from "@/store/use-store";
-import { problems, problemUrl, verdictNames, topics } from "@/lib/catalog";
+import { problemUrl, verdictNames } from "@/lib/presentation";
 import { getStats } from "@/lib/stats";
 import { isLevelUnlocked } from "@/lib/path";
 import { Heatmap } from "./heatmap";
 import { Badge, Empty, ProgressBar } from "./ui";
 import { Onboarding } from "./onboarding";
-export function Dashboard() {
+export function Dashboard({problems}:{problems:CatalogEntry[]}) {
+  const topics = [...new Set(problems.flatMap(p=>p.topics))];
   const store = useStore();
   const stats = getStats(store.submissions);
   const [onboard, setOnboard] = useState(false);

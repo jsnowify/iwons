@@ -1,10 +1,7 @@
 import Link from "next/link";
-import type { Problem } from "@/lib/types";
-import { problems, problemUrl, topicSlug } from "@/lib/catalog";
-export function ProblemDescription({ problem: p }: { problem: Problem }) {
-  const related = problems
-    .filter((x) => x.id !== p.id && x.topics.some((t) => p.topics.includes(t)))
-    .slice(0, 3);
+import type { Problem, ProblemSummary } from "@/lib/types";
+import { problemUrl, topicSlug } from "@/lib/presentation";
+export function ProblemDescription({ problem: p, related = [] }: { problem: Problem; related?: Pick<ProblemSummary,"id"|"slug"|"title">[] }) {
   return (
     <article className="description-content">
       <span className="eyebrow">

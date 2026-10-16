@@ -1,3 +1,4 @@
+import { problems } from "@/lib/catalog";
 import type { Metadata } from "next";
 import { ProblemList } from "@/components/problem-list";
 export const metadata: Metadata = {
@@ -7,5 +8,5 @@ export const metadata: Metadata = {
   alternates: { canonical: "/problems/" },
 };
 export default function Problems() {
-  return <ProblemList />;
+  return <ProblemList problems={problems.map(({id,slug,title,difficulty,level,topics,patterns,unit,stage,boss,revisit,summary,order})=>({id,slug,title,difficulty,level,topics,patterns,unit,stage,boss,revisit,summary,order}))} />;
 }

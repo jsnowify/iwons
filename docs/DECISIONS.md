@@ -21,3 +21,10 @@ No color, font or layout token changes. No new runtime dependencies. English UI 
 
 | 2026-10-16 | Bottom audit before layout edits: 80 route/width/theme observations; 70 lack a footer, only homepage has one; zero horizontal overflows | Shared footer missing on seven main route views; problem workspace uses bounded inner scroll regions | Before screenshots and JSON in artifacts/bottom-layout/before.* |
 | 2026-10-16 | Keep individual problem OG images with content-hashed filenames and stable compatibility aliases | Retains problem-specific social previews; recurring build skips Satori for unchanged content | Restore archived route handler |
+
+| 2026-10-16 | Cached filesystem catalog with route-specific metadata props; related selection on server | Removes full catalog JSON from client module graph; curriculum already read by scripts only | Restore imports from archive |
+| 2026-10-16 | Use Turbopack for dev and production on Next 16.4.1 after successful export | No custom webpack requirement; measured fresh requests succeed | Switch scripts to --webpack |
+| 2026-10-16 | Build disposable workers with esbuild as a development-only dependency | Turbopack emitted raw worker TypeScript from new URL; independent ESM worker supports both bundlers and lazy strict compiler | Restore webpack worker URL and remove build helper |
+| 2026-10-16 | Explicit webpackBuildWorker and four export workers; CI caches .next/cache | Worker was already default for webpack; retain supported fallback and avoid excessive parallel memory | Remove experimental options and workflow cache |
+| 2026-10-16 | Keep remaining dependencies after manual import scan | Monaco, Sucrase, Zustand, icons and styling all have active consumers | Re-audit when features change |
+| 2026-10-16 | Retain Next-generated AGENTS documentation block | Confirmed generate-agent-files.js adds version-matched documentation guidance | Next dev regenerates it |

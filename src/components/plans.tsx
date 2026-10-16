@@ -1,4 +1,6 @@
 "use client";
+import type { ProblemSummary } from "@/lib/types";
+type CatalogEntry = Pick<ProblemSummary, "id" | "slug" | "title" | "difficulty" | "level" | "topics" | "patterns">;
 import Link from "next/link";
 import { useState } from "react";
 import {
@@ -9,7 +11,7 @@ import {
   Compass,
   Zap,
 } from "lucide-react";
-import { problems, problemUrl } from "@/lib/catalog";
+import { problemUrl } from "@/lib/presentation";
 import { useStore } from "@/store/use-store";
 import { isLevelUnlocked } from "@/lib/path";
 import { Button, ProgressBar, Badge, useToast } from "./ui";
@@ -31,7 +33,7 @@ const plans = [
     icon: Zap,
   },
 ];
-export function PlansPage() {
+export function PlansPage({problems}:{problems:CatalogEntry[]}) {
   const store = useStore(),
     toast = useToast();
   const [active, setActive] = useState(""),

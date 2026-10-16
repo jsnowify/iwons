@@ -1,3 +1,4 @@
+import { problems } from "@/lib/catalog";
 import type { Metadata } from "next";
 import { SubmissionDetail } from "@/components/submissions";
 export const metadata: Metadata = {
@@ -5,5 +6,5 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 export default function Page() {
-  return <SubmissionDetail />;
+  return <SubmissionDetail problems={problems.map(({id,slug,title,difficulty,level,topics})=>({id,slug,title,difficulty,level,topics}))} />;
 }

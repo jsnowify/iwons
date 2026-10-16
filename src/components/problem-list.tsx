@@ -1,4 +1,6 @@
 "use client";
+import type { ProblemSummary } from "@/lib/types";
+type CatalogEntry = Pick<ProblemSummary, "id" | "slug" | "title" | "difficulty" | "level" | "topics" | "patterns" | "unit" | "stage" | "boss" | "revisit" | "summary" | "order">;
 import { useEffect, useState, useMemo } from "react";
 import Link from "next/link";
 import {
@@ -11,10 +13,11 @@ import {
   SlidersHorizontal,
   ChevronDown,
 } from "lucide-react";
-import { problems, topics, problemUrl } from "@/lib/catalog";
+import { problemUrl } from "@/lib/presentation";
 import { useStore } from "@/store/use-store";
 import { Badge, Empty, Button, Modal, useToast } from "./ui";
-export function ProblemList({ initialTopic = "" }: { initialTopic?: string }) {
+export function ProblemList({ initialTopic = "", problems }: { initialTopic?: string; problems: CatalogEntry[] }) {
+  const topics = [...new Set(problems.flatMap(p=>p.topics))];
   const store = useStore(),
     toast = useToast();
   const [query, setQuery] = useState(""),
