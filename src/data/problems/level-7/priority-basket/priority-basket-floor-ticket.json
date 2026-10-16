@@ -1,0 +1,287 @@
+{
+  "id": "path3-376",
+  "slug": "priority-basket-floor-ticket",
+  "title": "Priority basket: Floor ticket",
+  "level": 7,
+  "unit": "priority-basket",
+  "order": 376,
+  "difficulty": "hard",
+  "topics": [
+    "Graphs, heaps, union-find and tries",
+    "Binary heaps"
+  ],
+  "patterns": [
+    "Binary heaps"
+  ],
+  "prerequisites": [
+    "path3-375"
+  ],
+  "summary": "Insert all readings into a binary min-heap and repeatedly remove the smallest. Produce that removal sequence, preserving duplicates. Return the smallest value in the derived sequence, or 0 for an empty sequence.",
+  "stage": "Boundary variation",
+  "boss": false,
+  "descriptionMd": "A heap-shaped basket keeps the smallest numbered service ticket ready at its opening. Ivo is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nInsert all readings into a binary min-heap and repeatedly remove the smallest. Produce that removal sequence, preserving duplicates.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement priorityBasketFloorTicket(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Binary heaps. Insert all readings into a binary min-heap and repeatedly remove the smallest. Produce that removal sequence, preserving duplicates. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n log n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with binary heaps. What state describes the portion you have already processed?",
+    "Insert all readings into a binary min-heap and repeatedly remove the smallest. Produce that removal sequence, preserving duplicates. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the smallest value in the derived sequence, or 0 for an empty sequence. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "priorityBasketFloorTicket",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function priorityBasketFloorTicket(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function priorityBasketFloorTicket(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def priorityBasketFloorTicket(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int priorityBasketFloorTicket(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-376-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": -3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-3,0,7,7,12]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives -3."
+    },
+    {
+      "id": "path3-376-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": -2,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-2,4,4,4]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives -2."
+    },
+    {
+      "id": "path3-376-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n log n)",
+    "space": "O(n)"
+  },
+  "overview": "Boundary variation: Binary heaps. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 7,
+    "unit": "priority-basket",
+    "topic": "Binary heaps",
+    "pattern": "Binary heaps",
+    "bigO": "O(n log n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-376-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": -3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-3,0,7,7,12]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives -3."
+    },
+    {
+      "id": "path3-376-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": -2,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-2,4,4,4]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives -2."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function priorityBasketFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  const heap=[];for(const x of a){heap.push(x);let i=heap.length-1;while(i){const p=(i-1)>>1;if(heap[p]<=heap[i])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}while(heap.length){out.push(heap[0]);const last=heap.pop();if(!heap.length)break;heap[0]=last;let i=0;while(true){let j=i,l=2*i+1,r=l+1;if(l<heap.length&&heap[l]<heap[j])j=l;if(r<heap.length&&heap[r]<heap[j])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}\n  return out.length?Math.min(...out):0;\n}\n",
+    "typescript": "function priorityBasketFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const heap=[];for(const x of a){heap.push(x);let i=heap.length-1;while(i){const p=(i-1)>>1;if(heap[p]<=heap[i])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}while(heap.length){out.push(heap[0]);const last=heap.pop();if(!heap.length)break;heap[0]=last!;let i=0;while(true){let j=i,l=2*i+1,r=l+1;if(l<heap.length&&heap[l]<heap[j])j=l;if(r<heap.length&&heap[r]<heap[j])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}\n  return out.length?Math.min(...out):0;\n}\n",
+    "python": "def priorityBasketFloorTicket(readings, k):\n    a=readings\n    out=[]\n    import heapq\n    heap=a[:]\n    heapq.heapify(heap)\n    while heap: out.append(heapq.heappop(heap))\n    return min(out,default=0)\n",
+    "java": "class Solution {\n  public int priorityBasketFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {PriorityQueue<Integer>heap=new PriorityQueue<>();for(int x:a)heap.add(x);while(!heap.isEmpty())out.add(heap.remove());}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-376-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 9,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-376-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 5,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-376-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": -20,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-376-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": -20,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-376-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-376-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": -2,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nInsert all readings into a binary min-heap and repeatedly remove the smallest. Produce that removal sequence, preserving duplicates.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n log n); space O(n).\n\njavascript\nfunction priorityBasketFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  const heap=[];for(const x of a){heap.push(x);let i=heap.length-1;while(i){const p=(i-1)>>1;if(heap[p]<=heap[i])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}while(heap.length){out.push(heap[0]);const last=heap.pop();if(!heap.length)break;heap[0]=last;let i=0;while(true){let j=i,l=2*i+1,r=l+1;if(l<heap.length&&heap[l]<heap[j])j=l;if(r<heap.length&&heap[r]<heap[j])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\nfunction priorityBasketFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const heap=[];for(const x of a){heap.push(x);let i=heap.length-1;while(i){const p=(i-1)>>1;if(heap[p]<=heap[i])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}while(heap.length){out.push(heap[0]);const last=heap.pop();if(!heap.length)break;heap[0]=last!;let i=0;while(true){let j=i,l=2*i+1,r=l+1;if(l<heap.length&&heap[l]<heap[j])j=l;if(r<heap.length&&heap[r]<heap[j])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef priorityBasketFloorTicket(readings, k):\n    a=readings\n    out=[]\n    import heapq\n    heap=a[:]\n    heapq.heapify(heap)\n    while heap: out.append(heapq.heappop(heap))\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int priorityBasketFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {PriorityQueue<Integer>heap=new PriorityQueue<>();for(int x:a)heap.add(x);while(!heap.isEmpty())out.add(heap.remove());}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "unit": "paid-reservations",
+  "problems": 10,
+  "cases": 90,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Paid reservations: Proof strip",
+      "statement": "Reward-bearing reservation cards require a prefix account that weighs payment against compatible earlier work. Luz rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nEach reservation is [start,end,reward], with start < end and nonnegative reward, occupying [start,end). Sort by end, then start, then reward. For each nonempty prefix of this sorted list, produce the maximum reward from nonoverlapping reservations in that prefix. Touching endpoints are compatible.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement paidReservationsProofStrip(drawers, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Paid reservations: Floor ticket",
+      "statement": "Reward-bearing reservation cards require a prefix account that weighs payment against compatible earlier work. Neri is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nEach reservation is [start,end,reward], with start < end and nonnegative reward, occupying [start,end). Sort by end, then start, then reward. For each nonempty prefix of this sorted list, produce the maximum reward from nonoverlapping reservations in that prefix. Touching endpoints are compatible.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement paidReservationsFloorTicket(drawers, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Paid reservations: Boss receipt",
+      "statement": "Reward-bearing reservation cards require a prefix account that weighs payment against compatible earlier work. Tomas adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nEach reservation is [start,end,reward], with start < end and nonnegative reward, occupying [start,end). Sort by end, then start, then reward. For each nonempty prefix of this sorted list, produce the maximum reward from nonoverlapping reservations in that prefix. Touching endpoints are compatible.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement paidReservationsBossReceipt(drawers, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

@@ -1,0 +1,287 @@
+{
+  "id": "path3-147",
+  "slug": "duplicate-carriage-positive-ink-invoice",
+  "title": "Duplicate carriage: Positive-ink invoice",
+  "level": 3,
+  "unit": "duplicate-carriage",
+  "order": 147,
+  "difficulty": "medium",
+  "topics": [
+    "Two pointers, windows and prefix sums",
+    "Read and write pointers"
+  ],
+  "patterns": [
+    "Read and write pointers"
+  ],
+  "prerequisites": [
+    "path3-146"
+  ],
+  "summary": "The readings are sorted ascending. Compact adjacent equal values into one value, preserving sorted order. Return the sum of strictly positive values in the derived sequence, or 0 when none exist.",
+  "stage": "Filtered variation",
+  "boss": false,
+  "descriptionMd": "Repeated catalog numbers occupy neighboring slots on an already sorted carriage. Mina prepares an invoice that accepts only positive ink adjustments. Zero and negative derived readings stay off the invoice.\n\nThe readings are sorted ascending. Compact adjacent equal values into one value, preserving sorted order.\n\nReturn the sum of strictly positive values in the derived sequence, or 0 when none exist.\n\nImplement duplicateCarriagePositiveInkInvoice(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Read and write pointers. The readings are sorted ascending. Compact adjacent equal values into one value, preserving sorted order. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with read and write pointers. What state describes the portion you have already processed?",
+    "The readings are sorted ascending. Compact adjacent equal values into one value, preserving sorted order. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the sum of strictly positive values in the derived sequence, or 0 when none exist. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "duplicateCarriagePositiveInkInvoice",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function duplicateCarriagePositiveInkInvoice(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function duplicateCarriagePositiveInkInvoice(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def duplicateCarriagePositiveInkInvoice(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int duplicateCarriagePositiveInkInvoice(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-147-1",
+      "input": [
+        [
+          -3,
+          0,
+          7,
+          7,
+          12
+        ],
+        3
+      ],
+      "expected": 19,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-3,0,7,12]. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 19."
+    },
+    {
+      "id": "path3-147-2",
+      "input": [
+        [
+          -2,
+          4,
+          4,
+          4
+        ],
+        2
+      ],
+      "expected": 4,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-2,4]. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 4."
+    },
+    {
+      "id": "path3-147-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Filtered variation: Read and write pointers. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 3,
+    "unit": "duplicate-carriage",
+    "topic": "Read and write pointers",
+    "pattern": "Read and write pointers",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-147-1",
+      "input": [
+        [
+          -3,
+          0,
+          7,
+          7,
+          12
+        ],
+        3
+      ],
+      "expected": 19,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-3,0,7,12]. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 19."
+    },
+    {
+      "id": "path3-147-2",
+      "input": [
+        [
+          -2,
+          4,
+          4,
+          4
+        ],
+        2
+      ],
+      "expected": 4,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-2,4]. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 4."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function duplicateCarriagePositiveInkInvoice(readings, k) {\n  const a=readings; let out=[];\n  let write=0;for(let read=0;read<a.length;read++)if(write===0||a[read]!==a[write-1])a[write++]=a[read];out=a.slice(0,write);\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n",
+    "typescript": "function duplicateCarriagePositiveInkInvoice(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  let write=0;for(let read=0;read<a.length;read++)if(write===0||a[read]!==a[write-1])a[write++]=a[read];out=a.slice(0,write);\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n",
+    "python": "def duplicateCarriagePositiveInkInvoice(readings, k):\n    a=readings\n    out=[]\n    write=0\n    for read in range(len(a)):\n        if write==0 or a[read]!=a[write-1]:\n            a[write]=a[read]\n            write+=1\n    out=a[:write]\n    return sum(x for x in out if x>0)\n",
+    "java": "class Solution {\n  public int duplicateCarriagePositiveInkInvoice(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int write=0;for(int read=0;read<a.length;read++)if(write==0||a[read]!=a[write-1])a[write++]=a[read];for(int i=0;i<write;i++)out.add(a[i]);}\n    int answer=0;for(int x:out)if(x>0)answer+=x;return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-147-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 9,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-147-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 5,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-147-6",
+        "input": [
+          [
+            -20,
+            -7,
+            -1
+          ],
+          8
+        ],
+        "expected": 0,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-147-7",
+        "input": [
+          [
+            -20,
+            -20,
+            -19,
+            -19,
+            -18,
+            -17,
+            -17,
+            -16,
+            -15,
+            -15,
+            -14,
+            -13,
+            -13,
+            -12,
+            -11,
+            -11,
+            -10,
+            -9,
+            -9,
+            -8,
+            -7,
+            -7,
+            -6,
+            -6,
+            -5,
+            -4,
+            -4,
+            -3,
+            -2,
+            -2,
+            -1,
+            0,
+            0,
+            1,
+            2,
+            2,
+            3,
+            4,
+            4,
+            5,
+            6,
+            6,
+            7,
+            7,
+            8,
+            9,
+            9,
+            10,
+            11,
+            11,
+            12,
+            13,
+            13,
+            14,
+            15,
+            15,
+            16,
+            17,
+            17,
+            18,
+            19,
+            19,
+            20,
+            20
+          ],
+          3
+        ],
+        "expected": 210,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-147-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-147-9",
+        "input": [
+          [
+            -2,
+            1,
+            3,
+            8,
+            8
+          ],
+          2
+        ],
+        "expected": 12,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nThe readings are sorted ascending. Compact adjacent equal values into one value, preserving sorted order.\n\nReturn the sum of strictly positive values in the derived sequence, or 0 when none exist.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction duplicateCarriagePositiveInkInvoice(readings, k) {\n  const a=readings; let out=[];\n  let write=0;for(let read=0;read<a.length;read++)if(write===0||a[read]!==a[write-1])a[write++]=a[read];out=a.slice(0,write);\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n\n\ntypescript\nfunction duplicateCarriagePositiveInkInvoice(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  let write=0;for(let read=0;read<a.length;read++)if(write===0||a[read]!==a[write-1])a[write++]=a[read];out=a.slice(0,write);\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n\n\npython\ndef duplicateCarriagePositiveInkInvoice(readings, k):\n    a=readings\n    out=[]\n    write=0\n    for read in range(len(a)):\n        if write==0 or a[read]!=a[write-1]:\n            a[write]=a[read]\n            write+=1\n    out=a[:write]\n    return sum(x for x in out if x>0)\n\n\njava\nclass Solution {\n  public int duplicateCarriagePositiveInkInvoice(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int write=0;for(int read=0;read<a.length;read++)if(write==0||a[read]!=a[write-1])a[write++]=a[read];for(int i=0;i<write;i++)out.add(a[i]);}\n    int answer=0;for(int x:out)if(x>0)answer+=x;return answer;\n  }\n}\n"
+  }
+}

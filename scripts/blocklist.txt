@@ -1,0 +1,40 @@
+# Exact title phrases from retired collections. Algorithm names are universal and excluded.
+two sum
+add two numbers
+longest substring without repeating characters
+median of two sorted arrays
+longest palindromic substring
+zigzag conversion
+container with most water
+letter combinations of a phone number
+remove nth node from end of list
+valid parentheses
+merge two sorted lists
+generate parentheses
+swap nodes in pairs
+reverse nodes in k-group
+trapping rain water
+group anagrams
+spiral matrix
+minimum window substring
+word ladder
+course schedule
+java how to program
+introduction to java programming and data structures
+core java volume i
+java: the complete reference
+java: a beginner's guide
+deitel
+horstmann
+schildt
+w3schools
+geeksforgeeks
+javatpoint
+programiz
+java is a popular programming language, created in 1995
+java is a class-based, object-oriented programming language
+house robber
+rotting oranges
+daily temperatures
+design twitter
+koko eating bananas

@@ -1,0 +1,474 @@
+{
+  "id": "path3-106",
+  "slug": "shared-drawers-floor-ticket",
+  "title": "Shared drawers: Floor ticket",
+  "level": 2,
+  "unit": "shared-drawers",
+  "order": 106,
+  "difficulty": "easy",
+  "topics": [
+    "Maps, sets, counting and sorting",
+    "Set intersection"
+  ],
+  "patterns": [
+    "Set intersection"
+  ],
+  "prerequisites": [
+    "path3-105"
+  ],
+  "summary": "The input contains exactly two drawers. Produce the distinct readings present in both drawers, in increasing numeric order. Return the smallest value in the derived sequence, or 0 for an empty sequence.",
+  "stage": "Boundary variation",
+  "boss": false,
+  "descriptionMd": "Two departments have exchanged lists of reading tags for their shared equipment shelf. Tomas is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nThe input contains exactly two drawers. Produce the distinct readings present in both drawers, in increasing numeric order.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement sharedDrawersFloorTicket(drawers, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Set intersection. The input contains exactly two drawers. Produce the distinct readings present in both drawers, in increasing numeric order. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64 per row.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "The input has exactly two rows, each containing at most 64 integers.",
+    "Target time O(n + d log d); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with set intersection. What state describes the portion you have already processed?",
+    "The input contains exactly two drawers. Produce the distinct readings present in both drawers, in increasing numeric order. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the smallest value in the derived sequence, or 0 for an empty sequence. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "sharedDrawersFloorTicket",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function sharedDrawersFloorTicket(drawers, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function sharedDrawersFloorTicket(drawers: number[][], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def sharedDrawersFloorTicket(drawers, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int sharedDrawersFloorTicket(int[][] drawers, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-106-1",
+      "input": [
+        [
+          [
+            7,
+            -3,
+            7,
+            0,
+            12
+          ],
+          []
+        ],
+        3
+      ],
+      "expected": 0,
+      "coverage": "worked",
+      "explanation": "The derived sequence is []. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+    },
+    {
+      "id": "path3-106-2",
+      "input": [
+        [
+          [
+            4,
+            4,
+            -2,
+            4
+          ],
+          [
+            9
+          ]
+        ],
+        2
+      ],
+      "expected": 0,
+      "coverage": "worked",
+      "explanation": "The derived sequence is []. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+    },
+    {
+      "id": "path3-106-3",
+      "input": [
+        [
+          [],
+          []
+        ],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[][]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n + d log d)",
+    "space": "O(n)"
+  },
+  "overview": "Boundary variation: Set intersection. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 2,
+    "unit": "shared-drawers",
+    "topic": "Set intersection",
+    "pattern": "Set intersection",
+    "bigO": "O(n + d log d)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-106-1",
+      "input": [
+        [
+          [
+            7,
+            -3,
+            7,
+            0,
+            12
+          ],
+          []
+        ],
+        3
+      ],
+      "expected": 0,
+      "coverage": "worked",
+      "explanation": "The derived sequence is []. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+    },
+    {
+      "id": "path3-106-2",
+      "input": [
+        [
+          [
+            4,
+            4,
+            -2,
+            4
+          ],
+          [
+            9
+          ]
+        ],
+        2
+      ],
+      "expected": 0,
+      "coverage": "worked",
+      "explanation": "The derived sequence is []. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function sharedDrawersFloorTicket(drawers, k) {\n  const a=drawers; let out=[];\n  const right=new Set(a[1]);out=[...new Set(a[0])].filter(x=>right.has(x)).sort((x,y)=>x-y);\n  return out.length?Math.min(...out):0;\n}\n",
+    "typescript": "function sharedDrawersFloorTicket(drawers: number[][], k: number): number {\n  const a=drawers; let out:number[]=[];\n  const right=new Set(a[1]);out=[...new Set(a[0])].filter(x=>right.has(x)).sort((x,y)=>x-y);\n  return out.length?Math.min(...out):0;\n}\n",
+    "python": "def sharedDrawersFloorTicket(drawers, k):\n    a=drawers\n    out=[]\n    out=sorted(set(a[0]) & set(a[1]))\n    return min(out,default=0)\n",
+    "java": "class Solution {\n  public int sharedDrawersFloorTicket(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {Set<Integer>right=new HashSet<>();for(int x:a[1])right.add(x);Set<Integer>both=new TreeSet<>();for(int x:a[0])if(right.contains(x))both.add(x);out.addAll(both);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-106-4",
+        "input": [
+          [
+            [
+              9
+            ],
+            [
+              -20,
+              -1,
+              -7
+            ]
+          ],
+          1
+        ],
+        "expected": 0,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-106-5",
+        "input": [
+          [
+            [
+              5,
+              5,
+              5,
+              5
+            ],
+            [
+              -20,
+              -7,
+              6,
+              19,
+              -9,
+              4,
+              17,
+              -11,
+              2,
+              15,
+              -13,
+              0,
+              13,
+              -15,
+              -2,
+              11,
+              -17,
+              -4,
+              9,
+              -19,
+              -6,
+              7,
+              20,
+              -8,
+              5,
+              18,
+              -10,
+              3,
+              16,
+              -12,
+              1,
+              14,
+              -14,
+              -1,
+              12,
+              -16,
+              -3,
+              10,
+              -18,
+              -5,
+              8,
+              -20,
+              -7,
+              6,
+              19,
+              -9,
+              4,
+              17,
+              -11,
+              2,
+              15,
+              -13,
+              0,
+              13,
+              -15,
+              -2,
+              11,
+              -17,
+              -4,
+              9,
+              -19,
+              -6,
+              7,
+              20
+            ]
+          ],
+          4
+        ],
+        "expected": 5,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-106-6",
+        "input": [
+          [
+            [
+              -20,
+              -1,
+              -7
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          8
+        ],
+        "expected": 0,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-106-7",
+        "input": [
+          [
+            [
+              -20,
+              -7,
+              6,
+              19,
+              -9,
+              4,
+              17,
+              -11,
+              2,
+              15,
+              -13,
+              0,
+              13,
+              -15,
+              -2,
+              11,
+              -17,
+              -4,
+              9,
+              -19,
+              -6,
+              7,
+              20,
+              -8,
+              5,
+              18,
+              -10,
+              3,
+              16,
+              -12,
+              1,
+              14,
+              -14,
+              -1,
+              12,
+              -16,
+              -3,
+              10,
+              -18,
+              -5,
+              8,
+              -20,
+              -7,
+              6,
+              19,
+              -9,
+              4,
+              17,
+              -11,
+              2,
+              15,
+              -13,
+              0,
+              13,
+              -15,
+              -2,
+              11,
+              -17,
+              -4,
+              9,
+              -19,
+              -6,
+              7,
+              20
+            ],
+            [
+              8,
+              3,
+              -2,
+              8,
+              1,
+              -11,
+              -4,
+              3,
+              10,
+              -14,
+              -7,
+              0,
+              7,
+              14,
+              -10,
+              -3,
+              4,
+              11,
+              -13,
+              -6,
+              1,
+              8,
+              15,
+              -9,
+              -2,
+              5,
+              12,
+              -12,
+              -5,
+              2,
+              9,
+              -15,
+              -8,
+              -1,
+              6,
+              13,
+              -11,
+              -4,
+              3,
+              10,
+              -14,
+              -7,
+              0,
+              7,
+              14,
+              -10,
+              -3,
+              4,
+              11,
+              -13,
+              -6,
+              1,
+              8,
+              15,
+              -9,
+              -2,
+              5,
+              12,
+              -12,
+              -5,
+              2,
+              9,
+              -15,
+              -8
+            ]
+          ],
+          3
+        ],
+        "expected": -15,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-106-8",
+        "input": [
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              7,
+              -3,
+              7,
+              0,
+              12
+            ]
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-106-9",
+        "input": [
+          [
+            [
+              8,
+              3,
+              -2,
+              8,
+              1
+            ],
+            [
+              4,
+              4,
+              -2,
+              4
+            ]
+          ],
+          2
+        ],
+        "expected": -2,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nThe input contains exactly two drawers. Produce the distinct readings present in both drawers, in increasing numeric order.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n + d log d); space O(n).\n\njavascript\nfunction sharedDrawersFloorTicket(drawers, k) {\n  const a=drawers; let out=[];\n  const right=new Set(a[1]);out=[...new Set(a[0])].filter(x=>right.has(x)).sort((x,y)=>x-y);\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\nfunction sharedDrawersFloorTicket(drawers: number[][], k: number): number {\n  const a=drawers; let out:number[]=[];\n  const right=new Set(a[1]);out=[...new Set(a[0])].filter(x=>right.has(x)).sort((x,y)=>x-y);\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef sharedDrawersFloorTicket(drawers, k):\n    a=drawers\n    out=[]\n    out=sorted(set(a[0]) & set(a[1]))\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int sharedDrawersFloorTicket(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {Set<Integer>right=new HashSet<>();for(int x:a[1])right.add(x);Set<Integer>both=new TreeSet<>();for(int x:a[0])if(right.contains(x))both.add(x);out.addAll(both);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+  }
+}

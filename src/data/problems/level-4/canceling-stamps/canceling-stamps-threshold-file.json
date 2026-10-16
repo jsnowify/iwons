@@ -1,0 +1,287 @@
+{
+  "id": "path3-188",
+  "slug": "canceling-stamps-threshold-file",
+  "title": "Canceling stamps: Threshold file",
+  "level": 4,
+  "unit": "canceling-stamps",
+  "order": 188,
+  "difficulty": "medium",
+  "topics": [
+    "Stacks, queues, deques and simulations",
+    "Stack cancellation"
+  ],
+  "patterns": [
+    "Stack cancellation"
+  ],
+  "prerequisites": [
+    "path3-187"
+  ],
+  "summary": "Read stamps left to right. If a stamp equals the top stamp, remove that top stamp; otherwise push it. Produce the final stack from bottom to top. Return how many values in the derived sequence are at least k.",
+  "stage": "Edge-case trap",
+  "boss": false,
+  "descriptionMd": "Matching cancellation stamps erase each other when they meet at the top of the paper pile. Pia marks a threshold on the filing cabinet's inspection card. Only qualifying readings count toward today's clearance stamp.\n\nRead stamps left to right. If a stamp equals the top stamp, remove that top stamp; otherwise push it. Produce the final stack from bottom to top.\n\nReturn how many values in the derived sequence are at least k.\n\nImplement cancelingStampsThresholdFile(readings, k). Use k exactly where specified above.",
+  "unitIntro": "Stack cancellation. Read stamps left to right. If a stamp equals the top stamp, remove that top stamp; otherwise push it. Produce the final stack from bottom to top. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with stack cancellation. What state describes the portion you have already processed?",
+    "Read stamps left to right. If a stamp equals the top stamp, remove that top stamp; otherwise push it. Produce the final stack from bottom to top. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return how many values in the derived sequence are at least k. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "cancelingStampsThresholdFile",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function cancelingStampsThresholdFile(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function cancelingStampsThresholdFile(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def cancelingStampsThresholdFile(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int cancelingStampsThresholdFile(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-188-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,-3,7,0,12]. Return how many values in the derived sequence are at least k. This gives 3."
+    },
+    {
+      "id": "path3-188-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 1,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-2,4]. Return how many values in the derived sequence are at least k. This gives 1."
+    },
+    {
+      "id": "path3-188-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return how many values in the derived sequence are at least k. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Edge-case trap: Stack cancellation. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 4,
+    "unit": "canceling-stamps",
+    "topic": "Stack cancellation",
+    "pattern": "Stack cancellation",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-188-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,-3,7,0,12]. Return how many values in the derived sequence are at least k. This gives 3."
+    },
+    {
+      "id": "path3-188-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 1,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-2,4]. Return how many values in the derived sequence are at least k. This gives 1."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function cancelingStampsThresholdFile(readings, k) {\n  const a=readings; let out=[];\n  for(const x of a){if(out.length&&out[out.length-1]===x)out.pop();else out.push(x);}\n  return out.filter(x=>x>=k).length;\n}\n",
+    "typescript": "function cancelingStampsThresholdFile(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  for(const x of a){if(out.length&&out[out.length-1]===x)out.pop();else out.push(x);}\n  return out.filter(x=>x>=k).length;\n}\n",
+    "python": "def cancelingStampsThresholdFile(readings, k):\n    a=readings\n    out=[]\n    for x in a:\n        if out and out[-1]==x: out.pop()\n        else: out.append(x)\n    return sum(x>=k for x in out)\n",
+    "java": "class Solution {\n  public int cancelingStampsThresholdFile(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){if(!out.isEmpty()&&out.get(out.size()-1)==x)out.remove(out.size()-1);else out.add(x);}}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-188-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 1,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-188-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 0,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-188-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": 0,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-188-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": 28,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-188-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-188-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": 3,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nRead stamps left to right. If a stamp equals the top stamp, remove that top stamp; otherwise push it. Produce the final stack from bottom to top.\n\nReturn how many values in the derived sequence are at least k.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction cancelingStampsThresholdFile(readings, k) {\n  const a=readings; let out=[];\n  for(const x of a){if(out.length&&out[out.length-1]===x)out.pop();else out.push(x);}\n  return out.filter(x=>x>=k).length;\n}\n\n\ntypescript\nfunction cancelingStampsThresholdFile(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  for(const x of a){if(out.length&&out[out.length-1]===x)out.pop();else out.push(x);}\n  return out.filter(x=>x>=k).length;\n}\n\n\npython\ndef cancelingStampsThresholdFile(readings, k):\n    a=readings\n    out=[]\n    for x in a:\n        if out and out[-1]==x: out.pop()\n        else: out.append(x)\n    return sum(x>=k for x in out)\n\n\njava\nclass Solution {\n  public int cancelingStampsThresholdFile(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){if(!out.isEmpty()&&out.get(out.size()-1)==x)out.remove(out.size()-1);else out.add(x);}}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
+  }
+}

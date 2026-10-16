@@ -1,0 +1,32 @@
+{
+  "unit": "fixed-panels",
+  "problems": 9,
+  "cases": 81,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Fixed panels: Proof strip",
+      "statement": "A rectangular stencil reveals exactly k neighboring readings on the moving paper strip. Neri rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nFor each contiguous window of exactly k readings, produce its sum from left to right. If fewer than k readings exist, produce no window sums.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement fixedPanelsProofStrip(readings, k). Use k exactly where specified above."
+    },
+    {
+      "title": "Fixed panels: Peak ticket",
+      "statement": "A rectangular stencil reveals exactly k neighboring readings on the moving paper strip. Tomas is setting the upper stop on an old office gauge. The largest derived reading goes on its label, even if the whole tray is below zero.\n\nFor each contiguous window of exactly k readings, produce its sum from left to right. If fewer than k readings exist, produce no window sums.\n\nReturn the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative.\n\nImplement fixedPanelsPeakTicket(readings, k). Use k exactly where specified above."
+    },
+    {
+      "title": "Fixed panels: Boss receipt",
+      "statement": "A rectangular stencil reveals exactly k neighboring readings on the moving paper strip. Sol adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nFor each contiguous window of exactly k readings, produce its sum from left to right. If fewer than k readings exist, produce no window sums.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement fixedPanelsBossReceipt(readings, k). Use k exactly where specified above."
+    }
+  ]
+}

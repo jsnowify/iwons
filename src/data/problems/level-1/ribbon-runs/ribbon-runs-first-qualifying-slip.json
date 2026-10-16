@@ -1,0 +1,179 @@
+{
+  "id": "path3-044",
+  "slug": "ribbon-runs-first-qualifying-slip",
+  "title": "Ribbon runs: First qualifying slip",
+  "level": 1,
+  "unit": "ribbon-runs",
+  "order": 44,
+  "difficulty": "easy",
+  "topics": [
+    "Arrays and strings",
+    "String runs"
+  ],
+  "patterns": [
+    "String runs"
+  ],
+  "prerequisites": [
+    "path3-043"
+  ],
+  "summary": "A run is a maximal consecutive group of identical characters. Produce its length for each run, from left to right. Spaces are characters too. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.",
+  "stage": "Combine",
+  "boss": false,
+  "descriptionMd": "A sticking key leaves repeated marks across a typewriter ribbon's inspection strip. Alma needs the first qualifying slip while the courier waits at the door. Later matches must not jump ahead in the tray.\n\nA run is a maximal consecutive group of identical characters. Produce its length for each run, from left to right. Spaces are characters too.\n\nReturn the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.\n\nImplement ribbonRunsFirstQualifyingSlip(line, k). Use k exactly where specified above.",
+  "unitIntro": "String runs. A run is a maximal consecutive group of identical characters. Produce its length for each run, from left to right. Spaces are characters too. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations).",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "The line contains ASCII characters; the only word separator is a space.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with string runs. What state describes the portion you have already processed?",
+    "A run is a maximal consecutive group of identical characters. Produce its length for each run, from left to right. Spaces are characters too. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "ribbonRunsFirstQualifyingSlip",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function ribbonRunsFirstQualifyingSlip(line, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function ribbonRunsFirstQualifyingSlip(line: string, k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def ribbonRunsFirstQualifyingSlip(line, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int ribbonRunsFirstQualifyingSlip(String line, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-044-1",
+      "input": [
+        "inkk paaaper",
+        3
+      ],
+      "expected": 3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,1,2,1,1,3,1,1,1]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 3."
+    },
+    {
+      "id": "path3-044-2",
+      "input": [
+        "QQ qQQ",
+        2
+      ],
+      "expected": 2,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [2,1,1,2]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 2."
+    },
+    {
+      "id": "path3-044-3",
+      "input": [
+        "",
+        1
+      ],
+      "expected": -1,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives -1."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "String",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Combine: String runs. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 1,
+    "unit": "ribbon-runs",
+    "topic": "String runs",
+    "pattern": "String runs",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-044-1",
+      "input": [
+        "inkk paaaper",
+        3
+      ],
+      "expected": 3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,1,2,1,1,3,1,1,1]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 3."
+    },
+    {
+      "id": "path3-044-2",
+      "input": [
+        "QQ qQQ",
+        2
+      ],
+      "expected": 2,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [2,1,1,2]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 2."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function ribbonRunsFirstQualifyingSlip(line, k) {\n  const a=line; let out=[];\n  for(let i=0;i<a.length;){let j=i+1;while(j<a.length&&a[j]===a[i])j++;out.push(j-i);i=j;}\n  return out.find(x=>x>=k)??-1;\n}\n",
+    "typescript": "function ribbonRunsFirstQualifyingSlip(line: string, k: number): number {\n  const a=line; let out:number[]=[];\n  for(let i=0;i<a.length;){let j=i+1;while(j<a.length&&a[j]===a[i])j++;out.push(j-i);i=j;}\n  return out.find(x=>x>=k)??-1;\n}\n",
+    "python": "def ribbonRunsFirstQualifyingSlip(line, k):\n    a=line\n    out=[]\n    i=0\n    while i<len(a):\n        j=i+1\n        while j<len(a) and a[j]==a[i]: j+=1\n        out.append(j-i)\n        i=j\n    return next((x for x in out if x>=k),-1)\n",
+    "java": "class Solution {\n  public int ribbonRunsFirstQualifyingSlip(String line, int k) {\n    String a=line; List<Integer> out=new ArrayList<>();\n    {for(int i=0;i<a.length();){int j=i+1;while(j<a.length()&&a.charAt(j)==a.charAt(i))j++;out.add(j-i);i=j;}}\n    for(int x:out)if(x>=k)return x;return -1;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-044-4",
+        "input": [
+          " ",
+          1
+        ],
+        "expected": 1,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-044-5",
+        "input": [
+          "aaaaa",
+          4
+        ],
+        "expected": 5,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-044-6",
+        "input": [
+          " -!? ",
+          8
+        ],
+        "expected": -1,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-044-7",
+        "input": [
+          "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",
+          3
+        ],
+        "expected": 64,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-044-8",
+        "input": [
+          "   ",
+          5
+        ],
+        "expected": -1,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-044-9",
+        "input": [
+          "a bb   ccc",
+          2
+        ],
+        "expected": 2,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nA run is a maximal consecutive group of identical characters. Produce its length for each run, from left to right. Spaces are characters too.\n\nReturn the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction ribbonRunsFirstQualifyingSlip(line, k) {\n  const a=line; let out=[];\n  for(let i=0;i<a.length;){let j=i+1;while(j<a.length&&a[j]===a[i])j++;out.push(j-i);i=j;}\n  return out.find(x=>x>=k)??-1;\n}\n\n\ntypescript\nfunction ribbonRunsFirstQualifyingSlip(line: string, k: number): number {\n  const a=line; let out:number[]=[];\n  for(let i=0;i<a.length;){let j=i+1;while(j<a.length&&a[j]===a[i])j++;out.push(j-i);i=j;}\n  return out.find(x=>x>=k)??-1;\n}\n\n\npython\ndef ribbonRunsFirstQualifyingSlip(line, k):\n    a=line\n    out=[]\n    i=0\n    while i<len(a):\n        j=i+1\n        while j<len(a) and a[j]==a[i]: j+=1\n        out.append(j-i)\n        i=j\n    return next((x for x in out if x>=k),-1)\n\n\njava\nclass Solution {\n  public int ribbonRunsFirstQualifyingSlip(String line, int k) {\n    String a=line; List<Integer> out=new ArrayList<>();\n    {for(int i=0;i<a.length();){int j=i+1;while(j<a.length()&&a.charAt(j)==a.charAt(i))j++;out.add(j-i);i=j;}}\n    for(int x:out)if(x>=k)return x;return -1;\n  }\n}\n"
+  }
+}

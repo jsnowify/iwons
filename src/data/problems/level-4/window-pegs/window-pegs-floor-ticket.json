@@ -1,0 +1,287 @@
+{
+  "id": "path3-218",
+  "slug": "window-pegs-floor-ticket",
+  "title": "Window pegs: Floor ticket",
+  "level": 4,
+  "unit": "window-pegs",
+  "order": 218,
+  "difficulty": "medium",
+  "topics": [
+    "Stacks, queues, deques and simulations",
+    "Monotonic deques"
+  ],
+  "patterns": [
+    "Monotonic deques"
+  ],
+  "prerequisites": [
+    "path3-217"
+  ],
+  "summary": "For every contiguous window of exactly k readings, produce its maximum from left to right. Produce no values if k exceeds the number of readings. Return the smallest value in the derived sequence, or 0 for an empty sequence.",
+  "stage": "Boundary variation",
+  "boss": false,
+  "descriptionMd": "The inspection frame keeps only pegs that could still be the tallest in its current window. Ada is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nFor every contiguous window of exactly k readings, produce its maximum from left to right. Produce no values if k exceeds the number of readings.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement windowPegsFloorTicket(readings, k). Use k exactly where specified above.",
+  "unitIntro": "Monotonic deques. For every contiguous window of exactly k readings, produce its maximum from left to right. Produce no values if k exceeds the number of readings. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with monotonic deques. What state describes the portion you have already processed?",
+    "For every contiguous window of exactly k readings, produce its maximum from left to right. Produce no values if k exceeds the number of readings. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the smallest value in the derived sequence, or 0 for an empty sequence. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "windowPegsFloorTicket",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function windowPegsFloorTicket(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function windowPegsFloorTicket(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def windowPegsFloorTicket(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int windowPegsFloorTicket(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-218-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 7,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,7,12]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 7."
+    },
+    {
+      "id": "path3-218-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 4,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,4,4]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 4."
+    },
+    {
+      "id": "path3-218-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Boundary variation: Monotonic deques. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 4,
+    "unit": "window-pegs",
+    "topic": "Monotonic deques",
+    "pattern": "Monotonic deques",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-218-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 7,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,7,12]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 7."
+    },
+    {
+      "id": "path3-218-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 4,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,4,4]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 4."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function windowPegsFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  const queue=[];let head=0;for(let i=0;i<a.length;i++){while(head<queue.length&&queue[head]<=i-k)head++;while(head<queue.length&&a[queue[queue.length-1]]<=a[i])queue.pop();queue.push(i);if(i>=k-1)out.push(a[queue[head]]);}\n  return out.length?Math.min(...out):0;\n}\n",
+    "typescript": "function windowPegsFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const queue=[];let head=0;for(let i=0;i<a.length;i++){while(head<queue.length&&queue[head]<=i-k)head++;while(head<queue.length&&a[queue[queue.length-1]]<=a[i])queue.pop();queue.push(i);if(i>=k-1)out.push(a[queue[head]]);}\n  return out.length?Math.min(...out):0;\n}\n",
+    "python": "def windowPegsFloorTicket(readings, k):\n    a=readings\n    out=[]\n    from collections import deque\n    queue=deque()\n    for i,x in enumerate(a):\n        while queue and queue[0]<=i-k: queue.popleft()\n        while queue and a[queue[-1]]<=x: queue.pop()\n        queue.append(i)\n        if i>=k-1: out.append(a[queue[0]])\n    return min(out,default=0)\n",
+    "java": "class Solution {\n  public int windowPegsFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Deque<Integer>queue=new ArrayDeque<>();for(int i=0;i<a.length;i++){while(!queue.isEmpty()&&queue.peekFirst()<=i-k)queue.removeFirst();while(!queue.isEmpty()&&a[queue.peekLast()]<=a[i])queue.removeLast();queue.addLast(i);if(i>=k-1)out.add(a[queue.peekFirst()]);}}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-218-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 9,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-218-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 5,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-218-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": 0,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-218-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": 6,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-218-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-218-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": 3,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nFor every contiguous window of exactly k readings, produce its maximum from left to right. Produce no values if k exceeds the number of readings.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction windowPegsFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  const queue=[];let head=0;for(let i=0;i<a.length;i++){while(head<queue.length&&queue[head]<=i-k)head++;while(head<queue.length&&a[queue[queue.length-1]]<=a[i])queue.pop();queue.push(i);if(i>=k-1)out.push(a[queue[head]]);}\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\nfunction windowPegsFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const queue=[];let head=0;for(let i=0;i<a.length;i++){while(head<queue.length&&queue[head]<=i-k)head++;while(head<queue.length&&a[queue[queue.length-1]]<=a[i])queue.pop();queue.push(i);if(i>=k-1)out.push(a[queue[head]]);}\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef windowPegsFloorTicket(readings, k):\n    a=readings\n    out=[]\n    from collections import deque\n    queue=deque()\n    for i,x in enumerate(a):\n        while queue and queue[0]<=i-k: queue.popleft()\n        while queue and a[queue[-1]]<=x: queue.pop()\n        queue.append(i)\n        if i>=k-1: out.append(a[queue[0]])\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int windowPegsFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Deque<Integer>queue=new ArrayDeque<>();for(int i=0;i<a.length;i++){while(!queue.isEmpty()&&queue.peekFirst()<=i-k)queue.removeFirst();while(!queue.isEmpty()&&a[queue.peekLast()]<=a[i])queue.removeLast();queue.addLast(i);if(i>=k-1)out.add(a[queue.peekFirst()]);}}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+  }
+}

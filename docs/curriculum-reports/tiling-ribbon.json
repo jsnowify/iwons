@@ -1,0 +1,32 @@
+{
+  "unit": "tiling-ribbon",
+  "problems": 10,
+  "cases": 90,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Tiling ribbon: Proof strip",
+      "statement": "The display desk builds narrow paper ribbons from one-unit and three-unit printed pieces. Luz rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nFor each width x, count the ordered ways to fill a one-row ribbon using pieces of widths 1 and 3. A width of 0 has one empty arrangement. Produce the counts in input order.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement tilingRibbonProofStrip(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Tiling ribbon: Floor ticket",
+      "statement": "The display desk builds narrow paper ribbons from one-unit and three-unit printed pieces. Neri is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nFor each width x, count the ordered ways to fill a one-row ribbon using pieces of widths 1 and 3. A width of 0 has one empty arrangement. Produce the counts in input order.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement tilingRibbonFloorTicket(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Tiling ribbon: Boss receipt",
+      "statement": "The display desk builds narrow paper ribbons from one-unit and three-unit printed pieces. Tomas adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nFor each width x, count the ordered ways to fill a one-row ribbon using pieces of widths 1 and 3. A width of 0 has one empty arrangement. Produce the counts in input order.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement tilingRibbonBossReceipt(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

@@ -1,0 +1,287 @@
+{
+  "id": "path3-207",
+  "slug": "round-desk-first-qualifying-slip",
+  "title": "Round desk: First qualifying slip",
+  "level": 4,
+  "unit": "round-desk",
+  "order": 207,
+  "difficulty": "medium",
+  "topics": [
+    "Stacks, queues, deques and simulations",
+    "Queue simulation"
+  ],
+  "patterns": [
+    "Queue simulation"
+  ],
+  "prerequisites": [
+    "path3-206"
+  ],
+  "summary": "Jobs arrive together in input order and need the given nonnegative service times. A clerk serves up to k time units, appends unfinished jobs to the queue, and records each job's completion time in original job order. A zero-time job is complete at time 0. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.",
+  "stage": "Combine",
+  "boss": false,
+  "descriptionMd": "One busy clerk rotates unfinished print jobs around a circular service desk. Tomas needs the first qualifying slip while the courier waits at the door. Later matches must not jump ahead in the tray.\n\nJobs arrive together in input order and need the given nonnegative service times. A clerk serves up to k time units, appends unfinished jobs to the queue, and records each job's completion time in original job order. A zero-time job is complete at time 0.\n\nReturn the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.\n\nImplement roundDeskFirstQualifyingSlip(readings, k). Use k exactly where specified above.",
+  "unitIntro": "Queue simulation. Jobs arrive together in input order and need the given nonnegative service times. A clerk serves up to k time units, appends unfinished jobs to the queue, and records each job's completion time in original job order. A zero-time job is complete at time 0. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Readings are integers from 0 through 20.",
+    "Target time O(n + total/k); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with queue simulation. What state describes the portion you have already processed?",
+    "Jobs arrive together in input order and need the given nonnegative service times. A clerk serves up to k time units, appends unfinished jobs to the queue, and records each job's completion time in original job order. A zero-time job is complete at time 0. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "roundDeskFirstQualifyingSlip",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function roundDeskFirstQualifyingSlip(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function roundDeskFirstQualifyingSlip(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def roundDeskFirstQualifyingSlip(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int roundDeskFirstQualifyingSlip(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-207-1",
+      "input": [
+        [
+          7,
+          3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 22,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [22,6,23,0,29]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 22."
+    },
+    {
+      "id": "path3-207-2",
+      "input": [
+        [
+          4,
+          4,
+          2,
+          4
+        ],
+        2
+      ],
+      "expected": 10,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [10,12,6,14]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 10."
+    },
+    {
+      "id": "path3-207-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": -1,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives -1."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n + total/k)",
+    "space": "O(n)"
+  },
+  "overview": "Combine: Queue simulation. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 4,
+    "unit": "round-desk",
+    "topic": "Queue simulation",
+    "pattern": "Queue simulation",
+    "bigO": "O(n + total/k)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-207-1",
+      "input": [
+        [
+          7,
+          3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 22,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [22,6,23,0,29]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 22."
+    },
+    {
+      "id": "path3-207-2",
+      "input": [
+        [
+          4,
+          4,
+          2,
+          4
+        ],
+        2
+      ],
+      "expected": 10,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [10,12,6,14]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 10."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function roundDeskFirstQualifyingSlip(readings, k) {\n  const a=readings; let out=[];\n  const remaining=[...a],queue=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return out.find(x=>x>=k)??-1;\n}\n",
+    "typescript": "function roundDeskFirstQualifyingSlip(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const remaining=[...a],queue:number[]=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return out.find(x=>x>=k)??-1;\n}\n",
+    "python": "def roundDeskFirstQualifyingSlip(readings, k):\n    a=readings\n    out=[]\n    from collections import deque\n    remaining=a[:]\n    queue=deque(i for i,x in enumerate(a) if x>0)\n    out=[0]*len(a)\n    time=0\n    while queue:\n        i=queue.popleft()\n        served=min(k,remaining[i])\n        remaining[i]-=served\n        time+=served\n        if remaining[i]: queue.append(i)\n        else: out[i]=time\n    return next((x for x in out if x>=k),-1)\n",
+    "java": "class Solution {\n  public int roundDeskFirstQualifyingSlip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int[]remaining=a.clone(),done=new int[a.length];Deque<Integer>queue=new ArrayDeque<>();for(int i=0;i<a.length;i++)if(a[i]>0)queue.add(i);int time=0;while(!queue.isEmpty()){int i=queue.remove(),served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i]>0)queue.add(i);else done[i]=time;}for(int x:done)out.add(x);}\n    for(int x:out)if(x>=k)return x;return -1;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-207-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 9,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-207-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 17,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-207-6",
+        "input": [
+          [
+            20,
+            1,
+            7
+          ],
+          8
+        ],
+        "expected": 28,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-207-7",
+        "input": [
+          [
+            20,
+            7,
+            6,
+            19,
+            9,
+            4,
+            17,
+            11,
+            2,
+            15,
+            13,
+            0,
+            13,
+            15,
+            2,
+            11,
+            17,
+            4,
+            9,
+            19,
+            6,
+            7,
+            20,
+            8,
+            5,
+            18,
+            10,
+            3,
+            16,
+            12,
+            1,
+            14,
+            14,
+            1,
+            12,
+            16,
+            3,
+            10,
+            18,
+            5,
+            8,
+            20,
+            7,
+            6,
+            19,
+            9,
+            4,
+            17,
+            11,
+            2,
+            15,
+            13,
+            0,
+            13,
+            15,
+            2,
+            11,
+            17,
+            4,
+            9,
+            19,
+            6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": 656,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-207-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": -1,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-207-9",
+        "input": [
+          [
+            8,
+            3,
+            2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": 20,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nJobs arrive together in input order and need the given nonnegative service times. A clerk serves up to k time units, appends unfinished jobs to the queue, and records each job's completion time in original job order. A zero-time job is complete at time 0.\n\nReturn the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n + total/k); space O(n).\n\njavascript\nfunction roundDeskFirstQualifyingSlip(readings, k) {\n  const a=readings; let out=[];\n  const remaining=[...a],queue=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return out.find(x=>x>=k)??-1;\n}\n\n\ntypescript\nfunction roundDeskFirstQualifyingSlip(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const remaining=[...a],queue:number[]=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return out.find(x=>x>=k)??-1;\n}\n\n\npython\ndef roundDeskFirstQualifyingSlip(readings, k):\n    a=readings\n    out=[]\n    from collections import deque\n    remaining=a[:]\n    queue=deque(i for i,x in enumerate(a) if x>0)\n    out=[0]*len(a)\n    time=0\n    while queue:\n        i=queue.popleft()\n        served=min(k,remaining[i])\n        remaining[i]-=served\n        time+=served\n        if remaining[i]: queue.append(i)\n        else: out[i]=time\n    return next((x for x in out if x>=k),-1)\n\n\njava\nclass Solution {\n  public int roundDeskFirstQualifyingSlip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int[]remaining=a.clone(),done=new int[a.length];Deque<Integer>queue=new ArrayDeque<>();for(int i=0;i<a.length;i++)if(a[i]>0)queue.add(i);int time=0;while(!queue.isEmpty()){int i=queue.remove(),served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i]>0)queue.add(i);else done[i]=time;}for(int x:done)out.add(x);}\n    for(int x:out)if(x>=k)return x;return -1;\n  }\n}\n"
+  }
+}

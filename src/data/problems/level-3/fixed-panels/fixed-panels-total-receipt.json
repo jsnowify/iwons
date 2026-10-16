@@ -1,0 +1,287 @@
+{
+  "id": "path3-150",
+  "slug": "fixed-panels-total-receipt",
+  "title": "Fixed panels: Total receipt",
+  "level": 3,
+  "unit": "fixed-panels",
+  "order": 150,
+  "difficulty": "medium",
+  "topics": [
+    "Two pointers, windows and prefix sums",
+    "Fixed sliding windows"
+  ],
+  "patterns": [
+    "Fixed sliding windows"
+  ],
+  "prerequisites": [
+    "path3-149"
+  ],
+  "summary": "For each contiguous window of exactly k readings, produce its sum from left to right. If fewer than k readings exist, produce no window sums. Return the sum of all values in the derived sequence; return 0 for an empty sequence.",
+  "stage": "Variation",
+  "boss": false,
+  "descriptionMd": "A rectangular stencil reveals exactly k neighboring readings on the moving paper strip. Alma is closing the print-room account before the afternoon mail. A single total must replace the pile of working slips.\n\nFor each contiguous window of exactly k readings, produce its sum from left to right. If fewer than k readings exist, produce no window sums.\n\nReturn the sum of all values in the derived sequence; return 0 for an empty sequence.\n\nImplement fixedPanelsTotalReceipt(readings, k). Use k exactly where specified above.",
+  "unitIntro": "Fixed sliding windows. For each contiguous window of exactly k readings, produce its sum from left to right. If fewer than k readings exist, produce no window sums. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with fixed sliding windows. What state describes the portion you have already processed?",
+    "For each contiguous window of exactly k readings, produce its sum from left to right. If fewer than k readings exist, produce no window sums. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the sum of all values in the derived sequence; return 0 for an empty sequence. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "fixedPanelsTotalReceipt",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function fixedPanelsTotalReceipt(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function fixedPanelsTotalReceipt(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def fixedPanelsTotalReceipt(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int fixedPanelsTotalReceipt(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-150-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 34,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [11,4,19]. Return the sum of all values in the derived sequence; return 0 for an empty sequence. This gives 34."
+    },
+    {
+      "id": "path3-150-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 12,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [8,2,2]. Return the sum of all values in the derived sequence; return 0 for an empty sequence. This gives 12."
+    },
+    {
+      "id": "path3-150-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the sum of all values in the derived sequence; return 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Variation: Fixed sliding windows. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 3,
+    "unit": "fixed-panels",
+    "topic": "Fixed sliding windows",
+    "pattern": "Fixed sliding windows",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-150-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 34,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [11,4,19]. Return the sum of all values in the derived sequence; return 0 for an empty sequence. This gives 34."
+    },
+    {
+      "id": "path3-150-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 12,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [8,2,2]. Return the sum of all values in the derived sequence; return 0 for an empty sequence. This gives 12."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function fixedPanelsTotalReceipt(readings, k) {\n  const a=readings; let out=[];\n  let s=0;for(let i=0;i<a.length;i++){s+=a[i];if(i>=k)s-=a[i-k];if(i>=k-1)out.push(s);}\n  return out.reduce((s,x)=>s+x,0);\n}\n",
+    "typescript": "function fixedPanelsTotalReceipt(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  let s=0;for(let i=0;i<a.length;i++){s+=a[i];if(i>=k)s-=a[i-k];if(i>=k-1)out.push(s);}\n  return out.reduce((s,x)=>s+x,0);\n}\n",
+    "python": "def fixedPanelsTotalReceipt(readings, k):\n    a=readings\n    out=[]\n    s=0\n    for i,x in enumerate(a):\n        s+=x\n        if i>=k: s-=a[i-k]\n        if i>=k-1: out.append(s)\n    return sum(out)\n",
+    "java": "class Solution {\n  public int fixedPanelsTotalReceipt(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int s=0;for(int i=0;i<a.length;i++){s+=a[i];if(i>=k)s-=a[i-k];if(i>=k-1)out.add(s);}}\n    int answer=0;for(int x:out)answer+=x;return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-150-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 9,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-150-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 20,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-150-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": 0,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-150-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": 0,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-150-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-150-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": 27,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nFor each contiguous window of exactly k readings, produce its sum from left to right. If fewer than k readings exist, produce no window sums.\n\nReturn the sum of all values in the derived sequence; return 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction fixedPanelsTotalReceipt(readings, k) {\n  const a=readings; let out=[];\n  let s=0;for(let i=0;i<a.length;i++){s+=a[i];if(i>=k)s-=a[i-k];if(i>=k-1)out.push(s);}\n  return out.reduce((s,x)=>s+x,0);\n}\n\n\ntypescript\nfunction fixedPanelsTotalReceipt(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  let s=0;for(let i=0;i<a.length;i++){s+=a[i];if(i>=k)s-=a[i-k];if(i>=k-1)out.push(s);}\n  return out.reduce((s,x)=>s+x,0);\n}\n\n\npython\ndef fixedPanelsTotalReceipt(readings, k):\n    a=readings\n    out=[]\n    s=0\n    for i,x in enumerate(a):\n        s+=x\n        if i>=k: s-=a[i-k]\n        if i>=k-1: out.append(s)\n    return sum(out)\n\n\njava\nclass Solution {\n  public int fixedPanelsTotalReceipt(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int s=0;for(int i=0;i<a.length;i++){s+=a[i];if(i>=k)s-=a[i-k];if(i>=k-1)out.add(s);}}\n    int answer=0;for(int x:out)answer+=x;return answer;\n  }\n}\n"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": 1,
+  "name": "Typebars",
+  "subtitle": "Arrays and strings",
+  "tier": "easy",
+  "count": 50,
+  "released": true,
+  "concepts": [
+    "Adjacent array positions",
+    "String runs",
+    "Stable array filtering",
+    "Nested array traversal",
+    "String scanning"
+  ],
+  "primer": "The typebars turn isolated readings into sequences. An array preserves order and supports indexed access. Its first index is zero and its last valid index is one less than its length. When comparing neighbors, begin at index one so that a previous item exists. Empty arrays and one-item arrays need deliberate answers rather than accidental out-of-range reads.\n\nStrings also preserve order. These cards use ASCII, so a character has the same simple interpretation across the four languages. A run ends when the next character differs or the string ends. A word ends at a space or the end of the line. Several spaces in a row do not create several words. Keep a current length and flush it only when it represents a real run or word.\n\nFiltering creates a new sequence without changing the relative order of surviving items. Repeated values do not disappear unless the task says they should. A grid is an array of rows, and rows may have different lengths. Use an outer loop for rows and an inner loop for their contents. Before coding, mark which positions your loop has already processed. That simple invariant will become the foundation for the pointer and window techniques later in the Path.",
+  "example": "The line 'a bb   ccc' has word lengths [1, 2, 3]. The three spaces between words contribute no empty words."
+}

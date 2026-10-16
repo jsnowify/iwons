@@ -1,0 +1,179 @@
+{
+  "id": "path3-077",
+  "slug": "word-slips-even-key-census",
+  "title": "Word slips: Even-key census",
+  "level": 1,
+  "unit": "word-slips",
+  "order": 77,
+  "difficulty": "easy",
+  "topics": [
+    "Arrays and strings",
+    "String scanning"
+  ],
+  "patterns": [
+    "String scanning"
+  ],
+  "prerequisites": [
+    "path3-076"
+  ],
+  "summary": "Split the line into maximal runs of non-space ASCII characters and produce each run's length. Multiple spaces, leading spaces and trailing spaces do not produce empty words. Return how many values in the derived sequence are even, including 0 and negative even values.",
+  "stage": "Counting variation",
+  "boss": false,
+  "descriptionMd": "A teleprinter uses runs of spaces to separate the words on its paper message roll. Tomas separates readings for the office's even-numbered keys. A zero reading belongs in that count, just like any other even number.\n\nSplit the line into maximal runs of non-space ASCII characters and produce each run's length. Multiple spaces, leading spaces and trailing spaces do not produce empty words.\n\nReturn how many values in the derived sequence are even, including 0 and negative even values.\n\nImplement wordSlipsEvenKeyCensus(line, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "String scanning. Split the line into maximal runs of non-space ASCII characters and produce each run's length. Multiple spaces, leading spaces and trailing spaces do not produce empty words. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations).",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "The line contains ASCII characters; the only word separator is a space.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with string scanning. What state describes the portion you have already processed?",
+    "Split the line into maximal runs of non-space ASCII characters and produce each run's length. Multiple spaces, leading spaces and trailing spaces do not produce empty words. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return how many values in the derived sequence are even, including 0 and negative even values. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "wordSlipsEvenKeyCensus",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function wordSlipsEvenKeyCensus(line, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function wordSlipsEvenKeyCensus(line: string, k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def wordSlipsEvenKeyCensus(line, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int wordSlipsEvenKeyCensus(String line, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-077-1",
+      "input": [
+        "inkk paaaper",
+        3
+      ],
+      "expected": 1,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,7]. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 1."
+    },
+    {
+      "id": "path3-077-2",
+      "input": [
+        "QQ qQQ",
+        2
+      ],
+      "expected": 1,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [2,3]. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 1."
+    },
+    {
+      "id": "path3-077-3",
+      "input": [
+        "",
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "String",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Counting variation: String scanning. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 1,
+    "unit": "word-slips",
+    "topic": "String scanning",
+    "pattern": "String scanning",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-077-1",
+      "input": [
+        "inkk paaaper",
+        3
+      ],
+      "expected": 1,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,7]. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 1."
+    },
+    {
+      "id": "path3-077-2",
+      "input": [
+        "QQ qQQ",
+        2
+      ],
+      "expected": 1,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [2,3]. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 1."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function wordSlipsEvenKeyCensus(line, k) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out.filter(x=>x%2===0).length;\n}\n",
+    "typescript": "function wordSlipsEvenKeyCensus(line: string, k: number): number {\n  const a=line; let out:number[]=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out.filter(x=>x%2===0).length;\n}\n",
+    "python": "def wordSlipsEvenKeyCensus(line, k):\n    a=line\n    out=[]\n    length=0\n    for c in a+' ':\n        if c==' ':\n            if length: out.append(length)\n            length=0\n        else: length+=1\n    return sum(x%2==0 for x in out)\n",
+    "java": "class Solution {\n  public int wordSlipsEvenKeyCensus(String line, int k) {\n    String a=line; List<Integer> out=new ArrayList<>();\n    {int len=0;for(int i=0;i<=a.length();i++){if(i==a.length()||a.charAt(i)==' '){if(len>0)out.add(len);len=0;}else len++;}}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-077-4",
+        "input": [
+          " ",
+          1
+        ],
+        "expected": 0,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-077-5",
+        "input": [
+          "aaaaa",
+          4
+        ],
+        "expected": 0,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-077-6",
+        "input": [
+          " -!? ",
+          8
+        ],
+        "expected": 0,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-077-7",
+        "input": [
+          "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",
+          3
+        ],
+        "expected": 1,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-077-8",
+        "input": [
+          "   ",
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-077-9",
+        "input": [
+          "a bb   ccc",
+          2
+        ],
+        "expected": 1,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nSplit the line into maximal runs of non-space ASCII characters and produce each run's length. Multiple spaces, leading spaces and trailing spaces do not produce empty words.\n\nReturn how many values in the derived sequence are even, including 0 and negative even values.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction wordSlipsEvenKeyCensus(line, k) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out.filter(x=>x%2===0).length;\n}\n\n\ntypescript\nfunction wordSlipsEvenKeyCensus(line: string, k: number): number {\n  const a=line; let out:number[]=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out.filter(x=>x%2===0).length;\n}\n\n\npython\ndef wordSlipsEvenKeyCensus(line, k):\n    a=line\n    out=[]\n    length=0\n    for c in a+' ':\n        if c==' ':\n            if length: out.append(length)\n            length=0\n        else: length+=1\n    return sum(x%2==0 for x in out)\n\n\njava\nclass Solution {\n  public int wordSlipsEvenKeyCensus(String line, int k) {\n    String a=line; List<Integer> out=new ArrayList<>();\n    {int len=0;for(int i=0;i<=a.length();i++){if(i==a.length()||a.charAt(i)==' '){if(len>0)out.add(len);len=0;}else len++;}}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
+  }
+}

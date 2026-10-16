@@ -1,0 +1,291 @@
+{
+  "id": "path3-288",
+  "slug": "chain-inspection-threshold-file",
+  "title": "Chain inspection: Threshold file",
+  "level": 6,
+  "unit": "chain-inspection",
+  "order": 288,
+  "difficulty": "medium",
+  "topics": [
+    "Linked lists, binary trees and search trees",
+    "Linked traversal"
+  ],
+  "patterns": [
+    "Linked traversal"
+  ],
+  "prerequisites": [
+    "path3-287"
+  ],
+  "summary": "Traverse the supplied acyclic linked list from head to tail and produce its node values in that order. Return how many values in the derived sequence are at least k.",
+  "stage": "Edge-case trap",
+  "boss": false,
+  "descriptionMd": "Index cards are joined by individual links rather than stored in numbered drawer slots. Luz marks a threshold on the filing cabinet's inspection card. Only qualifying readings count toward today's clearance stamp.\n\nTraverse the supplied acyclic linked list from head to tail and produce its node values in that order.\n\nReturn how many values in the derived sequence are at least k.\n\nImplement chainInspectionThresholdFile(head, k). Use k exactly where specified above.",
+  "unitIntro": "Linked traversal. Traverse the supplied acyclic linked list from head to tail and produce its node values in that order. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Lists are acyclic. Trees use level-order JSON with null for missing children; [] is an empty root. The runner supplies nodes with val/next or val/left/right.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with linked traversal. What state describes the portion you have already processed?",
+    "Traverse the supplied acyclic linked list from head to tail and produce its node values in that order. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return how many values in the derived sequence are at least k. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "chainInspectionThresholdFile",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function chainInspectionThresholdFile(head, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "type ListNode = { val: number; next: ListNode | null };\nfunction chainInspectionThresholdFile(head: ListNode | null, k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def chainInspectionThresholdFile(head, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int chainInspectionThresholdFile(ListNode head, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-288-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,-3,7,0,12]. Return how many values in the derived sequence are at least k. This gives 3."
+    },
+    {
+      "id": "path3-288-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,4,-2,4]. Return how many values in the derived sequence are at least k. This gives 3."
+    },
+    {
+      "id": "path3-288-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return how many values in the derived sequence are at least k. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "ListNode",
+    "int"
+  ],
+  "inputKinds": {
+    "0": "list"
+  },
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Edge-case trap: Linked traversal. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 6,
+    "unit": "chain-inspection",
+    "topic": "Linked traversal",
+    "pattern": "Linked traversal",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-288-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,-3,7,0,12]. Return how many values in the derived sequence are at least k. This gives 3."
+    },
+    {
+      "id": "path3-288-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,4,-2,4]. Return how many values in the derived sequence are at least k. This gives 3."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function chainInspectionThresholdFile(head, k) {\n  const a=head; let out=[];\n  for(let node=a;node;node=node.next)out.push(node.val);\n  return out.filter(x=>x>=k).length;\n}\n",
+    "typescript": "type ListNode = { val: number; next: ListNode | null };\nfunction chainInspectionThresholdFile(head: ListNode | null, k: number): number {\n  const a=head; let out:number[]=[];\n  for(let node=a;node;node=node.next)out.push(node.val);\n  return out.filter(x=>x>=k).length;\n}\n",
+    "python": "def chainInspectionThresholdFile(head, k):\n    a=head\n    out=[]\n    node=a\n    while node:\n        out.append(node.val)\n        node=node.next\n    return sum(x>=k for x in out)\n",
+    "java": "class Solution {\n  public int chainInspectionThresholdFile(ListNode head, int k) {\n    ListNode a=head; List<Integer> out=new ArrayList<>();\n    {for(ListNode node=a;node!=null;node=node.next)out.add(node.val);}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-288-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 1,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-288-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 4,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-288-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": 0,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-288-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": 28,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-288-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-288-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": 3,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nTraverse the supplied acyclic linked list from head to tail and produce its node values in that order.\n\nReturn how many values in the derived sequence are at least k.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction chainInspectionThresholdFile(head, k) {\n  const a=head; let out=[];\n  for(let node=a;node;node=node.next)out.push(node.val);\n  return out.filter(x=>x>=k).length;\n}\n\n\ntypescript\ntype ListNode = { val: number; next: ListNode | null };\nfunction chainInspectionThresholdFile(head: ListNode | null, k: number): number {\n  const a=head; let out:number[]=[];\n  for(let node=a;node;node=node.next)out.push(node.val);\n  return out.filter(x=>x>=k).length;\n}\n\n\npython\ndef chainInspectionThresholdFile(head, k):\n    a=head\n    out=[]\n    node=a\n    while node:\n        out.append(node.val)\n        node=node.next\n    return sum(x>=k for x in out)\n\n\njava\nclass Solution {\n  public int chainInspectionThresholdFile(ListNode head, int k) {\n    ListNode a=head; List<Integer> out=new ArrayList<>();\n    {for(ListNode node=a;node!=null;node=node.next)out.add(node.val);}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
+  }
+}

@@ -1,0 +1,778 @@
+{
+  "id": "path3-357",
+  "slug": "dispatch-order-even-key-census",
+  "title": "Dispatch order: Even-key census",
+  "level": 7,
+  "unit": "dispatch-order",
+  "order": 357,
+  "difficulty": "hard",
+  "topics": [
+    "Graphs, heaps, union-find and tries",
+    "Topological queues"
+  ],
+  "patterns": [
+    "Topological queues"
+  ],
+  "prerequisites": [
+    "path3-356"
+  ],
+  "summary": "links is a square 0/1 directed adjacency matrix. Queue all zero-indegree vertices in increasing order; pop FIFO, visit neighbors in increasing order, and enqueue a neighbor when its indegree becomes zero. Produce this vertex order, or no values if a cycle prevents a complete order. Return how many values in the derived sequence are even, including 0 and negative even values.",
+  "stage": "Counting variation",
+  "boss": false,
+  "descriptionMd": "A dispatch board permits a job only after every incoming dependency has been removed. Neri separates readings for the office's even-numbered keys. A zero reading belongs in that count, just like any other even number.\n\nlinks is a square 0/1 directed adjacency matrix. Queue all zero-indegree vertices in increasing order; pop FIFO, visit neighbors in increasing order, and enqueue a neighbor when its indegree becomes zero. Produce this vertex order, or no values if a cycle prevents a complete order.\n\nReturn how many values in the derived sequence are even, including 0 and negative even values.\n\nImplement dispatchOrderEvenKeyCensus(links, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Topological queues. links is a square 0/1 directed adjacency matrix. Queue all zero-indegree vertices in increasing order; pop FIFO, visit neighbors in increasing order, and enqueue a neighbor when its indegree becomes zero. Produce this vertex order, or no values if a cycle prevents a complete order. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 16.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "The adjacency matrix is square and has at most 16 vertices; binary entries are 0 or 1, weighted entries are 0 through 13.",
+    "Target time O(V^2); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with topological queues. What state describes the portion you have already processed?",
+    "links is a square 0/1 directed adjacency matrix. Queue all zero-indegree vertices in increasing order; pop FIFO, visit neighbors in increasing order, and enqueue a neighbor when its indegree becomes zero. Produce this vertex order, or no values if a cycle prevents a complete order. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return how many values in the derived sequence are even, including 0 and negative even values. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "dispatchOrderEvenKeyCensus",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function dispatchOrderEvenKeyCensus(links, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function dispatchOrderEvenKeyCensus(links: number[][], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def dispatchOrderEvenKeyCensus(links, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int dispatchOrderEvenKeyCensus(int[][] links, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-357-1",
+      "input": [
+        [
+          [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ]
+        ],
+        3
+      ],
+      "expected": 0,
+      "coverage": "worked",
+      "explanation": "The derived sequence is []. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 0."
+    },
+    {
+      "id": "path3-357-2",
+      "input": [
+        [
+          [
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1
+          ]
+        ],
+        2
+      ],
+      "expected": 0,
+      "coverage": "worked",
+      "explanation": "The derived sequence is []. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 0."
+    },
+    {
+      "id": "path3-357-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[][]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(V^2)",
+    "space": "O(n)"
+  },
+  "overview": "Counting variation: Topological queues. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 7,
+    "unit": "dispatch-order",
+    "topic": "Topological queues",
+    "pattern": "Topological queues",
+    "bigO": "O(V^2)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-357-1",
+      "input": [
+        [
+          [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ]
+        ],
+        3
+      ],
+      "expected": 0,
+      "coverage": "worked",
+      "explanation": "The derived sequence is []. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 0."
+    },
+    {
+      "id": "path3-357-2",
+      "input": [
+        [
+          [
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1
+          ]
+        ],
+        2
+      ],
+      "expected": 0,
+      "coverage": "worked",
+      "explanation": "The derived sequence is []. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 0."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function dispatchOrderEvenKeyCensus(links, k) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out.filter(x=>x%2===0).length;\n}\n",
+    "typescript": "function dispatchOrderEvenKeyCensus(links: number[][], k: number): number {\n  const a=links; let out:number[]=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out.filter(x=>x%2===0).length;\n}\n",
+    "python": "def dispatchOrderEvenKeyCensus(links, k):\n    a=links\n    out=[]\n    from collections import deque\n    n=len(a)\n    degree=[sum(row[v] for row in a) for v in range(n)]\n    queue=deque(v for v in range(n) if degree[v]==0)\n    while queue:\n        u=queue.popleft()\n        out.append(u)\n        for v in range(n):\n            if a[u][v]:\n                degree[v]-=1\n                if degree[v]==0: queue.append(v)\n    if len(out)!=n: out=[]\n    return sum(x%2==0 for x in out)\n",
+    "java": "class Solution {\n  public int dispatchOrderEvenKeyCensus(int[][] links, int k) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;int[]degree=new int[n];for(int[]row:a)for(int v=0;v<n;v++)degree[v]+=row[v];Deque<Integer>queue=new ArrayDeque<>();for(int v=0;v<n;v++)if(degree[v]==0)queue.add(v);while(!queue.isEmpty()){int u=queue.remove();out.add(u);for(int v=0;v<n;v++)if(a[u][v]!=0&&--degree[v]==0)queue.add(v);}if(out.size()!=n)out.clear();}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-357-4",
+        "input": [
+          [
+            [
+              1
+            ]
+          ],
+          1
+        ],
+        "expected": 0,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-357-5",
+        "input": [
+          [
+            [
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          4
+        ],
+        "expected": 0,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-357-6",
+        "input": [
+          [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          8
+        ],
+        "expected": 2,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-357-7",
+        "input": [
+          [
+            [
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          3
+        ],
+        "expected": 8,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-357-8",
+        "input": [
+          [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          5
+        ],
+        "expected": 2,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-357-9",
+        "input": [
+          [
+            [
+              0,
+              1,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          2
+        ],
+        "expected": 0,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nlinks is a square 0/1 directed adjacency matrix. Queue all zero-indegree vertices in increasing order; pop FIFO, visit neighbors in increasing order, and enqueue a neighbor when its indegree becomes zero. Produce this vertex order, or no values if a cycle prevents a complete order.\n\nReturn how many values in the derived sequence are even, including 0 and negative even values.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(V^2); space O(n).\n\njavascript\nfunction dispatchOrderEvenKeyCensus(links, k) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out.filter(x=>x%2===0).length;\n}\n\n\ntypescript\nfunction dispatchOrderEvenKeyCensus(links: number[][], k: number): number {\n  const a=links; let out:number[]=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out.filter(x=>x%2===0).length;\n}\n\n\npython\ndef dispatchOrderEvenKeyCensus(links, k):\n    a=links\n    out=[]\n    from collections import deque\n    n=len(a)\n    degree=[sum(row[v] for row in a) for v in range(n)]\n    queue=deque(v for v in range(n) if degree[v]==0)\n    while queue:\n        u=queue.popleft()\n        out.append(u)\n        for v in range(n):\n            if a[u][v]:\n                degree[v]-=1\n                if degree[v]==0: queue.append(v)\n    if len(out)!=n: out=[]\n    return sum(x%2==0 for x in out)\n\n\njava\nclass Solution {\n  public int dispatchOrderEvenKeyCensus(int[][] links, int k) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;int[]degree=new int[n];for(int[]row:a)for(int v=0;v<n;v++)degree[v]+=row[v];Deque<Integer>queue=new ArrayDeque<>();for(int v=0;v<n;v++)if(degree[v]==0)queue.add(v);while(!queue.isEmpty()){int u=queue.remove();out.add(u);for(int v=0;v<n;v++)if(a[u][v]!=0&&--degree[v]==0)queue.add(v);}if(out.size()!=n)out.clear();}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
+  }
+}

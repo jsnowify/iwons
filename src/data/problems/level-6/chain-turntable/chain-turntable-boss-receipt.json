@@ -1,0 +1,293 @@
+{
+  "id": "path3-303",
+  "slug": "chain-turntable-boss-receipt",
+  "title": "Chain turntable: Boss receipt",
+  "level": 6,
+  "unit": "chain-turntable",
+  "order": 303,
+  "difficulty": "medium",
+  "topics": [
+    "Linked lists, binary trees and search trees",
+    "Linked pointer reversal"
+  ],
+  "patterns": [
+    "Linked pointer reversal"
+  ],
+  "prerequisites": [
+    "path3-302",
+    "path3-013"
+  ],
+  "summary": "Reverse the links of the supplied acyclic linked list, then traverse the reversed list to produce its values. An empty head produces no values. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.",
+  "stage": "Boss · revisit",
+  "boss": true,
+  "revisit": "Level 0: loop accumulators",
+  "descriptionMd": "The repair bench must reverse a linked chain of labels without dropping the unvisited tail. Alma adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nReverse the links of the supplied acyclic linked list, then traverse the reversed list to produce its values. An empty head produces no values.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement chainTurntableBossReceipt(head, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Linked pointer reversal. Reverse the links of the supplied acyclic linked list, then traverse the reversed list to produce its values. An empty head produces no values. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Lists are acyclic. Trees use level-order JSON with null for missing children; [] is an empty root. The runner supplies nodes with val/next or val/left/right.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with linked pointer reversal. What state describes the portion you have already processed?",
+    "Reverse the links of the supplied acyclic linked list, then traverse the reversed list to produce its values. An empty head produces no values. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. Use an accumulator and a one-based position counter, revisiting the first level's loop work."
+  ],
+  "functionName": "chainTurntableBossReceipt",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function chainTurntableBossReceipt(head, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "type ListNode = { val: number; next: ListNode | null };\nfunction chainTurntableBossReceipt(head: ListNode | null, k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def chainTurntableBossReceipt(head, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int chainTurntableBossReceipt(ListNode head, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-303-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 56,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [12,0,7,-3,7]. Its weighted products are [12,0,21,-12,35]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 56."
+    },
+    {
+      "id": "path3-303-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 28,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,-2,4,4]. Its weighted products are [4,-4,12,16]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 28."
+    },
+    {
+      "id": "path3-303-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Its weighted products are []. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "ListNode",
+    "int"
+  ],
+  "inputKinds": {
+    "0": "list"
+  },
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Boss · revisit: Linked pointer reversal. Level 0: loop accumulators",
+  "tags": {
+    "level": 6,
+    "unit": "chain-turntable",
+    "topic": "Linked pointer reversal",
+    "pattern": "Linked pointer reversal",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-303-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 56,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [12,0,7,-3,7]. Its weighted products are [12,0,21,-12,35]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 56."
+    },
+    {
+      "id": "path3-303-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 28,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,-2,4,4]. Its weighted products are [4,-4,12,16]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 28."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function chainTurntableBossReceipt(head, k) {\n  const a=head; let out=[];\n  let previous=null,node=a;while(node){const next=node.next;node.next=previous;previous=node;node=next;}for(node=previous;node;node=node.next)out.push(node.val);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "typescript": "type ListNode = { val: number; next: ListNode | null };\nfunction chainTurntableBossReceipt(head: ListNode | null, k: number): number {\n  const a=head; let out:number[]=[];\n  let previous:ListNode|null=null,node:ListNode|null=a;while(node){const next:ListNode|null=node.next;node.next=previous;previous=node;node=next;}for(node=previous;node;node=node.next)out.push(node.val);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "python": "def chainTurntableBossReceipt(head, k):\n    a=head\n    out=[]\n    previous=None\n    node=a\n    while node:\n        next_node=node.next\n        node.next=previous\n        previous=node\n        node=next_node\n    node=previous\n    while node:\n        out.append(node.val)\n        node=node.next\n    return sum((i+1)*x for i,x in enumerate(out))\n",
+    "java": "class Solution {\n  public int chainTurntableBossReceipt(ListNode head, int k) {\n    ListNode a=head; List<Integer> out=new ArrayList<>();\n    {ListNode previous=null,node=a;while(node!=null){ListNode next=node.next;node.next=previous;previous=node;node=next;}for(node=previous;node!=null;node=node.next)out.add(node.val);}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-303-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 9,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-303-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 50,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-303-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": -69,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-303-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": -77,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-303-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-303-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": 63,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nReverse the links of the supplied acyclic linked list, then traverse the reversed list to produce its values. An empty head produces no values.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction chainTurntableBossReceipt(head, k) {\n  const a=head; let out=[];\n  let previous=null,node=a;while(node){const next=node.next;node.next=previous;previous=node;node=next;}for(node=previous;node;node=node.next)out.push(node.val);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\ntype ListNode = { val: number; next: ListNode | null };\nfunction chainTurntableBossReceipt(head: ListNode | null, k: number): number {\n  const a=head; let out:number[]=[];\n  let previous:ListNode|null=null,node:ListNode|null=a;while(node){const next:ListNode|null=node.next;node.next=previous;previous=node;node=next;}for(node=previous;node;node=node.next)out.push(node.val);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef chainTurntableBossReceipt(head, k):\n    a=head\n    out=[]\n    previous=None\n    node=a\n    while node:\n        next_node=node.next\n        node.next=previous\n        previous=node\n        node=next_node\n    node=previous\n    while node:\n        out.append(node.val)\n        node=node.next\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int chainTurntableBossReceipt(ListNode head, int k) {\n    ListNode a=head; List<Integer> out=new ArrayList<>();\n    {ListNode previous=null,node=a;while(node!=null){ListNode next=node.next;node.next=previous;previous=node;node=next;}for(node=previous;node!=null;node=node.next)out.add(node.val);}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+  }
+}

@@ -1,0 +1,375 @@
+{
+  "id": "path3-149",
+  "slug": "fixed-panels-proof-strip",
+  "title": "Fixed panels: Proof strip",
+  "level": 3,
+  "unit": "fixed-panels",
+  "order": 149,
+  "difficulty": "medium",
+  "topics": [
+    "Two pointers, windows and prefix sums",
+    "Fixed sliding windows"
+  ],
+  "patterns": [
+    "Fixed sliding windows"
+  ],
+  "prerequisites": [
+    "path3-140"
+  ],
+  "summary": "For each contiguous window of exactly k readings, produce its sum from left to right. If fewer than k readings exist, produce no window sums. Return the entire derived sequence, preserving its order.",
+  "stage": "Warm-up",
+  "boss": false,
+  "descriptionMd": "A rectangular stencil reveals exactly k neighboring readings on the moving paper strip. Neri rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nFor each contiguous window of exactly k readings, produce its sum from left to right. If fewer than k readings exist, produce no window sums.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement fixedPanelsProofStrip(readings, k). Use k exactly where specified above.",
+  "unitIntro": "Fixed sliding windows. For each contiguous window of exactly k readings, produce its sum from left to right. If fewer than k readings exist, produce no window sums. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with fixed sliding windows. What state describes the portion you have already processed?",
+    "For each contiguous window of exactly k readings, produce its sum from left to right. If fewer than k readings exist, produce no window sums. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the entire derived sequence, preserving its order. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "fixedPanelsProofStrip",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function fixedPanelsProofStrip(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
+    "typescript": "function fixedPanelsProofStrip(readings: number[], k: number): number[] {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
+    "python": "def fixedPanelsProofStrip(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return []\n",
+    "java": "class Solution {\n  public int[] fixedPanelsProofStrip(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return new int[0];\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-149-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": [
+        11,
+        4,
+        19
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [11,4,19]. Return the entire derived sequence, preserving its order. This gives [11,4,19]."
+    },
+    {
+      "id": "path3-149-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": [
+        8,
+        2,
+        2
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [8,2,2]. Return the entire derived sequence, preserving its order. This gives [8,2,2]."
+    },
+    {
+      "id": "path3-149-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": [],
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the entire derived sequence, preserving its order. This gives []."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Warm-up: Fixed sliding windows. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 3,
+    "unit": "fixed-panels",
+    "topic": "Fixed sliding windows",
+    "pattern": "Fixed sliding windows",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-149-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": [
+        11,
+        4,
+        19
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [11,4,19]. Return the entire derived sequence, preserving its order. This gives [11,4,19]."
+    },
+    {
+      "id": "path3-149-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": [
+        8,
+        2,
+        2
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [8,2,2]. Return the entire derived sequence, preserving its order. This gives [8,2,2]."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function fixedPanelsProofStrip(readings, k) {\n  const a=readings; let out=[];\n  let s=0;for(let i=0;i<a.length;i++){s+=a[i];if(i>=k)s-=a[i-k];if(i>=k-1)out.push(s);}\n  return out;\n}\n",
+    "typescript": "function fixedPanelsProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  let s=0;for(let i=0;i<a.length;i++){s+=a[i];if(i>=k)s-=a[i-k];if(i>=k-1)out.push(s);}\n  return out;\n}\n",
+    "python": "def fixedPanelsProofStrip(readings, k):\n    a=readings\n    out=[]\n    s=0\n    for i,x in enumerate(a):\n        s+=x\n        if i>=k: s-=a[i-k]\n        if i>=k-1: out.append(s)\n    return out\n",
+    "java": "class Solution {\n  public int[] fixedPanelsProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int s=0;for(int i=0;i<a.length;i++){s+=a[i];if(i>=k)s-=a[i-k];if(i>=k-1)out.add(s);}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-149-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": [
+          9
+        ],
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-149-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": [
+          20
+        ],
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-149-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": [],
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-149-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": [
+          -21,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6,
+          4,
+          2,
+          0,
+          -2,
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          21,
+          19,
+          17,
+          15,
+          13,
+          11,
+          9,
+          7,
+          5,
+          3,
+          1,
+          -1,
+          -3,
+          -5,
+          -7,
+          -9,
+          -11,
+          -13,
+          -15,
+          -17,
+          -19,
+          -21,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6,
+          4,
+          2,
+          0,
+          -2,
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          21
+        ],
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-149-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": [],
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-149-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": [
+          11,
+          1,
+          6,
+          9
+        ],
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nFor each contiguous window of exactly k readings, produce its sum from left to right. If fewer than k readings exist, produce no window sums.\n\nReturn the entire derived sequence, preserving its order.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction fixedPanelsProofStrip(readings, k) {\n  const a=readings; let out=[];\n  let s=0;for(let i=0;i<a.length;i++){s+=a[i];if(i>=k)s-=a[i-k];if(i>=k-1)out.push(s);}\n  return out;\n}\n\n\ntypescript\nfunction fixedPanelsProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  let s=0;for(let i=0;i<a.length;i++){s+=a[i];if(i>=k)s-=a[i-k];if(i>=k-1)out.push(s);}\n  return out;\n}\n\n\npython\ndef fixedPanelsProofStrip(readings, k):\n    a=readings\n    out=[]\n    s=0\n    for i,x in enumerate(a):\n        s+=x\n        if i>=k: s-=a[i-k]\n        if i>=k-1: out.append(s)\n    return out\n\n\njava\nclass Solution {\n  public int[] fixedPanelsProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int s=0;for(int i=0;i<a.length;i++){s+=a[i];if(i>=k)s-=a[i-k];if(i>=k-1)out.add(s);}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  }
+}

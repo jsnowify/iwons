@@ -1,0 +1,267 @@
+{
+  "id": "path3-330",
+  "slug": "floor-register-boss-receipt",
+  "title": "Floor register: Boss receipt",
+  "level": 6,
+  "unit": "floor-register",
+  "order": 330,
+  "difficulty": "medium",
+  "topics": [
+    "Linked lists, binary trees and search trees",
+    "Tree breadth-first traversal"
+  ],
+  "patterns": [
+    "Tree breadth-first traversal"
+  ],
+  "prerequisites": [
+    "path3-329",
+    "path3-013"
+  ],
+  "summary": "Produce the sum of node values at each depth of the binary tree, starting with depth 0 at the root. Missing children contribute nothing. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.",
+  "stage": "Boss · revisit",
+  "boss": true,
+  "revisit": "Level 0: loop accumulators",
+  "descriptionMd": "The cabinet supervisor collects one total for every floor of a binary folder tree. Alma adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nProduce the sum of node values at each depth of the binary tree, starting with depth 0 at the root. Missing children contribute nothing.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement floorRegisterBossReceipt(root, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Tree breadth-first traversal. Produce the sum of node values at each depth of the binary tree, starting with depth 0 at the root. Missing children contribute nothing. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= node count <= 31; JSON null placeholders do not count as nodes.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Lists are acyclic. Trees use level-order JSON with null for missing children; [] is an empty root. The runner supplies nodes with val/next or val/left/right.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with tree breadth-first traversal. What state describes the portion you have already processed?",
+    "Produce the sum of node values at each depth of the binary tree, starting with depth 0 at the root. Missing children contribute nothing. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. Use an accumulator and a one-based position counter, revisiting the first level's loop work."
+  ],
+  "functionName": "floorRegisterBossReceipt",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function floorRegisterBossReceipt(root, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "type TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction floorRegisterBossReceipt(root: TreeNode | null, k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def floorRegisterBossReceipt(root, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int floorRegisterBossReceipt(TreeNode root, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-330-1",
+      "input": [
+        [
+          7,
+          null,
+          -3,
+          7,
+          0
+        ],
+        3
+      ],
+      "expected": 22,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,-3,7]. Its weighted products are [7,-6,21]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 22."
+    },
+    {
+      "id": "path3-330-2",
+      "input": [
+        [
+          4,
+          null,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 18,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,4,2]. Its weighted products are [4,8,6]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 18."
+    },
+    {
+      "id": "path3-330-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Its weighted products are []. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "TreeNode",
+    "int"
+  ],
+  "inputKinds": {
+    "0": "tree"
+  },
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Boss · revisit: Tree breadth-first traversal. Level 0: loop accumulators",
+  "tags": {
+    "level": 6,
+    "unit": "floor-register",
+    "topic": "Tree breadth-first traversal",
+    "pattern": "Tree breadth-first traversal",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-330-1",
+      "input": [
+        [
+          7,
+          null,
+          -3,
+          7,
+          0
+        ],
+        3
+      ],
+      "expected": 22,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,-3,7]. Its weighted products are [7,-6,21]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 22."
+    },
+    {
+      "id": "path3-330-2",
+      "input": [
+        [
+          4,
+          null,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 18,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,4,2]. Its weighted products are [4,8,6]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 18."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function floorRegisterBossReceipt(root, k) {\n  const a=root; let out=[];\n  if(a){const queue=[a];let head=0;while(head<queue.length){const end=queue.length;let s=0;while(head<end){const node=queue[head++];s+=node.val;if(node.left)queue.push(node.left);if(node.right)queue.push(node.right);}out.push(s);}}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "typescript": "type TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction floorRegisterBossReceipt(root: TreeNode | null, k: number): number {\n  const a=root; let out:number[]=[];\n  if(a){const queue=[a];let head=0;while(head<queue.length){const end=queue.length;let s=0;while(head<end){const node=queue[head++];s+=node.val;if(node.left)queue.push(node.left);if(node.right)queue.push(node.right);}out.push(s);}}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "python": "def floorRegisterBossReceipt(root, k):\n    a=root\n    out=[]\n    from collections import deque\n    queue=deque([a] if a else [])\n    while queue:\n        s=0\n        for _ in range(len(queue)):\n            node=queue.popleft()\n            s+=node.val\n            if node.left: queue.append(node.left)\n            if node.right: queue.append(node.right)\n        out.append(s)\n    return sum((i+1)*x for i,x in enumerate(out))\n",
+    "java": "class Solution {\n  public int floorRegisterBossReceipt(TreeNode root, int k) {\n    TreeNode a=root; List<Integer> out=new ArrayList<>();\n    {if(a!=null){Deque<TreeNode>queue=new ArrayDeque<>();queue.add(a);while(!queue.isEmpty()){int count=queue.size(),s=0;while(count-->0){TreeNode node=queue.remove();s+=node.val;if(node.left!=null)queue.add(node.left);if(node.right!=null)queue.add(node.right);}out.add(s);}}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-330-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 9,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-330-5",
+        "input": [
+          [
+            5,
+            null,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 45,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-330-6",
+        "input": [
+          [
+            -20,
+            null,
+            -1,
+            -7,
+            null
+          ],
+          8
+        ],
+        "expected": -43,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-330-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1
+          ],
+          3
+        ],
+        "expected": 97,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-330-8",
+        "input": [
+          [
+            0,
+            null,
+            0,
+            0,
+            null
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-330-9",
+        "input": [
+          [
+            8,
+            null,
+            3,
+            -2,
+            8
+          ],
+          2
+        ],
+        "expected": 32,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nProduce the sum of node values at each depth of the binary tree, starting with depth 0 at the root. Missing children contribute nothing.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction floorRegisterBossReceipt(root, k) {\n  const a=root; let out=[];\n  if(a){const queue=[a];let head=0;while(head<queue.length){const end=queue.length;let s=0;while(head<end){const node=queue[head++];s+=node.val;if(node.left)queue.push(node.left);if(node.right)queue.push(node.right);}out.push(s);}}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\ntype TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction floorRegisterBossReceipt(root: TreeNode | null, k: number): number {\n  const a=root; let out:number[]=[];\n  if(a){const queue=[a];let head=0;while(head<queue.length){const end=queue.length;let s=0;while(head<end){const node=queue[head++];s+=node.val;if(node.left)queue.push(node.left);if(node.right)queue.push(node.right);}out.push(s);}}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef floorRegisterBossReceipt(root, k):\n    a=root\n    out=[]\n    from collections import deque\n    queue=deque([a] if a else [])\n    while queue:\n        s=0\n        for _ in range(len(queue)):\n            node=queue.popleft()\n            s+=node.val\n            if node.left: queue.append(node.left)\n            if node.right: queue.append(node.right)\n        out.append(s)\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int floorRegisterBossReceipt(TreeNode root, int k) {\n    TreeNode a=root; List<Integer> out=new ArrayList<>();\n    {if(a!=null){Deque<TreeNode>queue=new ArrayDeque<>();queue.add(a);while(!queue.isEmpty()){int count=queue.size(),s=0;while(count-->0){TreeNode node=queue.remove();s+=node.val;if(node.left!=null)queue.add(node.left);if(node.right!=null)queue.add(node.right);}out.add(s);}}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+  }
+}

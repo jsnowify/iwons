@@ -1,0 +1,32 @@
+{
+  "unit": "catalog-branches",
+  "problems": 10,
+  "cases": 90,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Catalog branches: Proof strip",
+      "statement": "An ordered folder tree can skip entire branches outside the inspector's requested number range. Pia rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nThe input is a binary search tree with distinct values. Produce its values in the inclusive range [k,k+12], in ascending order, pruning subtrees that cannot meet that range.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement catalogBranchesProofStrip(root, k). Use k exactly where specified above."
+    },
+    {
+      "title": "Catalog branches: Floor ticket",
+      "statement": "An ordered folder tree can skip entire branches outside the inspector's requested number range. Sol is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nThe input is a binary search tree with distinct values. Produce its values in the inclusive range [k,k+12], in ascending order, pruning subtrees that cannot meet that range.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement catalogBranchesFloorTicket(root, k). Use k exactly where specified above."
+    },
+    {
+      "title": "Catalog branches: Boss receipt",
+      "statement": "An ordered folder tree can skip entire branches outside the inspector's requested number range. Rafi adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nThe input is a binary search tree with distinct values. Produce its values in the inclusive range [k,k+12], in ascending order, pruning subtrees that cannot meet that range.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement catalogBranchesBossReceipt(root, k). Use k exactly where specified above."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "unit": "remainder-boxes",
+  "problems": 10,
+  "cases": 90,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Remainder boxes: Proof strip",
+      "statement": "Five pigeonholes collect signed correction slips according to their normalized remainder. Ivo rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nAssign each reading x to box ((x % 5) + 5) % 5. Produce the five box counts in box order 0 through 4.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement remainderBoxesProofStrip(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Remainder boxes: Floor ticket",
+      "statement": "Five pigeonholes collect signed correction slips according to their normalized remainder. Tomas is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nAssign each reading x to box ((x % 5) + 5) % 5. Produce the five box counts in box order 0 through 4.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement remainderBoxesFloorTicket(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Remainder boxes: Boss receipt",
+      "statement": "Five pigeonholes collect signed correction slips according to their normalized remainder. Sol adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nAssign each reading x to box ((x % 5) + 5) % 5. Produce the five box counts in box order 0 through 4.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement remainderBoxesBossReceipt(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

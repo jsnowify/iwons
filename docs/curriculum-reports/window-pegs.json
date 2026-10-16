@@ -1,0 +1,32 @@
+{
+  "unit": "window-pegs",
+  "problems": 9,
+  "cases": 81,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Window pegs: Proof strip",
+      "statement": "The inspection frame keeps only pegs that could still be the tallest in its current window. Alma rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nFor every contiguous window of exactly k readings, produce its maximum from left to right. Produce no values if k exceeds the number of readings.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement windowPegsProofStrip(readings, k). Use k exactly where specified above."
+    },
+    {
+      "title": "Window pegs: Peak ticket",
+      "statement": "The inspection frame keeps only pegs that could still be the tallest in its current window. Luz is setting the upper stop on an old office gauge. The largest derived reading goes on its label, even if the whole tray is below zero.\n\nFor every contiguous window of exactly k readings, produce its maximum from left to right. Produce no values if k exceeds the number of readings.\n\nReturn the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative.\n\nImplement windowPegsPeakTicket(readings, k). Use k exactly where specified above."
+    },
+    {
+      "title": "Window pegs: Boss receipt",
+      "statement": "The inspection frame keeps only pegs that could still be the tallest in its current window. Ivo adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nFor every contiguous window of exactly k readings, produce its maximum from left to right. Produce no values if k exceeds the number of readings.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement windowPegsBossReceipt(readings, k). Use k exactly where specified above."
+    }
+  ]
+}

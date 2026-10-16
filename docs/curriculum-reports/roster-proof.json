@@ -1,0 +1,32 @@
+{
+  "unit": "roster-proof",
+  "problems": 10,
+  "cases": 90,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Roster proof: Proof strip",
+      "statement": "Permission masks list which clerks may occupy each desk on the day's assignment roster. Luz rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nThere are n desks and n clerks. readings[row] is an n-bit permission mask for desk row. Assign one distinct clerk to each desk, using only allowed bits. For each possible clerk at desk 0, produce the number of complete assignments with that first clerk; forbidden first choices contribute 0. An empty roster produces no counts.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement rosterProofProofStrip(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Roster proof: Floor ticket",
+      "statement": "Permission masks list which clerks may occupy each desk on the day's assignment roster. Neri is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nThere are n desks and n clerks. readings[row] is an n-bit permission mask for desk row. Assign one distinct clerk to each desk, using only allowed bits. For each possible clerk at desk 0, produce the number of complete assignments with that first clerk; forbidden first choices contribute 0. An empty roster produces no counts.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement rosterProofFloorTicket(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Roster proof: Boss receipt",
+      "statement": "Permission masks list which clerks may occupy each desk on the day's assignment roster. Tomas adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nThere are n desks and n clerks. readings[row] is an n-bit permission mask for desk row. Assign one distinct clerk to each desk, using only allowed bits. For each possible clerk at desk 0, produce the number of complete assignments with that first clerk; forbidden first choices contribute 0. An empty roster produces no counts.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement rosterProofBossReceipt(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

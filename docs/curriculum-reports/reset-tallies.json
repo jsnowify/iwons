@@ -1,0 +1,32 @@
+{
+  "unit": "reset-tallies",
+  "problems": 6,
+  "cases": 54,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Reset tallies: Proof strip",
+      "statement": "The office tally bell resets whenever a blank separator card passes through the tray. Mina rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nMaintain a tally initially 0. A zero reading resets it to 0; any other reading is added to it. Record the tally after every reading.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement resetTalliesProofStrip(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Reset tallies: First qualifying slip",
+      "statement": "The office tally bell resets whenever a blank separator card passes through the tray. Neri needs the first qualifying slip while the courier waits at the door. Later matches must not jump ahead in the tray.\n\nMaintain a tally initially 0. A zero reading resets it to 0; any other reading is added to it. Record the tally after every reading.\n\nReturn the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.\n\nImplement resetTalliesFirstQualifyingSlip(readings, k). Use k exactly where specified above."
+    },
+    {
+      "title": "Reset tallies: Boss receipt",
+      "statement": "The office tally bell resets whenever a blank separator card passes through the tray. Rafi adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nMaintain a tally initially 0. A zero reading resets it to 0; any other reading is added to it. Record the tally after every reading.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement resetTalliesBossReceipt(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

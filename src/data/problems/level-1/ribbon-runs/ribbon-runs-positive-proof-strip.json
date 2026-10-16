@@ -1,0 +1,229 @@
+{
+  "id": "path3-049",
+  "slug": "ribbon-runs-positive-proof-strip",
+  "title": "Ribbon runs: Positive proof strip",
+  "level": 1,
+  "unit": "ribbon-runs",
+  "order": 49,
+  "difficulty": "easy",
+  "topics": [
+    "Arrays and strings",
+    "String runs"
+  ],
+  "patterns": [
+    "String runs"
+  ],
+  "prerequisites": [
+    "path3-048"
+  ],
+  "summary": "A run is a maximal consecutive group of identical characters. Produce its length for each run, from left to right. Spaces are characters too. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates.",
+  "stage": "Sequence variation",
+  "boss": false,
+  "descriptionMd": "A sticking key leaves repeated marks across a typewriter ribbon's inspection strip. Ada prepares a clean proof strip for the front desk. Positive derived readings keep their places relative to one another.\n\nA run is a maximal consecutive group of identical characters. Produce its length for each run, from left to right. Spaces are characters too.\n\nReturn only the strictly positive values in the derived sequence, preserving their relative order and duplicates.\n\nImplement ribbonRunsPositiveProofStrip(line, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "String runs. A run is a maximal consecutive group of identical characters. Produce its length for each run, from left to right. Spaces are characters too. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations).",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "The line contains ASCII characters; the only word separator is a space.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with string runs. What state describes the portion you have already processed?",
+    "A run is a maximal consecutive group of identical characters. Produce its length for each run, from left to right. Spaces are characters too. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "ribbonRunsPositiveProofStrip",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function ribbonRunsPositiveProofStrip(line, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
+    "typescript": "function ribbonRunsPositiveProofStrip(line: string, k: number): number[] {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
+    "python": "def ribbonRunsPositiveProofStrip(line, k):\n    # Derive the sequence, then compute the requested receipt.\n    return []\n",
+    "java": "class Solution {\n  public int[] ribbonRunsPositiveProofStrip(String line, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return new int[0];\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-049-1",
+      "input": [
+        "inkk paaaper",
+        3
+      ],
+      "expected": [
+        1,
+        1,
+        2,
+        1,
+        1,
+        3,
+        1,
+        1,
+        1
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,1,2,1,1,3,1,1,1]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [1,1,2,1,1,3,1,1,1]."
+    },
+    {
+      "id": "path3-049-2",
+      "input": [
+        "QQ qQQ",
+        2
+      ],
+      "expected": [
+        2,
+        1,
+        1,
+        2
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [2,1,1,2]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [2,1,1,2]."
+    },
+    {
+      "id": "path3-049-3",
+      "input": [
+        "",
+        1
+      ],
+      "expected": [],
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives []."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "String",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Sequence variation: String runs. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 1,
+    "unit": "ribbon-runs",
+    "topic": "String runs",
+    "pattern": "String runs",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-049-1",
+      "input": [
+        "inkk paaaper",
+        3
+      ],
+      "expected": [
+        1,
+        1,
+        2,
+        1,
+        1,
+        3,
+        1,
+        1,
+        1
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,1,2,1,1,3,1,1,1]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [1,1,2,1,1,3,1,1,1]."
+    },
+    {
+      "id": "path3-049-2",
+      "input": [
+        "QQ qQQ",
+        2
+      ],
+      "expected": [
+        2,
+        1,
+        1,
+        2
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [2,1,1,2]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [2,1,1,2]."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function ribbonRunsPositiveProofStrip(line, k) {\n  const a=line; let out=[];\n  for(let i=0;i<a.length;){let j=i+1;while(j<a.length&&a[j]===a[i])j++;out.push(j-i);i=j;}\n  return out.filter(x=>x>0);\n}\n",
+    "typescript": "function ribbonRunsPositiveProofStrip(line: string, k: number): number[] {\n  const a=line; let out:number[]=[];\n  for(let i=0;i<a.length;){let j=i+1;while(j<a.length&&a[j]===a[i])j++;out.push(j-i);i=j;}\n  return out.filter(x=>x>0);\n}\n",
+    "python": "def ribbonRunsPositiveProofStrip(line, k):\n    a=line\n    out=[]\n    i=0\n    while i<len(a):\n        j=i+1\n        while j<len(a) and a[j]==a[i]: j+=1\n        out.append(j-i)\n        i=j\n    return [x for x in out if x>0]\n",
+    "java": "class Solution {\n  public int[] ribbonRunsPositiveProofStrip(String line, int k) {\n    String a=line; List<Integer> out=new ArrayList<>();\n    {for(int i=0;i<a.length();){int j=i+1;while(j<a.length()&&a.charAt(j)==a.charAt(i))j++;out.add(j-i);i=j;}}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-049-4",
+        "input": [
+          " ",
+          1
+        ],
+        "expected": [
+          1
+        ],
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-049-5",
+        "input": [
+          "aaaaa",
+          4
+        ],
+        "expected": [
+          5
+        ],
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-049-6",
+        "input": [
+          " -!? ",
+          8
+        ],
+        "expected": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-049-7",
+        "input": [
+          "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",
+          3
+        ],
+        "expected": [
+          64
+        ],
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-049-8",
+        "input": [
+          "   ",
+          5
+        ],
+        "expected": [
+          3
+        ],
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-049-9",
+        "input": [
+          "a bb   ccc",
+          2
+        ],
+        "expected": [
+          1,
+          1,
+          2,
+          3,
+          3
+        ],
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nA run is a maximal consecutive group of identical characters. Produce its length for each run, from left to right. Spaces are characters too.\n\nReturn only the strictly positive values in the derived sequence, preserving their relative order and duplicates.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction ribbonRunsPositiveProofStrip(line, k) {\n  const a=line; let out=[];\n  for(let i=0;i<a.length;){let j=i+1;while(j<a.length&&a[j]===a[i])j++;out.push(j-i);i=j;}\n  return out.filter(x=>x>0);\n}\n\n\ntypescript\nfunction ribbonRunsPositiveProofStrip(line: string, k: number): number[] {\n  const a=line; let out:number[]=[];\n  for(let i=0;i<a.length;){let j=i+1;while(j<a.length&&a[j]===a[i])j++;out.push(j-i);i=j;}\n  return out.filter(x=>x>0);\n}\n\n\npython\ndef ribbonRunsPositiveProofStrip(line, k):\n    a=line\n    out=[]\n    i=0\n    while i<len(a):\n        j=i+1\n        while j<len(a) and a[j]==a[i]: j+=1\n        out.append(j-i)\n        i=j\n    return [x for x in out if x>0]\n\n\njava\nclass Solution {\n  public int[] ribbonRunsPositiveProofStrip(String line, int k) {\n    String a=line; List<Integer> out=new ArrayList<>();\n    {for(int i=0;i<a.length();){int j=i+1;while(j<a.length()&&a.charAt(j)==a.charAt(i))j++;out.add(j-i);i=j;}}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  }
+}

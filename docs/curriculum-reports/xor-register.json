@@ -1,0 +1,32 @@
+{
+  "unit": "xor-register",
+  "problems": 10,
+  "cases": 90,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Xor register: Proof strip",
+      "statement": "A switch register toggles each indicated punch position as the ribbon advances. Rafi rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nMaintain a register initially 0. XOR each nonnegative reading into it and record the register after each reading.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement xorRegisterProofStrip(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Xor register: Floor ticket",
+      "statement": "A switch register toggles each indicated punch position as the ribbon advances. Mina is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nMaintain a register initially 0. XOR each nonnegative reading into it and record the register after each reading.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement xorRegisterFloorTicket(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Xor register: Boss receipt",
+      "statement": "A switch register toggles each indicated punch position as the ribbon advances. Alma adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nMaintain a register initially 0. XOR each nonnegative reading into it and record the register after each reading.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement xorRegisterBossReceipt(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

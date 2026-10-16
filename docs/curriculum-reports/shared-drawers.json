@@ -1,0 +1,32 @@
+{
+  "unit": "shared-drawers",
+  "problems": 10,
+  "cases": 90,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Shared drawers: Proof strip",
+      "statement": "Two departments have exchanged lists of reading tags for their shared equipment shelf. Ivo rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nThe input contains exactly two drawers. Produce the distinct readings present in both drawers, in increasing numeric order.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement sharedDrawersProofStrip(drawers, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Shared drawers: Floor ticket",
+      "statement": "Two departments have exchanged lists of reading tags for their shared equipment shelf. Tomas is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nThe input contains exactly two drawers. Produce the distinct readings present in both drawers, in increasing numeric order.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement sharedDrawersFloorTicket(drawers, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Shared drawers: Boss receipt",
+      "statement": "Two departments have exchanged lists of reading tags for their shared equipment shelf. Sol adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nThe input contains exactly two drawers. Produce the distinct readings present in both drawers, in increasing numeric order.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement sharedDrawersBossReceipt(drawers, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

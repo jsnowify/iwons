@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+dist/
+coverage/
+test-results/
+playwright-report/
+.env*
+!.env.example
+.openai/
+*.tsbuildinfo
+artifacts/
+public/monaco/
+.vercel/

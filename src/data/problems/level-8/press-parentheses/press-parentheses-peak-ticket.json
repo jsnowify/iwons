@@ -1,0 +1,239 @@
+{
+  "id": "path3-465",
+  "slug": "press-parentheses-peak-ticket",
+  "title": "Press parentheses: Peak ticket",
+  "level": 8,
+  "unit": "press-parentheses",
+  "order": 465,
+  "difficulty": "hard",
+  "topics": [
+    "Greedy choices, dynamic programming and backtracking",
+    "Interval dynamic programming"
+  ],
+  "patterns": [
+    "Interval dynamic programming"
+  ],
+  "prerequisites": [
+    "path3-464"
+  ],
+  "summary": "readings are positive matrix dimensions: matrix i has shape readings[i] by readings[i+1]. For every prefix containing 1,2,... matrices, produce its minimum scalar multiplication cost over all parenthesizations. Fewer than two dimensions produces no costs. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative.",
+  "stage": "Optimize",
+  "boss": false,
+  "descriptionMd": "A chain of rectangular printing plates can be multiplied in several different parenthesized orders. Ivo is setting the upper stop on an old office gauge. The largest derived reading goes on its label, even if the whole tray is below zero.\n\nreadings are positive matrix dimensions: matrix i has shape readings[i] by readings[i+1]. For every prefix containing 1,2,... matrices, produce its minimum scalar multiplication cost over all parenthesizations. Fewer than two dimensions produces no costs.\n\nReturn the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative.\n\nImplement pressParenthesesPeakTicket(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Interval dynamic programming. readings are positive matrix dimensions: matrix i has shape readings[i] by readings[i+1]. For every prefix containing 1,2,... matrices, produce its minimum scalar multiplication cost over all parenthesizations. Fewer than two dimensions produces no costs. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 16.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Every dimension is an integer from 1 through 10; there are at most 16 dimensions.",
+    "Target time O(n^3); auxiliary space including the derived sequence O(n^2). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with interval dynamic programming. What state describes the portion you have already processed?",
+    "readings are positive matrix dimensions: matrix i has shape readings[i] by readings[i+1]. For every prefix containing 1,2,... matrices, produce its minimum scalar multiplication cost over all parenthesizations. Fewer than two dimensions produces no costs. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "pressParenthesesPeakTicket",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function pressParenthesesPeakTicket(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function pressParenthesesPeakTicket(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def pressParenthesesPeakTicket(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int pressParenthesesPeakTicket(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-465-1",
+      "input": [
+        [
+          8,
+          4,
+          8,
+          1,
+          3
+        ],
+        3
+      ],
+      "expected": 256,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [0,256,64,88]. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. This gives 256."
+    },
+    {
+      "id": "path3-465-2",
+      "input": [
+        [
+          5,
+          5,
+          3,
+          5
+        ],
+        2
+      ],
+      "expected": 150,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [0,75,150]. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. This gives 150."
+    },
+    {
+      "id": "path3-465-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n^3)",
+    "space": "O(n^2)"
+  },
+  "overview": "Optimize: Interval dynamic programming. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 8,
+    "unit": "press-parentheses",
+    "topic": "Interval dynamic programming",
+    "pattern": "Interval dynamic programming",
+    "bigO": "O(n^3)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-465-1",
+      "input": [
+        [
+          8,
+          4,
+          8,
+          1,
+          3
+        ],
+        3
+      ],
+      "expected": 256,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [0,256,64,88]. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. This gives 256."
+    },
+    {
+      "id": "path3-465-2",
+      "input": [
+        [
+          5,
+          5,
+          3,
+          5
+        ],
+        2
+      ],
+      "expected": 150,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [0,75,150]. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. This gives 150."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function pressParenthesesPeakTicket(readings, k) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n",
+    "typescript": "function pressParenthesesPeakTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n",
+    "python": "def pressParenthesesPeakTicket(readings, k):\n    a=readings\n    out=[]\n    n=max(0,len(a)-1)\n    dp=[[0]*n for _ in range(n)]\n    for length in range(2,n+1):\n        for left in range(n-length+1):\n            right=left+length-1\n            dp[left][right]=min(dp[left][m]+dp[m+1][right]+a[left]*a[m+1]*a[right+1] for m in range(left,right))\n    out=[dp[0][r] for r in range(n)]\n    return max(out,default=0)\n",
+    "java": "class Solution {\n  public int pressParenthesesPeakTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int n=Math.max(0,a.length-1);int[][]dp=new int[n][n];for(int len=2;len<=n;len++)for(int l=0;l+len<=n;l++){int r=l+len-1;dp[l][r]=Integer.MAX_VALUE;for(int m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(int r=0;r<n;r++)out.add(dp[0][r]);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.max(answer,x);return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-465-4",
+        "input": [
+          [
+            10
+          ],
+          1
+        ],
+        "expected": 0,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-465-5",
+        "input": [
+          [
+            6,
+            6,
+            6,
+            6
+          ],
+          4
+        ],
+        "expected": 432,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-465-6",
+        "input": [
+          [
+            1,
+            2,
+            8
+          ],
+          8
+        ],
+        "expected": 16,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-465-7",
+        "input": [
+          [
+            1,
+            8,
+            7,
+            10,
+            10,
+            5,
+            8,
+            2,
+            3,
+            6,
+            4,
+            1,
+            4,
+            6,
+            3,
+            2
+          ],
+          3
+        ],
+        "expected": 432,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-465-8",
+        "input": [
+          [
+            1,
+            1,
+            1
+          ],
+          5
+        ],
+        "expected": 1,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-465-9",
+        "input": [
+          [
+            9,
+            4,
+            3,
+            9,
+            2
+          ],
+          2
+        ],
+        "expected": 351,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nreadings are positive matrix dimensions: matrix i has shape readings[i] by readings[i+1]. For every prefix containing 1,2,... matrices, produce its minimum scalar multiplication cost over all parenthesizations. Fewer than two dimensions produces no costs.\n\nReturn the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n^3); space O(n^2).\n\njavascript\nfunction pressParenthesesPeakTicket(readings, k) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n\n\ntypescript\nfunction pressParenthesesPeakTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n\n\npython\ndef pressParenthesesPeakTicket(readings, k):\n    a=readings\n    out=[]\n    n=max(0,len(a)-1)\n    dp=[[0]*n for _ in range(n)]\n    for length in range(2,n+1):\n        for left in range(n-length+1):\n            right=left+length-1\n            dp[left][right]=min(dp[left][m]+dp[m+1][right]+a[left]*a[m+1]*a[right+1] for m in range(left,right))\n    out=[dp[0][r] for r in range(n)]\n    return max(out,default=0)\n\n\njava\nclass Solution {\n  public int pressParenthesesPeakTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int n=Math.max(0,a.length-1);int[][]dp=new int[n][n];for(int len=2;len<=n;len++)for(int l=0;l+len<=n;l++){int r=l+len-1;dp[l][r]=Integer.MAX_VALUE;for(int m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(int r=0;r<n;r++)out.add(dp[0][r]);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.max(answer,x);return answer;\n  }\n}\n"
+  }
+}

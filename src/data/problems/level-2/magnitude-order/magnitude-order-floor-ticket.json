@@ -1,0 +1,287 @@
+{
+  "id": "path3-126",
+  "slug": "magnitude-order-floor-ticket",
+  "title": "Magnitude order: Floor ticket",
+  "level": 2,
+  "unit": "magnitude-order",
+  "order": 126,
+  "difficulty": "easy",
+  "topics": [
+    "Maps, sets, counting and sorting",
+    "Comparator sorting"
+  ],
+  "patterns": [
+    "Comparator sorting"
+  ],
+  "prerequisites": [
+    "path3-125"
+  ],
+  "summary": "Sort readings by absolute value ascending, breaking ties by numeric value ascending. Keep duplicate readings. Return the smallest value in the derived sequence, or 0 for an empty sequence.",
+  "stage": "Boundary variation",
+  "boss": false,
+  "descriptionMd": "A technician sorts signed gauge errors by how far they lie from the center mark. Tomas is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nSort readings by absolute value ascending, breaking ties by numeric value ascending. Keep duplicate readings.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement magnitudeOrderFloorTicket(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Comparator sorting. Sort readings by absolute value ascending, breaking ties by numeric value ascending. Keep duplicate readings. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n log n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with comparator sorting. What state describes the portion you have already processed?",
+    "Sort readings by absolute value ascending, breaking ties by numeric value ascending. Keep duplicate readings. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the smallest value in the derived sequence, or 0 for an empty sequence. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "magnitudeOrderFloorTicket",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function magnitudeOrderFloorTicket(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function magnitudeOrderFloorTicket(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def magnitudeOrderFloorTicket(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int magnitudeOrderFloorTicket(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-126-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": -3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [0,-3,7,7,12]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives -3."
+    },
+    {
+      "id": "path3-126-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": -2,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-2,4,4,4]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives -2."
+    },
+    {
+      "id": "path3-126-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n log n)",
+    "space": "O(n)"
+  },
+  "overview": "Boundary variation: Comparator sorting. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 2,
+    "unit": "magnitude-order",
+    "topic": "Comparator sorting",
+    "pattern": "Comparator sorting",
+    "bigO": "O(n log n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-126-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": -3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [0,-3,7,7,12]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives -3."
+    },
+    {
+      "id": "path3-126-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": -2,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-2,4,4,4]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives -2."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function magnitudeOrderFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out.length?Math.min(...out):0;\n}\n",
+    "typescript": "function magnitudeOrderFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out.length?Math.min(...out):0;\n}\n",
+    "python": "def magnitudeOrderFloorTicket(readings, k):\n    a=readings\n    out=[]\n    out=sorted(a,key=lambda x:(abs(x),x))\n    return min(out,default=0)\n",
+    "java": "class Solution {\n  public int magnitudeOrderFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Integer[]copy=Arrays.stream(a).boxed().toArray(Integer[]::new);Arrays.sort(copy,Comparator.comparingInt((Integer x)->Math.abs(x)).thenComparingInt(x->x));out.addAll(Arrays.asList(copy));}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-126-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 9,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-126-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 5,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-126-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": -20,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-126-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": -20,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-126-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-126-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": -2,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nSort readings by absolute value ascending, breaking ties by numeric value ascending. Keep duplicate readings.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n log n); space O(n).\n\njavascript\nfunction magnitudeOrderFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\nfunction magnitudeOrderFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef magnitudeOrderFloorTicket(readings, k):\n    a=readings\n    out=[]\n    out=sorted(a,key=lambda x:(abs(x),x))\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int magnitudeOrderFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Integer[]copy=Arrays.stream(a).boxed().toArray(Integer[]::new);Arrays.sort(copy,Comparator.comparingInt((Integer x)->Math.abs(x)).thenComparingInt(x->x));out.addAll(Arrays.asList(copy));}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+  }
+}

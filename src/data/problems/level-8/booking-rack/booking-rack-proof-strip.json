@@ -1,0 +1,640 @@
+{
+  "id": "path3-411",
+  "slug": "booking-rack-proof-strip",
+  "title": "Booking rack: Proof strip",
+  "level": 8,
+  "unit": "booking-rack",
+  "order": 411,
+  "difficulty": "hard",
+  "topics": [
+    "Greedy choices, dynamic programming and backtracking",
+    "Greedy interval selection"
+  ],
+  "patterns": [
+    "Greedy interval selection"
+  ],
+  "prerequisites": [
+    "path3-401"
+  ],
+  "summary": "Each booking is [start,end] with start < end and occupies [start,end). Sort by end then start ascending; accept a booking if it starts at or after the last accepted end. Produce accepted durations in acceptance order. Negative times are allowed. Return the entire derived sequence, preserving its order.",
+  "stage": "Warm-up",
+  "boss": false,
+  "descriptionMd": "Half-open booking cards compete for a single press whose next job may start exactly when the previous one ends. Luz rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nEach booking is [start,end] with start < end and occupies [start,end). Sort by end then start ascending; accept a booking if it starts at or after the last accepted end. Produce accepted durations in acceptance order. Negative times are allowed.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement bookingRackProofStrip(drawers, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Greedy interval selection. Each booking is [start,end] with start < end and occupies [start,end). Sort by end then start ascending; accept a booking if it starts at or after the last accepted end. Produce accepted durations in acceptance order. Negative times are allowed. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n log n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with greedy interval selection. What state describes the portion you have already processed?",
+    "Each booking is [start,end] with start < end and occupies [start,end). Sort by end then start ascending; accept a booking if it starts at or after the last accepted end. Produce accepted durations in acceptance order. Negative times are allowed. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the entire derived sequence, preserving its order. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "bookingRackProofStrip",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function bookingRackProofStrip(drawers, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
+    "typescript": "function bookingRackProofStrip(drawers: number[][], k: number): number[] {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
+    "python": "def bookingRackProofStrip(drawers, k):\n    # Derive the sequence, then compute the requested receipt.\n    return []\n",
+    "java": "class Solution {\n  public int[] bookingRackProofStrip(int[][] drawers, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return new int[0];\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-411-1",
+      "input": [
+        [
+          [
+            7,
+            8
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            16,
+            22
+          ]
+        ],
+        3
+      ],
+      "expected": [
+        4,
+        1,
+        1,
+        1,
+        6
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,1,1,1,6]. Return the entire derived sequence, preserving its order. This gives [4,1,1,1,6]."
+    },
+    {
+      "id": "path3-411-2",
+      "input": [
+        [
+          [
+            4,
+            9
+          ],
+          [
+            5,
+            10
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            7,
+            12
+          ]
+        ],
+        2
+      ],
+      "expected": [
+        3,
+        5
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [3,5]. Return the entire derived sequence, preserving its order. This gives [3,5]."
+    },
+    {
+      "id": "path3-411-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": [],
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the entire derived sequence, preserving its order. This gives []."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[][]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n log n)",
+    "space": "O(n)"
+  },
+  "overview": "Warm-up: Greedy interval selection. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 8,
+    "unit": "booking-rack",
+    "topic": "Greedy interval selection",
+    "pattern": "Greedy interval selection",
+    "bigO": "O(n log n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-411-1",
+      "input": [
+        [
+          [
+            7,
+            8
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            16,
+            22
+          ]
+        ],
+        3
+      ],
+      "expected": [
+        4,
+        1,
+        1,
+        1,
+        6
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,1,1,1,6]. Return the entire derived sequence, preserving its order. This gives [4,1,1,1,6]."
+    },
+    {
+      "id": "path3-411-2",
+      "input": [
+        [
+          [
+            4,
+            9
+          ],
+          [
+            5,
+            10
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            7,
+            12
+          ]
+        ],
+        2
+      ],
+      "expected": [
+        3,
+        5
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [3,5]. Return the entire derived sequence, preserving its order. This gives [3,5]."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function bookingRackProofStrip(drawers, k) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]);let end=-Infinity;for(const [s,e]of rows)if(s>=end){out.push(e-s);end=e;}\n  return out;\n}\n",
+    "typescript": "function bookingRackProofStrip(drawers: number[][], k: number): number[] {\n  const a=drawers; let out:number[]=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]);let end=-Infinity;for(const [s,e]of rows)if(s>=end){out.push(e-s);end=e;}\n  return out;\n}\n",
+    "python": "def bookingRackProofStrip(drawers, k):\n    a=drawers\n    out=[]\n    end=float('-inf')\n    for s,e in sorted(a,key=lambda r:(r[1],r[0])):\n        if s>=end:\n            out.append(e-s)\n            end=e\n    return out\n",
+    "java": "class Solution {\n  public int[] bookingRackProofStrip(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int[][]rows=a.clone();Arrays.sort(rows,Comparator.comparingInt((int[]r)->r[1]).thenComparingInt(r->r[0]));int end=Integer.MIN_VALUE;for(int[]r:rows)if(r[0]>=end){out.add(r[1]-r[0]);end=r[1];}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-411-4",
+        "input": [
+          [
+            [
+              9,
+              12
+            ]
+          ],
+          1
+        ],
+        "expected": [
+          3
+        ],
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-411-5",
+        "input": [
+          [
+            [
+              5,
+              11
+            ],
+            [
+              6,
+              12
+            ],
+            [
+              7,
+              13
+            ],
+            [
+              8,
+              14
+            ]
+          ],
+          4
+        ],
+        "expected": [
+          6
+        ],
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-411-6",
+        "input": [
+          [
+            [
+              -20,
+              -13
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              -5,
+              -4
+            ]
+          ],
+          8
+        ],
+        "expected": [
+          7,
+          1,
+          2
+        ],
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-411-7",
+        "input": [
+          [
+            [
+              -20,
+              -13
+            ],
+            [
+              -6,
+              -5
+            ],
+            [
+              8,
+              15
+            ],
+            [
+              22,
+              28
+            ],
+            [
+              -5,
+              -2
+            ],
+            [
+              9,
+              14
+            ],
+            [
+              23,
+              27
+            ],
+            [
+              -4,
+              1
+            ],
+            [
+              10,
+              13
+            ],
+            [
+              24,
+              26
+            ],
+            [
+              -3,
+              4
+            ],
+            [
+              11,
+              12
+            ],
+            [
+              25,
+              32
+            ],
+            [
+              -2,
+              0
+            ],
+            [
+              12,
+              15
+            ],
+            [
+              26,
+              31
+            ],
+            [
+              -1,
+              3
+            ],
+            [
+              13,
+              18
+            ],
+            [
+              27,
+              30
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              14,
+              21
+            ],
+            [
+              28,
+              29
+            ],
+            [
+              42,
+              49
+            ],
+            [
+              15,
+              17
+            ],
+            [
+              29,
+              35
+            ],
+            [
+              43,
+              48
+            ],
+            [
+              16,
+              20
+            ],
+            [
+              30,
+              34
+            ],
+            [
+              44,
+              47
+            ],
+            [
+              17,
+              23
+            ],
+            [
+              31,
+              33
+            ],
+            [
+              45,
+              46
+            ],
+            [
+              18,
+              19
+            ],
+            [
+              32,
+              34
+            ],
+            [
+              46,
+              52
+            ],
+            [
+              19,
+              22
+            ],
+            [
+              33,
+              37
+            ],
+            [
+              47,
+              51
+            ],
+            [
+              20,
+              25
+            ],
+            [
+              34,
+              40
+            ],
+            [
+              48,
+              50
+            ],
+            [
+              21,
+              28
+            ],
+            [
+              35,
+              36
+            ],
+            [
+              49,
+              56
+            ],
+            [
+              63,
+              69
+            ],
+            [
+              36,
+              39
+            ],
+            [
+              50,
+              55
+            ],
+            [
+              64,
+              68
+            ],
+            [
+              37,
+              42
+            ],
+            [
+              51,
+              54
+            ],
+            [
+              65,
+              67
+            ],
+            [
+              38,
+              45
+            ],
+            [
+              52,
+              53
+            ],
+            [
+              66,
+              73
+            ],
+            [
+              39,
+              41
+            ],
+            [
+              53,
+              56
+            ],
+            [
+              67,
+              72
+            ],
+            [
+              40,
+              44
+            ],
+            [
+              54,
+              59
+            ],
+            [
+              68,
+              71
+            ],
+            [
+              41,
+              47
+            ],
+            [
+              55,
+              62
+            ],
+            [
+              69,
+              70
+            ],
+            [
+              83,
+              90
+            ]
+          ],
+          3
+        ],
+        "expected": [
+          7,
+          1,
+          3,
+          2,
+          6,
+          1,
+          3,
+          2,
+          1,
+          3,
+          2,
+          1,
+          2,
+          1,
+          3,
+          2,
+          1,
+          2,
+          1,
+          3,
+          2,
+          1,
+          7
+        ],
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-411-8",
+        "input": [
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          5
+        ],
+        "expected": [
+          1,
+          1,
+          1
+        ],
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-411-9",
+        "input": [
+          [
+            [
+              8,
+              10
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              11,
+              13
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          2
+        ],
+        "expected": [
+          3,
+          2,
+          2,
+          2
+        ],
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nEach booking is [start,end] with start < end and occupies [start,end). Sort by end then start ascending; accept a booking if it starts at or after the last accepted end. Produce accepted durations in acceptance order. Negative times are allowed.\n\nReturn the entire derived sequence, preserving its order.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n log n); space O(n).\n\njavascript\nfunction bookingRackProofStrip(drawers, k) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]);let end=-Infinity;for(const [s,e]of rows)if(s>=end){out.push(e-s);end=e;}\n  return out;\n}\n\n\ntypescript\nfunction bookingRackProofStrip(drawers: number[][], k: number): number[] {\n  const a=drawers; let out:number[]=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]);let end=-Infinity;for(const [s,e]of rows)if(s>=end){out.push(e-s);end=e;}\n  return out;\n}\n\n\npython\ndef bookingRackProofStrip(drawers, k):\n    a=drawers\n    out=[]\n    end=float('-inf')\n    for s,e in sorted(a,key=lambda r:(r[1],r[0])):\n        if s>=end:\n            out.append(e-s)\n            end=e\n    return out\n\n\njava\nclass Solution {\n  public int[] bookingRackProofStrip(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int[][]rows=a.clone();Arrays.sort(rows,Comparator.comparingInt((int[]r)->r[1]).thenComparingInt(r->r[0]));int end=Integer.MIN_VALUE;for(int[]r:rows)if(r[0]>=end){out.add(r[1]-r[0]);end=r[1];}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  }
+}

@@ -1,0 +1,589 @@
+{
+  "id": "path3-064",
+  "slug": "drawer-grids-first-qualifying-slip",
+  "title": "Drawer grids: First qualifying slip",
+  "level": 1,
+  "unit": "drawer-grids",
+  "order": 64,
+  "difficulty": "easy",
+  "topics": [
+    "Arrays and strings",
+    "Nested array traversal"
+  ],
+  "patterns": [
+    "Nested array traversal"
+  ],
+  "prerequisites": [
+    "path3-063"
+  ],
+  "summary": "For each row of drawers, produce the sum of that row. Empty rows contribute 0. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.",
+  "stage": "Combine",
+  "boss": false,
+  "descriptionMd": "The supply cabinet has uneven rows of drawers, including a few rows left entirely empty. Alma needs the first qualifying slip while the courier waits at the door. Later matches must not jump ahead in the tray.\n\nFor each row of drawers, produce the sum of that row. Empty rows contribute 0.\n\nReturn the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.\n\nImplement drawerGridsFirstQualifyingSlip(drawers, k). Use k exactly where specified above.",
+  "unitIntro": "Nested array traversal. For each row of drawers, produce the sum of that row. Empty rows contribute 0. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations).",
+  "constraints": [
+    "0 <= input size <= 16 per row.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with nested array traversal. What state describes the portion you have already processed?",
+    "For each row of drawers, produce the sum of that row. Empty rows contribute 0. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "drawerGridsFirstQualifyingSlip",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function drawerGridsFirstQualifyingSlip(drawers, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function drawerGridsFirstQualifyingSlip(drawers: number[][], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def drawerGridsFirstQualifyingSlip(drawers, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int drawerGridsFirstQualifyingSlip(int[][] drawers, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-064-1",
+      "input": [
+        [
+          [
+            7,
+            5
+          ],
+          [],
+          [
+            7,
+            5
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            12,
+            10
+          ]
+        ],
+        3
+      ],
+      "expected": 12,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [12,0,12,-2,22]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 12."
+    },
+    {
+      "id": "path3-064-2",
+      "input": [
+        [
+          [
+            4,
+            2
+          ],
+          [],
+          [
+            -2,
+            -4
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        2
+      ],
+      "expected": 6,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [6,0,-6,6]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 6."
+    },
+    {
+      "id": "path3-064-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": -1,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives -1."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[][]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Combine: Nested array traversal. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 1,
+    "unit": "drawer-grids",
+    "topic": "Nested array traversal",
+    "pattern": "Nested array traversal",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-064-1",
+      "input": [
+        [
+          [
+            7,
+            5
+          ],
+          [],
+          [
+            7,
+            5
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            12,
+            10
+          ]
+        ],
+        3
+      ],
+      "expected": 12,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [12,0,12,-2,22]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 12."
+    },
+    {
+      "id": "path3-064-2",
+      "input": [
+        [
+          [
+            4,
+            2
+          ],
+          [],
+          [
+            -2,
+            -4
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        2
+      ],
+      "expected": 6,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [6,0,-6,6]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 6."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function drawerGridsFirstQualifyingSlip(drawers, k) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out.find(x=>x>=k)??-1;\n}\n",
+    "typescript": "function drawerGridsFirstQualifyingSlip(drawers: number[][], k: number): number {\n  const a=drawers; let out:number[]=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out.find(x=>x>=k)??-1;\n}\n",
+    "python": "def drawerGridsFirstQualifyingSlip(drawers, k):\n    a=drawers\n    out=[]\n    for row in a: out.append(sum(row))\n    return next((x for x in out if x>=k),-1)\n",
+    "java": "class Solution {\n  public int drawerGridsFirstQualifyingSlip(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {for(int[]row:a){int s=0;for(int x:row)s+=x;out.add(s);}}\n    for(int x:out)if(x>=k)return x;return -1;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-064-4",
+        "input": [
+          [
+            [
+              9,
+              7
+            ]
+          ],
+          1
+        ],
+        "expected": 16,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-064-5",
+        "input": [
+          [
+            [
+              5,
+              3
+            ],
+            [],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          4
+        ],
+        "expected": 8,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-064-6",
+        "input": [
+          [
+            [
+              -20,
+              -22
+            ],
+            [],
+            [
+              -7,
+              -9
+            ]
+          ],
+          8
+        ],
+        "expected": -1,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-064-7",
+        "input": [
+          [
+            [
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1
+            ],
+            [
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0
+            ],
+            [
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1
+            ],
+            [
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2
+            ],
+            [
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3
+            ],
+            [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            [
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            [
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5
+            ],
+            [
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4
+            ],
+            [
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3
+            ],
+            [
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2
+            ],
+            [
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1
+            ],
+            [
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0
+            ],
+            [
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1
+            ],
+            [
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2
+            ],
+            [
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3
+            ]
+          ],
+          3
+        ],
+        "expected": 5,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-064-8",
+        "input": [
+          [
+            [
+              0,
+              -2
+            ],
+            [],
+            [
+              0,
+              -2
+            ]
+          ],
+          5
+        ],
+        "expected": -1,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-064-9",
+        "input": [
+          [
+            [
+              8,
+              6
+            ],
+            [],
+            [
+              -2,
+              -4
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              1,
+              -1
+            ]
+          ],
+          2
+        ],
+        "expected": 14,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nFor each row of drawers, produce the sum of that row. Empty rows contribute 0.\n\nReturn the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction drawerGridsFirstQualifyingSlip(drawers, k) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out.find(x=>x>=k)??-1;\n}\n\n\ntypescript\nfunction drawerGridsFirstQualifyingSlip(drawers: number[][], k: number): number {\n  const a=drawers; let out:number[]=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out.find(x=>x>=k)??-1;\n}\n\n\npython\ndef drawerGridsFirstQualifyingSlip(drawers, k):\n    a=drawers\n    out=[]\n    for row in a: out.append(sum(row))\n    return next((x for x in out if x>=k),-1)\n\n\njava\nclass Solution {\n  public int drawerGridsFirstQualifyingSlip(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {for(int[]row:a){int s=0;for(int x:row)s+=x;out.add(s);}}\n    for(int x:out)if(x>=k)return x;return -1;\n  }\n}\n"
+  }
+}

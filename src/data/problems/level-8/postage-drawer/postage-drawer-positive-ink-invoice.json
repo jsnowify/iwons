@@ -1,0 +1,287 @@
+{
+  "id": "path3-438",
+  "slug": "postage-drawer-positive-ink-invoice",
+  "title": "Postage drawer: Positive-ink invoice",
+  "level": 8,
+  "unit": "postage-drawer",
+  "order": 438,
+  "difficulty": "hard",
+  "topics": [
+    "Greedy choices, dynamic programming and backtracking",
+    "Unbounded dynamic programming"
+  ],
+  "patterns": [
+    "Unbounded dynamic programming"
+  ],
+  "prerequisites": [
+    "path3-437"
+  ],
+  "summary": "For each nonnegative postage amount, produce the smallest number of stamps needed using unlimited denominations 1, 4 and 9. Zero postage uses zero stamps. Return the sum of strictly positive values in the derived sequence, or 0 when none exist.",
+  "stage": "Filtered variation",
+  "boss": false,
+  "descriptionMd": "An old postage drawer contains unlimited stamps valued at one, four and nine units. Rafi prepares an invoice that accepts only positive ink adjustments. Zero and negative derived readings stay off the invoice.\n\nFor each nonnegative postage amount, produce the smallest number of stamps needed using unlimited denominations 1, 4 and 9. Zero postage uses zero stamps.\n\nReturn the sum of strictly positive values in the derived sequence, or 0 when none exist.\n\nImplement postageDrawerPositiveInkInvoice(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Unbounded dynamic programming. For each nonnegative postage amount, produce the smallest number of stamps needed using unlimited denominations 1, 4 and 9. Zero postage uses zero stamps. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Readings are integers from 0 through 40.",
+    "Target time O(n + M); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with unbounded dynamic programming. What state describes the portion you have already processed?",
+    "For each nonnegative postage amount, produce the smallest number of stamps needed using unlimited denominations 1, 4 and 9. Zero postage uses zero stamps. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the sum of strictly positive values in the derived sequence, or 0 when none exist. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "postageDrawerPositiveInkInvoice",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function postageDrawerPositiveInkInvoice(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function postageDrawerPositiveInkInvoice(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def postageDrawerPositiveInkInvoice(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int postageDrawerPositiveInkInvoice(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-438-1",
+      "input": [
+        [
+          7,
+          3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 14,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,3,4,0,3]. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 14."
+    },
+    {
+      "id": "path3-438-2",
+      "input": [
+        [
+          4,
+          4,
+          2,
+          4
+        ],
+        2
+      ],
+      "expected": 5,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,1,2,1]. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 5."
+    },
+    {
+      "id": "path3-438-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n + M)",
+    "space": "O(n)"
+  },
+  "overview": "Filtered variation: Unbounded dynamic programming. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 8,
+    "unit": "postage-drawer",
+    "topic": "Unbounded dynamic programming",
+    "pattern": "Unbounded dynamic programming",
+    "bigO": "O(n + M)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-438-1",
+      "input": [
+        [
+          7,
+          3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 14,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,3,4,0,3]. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 14."
+    },
+    {
+      "id": "path3-438-2",
+      "input": [
+        [
+          4,
+          4,
+          2,
+          4
+        ],
+        2
+      ],
+      "expected": 5,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,1,2,1]. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 5."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function postageDrawerPositiveInkInvoice(readings, k) {\n  const a=readings; let out=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(m+1);dp[0]=0;for(let x=1;x<=m;x++)for(const coin of [1,4,9])if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);out=a.map(x=>dp[x]);\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n",
+    "typescript": "function postageDrawerPositiveInkInvoice(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(m+1);dp[0]=0;for(let x=1;x<=m;x++)for(const coin of [1,4,9])if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);out=a.map(x=>dp[x]);\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n",
+    "python": "def postageDrawerPositiveInkInvoice(readings, k):\n    a=readings\n    out=[]\n    m=max(a,default=0)\n    dp=[m+1]*(m+1)\n    dp[0]=0\n    for x in range(1,m+1):\n        for coin in (1,4,9):\n            if coin<=x: dp[x]=min(dp[x],dp[x-coin]+1)\n    out=[dp[x] for x in a]\n    return sum(x for x in out if x>0)\n",
+    "java": "class Solution {\n  public int postageDrawerPositiveInkInvoice(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int m=0;for(int x:a)m=Math.max(m,x);int[]dp=new int[m+1];Arrays.fill(dp,m+1);dp[0]=0;for(int x=1;x<=m;x++)for(int coin:new int[]{1,4,9})if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);for(int x:a)out.add(dp[x]);}\n    int answer=0;for(int x:out)if(x>0)answer+=x;return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-438-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 1,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-438-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 8,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-438-6",
+        "input": [
+          [
+            20,
+            1,
+            7
+          ],
+          8
+        ],
+        "expected": 9,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-438-7",
+        "input": [
+          [
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40,
+            0,
+            40
+          ],
+          3
+        ],
+        "expected": 160,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-438-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-438-9",
+        "input": [
+          [
+            8,
+            3,
+            2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": 10,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nFor each nonnegative postage amount, produce the smallest number of stamps needed using unlimited denominations 1, 4 and 9. Zero postage uses zero stamps.\n\nReturn the sum of strictly positive values in the derived sequence, or 0 when none exist.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n + M); space O(n).\n\njavascript\nfunction postageDrawerPositiveInkInvoice(readings, k) {\n  const a=readings; let out=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(m+1);dp[0]=0;for(let x=1;x<=m;x++)for(const coin of [1,4,9])if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);out=a.map(x=>dp[x]);\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n\n\ntypescript\nfunction postageDrawerPositiveInkInvoice(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(m+1);dp[0]=0;for(let x=1;x<=m;x++)for(const coin of [1,4,9])if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);out=a.map(x=>dp[x]);\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n\n\npython\ndef postageDrawerPositiveInkInvoice(readings, k):\n    a=readings\n    out=[]\n    m=max(a,default=0)\n    dp=[m+1]*(m+1)\n    dp[0]=0\n    for x in range(1,m+1):\n        for coin in (1,4,9):\n            if coin<=x: dp[x]=min(dp[x],dp[x-coin]+1)\n    out=[dp[x] for x in a]\n    return sum(x for x in out if x>0)\n\n\njava\nclass Solution {\n  public int postageDrawerPositiveInkInvoice(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int m=0;for(int x:a)m=Math.max(m,x);int[]dp=new int[m+1];Arrays.fill(dp,m+1);dp[0]=0;for(int x=1;x<=m;x++)for(int coin:new int[]{1,4,9})if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);for(int x:a)out.add(dp[x]);}\n    int answer=0;for(int x:out)if(x>0)answer+=x;return answer;\n  }\n}\n"
+  }
+}

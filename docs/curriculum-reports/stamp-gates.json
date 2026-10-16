@@ -1,0 +1,32 @@
+{
+  "unit": "stamp-gates",
+  "problems": 6,
+  "cases": 54,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Stamp gates: Proof strip",
+      "statement": "A damaged approval stamp has been replacing rejected readings with blanks on the dispatch form. Mina rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nReplace each negative reading with 0; leave every other reading unchanged.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement stampGatesProofStrip(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Stamp gates: First qualifying slip",
+      "statement": "A damaged approval stamp has been replacing rejected readings with blanks on the dispatch form. Neri needs the first qualifying slip while the courier waits at the door. Later matches must not jump ahead in the tray.\n\nReplace each negative reading with 0; leave every other reading unchanged.\n\nReturn the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.\n\nImplement stampGatesFirstQualifyingSlip(readings, k). Use k exactly where specified above."
+    },
+    {
+      "title": "Stamp gates: Boss receipt",
+      "statement": "A damaged approval stamp has been replacing rejected readings with blanks on the dispatch form. Rafi adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nReplace each negative reading with 0; leave every other reading unchanged.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement stampGatesBossReceipt(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

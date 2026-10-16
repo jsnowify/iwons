@@ -1,0 +1,395 @@
+{
+  "id": "path3-025",
+  "slug": "digit-workshop-proof-strip",
+  "title": "Digit workshop: Proof strip",
+  "level": 0,
+  "unit": "digit-workshop",
+  "order": 25,
+  "difficulty": "easy",
+  "topics": [
+    "Variables, loops, functions and conditionals",
+    "Helper functions"
+  ],
+  "patterns": [
+    "Helper functions"
+  ],
+  "prerequisites": [
+    "path3-019"
+  ],
+  "summary": "For each reading, produce the sum of the decimal digits of its absolute value; the digit sum of 0 is 0. Return the entire derived sequence, preserving its order.",
+  "stage": "Warm-up",
+  "boss": false,
+  "descriptionMd": "Loose digit wheels from an old numbering machine need a handwritten inspection ledger. Mina rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nFor each reading, produce the sum of the decimal digits of its absolute value; the digit sum of 0 is 0.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement digitWorkshopProofStrip(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Helper functions. For each reading, produce the sum of the decimal digits of its absolute value; the digit sum of 0 is 0. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations).",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with helper functions. What state describes the portion you have already processed?",
+    "For each reading, produce the sum of the decimal digits of its absolute value; the digit sum of 0 is 0. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the entire derived sequence, preserving its order. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "digitWorkshopProofStrip",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function digitWorkshopProofStrip(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
+    "typescript": "function digitWorkshopProofStrip(readings: number[], k: number): number[] {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
+    "python": "def digitWorkshopProofStrip(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return []\n",
+    "java": "class Solution {\n  public int[] digitWorkshopProofStrip(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return new int[0];\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-025-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": [
+        7,
+        3,
+        7,
+        0,
+        3
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,3,7,0,3]. Return the entire derived sequence, preserving its order. This gives [7,3,7,0,3]."
+    },
+    {
+      "id": "path3-025-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": [
+        4,
+        4,
+        2,
+        4
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,4,2,4]. Return the entire derived sequence, preserving its order. This gives [4,4,2,4]."
+    },
+    {
+      "id": "path3-025-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": [],
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the entire derived sequence, preserving its order. This gives []."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Warm-up: Helper functions. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 0,
+    "unit": "digit-workshop",
+    "topic": "Helper functions",
+    "pattern": "Helper functions",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-025-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": [
+        7,
+        3,
+        7,
+        0,
+        3
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,3,7,0,3]. Return the entire derived sequence, preserving its order. This gives [7,3,7,0,3]."
+    },
+    {
+      "id": "path3-025-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": [
+        4,
+        4,
+        2,
+        4
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,4,2,4]. Return the entire derived sequence, preserving its order. This gives [4,4,2,4]."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function digitWorkshopProofStrip(readings, k) {\n  const a=readings; let out=[];\n  for(let x of a){x=Math.abs(x);let s=0;while(x){s+=x%10;x=Math.floor(x/10);}out.push(s);}\n  return out;\n}\n",
+    "typescript": "function digitWorkshopProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  for(let x of a){x=Math.abs(x);let s=0;while(x){s+=x%10;x=Math.floor(x/10);}out.push(s);}\n  return out;\n}\n",
+    "python": "def digitWorkshopProofStrip(readings, k):\n    a=readings\n    out=[]\n    for x in a:\n        x=abs(x)\n        s=0\n        while x:\n            s+=x%10\n            x//=10\n        out.append(s)\n    return out\n",
+    "java": "class Solution {\n  public int[] digitWorkshopProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){x=Math.abs(x);int s=0;while(x>0){s+=x%10;x/=10;}out.add(s);}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-025-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": [
+          9
+        ],
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-025-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-025-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": [
+          2,
+          1,
+          7
+        ],
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-025-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": [
+          2,
+          7,
+          6,
+          10,
+          9,
+          4,
+          8,
+          2,
+          2,
+          6,
+          4,
+          0,
+          4,
+          6,
+          2,
+          2,
+          8,
+          4,
+          9,
+          10,
+          6,
+          7,
+          2,
+          8,
+          5,
+          9,
+          1,
+          3,
+          7,
+          3,
+          1,
+          5,
+          5,
+          1,
+          3,
+          7,
+          3,
+          1,
+          9,
+          5,
+          8,
+          2,
+          7,
+          6,
+          10,
+          9,
+          4,
+          8,
+          2,
+          2,
+          6,
+          4,
+          0,
+          4,
+          6,
+          2,
+          2,
+          8,
+          4,
+          9,
+          10,
+          6,
+          7,
+          2
+        ],
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-025-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": [
+          0,
+          0,
+          0
+        ],
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-025-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": [
+          8,
+          3,
+          2,
+          8,
+          1
+        ],
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nFor each reading, produce the sum of the decimal digits of its absolute value; the digit sum of 0 is 0.\n\nReturn the entire derived sequence, preserving its order.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction digitWorkshopProofStrip(readings, k) {\n  const a=readings; let out=[];\n  for(let x of a){x=Math.abs(x);let s=0;while(x){s+=x%10;x=Math.floor(x/10);}out.push(s);}\n  return out;\n}\n\n\ntypescript\nfunction digitWorkshopProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  for(let x of a){x=Math.abs(x);let s=0;while(x){s+=x%10;x=Math.floor(x/10);}out.push(s);}\n  return out;\n}\n\n\npython\ndef digitWorkshopProofStrip(readings, k):\n    a=readings\n    out=[]\n    for x in a:\n        x=abs(x)\n        s=0\n        while x:\n            s+=x%10\n            x//=10\n        out.append(s)\n    return out\n\n\njava\nclass Solution {\n  public int[] digitWorkshopProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){x=Math.abs(x);int s=0;while(x>0){s+=x%10;x/=10;}out.add(s);}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  }
+}

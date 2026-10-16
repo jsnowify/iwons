@@ -1,0 +1,32 @@
+{
+  "unit": "magnitude-order",
+  "problems": 10,
+  "cases": 90,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Magnitude order: Proof strip",
+      "statement": "A technician sorts signed gauge errors by how far they lie from the center mark. Ivo rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nSort readings by absolute value ascending, breaking ties by numeric value ascending. Keep duplicate readings.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement magnitudeOrderProofStrip(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Magnitude order: Floor ticket",
+      "statement": "A technician sorts signed gauge errors by how far they lie from the center mark. Tomas is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nSort readings by absolute value ascending, breaking ties by numeric value ascending. Keep duplicate readings.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement magnitudeOrderFloorTicket(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Magnitude order: Boss receipt",
+      "statement": "A technician sorts signed gauge errors by how far they lie from the center mark. Sol adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nSort readings by absolute value ascending, breaking ties by numeric value ascending. Keep duplicate readings.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement magnitudeOrderBossReceipt(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

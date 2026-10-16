@@ -1,0 +1,395 @@
+{
+  "id": "path3-195",
+  "slug": "taller-keycaps-proof-strip",
+  "title": "Taller keycaps: Proof strip",
+  "level": 4,
+  "unit": "taller-keycaps",
+  "order": 195,
+  "difficulty": "medium",
+  "topics": [
+    "Stacks, queues, deques and simulations",
+    "Monotonic stacks"
+  ],
+  "patterns": [
+    "Monotonic stacks"
+  ],
+  "prerequisites": [
+    "path3-186"
+  ],
+  "summary": "For every reading, produce the distance to the first strictly larger reading to its right, or 0 if none exists. Return the entire derived sequence, preserving its order.",
+  "stage": "Warm-up",
+  "boss": false,
+  "descriptionMd": "A repair clerk waits for a taller keycap before closing each unresolved height ticket. Alma rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nFor every reading, produce the distance to the first strictly larger reading to its right, or 0 if none exists.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement tallerKeycapsProofStrip(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Monotonic stacks. For every reading, produce the distance to the first strictly larger reading to its right, or 0 if none exists. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with monotonic stacks. What state describes the portion you have already processed?",
+    "For every reading, produce the distance to the first strictly larger reading to its right, or 0 if none exists. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the entire derived sequence, preserving its order. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "tallerKeycapsProofStrip",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function tallerKeycapsProofStrip(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
+    "typescript": "function tallerKeycapsProofStrip(readings: number[], k: number): number[] {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
+    "python": "def tallerKeycapsProofStrip(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return []\n",
+    "java": "class Solution {\n  public int[] tallerKeycapsProofStrip(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return new int[0];\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-195-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": [
+        4,
+        1,
+        2,
+        1,
+        0
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,1,2,1,0]. Return the entire derived sequence, preserving its order. This gives [4,1,2,1,0]."
+    },
+    {
+      "id": "path3-195-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [0,0,1,0]. Return the entire derived sequence, preserving its order. This gives [0,0,1,0]."
+    },
+    {
+      "id": "path3-195-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": [],
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the entire derived sequence, preserving its order. This gives []."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Warm-up: Monotonic stacks. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 4,
+    "unit": "taller-keycaps",
+    "topic": "Monotonic stacks",
+    "pattern": "Monotonic stacks",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-195-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": [
+        4,
+        1,
+        2,
+        1,
+        0
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,1,2,1,0]. Return the entire derived sequence, preserving its order. This gives [4,1,2,1,0]."
+    },
+    {
+      "id": "path3-195-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [0,0,1,0]. Return the entire derived sequence, preserving its order. This gives [0,0,1,0]."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function tallerKeycapsProofStrip(readings, k) {\n  const a=readings; let out=[];\n  out=Array(a.length).fill(0);const stack=[];for(let i=0;i<a.length;i++){while(stack.length&&a[stack[stack.length-1]]<a[i]){const j=stack.pop();out[j]=i-j;}stack.push(i);}\n  return out;\n}\n",
+    "typescript": "function tallerKeycapsProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  out=Array(a.length).fill(0);const stack=[];for(let i=0;i<a.length;i++){while(stack.length&&a[stack[stack.length-1]]<a[i]){const j=stack.pop()!;out[j]=i-j;}stack.push(i);}\n  return out;\n}\n",
+    "python": "def tallerKeycapsProofStrip(readings, k):\n    a=readings\n    out=[]\n    out=[0]*len(a)\n    stack=[]\n    for i,x in enumerate(a):\n        while stack and a[stack[-1]]<x:\n            j=stack.pop()\n            out[j]=i-j\n        stack.append(i)\n    return out\n",
+    "java": "class Solution {\n  public int[] tallerKeycapsProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int[]distance=new int[a.length];Deque<Integer>stack=new ArrayDeque<>();for(int i=0;i<a.length;i++){while(!stack.isEmpty()&&a[stack.peek()]<a[i]){int j=stack.pop();distance[j]=i-j;}stack.push(i);}for(int x:distance)out.add(x);}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-195-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": [
+          0
+        ],
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-195-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-195-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": [
+          1,
+          0,
+          0
+        ],
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-195-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": [
+          1,
+          1,
+          1,
+          19,
+          1,
+          1,
+          16,
+          1,
+          1,
+          13,
+          1,
+          1,
+          10,
+          1,
+          1,
+          7,
+          1,
+          1,
+          4,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          19,
+          1,
+          1,
+          16,
+          1,
+          1,
+          13,
+          1,
+          1,
+          10,
+          1,
+          1,
+          7,
+          1,
+          1,
+          4,
+          1,
+          1,
+          1,
+          19,
+          1,
+          1,
+          16,
+          1,
+          1,
+          13,
+          1,
+          1,
+          10,
+          1,
+          1,
+          7,
+          1,
+          1,
+          4,
+          1,
+          1,
+          1,
+          0
+        ],
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-195-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": [
+          0,
+          0,
+          0
+        ],
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-195-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": [
+          0,
+          2,
+          1,
+          0,
+          0
+        ],
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nFor every reading, produce the distance to the first strictly larger reading to its right, or 0 if none exists.\n\nReturn the entire derived sequence, preserving its order.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction tallerKeycapsProofStrip(readings, k) {\n  const a=readings; let out=[];\n  out=Array(a.length).fill(0);const stack=[];for(let i=0;i<a.length;i++){while(stack.length&&a[stack[stack.length-1]]<a[i]){const j=stack.pop();out[j]=i-j;}stack.push(i);}\n  return out;\n}\n\n\ntypescript\nfunction tallerKeycapsProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  out=Array(a.length).fill(0);const stack=[];for(let i=0;i<a.length;i++){while(stack.length&&a[stack[stack.length-1]]<a[i]){const j=stack.pop()!;out[j]=i-j;}stack.push(i);}\n  return out;\n}\n\n\npython\ndef tallerKeycapsProofStrip(readings, k):\n    a=readings\n    out=[]\n    out=[0]*len(a)\n    stack=[]\n    for i,x in enumerate(a):\n        while stack and a[stack[-1]]<x:\n            j=stack.pop()\n            out[j]=i-j\n        stack.append(i)\n    return out\n\n\njava\nclass Solution {\n  public int[] tallerKeycapsProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int[]distance=new int[a.length];Deque<Integer>stack=new ArrayDeque<>();for(int i=0;i<a.length;i++){while(!stack.isEmpty()&&a[stack.peek()]<a[i]){int j=stack.pop();distance[j]=i-j;}stack.push(i);}for(int x:distance)out.add(x);}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  }
+}

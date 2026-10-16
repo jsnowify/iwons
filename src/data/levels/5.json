@@ -1,0 +1,18 @@
+{
+  "id": 5,
+  "name": "Carriage Return",
+  "subtitle": "Recursion, sorting, binary search and bits",
+  "tier": "medium",
+  "count": 55,
+  "released": true,
+  "concepts": [
+    "Divide-and-conquer recursion",
+    "Merge sort",
+    "Binary search boundaries",
+    "Binary search on answers",
+    "Bit counting",
+    "Prefix bit state"
+  ],
+  "primer": "Recursion solves a smaller instance and returns to finish a larger one. Write the stopping condition before the recursive calls. A half-open range [left,right) is empty when left equals right, and a one-item range needs no further split. In a traversal, the position of the recording step determines whether the result is preorder or another order.\n\nMerge sort recursively sorts halves and then combines their sorted streams. Binary search instead discards half a candidate range at each step. For insertion boundaries, maintain a half-open search interval and move its right endpoint when the middle value already qualifies. This finds the first qualifying position even among duplicates. Answer search uses the same discipline on possible answers, such as an integer square-root bound. Use integer products or a wider integer type when multiplication might overflow.\n\nBits provide a compact representation of nonnegative state. Removing the lowest set bit with x & (x-1) counts the bits without visiting every zero bit. XOR toggles bits independently and can maintain a prefix register. The units explain these operations before asking you to combine them with a receipt. Keep target time and auxiliary space separate: recursion consumes stack frames, and a merge procedure usually needs temporary storage. Trace the empty input and the exact boundary where a search interval stops shrinking.",
+  "example": "In [2, 5, 5, 9], the first insertion position for 5 is index 1. For 12 it is index 4, just after the drawer."
+}

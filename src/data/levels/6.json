@@ -1,0 +1,18 @@
+{
+  "id": 6,
+  "name": "Chain and Tree",
+  "subtitle": "Linked lists, binary trees and search trees",
+  "tier": "medium",
+  "count": 55,
+  "released": true,
+  "concepts": [
+    "Linked traversal",
+    "Linked pointer reversal",
+    "Fast and slow pointers",
+    "Tree preorder",
+    "Tree breadth-first traversal",
+    "BST range pruning"
+  ],
+  "primer": "A linked list stores a value and a link to the next node. An empty head is null. The runner constructs nodes from the JSON shown on a card, so your solution receives nodes rather than a raw array. Traverse by following next until the link is empty. To reverse a chain, save the next link before redirecting the current one; otherwise the rest of the list becomes unreachable.\n\nFast and slow pointers move at different speeds. Starting both at the head and advancing one by two links makes the slower pointer reach the second middle of an even-length list. Check the fast pointer and its next link before taking that double step.\n\nA binary tree gives each node left and right links. Depth-first recursion keeps one branch's unfinished work on the call stack. Breadth-first traversal uses a queue and processes a fixed current-level count before starting the next level. A binary search tree adds an ordering rule: left values are smaller and right values larger. That rule allows range pruning, but only because the input promises it. Tree JSON is level order with null placeholders; the runner supplies val, left, and right fields. The final receipt remains ordinary accumulator work, giving familiar loops a new structural setting.",
+  "example": "The tree [8, 3, 12, null, 5] has preorder [8, 3, 5, 12] and depth totals [8, 15, 5]."
+}

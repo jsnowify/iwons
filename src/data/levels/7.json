@@ -1,0 +1,19 @@
+{
+  "id": 7,
+  "name": "Switchboard",
+  "subtitle": "Graphs, heaps, union-find and tries",
+  "tier": "hard",
+  "count": 70,
+  "released": true,
+  "concepts": [
+    "Graph breadth-first distances",
+    "Topological queues",
+    "Priority-queue shortest paths",
+    "Binary heaps",
+    "Union-find components",
+    "Trie prefix counts",
+    "Graph depth-first components"
+  ],
+  "primer": "The switchboard connects vertices through edges. These units use adjacency matrices, so a row lists the outgoing connections from one vertex. Scanning every possible neighbor costs O(V) per visited vertex. Breadth-first search gives shortest edge counts when every edge has equal cost. Mark a vertex when enqueuing it so that cycles do not create repeated work. Depth-first search also finds connected components when directions are absent.\n\nA dependency order comes from indegrees and a queue. Removing a ready vertex reduces its neighbors' indegrees. If fewer than all vertices can be removed, a cycle blocks a complete order. Positive weighted paths require a different rule: repeatedly expand the smallest tentative cost from a priority queue. Skip stale entries after a cheaper route has been found. A binary heap implements that queue through parent and child indices.\n\nUnion-find answers component membership by following representative parents. Path compression shortens future searches, and size-based linking avoids needless depth. A trie organizes characters by prefixes; counting visits to each prefix node makes repeated prefix queries cheap. The unit introductions define each structure before it appears in a problem. Keep unreachable sentinels, deterministic ordering, self-links, duplicate words, and empty graphs in mind when testing the final inspection receipts.",
+  "example": "If 0 connects to 1 and 1 connects to 2, breadth-first distances from 0 are [0, 1, 2]. A disconnected vertex would contribute -1."
+}

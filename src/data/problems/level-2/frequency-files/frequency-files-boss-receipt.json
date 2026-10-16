@@ -1,0 +1,289 @@
+{
+  "id": "path3-090",
+  "slug": "frequency-files-boss-receipt",
+  "title": "Frequency files: Boss receipt",
+  "level": 2,
+  "unit": "frequency-files",
+  "order": 90,
+  "difficulty": "easy",
+  "topics": [
+    "Maps, sets, counting and sorting",
+    "Frequency maps"
+  ],
+  "patterns": [
+    "Frequency maps"
+  ],
+  "prerequisites": [
+    "path3-089",
+    "path3-013"
+  ],
+  "summary": "Count occurrences of each distinct reading, then produce those counts in increasing order of the associated numeric reading. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.",
+  "stage": "Boss · revisit",
+  "boss": true,
+  "revisit": "Level 0: loop accumulators",
+  "descriptionMd": "Identical inventory tags have been scattered among several loose folders. Sol adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nCount occurrences of each distinct reading, then produce those counts in increasing order of the associated numeric reading.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement frequencyFilesBossReceipt(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Frequency maps. Count occurrences of each distinct reading, then produce those counts in increasing order of the associated numeric reading. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n + d log d); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with frequency maps. What state describes the portion you have already processed?",
+    "Count occurrences of each distinct reading, then produce those counts in increasing order of the associated numeric reading. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. Use an accumulator and a one-based position counter, revisiting the first level's loop work."
+  ],
+  "functionName": "frequencyFilesBossReceipt",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function frequencyFilesBossReceipt(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function frequencyFilesBossReceipt(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def frequencyFilesBossReceipt(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int frequencyFilesBossReceipt(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-090-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 13,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,1,2,1]. Its weighted products are [1,2,6,4]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 13."
+    },
+    {
+      "id": "path3-090-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 7,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,3]. Its weighted products are [1,6]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 7."
+    },
+    {
+      "id": "path3-090-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Its weighted products are []. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n + d log d)",
+    "space": "O(n)"
+  },
+  "overview": "Boss · revisit: Frequency maps. Level 0: loop accumulators",
+  "tags": {
+    "level": 2,
+    "unit": "frequency-files",
+    "topic": "Frequency maps",
+    "pattern": "Frequency maps",
+    "bigO": "O(n + d log d)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-090-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 13,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,1,2,1]. Its weighted products are [1,2,6,4]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 13."
+    },
+    {
+      "id": "path3-090-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 7,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,3]. Its weighted products are [1,6]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 7."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function frequencyFilesBossReceipt(readings, k) {\n  const a=readings; let out=[];\n  const counts=new Map();for(const x of a)counts.set(x,(counts.get(x)||0)+1);for(const x of [...counts.keys()].sort((x,y)=>x-y))out.push(counts.get(x));\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "typescript": "function frequencyFilesBossReceipt(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const counts=new Map();for(const x of a)counts.set(x,(counts.get(x)||0)+1);for(const x of [...counts.keys()].sort((x,y)=>x-y))out.push(counts.get(x));\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "python": "def frequencyFilesBossReceipt(readings, k):\n    a=readings\n    out=[]\n    counts={}\n    for x in a: counts[x]=counts.get(x,0)+1\n    for x in sorted(counts): out.append(counts[x])\n    return sum((i+1)*x for i,x in enumerate(out))\n",
+    "java": "class Solution {\n  public int frequencyFilesBossReceipt(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Map<Integer,Integer>counts=new TreeMap<>();for(int x:a)counts.merge(x,1,Integer::sum);out.addAll(counts.values());}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-090-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 1,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-090-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 4,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-090-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": 6,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-090-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": 1344,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-090-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 3,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-090-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": 14,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nCount occurrences of each distinct reading, then produce those counts in increasing order of the associated numeric reading.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n + d log d); space O(n).\n\njavascript\nfunction frequencyFilesBossReceipt(readings, k) {\n  const a=readings; let out=[];\n  const counts=new Map();for(const x of a)counts.set(x,(counts.get(x)||0)+1);for(const x of [...counts.keys()].sort((x,y)=>x-y))out.push(counts.get(x));\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction frequencyFilesBossReceipt(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const counts=new Map();for(const x of a)counts.set(x,(counts.get(x)||0)+1);for(const x of [...counts.keys()].sort((x,y)=>x-y))out.push(counts.get(x));\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef frequencyFilesBossReceipt(readings, k):\n    a=readings\n    out=[]\n    counts={}\n    for x in a: counts[x]=counts.get(x,0)+1\n    for x in sorted(counts): out.append(counts[x])\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int frequencyFilesBossReceipt(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Map<Integer,Integer>counts=new TreeMap<>();for(int x:a)counts.merge(x,1,Integer::sum);out.addAll(counts.values());}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+  }
+}

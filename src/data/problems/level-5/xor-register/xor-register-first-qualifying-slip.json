@@ -1,0 +1,287 @@
+{
+  "id": "path3-279",
+  "slug": "xor-register-first-qualifying-slip",
+  "title": "Xor register: First qualifying slip",
+  "level": 5,
+  "unit": "xor-register",
+  "order": 279,
+  "difficulty": "medium",
+  "topics": [
+    "Recursion, sorting, binary search and bits",
+    "Prefix bit state"
+  ],
+  "patterns": [
+    "Prefix bit state"
+  ],
+  "prerequisites": [
+    "path3-278"
+  ],
+  "summary": "Maintain a register initially 0. XOR each nonnegative reading into it and record the register after each reading. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.",
+  "stage": "Combine",
+  "boss": false,
+  "descriptionMd": "A switch register toggles each indicated punch position as the ribbon advances. Luz needs the first qualifying slip while the courier waits at the door. Later matches must not jump ahead in the tray.\n\nMaintain a register initially 0. XOR each nonnegative reading into it and record the register after each reading.\n\nReturn the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.\n\nImplement xorRegisterFirstQualifyingSlip(readings, k). Use k exactly where specified above.",
+  "unitIntro": "Prefix bit state. Maintain a register initially 0. XOR each nonnegative reading into it and record the register after each reading. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Readings are integers from 0 through 20.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with prefix bit state. What state describes the portion you have already processed?",
+    "Maintain a register initially 0. XOR each nonnegative reading into it and record the register after each reading. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "xorRegisterFirstQualifyingSlip",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function xorRegisterFirstQualifyingSlip(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function xorRegisterFirstQualifyingSlip(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def xorRegisterFirstQualifyingSlip(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int xorRegisterFirstQualifyingSlip(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-279-1",
+      "input": [
+        [
+          7,
+          3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 7,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,4,3,3,15]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 7."
+    },
+    {
+      "id": "path3-279-2",
+      "input": [
+        [
+          4,
+          4,
+          2,
+          4
+        ],
+        2
+      ],
+      "expected": 4,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,0,2,6]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 4."
+    },
+    {
+      "id": "path3-279-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": -1,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives -1."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Combine: Prefix bit state. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 5,
+    "unit": "xor-register",
+    "topic": "Prefix bit state",
+    "pattern": "Prefix bit state",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-279-1",
+      "input": [
+        [
+          7,
+          3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 7,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,4,3,3,15]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 7."
+    },
+    {
+      "id": "path3-279-2",
+      "input": [
+        [
+          4,
+          4,
+          2,
+          4
+        ],
+        2
+      ],
+      "expected": 4,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,0,2,6]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 4."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function xorRegisterFirstQualifyingSlip(readings, k) {\n  const a=readings; let out=[];\n  let state=0;for(const x of a){state^=x;out.push(state);}\n  return out.find(x=>x>=k)??-1;\n}\n",
+    "typescript": "function xorRegisterFirstQualifyingSlip(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  let state=0;for(const x of a){state^=x;out.push(state);}\n  return out.find(x=>x>=k)??-1;\n}\n",
+    "python": "def xorRegisterFirstQualifyingSlip(readings, k):\n    a=readings\n    out=[]\n    state=0\n    for x in a:\n        state^=x\n        out.append(state)\n    return next((x for x in out if x>=k),-1)\n",
+    "java": "class Solution {\n  public int xorRegisterFirstQualifyingSlip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int state=0;for(int x:a){state^=x;out.add(state);}}\n    for(int x:out)if(x>=k)return x;return -1;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-279-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 9,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-279-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 5,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-279-6",
+        "input": [
+          [
+            20,
+            1,
+            7
+          ],
+          8
+        ],
+        "expected": 20,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-279-7",
+        "input": [
+          [
+            20,
+            7,
+            6,
+            19,
+            9,
+            4,
+            17,
+            11,
+            2,
+            15,
+            13,
+            0,
+            13,
+            15,
+            2,
+            11,
+            17,
+            4,
+            9,
+            19,
+            6,
+            7,
+            20,
+            8,
+            5,
+            18,
+            10,
+            3,
+            16,
+            12,
+            1,
+            14,
+            14,
+            1,
+            12,
+            16,
+            3,
+            10,
+            18,
+            5,
+            8,
+            20,
+            7,
+            6,
+            19,
+            9,
+            4,
+            17,
+            11,
+            2,
+            15,
+            13,
+            0,
+            13,
+            15,
+            2,
+            11,
+            17,
+            4,
+            9,
+            19,
+            6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": 20,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-279-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": -1,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-279-9",
+        "input": [
+          [
+            8,
+            3,
+            2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": 8,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nMaintain a register initially 0. XOR each nonnegative reading into it and record the register after each reading.\n\nReturn the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction xorRegisterFirstQualifyingSlip(readings, k) {\n  const a=readings; let out=[];\n  let state=0;for(const x of a){state^=x;out.push(state);}\n  return out.find(x=>x>=k)??-1;\n}\n\n\ntypescript\nfunction xorRegisterFirstQualifyingSlip(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  let state=0;for(const x of a){state^=x;out.push(state);}\n  return out.find(x=>x>=k)??-1;\n}\n\n\npython\ndef xorRegisterFirstQualifyingSlip(readings, k):\n    a=readings\n    out=[]\n    state=0\n    for x in a:\n        state^=x\n        out.append(state)\n    return next((x for x in out if x>=k),-1)\n\n\njava\nclass Solution {\n  public int xorRegisterFirstQualifyingSlip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int state=0;for(int x:a){state^=x;out.add(state);}}\n    for(int x:out)if(x>=k)return x;return -1;\n  }\n}\n"
+  }
+}

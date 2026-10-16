@@ -1,0 +1,287 @@
+{
+  "id": "path3-223",
+  "slug": "undo-drawer-total-receipt",
+  "title": "Undo drawer: Total receipt",
+  "level": 4,
+  "unit": "undo-drawer",
+  "order": 223,
+  "difficulty": "medium",
+  "topics": [
+    "Stacks, queues, deques and simulations",
+    "Stack history"
+  ],
+  "patterns": [
+    "Stack history"
+  ],
+  "prerequisites": [
+    "path3-222"
+  ],
+  "summary": "A nonnegative event pushes that value onto a stack. A negative event removes up to abs(event) values from its top. Produce the final stack from bottom to top. Return the sum of all values in the derived sequence; return 0 for an empty sequence.",
+  "stage": "Variation",
+  "boss": false,
+  "descriptionMd": "An experimental filing machine records both new cards and requests to undo recent cards. Rafi is closing the print-room account before the afternoon mail. A single total must replace the pile of working slips.\n\nA nonnegative event pushes that value onto a stack. A negative event removes up to abs(event) values from its top. Produce the final stack from bottom to top.\n\nReturn the sum of all values in the derived sequence; return 0 for an empty sequence.\n\nImplement undoDrawerTotalReceipt(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Stack history. A nonnegative event pushes that value onto a stack. A negative event removes up to abs(event) values from its top. Produce the final stack from bottom to top. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with stack history. What state describes the portion you have already processed?",
+    "A nonnegative event pushes that value onto a stack. A negative event removes up to abs(event) values from its top. Produce the final stack from bottom to top. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the sum of all values in the derived sequence; return 0 for an empty sequence. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "undoDrawerTotalReceipt",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function undoDrawerTotalReceipt(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function undoDrawerTotalReceipt(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def undoDrawerTotalReceipt(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int undoDrawerTotalReceipt(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-223-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 19,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,0,12]. Return the sum of all values in the derived sequence; return 0 for an empty sequence. This gives 19."
+    },
+    {
+      "id": "path3-223-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 4,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4]. Return the sum of all values in the derived sequence; return 0 for an empty sequence. This gives 4."
+    },
+    {
+      "id": "path3-223-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the sum of all values in the derived sequence; return 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Variation: Stack history. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 4,
+    "unit": "undo-drawer",
+    "topic": "Stack history",
+    "pattern": "Stack history",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-223-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 19,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,0,12]. Return the sum of all values in the derived sequence; return 0 for an empty sequence. This gives 19."
+    },
+    {
+      "id": "path3-223-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 4,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4]. Return the sum of all values in the derived sequence; return 0 for an empty sequence. This gives 4."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function undoDrawerTotalReceipt(readings, k) {\n  const a=readings; let out=[];\n  for(const x of a){if(x>=0)out.push(x);else for(let i=0;i<-x&&out.length;i++)out.pop();}\n  return out.reduce((s,x)=>s+x,0);\n}\n",
+    "typescript": "function undoDrawerTotalReceipt(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  for(const x of a){if(x>=0)out.push(x);else for(let i=0;i<-x&&out.length;i++)out.pop();}\n  return out.reduce((s,x)=>s+x,0);\n}\n",
+    "python": "def undoDrawerTotalReceipt(readings, k):\n    a=readings\n    out=[]\n    for x in a:\n        if x>=0: out.append(x)\n        else:\n            for _ in range(min(-x,len(out))): out.pop()\n    return sum(out)\n",
+    "java": "class Solution {\n  public int undoDrawerTotalReceipt(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){if(x>=0)out.add(x);else for(int i=0;i<-x&&!out.isEmpty();i++)out.remove(out.size()-1);}}\n    int answer=0;for(int x:out)answer+=x;return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-223-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 9,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-223-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 20,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-223-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": 0,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-223-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": 27,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-223-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-223-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": 9,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nA nonnegative event pushes that value onto a stack. A negative event removes up to abs(event) values from its top. Produce the final stack from bottom to top.\n\nReturn the sum of all values in the derived sequence; return 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction undoDrawerTotalReceipt(readings, k) {\n  const a=readings; let out=[];\n  for(const x of a){if(x>=0)out.push(x);else for(let i=0;i<-x&&out.length;i++)out.pop();}\n  return out.reduce((s,x)=>s+x,0);\n}\n\n\ntypescript\nfunction undoDrawerTotalReceipt(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  for(const x of a){if(x>=0)out.push(x);else for(let i=0;i<-x&&out.length;i++)out.pop();}\n  return out.reduce((s,x)=>s+x,0);\n}\n\n\npython\ndef undoDrawerTotalReceipt(readings, k):\n    a=readings\n    out=[]\n    for x in a:\n        if x>=0: out.append(x)\n        else:\n            for _ in range(min(-x,len(out))): out.pop()\n    return sum(out)\n\n\njava\nclass Solution {\n  public int undoDrawerTotalReceipt(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){if(x>=0)out.add(x);else for(int i=0;i<-x&&!out.isEmpty();i++)out.remove(out.size()-1);}}\n    int answer=0;for(int x:out)answer+=x;return answer;\n  }\n}\n"
+  }
+}

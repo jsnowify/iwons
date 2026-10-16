@@ -1,0 +1,32 @@
+{
+  "unit": "ribbon-runs",
+  "problems": 10,
+  "cases": 90,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Ribbon runs: Proof strip",
+      "statement": "A sticking key leaves repeated marks across a typewriter ribbon's inspection strip. Sol rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nA run is a maximal consecutive group of identical characters. Produce its length for each run, from left to right. Spaces are characters too.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement ribbonRunsProofStrip(line, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Ribbon runs: Floor ticket",
+      "statement": "A sticking key leaves repeated marks across a typewriter ribbon's inspection strip. Pia is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nA run is a maximal consecutive group of identical characters. Produce its length for each run, from left to right. Spaces are characters too.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement ribbonRunsFloorTicket(line, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Ribbon runs: Boss receipt",
+      "statement": "A sticking key leaves repeated marks across a typewriter ribbon's inspection strip. Mina adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nA run is a maximal consecutive group of identical characters. Produce its length for each run, from left to right. Spaces are characters too.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement ribbonRunsBossReceipt(line, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

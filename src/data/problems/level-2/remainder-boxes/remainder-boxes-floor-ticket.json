@@ -1,0 +1,287 @@
+{
+  "id": "path3-116",
+  "slug": "remainder-boxes-floor-ticket",
+  "title": "Remainder boxes: Floor ticket",
+  "level": 2,
+  "unit": "remainder-boxes",
+  "order": 116,
+  "difficulty": "easy",
+  "topics": [
+    "Maps, sets, counting and sorting",
+    "Map grouping"
+  ],
+  "patterns": [
+    "Map grouping"
+  ],
+  "prerequisites": [
+    "path3-115"
+  ],
+  "summary": "Assign each reading x to box ((x % 5) + 5) % 5. Produce the five box counts in box order 0 through 4. Return the smallest value in the derived sequence, or 0 for an empty sequence.",
+  "stage": "Boundary variation",
+  "boss": false,
+  "descriptionMd": "Five pigeonholes collect signed correction slips according to their normalized remainder. Tomas is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nAssign each reading x to box ((x % 5) + 5) % 5. Produce the five box counts in box order 0 through 4.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement remainderBoxesFloorTicket(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Map grouping. Assign each reading x to box ((x % 5) + 5) % 5. Produce the five box counts in box order 0 through 4. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with map grouping. What state describes the portion you have already processed?",
+    "Assign each reading x to box ((x % 5) + 5) % 5. Produce the five box counts in box order 0 through 4. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the smallest value in the derived sequence, or 0 for an empty sequence. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "remainderBoxesFloorTicket",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function remainderBoxesFloorTicket(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function remainderBoxesFloorTicket(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def remainderBoxesFloorTicket(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int remainderBoxesFloorTicket(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-116-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 0,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,0,4,0,0]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+    },
+    {
+      "id": "path3-116-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 0,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [0,0,0,1,3]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+    },
+    {
+      "id": "path3-116-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is [0,0,0,0,0]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Boundary variation: Map grouping. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 2,
+    "unit": "remainder-boxes",
+    "topic": "Map grouping",
+    "pattern": "Map grouping",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-116-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 0,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,0,4,0,0]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+    },
+    {
+      "id": "path3-116-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 0,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [0,0,0,1,3]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function remainderBoxesFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  out=[0,0,0,0,0];for(const x of a)out[((x%5)+5)%5]++;\n  return out.length?Math.min(...out):0;\n}\n",
+    "typescript": "function remainderBoxesFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  out=[0,0,0,0,0];for(const x of a)out[((x%5)+5)%5]++;\n  return out.length?Math.min(...out):0;\n}\n",
+    "python": "def remainderBoxesFloorTicket(readings, k):\n    a=readings\n    out=[]\n    out=[0]*5\n    for x in a: out[x%5]+=1\n    return min(out,default=0)\n",
+    "java": "class Solution {\n  public int remainderBoxesFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int[]boxes=new int[5];for(int x:a)boxes[Math.floorMod(x,5)]++;for(int x:boxes)out.add(x);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-116-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 0,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-116-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 0,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-116-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": 0,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-116-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": 12,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-116-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-116-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": 0,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nAssign each reading x to box ((x % 5) + 5) % 5. Produce the five box counts in box order 0 through 4.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction remainderBoxesFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  out=[0,0,0,0,0];for(const x of a)out[((x%5)+5)%5]++;\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\nfunction remainderBoxesFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  out=[0,0,0,0,0];for(const x of a)out[((x%5)+5)%5]++;\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef remainderBoxesFloorTicket(readings, k):\n    a=readings\n    out=[]\n    out=[0]*5\n    for x in a: out[x%5]+=1\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int remainderBoxesFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int[]boxes=new int[5];for(int x:a)boxes[Math.floorMod(x,5)]++;for(int x:boxes)out.add(x);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+  }
+}

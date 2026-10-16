@@ -1,0 +1,377 @@
+{
+  "id": "path3-399",
+  "slug": "prefix-cabinet-positive-proof-strip",
+  "title": "Prefix cabinet: Positive proof strip",
+  "level": 7,
+  "unit": "prefix-cabinet",
+  "order": 399,
+  "difficulty": "hard",
+  "topics": [
+    "Graphs, heaps, union-find and tries",
+    "Trie prefix counts"
+  ],
+  "patterns": [
+    "Trie prefix counts"
+  ],
+  "prerequisites": [
+    "path3-398"
+  ],
+  "summary": "For each lowercase word, consider each of its nonempty prefixes and count how many input words begin with that prefix, including repeated words and the word itself. Produce the sum of these counts for each word in input order. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates.",
+  "stage": "Sequence variation",
+  "boss": false,
+  "descriptionMd": "A character-by-character filing cabinet shares its early drawers among labels with matching prefixes. Rafi prepares a clean proof strip for the front desk. Positive derived readings keep their places relative to one another.\n\nFor each lowercase word, consider each of its nonempty prefixes and count how many input words begin with that prefix, including repeated words and the word itself. Produce the sum of these counts for each word in input order.\n\nReturn only the strictly positive values in the derived sequence, preserving their relative order and duplicates.\n\nImplement prefixCabinetPositiveProofStrip(words, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Trie prefix counts. For each lowercase word, consider each of its nonempty prefixes and count how many input words begin with that prefix, including repeated words and the word itself. Produce the sum of these counts for each word in input order. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "There are at most 64 lowercase English words, each with 1 to 12 letters.",
+    "Target time O(total characters); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with trie prefix counts. What state describes the portion you have already processed?",
+    "For each lowercase word, consider each of its nonempty prefixes and count how many input words begin with that prefix, including repeated words and the word itself. Produce the sum of these counts for each word in input order. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "prefixCabinetPositiveProofStrip",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function prefixCabinetPositiveProofStrip(words, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
+    "typescript": "function prefixCabinetPositiveProofStrip(words: string[], k: number): number[] {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
+    "python": "def prefixCabinetPositiveProofStrip(words, k):\n    # Derive the sequence, then compute the requested receipt.\n    return []\n",
+    "java": "class Solution {\n  public int[] prefixCabinetPositiveProofStrip(String[] words, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return new int[0];\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-399-1",
+      "input": [
+        [
+          "ink",
+          "inside",
+          "inn",
+          "paper"
+        ],
+        3
+      ],
+      "expected": [
+        7,
+        10,
+        7,
+        5
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,10,7,5]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [7,10,7,5]."
+    },
+    {
+      "id": "path3-399-2",
+      "input": [
+        [
+          "aa",
+          "aa",
+          "ab"
+        ],
+        2
+      ],
+      "expected": [
+        5,
+        5,
+        4
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [5,5,4]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [5,5,4]."
+    },
+    {
+      "id": "path3-399-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": [],
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives []."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "String[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(total characters)",
+    "space": "O(n)"
+  },
+  "overview": "Sequence variation: Trie prefix counts. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 7,
+    "unit": "prefix-cabinet",
+    "topic": "Trie prefix counts",
+    "pattern": "Trie prefix counts",
+    "bigO": "O(total characters)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-399-1",
+      "input": [
+        [
+          "ink",
+          "inside",
+          "inn",
+          "paper"
+        ],
+        3
+      ],
+      "expected": [
+        7,
+        10,
+        7,
+        5
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,10,7,5]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [7,10,7,5]."
+    },
+    {
+      "id": "path3-399-2",
+      "input": [
+        [
+          "aa",
+          "aa",
+          "ab"
+        ],
+        2
+      ],
+      "expected": [
+        5,
+        5,
+        4
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [5,5,4]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [5,5,4]."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function prefixCabinetPositiveProofStrip(words, k) {\n  const a=words; let out=[];\n  const next=[new Map()],counts=[0];for(const word of a){let node=0;for(const c of word){if(!next[node].has(c)){next[node].set(c,next.length);next.push(new Map());counts.push(0);}node=next[node].get(c);counts[node]++;}}for(const word of a){let node=0,s=0;for(const c of word){node=next[node].get(c);s+=counts[node];}out.push(s);}\n  return out.filter(x=>x>0);\n}\n",
+    "typescript": "function prefixCabinetPositiveProofStrip(words: string[], k: number): number[] {\n  const a=words; let out:number[]=[];\n  const next=[new Map()],counts=[0];for(const word of a){let node=0;for(const c of word){if(!next[node].has(c)){next[node].set(c,next.length);next.push(new Map());counts.push(0);}node=next[node].get(c);counts[node]++;}}for(const word of a){let node=0,s=0;for(const c of word){node=next[node].get(c);s+=counts[node];}out.push(s);}\n  return out.filter(x=>x>0);\n}\n",
+    "python": "def prefixCabinetPositiveProofStrip(words, k):\n    a=words\n    out=[]\n    next_nodes=[{}]\n    counts=[0]\n    for word in a:\n        node=0\n        for c in word:\n            if c not in next_nodes[node]:\n                next_nodes[node][c]=len(next_nodes)\n                next_nodes.append({})\n                counts.append(0)\n            node=next_nodes[node][c]\n            counts[node]+=1\n    for word in a:\n        node=0\n        s=0\n        for c in word:\n            node=next_nodes[node][c]\n            s+=counts[node]\n        out.append(s)\n    return [x for x in out if x>0]\n",
+    "java": "class Solution {\n  public int[] prefixCabinetPositiveProofStrip(String[] words, int k) {\n    String[] a=words; List<Integer> out=new ArrayList<>();\n    {List<Map<Character,Integer>>next=new ArrayList<>();next.add(new HashMap<>());List<Integer>counts=new ArrayList<>();counts.add(0);for(String word:a){int node=0;for(char c:word.toCharArray()){if(!next.get(node).containsKey(c)){next.get(node).put(c,next.size());next.add(new HashMap<>());counts.add(0);}node=next.get(node).get(c);counts.set(node,counts.get(node)+1);}}for(String word:a){int node=0,s=0;for(char c:word.toCharArray()){node=next.get(node).get(c);s+=counts.get(node);}out.add(s);}}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-399-4",
+        "input": [
+          [
+            "z"
+          ],
+          1
+        ],
+        "expected": [
+          1
+        ],
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-399-5",
+        "input": [
+          [
+            "a",
+            "a",
+            "a"
+          ],
+          4
+        ],
+        "expected": [
+          3,
+          3,
+          3
+        ],
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-399-6",
+        "input": [
+          [
+            "a",
+            "z"
+          ],
+          8
+        ],
+        "expected": [
+          1,
+          1
+        ],
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-399-7",
+        "input": [
+          [
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk",
+            "inkpaperpage",
+            "inkpaperdesk"
+          ],
+          3
+        ],
+        "expected": [
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640,
+          640
+        ],
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-399-8",
+        "input": [
+          [
+            "a",
+            "b"
+          ],
+          5
+        ],
+        "expected": [
+          1,
+          1
+        ],
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-399-9",
+        "input": [
+          [
+            "paper",
+            "pa",
+            "p"
+          ],
+          2
+        ],
+        "expected": [
+          8,
+          5,
+          3
+        ],
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nFor each lowercase word, consider each of its nonempty prefixes and count how many input words begin with that prefix, including repeated words and the word itself. Produce the sum of these counts for each word in input order.\n\nReturn only the strictly positive values in the derived sequence, preserving their relative order and duplicates.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(total characters); space O(n).\n\njavascript\nfunction prefixCabinetPositiveProofStrip(words, k) {\n  const a=words; let out=[];\n  const next=[new Map()],counts=[0];for(const word of a){let node=0;for(const c of word){if(!next[node].has(c)){next[node].set(c,next.length);next.push(new Map());counts.push(0);}node=next[node].get(c);counts[node]++;}}for(const word of a){let node=0,s=0;for(const c of word){node=next[node].get(c);s+=counts[node];}out.push(s);}\n  return out.filter(x=>x>0);\n}\n\n\ntypescript\nfunction prefixCabinetPositiveProofStrip(words: string[], k: number): number[] {\n  const a=words; let out:number[]=[];\n  const next=[new Map()],counts=[0];for(const word of a){let node=0;for(const c of word){if(!next[node].has(c)){next[node].set(c,next.length);next.push(new Map());counts.push(0);}node=next[node].get(c);counts[node]++;}}for(const word of a){let node=0,s=0;for(const c of word){node=next[node].get(c);s+=counts[node];}out.push(s);}\n  return out.filter(x=>x>0);\n}\n\n\npython\ndef prefixCabinetPositiveProofStrip(words, k):\n    a=words\n    out=[]\n    next_nodes=[{}]\n    counts=[0]\n    for word in a:\n        node=0\n        for c in word:\n            if c not in next_nodes[node]:\n                next_nodes[node][c]=len(next_nodes)\n                next_nodes.append({})\n                counts.append(0)\n            node=next_nodes[node][c]\n            counts[node]+=1\n    for word in a:\n        node=0\n        s=0\n        for c in word:\n            node=next_nodes[node][c]\n            s+=counts[node]\n        out.append(s)\n    return [x for x in out if x>0]\n\n\njava\nclass Solution {\n  public int[] prefixCabinetPositiveProofStrip(String[] words, int k) {\n    String[] a=words; List<Integer> out=new ArrayList<>();\n    {List<Map<Character,Integer>>next=new ArrayList<>();next.add(new HashMap<>());List<Integer>counts=new ArrayList<>();counts.add(0);for(String word:a){int node=0;for(char c:word.toCharArray()){if(!next.get(node).containsKey(c)){next.get(node).put(c,next.size());next.add(new HashMap<>());counts.add(0);}node=next.get(node).get(c);counts.set(node,counts.get(node)+1);}}for(String word:a){int node=0,s=0;for(char c:word.toCharArray()){node=next.get(node).get(c);s+=counts.get(node);}out.add(s);}}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  }
+}

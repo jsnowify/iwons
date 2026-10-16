@@ -1,0 +1,476 @@
+{
+  "id": "path3-185",
+  "slug": "paired-drawers-boss-receipt",
+  "title": "Paired drawers: Boss receipt",
+  "level": 3,
+  "unit": "paired-drawers",
+  "order": 185,
+  "difficulty": "medium",
+  "topics": [
+    "Two pointers, windows and prefix sums",
+    "Two sorted streams"
+  ],
+  "patterns": [
+    "Two sorted streams"
+  ],
+  "prerequisites": [
+    "path3-184",
+    "path3-013"
+  ],
+  "summary": "The input contains exactly two sorted drawers. Produce all their readings in one sorted sequence, preserving duplicates. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.",
+  "stage": "Boss · revisit",
+  "boss": true,
+  "revisit": "Level 0: loop accumulators",
+  "descriptionMd": "Two sorted dispatch trays must feed one shared label printer without losing repeated tags. Ivo adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nThe input contains exactly two sorted drawers. Produce all their readings in one sorted sequence, preserving duplicates.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement pairedDrawersBossReceipt(drawers, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Two sorted streams. The input contains exactly two sorted drawers. Produce all their readings in one sorted sequence, preserving duplicates. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64 per row.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "The input has exactly two rows, each containing at most 64 integers.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with two sorted streams. What state describes the portion you have already processed?",
+    "The input contains exactly two sorted drawers. Produce all their readings in one sorted sequence, preserving duplicates. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. Use an accumulator and a one-based position counter, revisiting the first level's loop work."
+  ],
+  "functionName": "pairedDrawersBossReceipt",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function pairedDrawersBossReceipt(drawers, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function pairedDrawersBossReceipt(drawers: number[][], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def pairedDrawersBossReceipt(drawers, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int pairedDrawersBossReceipt(int[][] drawers, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-185-1",
+      "input": [
+        [
+          [
+            -3,
+            0,
+            7,
+            7,
+            12
+          ],
+          []
+        ],
+        3
+      ],
+      "expected": 106,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-3,0,7,7,12]. Its weighted products are [-3,0,21,28,60]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 106."
+    },
+    {
+      "id": "path3-185-2",
+      "input": [
+        [
+          [
+            -2,
+            4,
+            4,
+            4
+          ],
+          [
+            9
+          ]
+        ],
+        2
+      ],
+      "expected": 79,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-2,4,4,4,9]. Its weighted products are [-2,8,12,16,45]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 79."
+    },
+    {
+      "id": "path3-185-3",
+      "input": [
+        [
+          [],
+          []
+        ],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Its weighted products are []. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[][]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Boss · revisit: Two sorted streams. Level 0: loop accumulators",
+  "tags": {
+    "level": 3,
+    "unit": "paired-drawers",
+    "topic": "Two sorted streams",
+    "pattern": "Two sorted streams",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-185-1",
+      "input": [
+        [
+          [
+            -3,
+            0,
+            7,
+            7,
+            12
+          ],
+          []
+        ],
+        3
+      ],
+      "expected": 106,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-3,0,7,7,12]. Its weighted products are [-3,0,21,28,60]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 106."
+    },
+    {
+      "id": "path3-185-2",
+      "input": [
+        [
+          [
+            -2,
+            4,
+            4,
+            4
+          ],
+          [
+            9
+          ]
+        ],
+        2
+      ],
+      "expected": 79,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-2,4,4,4,9]. Its weighted products are [-2,8,12,16,45]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 79."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function pairedDrawersBossReceipt(drawers, k) {\n  const a=drawers; let out=[];\n  let i=0,j=0;while(i<a[0].length||j<a[1].length){if(j===a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.push(a[0][i++]);else out.push(a[1][j++]);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "typescript": "function pairedDrawersBossReceipt(drawers: number[][], k: number): number {\n  const a=drawers; let out:number[]=[];\n  let i=0,j=0;while(i<a[0].length||j<a[1].length){if(j===a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.push(a[0][i++]);else out.push(a[1][j++]);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "python": "def pairedDrawersBossReceipt(drawers, k):\n    a=drawers\n    out=[]\n    i=j=0\n    while i<len(a[0]) or j<len(a[1]):\n        if j==len(a[1]) or (i<len(a[0]) and a[0][i]<=a[1][j]):\n            out.append(a[0][i])\n            i+=1\n        else:\n            out.append(a[1][j])\n            j+=1\n    return sum((i+1)*x for i,x in enumerate(out))\n",
+    "java": "class Solution {\n  public int pairedDrawersBossReceipt(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int i=0,j=0;while(i<a[0].length||j<a[1].length){if(j==a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.add(a[0][i++]);else out.add(a[1][j++]);}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-185-4",
+        "input": [
+          [
+            [
+              9
+            ],
+            [
+              -20,
+              -7,
+              -1
+            ]
+          ],
+          1
+        ],
+        "expected": -1,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-185-5",
+        "input": [
+          [
+            [
+              5,
+              5,
+              5,
+              5
+            ],
+            [
+              -20,
+              -20,
+              -19,
+              -19,
+              -18,
+              -17,
+              -17,
+              -16,
+              -15,
+              -15,
+              -14,
+              -13,
+              -13,
+              -12,
+              -11,
+              -11,
+              -10,
+              -9,
+              -9,
+              -8,
+              -7,
+              -7,
+              -6,
+              -6,
+              -5,
+              -4,
+              -4,
+              -3,
+              -2,
+              -2,
+              -1,
+              0,
+              0,
+              1,
+              2,
+              2,
+              3,
+              4,
+              4,
+              5,
+              6,
+              6,
+              7,
+              7,
+              8,
+              9,
+              9,
+              10,
+              11,
+              11,
+              12,
+              13,
+              13,
+              14,
+              15,
+              15,
+              16,
+              17,
+              17,
+              18,
+              19,
+              19,
+              20,
+              20
+            ]
+          ],
+          4
+        ],
+        "expected": 16301,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-185-6",
+        "input": [
+          [
+            [
+              -20,
+              -7,
+              -1
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          8
+        ],
+        "expected": -37,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-185-7",
+        "input": [
+          [
+            [
+              -20,
+              -20,
+              -19,
+              -19,
+              -18,
+              -17,
+              -17,
+              -16,
+              -15,
+              -15,
+              -14,
+              -13,
+              -13,
+              -12,
+              -11,
+              -11,
+              -10,
+              -9,
+              -9,
+              -8,
+              -7,
+              -7,
+              -6,
+              -6,
+              -5,
+              -4,
+              -4,
+              -3,
+              -2,
+              -2,
+              -1,
+              0,
+              0,
+              1,
+              2,
+              2,
+              3,
+              4,
+              4,
+              5,
+              6,
+              6,
+              7,
+              7,
+              8,
+              9,
+              9,
+              10,
+              11,
+              11,
+              12,
+              13,
+              13,
+              14,
+              15,
+              15,
+              16,
+              17,
+              17,
+              18,
+              19,
+              19,
+              20,
+              20
+            ],
+            [
+              -15,
+              -15,
+              -14,
+              -14,
+              -13,
+              -13,
+              -12,
+              -12,
+              -11,
+              -11,
+              -10,
+              -10,
+              -9,
+              -9,
+              -8,
+              -8,
+              -7,
+              -7,
+              -6,
+              -6,
+              -5,
+              -5,
+              -4,
+              -4,
+              -3,
+              -3,
+              -2,
+              -2,
+              -2,
+              -1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              2,
+              2,
+              3,
+              3,
+              3,
+              4,
+              4,
+              5,
+              5,
+              6,
+              7,
+              7,
+              8,
+              8,
+              8,
+              8,
+              9,
+              9,
+              10,
+              10,
+              11,
+              11,
+              12,
+              12,
+              13,
+              14,
+              14,
+              15,
+              15
+            ]
+          ],
+          3
+        ],
+        "expected": 49605,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-185-8",
+        "input": [
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -3,
+              0,
+              7,
+              7,
+              12
+            ]
+          ],
+          5
+        ],
+        "expected": 184,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-185-9",
+        "input": [
+          [
+            [
+              -2,
+              1,
+              3,
+              8,
+              8
+            ],
+            [
+              -2,
+              4,
+              4,
+              4
+            ]
+          ],
+          2
+        ],
+        "expected": 217,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nThe input contains exactly two sorted drawers. Produce all their readings in one sorted sequence, preserving duplicates.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction pairedDrawersBossReceipt(drawers, k) {\n  const a=drawers; let out=[];\n  let i=0,j=0;while(i<a[0].length||j<a[1].length){if(j===a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.push(a[0][i++]);else out.push(a[1][j++]);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction pairedDrawersBossReceipt(drawers: number[][], k: number): number {\n  const a=drawers; let out:number[]=[];\n  let i=0,j=0;while(i<a[0].length||j<a[1].length){if(j===a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.push(a[0][i++]);else out.push(a[1][j++]);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef pairedDrawersBossReceipt(drawers, k):\n    a=drawers\n    out=[]\n    i=j=0\n    while i<len(a[0]) or j<len(a[1]):\n        if j==len(a[1]) or (i<len(a[0]) and a[0][i]<=a[1][j]):\n            out.append(a[0][i])\n            i+=1\n        else:\n            out.append(a[1][j])\n            j+=1\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int pairedDrawersBossReceipt(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int i=0,j=0;while(i<a[0].length||j<a[1].length){if(j==a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.add(a[0][i++]);else out.add(a[1][j++]);}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+  }
+}

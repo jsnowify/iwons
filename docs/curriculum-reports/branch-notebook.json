@@ -1,0 +1,32 @@
+{
+  "unit": "branch-notebook",
+  "problems": 9,
+  "cases": 81,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Branch notebook: Proof strip",
+      "statement": "A branching filing cabinet is checked from each parent folder into its left and right subfolders. Pia rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nTraverse the binary tree in root-left-right order and produce its node values. A missing root produces no values.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement branchNotebookProofStrip(root, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Branch notebook: Peak ticket",
+      "statement": "A branching filing cabinet is checked from each parent folder into its left and right subfolders. Mina is setting the upper stop on an old office gauge. The largest derived reading goes on its label, even if the whole tray is below zero.\n\nTraverse the binary tree in root-left-right order and produce its node values. A missing root produces no values.\n\nReturn the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative.\n\nImplement branchNotebookPeakTicket(root, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Branch notebook: Boss receipt",
+      "statement": "A branching filing cabinet is checked from each parent folder into its left and right subfolders. Alma adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nTraverse the binary tree in root-left-right order and produce its node values. A missing root produces no values.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement branchNotebookBossReceipt(root, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

@@ -1,0 +1,589 @@
+{
+  "id": "path3-063",
+  "slug": "drawer-grids-threshold-file",
+  "title": "Drawer grids: Threshold file",
+  "level": 1,
+  "unit": "drawer-grids",
+  "order": 63,
+  "difficulty": "easy",
+  "topics": [
+    "Arrays and strings",
+    "Nested array traversal"
+  ],
+  "patterns": [
+    "Nested array traversal"
+  ],
+  "prerequisites": [
+    "path3-062"
+  ],
+  "summary": "For each row of drawers, produce the sum of that row. Empty rows contribute 0. Return how many values in the derived sequence are at least k.",
+  "stage": "Edge-case trap",
+  "boss": false,
+  "descriptionMd": "The supply cabinet has uneven rows of drawers, including a few rows left entirely empty. Neri marks a threshold on the filing cabinet's inspection card. Only qualifying readings count toward today's clearance stamp.\n\nFor each row of drawers, produce the sum of that row. Empty rows contribute 0.\n\nReturn how many values in the derived sequence are at least k.\n\nImplement drawerGridsThresholdFile(drawers, k). Use k exactly where specified above.",
+  "unitIntro": "Nested array traversal. For each row of drawers, produce the sum of that row. Empty rows contribute 0. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations).",
+  "constraints": [
+    "0 <= input size <= 16 per row.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with nested array traversal. What state describes the portion you have already processed?",
+    "For each row of drawers, produce the sum of that row. Empty rows contribute 0. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return how many values in the derived sequence are at least k. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "drawerGridsThresholdFile",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function drawerGridsThresholdFile(drawers, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function drawerGridsThresholdFile(drawers: number[][], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def drawerGridsThresholdFile(drawers, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int drawerGridsThresholdFile(int[][] drawers, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-063-1",
+      "input": [
+        [
+          [
+            7,
+            5
+          ],
+          [],
+          [
+            7,
+            5
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            12,
+            10
+          ]
+        ],
+        3
+      ],
+      "expected": 3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [12,0,12,-2,22]. Return how many values in the derived sequence are at least k. This gives 3."
+    },
+    {
+      "id": "path3-063-2",
+      "input": [
+        [
+          [
+            4,
+            2
+          ],
+          [],
+          [
+            -2,
+            -4
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        2
+      ],
+      "expected": 2,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [6,0,-6,6]. Return how many values in the derived sequence are at least k. This gives 2."
+    },
+    {
+      "id": "path3-063-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return how many values in the derived sequence are at least k. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[][]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Edge-case trap: Nested array traversal. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 1,
+    "unit": "drawer-grids",
+    "topic": "Nested array traversal",
+    "pattern": "Nested array traversal",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-063-1",
+      "input": [
+        [
+          [
+            7,
+            5
+          ],
+          [],
+          [
+            7,
+            5
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            12,
+            10
+          ]
+        ],
+        3
+      ],
+      "expected": 3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [12,0,12,-2,22]. Return how many values in the derived sequence are at least k. This gives 3."
+    },
+    {
+      "id": "path3-063-2",
+      "input": [
+        [
+          [
+            4,
+            2
+          ],
+          [],
+          [
+            -2,
+            -4
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        2
+      ],
+      "expected": 2,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [6,0,-6,6]. Return how many values in the derived sequence are at least k. This gives 2."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function drawerGridsThresholdFile(drawers, k) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out.filter(x=>x>=k).length;\n}\n",
+    "typescript": "function drawerGridsThresholdFile(drawers: number[][], k: number): number {\n  const a=drawers; let out:number[]=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out.filter(x=>x>=k).length;\n}\n",
+    "python": "def drawerGridsThresholdFile(drawers, k):\n    a=drawers\n    out=[]\n    for row in a: out.append(sum(row))\n    return sum(x>=k for x in out)\n",
+    "java": "class Solution {\n  public int drawerGridsThresholdFile(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {for(int[]row:a){int s=0;for(int x:row)s+=x;out.add(s);}}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-063-4",
+        "input": [
+          [
+            [
+              9,
+              7
+            ]
+          ],
+          1
+        ],
+        "expected": 1,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-063-5",
+        "input": [
+          [
+            [
+              5,
+              3
+            ],
+            [],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          4
+        ],
+        "expected": 3,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-063-6",
+        "input": [
+          [
+            [
+              -20,
+              -22
+            ],
+            [],
+            [
+              -7,
+              -9
+            ]
+          ],
+          8
+        ],
+        "expected": 0,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-063-7",
+        "input": [
+          [
+            [
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1
+            ],
+            [
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0
+            ],
+            [
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1
+            ],
+            [
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2
+            ],
+            [
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3
+            ],
+            [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            [
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            [
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5
+            ],
+            [
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4
+            ],
+            [
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3
+            ],
+            [
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2
+            ],
+            [
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1
+            ],
+            [
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0
+            ],
+            [
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1
+            ],
+            [
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2
+            ],
+            [
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3
+            ]
+          ],
+          3
+        ],
+        "expected": 6,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-063-8",
+        "input": [
+          [
+            [
+              0,
+              -2
+            ],
+            [],
+            [
+              0,
+              -2
+            ]
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-063-9",
+        "input": [
+          [
+            [
+              8,
+              6
+            ],
+            [],
+            [
+              -2,
+              -4
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              1,
+              -1
+            ]
+          ],
+          2
+        ],
+        "expected": 2,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nFor each row of drawers, produce the sum of that row. Empty rows contribute 0.\n\nReturn how many values in the derived sequence are at least k.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction drawerGridsThresholdFile(drawers, k) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out.filter(x=>x>=k).length;\n}\n\n\ntypescript\nfunction drawerGridsThresholdFile(drawers: number[][], k: number): number {\n  const a=drawers; let out:number[]=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out.filter(x=>x>=k).length;\n}\n\n\npython\ndef drawerGridsThresholdFile(drawers, k):\n    a=drawers\n    out=[]\n    for row in a: out.append(sum(row))\n    return sum(x>=k for x in out)\n\n\njava\nclass Solution {\n  public int drawerGridsThresholdFile(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {for(int[]row:a){int s=0;for(int x:row)s+=x;out.add(s);}}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
+  }
+}

@@ -1,0 +1,265 @@
+{
+  "id": "path3-318",
+  "slug": "branch-notebook-floor-ticket",
+  "title": "Branch notebook: Floor ticket",
+  "level": 6,
+  "unit": "branch-notebook",
+  "order": 318,
+  "difficulty": "medium",
+  "topics": [
+    "Linked lists, binary trees and search trees",
+    "Tree preorder"
+  ],
+  "patterns": [
+    "Tree preorder"
+  ],
+  "prerequisites": [
+    "path3-317"
+  ],
+  "summary": "Traverse the binary tree in root-left-right order and produce its node values. A missing root produces no values. Return the smallest value in the derived sequence, or 0 for an empty sequence.",
+  "stage": "Boundary variation",
+  "boss": false,
+  "descriptionMd": "A branching filing cabinet is checked from each parent folder into its left and right subfolders. Sol is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nTraverse the binary tree in root-left-right order and produce its node values. A missing root produces no values.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement branchNotebookFloorTicket(root, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Tree preorder. Traverse the binary tree in root-left-right order and produce its node values. A missing root produces no values. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= node count <= 31; JSON null placeholders do not count as nodes.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Lists are acyclic. Trees use level-order JSON with null for missing children; [] is an empty root. The runner supplies nodes with val/next or val/left/right.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with tree preorder. What state describes the portion you have already processed?",
+    "Traverse the binary tree in root-left-right order and produce its node values. A missing root produces no values. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the smallest value in the derived sequence, or 0 for an empty sequence. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "branchNotebookFloorTicket",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function branchNotebookFloorTicket(root, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "type TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction branchNotebookFloorTicket(root: TreeNode | null, k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def branchNotebookFloorTicket(root, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int branchNotebookFloorTicket(TreeNode root, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-318-1",
+      "input": [
+        [
+          7,
+          null,
+          -3,
+          7,
+          0
+        ],
+        3
+      ],
+      "expected": -3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,-3,7,0]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives -3."
+    },
+    {
+      "id": "path3-318-2",
+      "input": [
+        [
+          4,
+          null,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": -2,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,4,-2,4]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives -2."
+    },
+    {
+      "id": "path3-318-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "TreeNode",
+    "int"
+  ],
+  "inputKinds": {
+    "0": "tree"
+  },
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Boundary variation: Tree preorder. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 6,
+    "unit": "branch-notebook",
+    "topic": "Tree preorder",
+    "pattern": "Tree preorder",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-318-1",
+      "input": [
+        [
+          7,
+          null,
+          -3,
+          7,
+          0
+        ],
+        3
+      ],
+      "expected": -3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,-3,7,0]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives -3."
+    },
+    {
+      "id": "path3-318-2",
+      "input": [
+        [
+          4,
+          null,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": -2,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,4,-2,4]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives -2."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function branchNotebookFloorTicket(root, k) {\n  const a=root; let out=[];\n  function visit(node){if(!node)return;out.push(node.val);visit(node.left);visit(node.right);}visit(a);\n  return out.length?Math.min(...out):0;\n}\n",
+    "typescript": "type TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction branchNotebookFloorTicket(root: TreeNode | null, k: number): number {\n  const a=root; let out:number[]=[];\n  function visit(node:TreeNode|null):void{if(!node)return;out.push(node.val);visit(node.left);visit(node.right);}visit(a);\n  return out.length?Math.min(...out):0;\n}\n",
+    "python": "def branchNotebookFloorTicket(root, k):\n    a=root\n    out=[]\n    def visit(node):\n        if not node: return\n        out.append(node.val)\n        visit(node.left)\n        visit(node.right)\n    visit(a)\n    return min(out,default=0)\n",
+    "java": "class Solution {\n  public int branchNotebookFloorTicket(TreeNode root, int k) {\n    TreeNode a=root; List<Integer> out=new ArrayList<>();\n    {class Walk {void visit(TreeNode node){if(node==null)return;out.add(node.val);visit(node.left);visit(node.right);}}new Walk().visit(a);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-318-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 9,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-318-5",
+        "input": [
+          [
+            5,
+            null,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 5,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-318-6",
+        "input": [
+          [
+            -20,
+            null,
+            -1,
+            -7,
+            null
+          ],
+          8
+        ],
+        "expected": -20,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-318-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1
+          ],
+          3
+        ],
+        "expected": -20,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-318-8",
+        "input": [
+          [
+            0,
+            null,
+            0,
+            0,
+            null
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-318-9",
+        "input": [
+          [
+            8,
+            null,
+            3,
+            -2,
+            8
+          ],
+          2
+        ],
+        "expected": -2,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nTraverse the binary tree in root-left-right order and produce its node values. A missing root produces no values.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction branchNotebookFloorTicket(root, k) {\n  const a=root; let out=[];\n  function visit(node){if(!node)return;out.push(node.val);visit(node.left);visit(node.right);}visit(a);\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\ntype TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction branchNotebookFloorTicket(root: TreeNode | null, k: number): number {\n  const a=root; let out:number[]=[];\n  function visit(node:TreeNode|null):void{if(!node)return;out.push(node.val);visit(node.left);visit(node.right);}visit(a);\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef branchNotebookFloorTicket(root, k):\n    a=root\n    out=[]\n    def visit(node):\n        if not node: return\n        out.append(node.val)\n        visit(node.left)\n        visit(node.right)\n    visit(a)\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int branchNotebookFloorTicket(TreeNode root, int k) {\n    TreeNode a=root; List<Integer> out=new ArrayList<>();\n    {class Walk {void visit(TreeNode node){if(node==null)return;out.add(node.val);visit(node.left);visit(node.right);}}new Walk().visit(a);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+  }
+}

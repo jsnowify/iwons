@@ -1,0 +1,32 @@
+{
+  "unit": "recursive-shelves",
+  "problems": 9,
+  "cases": 81,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Recursive shelves: Proof strip",
+      "statement": "A shelf audit divides each occupied range in half and records its subtotal before opening smaller ranges. Rafi rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nRecursively inspect half-open ranges [left,right), starting with the whole array. For each nonempty range, record its sum, then inspect its left half and right half using mid=floor((left+right)/2); stop splitting a one-element range. Produce the recorded sums in that preorder.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement recursiveShelvesProofStrip(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Recursive shelves: Peak ticket",
+      "statement": "A shelf audit divides each occupied range in half and records its subtotal before opening smaller ranges. Ada is setting the upper stop on an old office gauge. The largest derived reading goes on its label, even if the whole tray is below zero.\n\nRecursively inspect half-open ranges [left,right), starting with the whole array. For each nonempty range, record its sum, then inspect its left half and right half using mid=floor((left+right)/2); stop splitting a one-element range. Produce the recorded sums in that preorder.\n\nReturn the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative.\n\nImplement recursiveShelvesPeakTicket(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Recursive shelves: Boss receipt",
+      "statement": "A shelf audit divides each occupied range in half and records its subtotal before opening smaller ranges. Neri adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nRecursively inspect half-open ranges [left,right), starting with the whole array. For each nonempty range, record its sum, then inspect its left half and right half using mid=floor((left+right)/2); stop splitting a one-element range. Produce the recorded sums in that preorder.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement recursiveShelvesBossReceipt(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

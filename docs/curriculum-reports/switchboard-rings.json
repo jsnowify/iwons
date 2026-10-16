@@ -1,0 +1,32 @@
+{
+  "unit": "switchboard-rings",
+  "problems": 10,
+  "cases": 90,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Switchboard rings: Proof strip",
+      "statement": "A dispatch signal travels through equal-cost switchboard cables from socket zero. Tomas rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nlinks is a square 0/1 adjacency matrix of a directed graph. From vertex 0, produce the shortest number of edges to every vertex in index order. Unreachable vertices contribute -1; an empty graph produces no distances.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement switchboardRingsProofStrip(links, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Switchboard rings: Floor ticket",
+      "statement": "A dispatch signal travels through equal-cost switchboard cables from socket zero. Ivo is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nlinks is a square 0/1 adjacency matrix of a directed graph. From vertex 0, produce the shortest number of edges to every vertex in index order. Unreachable vertices contribute -1; an empty graph produces no distances.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement switchboardRingsFloorTicket(links, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Switchboard rings: Boss receipt",
+      "statement": "A dispatch signal travels through equal-cost switchboard cables from socket zero. Pia adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nlinks is a square 0/1 adjacency matrix of a directed graph. From vertex 0, produce the shortest number of edges to every vertex in index order. Unreachable vertices contribute -1; an empty graph produces no distances.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement switchboardRingsBossReceipt(links, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

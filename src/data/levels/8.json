@@ -1,0 +1,21 @@
+{
+  "id": 8,
+  "name": "Master Printer",
+  "subtitle": "Greedy choices, dynamic programming and backtracking",
+  "tier": "hard",
+  "count": 90,
+  "released": true,
+  "concepts": [
+    "Greedy interval selection",
+    "Counting dynamic programming",
+    "Unbounded dynamic programming",
+    "Zero-one knapsack",
+    "Sequence DP with binary search",
+    "Interval dynamic programming",
+    "Backtracking choices",
+    "Backtracking with occupancy",
+    "Scheduling DP and binary search"
+  ],
+  "primer": "The master press asks you to justify which possibilities can be ignored. A greedy rule makes a locally chosen action permanent. For unweighted bookings, selecting the earliest finishing compatible booking leaves at least as much room as selecting a later finish. Rewards change that argument, so the paid-reservation unit uses dynamic programming instead. A familiar-looking scenario does not automatically permit the same algorithm.\n\nDynamic programming defines a state, a recurrence, and an evaluation order. A prefix table can count ribbon tilings or minimize postage. A descending capacity loop prevents the same parcel from being selected twice. Sequence states may be accelerated with binary-search tails. Interval states combine smaller intervals, as when choosing a matrix multiplication order. Explain the meaning of each table cell before writing its update.\n\nBacktracking explores choices and restores state before trying the next branch. It is appropriate here because the subset and roster sizes are deliberately small. Occupancy masks prevent assigning one clerk twice. Deduplicate equal subset totals only after preserving all valid choices of positions. These units combine structures from earlier chapters, but each introduction names the new decision rule. Compare the target complexity with the stated maximum input, check zero-sized instances, and finish with a weighted receipt that revisits the accumulator from the beginning of your Path.",
+  "example": "With stamp denominations 1, 4 and 9, postage 12 needs three stamps: 4 + 4 + 4. Taking a 9 first would need four stamps total."
+}

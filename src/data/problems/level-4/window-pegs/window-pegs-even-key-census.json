@@ -1,0 +1,287 @@
+{
+  "id": "path3-219",
+  "slug": "window-pegs-even-key-census",
+  "title": "Window pegs: Even-key census",
+  "level": 4,
+  "unit": "window-pegs",
+  "order": 219,
+  "difficulty": "medium",
+  "topics": [
+    "Stacks, queues, deques and simulations",
+    "Monotonic deques"
+  ],
+  "patterns": [
+    "Monotonic deques"
+  ],
+  "prerequisites": [
+    "path3-218"
+  ],
+  "summary": "For every contiguous window of exactly k readings, produce its maximum from left to right. Produce no values if k exceeds the number of readings. Return how many values in the derived sequence are even, including 0 and negative even values.",
+  "stage": "Counting variation",
+  "boss": false,
+  "descriptionMd": "The inspection frame keeps only pegs that could still be the tallest in its current window. Mina separates readings for the office's even-numbered keys. A zero reading belongs in that count, just like any other even number.\n\nFor every contiguous window of exactly k readings, produce its maximum from left to right. Produce no values if k exceeds the number of readings.\n\nReturn how many values in the derived sequence are even, including 0 and negative even values.\n\nImplement windowPegsEvenKeyCensus(readings, k). Use k exactly where specified above.",
+  "unitIntro": "Monotonic deques. For every contiguous window of exactly k readings, produce its maximum from left to right. Produce no values if k exceeds the number of readings. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with monotonic deques. What state describes the portion you have already processed?",
+    "For every contiguous window of exactly k readings, produce its maximum from left to right. Produce no values if k exceeds the number of readings. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return how many values in the derived sequence are even, including 0 and negative even values. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "windowPegsEvenKeyCensus",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function windowPegsEvenKeyCensus(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function windowPegsEvenKeyCensus(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def windowPegsEvenKeyCensus(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int windowPegsEvenKeyCensus(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-219-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 1,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,7,12]. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 1."
+    },
+    {
+      "id": "path3-219-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,4,4]. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 3."
+    },
+    {
+      "id": "path3-219-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Counting variation: Monotonic deques. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 4,
+    "unit": "window-pegs",
+    "topic": "Monotonic deques",
+    "pattern": "Monotonic deques",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-219-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 1,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,7,12]. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 1."
+    },
+    {
+      "id": "path3-219-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,4,4]. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 3."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function windowPegsEvenKeyCensus(readings, k) {\n  const a=readings; let out=[];\n  const queue=[];let head=0;for(let i=0;i<a.length;i++){while(head<queue.length&&queue[head]<=i-k)head++;while(head<queue.length&&a[queue[queue.length-1]]<=a[i])queue.pop();queue.push(i);if(i>=k-1)out.push(a[queue[head]]);}\n  return out.filter(x=>x%2===0).length;\n}\n",
+    "typescript": "function windowPegsEvenKeyCensus(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const queue=[];let head=0;for(let i=0;i<a.length;i++){while(head<queue.length&&queue[head]<=i-k)head++;while(head<queue.length&&a[queue[queue.length-1]]<=a[i])queue.pop();queue.push(i);if(i>=k-1)out.push(a[queue[head]]);}\n  return out.filter(x=>x%2===0).length;\n}\n",
+    "python": "def windowPegsEvenKeyCensus(readings, k):\n    a=readings\n    out=[]\n    from collections import deque\n    queue=deque()\n    for i,x in enumerate(a):\n        while queue and queue[0]<=i-k: queue.popleft()\n        while queue and a[queue[-1]]<=x: queue.pop()\n        queue.append(i)\n        if i>=k-1: out.append(a[queue[0]])\n    return sum(x%2==0 for x in out)\n",
+    "java": "class Solution {\n  public int windowPegsEvenKeyCensus(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Deque<Integer>queue=new ArrayDeque<>();for(int i=0;i<a.length;i++){while(!queue.isEmpty()&&queue.peekFirst()<=i-k)queue.removeFirst();while(!queue.isEmpty()&&a[queue.peekLast()]<=a[i])queue.removeLast();queue.addLast(i);if(i>=k-1)out.add(a[queue.peekFirst()]);}}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-219-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 0,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-219-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 0,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-219-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": 0,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-219-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": 24,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-219-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-219-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": 3,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nFor every contiguous window of exactly k readings, produce its maximum from left to right. Produce no values if k exceeds the number of readings.\n\nReturn how many values in the derived sequence are even, including 0 and negative even values.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction windowPegsEvenKeyCensus(readings, k) {\n  const a=readings; let out=[];\n  const queue=[];let head=0;for(let i=0;i<a.length;i++){while(head<queue.length&&queue[head]<=i-k)head++;while(head<queue.length&&a[queue[queue.length-1]]<=a[i])queue.pop();queue.push(i);if(i>=k-1)out.push(a[queue[head]]);}\n  return out.filter(x=>x%2===0).length;\n}\n\n\ntypescript\nfunction windowPegsEvenKeyCensus(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const queue=[];let head=0;for(let i=0;i<a.length;i++){while(head<queue.length&&queue[head]<=i-k)head++;while(head<queue.length&&a[queue[queue.length-1]]<=a[i])queue.pop();queue.push(i);if(i>=k-1)out.push(a[queue[head]]);}\n  return out.filter(x=>x%2===0).length;\n}\n\n\npython\ndef windowPegsEvenKeyCensus(readings, k):\n    a=readings\n    out=[]\n    from collections import deque\n    queue=deque()\n    for i,x in enumerate(a):\n        while queue and queue[0]<=i-k: queue.popleft()\n        while queue and a[queue[-1]]<=x: queue.pop()\n        queue.append(i)\n        if i>=k-1: out.append(a[queue[0]])\n    return sum(x%2==0 for x in out)\n\n\njava\nclass Solution {\n  public int windowPegsEvenKeyCensus(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Deque<Integer>queue=new ArrayDeque<>();for(int i=0;i<a.length;i++){while(!queue.isEmpty()&&queue.peekFirst()<=i-k)queue.removeFirst();while(!queue.isEmpty()&&a[queue.peekLast()]<=a[i])queue.removeLast();queue.addLast(i);if(i>=k-1)out.add(a[queue.peekFirst()]);}}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
+  }
+}

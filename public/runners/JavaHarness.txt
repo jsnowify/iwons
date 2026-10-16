@@ -1,0 +1,47 @@
+import java.util.*;
+import java.io.*;
+import java.lang.reflect.*;
+
+class ListNode { int val; ListNode next; ListNode(int v) { val=v; } ListNode(){} ListNode(int v,ListNode n){val=v;next=n;} }
+class TreeNode { int val; TreeNode left,right; TreeNode(int v){val=v;} TreeNode(){} TreeNode(int v,TreeNode l,TreeNode r){val=v;left=l;right=r;} }
+
+/* IWONS_USER_CODE */
+
+public class Main {
+  static Object convert(Object value, Class<?> type) {
+    if(value==null)return null;
+    if(type==int.class||type==Integer.class)return ((Number)value).intValue();
+    if(type==long.class)return ((Number)value).longValue();
+    if(type==double.class)return ((Number)value).doubleValue();
+    if(type==String.class)return String.valueOf(value);
+    if(type==boolean.class)return value;
+    if(type==ListNode.class){
+      int pos=-1; List<?> list;
+      if(value instanceof Map){Map<?,?> m=(Map<?,?>)value;list=(List<?>)m.get("values");pos=((Number)m.get("pos")).intValue();}else list=(List<?>)value;
+      ListNode[] nodes=new ListNode[list.size()];for(int i=0;i<nodes.length;i++)nodes[i]=new ListNode(((Number)list.get(i)).intValue());
+      for(int i=0;i+1<nodes.length;i++)nodes[i].next=nodes[i+1];if(nodes.length>0&&pos>=0)nodes[nodes.length-1].next=nodes[pos];return nodes.length==0?null:nodes[0];
+    }
+    if(type==TreeNode.class){List<?> list=(List<?>)value;if(list.isEmpty()||list.get(0)==null)return null;TreeNode root=new TreeNode(((Number)list.get(0)).intValue());List<TreeNode> q=new ArrayList<>();q.add(root);int index=1;for(int i=0;i<q.size()&&index<list.size();i++){TreeNode n=q.get(i);for(int s=0;s<2&&index<list.size();s++){Object v=list.get(index++);if(v!=null){TreeNode c=new TreeNode(((Number)v).intValue());if(s==0)n.left=c;else n.right=c;q.add(c);}}}return root;}
+    if(type.isArray()){List<?> list=(List<?>)value;Object arr=Array.newInstance(type.getComponentType(),list.size());for(int i=0;i<list.size();i++)Array.set(arr,i,convert(list.get(i),type.getComponentType()));return arr;}
+    return value;
+  }
+  static Object invoke(Object obj,String name,List<?> args)throws Exception{for(Method method:obj.getClass().getDeclaredMethods())if(method.getName().equals(name)&&method.getParameterCount()==args.size()){method.setAccessible(true);Object[] converted=new Object[args.size()];for(int i=0;i<args.size();i++)converted[i]=convert(args.get(i),method.getParameterTypes()[i]);return method.invoke(obj,converted);}throw new Exception("Define method "+name+" with the starter signature.");}
+  static Object output(Object obj,String kind){
+    if("list".equals(kind)){List<Object> a=new ArrayList<>();Set<ListNode> seen=new HashSet<>();for(ListNode n=(ListNode)obj;n!=null;n=n.next){if(!seen.add(n)||a.size()>10000)throw new RuntimeException("Cyclic result");a.add(n.val);}return a;}
+    if("tree".equals(kind)){List<Object>a=new ArrayList<>();if(obj==null)return a;List<TreeNode>q=new ArrayList<>();q.add((TreeNode)obj);for(int i=0;i<q.size();i++){if(i>20000)throw new RuntimeException("Cyclic tree");TreeNode n=q.get(i);a.add(n==null?null:n.val);if(n!=null){q.add(n.left);q.add(n.right);}}while(!a.isEmpty()&&a.get(a.size()-1)==null)a.remove(a.size()-1);return a;}return obj;
+  }
+  public static void main(String[] args)throws Exception{
+    Scanner scanner=new Scanner(System.in).useDelimiter("\\A");Map<?,?>req=(Map<?,?>)new Parser(scanner.hasNext()?scanner.next():"{}").parse();List<?>tests=(List<?>)req.get("cases");List<Object>results=new ArrayList<>();boolean error=false;PrintStream original=System.out;
+    for(Object test:tests){Map<?,?>t=(Map<?,?>)test;Map<String,Object>r=new LinkedHashMap<>();r.put("id",t.get("id"));r.put("expected",t.get("expected"));r.put("actual",null);r.put("passed",false);ByteArrayOutputStream logs=new ByteArrayOutputStream();long start=System.nanoTime();
+      try{System.setOut(new PrintStream(logs));Object actual;List<?>input=(List<?>)t.get("input");
+        if("operations".equals(req.get("mode"))){Class<?>cls=Class.forName((String)req.get("functionName"));Constructor<?>ctor=cls.getDeclaredConstructor();ctor.setAccessible(true);Object obj=ctor.newInstance();List<Object>a=new ArrayList<>();List<?>ops=(List<?>)input.get(0),params=(List<?>)input.get(1);a.add(null);for(int i=1;i<ops.size();i++)a.add(invoke(obj,(String)ops.get(i),(List<?>)params.get(i)));actual=a;}
+        else{Class<?>cls=Class.forName("Solution");Constructor<?>ctor=cls.getDeclaredConstructor();ctor.setAccessible(true);actual=output(invoke(ctor.newInstance(),(String)req.get("functionName"),input),(String)req.get("outputKind"));}
+        r.put("actual",actual);r.put("passed",true);
+      }catch(Throwable e){error=true;Throwable cause=e instanceof InvocationTargetException?e.getCause():e;r.put("error",cause.toString());}
+      finally{System.setOut(original);r.put("stdout",logs.toString().substring(0,Math.min(10000,logs.toString().length())));r.put("runtimeMs",(System.nanoTime()-start)/1000000.0);}results.add(r);
+    }
+    Map<String,Object>answer=new LinkedHashMap<>();answer.put("verdict",error?"runtime_error":"accepted");answer.put("cases",results);original.println(json(answer));
+  }
+  static String json(Object v){if(v==null)return "null";if(v instanceof String)return "\""+((String)v).replace("\\","\\\\").replace("\"","\\\"").replace("\n","\\n").replace("\r","\\r").replace("\t","\\t")+"\"";if(v instanceof Boolean||v instanceof Number)return v.toString();if(v instanceof Map){List<String>a=new ArrayList<>();for(Object key:((Map<?,?>)v).keySet())a.add(json(key)+":"+json(((Map<?,?>)v).get(key)));return "{"+String.join(",",a)+"}";}List<String>a=new ArrayList<>();if(v instanceof Iterable)for(Object x:(Iterable<?>)v)a.add(json(x));else if(v.getClass().isArray())for(int i=0;i<Array.getLength(v);i++)a.add(json(Array.get(v,i)));else return json(v.toString());return "["+String.join(",",a)+"]";}
+  static class Parser{String s;int i;Parser(String s){this.s=s;}void ws(){while(i<s.length()&&Character.isWhitespace(s.charAt(i)))i++;}Object parse(){ws();char c=s.charAt(i);if(c=='"')return str();if(c=='['){i++;List<Object>a=new ArrayList<>();ws();if(s.charAt(i)==']'){i++;return a;}while(true){a.add(parse());ws();if(s.charAt(i++)==']')return a;}}if(c=='{'){i++;Map<String,Object>m=new LinkedHashMap<>();ws();if(s.charAt(i)=='}'){i++;return m;}while(true){ws();String k=str();ws();i++;m.put(k,parse());ws();if(s.charAt(i++)=='}')return m;}}if(s.startsWith("null",i)){i+=4;return null;}if(s.startsWith("true",i)){i+=4;return true;}if(s.startsWith("false",i)){i+=5;return false;}int start=i;while(i<s.length()&&"-+0123456789.eE".indexOf(s.charAt(i))>=0)i++;return Double.valueOf(s.substring(start,i));}String str(){i++;StringBuilder b=new StringBuilder();while(i<s.length()){char c=s.charAt(i++);if(c=='"')break;if(c=='\\'){c=s.charAt(i++);if(c=='n')c='\n';else if(c=='r')c='\r';else if(c=='t')c='\t';else if(c=='b')c='\b';else if(c=='f')c='\f';else if(c=='u'){c=(char)Integer.parseInt(s.substring(i,i+4),16);i+=4;}}b.append(c);}return b.toString();}}
+}

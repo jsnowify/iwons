@@ -1,0 +1,32 @@
+{
+  "unit": "sorting-press",
+  "problems": 9,
+  "cases": 81,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Sorting press: Proof strip",
+      "statement": "Two small sorted proof trays are repeatedly joined by the office's divide-and-merge press. Rafi rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nProduce readings sorted numerically ascending using a merge-based divide-and-conquer approach. Keep duplicate readings.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement sortingPressProofStrip(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Sorting press: Peak ticket",
+      "statement": "Two small sorted proof trays are repeatedly joined by the office's divide-and-merge press. Ada is setting the upper stop on an old office gauge. The largest derived reading goes on its label, even if the whole tray is below zero.\n\nProduce readings sorted numerically ascending using a merge-based divide-and-conquer approach. Keep duplicate readings.\n\nReturn the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative.\n\nImplement sortingPressPeakTicket(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Sorting press: Boss receipt",
+      "statement": "Two small sorted proof trays are repeatedly joined by the office's divide-and-merge press. Neri adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nProduce readings sorted numerically ascending using a merge-based divide-and-conquer approach. Keep duplicate readings.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement sortingPressBossReceipt(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

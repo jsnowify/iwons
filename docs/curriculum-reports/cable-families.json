@@ -1,0 +1,32 @@
+{
+  "unit": "cable-families",
+  "problems": 10,
+  "cases": 90,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Cable families: Proof strip",
+      "statement": "The maintenance desk joins connected switchboard sockets into shared cable families. Tomas rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nlinks is a symmetric 0/1 adjacency matrix. Union every connected pair, then produce the size of the component containing each vertex, in vertex order. Self-links do not change a component.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement cableFamiliesProofStrip(links, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Cable families: Floor ticket",
+      "statement": "The maintenance desk joins connected switchboard sockets into shared cable families. Ivo is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nlinks is a symmetric 0/1 adjacency matrix. Union every connected pair, then produce the size of the component containing each vertex, in vertex order. Self-links do not change a component.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement cableFamiliesFloorTicket(links, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Cable families: Boss receipt",
+      "statement": "The maintenance desk joins connected switchboard sockets into shared cable families. Pia adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nlinks is a symmetric 0/1 adjacency matrix. Union every connected pair, then produce the size of the component containing each vertex, in vertex order. Self-links do not change a component.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement cableFamiliesBossReceipt(links, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

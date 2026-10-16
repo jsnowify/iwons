@@ -1,0 +1,32 @@
+{
+  "unit": "prefix-cabinet",
+  "problems": 10,
+  "cases": 90,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Prefix cabinet: Proof strip",
+      "statement": "A character-by-character filing cabinet shares its early drawers among labels with matching prefixes. Tomas rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nFor each lowercase word, consider each of its nonempty prefixes and count how many input words begin with that prefix, including repeated words and the word itself. Produce the sum of these counts for each word in input order.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement prefixCabinetProofStrip(words, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Prefix cabinet: Floor ticket",
+      "statement": "A character-by-character filing cabinet shares its early drawers among labels with matching prefixes. Ivo is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nFor each lowercase word, consider each of its nonempty prefixes and count how many input words begin with that prefix, including repeated words and the word itself. Produce the sum of these counts for each word in input order.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement prefixCabinetFloorTicket(words, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Prefix cabinet: Boss receipt",
+      "statement": "A character-by-character filing cabinet shares its early drawers among labels with matching prefixes. Pia adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nFor each lowercase word, consider each of its nonempty prefixes and count how many input words begin with that prefix, including repeated words and the word itself. Produce the sum of these counts for each word in input order.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement prefixCabinetBossReceipt(words, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

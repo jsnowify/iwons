@@ -1,0 +1,32 @@
+{
+  "unit": "square-gauges",
+  "problems": 9,
+  "cases": 81,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Square gauges: Proof strip",
+      "statement": "A square inspection plate must fit inside each numbered sheet allowance using whole-unit edges. Rafi rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nFor each nonnegative reading x, produce the greatest integer r with r*r <= x. Use integer comparisons rather than floating-point rounding.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement squareGaugesProofStrip(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Square gauges: Peak ticket",
+      "statement": "A square inspection plate must fit inside each numbered sheet allowance using whole-unit edges. Ada is setting the upper stop on an old office gauge. The largest derived reading goes on its label, even if the whole tray is below zero.\n\nFor each nonnegative reading x, produce the greatest integer r with r*r <= x. Use integer comparisons rather than floating-point rounding.\n\nReturn the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative.\n\nImplement squareGaugesPeakTicket(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Square gauges: Boss receipt",
+      "statement": "A square inspection plate must fit inside each numbered sheet allowance using whole-unit edges. Neri adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nFor each nonnegative reading x, produce the greatest integer r with r*r <= x. Use integer comparisons rather than floating-point rounding.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement squareGaugesBossReceipt(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

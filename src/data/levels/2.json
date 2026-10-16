@@ -1,0 +1,17 @@
+{
+  "id": 2,
+  "name": "Card Catalog",
+  "subtitle": "Maps, sets, counting and sorting",
+  "tier": "easy",
+  "count": 50,
+  "released": true,
+  "concepts": [
+    "Frequency maps",
+    "Set membership",
+    "Set intersection",
+    "Map grouping",
+    "Comparator sorting"
+  ],
+  "primer": "A drawer is ordered, but a catalog answers questions about identity. A set remembers whether a reading has appeared. A map associates each key with a value, such as a frequency. With these structures, you can scan once instead of repeatedly searching every earlier item. Check membership before inserting when you need to recognize a new arrival. Increment the stored count when every occurrence matters.\n\nOutput order remains a separate requirement. A map's iteration order is not a substitute for the task's numeric ordering. Count first, collect the distinct keys, then sort those keys when requested. For shared drawers, use membership to identify common readings and a set to avoid reporting the same reading repeatedly.\n\nA comparator expresses a complete ordering. Magnitude sorting needs an absolute-value comparison followed by a numeric comparison to settle ties. Specify both so that negative and positive readings with equal magnitude have predictable positions. Grouping by remainder needs care across languages: some produce a negative remainder for negative inputs. Normalize it before selecting a box. Each unit ends with a weighted receipt that reuses your earlier accumulator work. The data structure solves the identity question; the final loop computes the particular receipt printed on your card.",
+  "example": "Readings [-2, 3, -2, 3, 3] give counts 2 for -2 and 3 for 3, so the frequency sequence is [2, 3]."
+}

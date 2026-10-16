@@ -1,0 +1,233 @@
+{
+  "id": "path3-478",
+  "slug": "selection-proof-positive-ink-invoice",
+  "title": "Selection proof: Positive-ink invoice",
+  "level": 8,
+  "unit": "selection-proof",
+  "order": 478,
+  "difficulty": "hard",
+  "topics": [
+    "Greedy choices, dynamic programming and backtracking",
+    "Backtracking choices"
+  ],
+  "patterns": [
+    "Backtracking choices"
+  ],
+  "prerequisites": [
+    "path3-477"
+  ],
+  "summary": "Choose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices. Return the sum of strictly positive values in the derived sequence, or 0 when none exist.",
+  "stage": "Filtered variation",
+  "boss": false,
+  "descriptionMd": "A sample tray allows each physical slip to be either included or excluded from a signed total. Rafi prepares an invoice that accepts only positive ink adjustments. Zero and negative derived readings stay off the invoice.\n\nChoose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices.\n\nReturn the sum of strictly positive values in the derived sequence, or 0 when none exist.\n\nImplement selectionProofPositiveInkInvoice(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Backtracking choices. Choose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 10.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n*2^n); auxiliary space including the derived sequence O(2^n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with backtracking choices. What state describes the portion you have already processed?",
+    "Choose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the sum of strictly positive values in the derived sequence, or 0 when none exist. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "selectionProofPositiveInkInvoice",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function selectionProofPositiveInkInvoice(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function selectionProofPositiveInkInvoice(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def selectionProofPositiveInkInvoice(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int selectionProofPositiveInkInvoice(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-478-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 141,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-3,0,4,7,9,11,12,14,16,19,23,26]. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 141."
+    },
+    {
+      "id": "path3-478-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 42,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-2,0,2,4,6,8,10,12]. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 42."
+    },
+    {
+      "id": "path3-478-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is [0]. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n*2^n)",
+    "space": "O(2^n)"
+  },
+  "overview": "Filtered variation: Backtracking choices. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 8,
+    "unit": "selection-proof",
+    "topic": "Backtracking choices",
+    "pattern": "Backtracking choices",
+    "bigO": "O(n*2^n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-478-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 141,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-3,0,4,7,9,11,12,14,16,19,23,26]. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 141."
+    },
+    {
+      "id": "path3-478-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 42,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-2,0,2,4,6,8,10,12]. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 42."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function selectionProofPositiveInkInvoice(readings, k) {\n  const a=readings; let out=[];\n  const sums=new Set();function visit(i,s){if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n",
+    "typescript": "function selectionProofPositiveInkInvoice(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const sums=new Set<number>();function visit(i:number,s:number):void{if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n",
+    "python": "def selectionProofPositiveInkInvoice(readings, k):\n    a=readings\n    out=[]\n    sums=set()\n    def visit(i,s):\n        if i==len(a):\n            sums.add(s)\n            return\n        visit(i+1,s)\n        visit(i+1,s+a[i])\n    visit(0,0)\n    out=sorted(sums)\n    return sum(x for x in out if x>0)\n",
+    "java": "class Solution {\n  public int selectionProofPositiveInkInvoice(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Set<Integer>sums=new TreeSet<>();class Walk {void visit(int i,int s){if(i==a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}}new Walk().visit(0,0);out.addAll(sums);}\n    int answer=0;for(int x:out)if(x>0)answer+=x;return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-478-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 9,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-478-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 50,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-478-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": 0,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-478-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15
+          ],
+          3
+        ],
+        "expected": 1787,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-478-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-478-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": 192,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nChoose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices.\n\nReturn the sum of strictly positive values in the derived sequence, or 0 when none exist.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n*2^n); space O(2^n).\n\njavascript\nfunction selectionProofPositiveInkInvoice(readings, k) {\n  const a=readings; let out=[];\n  const sums=new Set();function visit(i,s){if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n\n\ntypescript\nfunction selectionProofPositiveInkInvoice(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const sums=new Set<number>();function visit(i:number,s:number):void{if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n\n\npython\ndef selectionProofPositiveInkInvoice(readings, k):\n    a=readings\n    out=[]\n    sums=set()\n    def visit(i,s):\n        if i==len(a):\n            sums.add(s)\n            return\n        visit(i+1,s)\n        visit(i+1,s+a[i])\n    visit(0,0)\n    out=sorted(sums)\n    return sum(x for x in out if x>0)\n\n\njava\nclass Solution {\n  public int selectionProofPositiveInkInvoice(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Set<Integer>sums=new TreeSet<>();class Walk {void visit(int i,int s){if(i==a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}}new Walk().visit(0,0);out.addAll(sums);}\n    int answer=0;for(int x:out)if(x>0)answer+=x;return answer;\n  }\n}\n"
+  }
+}

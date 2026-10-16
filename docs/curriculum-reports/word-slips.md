@@ -1,0 +1,35 @@
+# Word slips
+
+10 problems; 90 cases; all checks passed.
+
+JavaScript and TypeScript ran in the actual worker. Python used the exact harness. Java compiled and ran locally; the app runtime remains Beta.
+
+## Word slips: Proof strip
+
+A teleprinter uses runs of spaces to separate the words on its paper message roll. Sol rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.
+
+Split the line into maximal runs of non-space ASCII characters and produce each run's length. Multiple spaces, leading spaces and trailing spaces do not produce empty words.
+
+Return the entire derived sequence, preserving its order.
+
+Implement wordSlipsProofStrip(line, k). k is part of the common inspection-card signature and does not affect this task's result.
+
+## Word slips: Floor ticket
+
+A teleprinter uses runs of spaces to separate the words on its paper message roll. Pia is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.
+
+Split the line into maximal runs of non-space ASCII characters and produce each run's length. Multiple spaces, leading spaces and trailing spaces do not produce empty words.
+
+Return the smallest value in the derived sequence, or 0 for an empty sequence.
+
+Implement wordSlipsFloorTicket(line, k). k is part of the common inspection-card signature and does not affect this task's result.
+
+## Word slips: Boss receipt
+
+A teleprinter uses runs of spaces to separate the words on its paper message roll. Mina adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.
+
+Split the line into maximal runs of non-space ASCII characters and produce each run's length. Multiple spaces, leading spaces and trailing spaces do not produce empty words.
+
+Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.
+
+Implement wordSlipsBossReceipt(line, k). k is part of the common inspection-card signature and does not affect this task's result.

@@ -1,0 +1,265 @@
+{
+  "id": "path3-315",
+  "slug": "branch-notebook-threshold-file",
+  "title": "Branch notebook: Threshold file",
+  "level": 6,
+  "unit": "branch-notebook",
+  "order": 315,
+  "difficulty": "medium",
+  "topics": [
+    "Linked lists, binary trees and search trees",
+    "Tree preorder"
+  ],
+  "patterns": [
+    "Tree preorder"
+  ],
+  "prerequisites": [
+    "path3-314"
+  ],
+  "summary": "Traverse the binary tree in root-left-right order and produce its node values. A missing root produces no values. Return how many values in the derived sequence are at least k.",
+  "stage": "Edge-case trap",
+  "boss": false,
+  "descriptionMd": "A branching filing cabinet is checked from each parent folder into its left and right subfolders. Luz marks a threshold on the filing cabinet's inspection card. Only qualifying readings count toward today's clearance stamp.\n\nTraverse the binary tree in root-left-right order and produce its node values. A missing root produces no values.\n\nReturn how many values in the derived sequence are at least k.\n\nImplement branchNotebookThresholdFile(root, k). Use k exactly where specified above.",
+  "unitIntro": "Tree preorder. Traverse the binary tree in root-left-right order and produce its node values. A missing root produces no values. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= node count <= 31; JSON null placeholders do not count as nodes.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Lists are acyclic. Trees use level-order JSON with null for missing children; [] is an empty root. The runner supplies nodes with val/next or val/left/right.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with tree preorder. What state describes the portion you have already processed?",
+    "Traverse the binary tree in root-left-right order and produce its node values. A missing root produces no values. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return how many values in the derived sequence are at least k. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "branchNotebookThresholdFile",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function branchNotebookThresholdFile(root, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "type TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction branchNotebookThresholdFile(root: TreeNode | null, k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def branchNotebookThresholdFile(root, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int branchNotebookThresholdFile(TreeNode root, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-315-1",
+      "input": [
+        [
+          7,
+          null,
+          -3,
+          7,
+          0
+        ],
+        3
+      ],
+      "expected": 2,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,-3,7,0]. Return how many values in the derived sequence are at least k. This gives 2."
+    },
+    {
+      "id": "path3-315-2",
+      "input": [
+        [
+          4,
+          null,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,4,-2,4]. Return how many values in the derived sequence are at least k. This gives 3."
+    },
+    {
+      "id": "path3-315-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return how many values in the derived sequence are at least k. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "TreeNode",
+    "int"
+  ],
+  "inputKinds": {
+    "0": "tree"
+  },
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Edge-case trap: Tree preorder. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 6,
+    "unit": "branch-notebook",
+    "topic": "Tree preorder",
+    "pattern": "Tree preorder",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-315-1",
+      "input": [
+        [
+          7,
+          null,
+          -3,
+          7,
+          0
+        ],
+        3
+      ],
+      "expected": 2,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,-3,7,0]. Return how many values in the derived sequence are at least k. This gives 2."
+    },
+    {
+      "id": "path3-315-2",
+      "input": [
+        [
+          4,
+          null,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,4,-2,4]. Return how many values in the derived sequence are at least k. This gives 3."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function branchNotebookThresholdFile(root, k) {\n  const a=root; let out=[];\n  function visit(node){if(!node)return;out.push(node.val);visit(node.left);visit(node.right);}visit(a);\n  return out.filter(x=>x>=k).length;\n}\n",
+    "typescript": "type TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction branchNotebookThresholdFile(root: TreeNode | null, k: number): number {\n  const a=root; let out:number[]=[];\n  function visit(node:TreeNode|null):void{if(!node)return;out.push(node.val);visit(node.left);visit(node.right);}visit(a);\n  return out.filter(x=>x>=k).length;\n}\n",
+    "python": "def branchNotebookThresholdFile(root, k):\n    a=root\n    out=[]\n    def visit(node):\n        if not node: return\n        out.append(node.val)\n        visit(node.left)\n        visit(node.right)\n    visit(a)\n    return sum(x>=k for x in out)\n",
+    "java": "class Solution {\n  public int branchNotebookThresholdFile(TreeNode root, int k) {\n    TreeNode a=root; List<Integer> out=new ArrayList<>();\n    {class Walk {void visit(TreeNode node){if(node==null)return;out.add(node.val);visit(node.left);visit(node.right);}}new Walk().visit(a);}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-315-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 1,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-315-5",
+        "input": [
+          [
+            5,
+            null,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 4,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-315-6",
+        "input": [
+          [
+            -20,
+            null,
+            -1,
+            -7,
+            null
+          ],
+          8
+        ],
+        "expected": 0,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-315-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1
+          ],
+          3
+        ],
+        "expected": 14,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-315-8",
+        "input": [
+          [
+            0,
+            null,
+            0,
+            0,
+            null
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-315-9",
+        "input": [
+          [
+            8,
+            null,
+            3,
+            -2,
+            8
+          ],
+          2
+        ],
+        "expected": 3,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nTraverse the binary tree in root-left-right order and produce its node values. A missing root produces no values.\n\nReturn how many values in the derived sequence are at least k.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction branchNotebookThresholdFile(root, k) {\n  const a=root; let out=[];\n  function visit(node){if(!node)return;out.push(node.val);visit(node.left);visit(node.right);}visit(a);\n  return out.filter(x=>x>=k).length;\n}\n\n\ntypescript\ntype TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction branchNotebookThresholdFile(root: TreeNode | null, k: number): number {\n  const a=root; let out:number[]=[];\n  function visit(node:TreeNode|null):void{if(!node)return;out.push(node.val);visit(node.left);visit(node.right);}visit(a);\n  return out.filter(x=>x>=k).length;\n}\n\n\npython\ndef branchNotebookThresholdFile(root, k):\n    a=root\n    out=[]\n    def visit(node):\n        if not node: return\n        out.append(node.val)\n        visit(node.left)\n        visit(node.right)\n    visit(a)\n    return sum(x>=k for x in out)\n\n\njava\nclass Solution {\n  public int branchNotebookThresholdFile(TreeNode root, int k) {\n    TreeNode a=root; List<Integer> out=new ArrayList<>();\n    {class Walk {void visit(TreeNode node){if(node==null)return;out.add(node.val);visit(node.left);visit(node.right);}}new Walk().visit(a);}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
+  }
+}

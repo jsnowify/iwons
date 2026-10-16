@@ -1,0 +1,287 @@
+{
+  "id": "path3-136",
+  "slug": "facing-cards-floor-ticket",
+  "title": "Facing cards: Floor ticket",
+  "level": 3,
+  "unit": "facing-cards",
+  "order": 136,
+  "difficulty": "medium",
+  "topics": [
+    "Two pointers, windows and prefix sums",
+    "Opposite-end pointers"
+  ],
+  "patterns": [
+    "Opposite-end pointers"
+  ],
+  "prerequisites": [
+    "path3-135"
+  ],
+  "summary": "The readings are sorted ascending. Pair the first and last, then the second and second-last, until they meet. Produce each pair's sum in encounter order; an unpaired middle reading is recorded unchanged. Return the smallest value in the derived sequence, or 0 for an empty sequence.",
+  "stage": "Boundary variation",
+  "boss": false,
+  "descriptionMd": "A sorted card rack is inspected from both ends toward its middle divider. Luz is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nThe readings are sorted ascending. Pair the first and last, then the second and second-last, until they meet. Produce each pair's sum in encounter order; an unpaired middle reading is recorded unchanged.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement facingCardsFloorTicket(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Opposite-end pointers. The readings are sorted ascending. Pair the first and last, then the second and second-last, until they meet. Produce each pair's sum in encounter order; an unpaired middle reading is recorded unchanged. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with opposite-end pointers. What state describes the portion you have already processed?",
+    "The readings are sorted ascending. Pair the first and last, then the second and second-last, until they meet. Produce each pair's sum in encounter order; an unpaired middle reading is recorded unchanged. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the smallest value in the derived sequence, or 0 for an empty sequence. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "facingCardsFloorTicket",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function facingCardsFloorTicket(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function facingCardsFloorTicket(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def facingCardsFloorTicket(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int facingCardsFloorTicket(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-136-1",
+      "input": [
+        [
+          -3,
+          0,
+          7,
+          7,
+          12
+        ],
+        3
+      ],
+      "expected": 7,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [9,7,7]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 7."
+    },
+    {
+      "id": "path3-136-2",
+      "input": [
+        [
+          -2,
+          4,
+          4,
+          4
+        ],
+        2
+      ],
+      "expected": 2,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [2,8]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 2."
+    },
+    {
+      "id": "path3-136-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Boundary variation: Opposite-end pointers. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 3,
+    "unit": "facing-cards",
+    "topic": "Opposite-end pointers",
+    "pattern": "Opposite-end pointers",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-136-1",
+      "input": [
+        [
+          -3,
+          0,
+          7,
+          7,
+          12
+        ],
+        3
+      ],
+      "expected": 7,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [9,7,7]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 7."
+    },
+    {
+      "id": "path3-136-2",
+      "input": [
+        [
+          -2,
+          4,
+          4,
+          4
+        ],
+        2
+      ],
+      "expected": 2,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [2,8]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 2."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function facingCardsFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  for(let l=0,r=a.length-1;l<=r;l++,r--)out.push(l===r?a[l]:a[l]+a[r]);\n  return out.length?Math.min(...out):0;\n}\n",
+    "typescript": "function facingCardsFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  for(let l=0,r=a.length-1;l<=r;l++,r--)out.push(l===r?a[l]:a[l]+a[r]);\n  return out.length?Math.min(...out):0;\n}\n",
+    "python": "def facingCardsFloorTicket(readings, k):\n    a=readings\n    out=[]\n    l,r=0,len(a)-1\n    while l<=r:\n        out.append(a[l] if l==r else a[l]+a[r])\n        l+=1\n        r-=1\n    return min(out,default=0)\n",
+    "java": "class Solution {\n  public int facingCardsFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int l=0,r=a.length-1;l<=r;l++,r--)out.add(l==r?a[l]:a[l]+a[r]);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-136-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 9,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-136-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 10,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-136-6",
+        "input": [
+          [
+            -20,
+            -7,
+            -1
+          ],
+          8
+        ],
+        "expected": -21,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-136-7",
+        "input": [
+          [
+            -20,
+            -20,
+            -19,
+            -19,
+            -18,
+            -17,
+            -17,
+            -16,
+            -15,
+            -15,
+            -14,
+            -13,
+            -13,
+            -12,
+            -11,
+            -11,
+            -10,
+            -9,
+            -9,
+            -8,
+            -7,
+            -7,
+            -6,
+            -6,
+            -5,
+            -4,
+            -4,
+            -3,
+            -2,
+            -2,
+            -1,
+            0,
+            0,
+            1,
+            2,
+            2,
+            3,
+            4,
+            4,
+            5,
+            6,
+            6,
+            7,
+            7,
+            8,
+            9,
+            9,
+            10,
+            11,
+            11,
+            12,
+            13,
+            13,
+            14,
+            15,
+            15,
+            16,
+            17,
+            17,
+            18,
+            19,
+            19,
+            20,
+            20
+          ],
+          3
+        ],
+        "expected": 0,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-136-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-136-9",
+        "input": [
+          [
+            -2,
+            1,
+            3,
+            8,
+            8
+          ],
+          2
+        ],
+        "expected": 3,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nThe readings are sorted ascending. Pair the first and last, then the second and second-last, until they meet. Produce each pair's sum in encounter order; an unpaired middle reading is recorded unchanged.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction facingCardsFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  for(let l=0,r=a.length-1;l<=r;l++,r--)out.push(l===r?a[l]:a[l]+a[r]);\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\nfunction facingCardsFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  for(let l=0,r=a.length-1;l<=r;l++,r--)out.push(l===r?a[l]:a[l]+a[r]);\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef facingCardsFloorTicket(readings, k):\n    a=readings\n    out=[]\n    l,r=0,len(a)-1\n    while l<=r:\n        out.append(a[l] if l==r else a[l]+a[r])\n        l+=1\n        r-=1\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int facingCardsFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int l=0,r=a.length-1;l<=r;l++,r--)out.add(l==r?a[l]:a[l]+a[r]);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+  }
+}

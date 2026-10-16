@@ -1,0 +1,32 @@
+{
+  "unit": "press-parentheses",
+  "problems": 10,
+  "cases": 90,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Press parentheses: Proof strip",
+      "statement": "A chain of rectangular printing plates can be multiplied in several different parenthesized orders. Luz rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nreadings are positive matrix dimensions: matrix i has shape readings[i] by readings[i+1]. For every prefix containing 1,2,... matrices, produce its minimum scalar multiplication cost over all parenthesizations. Fewer than two dimensions produces no costs.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement pressParenthesesProofStrip(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Press parentheses: Floor ticket",
+      "statement": "A chain of rectangular printing plates can be multiplied in several different parenthesized orders. Neri is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nreadings are positive matrix dimensions: matrix i has shape readings[i] by readings[i+1]. For every prefix containing 1,2,... matrices, produce its minimum scalar multiplication cost over all parenthesizations. Fewer than two dimensions produces no costs.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement pressParenthesesFloorTicket(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Press parentheses: Boss receipt",
+      "statement": "A chain of rectangular printing plates can be multiplied in several different parenthesized orders. Tomas adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nreadings are positive matrix dimensions: matrix i has shape readings[i] by readings[i+1]. For every prefix containing 1,2,... matrices, produce its minimum scalar multiplication cost over all parenthesizations. Fewer than two dimensions produces no costs.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement pressParenthesesBossReceipt(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

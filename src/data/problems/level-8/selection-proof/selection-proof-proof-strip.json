@@ -1,0 +1,425 @@
+{
+  "id": "path3-471",
+  "slug": "selection-proof-proof-strip",
+  "title": "Selection proof: Proof strip",
+  "level": 8,
+  "unit": "selection-proof",
+  "order": 471,
+  "difficulty": "hard",
+  "topics": [
+    "Greedy choices, dynamic programming and backtracking",
+    "Backtracking choices"
+  ],
+  "patterns": [
+    "Backtracking choices"
+  ],
+  "prerequisites": [
+    "path3-461"
+  ],
+  "summary": "Choose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices. Return the entire derived sequence, preserving its order.",
+  "stage": "Warm-up",
+  "boss": false,
+  "descriptionMd": "A sample tray allows each physical slip to be either included or excluded from a signed total. Luz rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nChoose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement selectionProofProofStrip(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Backtracking choices. Choose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 10.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n*2^n); auxiliary space including the derived sequence O(2^n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with backtracking choices. What state describes the portion you have already processed?",
+    "Choose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the entire derived sequence, preserving its order. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "selectionProofProofStrip",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function selectionProofProofStrip(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
+    "typescript": "function selectionProofProofStrip(readings: number[], k: number): number[] {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
+    "python": "def selectionProofProofStrip(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return []\n",
+    "java": "class Solution {\n  public int[] selectionProofProofStrip(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return new int[0];\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-471-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": [
+        -3,
+        0,
+        4,
+        7,
+        9,
+        11,
+        12,
+        14,
+        16,
+        19,
+        23,
+        26
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-3,0,4,7,9,11,12,14,16,19,23,26]. Return the entire derived sequence, preserving its order. This gives [-3,0,4,7,9,11,12,14,16,19,23,26]."
+    },
+    {
+      "id": "path3-471-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": [
+        -2,
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-2,0,2,4,6,8,10,12]. Return the entire derived sequence, preserving its order. This gives [-2,0,2,4,6,8,10,12]."
+    },
+    {
+      "id": "path3-471-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": [
+        0
+      ],
+      "coverage": "empty",
+      "explanation": "The derived sequence is [0]. Return the entire derived sequence, preserving its order. This gives [0]."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n*2^n)",
+    "space": "O(2^n)"
+  },
+  "overview": "Warm-up: Backtracking choices. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 8,
+    "unit": "selection-proof",
+    "topic": "Backtracking choices",
+    "pattern": "Backtracking choices",
+    "bigO": "O(n*2^n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-471-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": [
+        -3,
+        0,
+        4,
+        7,
+        9,
+        11,
+        12,
+        14,
+        16,
+        19,
+        23,
+        26
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-3,0,4,7,9,11,12,14,16,19,23,26]. Return the entire derived sequence, preserving its order. This gives [-3,0,4,7,9,11,12,14,16,19,23,26]."
+    },
+    {
+      "id": "path3-471-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": [
+        -2,
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-2,0,2,4,6,8,10,12]. Return the entire derived sequence, preserving its order. This gives [-2,0,2,4,6,8,10,12]."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function selectionProofProofStrip(readings, k) {\n  const a=readings; let out=[];\n  const sums=new Set();function visit(i,s){if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  return out;\n}\n",
+    "typescript": "function selectionProofProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  const sums=new Set<number>();function visit(i:number,s:number):void{if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  return out;\n}\n",
+    "python": "def selectionProofProofStrip(readings, k):\n    a=readings\n    out=[]\n    sums=set()\n    def visit(i,s):\n        if i==len(a):\n            sums.add(s)\n            return\n        visit(i+1,s)\n        visit(i+1,s+a[i])\n    visit(0,0)\n    out=sorted(sums)\n    return out\n",
+    "java": "class Solution {\n  public int[] selectionProofProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Set<Integer>sums=new TreeSet<>();class Walk {void visit(int i,int s){if(i==a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}}new Walk().visit(0,0);out.addAll(sums);}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-471-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": [
+          0,
+          9
+        ],
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-471-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": [
+          0,
+          5,
+          10,
+          15,
+          20
+        ],
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-471-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": [
+          -28,
+          -27,
+          -21,
+          -20,
+          -8,
+          -7,
+          -1,
+          0
+        ],
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-471-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15
+          ],
+          3
+        ],
+        "expected": [
+          -47,
+          -45,
+          -43,
+          -41,
+          -40,
+          -39,
+          -38,
+          -37,
+          -36,
+          -35,
+          -34,
+          -32,
+          -31,
+          -30,
+          -29,
+          -28,
+          -27,
+          -26,
+          -25,
+          -24,
+          -23,
+          -22,
+          -21,
+          -20,
+          -19,
+          -18,
+          -17,
+          -16,
+          -15,
+          -14,
+          -13,
+          -12,
+          -11,
+          -10,
+          -9,
+          -8,
+          -7,
+          -6,
+          -5,
+          -4,
+          -3,
+          -2,
+          -1,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          59,
+          61,
+          63
+        ],
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-471-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": [
+          0
+        ],
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-471-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": [
+          -2,
+          -1,
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nChoose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices.\n\nReturn the entire derived sequence, preserving its order.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n*2^n); space O(2^n).\n\njavascript\nfunction selectionProofProofStrip(readings, k) {\n  const a=readings; let out=[];\n  const sums=new Set();function visit(i,s){if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  return out;\n}\n\n\ntypescript\nfunction selectionProofProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  const sums=new Set<number>();function visit(i:number,s:number):void{if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  return out;\n}\n\n\npython\ndef selectionProofProofStrip(readings, k):\n    a=readings\n    out=[]\n    sums=set()\n    def visit(i,s):\n        if i==len(a):\n            sums.add(s)\n            return\n        visit(i+1,s)\n        visit(i+1,s+a[i])\n    visit(0,0)\n    out=sorted(sums)\n    return out\n\n\njava\nclass Solution {\n  public int[] selectionProofProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Set<Integer>sums=new TreeSet<>();class Walk {void visit(int i,int s){if(i==a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}}new Walk().visit(0,0);out.addAll(sums);}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  }
+}

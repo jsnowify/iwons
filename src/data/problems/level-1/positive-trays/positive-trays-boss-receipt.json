@@ -1,0 +1,288 @@
+{
+  "id": "path3-060",
+  "slug": "positive-trays-boss-receipt",
+  "title": "Positive trays: Boss receipt",
+  "level": 1,
+  "unit": "positive-trays",
+  "order": 60,
+  "difficulty": "easy",
+  "topics": [
+    "Arrays and strings",
+    "Stable array filtering"
+  ],
+  "patterns": [
+    "Stable array filtering"
+  ],
+  "prerequisites": [
+    "path3-059"
+  ],
+  "summary": "Keep only readings strictly greater than 0, in their original order. Repeated readings remain repeated. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.",
+  "stage": "Boss · revisit",
+  "boss": true,
+  "revisit": "Earlier foundation work; the first unit establishes the prerequisite",
+  "descriptionMd": "The corrections desk files usable ink adjustments in a tray without changing their arrival order. Mina adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nKeep only readings strictly greater than 0, in their original order. Repeated readings remain repeated.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement positiveTraysBossReceipt(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Stable array filtering. Keep only readings strictly greater than 0, in their original order. Repeated readings remain repeated. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations).",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with stable array filtering. What state describes the portion you have already processed?",
+    "Keep only readings strictly greater than 0, in their original order. Repeated readings remain repeated. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. Use an accumulator and a one-based position counter, revisiting the first level's loop work."
+  ],
+  "functionName": "positiveTraysBossReceipt",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function positiveTraysBossReceipt(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function positiveTraysBossReceipt(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def positiveTraysBossReceipt(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int positiveTraysBossReceipt(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-060-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 57,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,7,12]. Its weighted products are [7,14,36]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 57."
+    },
+    {
+      "id": "path3-060-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 24,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,4,4]. Its weighted products are [4,8,12]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 24."
+    },
+    {
+      "id": "path3-060-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Its weighted products are []. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Boss · revisit: Stable array filtering. Earlier foundation work; the first unit establishes the prerequisite",
+  "tags": {
+    "level": 1,
+    "unit": "positive-trays",
+    "topic": "Stable array filtering",
+    "pattern": "Stable array filtering",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-060-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 57,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,7,12]. Its weighted products are [7,14,36]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 57."
+    },
+    {
+      "id": "path3-060-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 24,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,4,4]. Its weighted products are [4,8,12]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 24."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function positiveTraysBossReceipt(readings, k) {\n  const a=readings; let out=[];\n  for(const x of a)if(x>0)out.push(x);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "typescript": "function positiveTraysBossReceipt(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  for(const x of a)if(x>0)out.push(x);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "python": "def positiveTraysBossReceipt(readings, k):\n    a=readings\n    out=[]\n    for x in a:\n        if x>0: out.append(x)\n    return sum((i+1)*x for i,x in enumerate(out))\n",
+    "java": "class Solution {\n  public int positiveTraysBossReceipt(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a)if(x>0)out.add(x);}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-060-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 9,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-060-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 50,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-060-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": 0,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-060-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": 5404,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-060-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-060-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": 42,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nKeep only readings strictly greater than 0, in their original order. Repeated readings remain repeated.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction positiveTraysBossReceipt(readings, k) {\n  const a=readings; let out=[];\n  for(const x of a)if(x>0)out.push(x);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction positiveTraysBossReceipt(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  for(const x of a)if(x>0)out.push(x);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef positiveTraysBossReceipt(readings, k):\n    a=readings\n    out=[]\n    for x in a:\n        if x>0: out.append(x)\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int positiveTraysBossReceipt(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a)if(x>0)out.add(x);}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+  }
+}

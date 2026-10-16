@@ -1,0 +1,18 @@
+{
+  "id": 3,
+  "name": "Two Fingers",
+  "subtitle": "Two pointers, windows and prefix sums",
+  "tier": "medium",
+  "count": 55,
+  "released": true,
+  "concepts": [
+    "Opposite-end pointers",
+    "Read and write pointers",
+    "Fixed sliding windows",
+    "Variable sliding windows",
+    "Prefix range subtraction",
+    "Two sorted streams"
+  ],
+  "primer": "Two fingers can avoid a great deal of repeated searching. One pointer may advance from the left while another retreats from the right. Another useful arrangement separates the position being read from the position being written. Explain when each pointer moves and why no needed item can be skipped. Sorted inputs often make this explanation possible because later values cannot violate an order already established.\n\nA fixed window carries a summary of a contiguous block. Add the arriving value and remove the departing one. A variable window changes its length to maintain an inequality. The shortest-suffix cards use nonnegative readings, which makes removing a leftmost value unable to increase the sum. With negative readings that reasoning would fail; the constraint is part of the algorithm.\n\nPrefix sums offer another route to range totals. Store a leading zero and let prefix[i] describe the first i readings. The sum of a half-open range is the later prefix minus the earlier one. Be explicit about inclusive endpoints in the statement before translating them into indices. Finally, merging two sorted streams advances only the pointer whose value was selected. Handle exhaustion without reading beyond either drawer. Trace a duplicate, an empty side, and a window wider than its input before trying the final Boss receipt.",
+  "example": "For [4, -1, 6], prefixes are [0, 4, 3, 9]. The sum at indices 1 through 2 is 9 - 4 = 5."
+}

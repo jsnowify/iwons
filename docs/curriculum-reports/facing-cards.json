@@ -1,0 +1,32 @@
+{
+  "unit": "facing-cards",
+  "problems": 9,
+  "cases": 81,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Facing cards: Proof strip",
+      "statement": "A sorted card rack is inspected from both ends toward its middle divider. Neri rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nThe readings are sorted ascending. Pair the first and last, then the second and second-last, until they meet. Produce each pair's sum in encounter order; an unpaired middle reading is recorded unchanged.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement facingCardsProofStrip(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Facing cards: Peak ticket",
+      "statement": "A sorted card rack is inspected from both ends toward its middle divider. Tomas is setting the upper stop on an old office gauge. The largest derived reading goes on its label, even if the whole tray is below zero.\n\nThe readings are sorted ascending. Pair the first and last, then the second and second-last, until they meet. Produce each pair's sum in encounter order; an unpaired middle reading is recorded unchanged.\n\nReturn the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative.\n\nImplement facingCardsPeakTicket(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Facing cards: Boss receipt",
+      "statement": "A sorted card rack is inspected from both ends toward its middle divider. Sol adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nThe readings are sorted ascending. Pair the first and last, then the second and second-last, until they meet. Produce each pair's sum in encounter order; an unpaired middle reading is recorded unchanged.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement facingCardsBossReceipt(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

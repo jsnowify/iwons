@@ -1,0 +1,17 @@
+{
+  "id": 0,
+  "name": "Hello, Keys",
+  "subtitle": "Variables, loops, functions and conditionals",
+  "tier": "easy",
+  "count": 30,
+  "released": true,
+  "concepts": [
+    "Variables and expressions",
+    "Conditionals",
+    "Loop accumulators",
+    "State in a loop",
+    "Helper functions"
+  ],
+  "primer": "Welcome to the print room. A function is a small machine: arguments go in, a returned value comes out. Printing a value is useful while investigating, but it does not replace returning the answer. Each card specifies a derived sequence and the receipt to compute from it. Keep those two instructions separate when tracing your work. An array is simply an ordered tray of readings; a loop can inspect one reading at a time.\n\nStart with variables and expressions. Store a reading, transform it, and return the requested result. A conditional chooses between actions. Check the exact comparison: strictly positive excludes zero, while nonnegative includes it. An accumulator remembers a growing total, count, or other state. Its initial value determines what happens when the tray is empty. A reset changes that state before you record the next reading.\n\nHelper functions give a repeated piece of work a name. For digit work, repeatedly take the remainder after division by ten, then remove the final digit with integer division. Trace a negative input after taking its absolute value. Run the visible cases, then invent an empty tray, a singleton, and a zero. Accuracy at these boundaries matters more than typing quickly.",
+  "example": "Readings [5, -2, 0] have running totals [5, 3, 3]. Their weighted receipt is 1*5 + 2*3 + 3*3 = 20."
+}

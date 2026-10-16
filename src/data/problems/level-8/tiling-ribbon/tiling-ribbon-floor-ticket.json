@@ -1,0 +1,287 @@
+{
+  "id": "path3-426",
+  "slug": "tiling-ribbon-floor-ticket",
+  "title": "Tiling ribbon: Floor ticket",
+  "level": 8,
+  "unit": "tiling-ribbon",
+  "order": 426,
+  "difficulty": "hard",
+  "topics": [
+    "Greedy choices, dynamic programming and backtracking",
+    "Counting dynamic programming"
+  ],
+  "patterns": [
+    "Counting dynamic programming"
+  ],
+  "prerequisites": [
+    "path3-425"
+  ],
+  "summary": "For each width x, count the ordered ways to fill a one-row ribbon using pieces of widths 1 and 3. A width of 0 has one empty arrangement. Produce the counts in input order. Return the smallest value in the derived sequence, or 0 for an empty sequence.",
+  "stage": "Boundary variation",
+  "boss": false,
+  "descriptionMd": "The display desk builds narrow paper ribbons from one-unit and three-unit printed pieces. Neri is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nFor each width x, count the ordered ways to fill a one-row ribbon using pieces of widths 1 and 3. A width of 0 has one empty arrangement. Produce the counts in input order.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement tilingRibbonFloorTicket(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Counting dynamic programming. For each width x, count the ordered ways to fill a one-row ribbon using pieces of widths 1 and 3. A width of 0 has one empty arrangement. Produce the counts in input order. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Readings are integers from 0 through 20.",
+    "Target time O(n + M); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with counting dynamic programming. What state describes the portion you have already processed?",
+    "For each width x, count the ordered ways to fill a one-row ribbon using pieces of widths 1 and 3. A width of 0 has one empty arrangement. Produce the counts in input order. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the smallest value in the derived sequence, or 0 for an empty sequence. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "tilingRibbonFloorTicket",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function tilingRibbonFloorTicket(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function tilingRibbonFloorTicket(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def tilingRibbonFloorTicket(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int tilingRibbonFloorTicket(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-426-1",
+      "input": [
+        [
+          7,
+          3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 1,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [9,2,9,1,60]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 1."
+    },
+    {
+      "id": "path3-426-2",
+      "input": [
+        [
+          4,
+          4,
+          2,
+          4
+        ],
+        2
+      ],
+      "expected": 1,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [3,3,1,3]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 1."
+    },
+    {
+      "id": "path3-426-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n + M)",
+    "space": "O(n)"
+  },
+  "overview": "Boundary variation: Counting dynamic programming. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 8,
+    "unit": "tiling-ribbon",
+    "topic": "Counting dynamic programming",
+    "pattern": "Counting dynamic programming",
+    "bigO": "O(n + M)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-426-1",
+      "input": [
+        [
+          7,
+          3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 1,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [9,2,9,1,60]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 1."
+    },
+    {
+      "id": "path3-426-2",
+      "input": [
+        [
+          4,
+          4,
+          2,
+          4
+        ],
+        2
+      ],
+      "expected": 1,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [3,3,1,3]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 1."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function tilingRibbonFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(0);dp[0]=1;for(let i=1;i<=m;i++)dp[i]=dp[i-1]+(i>=3?dp[i-3]:0);out=a.map(x=>dp[x]);\n  return out.length?Math.min(...out):0;\n}\n",
+    "typescript": "function tilingRibbonFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(0);dp[0]=1;for(let i=1;i<=m;i++)dp[i]=dp[i-1]+(i>=3?dp[i-3]:0);out=a.map(x=>dp[x]);\n  return out.length?Math.min(...out):0;\n}\n",
+    "python": "def tilingRibbonFloorTicket(readings, k):\n    a=readings\n    out=[]\n    m=max(a,default=0)\n    dp=[0]*(m+1)\n    dp[0]=1\n    for i in range(1,m+1): dp[i]=dp[i-1]+(dp[i-3] if i>=3 else 0)\n    out=[dp[x] for x in a]\n    return min(out,default=0)\n",
+    "java": "class Solution {\n  public int tilingRibbonFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int m=0;for(int x:a)m=Math.max(m,x);int[]dp=new int[m+1];dp[0]=1;for(int i=1;i<=m;i++)dp[i]=dp[i-1]+(i>=3?dp[i-3]:0);for(int x:a)out.add(dp[x]);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-426-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 19,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-426-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 4,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-426-6",
+        "input": [
+          [
+            20,
+            1,
+            7
+          ],
+          8
+        ],
+        "expected": 1,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-426-7",
+        "input": [
+          [
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20
+          ],
+          3
+        ],
+        "expected": 1,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-426-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 1,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-426-9",
+        "input": [
+          [
+            8,
+            3,
+            2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": 1,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nFor each width x, count the ordered ways to fill a one-row ribbon using pieces of widths 1 and 3. A width of 0 has one empty arrangement. Produce the counts in input order.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n + M); space O(n).\n\njavascript\nfunction tilingRibbonFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(0);dp[0]=1;for(let i=1;i<=m;i++)dp[i]=dp[i-1]+(i>=3?dp[i-3]:0);out=a.map(x=>dp[x]);\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\nfunction tilingRibbonFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(0);dp[0]=1;for(let i=1;i<=m;i++)dp[i]=dp[i-1]+(i>=3?dp[i-3]:0);out=a.map(x=>dp[x]);\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef tilingRibbonFloorTicket(readings, k):\n    a=readings\n    out=[]\n    m=max(a,default=0)\n    dp=[0]*(m+1)\n    dp[0]=1\n    for i in range(1,m+1): dp[i]=dp[i-1]+(dp[i-3] if i>=3 else 0)\n    out=[dp[x] for x in a]\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int tilingRibbonFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int m=0;for(int x:a)m=Math.max(m,x);int[]dp=new int[m+1];dp[0]=1;for(int i=1;i<=m;i++)dp[i]=dp[i-1]+(i>=3?dp[i-3]:0);for(int x:a)out.add(dp[x]);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+  }
+}

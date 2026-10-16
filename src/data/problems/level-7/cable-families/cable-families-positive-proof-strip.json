@@ -1,0 +1,846 @@
+{
+  "id": "path3-389",
+  "slug": "cable-families-positive-proof-strip",
+  "title": "Cable families: Positive proof strip",
+  "level": 7,
+  "unit": "cable-families",
+  "order": 389,
+  "difficulty": "hard",
+  "topics": [
+    "Graphs, heaps, union-find and tries",
+    "Union-find components"
+  ],
+  "patterns": [
+    "Union-find components"
+  ],
+  "prerequisites": [
+    "path3-388"
+  ],
+  "summary": "links is a symmetric 0/1 adjacency matrix. Union every connected pair, then produce the size of the component containing each vertex, in vertex order. Self-links do not change a component. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates.",
+  "stage": "Sequence variation",
+  "boss": false,
+  "descriptionMd": "The maintenance desk joins connected switchboard sockets into shared cable families. Rafi prepares a clean proof strip for the front desk. Positive derived readings keep their places relative to one another.\n\nlinks is a symmetric 0/1 adjacency matrix. Union every connected pair, then produce the size of the component containing each vertex, in vertex order. Self-links do not change a component.\n\nReturn only the strictly positive values in the derived sequence, preserving their relative order and duplicates.\n\nImplement cableFamiliesPositiveProofStrip(links, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Union-find components. links is a symmetric 0/1 adjacency matrix. Union every connected pair, then produce the size of the component containing each vertex, in vertex order. Self-links do not change a component. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 16.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "The adjacency matrix is square and has at most 16 vertices; binary entries are 0 or 1, weighted entries are 0 through 13.",
+    "Target time O(V^2 alpha(V)); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with union-find components. What state describes the portion you have already processed?",
+    "links is a symmetric 0/1 adjacency matrix. Union every connected pair, then produce the size of the component containing each vertex, in vertex order. Self-links do not change a component. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "cableFamiliesPositiveProofStrip",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function cableFamiliesPositiveProofStrip(links, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
+    "typescript": "function cableFamiliesPositiveProofStrip(links: number[][], k: number): number[] {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
+    "python": "def cableFamiliesPositiveProofStrip(links, k):\n    # Derive the sequence, then compute the requested receipt.\n    return []\n",
+    "java": "class Solution {\n  public int[] cableFamiliesPositiveProofStrip(int[][] links, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return new int[0];\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-389-1",
+      "input": [
+        [
+          [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ]
+        ],
+        3
+      ],
+      "expected": [
+        2,
+        4,
+        4,
+        2,
+        4,
+        4
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [2,4,4,2,4,4]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [2,4,4,2,4,4]."
+    },
+    {
+      "id": "path3-389-2",
+      "input": [
+        [
+          [
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1
+          ]
+        ],
+        2
+      ],
+      "expected": [
+        3,
+        2,
+        3,
+        3,
+        2
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [3,2,3,3,2]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [3,2,3,3,2]."
+    },
+    {
+      "id": "path3-389-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": [],
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives []."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[][]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(V^2 alpha(V))",
+    "space": "O(n)"
+  },
+  "overview": "Sequence variation: Union-find components. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 7,
+    "unit": "cable-families",
+    "topic": "Union-find components",
+    "pattern": "Union-find components",
+    "bigO": "O(V^2 alpha(V))"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-389-1",
+      "input": [
+        [
+          [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ]
+        ],
+        3
+      ],
+      "expected": [
+        2,
+        4,
+        4,
+        2,
+        4,
+        4
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [2,4,4,2,4,4]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [2,4,4,2,4,4]."
+    },
+    {
+      "id": "path3-389-2",
+      "input": [
+        [
+          [
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1
+          ]
+        ],
+        2
+      ],
+      "expected": [
+        3,
+        2,
+        3,
+        3,
+        2
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [3,2,3,3,2]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [3,2,3,3,2]."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function cableFamiliesPositiveProofStrip(links, k) {\n  const a=links; let out=[];\n  const n=a.length,parent=Array.from({length:n},(_,i)=>i),size=Array(n).fill(1);function find(x){while(parent[x]!==x){parent[x]=parent[parent[x]];x=parent[x];}return x;}for(let u=0;u<n;u++)for(let v=u+1;v<n;v++)if(a[u][v]){let x=find(u),y=find(v);if(x!==y){if(size[x]<size[y])[x,y]=[y,x];parent[y]=x;size[x]+=size[y];}}out=parent.map((_,v)=>size[find(v)]);\n  return out.filter(x=>x>0);\n}\n",
+    "typescript": "function cableFamiliesPositiveProofStrip(links: number[][], k: number): number[] {\n  const a=links; let out:number[]=[];\n  const n=a.length,parent=Array.from({length:n},(_,i)=>i),size=Array(n).fill(1);function find(x:number):number{while(parent[x]!==x){parent[x]=parent[parent[x]];x=parent[x];}return x;}for(let u=0;u<n;u++)for(let v=u+1;v<n;v++)if(a[u][v]){let x=find(u),y=find(v);if(x!==y){if(size[x]<size[y])[x,y]=[y,x];parent[y]=x;size[x]+=size[y];}}out=parent.map((_,v)=>size[find(v)]);\n  return out.filter(x=>x>0);\n}\n",
+    "python": "def cableFamiliesPositiveProofStrip(links, k):\n    a=links\n    out=[]\n    n=len(a)\n    parent=list(range(n))\n    size=[1]*n\n    def find(x):\n        while parent[x]!=x:\n            parent[x]=parent[parent[x]]\n            x=parent[x]\n        return x\n    for u in range(n):\n        for v in range(u+1,n):\n            if a[u][v]:\n                x,y=find(u),find(v)\n                if x!=y:\n                    if size[x]<size[y]: x,y=y,x\n                    parent[y]=x\n                    size[x]+=size[y]\n    out=[size[find(v)] for v in range(n)]\n    return [x for x in out if x>0]\n",
+    "java": "class Solution {\n  public int[] cableFamiliesPositiveProofStrip(int[][] links, int k) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;int[]parent=new int[n],size=new int[n];for(int v=0;v<n;v++){parent[v]=v;size[v]=1;}class DSU {int find(int x){while(parent[x]!=x){parent[x]=parent[parent[x]];x=parent[x];}return x;}}DSU d=new DSU();for(int u=0;u<n;u++)for(int v=u+1;v<n;v++)if(a[u][v]!=0){int x=d.find(u),y=d.find(v);if(x!=y){if(size[x]<size[y]){int t=x;x=y;y=t;}parent[y]=x;size[x]+=size[y];}}for(int v=0;v<n;v++)out.add(size[d.find(v)]);}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-389-4",
+        "input": [
+          [
+            [
+              1
+            ]
+          ],
+          1
+        ],
+        "expected": [
+          1
+        ],
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-389-5",
+        "input": [
+          [
+            [
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          4
+        ],
+        "expected": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-389-6",
+        "input": [
+          [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          8
+        ],
+        "expected": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-389-7",
+        "input": [
+          [
+            [
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0
+            ]
+          ],
+          3
+        ],
+        "expected": [
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16
+        ],
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-389-8",
+        "input": [
+          [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          5
+        ],
+        "expected": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-389-9",
+        "input": [
+          [
+            [
+              0,
+              1,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          2
+        ],
+        "expected": [
+          4,
+          4,
+          2,
+          4,
+          4,
+          2
+        ],
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nlinks is a symmetric 0/1 adjacency matrix. Union every connected pair, then produce the size of the component containing each vertex, in vertex order. Self-links do not change a component.\n\nReturn only the strictly positive values in the derived sequence, preserving their relative order and duplicates.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(V^2 alpha(V)); space O(n).\n\njavascript\nfunction cableFamiliesPositiveProofStrip(links, k) {\n  const a=links; let out=[];\n  const n=a.length,parent=Array.from({length:n},(_,i)=>i),size=Array(n).fill(1);function find(x){while(parent[x]!==x){parent[x]=parent[parent[x]];x=parent[x];}return x;}for(let u=0;u<n;u++)for(let v=u+1;v<n;v++)if(a[u][v]){let x=find(u),y=find(v);if(x!==y){if(size[x]<size[y])[x,y]=[y,x];parent[y]=x;size[x]+=size[y];}}out=parent.map((_,v)=>size[find(v)]);\n  return out.filter(x=>x>0);\n}\n\n\ntypescript\nfunction cableFamiliesPositiveProofStrip(links: number[][], k: number): number[] {\n  const a=links; let out:number[]=[];\n  const n=a.length,parent=Array.from({length:n},(_,i)=>i),size=Array(n).fill(1);function find(x:number):number{while(parent[x]!==x){parent[x]=parent[parent[x]];x=parent[x];}return x;}for(let u=0;u<n;u++)for(let v=u+1;v<n;v++)if(a[u][v]){let x=find(u),y=find(v);if(x!==y){if(size[x]<size[y])[x,y]=[y,x];parent[y]=x;size[x]+=size[y];}}out=parent.map((_,v)=>size[find(v)]);\n  return out.filter(x=>x>0);\n}\n\n\npython\ndef cableFamiliesPositiveProofStrip(links, k):\n    a=links\n    out=[]\n    n=len(a)\n    parent=list(range(n))\n    size=[1]*n\n    def find(x):\n        while parent[x]!=x:\n            parent[x]=parent[parent[x]]\n            x=parent[x]\n        return x\n    for u in range(n):\n        for v in range(u+1,n):\n            if a[u][v]:\n                x,y=find(u),find(v)\n                if x!=y:\n                    if size[x]<size[y]: x,y=y,x\n                    parent[y]=x\n                    size[x]+=size[y]\n    out=[size[find(v)] for v in range(n)]\n    return [x for x in out if x>0]\n\n\njava\nclass Solution {\n  public int[] cableFamiliesPositiveProofStrip(int[][] links, int k) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;int[]parent=new int[n],size=new int[n];for(int v=0;v<n;v++){parent[v]=v;size[v]=1;}class DSU {int find(int x){while(parent[x]!=x){parent[x]=parent[parent[x]];x=parent[x];}return x;}}DSU d=new DSU();for(int u=0;u<n;u++)for(int v=u+1;v<n;v++)if(a[u][v]!=0){int x=d.find(u),y=d.find(v);if(x!=y){if(size[x]<size[y]){int t=x;x=y;y=t;}parent[y]=x;size[x]+=size[y];}}for(int v=0;v<n;v++)out.add(size[d.find(v)]);}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  }
+}

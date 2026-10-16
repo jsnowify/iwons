@@ -1,0 +1,287 @@
+{
+  "id": "path3-168",
+  "slug": "prefix-stencils-total-receipt",
+  "title": "Prefix stencils: Total receipt",
+  "level": 3,
+  "unit": "prefix-stencils",
+  "order": 168,
+  "difficulty": "medium",
+  "topics": [
+    "Two pointers, windows and prefix sums",
+    "Prefix range subtraction"
+  ],
+  "patterns": [
+    "Prefix range subtraction"
+  ],
+  "prerequisites": [
+    "path3-167"
+  ],
+  "summary": "For each index i, produce the sum from max(0,i-k+1) through i inclusive. These are trailing ranges that may be shorter than k near the left edge. Return the sum of all values in the derived sequence; return 0 for an empty sequence.",
+  "stage": "Variation",
+  "boss": false,
+  "descriptionMd": "A running account lets the stationery desk recover trailing totals without rereading the full tape. Alma is closing the print-room account before the afternoon mail. A single total must replace the pile of working slips.\n\nFor each index i, produce the sum from max(0,i-k+1) through i inclusive. These are trailing ranges that may be shorter than k near the left edge.\n\nReturn the sum of all values in the derived sequence; return 0 for an empty sequence.\n\nImplement prefixStencilsTotalReceipt(readings, k). Use k exactly where specified above.",
+  "unitIntro": "Prefix range subtraction. For each index i, produce the sum from max(0,i-k+1) through i inclusive. These are trailing ranges that may be shorter than k near the left edge. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with prefix range subtraction. What state describes the portion you have already processed?",
+    "For each index i, produce the sum from max(0,i-k+1) through i inclusive. These are trailing ranges that may be shorter than k near the left edge. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the sum of all values in the derived sequence; return 0 for an empty sequence. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "prefixStencilsTotalReceipt",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function prefixStencilsTotalReceipt(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function prefixStencilsTotalReceipt(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def prefixStencilsTotalReceipt(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int prefixStencilsTotalReceipt(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-168-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 45,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,4,11,4,19]. Return the sum of all values in the derived sequence; return 0 for an empty sequence. This gives 45."
+    },
+    {
+      "id": "path3-168-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 16,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,8,2,2]. Return the sum of all values in the derived sequence; return 0 for an empty sequence. This gives 16."
+    },
+    {
+      "id": "path3-168-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the sum of all values in the derived sequence; return 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Variation: Prefix range subtraction. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 3,
+    "unit": "prefix-stencils",
+    "topic": "Prefix range subtraction",
+    "pattern": "Prefix range subtraction",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-168-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 45,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,4,11,4,19]. Return the sum of all values in the derived sequence; return 0 for an empty sequence. This gives 45."
+    },
+    {
+      "id": "path3-168-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 16,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,8,2,2]. Return the sum of all values in the derived sequence; return 0 for an empty sequence. This gives 16."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function prefixStencilsTotalReceipt(readings, k) {\n  const a=readings; let out=[];\n  const sums=[0];for(const x of a)sums.push(sums.at(-1)+x);for(let i=0;i<a.length;i++)out.push(sums[i+1]-sums[Math.max(0,i-k+1)]);\n  return out.reduce((s,x)=>s+x,0);\n}\n",
+    "typescript": "function prefixStencilsTotalReceipt(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const sums=[0];for(const x of a)sums.push(sums.at(-1)!+x);for(let i=0;i<a.length;i++)out.push(sums[i+1]-sums[Math.max(0,i-k+1)]);\n  return out.reduce((s,x)=>s+x,0);\n}\n",
+    "python": "def prefixStencilsTotalReceipt(readings, k):\n    a=readings\n    out=[]\n    sums=[0]\n    for x in a: sums.append(sums[-1]+x)\n    for i in range(len(a)): out.append(sums[i+1]-sums[max(0,i-k+1)])\n    return sum(out)\n",
+    "java": "class Solution {\n  public int prefixStencilsTotalReceipt(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int[]sums=new int[a.length+1];for(int i=0;i<a.length;i++)sums[i+1]=sums[i]+a[i];for(int i=0;i<a.length;i++)out.add(sums[i+1]-sums[Math.max(0,i-k+1)]);}\n    int answer=0;for(int x:out)answer+=x;return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-168-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 9,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-168-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 50,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-168-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": -69,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-168-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": -47,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-168-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-168-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": 35,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nFor each index i, produce the sum from max(0,i-k+1) through i inclusive. These are trailing ranges that may be shorter than k near the left edge.\n\nReturn the sum of all values in the derived sequence; return 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction prefixStencilsTotalReceipt(readings, k) {\n  const a=readings; let out=[];\n  const sums=[0];for(const x of a)sums.push(sums.at(-1)+x);for(let i=0;i<a.length;i++)out.push(sums[i+1]-sums[Math.max(0,i-k+1)]);\n  return out.reduce((s,x)=>s+x,0);\n}\n\n\ntypescript\nfunction prefixStencilsTotalReceipt(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const sums=[0];for(const x of a)sums.push(sums.at(-1)!+x);for(let i=0;i<a.length;i++)out.push(sums[i+1]-sums[Math.max(0,i-k+1)]);\n  return out.reduce((s,x)=>s+x,0);\n}\n\n\npython\ndef prefixStencilsTotalReceipt(readings, k):\n    a=readings\n    out=[]\n    sums=[0]\n    for x in a: sums.append(sums[-1]+x)\n    for i in range(len(a)): out.append(sums[i+1]-sums[max(0,i-k+1)])\n    return sum(out)\n\n\njava\nclass Solution {\n  public int prefixStencilsTotalReceipt(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int[]sums=new int[a.length+1];for(int i=0;i<a.length;i++)sums[i+1]=sums[i]+a[i];for(int i=0;i<a.length;i++)out.add(sums[i+1]-sums[Math.max(0,i-k+1)]);}\n    int answer=0;for(int x:out)answer+=x;return answer;\n  }\n}\n"
+  }
+}

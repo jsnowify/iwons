@@ -1,0 +1,287 @@
+{
+  "id": "path3-453",
+  "slug": "rising-labels-threshold-file",
+  "title": "Rising labels: Threshold file",
+  "level": 8,
+  "unit": "rising-labels",
+  "order": 453,
+  "difficulty": "hard",
+  "topics": [
+    "Greedy choices, dynamic programming and backtracking",
+    "Sequence DP with binary search"
+  ],
+  "patterns": [
+    "Sequence DP with binary search"
+  ],
+  "prerequisites": [
+    "path3-452"
+  ],
+  "summary": "For each index i, produce the greatest length of a strictly increasing subsequence that ends at readings[i]. Equal values cannot extend a subsequence. Return how many values in the derived sequence are at least k.",
+  "stage": "Edge-case trap",
+  "boss": false,
+  "descriptionMd": "A proofreader studies increasing label histories that must finish at each current reading. Mina marks a threshold on the filing cabinet's inspection card. Only qualifying readings count toward today's clearance stamp.\n\nFor each index i, produce the greatest length of a strictly increasing subsequence that ends at readings[i]. Equal values cannot extend a subsequence.\n\nReturn how many values in the derived sequence are at least k.\n\nImplement risingLabelsThresholdFile(readings, k). Use k exactly where specified above.",
+  "unitIntro": "Sequence DP with binary search. For each index i, produce the greatest length of a strictly increasing subsequence that ends at readings[i]. Equal values cannot extend a subsequence. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n log n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with sequence dp with binary search. What state describes the portion you have already processed?",
+    "For each index i, produce the greatest length of a strictly increasing subsequence that ends at readings[i]. Equal values cannot extend a subsequence. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return how many values in the derived sequence are at least k. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "risingLabelsThresholdFile",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function risingLabelsThresholdFile(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function risingLabelsThresholdFile(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def risingLabelsThresholdFile(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int risingLabelsThresholdFile(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-453-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 1,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,1,2,2,3]. Return how many values in the derived sequence are at least k. This gives 1."
+    },
+    {
+      "id": "path3-453-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 1,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,1,1,2]. Return how many values in the derived sequence are at least k. This gives 1."
+    },
+    {
+      "id": "path3-453-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return how many values in the derived sequence are at least k. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n log n)",
+    "space": "O(n)"
+  },
+  "overview": "Edge-case trap: Sequence DP with binary search. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 8,
+    "unit": "rising-labels",
+    "topic": "Sequence DP with binary search",
+    "pattern": "Sequence DP with binary search",
+    "bigO": "O(n log n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-453-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 1,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,1,2,2,3]. Return how many values in the derived sequence are at least k. This gives 1."
+    },
+    {
+      "id": "path3-453-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 1,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,1,1,2]. Return how many values in the derived sequence are at least k. This gives 1."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function risingLabelsThresholdFile(readings, k) {\n  const a=readings; let out=[];\n  const tails=[];for(const x of a){let l=0,r=tails.length;while(l<r){const m=(l+r)>>1;if(tails[m]<x)l=m+1;else r=m;}tails[l]=x;out.push(l+1);}\n  return out.filter(x=>x>=k).length;\n}\n",
+    "typescript": "function risingLabelsThresholdFile(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const tails=[];for(const x of a){let l=0,r=tails.length;while(l<r){const m=(l+r)>>1;if(tails[m]<x)l=m+1;else r=m;}tails[l]=x;out.push(l+1);}\n  return out.filter(x=>x>=k).length;\n}\n",
+    "python": "def risingLabelsThresholdFile(readings, k):\n    a=readings\n    out=[]\n    from bisect import bisect_left\n    tails=[]\n    for x in a:\n        i=bisect_left(tails,x)\n        if i==len(tails): tails.append(x)\n        else: tails[i]=x\n        out.append(i+1)\n    return sum(x>=k for x in out)\n",
+    "java": "class Solution {\n  public int risingLabelsThresholdFile(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int[]tails=new int[a.length];int length=0;for(int x:a){int l=0,r=length;while(l<r){int m=(l+r)/2;if(tails[m]<x)l=m+1;else r=m;}tails[l]=x;if(l==length)length++;out.add(l+1);}}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-453-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 1,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-453-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 0,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-453-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": 0,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-453-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": 54,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-453-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-453-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": 2,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nFor each index i, produce the greatest length of a strictly increasing subsequence that ends at readings[i]. Equal values cannot extend a subsequence.\n\nReturn how many values in the derived sequence are at least k.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n log n); space O(n).\n\njavascript\nfunction risingLabelsThresholdFile(readings, k) {\n  const a=readings; let out=[];\n  const tails=[];for(const x of a){let l=0,r=tails.length;while(l<r){const m=(l+r)>>1;if(tails[m]<x)l=m+1;else r=m;}tails[l]=x;out.push(l+1);}\n  return out.filter(x=>x>=k).length;\n}\n\n\ntypescript\nfunction risingLabelsThresholdFile(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const tails=[];for(const x of a){let l=0,r=tails.length;while(l<r){const m=(l+r)>>1;if(tails[m]<x)l=m+1;else r=m;}tails[l]=x;out.push(l+1);}\n  return out.filter(x=>x>=k).length;\n}\n\n\npython\ndef risingLabelsThresholdFile(readings, k):\n    a=readings\n    out=[]\n    from bisect import bisect_left\n    tails=[]\n    for x in a:\n        i=bisect_left(tails,x)\n        if i==len(tails): tails.append(x)\n        else: tails[i]=x\n        out.append(i+1)\n    return sum(x>=k for x in out)\n\n\njava\nclass Solution {\n  public int risingLabelsThresholdFile(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int[]tails=new int[a.length];int length=0;for(int x:a){int l=0,r=length;while(l<r){int m=(l+r)/2;if(tails[m]<x)l=m+1;else r=m;}tails[l]=x;if(l==length)length++;out.add(l+1);}}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
+  }
+}

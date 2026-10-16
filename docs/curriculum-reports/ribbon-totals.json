@@ -1,0 +1,32 @@
+{
+  "unit": "ribbon-totals",
+  "problems": 6,
+  "cases": 54,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Ribbon totals: Proof strip",
+      "statement": "A spool of adding-machine tape runs from the morning account to the afternoon balance. Mina rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nProduce the running totals of the readings, including the current reading at each position.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement ribbonTotalsProofStrip(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Ribbon totals: First qualifying slip",
+      "statement": "A spool of adding-machine tape runs from the morning account to the afternoon balance. Neri needs the first qualifying slip while the courier waits at the door. Later matches must not jump ahead in the tray.\n\nProduce the running totals of the readings, including the current reading at each position.\n\nReturn the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.\n\nImplement ribbonTotalsFirstQualifyingSlip(readings, k). Use k exactly where specified above."
+    },
+    {
+      "title": "Ribbon totals: Boss receipt",
+      "statement": "A spool of adding-machine tape runs from the morning account to the afternoon balance. Rafi adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nProduce the running totals of the readings, including the current reading at each position.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement ribbonTotalsBossReceipt(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

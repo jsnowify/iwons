@@ -1,0 +1,32 @@
+{
+  "unit": "weighted-lines",
+  "problems": 10,
+  "cases": 90,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Weighted lines: Proof strip",
+      "statement": "Each switchboard cable charges a different positive transmission cost for a routed message. Tomas rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nlinks is a square directed adjacency matrix: 0 means no edge, and a positive value is its cost. From vertex 0, produce each vertex's minimum total cost in vertex order, using -1 for unreachable vertices. The empty graph produces no costs.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement weightedLinesProofStrip(links, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Weighted lines: Floor ticket",
+      "statement": "Each switchboard cable charges a different positive transmission cost for a routed message. Ivo is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nlinks is a square directed adjacency matrix: 0 means no edge, and a positive value is its cost. From vertex 0, produce each vertex's minimum total cost in vertex order, using -1 for unreachable vertices. The empty graph produces no costs.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement weightedLinesFloorTicket(links, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Weighted lines: Boss receipt",
+      "statement": "Each switchboard cable charges a different positive transmission cost for a routed message. Pia adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nlinks is a square directed adjacency matrix: 0 means no edge, and a positive value is its cost. From vertex 0, produce each vertex's minimum total cost in vertex order, using -1 for unreachable vertices. The empty graph produces no costs.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement weightedLinesBossReceipt(links, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

@@ -1,0 +1,293 @@
+{
+  "id": "path3-312",
+  "slug": "midpoint-chain-boss-receipt",
+  "title": "Midpoint chain: Boss receipt",
+  "level": 6,
+  "unit": "midpoint-chain",
+  "order": 312,
+  "difficulty": "medium",
+  "topics": [
+    "Linked lists, binary trees and search trees",
+    "Fast and slow pointers"
+  ],
+  "patterns": [
+    "Fast and slow pointers"
+  ],
+  "prerequisites": [
+    "path3-311",
+    "path3-013"
+  ],
+  "summary": "Find the middle node using fast and slow pointers, choosing the second middle for even-length lists. Produce values from that node to the tail; an empty head produces no values. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.",
+  "stage": "Boss · revisit",
+  "boss": true,
+  "revisit": "Level 0: loop accumulators",
+  "descriptionMd": "A two-speed inspection wheel locates the second middle label of an even-length chain. Alma adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nFind the middle node using fast and slow pointers, choosing the second middle for even-length lists. Produce values from that node to the tail; an empty head produces no values.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement midpointChainBossReceipt(head, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Fast and slow pointers. Find the middle node using fast and slow pointers, choosing the second middle for even-length lists. Produce values from that node to the tail; an empty head produces no values. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Lists are acyclic. Trees use level-order JSON with null for missing children; [] is an empty root. The runner supplies nodes with val/next or val/left/right.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with fast and slow pointers. What state describes the portion you have already processed?",
+    "Find the middle node using fast and slow pointers, choosing the second middle for even-length lists. Produce values from that node to the tail; an empty head produces no values. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. Use an accumulator and a one-based position counter, revisiting the first level's loop work."
+  ],
+  "functionName": "midpointChainBossReceipt",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function midpointChainBossReceipt(head, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "type ListNode = { val: number; next: ListNode | null };\nfunction midpointChainBossReceipt(head: ListNode | null, k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def midpointChainBossReceipt(head, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int midpointChainBossReceipt(ListNode head, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-312-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 43,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,0,12]. Its weighted products are [7,0,36]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 43."
+    },
+    {
+      "id": "path3-312-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 6,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-2,4]. Its weighted products are [-2,8]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 6."
+    },
+    {
+      "id": "path3-312-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Its weighted products are []. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "ListNode",
+    "int"
+  ],
+  "inputKinds": {
+    "0": "list"
+  },
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Boss · revisit: Fast and slow pointers. Level 0: loop accumulators",
+  "tags": {
+    "level": 6,
+    "unit": "midpoint-chain",
+    "topic": "Fast and slow pointers",
+    "pattern": "Fast and slow pointers",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-312-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 43,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,0,12]. Its weighted products are [7,0,36]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 43."
+    },
+    {
+      "id": "path3-312-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 6,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-2,4]. Its weighted products are [-2,8]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 6."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function midpointChainBossReceipt(head, k) {\n  const a=head; let out=[];\n  let slow=a,fast=a;while(fast&&fast.next){slow=slow.next;fast=fast.next.next;}for(let node=slow;node;node=node.next)out.push(node.val);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "typescript": "type ListNode = { val: number; next: ListNode | null };\nfunction midpointChainBossReceipt(head: ListNode | null, k: number): number {\n  const a=head; let out:number[]=[];\n  let slow=a,fast=a;while(fast&&fast.next){slow=slow!.next;fast=fast.next.next;}for(let node=slow;node;node=node.next)out.push(node.val);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "python": "def midpointChainBossReceipt(head, k):\n    a=head\n    out=[]\n    slow=fast=a\n    while fast and fast.next:\n        slow=slow.next\n        fast=fast.next.next\n    node=slow\n    while node:\n        out.append(node.val)\n        node=node.next\n    return sum((i+1)*x for i,x in enumerate(out))\n",
+    "java": "class Solution {\n  public int midpointChainBossReceipt(ListNode head, int k) {\n    ListNode a=head; List<Integer> out=new ArrayList<>();\n    {ListNode slow=a,fast=a;while(fast!=null&&fast.next!=null){slow=slow.next;fast=fast.next.next;}for(ListNode node=slow;node!=null;node=node.next)out.add(node.val);}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-312-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 9,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-312-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 15,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-312-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": -15,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-312-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": 25,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-312-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-312-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": 17,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nFind the middle node using fast and slow pointers, choosing the second middle for even-length lists. Produce values from that node to the tail; an empty head produces no values.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction midpointChainBossReceipt(head, k) {\n  const a=head; let out=[];\n  let slow=a,fast=a;while(fast&&fast.next){slow=slow.next;fast=fast.next.next;}for(let node=slow;node;node=node.next)out.push(node.val);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\ntype ListNode = { val: number; next: ListNode | null };\nfunction midpointChainBossReceipt(head: ListNode | null, k: number): number {\n  const a=head; let out:number[]=[];\n  let slow=a,fast=a;while(fast&&fast.next){slow=slow!.next;fast=fast.next.next;}for(let node=slow;node;node=node.next)out.push(node.val);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef midpointChainBossReceipt(head, k):\n    a=head\n    out=[]\n    slow=fast=a\n    while fast and fast.next:\n        slow=slow.next\n        fast=fast.next.next\n    node=slow\n    while node:\n        out.append(node.val)\n        node=node.next\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int midpointChainBossReceipt(ListNode head, int k) {\n    ListNode a=head; List<Integer> out=new ArrayList<>();\n    {ListNode slow=a,fast=a;while(fast!=null&&fast.next!=null){slow=slow.next;fast=fast.next.next;}for(ListNode node=slow;node!=null;node=node.next)out.add(node.val);}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+  }
+}

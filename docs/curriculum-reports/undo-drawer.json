@@ -1,0 +1,32 @@
+{
+  "unit": "undo-drawer",
+  "problems": 9,
+  "cases": 81,
+  "checks": [
+    "schema",
+    "unique titles and slugs",
+    "backward prerequisites",
+    "blocklist",
+    "hidden boundaries",
+    "actual JS worker",
+    "actual TS worker",
+    "strict TS signatures",
+    "exact Python harness",
+    "native Java harness"
+  ],
+  "status": "passed",
+  "samples": [
+    {
+      "title": "Undo drawer: Proof strip",
+      "statement": "An experimental filing machine records both new cards and requests to undo recent cards. Alma rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nA nonnegative event pushes that value onto a stack. A negative event removes up to abs(event) values from its top. Produce the final stack from bottom to top.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement undoDrawerProofStrip(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Undo drawer: Peak ticket",
+      "statement": "An experimental filing machine records both new cards and requests to undo recent cards. Luz is setting the upper stop on an old office gauge. The largest derived reading goes on its label, even if the whole tray is below zero.\n\nA nonnegative event pushes that value onto a stack. A negative event removes up to abs(event) values from its top. Produce the final stack from bottom to top.\n\nReturn the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative.\n\nImplement undoDrawerPeakTicket(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    },
+    {
+      "title": "Undo drawer: Boss receipt",
+      "statement": "An experimental filing machine records both new cards and requests to undo recent cards. Ivo adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nA nonnegative event pushes that value onto a stack. A negative event removes up to abs(event) values from its top. Produce the final stack from bottom to top.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement undoDrawerBossReceipt(readings, k). k is part of the common inspection-card signature and does not affect this task's result."
+    }
+  ]
+}

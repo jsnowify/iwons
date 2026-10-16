@@ -1,0 +1,287 @@
+{
+  "id": "path3-245",
+  "slug": "sorting-press-floor-ticket",
+  "title": "Sorting press: Floor ticket",
+  "level": 5,
+  "unit": "sorting-press",
+  "order": 245,
+  "difficulty": "medium",
+  "topics": [
+    "Recursion, sorting, binary search and bits",
+    "Merge sort"
+  ],
+  "patterns": [
+    "Merge sort"
+  ],
+  "prerequisites": [
+    "path3-244"
+  ],
+  "summary": "Produce readings sorted numerically ascending using a merge-based divide-and-conquer approach. Keep duplicate readings. Return the smallest value in the derived sequence, or 0 for an empty sequence.",
+  "stage": "Boundary variation",
+  "boss": false,
+  "descriptionMd": "Two small sorted proof trays are repeatedly joined by the office's divide-and-merge press. Mina is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nProduce readings sorted numerically ascending using a merge-based divide-and-conquer approach. Keep duplicate readings.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement sortingPressFloorTicket(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Merge sort. Produce readings sorted numerically ascending using a merge-based divide-and-conquer approach. Keep duplicate readings. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n log n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with merge sort. What state describes the portion you have already processed?",
+    "Produce readings sorted numerically ascending using a merge-based divide-and-conquer approach. Keep duplicate readings. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the smallest value in the derived sequence, or 0 for an empty sequence. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "sortingPressFloorTicket",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function sortingPressFloorTicket(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function sortingPressFloorTicket(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def sortingPressFloorTicket(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int sortingPressFloorTicket(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-245-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": -3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-3,0,7,7,12]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives -3."
+    },
+    {
+      "id": "path3-245-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": -2,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-2,4,4,4]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives -2."
+    },
+    {
+      "id": "path3-245-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n log n)",
+    "space": "O(n)"
+  },
+  "overview": "Boundary variation: Merge sort. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 5,
+    "unit": "sorting-press",
+    "topic": "Merge sort",
+    "pattern": "Merge sort",
+    "bigO": "O(n log n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-245-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": -3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-3,0,7,7,12]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives -3."
+    },
+    {
+      "id": "path3-245-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": -2,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [-2,4,4,4]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives -2."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function sortingPressFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  function sort(xs){if(xs.length<2)return xs;const m=Math.floor(xs.length/2),left=sort(xs.slice(0,m)),right=sort(xs.slice(m)),merged=[];let i=0,j=0;while(i<left.length||j<right.length)merged.push(j===right.length||(i<left.length&&left[i]<=right[j])?left[i++]:right[j++]);return merged;}out=sort([...a]);\n  return out.length?Math.min(...out):0;\n}\n",
+    "typescript": "function sortingPressFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  function sort(xs:number[]):number[]{if(xs.length<2)return xs;const m=Math.floor(xs.length/2),left=sort(xs.slice(0,m)),right=sort(xs.slice(m)),merged=[];let i=0,j=0;while(i<left.length||j<right.length)merged.push(j===right.length||(i<left.length&&left[i]<=right[j])?left[i++]:right[j++]);return merged;}out=sort([...a]);\n  return out.length?Math.min(...out):0;\n}\n",
+    "python": "def sortingPressFloorTicket(readings, k):\n    a=readings\n    out=[]\n    def sort(xs):\n        if len(xs)<2: return xs\n        mid=len(xs)//2\n        left,right=sort(xs[:mid]),sort(xs[mid:])\n        merged=[]\n        i=j=0\n        while i<len(left) or j<len(right):\n            if j==len(right) or (i<len(left) and left[i]<=right[j]):\n                merged.append(left[i])\n                i+=1\n            else:\n                merged.append(right[j])\n                j+=1\n        return merged\n    out=sort(a[:])\n    return min(out,default=0)\n",
+    "java": "class Solution {\n  public int sortingPressFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {class Sorter {int[]sort(int[]xs){if(xs.length<2)return xs;int m=xs.length/2;int[]left=sort(Arrays.copyOfRange(xs,0,m)),right=sort(Arrays.copyOfRange(xs,m,xs.length)),merged=new int[xs.length];int i=0,j=0,t=0;while(i<left.length||j<right.length)merged[t++]=j==right.length||(i<left.length&&left[i]<=right[j])?left[i++]:right[j++];return merged;}}for(int x:new Sorter().sort(a.clone()))out.add(x);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-245-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 9,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-245-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 5,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-245-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": -20,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-245-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": -20,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-245-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-245-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": -2,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nProduce readings sorted numerically ascending using a merge-based divide-and-conquer approach. Keep duplicate readings.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n log n); space O(n).\n\njavascript\nfunction sortingPressFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  function sort(xs){if(xs.length<2)return xs;const m=Math.floor(xs.length/2),left=sort(xs.slice(0,m)),right=sort(xs.slice(m)),merged=[];let i=0,j=0;while(i<left.length||j<right.length)merged.push(j===right.length||(i<left.length&&left[i]<=right[j])?left[i++]:right[j++]);return merged;}out=sort([...a]);\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\nfunction sortingPressFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  function sort(xs:number[]):number[]{if(xs.length<2)return xs;const m=Math.floor(xs.length/2),left=sort(xs.slice(0,m)),right=sort(xs.slice(m)),merged=[];let i=0,j=0;while(i<left.length||j<right.length)merged.push(j===right.length||(i<left.length&&left[i]<=right[j])?left[i++]:right[j++]);return merged;}out=sort([...a]);\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef sortingPressFloorTicket(readings, k):\n    a=readings\n    out=[]\n    def sort(xs):\n        if len(xs)<2: return xs\n        mid=len(xs)//2\n        left,right=sort(xs[:mid]),sort(xs[mid:])\n        merged=[]\n        i=j=0\n        while i<len(left) or j<len(right):\n            if j==len(right) or (i<len(left) and left[i]<=right[j]):\n                merged.append(left[i])\n                i+=1\n            else:\n                merged.append(right[j])\n                j+=1\n        return merged\n    out=sort(a[:])\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int sortingPressFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {class Sorter {int[]sort(int[]xs){if(xs.length<2)return xs;int m=xs.length/2;int[]left=sort(Arrays.copyOfRange(xs,0,m)),right=sort(Arrays.copyOfRange(xs,m,xs.length)),merged=new int[xs.length];int i=0,j=0,t=0;while(i<left.length||j<right.length)merged[t++]=j==right.length||(i<left.length&&left[i]<=right[j])?left[i++]:right[j++];return merged;}}for(int x:new Sorter().sort(a.clone()))out.add(x);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+  }
+}

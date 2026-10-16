@@ -1,0 +1,164 @@
+[
+  {
+    "id": 0,
+    "name": "Hello, Keys",
+    "subtitle": "Variables, loops, functions and conditionals",
+    "tier": "easy",
+    "count": 30,
+    "released": true,
+    "concepts": [
+      "Variables and expressions",
+      "Conditionals",
+      "Loop accumulators",
+      "State in a loop",
+      "Helper functions"
+    ],
+    "primer": "Welcome to the print room. A function is a small machine: arguments go in, a returned value comes out. Printing a value is useful while investigating, but it does not replace returning the answer. Each card specifies a derived sequence and the receipt to compute from it. Keep those two instructions separate when tracing your work. An array is simply an ordered tray of readings; a loop can inspect one reading at a time.\n\nStart with variables and expressions. Store a reading, transform it, and return the requested result. A conditional chooses between actions. Check the exact comparison: strictly positive excludes zero, while nonnegative includes it. An accumulator remembers a growing total, count, or other state. Its initial value determines what happens when the tray is empty. A reset changes that state before you record the next reading.\n\nHelper functions give a repeated piece of work a name. For digit work, repeatedly take the remainder after division by ten, then remove the final digit with integer division. Trace a negative input after taking its absolute value. Run the visible cases, then invent an empty tray, a singleton, and a zero. Accuracy at these boundaries matters more than typing quickly.",
+    "example": "Readings [5, -2, 0] have running totals [5, 3, 3]. Their weighted receipt is 1*5 + 2*3 + 3*3 = 20."
+  },
+  {
+    "id": 1,
+    "name": "Typebars",
+    "subtitle": "Arrays and strings",
+    "tier": "easy",
+    "count": 50,
+    "released": true,
+    "concepts": [
+      "Adjacent array positions",
+      "String runs",
+      "Stable array filtering",
+      "Nested array traversal",
+      "String scanning"
+    ],
+    "primer": "The typebars turn isolated readings into sequences. An array preserves order and supports indexed access. Its first index is zero and its last valid index is one less than its length. When comparing neighbors, begin at index one so that a previous item exists. Empty arrays and one-item arrays need deliberate answers rather than accidental out-of-range reads.\n\nStrings also preserve order. These cards use ASCII, so a character has the same simple interpretation across the four languages. A run ends when the next character differs or the string ends. A word ends at a space or the end of the line. Several spaces in a row do not create several words. Keep a current length and flush it only when it represents a real run or word.\n\nFiltering creates a new sequence without changing the relative order of surviving items. Repeated values do not disappear unless the task says they should. A grid is an array of rows, and rows may have different lengths. Use an outer loop for rows and an inner loop for their contents. Before coding, mark which positions your loop has already processed. That simple invariant will become the foundation for the pointer and window techniques later in the Path.",
+    "example": "The line 'a bb   ccc' has word lengths [1, 2, 3]. The three spaces between words contribute no empty words."
+  },
+  {
+    "id": 2,
+    "name": "Card Catalog",
+    "subtitle": "Maps, sets, counting and sorting",
+    "tier": "easy",
+    "count": 50,
+    "released": true,
+    "concepts": [
+      "Frequency maps",
+      "Set membership",
+      "Set intersection",
+      "Map grouping",
+      "Comparator sorting"
+    ],
+    "primer": "A drawer is ordered, but a catalog answers questions about identity. A set remembers whether a reading has appeared. A map associates each key with a value, such as a frequency. With these structures, you can scan once instead of repeatedly searching every earlier item. Check membership before inserting when you need to recognize a new arrival. Increment the stored count when every occurrence matters.\n\nOutput order remains a separate requirement. A map's iteration order is not a substitute for the task's numeric ordering. Count first, collect the distinct keys, then sort those keys when requested. For shared drawers, use membership to identify common readings and a set to avoid reporting the same reading repeatedly.\n\nA comparator expresses a complete ordering. Magnitude sorting needs an absolute-value comparison followed by a numeric comparison to settle ties. Specify both so that negative and positive readings with equal magnitude have predictable positions. Grouping by remainder needs care across languages: some produce a negative remainder for negative inputs. Normalize it before selecting a box. Each unit ends with a weighted receipt that reuses your earlier accumulator work. The data structure solves the identity question; the final loop computes the particular receipt printed on your card.",
+    "example": "Readings [-2, 3, -2, 3, 3] give counts 2 for -2 and 3 for 3, so the frequency sequence is [2, 3]."
+  },
+  {
+    "id": 3,
+    "name": "Two Fingers",
+    "subtitle": "Two pointers, windows and prefix sums",
+    "tier": "medium",
+    "count": 55,
+    "released": true,
+    "concepts": [
+      "Opposite-end pointers",
+      "Read and write pointers",
+      "Fixed sliding windows",
+      "Variable sliding windows",
+      "Prefix range subtraction",
+      "Two sorted streams"
+    ],
+    "primer": "Two fingers can avoid a great deal of repeated searching. One pointer may advance from the left while another retreats from the right. Another useful arrangement separates the position being read from the position being written. Explain when each pointer moves and why no needed item can be skipped. Sorted inputs often make this explanation possible because later values cannot violate an order already established.\n\nA fixed window carries a summary of a contiguous block. Add the arriving value and remove the departing one. A variable window changes its length to maintain an inequality. The shortest-suffix cards use nonnegative readings, which makes removing a leftmost value unable to increase the sum. With negative readings that reasoning would fail; the constraint is part of the algorithm.\n\nPrefix sums offer another route to range totals. Store a leading zero and let prefix[i] describe the first i readings. The sum of a half-open range is the later prefix minus the earlier one. Be explicit about inclusive endpoints in the statement before translating them into indices. Finally, merging two sorted streams advances only the pointer whose value was selected. Handle exhaustion without reading beyond either drawer. Trace a duplicate, an empty side, and a window wider than its input before trying the final Boss receipt.",
+    "example": "For [4, -1, 6], prefixes are [0, 4, 3, 9]. The sum at indices 1 through 2 is 9 - 4 = 5."
+  },
+  {
+    "id": 4,
+    "name": "Paper Stack",
+    "subtitle": "Stacks, queues, deques and simulations",
+    "tier": "medium",
+    "count": 45,
+    "released": true,
+    "concepts": [
+      "Stack cancellation",
+      "Monotonic stacks",
+      "Queue simulation",
+      "Monotonic deques",
+      "Stack history"
+    ],
+    "primer": "A stack exposes the most recently stored item. This fits cancellation and undo because the newest unfinished action is the first one that can be reversed. A queue exposes the oldest waiting item. This fits a clerk sharing service time among jobs in arrival order. A deque supports both ends and can preserve a useful group of candidates while old candidates expire.\n\nMonotonic structures keep values in a chosen order. When a larger reading arrives, it can settle the waiting smaller readings on a stack. In a window deque, a newer value that is at least as large makes an older smaller value unnecessary: the newer candidate also expires later. Store indices when you need distances or expiration checks. Equal values require the exact strict or non-strict comparison from the card.\n\nA simulation needs a state that corresponds to a real step. Track remaining service, the current clock, and which job waits next. A zero-time job is already finished and must not consume a turn. For efficient queues, use a head index, a circular buffer, or the language's deque rather than repeatedly shifting an array. Every unit's derived sequence has a specified order. Preserve that order before folding it into a total, count, or weighted Boss receipt.",
+    "example": "With a stack, stamps [3, 8, 8, 3] cancel to an empty stack: the two 8s disappear first, then the two 3s become adjacent."
+  },
+  {
+    "id": 5,
+    "name": "Carriage Return",
+    "subtitle": "Recursion, sorting, binary search and bits",
+    "tier": "medium",
+    "count": 55,
+    "released": true,
+    "concepts": [
+      "Divide-and-conquer recursion",
+      "Merge sort",
+      "Binary search boundaries",
+      "Binary search on answers",
+      "Bit counting",
+      "Prefix bit state"
+    ],
+    "primer": "Recursion solves a smaller instance and returns to finish a larger one. Write the stopping condition before the recursive calls. A half-open range [left,right) is empty when left equals right, and a one-item range needs no further split. In a traversal, the position of the recording step determines whether the result is preorder or another order.\n\nMerge sort recursively sorts halves and then combines their sorted streams. Binary search instead discards half a candidate range at each step. For insertion boundaries, maintain a half-open search interval and move its right endpoint when the middle value already qualifies. This finds the first qualifying position even among duplicates. Answer search uses the same discipline on possible answers, such as an integer square-root bound. Use integer products or a wider integer type when multiplication might overflow.\n\nBits provide a compact representation of nonnegative state. Removing the lowest set bit with x & (x-1) counts the bits without visiting every zero bit. XOR toggles bits independently and can maintain a prefix register. The units explain these operations before asking you to combine them with a receipt. Keep target time and auxiliary space separate: recursion consumes stack frames, and a merge procedure usually needs temporary storage. Trace the empty input and the exact boundary where a search interval stops shrinking.",
+    "example": "In [2, 5, 5, 9], the first insertion position for 5 is index 1. For 12 it is index 4, just after the drawer."
+  },
+  {
+    "id": 6,
+    "name": "Chain and Tree",
+    "subtitle": "Linked lists, binary trees and search trees",
+    "tier": "medium",
+    "count": 55,
+    "released": true,
+    "concepts": [
+      "Linked traversal",
+      "Linked pointer reversal",
+      "Fast and slow pointers",
+      "Tree preorder",
+      "Tree breadth-first traversal",
+      "BST range pruning"
+    ],
+    "primer": "A linked list stores a value and a link to the next node. An empty head is null. The runner constructs nodes from the JSON shown on a card, so your solution receives nodes rather than a raw array. Traverse by following next until the link is empty. To reverse a chain, save the next link before redirecting the current one; otherwise the rest of the list becomes unreachable.\n\nFast and slow pointers move at different speeds. Starting both at the head and advancing one by two links makes the slower pointer reach the second middle of an even-length list. Check the fast pointer and its next link before taking that double step.\n\nA binary tree gives each node left and right links. Depth-first recursion keeps one branch's unfinished work on the call stack. Breadth-first traversal uses a queue and processes a fixed current-level count before starting the next level. A binary search tree adds an ordering rule: left values are smaller and right values larger. That rule allows range pruning, but only because the input promises it. Tree JSON is level order with null placeholders; the runner supplies val, left, and right fields. The final receipt remains ordinary accumulator work, giving familiar loops a new structural setting.",
+    "example": "The tree [8, 3, 12, null, 5] has preorder [8, 3, 5, 12] and depth totals [8, 15, 5]."
+  },
+  {
+    "id": 7,
+    "name": "Switchboard",
+    "subtitle": "Graphs, heaps, union-find and tries",
+    "tier": "hard",
+    "count": 70,
+    "released": true,
+    "concepts": [
+      "Graph breadth-first distances",
+      "Topological queues",
+      "Priority-queue shortest paths",
+      "Binary heaps",
+      "Union-find components",
+      "Trie prefix counts",
+      "Graph depth-first components"
+    ],
+    "primer": "The switchboard connects vertices through edges. These units use adjacency matrices, so a row lists the outgoing connections from one vertex. Scanning every possible neighbor costs O(V) per visited vertex. Breadth-first search gives shortest edge counts when every edge has equal cost. Mark a vertex when enqueuing it so that cycles do not create repeated work. Depth-first search also finds connected components when directions are absent.\n\nA dependency order comes from indegrees and a queue. Removing a ready vertex reduces its neighbors' indegrees. If fewer than all vertices can be removed, a cycle blocks a complete order. Positive weighted paths require a different rule: repeatedly expand the smallest tentative cost from a priority queue. Skip stale entries after a cheaper route has been found. A binary heap implements that queue through parent and child indices.\n\nUnion-find answers component membership by following representative parents. Path compression shortens future searches, and size-based linking avoids needless depth. A trie organizes characters by prefixes; counting visits to each prefix node makes repeated prefix queries cheap. The unit introductions define each structure before it appears in a problem. Keep unreachable sentinels, deterministic ordering, self-links, duplicate words, and empty graphs in mind when testing the final inspection receipts.",
+    "example": "If 0 connects to 1 and 1 connects to 2, breadth-first distances from 0 are [0, 1, 2]. A disconnected vertex would contribute -1."
+  },
+  {
+    "id": 8,
+    "name": "Master Printer",
+    "subtitle": "Greedy choices, dynamic programming and backtracking",
+    "tier": "hard",
+    "count": 90,
+    "released": true,
+    "concepts": [
+      "Greedy interval selection",
+      "Counting dynamic programming",
+      "Unbounded dynamic programming",
+      "Zero-one knapsack",
+      "Sequence DP with binary search",
+      "Interval dynamic programming",
+      "Backtracking choices",
+      "Backtracking with occupancy",
+      "Scheduling DP and binary search"
+    ],
+    "primer": "The master press asks you to justify which possibilities can be ignored. A greedy rule makes a locally chosen action permanent. For unweighted bookings, selecting the earliest finishing compatible booking leaves at least as much room as selecting a later finish. Rewards change that argument, so the paid-reservation unit uses dynamic programming instead. A familiar-looking scenario does not automatically permit the same algorithm.\n\nDynamic programming defines a state, a recurrence, and an evaluation order. A prefix table can count ribbon tilings or minimize postage. A descending capacity loop prevents the same parcel from being selected twice. Sequence states may be accelerated with binary-search tails. Interval states combine smaller intervals, as when choosing a matrix multiplication order. Explain the meaning of each table cell before writing its update.\n\nBacktracking explores choices and restores state before trying the next branch. It is appropriate here because the subset and roster sizes are deliberately small. Occupancy masks prevent assigning one clerk twice. Deduplicate equal subset totals only after preserving all valid choices of positions. These units combine structures from earlier chapters, but each introduction names the new decision rule. Compare the target complexity with the stated maximum input, check zero-sized instances, and finish with a weighted receipt that revisits the accumulator from the beginning of your Path.",
+    "example": "With stamp denominations 1, 4 and 9, postage 12 needs three stamps: 4 + 4 + 4. Taking a 9 first would need four stamps total."
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "id": 4,
+  "name": "Paper Stack",
+  "subtitle": "Stacks, queues, deques and simulations",
+  "tier": "medium",
+  "count": 45,
+  "released": true,
+  "concepts": [
+    "Stack cancellation",
+    "Monotonic stacks",
+    "Queue simulation",
+    "Monotonic deques",
+    "Stack history"
+  ],
+  "primer": "A stack exposes the most recently stored item. This fits cancellation and undo because the newest unfinished action is the first one that can be reversed. A queue exposes the oldest waiting item. This fits a clerk sharing service time among jobs in arrival order. A deque supports both ends and can preserve a useful group of candidates while old candidates expire.\n\nMonotonic structures keep values in a chosen order. When a larger reading arrives, it can settle the waiting smaller readings on a stack. In a window deque, a newer value that is at least as large makes an older smaller value unnecessary: the newer candidate also expires later. Store indices when you need distances or expiration checks. Equal values require the exact strict or non-strict comparison from the card.\n\nA simulation needs a state that corresponds to a real step. Track remaining service, the current clock, and which job waits next. A zero-time job is already finished and must not consume a turn. For efficient queues, use a head index, a circular buffer, or the language's deque rather than repeatedly shifting an array. Every unit's derived sequence has a specified order. Preserve that order before folding it into a total, count, or weighted Boss receipt.",
+  "example": "With a stack, stamps [3, 8, 8, 3] cancel to an empty stack: the two 8s disappear first, then the two 3s become adjacent."
+}

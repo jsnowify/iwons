@@ -1,0 +1,287 @@
+{
+  "id": "path3-209",
+  "slug": "round-desk-floor-ticket",
+  "title": "Round desk: Floor ticket",
+  "level": 4,
+  "unit": "round-desk",
+  "order": 209,
+  "difficulty": "medium",
+  "topics": [
+    "Stacks, queues, deques and simulations",
+    "Queue simulation"
+  ],
+  "patterns": [
+    "Queue simulation"
+  ],
+  "prerequisites": [
+    "path3-208"
+  ],
+  "summary": "Jobs arrive together in input order and need the given nonnegative service times. A clerk serves up to k time units, appends unfinished jobs to the queue, and records each job's completion time in original job order. A zero-time job is complete at time 0. Return the smallest value in the derived sequence, or 0 for an empty sequence.",
+  "stage": "Boundary variation",
+  "boss": false,
+  "descriptionMd": "One busy clerk rotates unfinished print jobs around a circular service desk. Ada is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nJobs arrive together in input order and need the given nonnegative service times. A clerk serves up to k time units, appends unfinished jobs to the queue, and records each job's completion time in original job order. A zero-time job is complete at time 0.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement roundDeskFloorTicket(readings, k). Use k exactly where specified above.",
+  "unitIntro": "Queue simulation. Jobs arrive together in input order and need the given nonnegative service times. A clerk serves up to k time units, appends unfinished jobs to the queue, and records each job's completion time in original job order. A zero-time job is complete at time 0. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Readings are integers from 0 through 20.",
+    "Target time O(n + total/k); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with queue simulation. What state describes the portion you have already processed?",
+    "Jobs arrive together in input order and need the given nonnegative service times. A clerk serves up to k time units, appends unfinished jobs to the queue, and records each job's completion time in original job order. A zero-time job is complete at time 0. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the smallest value in the derived sequence, or 0 for an empty sequence. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "roundDeskFloorTicket",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function roundDeskFloorTicket(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function roundDeskFloorTicket(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def roundDeskFloorTicket(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int roundDeskFloorTicket(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-209-1",
+      "input": [
+        [
+          7,
+          3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 0,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [22,6,23,0,29]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+    },
+    {
+      "id": "path3-209-2",
+      "input": [
+        [
+          4,
+          4,
+          2,
+          4
+        ],
+        2
+      ],
+      "expected": 6,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [10,12,6,14]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 6."
+    },
+    {
+      "id": "path3-209-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n + total/k)",
+    "space": "O(n)"
+  },
+  "overview": "Boundary variation: Queue simulation. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 4,
+    "unit": "round-desk",
+    "topic": "Queue simulation",
+    "pattern": "Queue simulation",
+    "bigO": "O(n + total/k)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-209-1",
+      "input": [
+        [
+          7,
+          3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 0,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [22,6,23,0,29]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+    },
+    {
+      "id": "path3-209-2",
+      "input": [
+        [
+          4,
+          4,
+          2,
+          4
+        ],
+        2
+      ],
+      "expected": 6,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [10,12,6,14]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 6."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function roundDeskFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  const remaining=[...a],queue=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return out.length?Math.min(...out):0;\n}\n",
+    "typescript": "function roundDeskFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const remaining=[...a],queue:number[]=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return out.length?Math.min(...out):0;\n}\n",
+    "python": "def roundDeskFloorTicket(readings, k):\n    a=readings\n    out=[]\n    from collections import deque\n    remaining=a[:]\n    queue=deque(i for i,x in enumerate(a) if x>0)\n    out=[0]*len(a)\n    time=0\n    while queue:\n        i=queue.popleft()\n        served=min(k,remaining[i])\n        remaining[i]-=served\n        time+=served\n        if remaining[i]: queue.append(i)\n        else: out[i]=time\n    return min(out,default=0)\n",
+    "java": "class Solution {\n  public int roundDeskFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int[]remaining=a.clone(),done=new int[a.length];Deque<Integer>queue=new ArrayDeque<>();for(int i=0;i<a.length;i++)if(a[i]>0)queue.add(i);int time=0;while(!queue.isEmpty()){int i=queue.remove(),served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i]>0)queue.add(i);else done[i]=time;}for(int x:done)out.add(x);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-209-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 9,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-209-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 17,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-209-6",
+        "input": [
+          [
+            20,
+            1,
+            7
+          ],
+          8
+        ],
+        "expected": 9,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-209-7",
+        "input": [
+          [
+            20,
+            7,
+            6,
+            19,
+            9,
+            4,
+            17,
+            11,
+            2,
+            15,
+            13,
+            0,
+            13,
+            15,
+            2,
+            11,
+            17,
+            4,
+            9,
+            19,
+            6,
+            7,
+            20,
+            8,
+            5,
+            18,
+            10,
+            3,
+            16,
+            12,
+            1,
+            14,
+            14,
+            1,
+            12,
+            16,
+            3,
+            10,
+            18,
+            5,
+            8,
+            20,
+            7,
+            6,
+            19,
+            9,
+            4,
+            17,
+            11,
+            2,
+            15,
+            13,
+            0,
+            13,
+            15,
+            2,
+            11,
+            17,
+            4,
+            9,
+            19,
+            6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": 0,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-209-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 0,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-209-9",
+        "input": [
+          [
+            8,
+            3,
+            2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": 6,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nJobs arrive together in input order and need the given nonnegative service times. A clerk serves up to k time units, appends unfinished jobs to the queue, and records each job's completion time in original job order. A zero-time job is complete at time 0.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n + total/k); space O(n).\n\njavascript\nfunction roundDeskFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  const remaining=[...a],queue=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\nfunction roundDeskFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const remaining=[...a],queue:number[]=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef roundDeskFloorTicket(readings, k):\n    a=readings\n    out=[]\n    from collections import deque\n    remaining=a[:]\n    queue=deque(i for i,x in enumerate(a) if x>0)\n    out=[0]*len(a)\n    time=0\n    while queue:\n        i=queue.popleft()\n        served=min(k,remaining[i])\n        remaining[i]-=served\n        time+=served\n        if remaining[i]: queue.append(i)\n        else: out[i]=time\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int roundDeskFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int[]remaining=a.clone(),done=new int[a.length];Deque<Integer>queue=new ArrayDeque<>();for(int i=0;i<a.length;i++)if(a[i]>0)queue.add(i);int time=0;while(!queue.isEmpty()){int i=queue.remove(),served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i]>0)queue.add(i);else done[i]=time;}for(int x:done)out.add(x);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+  }
+}

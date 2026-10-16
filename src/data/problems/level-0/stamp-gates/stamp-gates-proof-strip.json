@@ -1,0 +1,395 @@
+{
+  "id": "path3-007",
+  "slug": "stamp-gates-proof-strip",
+  "title": "Stamp gates: Proof strip",
+  "level": 0,
+  "unit": "stamp-gates",
+  "order": 7,
+  "difficulty": "easy",
+  "topics": [
+    "Variables, loops, functions and conditionals",
+    "Conditionals"
+  ],
+  "patterns": [
+    "Conditionals"
+  ],
+  "prerequisites": [
+    "path3-001"
+  ],
+  "summary": "Replace each negative reading with 0; leave every other reading unchanged. Return the entire derived sequence, preserving its order.",
+  "stage": "Warm-up",
+  "boss": false,
+  "descriptionMd": "A damaged approval stamp has been replacing rejected readings with blanks on the dispatch form. Mina rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nReplace each negative reading with 0; leave every other reading unchanged.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement stampGatesProofStrip(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Conditionals. Replace each negative reading with 0; leave every other reading unchanged. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations).",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with conditionals. What state describes the portion you have already processed?",
+    "Replace each negative reading with 0; leave every other reading unchanged. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the entire derived sequence, preserving its order. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "stampGatesProofStrip",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function stampGatesProofStrip(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
+    "typescript": "function stampGatesProofStrip(readings: number[], k: number): number[] {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
+    "python": "def stampGatesProofStrip(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return []\n",
+    "java": "class Solution {\n  public int[] stampGatesProofStrip(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return new int[0];\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-007-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": [
+        7,
+        0,
+        7,
+        0,
+        12
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,0,7,0,12]. Return the entire derived sequence, preserving its order. This gives [7,0,7,0,12]."
+    },
+    {
+      "id": "path3-007-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": [
+        4,
+        4,
+        0,
+        4
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,4,0,4]. Return the entire derived sequence, preserving its order. This gives [4,4,0,4]."
+    },
+    {
+      "id": "path3-007-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": [],
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the entire derived sequence, preserving its order. This gives []."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Warm-up: Conditionals. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 0,
+    "unit": "stamp-gates",
+    "topic": "Conditionals",
+    "pattern": "Conditionals",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-007-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": [
+        7,
+        0,
+        7,
+        0,
+        12
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [7,0,7,0,12]. Return the entire derived sequence, preserving its order. This gives [7,0,7,0,12]."
+    },
+    {
+      "id": "path3-007-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": [
+        4,
+        4,
+        0,
+        4
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [4,4,0,4]. Return the entire derived sequence, preserving its order. This gives [4,4,0,4]."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function stampGatesProofStrip(readings, k) {\n  const a=readings; let out=[];\n  for(const x of a)out.push(x<0?0:x);\n  return out;\n}\n",
+    "typescript": "function stampGatesProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  for(const x of a)out.push(x<0?0:x);\n  return out;\n}\n",
+    "python": "def stampGatesProofStrip(readings, k):\n    a=readings\n    out=[]\n    for x in a: out.append(max(0,x))\n    return out\n",
+    "java": "class Solution {\n  public int[] stampGatesProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a)out.add(Math.max(0,x));}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-007-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": [
+          9
+        ],
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-007-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-007-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": [
+          0,
+          0,
+          0
+        ],
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-007-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": [
+          0,
+          0,
+          6,
+          19,
+          0,
+          4,
+          17,
+          0,
+          2,
+          15,
+          0,
+          0,
+          13,
+          0,
+          0,
+          11,
+          0,
+          0,
+          9,
+          0,
+          0,
+          7,
+          20,
+          0,
+          5,
+          18,
+          0,
+          3,
+          16,
+          0,
+          1,
+          14,
+          0,
+          0,
+          12,
+          0,
+          0,
+          10,
+          0,
+          0,
+          8,
+          0,
+          0,
+          6,
+          19,
+          0,
+          4,
+          17,
+          0,
+          2,
+          15,
+          0,
+          0,
+          13,
+          0,
+          0,
+          11,
+          0,
+          0,
+          9,
+          0,
+          0,
+          7,
+          20
+        ],
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-007-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": [
+          0,
+          0,
+          0
+        ],
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-007-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": [
+          8,
+          3,
+          0,
+          8,
+          1
+        ],
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nReplace each negative reading with 0; leave every other reading unchanged.\n\nReturn the entire derived sequence, preserving its order.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction stampGatesProofStrip(readings, k) {\n  const a=readings; let out=[];\n  for(const x of a)out.push(x<0?0:x);\n  return out;\n}\n\n\ntypescript\nfunction stampGatesProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  for(const x of a)out.push(x<0?0:x);\n  return out;\n}\n\n\npython\ndef stampGatesProofStrip(readings, k):\n    a=readings\n    out=[]\n    for x in a: out.append(max(0,x))\n    return out\n\n\njava\nclass Solution {\n  public int[] stampGatesProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a)out.add(Math.max(0,x));}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  }
+}

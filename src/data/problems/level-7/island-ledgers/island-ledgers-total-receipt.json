@@ -1,0 +1,778 @@
+{
+  "id": "path3-402",
+  "slug": "island-ledgers-total-receipt",
+  "title": "Island ledgers: Total receipt",
+  "level": 7,
+  "unit": "island-ledgers",
+  "order": 402,
+  "difficulty": "hard",
+  "topics": [
+    "Graphs, heaps, union-find and tries",
+    "Graph depth-first components"
+  ],
+  "patterns": [
+    "Graph depth-first components"
+  ],
+  "prerequisites": [
+    "path3-401"
+  ],
+  "summary": "links is a symmetric 0/1 adjacency matrix. Start a depth-first traversal at each still-unvisited vertex, in increasing index order. Produce the number of vertices in each component, in that start order. Return the sum of all values in the derived sequence; return 0 for an empty sequence.",
+  "stage": "Variation",
+  "boss": false,
+  "descriptionMd": "An inspector follows each cable family fully before starting another unvisited switchboard island. Luz is closing the print-room account before the afternoon mail. A single total must replace the pile of working slips.\n\nlinks is a symmetric 0/1 adjacency matrix. Start a depth-first traversal at each still-unvisited vertex, in increasing index order. Produce the number of vertices in each component, in that start order.\n\nReturn the sum of all values in the derived sequence; return 0 for an empty sequence.\n\nImplement islandLedgersTotalReceipt(links, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Graph depth-first components. links is a symmetric 0/1 adjacency matrix. Start a depth-first traversal at each still-unvisited vertex, in increasing index order. Produce the number of vertices in each component, in that start order. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 16.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "The adjacency matrix is square and has at most 16 vertices; binary entries are 0 or 1, weighted entries are 0 through 13.",
+    "Target time O(V^2); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with graph depth-first components. What state describes the portion you have already processed?",
+    "links is a symmetric 0/1 adjacency matrix. Start a depth-first traversal at each still-unvisited vertex, in increasing index order. Produce the number of vertices in each component, in that start order. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the sum of all values in the derived sequence; return 0 for an empty sequence. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "islandLedgersTotalReceipt",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function islandLedgersTotalReceipt(links, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function islandLedgersTotalReceipt(links: number[][], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def islandLedgersTotalReceipt(links, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int islandLedgersTotalReceipt(int[][] links, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-402-1",
+      "input": [
+        [
+          [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ]
+        ],
+        3
+      ],
+      "expected": 6,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [2,4]. Return the sum of all values in the derived sequence; return 0 for an empty sequence. This gives 6."
+    },
+    {
+      "id": "path3-402-2",
+      "input": [
+        [
+          [
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1
+          ]
+        ],
+        2
+      ],
+      "expected": 5,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [3,2]. Return the sum of all values in the derived sequence; return 0 for an empty sequence. This gives 5."
+    },
+    {
+      "id": "path3-402-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the sum of all values in the derived sequence; return 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[][]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(V^2)",
+    "space": "O(n)"
+  },
+  "overview": "Variation: Graph depth-first components. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 7,
+    "unit": "island-ledgers",
+    "topic": "Graph depth-first components",
+    "pattern": "Graph depth-first components",
+    "bigO": "O(V^2)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-402-1",
+      "input": [
+        [
+          [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ]
+        ],
+        3
+      ],
+      "expected": 6,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [2,4]. Return the sum of all values in the derived sequence; return 0 for an empty sequence. This gives 6."
+    },
+    {
+      "id": "path3-402-2",
+      "input": [
+        [
+          [
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1
+          ]
+        ],
+        2
+      ],
+      "expected": 5,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [3,2]. Return the sum of all values in the derived sequence; return 0 for an empty sequence. This gives 5."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function islandLedgersTotalReceipt(links, k) {\n  const a=links; let out=[];\n  const n=a.length,seen=Array(n).fill(false);for(let start=0;start<n;start++){if(seen[start])continue;const stack=[start];seen[start]=true;let count=0;while(stack.length){const u=stack.pop();count++;for(let v=0;v<n;v++)if(a[u][v]&&!seen[v]){seen[v]=true;stack.push(v);}}out.push(count);}\n  return out.reduce((s,x)=>s+x,0);\n}\n",
+    "typescript": "function islandLedgersTotalReceipt(links: number[][], k: number): number {\n  const a=links; let out:number[]=[];\n  const n=a.length,seen=Array(n).fill(false);for(let start=0;start<n;start++){if(seen[start])continue;const stack=[start];seen[start]=true;let count=0;while(stack.length){const u=stack.pop()!;count++;for(let v=0;v<n;v++)if(a[u][v]&&!seen[v]){seen[v]=true;stack.push(v);}}out.push(count);}\n  return out.reduce((s,x)=>s+x,0);\n}\n",
+    "python": "def islandLedgersTotalReceipt(links, k):\n    a=links\n    out=[]\n    n=len(a)\n    seen=[False]*n\n    for start in range(n):\n        if seen[start]: continue\n        stack=[start]\n        seen[start]=True\n        count=0\n        while stack:\n            u=stack.pop()\n            count+=1\n            for v in range(n):\n                if a[u][v] and not seen[v]:\n                    seen[v]=True\n                    stack.append(v)\n        out.append(count)\n    return sum(out)\n",
+    "java": "class Solution {\n  public int islandLedgersTotalReceipt(int[][] links, int k) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;boolean[]seen=new boolean[n];for(int start=0;start<n;start++){if(seen[start])continue;Deque<Integer>stack=new ArrayDeque<>();stack.push(start);seen[start]=true;int count=0;while(!stack.isEmpty()){int u=stack.pop();count++;for(int v=0;v<n;v++)if(a[u][v]!=0&&!seen[v]){seen[v]=true;stack.push(v);}}out.add(count);}}\n    int answer=0;for(int x:out)answer+=x;return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-402-4",
+        "input": [
+          [
+            [
+              1
+            ]
+          ],
+          1
+        ],
+        "expected": 1,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-402-5",
+        "input": [
+          [
+            [
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          4
+        ],
+        "expected": 5,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-402-6",
+        "input": [
+          [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          8
+        ],
+        "expected": 4,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-402-7",
+        "input": [
+          [
+            [
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0
+            ]
+          ],
+          3
+        ],
+        "expected": 16,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-402-8",
+        "input": [
+          [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          5
+        ],
+        "expected": 4,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-402-9",
+        "input": [
+          [
+            [
+              0,
+              1,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          2
+        ],
+        "expected": 6,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nlinks is a symmetric 0/1 adjacency matrix. Start a depth-first traversal at each still-unvisited vertex, in increasing index order. Produce the number of vertices in each component, in that start order.\n\nReturn the sum of all values in the derived sequence; return 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(V^2); space O(n).\n\njavascript\nfunction islandLedgersTotalReceipt(links, k) {\n  const a=links; let out=[];\n  const n=a.length,seen=Array(n).fill(false);for(let start=0;start<n;start++){if(seen[start])continue;const stack=[start];seen[start]=true;let count=0;while(stack.length){const u=stack.pop();count++;for(let v=0;v<n;v++)if(a[u][v]&&!seen[v]){seen[v]=true;stack.push(v);}}out.push(count);}\n  return out.reduce((s,x)=>s+x,0);\n}\n\n\ntypescript\nfunction islandLedgersTotalReceipt(links: number[][], k: number): number {\n  const a=links; let out:number[]=[];\n  const n=a.length,seen=Array(n).fill(false);for(let start=0;start<n;start++){if(seen[start])continue;const stack=[start];seen[start]=true;let count=0;while(stack.length){const u=stack.pop()!;count++;for(let v=0;v<n;v++)if(a[u][v]&&!seen[v]){seen[v]=true;stack.push(v);}}out.push(count);}\n  return out.reduce((s,x)=>s+x,0);\n}\n\n\npython\ndef islandLedgersTotalReceipt(links, k):\n    a=links\n    out=[]\n    n=len(a)\n    seen=[False]*n\n    for start in range(n):\n        if seen[start]: continue\n        stack=[start]\n        seen[start]=True\n        count=0\n        while stack:\n            u=stack.pop()\n            count+=1\n            for v in range(n):\n                if a[u][v] and not seen[v]:\n                    seen[v]=True\n                    stack.append(v)\n        out.append(count)\n    return sum(out)\n\n\njava\nclass Solution {\n  public int islandLedgersTotalReceipt(int[][] links, int k) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;boolean[]seen=new boolean[n];for(int start=0;start<n;start++){if(seen[start])continue;Deque<Integer>stack=new ArrayDeque<>();stack.push(start);seen[start]=true;int count=0;while(!stack.isEmpty()){int u=stack.pop();count++;for(int v=0;v<n;v++)if(a[u][v]!=0&&!seen[v]){seen[v]=true;stack.push(v);}}out.add(count);}}\n    int answer=0;for(int x:out)answer+=x;return answer;\n  }\n}\n"
+  }
+}

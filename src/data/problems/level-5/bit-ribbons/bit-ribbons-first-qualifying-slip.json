@@ -1,0 +1,287 @@
+{
+  "id": "path3-270",
+  "slug": "bit-ribbons-first-qualifying-slip",
+  "title": "Bit ribbons: First qualifying slip",
+  "level": 5,
+  "unit": "bit-ribbons",
+  "order": 270,
+  "difficulty": "medium",
+  "topics": [
+    "Recursion, sorting, binary search and bits",
+    "Bit counting"
+  ],
+  "patterns": [
+    "Bit counting"
+  ],
+  "prerequisites": [
+    "path3-269"
+  ],
+  "summary": "For each nonnegative reading, produce the number of 1 bits in its binary representation. The reading 0 contributes 0. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.",
+  "stage": "Combine",
+  "boss": false,
+  "descriptionMd": "A punch ribbon stores its active holes as the set bits of a nonnegative reading. Luz needs the first qualifying slip while the courier waits at the door. Later matches must not jump ahead in the tray.\n\nFor each nonnegative reading, produce the number of 1 bits in its binary representation. The reading 0 contributes 0.\n\nReturn the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.\n\nImplement bitRibbonsFirstQualifyingSlip(readings, k). Use k exactly where specified above.",
+  "unitIntro": "Bit counting. For each nonnegative reading, produce the number of 1 bits in its binary representation. The reading 0 contributes 0. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Readings are integers from 0 through 1000000.",
+    "Target time O(n log M); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with bit counting. What state describes the portion you have already processed?",
+    "For each nonnegative reading, produce the number of 1 bits in its binary representation. The reading 0 contributes 0. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "bitRibbonsFirstQualifyingSlip",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function bitRibbonsFirstQualifyingSlip(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function bitRibbonsFirstQualifyingSlip(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def bitRibbonsFirstQualifyingSlip(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int bitRibbonsFirstQualifyingSlip(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-270-1",
+      "input": [
+        [
+          7,
+          3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [3,2,3,0,2]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 3."
+    },
+    {
+      "id": "path3-270-2",
+      "input": [
+        [
+          4,
+          4,
+          2,
+          4
+        ],
+        2
+      ],
+      "expected": -1,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,1,1,1]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives -1."
+    },
+    {
+      "id": "path3-270-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": -1,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives -1."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n log M)",
+    "space": "O(n)"
+  },
+  "overview": "Combine: Bit counting. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 5,
+    "unit": "bit-ribbons",
+    "topic": "Bit counting",
+    "pattern": "Bit counting",
+    "bigO": "O(n log M)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-270-1",
+      "input": [
+        [
+          7,
+          3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 3,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [3,2,3,0,2]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 3."
+    },
+    {
+      "id": "path3-270-2",
+      "input": [
+        [
+          4,
+          4,
+          2,
+          4
+        ],
+        2
+      ],
+      "expected": -1,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,1,1,1]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives -1."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function bitRibbonsFirstQualifyingSlip(readings, k) {\n  const a=readings; let out=[];\n  for(let x of a){let count=0;while(x){x&=x-1;count++;}out.push(count);}\n  return out.find(x=>x>=k)??-1;\n}\n",
+    "typescript": "function bitRibbonsFirstQualifyingSlip(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  for(let x of a){let count=0;while(x){x&=x-1;count++;}out.push(count);}\n  return out.find(x=>x>=k)??-1;\n}\n",
+    "python": "def bitRibbonsFirstQualifyingSlip(readings, k):\n    a=readings\n    out=[]\n    for x in a:\n        count=0\n        while x:\n            x&=x-1\n            count+=1\n        out.append(count)\n    return next((x for x in out if x>=k),-1)\n",
+    "java": "class Solution {\n  public int bitRibbonsFirstQualifyingSlip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){int count=0;while(x!=0){x&=x-1;count++;}out.add(count);}}\n    for(int x:out)if(x>=k)return x;return -1;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-270-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 2,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-270-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": -1,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-270-6",
+        "input": [
+          [
+            20,
+            1,
+            7
+          ],
+          8
+        ],
+        "expected": -1,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-270-7",
+        "input": [
+          [
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000,
+            0,
+            1000000
+          ],
+          3
+        ],
+        "expected": 7,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-270-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": -1,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-270-9",
+        "input": [
+          [
+            8,
+            3,
+            2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": 2,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nFor each nonnegative reading, produce the number of 1 bits in its binary representation. The reading 0 contributes 0.\n\nReturn the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n log M); space O(n).\n\njavascript\nfunction bitRibbonsFirstQualifyingSlip(readings, k) {\n  const a=readings; let out=[];\n  for(let x of a){let count=0;while(x){x&=x-1;count++;}out.push(count);}\n  return out.find(x=>x>=k)??-1;\n}\n\n\ntypescript\nfunction bitRibbonsFirstQualifyingSlip(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  for(let x of a){let count=0;while(x){x&=x-1;count++;}out.push(count);}\n  return out.find(x=>x>=k)??-1;\n}\n\n\npython\ndef bitRibbonsFirstQualifyingSlip(readings, k):\n    a=readings\n    out=[]\n    for x in a:\n        count=0\n        while x:\n            x&=x-1\n            count+=1\n        out.append(count)\n    return next((x for x in out if x>=k),-1)\n\n\njava\nclass Solution {\n  public int bitRibbonsFirstQualifyingSlip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){int count=0;while(x!=0){x&=x-1;count++;}out.add(count);}}\n    for(int x:out)if(x>=k)return x;return -1;\n  }\n}\n"
+  }
+}

@@ -1,0 +1,360 @@
+{
+  "id": "path3-081",
+  "slug": "frequency-files-proof-strip",
+  "title": "Frequency files: Proof strip",
+  "level": 2,
+  "unit": "frequency-files",
+  "order": 81,
+  "difficulty": "easy",
+  "topics": [
+    "Maps, sets, counting and sorting",
+    "Frequency maps"
+  ],
+  "patterns": [
+    "Frequency maps"
+  ],
+  "prerequisites": [
+    "path3-071"
+  ],
+  "summary": "Count occurrences of each distinct reading, then produce those counts in increasing order of the associated numeric reading. Return the entire derived sequence, preserving its order.",
+  "stage": "Warm-up",
+  "boss": false,
+  "descriptionMd": "Identical inventory tags have been scattered among several loose folders. Ivo rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nCount occurrences of each distinct reading, then produce those counts in increasing order of the associated numeric reading.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement frequencyFilesProofStrip(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Frequency maps. Count occurrences of each distinct reading, then produce those counts in increasing order of the associated numeric reading. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n + d log d); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with frequency maps. What state describes the portion you have already processed?",
+    "Count occurrences of each distinct reading, then produce those counts in increasing order of the associated numeric reading. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the entire derived sequence, preserving its order. Handle the empty derived sequence according to the stated return rule."
+  ],
+  "functionName": "frequencyFilesProofStrip",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function frequencyFilesProofStrip(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
+    "typescript": "function frequencyFilesProofStrip(readings: number[], k: number): number[] {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
+    "python": "def frequencyFilesProofStrip(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return []\n",
+    "java": "class Solution {\n  public int[] frequencyFilesProofStrip(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return new int[0];\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-081-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": [
+        1,
+        1,
+        2,
+        1
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,1,2,1]. Return the entire derived sequence, preserving its order. This gives [1,1,2,1]."
+    },
+    {
+      "id": "path3-081-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": [
+        1,
+        3
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,3]. Return the entire derived sequence, preserving its order. This gives [1,3]."
+    },
+    {
+      "id": "path3-081-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": [],
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Return the entire derived sequence, preserving its order. This gives []."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n + d log d)",
+    "space": "O(n)"
+  },
+  "overview": "Warm-up: Frequency maps. Build the sequence once, then report exactly what the inspection card requests.",
+  "tags": {
+    "level": 2,
+    "unit": "frequency-files",
+    "topic": "Frequency maps",
+    "pattern": "Frequency maps",
+    "bigO": "O(n + d log d)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-081-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": [
+        1,
+        1,
+        2,
+        1
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,1,2,1]. Return the entire derived sequence, preserving its order. This gives [1,1,2,1]."
+    },
+    {
+      "id": "path3-081-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": [
+        1,
+        3
+      ],
+      "coverage": "worked",
+      "explanation": "The derived sequence is [1,3]. Return the entire derived sequence, preserving its order. This gives [1,3]."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function frequencyFilesProofStrip(readings, k) {\n  const a=readings; let out=[];\n  const counts=new Map();for(const x of a)counts.set(x,(counts.get(x)||0)+1);for(const x of [...counts.keys()].sort((x,y)=>x-y))out.push(counts.get(x));\n  return out;\n}\n",
+    "typescript": "function frequencyFilesProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  const counts=new Map();for(const x of a)counts.set(x,(counts.get(x)||0)+1);for(const x of [...counts.keys()].sort((x,y)=>x-y))out.push(counts.get(x));\n  return out;\n}\n",
+    "python": "def frequencyFilesProofStrip(readings, k):\n    a=readings\n    out=[]\n    counts={}\n    for x in a: counts[x]=counts.get(x,0)+1\n    for x in sorted(counts): out.append(counts[x])\n    return out\n",
+    "java": "class Solution {\n  public int[] frequencyFilesProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Map<Integer,Integer>counts=new TreeMap<>();for(int x:a)counts.merge(x,1,Integer::sum);out.addAll(counts.values());}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-081-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": [
+          1
+        ],
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-081-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": [
+          4
+        ],
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-081-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": [
+          1,
+          1,
+          1
+        ],
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-081-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": [
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2
+        ],
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-081-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": [
+          3
+        ],
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-081-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nCount occurrences of each distinct reading, then produce those counts in increasing order of the associated numeric reading.\n\nReturn the entire derived sequence, preserving its order.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n + d log d); space O(n).\n\njavascript\nfunction frequencyFilesProofStrip(readings, k) {\n  const a=readings; let out=[];\n  const counts=new Map();for(const x of a)counts.set(x,(counts.get(x)||0)+1);for(const x of [...counts.keys()].sort((x,y)=>x-y))out.push(counts.get(x));\n  return out;\n}\n\n\ntypescript\nfunction frequencyFilesProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  const counts=new Map();for(const x of a)counts.set(x,(counts.get(x)||0)+1);for(const x of [...counts.keys()].sort((x,y)=>x-y))out.push(counts.get(x));\n  return out;\n}\n\n\npython\ndef frequencyFilesProofStrip(readings, k):\n    a=readings\n    out=[]\n    counts={}\n    for x in a: counts[x]=counts.get(x,0)+1\n    for x in sorted(counts): out.append(counts[x])\n    return out\n\n\njava\nclass Solution {\n  public int[] frequencyFilesProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Map<Integer,Integer>counts=new TreeMap<>();for(int x:a)counts.merge(x,1,Integer::sum);out.addAll(counts.values());}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  }
+}

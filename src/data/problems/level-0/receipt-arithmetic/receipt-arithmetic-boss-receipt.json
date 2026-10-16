@@ -1,0 +1,288 @@
+{
+  "id": "path3-006",
+  "slug": "receipt-arithmetic-boss-receipt",
+  "title": "Receipt arithmetic: Boss receipt",
+  "level": 0,
+  "unit": "receipt-arithmetic",
+  "order": 6,
+  "difficulty": "easy",
+  "topics": [
+    "Variables, loops, functions and conditionals",
+    "Variables and expressions"
+  ],
+  "patterns": [
+    "Variables and expressions"
+  ],
+  "prerequisites": [
+    "path3-005"
+  ],
+  "summary": "For each reading x, produce 2*x + 3. The readings are signed ink adjustments. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.",
+  "stage": "Boss · revisit",
+  "boss": true,
+  "revisit": "Earlier foundation work; the first unit establishes the prerequisite",
+  "descriptionMd": "The carbon-copy till records every ink adjustment in a narrow numbered column. Rafi adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nFor each reading x, produce 2*x + 3. The readings are signed ink adjustments.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement receiptArithmeticBossReceipt(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
+  "unitIntro": "Variables and expressions. For each reading x, produce 2*x + 3. The readings are signed ink adjustments. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations).",
+  "constraints": [
+    "0 <= input size <= 64.",
+    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+  ],
+  "hints": [
+    "Start with variables and expressions. What state describes the portion you have already processed?",
+    "For each reading x, produce 2*x + 3. The readings are signed ink adjustments. Derive each required reading once; do not restart the whole procedure for every output position.",
+    "Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. Use an accumulator and a one-based position counter, revisiting the first level's loop work."
+  ],
+  "functionName": "receiptArithmeticBossReceipt",
+  "mode": "function",
+  "starterCode": {
+    "javascript": "function receiptArithmeticBossReceipt(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "typescript": "function receiptArithmeticBossReceipt(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
+    "python": "def receiptArithmeticBossReceipt(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
+    "java": "class Solution {\n  public int receiptArithmeticBossReceipt(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+  },
+  "cases": [
+    {
+      "id": "path3-006-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 209,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [17,-3,17,3,27]. Its weighted products are [17,-6,51,12,135]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 209."
+    },
+    {
+      "id": "path3-006-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 74,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [11,11,-1,11]. Its weighted products are [11,22,-3,44]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 74."
+    },
+    {
+      "id": "path3-006-3",
+      "input": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "coverage": "empty",
+      "explanation": "The derived sequence is []. Its weighted products are []. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 0."
+    }
+  ],
+  "timeLimitMs": 2000,
+  "javaParams": [
+    "int[]",
+    "int"
+  ],
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "overview": "Boss · revisit: Variables and expressions. Earlier foundation work; the first unit establishes the prerequisite",
+  "tags": {
+    "level": 0,
+    "unit": "receipt-arithmetic",
+    "topic": "Variables and expressions",
+    "pattern": "Variables and expressions",
+    "bigO": "O(n)"
+  },
+  "workedExamples": [
+    {
+      "id": "path3-006-1",
+      "input": [
+        [
+          7,
+          -3,
+          7,
+          0,
+          12
+        ],
+        3
+      ],
+      "expected": 209,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [17,-3,17,3,27]. Its weighted products are [17,-6,51,12,135]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 209."
+    },
+    {
+      "id": "path3-006-2",
+      "input": [
+        [
+          4,
+          4,
+          -2,
+          4
+        ],
+        2
+      ],
+      "expected": 74,
+      "coverage": "worked",
+      "explanation": "The derived sequence is [11,11,-1,11]. Its weighted products are [11,22,-3,44]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 74."
+    }
+  ],
+  "referenceSolutions": {
+    "javascript": "function receiptArithmeticBossReceipt(readings, k) {\n  const a=readings; let out=[];\n  for(const x of a)out.push(2*x+3);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "typescript": "function receiptArithmeticBossReceipt(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  for(const x of a)out.push(2*x+3);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "python": "def receiptArithmeticBossReceipt(readings, k):\n    a=readings\n    out=[]\n    for x in a: out.append(2*x+3)\n    return sum((i+1)*x for i,x in enumerate(out))\n",
+    "java": "class Solution {\n  public int receiptArithmeticBossReceipt(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a)out.add(2*x+3);}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+  },
+  "privateData": {
+    "hiddenCases": [
+      {
+        "id": "path3-006-4",
+        "input": [
+          [
+            9
+          ],
+          1
+        ],
+        "expected": 21,
+        "coverage": "singleton"
+      },
+      {
+        "id": "path3-006-5",
+        "input": [
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          4
+        ],
+        "expected": 130,
+        "coverage": "duplicates-or-redundancy"
+      },
+      {
+        "id": "path3-006-6",
+        "input": [
+          [
+            -20,
+            -1,
+            -7
+          ],
+          8
+        ],
+        "expected": -68,
+        "coverage": "lower-bound"
+      },
+      {
+        "id": "path3-006-7",
+        "input": [
+          [
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20,
+            -8,
+            5,
+            18,
+            -10,
+            3,
+            16,
+            -12,
+            1,
+            14,
+            -14,
+            -1,
+            12,
+            -16,
+            -3,
+            10,
+            -18,
+            -5,
+            8,
+            -20,
+            -7,
+            6,
+            19,
+            -9,
+            4,
+            17,
+            -11,
+            2,
+            15,
+            -13,
+            0,
+            13,
+            -15,
+            -2,
+            11,
+            -17,
+            -4,
+            9,
+            -19,
+            -6,
+            7,
+            20
+          ],
+          3
+        ],
+        "expected": 6394,
+        "coverage": "maximum-size"
+      },
+      {
+        "id": "path3-006-8",
+        "input": [
+          [
+            0,
+            0,
+            0
+          ],
+          5
+        ],
+        "expected": 18,
+        "coverage": "zero-or-minimum"
+      },
+      {
+        "id": "path3-006-9",
+        "input": [
+          [
+            8,
+            3,
+            -2,
+            8,
+            1
+          ],
+          2
+        ],
+        "expected": 135,
+        "coverage": "order-and-ties"
+      }
+    ],
+    "editorialMd": "The working idea\n\nFor each reading x, produce 2*x + 3. The readings are signed ink adjustments.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction receiptArithmeticBossReceipt(readings, k) {\n  const a=readings; let out=[];\n  for(const x of a)out.push(2*x+3);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction receiptArithmeticBossReceipt(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  for(const x of a)out.push(2*x+3);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef receiptArithmeticBossReceipt(readings, k):\n    a=readings\n    out=[]\n    for x in a: out.append(2*x+3)\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int receiptArithmeticBossReceipt(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a)out.add(2*x+3);}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+  }
+}
