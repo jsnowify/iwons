@@ -7,7 +7,7 @@
 Requires Node.js 22.18+ and npm. This workspace was verified with Node.js 24.
 
 ```sh
-npm install
+npm ci
 npm run dev
 ```
 
@@ -20,7 +20,9 @@ npm run build
 npm start
 ```
 
-The production preview runs at http://127.0.0.1:3000. The build output is `out/`. `next start` is not used because this app has no server runtime.
+The production preview runs at http://127.0.0.1:3000. Development and production use Turbopack. The build output is `out/`. `next start` is not used because this app has no server runtime.
+
+After editing worker sources during development, run `node scripts/build-workers.mjs` or restart `npm run dev` to rebuild the independent static worker.
 
 The wordmark uses a static block cursor. Skeleton pulse and the editor caret retain their separate loading and editing behavior.
 
@@ -32,10 +34,10 @@ The wordmark uses a static block cursor. Skeleton pulse and the editor caret ret
 - Chapter unlocking at 70%, a free-browse option, readable text, motion controls, and an optional carriage bell.
 - A v3 migration that archives previous submissions, progress, notes, lists and drafts. Retired problem URLs explain the change.
 - Search, difficulty/topic/status filters, sorting, bookmarks, and custom lists.
-- Resizable Monaco workspace, per-language drafts, progressive hints, notes, gated editorials, custom cases, stdout, verdicts, and case comparisons.
+- On-demand Monaco workspace, per-language drafts, progressive hints, notes, gated editorials, custom cases, stdout, verdicts, and case comparisons.
 - JavaScript/TypeScript execution in disposable workers; lazy Python through Pyodide; configurable Java Beta adapter.
 - Submission history, reopen-in-editor, local progress, activity calendar, streaks, XP, milestones, clean solves, and a downloadable Flex Card PNG.
-- Spaced repetition, 30-day and 14-day study plans, fullscreen contests and mock interviews with a shared timer.
+- Path-based Daily Warm-up 3, an on-demand algorithm Visualizer, spaced repetition, 30-day and 14-day study plans, fullscreen contests and mock interviews with a shared timer.
 - Custom-problem authoring, JSON problem import, and reference-solution checks.
 - Consent-based Iwons Watch, focus/visibility/paste/fullscreen/typing-burst/second-tab signals, scoring, and self-reported welcome-back notes.
 - Versioned local storage, quota recovery, backups, import validation, and confirmed reset.
@@ -43,6 +45,8 @@ The wordmark uses a static block cursor. Skeleton pulse and the editor caret ret
 - Keyboard shortcuts, responsive layouts, reduced motion, accessible dialogs, loading states, and a `/design/` component gallery.
 
 ## Verification
+
+Build/load measurements, archive restoration and current checks are in [PERF.md](docs/PERF.md). `npm run lint` runs ESLint directly because Next 16 removed `next lint`.
 
 The current [redesign audit](docs/REDESIGN.md), [verification results](docs/VERIFICATION.md), and [54 curriculum reports with sample statements](docs/curriculum-reports/README.md) document the 500-problem release.
 
@@ -73,7 +77,7 @@ Official references: [Judge0 CE](https://ce.judge0.com/), [CheerpJ licensing](ht
 ## Data and runtime limits
 
 - Data stays in this browser. No accounts, database, sync, analytics, or Iwons backend. Export a backup before clearing browser storage.
-- Storage access is centralized in `src/lib/storage.ts`, under `iwons:v3:*`. Original `iwons:v1:*` and `iwons:v2:*` keys remain intact through the Legacy Archive, and v1/v2/v3 backup imports are supported. Up to 20 submissions are retained per problem, preserving an accepted solve. Cleanup keeps recent submissions and accepted solves.
+- Storage access is centralized in `src/lib/storage.ts`, under `iwons:v6:*`. Original v1?v5 namespaces and archived progress remain intact, and v1?v6 backup imports are supported. Up to 20 submissions are retained per problem, preserving an accepted solve. Cleanup keeps recent submissions and accepted solves.
 - Watch is an honor system. It cannot see another website, app, browser, phone, camera, or screen. It never records individual keystrokes. Browser-size devtools heuristics are intentionally omitted because they are unreliable.
 - Worker timeouts keep the UI responsive. Workers are not a security boundary for running hostile code: use code you trust.
 - Monaco is served locally. Python downloads pinned Pyodide 314.0.7 from jsDelivr on demand; the first Python run requires internet. Offline features depend on resources having been cached successfully. Java requires its endpoint to be reachable.
@@ -84,7 +88,8 @@ Official references: [Judge0 CE](https://ce.judge0.com/), [CheerpJ licensing](ht
 
 The project is configured for Vercel with Next.js static output. Use `npm run build`, publish `out/`, and keep the generated `sw.js` uncached or revalidated by the host.
 
-Set `NEXT_PUBLIC_SITE_URL` to your final canonical origin when publishing to a custom domain. On Vercel, a deployment's `VERCEL_URL` is the automatic fallback; locally it falls back to `http://localhost:3000`. No secrets are required for the app.
+Set `NEXT_PUBLIC_SITE_URL` to your final canonical origin when publishing to a custom domain. The default is `https://iwons.vercel.app`; preview deployment URLs are never used automatically. No secrets are required for the app.
+
+`npm run og` checks content hashes and generates only changed social PNGs. Builds skip the generator when all source inputs and cached files are unchanged. Hashed images are immutable; the stable PNG aliases preserve old social links.
 
 Search Console submission and third-party structured-data validation require the final published domain. Lighthouse and browser test results are local checks, not a guarantee across every browser, device, or hosting environment.
-# iwons

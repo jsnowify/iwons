@@ -17,7 +17,7 @@ import { problemUrl } from "@/lib/presentation";
 import { useStore } from "@/store/use-store";
 import { Badge, Empty, Button, Modal, useToast } from "./ui";
 export function ProblemList({ initialTopic = "", problems }: { initialTopic?: string; problems: CatalogEntry[] }) {
-  const topics = [...new Set(problems.flatMap(p=>p.topics))];
+  const topics = useMemo(() => [...new Set(problems.flatMap(p => p.topics))], [problems]);
   const store = useStore(),
     toast = useToast();
   const [query, setQuery] = useState(""),
@@ -39,9 +39,9 @@ export function ProblemList({ initialTopic = "", problems }: { initialTopic?: st
     setTopic(q.get("topic") ?? initialTopic);
     setStatus(q.get("status") ?? "");
   }, [initialTopic]);
-  const all = [...problems, ...store.customProblems];
+  const all = useMemo(() => [...problems, ...store.customProblems], [problems, store.customProblems]);
   const activeFilterCount = [level, difficulty, topic, status].filter(Boolean).length + (sort !== "default" ? 1 : 0);
-  const bookmarked = new Set(store.lists.flatMap((l) => l.problemIds));
+  const bookmarked = useMemo(() => new Set(store.lists.flatMap(l => l.problemIds)), [store.lists]);
   const filtered = useMemo(() => {
     let list = all.filter(
       (p) =>

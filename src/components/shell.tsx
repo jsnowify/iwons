@@ -143,7 +143,6 @@ function ShellContent({ children, footer }: { children: ReactNode; footer: React
           {landing ? (
             <>
               <Link
-                prefetch={false}
                 href="/"
                 className="wordmark landing-brand"
                 aria-label="Iwons home"
@@ -152,13 +151,13 @@ function ShellContent({ children, footer }: { children: ReactNode; footer: React
                 <span className="brand-dot" />
               </Link>
               <nav className="landing-navigation" aria-label="Explore Iwons">
-                <Link prefetch={false} href="/path/">
+                <Link href="/path/">
                   The Path
                 </Link>
-                <Link prefetch={false} href="/problems/">
+                <Link href="/problems/">
                   The problems
                 </Link>
-                <Link prefetch={false} href="/dashboard/">
+                <Link href="/dashboard/">
                   Your desk ↗
                 </Link>
               </nav>
@@ -167,7 +166,6 @@ function ShellContent({ children, footer }: { children: ReactNode; footer: React
           <div className="breadcrumb">
             {!landing ? <button className="icon-button mobile-menu" aria-label="Open navigation" onClick={() => setMobileMenu(true)}><Menu size={20} /></button> : null}
             <Link
-              prefetch={false}
               href="/"
               className="show-mobile mobile-home"
               aria-label="Iwons home"
@@ -207,7 +205,6 @@ function ShellContent({ children, footer }: { children: ReactNode; footer: React
               )}
             </button>
             <Link
-              prefetch={false}
               href="/about/"
               className="icon-button"
               aria-label="About Iwons"
@@ -232,7 +229,6 @@ function ShellContent({ children, footer }: { children: ReactNode; footer: React
             )
             .map((n) => (
               <Link
-                prefetch={false}
                 href={n.href}
                 key={n.href}
                 className={current === n.label ? "active" : ""}

@@ -18,3 +18,13 @@ for(const width of [360,390,768,1024,1440])for(const theme of ['light','dark'])t
  }
  expect(errors).toEqual([]);
 });
+
+test('mobile editor and output end before the reachable footer',async({page})=>{
+ await page.setViewportSize({width:360,height:900});await page.goto('/problems/receipt-arithmetic-proof-strip/');
+ await page.getByRole('button',{name:'Code & results',exact:true}).click();await expect(page.locator('.monaco-editor')).toBeVisible();
+ const results=page.getByRole('region',{name:'Execution results',exact:true});await expect(results).toBeVisible();
+ await page.getByRole('contentinfo').scrollIntoViewIfNeeded();await expect(page.getByRole('contentinfo')).toBeInViewport({ratio:0.99});
+ expect(await results.evaluate(el=>el.scrollHeight<=el.clientHeight+1)).toBe(true);
+ const bounds=await page.evaluate(()=>({output:document.querySelector('.results-panel')!.getBoundingClientRect().bottom,footer:document.querySelector('footer')!.getBoundingClientRect().top,overflow:document.documentElement.scrollWidth>innerWidth}));
+ expect(bounds.output).toBeLessThanOrEqual(bounds.footer);expect(bounds.overflow).toBe(false);
+});

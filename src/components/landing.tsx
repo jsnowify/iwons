@@ -28,10 +28,10 @@ export function Landing() {
             and leave a little better than you arrived.
           </p>
           <div className="hero-actions">
-            <Link prefetch={false} href="/path/0/" className="btn">
+            <Link href="/path/0/" className="btn">
               Start Level 0 <ArrowRight size={16} />
             </Link>
-            <Link prefetch={false} href="/path/" className="btn secondary">
+            <Link href="/path/" className="btn secondary">
               Explore the Path <ArrowUpRight size={15} />
             </Link>
           </div>
@@ -67,9 +67,9 @@ export function Landing() {
       <section className="path-entry-keys" aria-labelledby="starting-point-heading">
         <h2 id="starting-point-heading">Choose your starting point.</h2>
         <nav aria-label="Choose your starting point">
-          <Link prefetch={false} href="/path/0/"><span>New to coding?</span><strong>Start Level 0 <ArrowUpRight size={18} aria-hidden="true"/></strong><small>Build your first useful patterns</small></Link>
-          <Link prefetch={false} href="/visualizer/"><span>See the idea move.</span><strong>Open the Visualizer <ArrowUpRight size={18} aria-hidden="true"/></strong><small>Trace one step at a time</small></Link>
-          <Link prefetch={false} href="/path/"><span>Ready to practice?</span><strong>Jump to the Path <ArrowUpRight size={18} aria-hidden="true"/></strong><small>500 original coding challenges</small></Link>
+          <Link href="/path/0/"><span>New to coding?</span><strong>Start Level 0 <ArrowUpRight size={18} aria-hidden="true"/></strong><small>Build your first useful patterns</small></Link>
+          <Link href="/visualizer/"><span>See the idea move.</span><strong>Open the Visualizer <ArrowUpRight size={18} aria-hidden="true"/></strong><small>Trace one step at a time</small></Link>
+          <Link href="/path/"><span>Ready to practice?</span><strong>Jump to the Path <ArrowUpRight size={18} aria-hidden="true"/></strong><small>500 original coding challenges</small></Link>
         </nav>
       </section>
       <section className="landing-section">
@@ -79,7 +79,7 @@ export function Landing() {
             <h2>Find your own type.</h2>
             <p>Start with the basics. The big ideas can wait their turn.</p>
           </div>
-          <Link prefetch={false} href="/path/" className="text-link">
+          <Link href="/path/" className="text-link">
             See the whole Path <ArrowUpRight size={12} />
           </Link>
         </div>
@@ -88,7 +88,6 @@ export function Landing() {
             .slice(0, 3)
             .map((level) => (
               <Link
-                prefetch={false}
                 href={`/path/${level.id}/`}
                 className="chapter-card"
                 key={level.id}

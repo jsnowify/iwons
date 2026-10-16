@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="content">
-      <PathMap levels={getLevels()} />
+      <PathMap levels={getLevels().map(({id,name,subtitle,tier,count,released,concepts}) => ({id,name,subtitle,tier,count,released,concepts}))} />
     </div>
   );
 }

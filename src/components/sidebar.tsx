@@ -51,7 +51,7 @@ export function NavigationItem({ href, label, icon: Icon, active, count, locked,
   const events = { onMouseEnter: (event: React.MouseEvent<HTMLElement>) => show(event.currentTarget), onFocus: (event: React.FocusEvent<HTMLElement>) => show(event.currentTarget), onMouseLeave: () => setPoint(null), onBlur: () => setPoint(null) };
   const text = locked ? `${label} — Locked` : label;
   const content = <><Icon size={20} strokeWidth={2.2} aria-hidden="true" /><span className="nav-label">{label}</span>{locked ? <span className="nav-lock"><LockKeyhole size={20} aria-hidden="true" />Locked</span> : count ? <span className="nav-count">{count}</span> : null}</>;
-  return <>{locked ? <span {...events} className="nav-link locked" role="link" aria-disabled="true" aria-label={text} aria-describedby={point ? tooltipId : undefined} tabIndex={0}>{content}</span> : <Link {...events} prefetch={false} href={href} className={`nav-link ${active ? "active" : ""}`} aria-current={active ? "page" : undefined} aria-label={collapsed ? text : undefined} aria-describedby={point ? tooltipId : undefined} title={text}>{content}</Link>}{point ? createPortal(<span id={tooltipId} className="nav-tooltip" role="tooltip" style={{display:"block",left:point.left,top:point.top}}>{text}</span>,document.body) : null}</>;
+  return <>{locked ? <span {...events} className="nav-link locked" role="link" aria-disabled="true" aria-label={text} aria-describedby={point ? tooltipId : undefined} tabIndex={0}>{content}</span> : <Link {...events}  href={href} className={`nav-link ${active ? "active" : ""}`} aria-current={active ? "page" : undefined} aria-label={collapsed ? text : undefined} aria-describedby={point ? tooltipId : undefined} title={text}>{content}</Link>}{point ? createPortal(<span id={tooltipId} className="nav-tooltip" role="tooltip" style={{display:"block",left:point.left,top:point.top}}>{text}</span>,document.body) : null}</>;
 }
 export function SidebarToggle({ collapsed, onCollapse, controls, state }: { collapsed: boolean; onCollapse?: () => void; controls: string; state?: "hover" | "focus" | "pressed" }) {
   const tooltipId = useId();
@@ -70,7 +70,7 @@ export function Sidebar({ current, due, count, collapsed, onCollapse, profile, x
 }) {
   const navigationId = useId();
   return <aside className={`sidebar ${specimen ? "sidebar-specimen" : ""}`} data-collapsed={collapsed} aria-label={specimen ? specimenLabel : "Workspace"}>
-    <div className="sidebar-brand"><Link prefetch={false} href="/" className="wordmark" aria-label="Iwons home"><span className="brand-icon">ı</span><span className="brand-name">Iwons<span className="brand-dot" /></span></Link></div>
+    <div className="sidebar-brand"><Link href="/" className="wordmark" aria-label="Iwons home"><span className="brand-icon">ı</span><span className="brand-name">Iwons<span className="brand-dot" /></span></Link></div>
     <SidebarToggle collapsed={collapsed} onCollapse={onCollapse} controls={navigationId} state={toggleState} />
     <div className="sidebar-scroll" id={navigationId}>
       <div className="sidebar-caption">Workspace</div>
@@ -79,7 +79,7 @@ export function Sidebar({ current, due, count, collapsed, onCollapse, profile, x
       <div className="sidebar-bottom">
         <div className="local-note">Your progress stays on this device. Export a backup in Settings.</div>
         <NavigationItem href="/settings/" label="Settings" icon={Settings} active={current === "Settings"} collapsed={collapsed} />
-        <Link prefetch={false} href="/settings/" className="profile-link" title={`${profile.name}, Level ${level}, ${xp} XP`} aria-label={collapsed ? `${profile.name}, profile settings` : undefined}><span className="avatar">{profile.avatar}</span><span className="profile-text">{profile.name}<small>Level {level} · {xp} XP</small></span></Link>
+        <Link href="/settings/" className="profile-link" title={`${profile.name}, Level ${level}, ${xp} XP`} aria-label={collapsed ? `${profile.name}, profile settings` : undefined}><span className="avatar">{profile.avatar}</span><span className="profile-text">{profile.name}<small>Level {level} · {xp} XP</small></span></Link>
       </div>
     </div>
   </aside>;

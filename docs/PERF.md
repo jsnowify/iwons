@@ -1,67 +1,102 @@
-# Performance pass
+# Learn removal and performance report
 
-2026-10-16. Source: removal/performance brief d002c792-687c-4811-998f-86e1391ef587. Before measurements use the existing production webpack export; local static preview port 4174. New runtime dependencies: none.
+Completed 2026-10-17. Source: removal/performance brief d002c792-687c-4811-998f-86e1391ef587. All implementation phases are committed locally; no deployment or remote cache change was performed.
 
-## Safety and baseline
+The final controlled Next build took **44.66 s**, versus **151.80 s** before (70.6% less time). Static entries fell from **1,641 to 644**. Learn is removed from the active app; its full implementation is preserved on `archive/learn-v1` at `63b10c152434b3e78dbdfc902dc5fbb9e31b6c78`. Existing storage namespaces and backup compatibility remain intact.
 
-Full implementation preserved on branch `archive/learn-v1`, commit `63b10c152434b3e78dbdfc902dc5fbb9e31b6c78`. This includes the unfinished second-module candidate, data, tests, validators and historical documentation. No user storage is deleted by the removal.
+## Build, cache and development
 
 | Measure | Before | After |
 | --- | ---: | ---: |
-| Next build, trace duration | 151.80 s | Pending |
-| Prerender manifest entries | 1,641 | Pending |
-| OG route entries | 518 | Pending |
-| Learn route entries | 457 | Pending |
-| .next size | 811,532,226 bytes | Pending |
-| .next/cache size | 348,398,488 bytes | Pending |
-| catalog.json | 398,817 bytes | Pending |
-| curriculum.json | 376,748 bytes | Pending |
+| Next trace duration | 151.80 s | 44.66 s |
+| Prerender manifest entries | 1,641 | 644 |
+| OG route entries | 518 | 0 |
+| Learn route entries | 457 | 0 |
+| .next size | 811,532,226 bytes | 554,273,620 bytes |
+| .next/cache size | 348,398,488 bytes | 86,106,808 bytes |
 
-The trace measures Next itself, excluding npm prebuild validators and postprocessing. The full old npm pipeline additionally executes 244 native course cases. Raw artifact: artifacts/performance/before.json. These are static entries including image routes, not 1,641 distinct learner-facing HTML screens.
+The trace measures Next itself, excluding npm prebuild/postbuild work. Both production measurements use their existing local caches; this is not a cold-build benchmark. Entry counts include static handlers and retired URLs, not just learner-facing HTML pages. `.next` includes local development and diagnostic files, so its size is not deployment payload size. The final cache size follows removal of obsolete production-only webpack cache directories; development caches were left alone. No claim attributes a particular percentage of elapsed time to Satori alone.
 
-Webpack dev with a fresh isolated cache announced ready in 1.68 s, but the first request to / and the first problem both exceeded the 45 s measurement timeout. No cold-page compile number is claimed. The existing user dev server was left running. P3 will repeat with Turbopack. Logs: artifacts/performance/before-dev.{json,log}.
+Fresh isolated dev cache, same request order in both runs: server startup, `/`, then the first problem. The second route can reuse the compiled shared layout. Webpack announced ready in 1.68 s but both requests timed out at 45 s. Turbopack announced ready in **4.01 s**; the homepage returned HTTP 200 in **13.30 s** and the first problem in **2.95 s**. Ready time is reported separately from usable-page time.
 
-### Initial script bundles
+Raw artifacts: `artifacts/performance/before.json`, `after.json`, `before-dev.{json,log}`, `after-dev.{json,log}`.
 
-Numbers sum scripts actually referenced by each exported HTML file; gzip is measured per file. They exclude later dynamic imports, CSS, fonts and runtime downloads.
+## Initial script bundles
 
-| Route | Scripts | Raw bytes | Gzip bytes |
-| --- | ---: | ---: | ---: |
-| / | 15 | 639,841 | 201,936 |
-| /path/ | 18 | 658,962 | 208,804 |
-| /path/0/ | 17 | 658,808 | 208,645 |
-| /problems/receipt-arithmetic-proof-strip/ | 19 | 704,512 | 224,577 |
-| /progress/ | 17 | 1,141,401 | 246,275 |
-| /settings/ | 16 | 664,403 | 209,717 |
+Scripts referenced by each exported HTML document, including any legacy script tags. Gzip is measured per file; later dynamic imports, HTML/RSC props, CSS, fonts and runtime downloads are excluded. These are consistent before/after script-size measurements, not total network-transfer measurements.
 
-### Lighthouse baseline
+| Route | Raw before | Raw after | Gzip before | Gzip after |
+| --- | ---: | ---: | ---: | ---: |
+| `/` | 639,841 | 629,797 | 201,936 | 196,401 |
+| `/path/` | 658,962 | 641,161 | 208,804 | 199,884 |
+| `/path/0/` | 658,808 | 641,161 | 208,645 | 199,884 |
+| `/problems/receipt-arithmetic-proof-strip/` | 704,512 | 671,768 | 224,577 | 210,080 |
+| `/progress/` | 1,141,401 | 663,084 | 246,275 | 208,735 |
+| `/settings/` | 664,403 | 648,700 | 209,717 | 202,358 |
 
-One local mobile/throttled run per URL, not a field percentile. Results on this shared machine can vary. A unit currently has no standalone route: its actual URL is a section anchor on its level page. Raw Lighthouse reports are under artifacts/performance/before-*-lighthouse.json.
+Byte counts. Source catalog/curriculum sizes remain 398,817/376,748 bytes because the original 500 challenges and 54 units are unchanged. Cached filesystem reads and route-specific client props replace large JSON imports. The Next analyzer snapshot (`artifacts/performance/bundle-graph.jsonl`, 1,720 module records, 26 route patterns) contains neither JSON module. Editor and runner modules are asynchronous groups on problem pages; search is asynchronous too.
 
-| Page | Performance | Accessibility | LCP | TBT | CLS |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| home (/) | 92 | 100 | 2.96 s | 180 ms | 0.0020 |
-| level (/path/0/) | 76 | 94 | 2.53 s | 390 ms | 0.2329 |
-| unit (/path/0/#receipt-arithmetic) | 83 | 94 | 3.37 s | 348 ms | 0.0001 |
-| problem (/problems/receipt-arithmetic-proof-strip/) | 90 | 100 | 2.71 s | 280 ms | 0.0004 |
+## Lighthouse
 
-### Diagnostic verification
+One final-source mobile/throttled run per URL on a shared development machine. These are lab observations, not field percentiles or guarantees. Repeated runs varied considerably; intermediate and font-priority trial reports are retained in `artifacts/performance/`. The unsuccessful font-preload trial was reverted. The final measurements below were run separately from builds and tests. A verification run that overlapped export was discarded.
 
-- Confirmed: installed Next.js 16.4.1; output export, trailingSlash true; scripts explicitly select webpack; no custom webpack plugin/config was found. Local version-matched docs say Turbopack is the default and webpack build workers are already enabled without a custom webpack config. Compatibility will be tested, not inferred from an older Next version.
-- Confirmed: 518 generated OG routes, 31.6% of static entries, and 457 Learn entries, 27.8%. The claim that OG costs 40% of elapsed build time is not established by page count; P2 will measure the effect.
-- Confirmed: large catalog/curriculum JSON imports enter the module graph. Server-only reads and client slices are planned; a filesystem loader must never enter a client component.
-- Live https://iwons.vercel.app/ returned 200. Its source has no /learn/ nav link; og:image and twitter:image use https://iwons-gxqlfrii4-snowis-projects.vercel.app/og/receipt-arithmetic-proof-strip/. Source captured in artifacts/performance/live-home.html. The production metadata default must replace this preview-domain fallback and give home its own image.
-- Keep the existing 9 chapters, 500 challenges and 54 units. Page canonicals and redirects retain trailing slashes. Static image filenames will use their normal .png file URLs.
-- The inspected export had a development cleanup service worker and dev HTML. Reapplying postbuild restored the production worker and removed dev output. Baseline browser probes then passed. The revised pipeline must keep this safeguard.
+| Page | Performance | Accessibility | Best practices | SEO | LCP | TBT | CLS |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| home | 88 | 100 | 100 | 100 | 2.97 s | 300 ms | 0.0020 |
+| path | 93 | 100 | 100 | 100 | 2.97 s | 153 ms | 0.0002 |
+| level | 86 | 100 | 100 | 100 | 2.71 s | 384 ms | 0.0538 |
+| unit | 88 | 100 | 100 | 100 | 3.11 s | 281 ms | 0.0002 |
+| problem | 89 | 100 | 100 | 100 | 2.28 s | 370 ms | 0.0004 |
+| progress | 85 | 100 | 100 | 63 | 3.46 s | 268 ms | 0.0029 |
+| settings | 89 | 100 | 100 | 63 | 3.24 s | 191 ms | 0.0000 |
 
-## Phase results
+The unit URL is `/path/0/#receipt-arithmetic`; no independent unit route exists. Progress and Settings intentionally use noindex, explaining their SEO score. The **2.5 s LCP target is not met on every route**, and TBT remains above 200 ms on some routes. Deferred assets and reduced bundles are verified; universal page-load improvement is not claimed.
 
-P0 complete apart from the recorded dev cold-request timeout limitation. Typecheck/lint passed, 600 unit tests passed, current build/export checks passed. Archive Learn browser probes passed; active removal checks will replace those in P1.
+| Comparable baseline page | Performance before | LCP before | TBT before | CLS before |
+| --- | ---: | ---: | ---: | ---: |
+| Home | 92 | 2.96 s | 180 ms | 0.0020 |
+| Level | 76 | 2.53 s | 390 ms | 0.2329 |
+| Unit anchor | 83 | 3.37 s | 348 ms | 0.0001 |
+| Problem | 90 | 2.71 s | 280 ms | 0.0004 |
 
-P1-P6 pending. Final report will fill the After column, record blockers and restoration instructions. No speedup is claimed yet.
+Raw final reports: `artifacts/performance/after-*-lighthouse.json`; aggregate `after-lighthouse.json`.
 
-P2 checkpoint: Next trace 103.736467 seconds, 644 entries, zero OG/Learn entries. 501 static images (500 problems plus home); unchanged run generated zero. 544 unit tests, lint/typecheck, export privacy/image checks and metadata browser check pass. This is an intermediate measurement, not the final result.
+## Implementation and verification
 
-P3 checkpoint: Next trace 56.920672 seconds, 644 entries. Fresh isolated Turbopack dev ready 3.679s, homepage first request 15.898s and first problem 11.329s (baseline webpack both timed out at 45s). Progress initial referenced JS 663,000 bytes / 208,697 gzip versus 1,141,401 / 246,275. Static JS and strict TypeScript workers both accepted real cases in Chromium; Path gates, archive export and settings passed. 544 unit tests, lint/typecheck and production export passed. esbuild is build-time only; no runtime dependency added. Cache measurements include historical webpack files until final cleanup/report.
+- Active Learn/locale routes, UI, content, validators and docs removed; static-host redirects and local preview equivalents preserve old links. Archived personal records, settings and v1?v6 backup imports remain compatible.
+- 500 individual problem OG images plus a dedicated homepage image are static PNGs. Content-hashed files and stable aliases preserve SEO/link compatibility. Cached source inputs skip the generator entirely; changed entries alone render. Built OG/Twitter images and page canonicals use `https://iwons.vercel.app` by default, never an automatic preview origin. PNG file URLs naturally end in `.png`; page canonicals, sitemap and redirects retain trailing slashes.
+- Turbopack works for development and static production export on installed Next 16.4.1. Independent static workers avoid Turbopack emitting raw worker TypeScript. esbuild is a development-only dependency; no runtime dependency, backend or database was added. CI caches `.next/cache`; Vercel retains the standard Next output/cache path, but no remote build/cache result is claimed.
+- Editor activation is explicit; runners, Pyodide, strict TypeScript and Visualizer work load on demand. The initial problem view makes no Monaco/runtime requests. Existing next/font families, weights, Latin preload subsets and swap behavior are retained. Unused offline font downloads were removed and offline installation no longer competes immediately with initial route resources.
+- One server Footer is instantiated in the root layout. The 100dvh flex structure, existing spacing scale, mobile safe-area/bar reserve and natural problem/output flow keep it reachable. No token colors, fonts or layout tokens changed. Snowi is credited on About using the portfolio link only. The later user instruction removes the shared footer credit.
+- **Production build/export/privacy/image checks, ESLint, typecheck, 547 unit tests and all 45 Playwright tests pass.** Next 16 removed `next lint`; `npm run lint` invokes ESLint directly. The baseline 600 tests included the removed Learn suite; active compatibility tests remain, with three new Warm-up behavior tests.
+- Browser checks cover Path gates, real JS/TS/Python execution, timeout/error handling, drafts, notes, backups, Watch, contests, first-solve XP/achievement, Warm-up ratings, Visualizer stepping, Tik, themes, metadata and cache headers. **Live Java execution is not verified:** no endpoint is configured. Its honest unavailable-state guard passes; no execution is simulated.
+- All eight main route views at 360/390/768/1024/1440 in both themes pass (80 observations). An additional mobile editor/output/footer check passes. Standalone audit records zero console/page errors, horizontal overflows, missing footers or overlaps. Geometry checks wait for fonts and allow one-pixel browser rounding; they explicitly compare main/footer/mobile-bar edges.
 
-P4 audit: Next analyzer saved 1,720 module records and 26 route patterns in artifacts/performance/bundle-graph.jsonl; no catalog/curriculum JSON modules. Problem editor and runner are async groups; search index is async. Seven mobile Lighthouse runs all scored accessibility/best practices 100. Path/level/settings LCP 2.43/2.42/2.43s; home/unit/problem/progress 2.89/3.07/3.38/3.51s. TBT 140?440ms. Progress/Settings SEO 63 is expected from intentional noindex personal pages. These intermediate results precede stamp-grid/offline-install refinements; P6 repeats them. Targets are goals, not field-performance guarantees. Runtime privacy/deferred-assets checks and worker error/timeout/TS/draft regression pass; unit suite remains 544.
+Bottom artifacts: `artifacts/bottom-layout/{before,after}.json` and corresponding `before-home.png`, `after-home.png`, `before-about.png`, `after-about.png`, `before-problem.png`, `after-problem.png`. Before, 70 of 80 observations lacked a footer; after, every observation has one. Build/test logs are `artifacts/final-{build,lint,typecheck,unit,browser}.log`. Artifacts are local and ignored by Git.
+
+## Restore the archived implementation
+
+Inspect or recover the complete historical implementation in a separate working tree:
+
+```sh
+git worktree add ../iwons-learn-archive archive/learn-v1
+```
+
+The earlier **IWONS: FOUNDATIONS + LEARNING SCIENCE ENGINE** prompt is preserved in the original attachment at `C:/Users/joshu/.codex/attachments/8986d257-03d8-4633-b0ea-a07df4ee1903/Pasted text.txt`; it is historical context, superseded by this removal brief. The archive includes the unfinished second module, routes, content, validators, tests and old documentation. Before integrating any course code again, apply the English-only page-count budget and preserve this performance pipeline, production metadata and storage compatibility. Do not restore retired locale routes or the old preview-domain fallback. No active course/translation expansion is planned by this task.
+
+## Navigation follow-up: 2026-10-17
+
+The user reported that page transitions still felt slow and explicitly removed the footer creator credit. Shared sidebar/mobile/header links and landing shortcuts had `prefetch={false}`. They now use Next's scheduled production prefetching. The Path map receives only its displayed fields, excluding primer/example strings. Problem-list topics, combined cards and bookmarks remain memoized while typing or changing unrelated UI state. The footer credit and its unused styles are removed; About retains the creator credit.
+
+A repeatable four-route production preview comparison uses Chromium, 150 ms network latency, 200,000 bytes/s download, 4x CPU throttling, service workers blocked and a three-second reading interval before each click. Timing includes Playwright click, URL transition and visible main heading. Final after measurement ran after build and all tests had exited. These are single local lab observations, not field percentiles or a zero-latency guarantee.
+
+| Route | Before | After |
+| --- | ---: | ---: |
+| `/path/` | 1123 ms | 545 ms |
+| `/problems/` | 1069 ms | 638 ms |
+| `/progress/` | 930 ms | 552 ms |
+| `/settings/` | 868 ms | 787 ms |
+
+Mean measured transition fell from 997.5 ms to 630.5 ms (36.8%). Raw results: `artifacts/performance/navigation-{before,after}.json`; rerun with `PHASE=after node scripts/measure-navigation.mjs` against preview port 4174 (PowerShell: `$env:PHASE="after"`). Production prefetch does not run in `next dev`; use the completed export with `npm start` to evaluate production speed. Development still compiles routes on demand.
+
+`npm run build`, typecheck, ESLint, 547 unit tests and all 45 browser tests pass. New navigation coverage verifies destination RSC requests happen before a click, shared-window state survives navigation without a document reload, no editor/runtime assets load, and the footer contains no Snowi credit. Logs: `artifacts/navigation-{build,unit,browser}.log`.

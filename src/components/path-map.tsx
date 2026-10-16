@@ -5,7 +5,7 @@ import type { PathLevel } from "@/lib/types";
 import { useStore } from "@/store/use-store";
 import { isLevelUnlocked, levelProgress } from "@/lib/path";
 import { ProgressBar, useToast } from "./ui";
-export function PathMap({ levels }: { levels: PathLevel[] }) {
+export function PathMap({ levels }: { levels: Omit<PathLevel, "primer" | "example">[] }) {
   const store = useStore(),
     toast = useToast();
   return (
