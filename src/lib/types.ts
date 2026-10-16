@@ -6,7 +6,6 @@ export type Verdict =
   | "time_limit"
   | "compile_error";
 export type Difficulty = "easy" | "medium" | "hard";
-export type { Course, Module, Lesson } from "./foundations/types";
 export interface TestCase {
   id: string;
   input: unknown[];
@@ -16,7 +15,7 @@ export interface TestCase {
 }
 export interface Problem {
   track?: "path" | "foundations" | "dsa";
-  kind?: import("./foundations/types").ExerciseKind;
+  kind?: "predict"|"fix"|"fill"|"code"|"program"|"project"|"build"|"parsons"|"trace";
   ioMode?: "function" | "program";
   javaMinVersion?: number;
   concepts?: string[];
@@ -144,15 +143,15 @@ export interface StudyList {
   problemIds: string[];
 }
 export interface Settings {
-  codeTrack: import("./foundations/model-v2").Track;
-  lessonLanguage: import("./foundations/types").LessonLanguage;
+  codeTrack?: Language;
+  lessonLanguage?: string;
   theme: "dark" | "light";
   language: Language;
   fontSize: number;
   tabSize: number;
   javaBackend: "remote" | "cheerpj";
   judgeUrl: string;
-  taglish: boolean;
+  taglish?: boolean;
   countdownMinutes: number;
   autoSubmit: boolean;
   readableText: boolean;

@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { LearningProgress } from "./learning-progress";
 import Link from "next/link";
 import {
   Download,
@@ -203,7 +202,6 @@ export function ProgressPage() {
         ))}
       </div>
       <div className="dash-grid">
-        <LearningProgress />
         <section className="card fullspan">
           <div className="card-heading">
             <h2>Practice, one square at a time</h2>

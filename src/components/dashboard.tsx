@@ -288,9 +288,7 @@ export function Dashboard() {
           ) : (
             <Empty
               title={
-                store.settings.taglish
-                  ? "Wala pang solved. Simulan na!"
-                  : "A blank page is a good beginning."
+                "A blank page is a good beginning."
               }
               description="Your runs become a story of progress. Submit a solution to start yours."
               action={

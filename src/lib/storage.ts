@@ -2,14 +2,14 @@ import { validateProblem } from "./validate-problem";
 import { migrateV1Data } from "./migrations/v2";
 import { migrateV2Data } from "./migrations/v3";
 import { migrateV3Data } from "./migrations/v4";
-import { validateFoundationsProgress } from "./foundations/validate-progress";
-import { isLessonLanguage } from "./foundations/translations";
-import { emptyLearnProgress, isTrack } from "./foundations/model-v2";
-import { validateLearnProgress } from "./foundations/validate-progress-v2";
+import { validateFoundationsProgress } from "./legacy-learning";
+import { isStoredLanguagePreference } from "./legacy-learning";
+import { emptyLearnProgress, isTrack } from "./legacy-learning";
+import { validateLearnProgress } from "./legacy-learning";
 import { migrateV4Data } from "./migrations/v5";
 import type { LegacyArchive } from "./types";
 import { migrateV5Data } from "./migrations/v6";
-import { validateLearningState } from "./foundations/learning-state";
+import { validateLearningState } from "./legacy-learning";
 const PREFIX = "iwons:v6:",
   TRACK_PREFIX = "iwons:v5:",
   FOUNDATIONS_PREFIX = "iwons:v4:",
@@ -30,7 +30,7 @@ function validateImport(data: Record<string, unknown>) {
     else validateFoundationsProgress(data.foundations);
   }
   if (record(data.settings) && data.settings.codeTrack !== undefined && !isTrack(data.settings.codeTrack)) throw new Error("Invalid code track in backup.");
-  if (record(data.settings) && data.settings.lessonLanguage !== undefined && !isLessonLanguage(data.settings.lessonLanguage)) throw new Error("Invalid lesson language in backup.");
+  if (record(data.settings) && data.settings.lessonLanguage !== undefined && !isStoredLanguagePreference(data.settings.lessonLanguage)) throw new Error("Invalid lesson language in backup.");
   const p = data.profile;
   if (
     p !== undefined &&

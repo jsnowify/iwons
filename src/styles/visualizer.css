@@ -1,0 +1,11 @@
+.visualizer-stage { border: 2px solid var(--ink); padding: clamp(16px,3vw,28px); background: var(--surface); margin-block: 32px; }
+.visualizer-stage:focus-visible { outline: 3px dashed var(--accent); outline-offset: 4px; }
+.visual-cells { display: grid; grid-template-columns: repeat(auto-fit,minmax(70px,1fr)); gap: 8px; }
+.visual-cell { display: flex; flex-direction: column; justify-content: center; text-align: center; min-height: 76px; padding: 8px; border: 2px solid var(--ink); box-shadow: 2px 2px 0 var(--shadow-ink); }
+.visual-cell small { font-size: 12px; overflow-wrap: anywhere; }
+.visual-cell[data-visited=true] { border-style: dashed; }
+.visual-cell[data-highlighted=true] { background: var(--accent-2); color: var(--on-accent); border-style: double; border-width: 4px; }
+.visual-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; }
+.visualizer-stage pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+
+.interaction-option {display:flex;align-items:center;gap:8px;min-height:44px;}

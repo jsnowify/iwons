@@ -1,7 +1,24 @@
 {
   "redirects": [
-    { "source": "/learn/:track/cp1/:rest*", "destination": "/learn/:track/computer-programming-1/:rest*", "permanent": true },
-    { "source": "/learn/:track/cp2/:rest*", "destination": "/learn/:track/computer-programming-2/:rest*", "permanent": true },
-    { "source": "/learn/:track/dsa/:rest*", "destination": "/learn/:track/data-structures-and-algorithms/:rest*", "permanent": true }
+    {
+      "source": "/learn/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(tl|ceb)/:section(path|problems|dashboard|submissions|progress|review|lists|plans|contest|settings|about|visualizer|warm-up|topics)/:path*",
+      "destination": "/:section/:path*/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/ceb/:path*",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }

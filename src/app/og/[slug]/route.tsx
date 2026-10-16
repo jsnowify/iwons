@@ -2,21 +2,19 @@ import { ImageResponse } from "next/og";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { getProblems } from "@/lib/problems";
-import { getLearnExercises } from "@/lib/foundations/lesson-content";
 import { palette as c } from "@/lib/design-tokens";
 const font = readFileSync(join(process.cwd(), "assets/fonts/CourierPrime-Bold.ttf"));
 export const dynamic = "force-static";
 export const dynamicParams = false;
 export function generateStaticParams() {
-  return [...getProblems(),...getLearnExercises().map(entry=>({slug:entry.exercise.slug!}))].map((p) => ({ slug: p.slug }));
+  return getProblems().map((p) => ({ slug: p.slug }));
 }
 export async function GET(
   _request: Request,
   { params }: { params: Promise<{ slug: string }> },
 ) {
   const { slug } = await params;
-  const learned=getLearnExercises().find(entry=>entry.exercise.slug===slug);
-  const p = getProblems().find((p) => p.slug === slug)??(learned?{title:learned.exercise.shared.translations.en.title,level:0,difficulty:"easy",topics:[learned.course.title]}:undefined);
+  const p = getProblems().find((p) => p.slug === slug);
   if (!p) return new Response("Not found", { status: 404 });
   return new ImageResponse(
     (
@@ -62,7 +60,7 @@ export async function GET(
                 background: c["accent-2"],
               }}
             >
-              {learned?learned.course.title:`LEVEL 0${p.level} / ${p.difficulty.toUpperCase()}`}
+              {`LEVEL 0${p.level} / ${p.difficulty.toUpperCase()}`}
             </div>
           </div>
           <div

@@ -4,15 +4,13 @@ import { persist, type PersistStorage } from "zustand/middleware";
 import { retainSubmissions } from "@/lib/retain-submissions";
 import {
   emptyLearningState,
-  validateLearningState,
   type LearningState,
-} from "@/lib/foundations/learning-state";
+} from "@/lib/legacy-learning";
 import { storage, DATA_KEYS } from "@/lib/storage";
 import {
   emptyLearnProgress,
   type LearnProgress,
-} from "@/lib/foundations/model-v2";
-import { validateLearnProgress } from "@/lib/foundations/validate-progress-v2";
+} from "@/lib/legacy-learning";
 import type {
   Profile,
   Settings,
@@ -24,8 +22,6 @@ import type {
   LegacyArchive,
 } from "@/lib/types";
 export const DEFAULT_SETTINGS: Settings = {
-  codeTrack: "java",
-  lessonLanguage: "en",
   theme: "light",
   readableText: false,
   motion: true,
@@ -36,7 +32,6 @@ export const DEFAULT_SETTINGS: Settings = {
   tabSize: 2,
   javaBackend: "remote",
   judgeUrl: "",
-  taglish: false,
   countdownMinutes: 0,
   autoSubmit: false,
 };
@@ -57,8 +52,6 @@ interface Data {
   plans: Record<string, number>;
 }
 interface Store extends Data {
-  setLearning: (learning: LearningState) => void;
-  setFoundationsProgress: (progress: LearnProgress) => void;
   hydrated: boolean;
   hydrate: () => void;
   updateProfile: (p: Partial<Profile>) => void;
@@ -115,14 +108,6 @@ export const useStore = create<Store>()(
   persist(
     (set, get) => ({
       ...defaults,
-      setLearning: (learning) => {
-        validateLearningState(learning);
-        set({ learning });
-      },
-      setFoundationsProgress: (foundations) => {
-        validateLearnProgress(foundations);
-        set({ foundations });
-      },
       hydrated: false,
       hydrate: () => {
         if (storage.migrate()) set({ hydrated: true });

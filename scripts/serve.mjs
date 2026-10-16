@@ -1,3 +1,4 @@
+import { legacyRedirect } from "./legacy-redirects.mjs";
 import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
@@ -27,12 +28,8 @@ http
       res.writeHead(400).end("Invalid URL");
       return;
     }
-    const legacy = pathname.match(/^\/learn\/(java|javascript|typescript|python)\/(cp1|cp2|dsa)(\/.*)?$/);
-    if (legacy) {
-      const slugs = { cp1: "computer-programming-1", cp2: "computer-programming-2", dsa: "data-structures-and-algorithms" };
-      res.writeHead(308, { Location: `/learn/${legacy[1]}/${slugs[legacy[2]]}${legacy[3] || "/"}` }).end();
-      return;
-    }
+    const target=legacyRedirect(pathname);
+    if(target){res.writeHead(308,{Location:target}).end();return;}
     let file = path.resolve(root, "." + pathname);
     if (!file.startsWith(root + path.sep) && file !== root) {
       res.writeHead(403).end();

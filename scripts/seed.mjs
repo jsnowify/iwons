@@ -3,13 +3,6 @@ import path from "node:path";
 import { authorUnit } from "./curriculum/author-unit.mjs";
 import { units, levels } from "./curriculum/units.mjs";
 import { validateUnit } from "./validate-problems.ts";
-if (process.argv.includes("--author-variables-module")) await import("./author-variables-module.mjs");
-if (process.argv.includes("--author-first-module")) await import("./author-first-module.mjs");
-if (process.argv.includes("--learn-only")) {
-  await import("./seed-learn.mjs");
-  await import("./seed-learning-demo.mjs");
-  process.exit(0);
-}
 const manifest=JSON.parse(fs.readFileSync("src/data/curriculum.json","utf8"));
 // Preserve URL aliases, not retired statements or reference code.
 const prior=JSON.parse(fs.readFileSync("src/data/catalog.json","utf8"));
@@ -51,6 +44,3 @@ await import("./verify-curriculum.mjs");
 console.log(`Published local catalog: ${publicCatalog.length} original problems, ${units.length} validated units.`);
 
 // Learn maps are structure-only until runtime and content gates pass.
-await import("./seed-learn.mjs");
-
-await import("./seed-learning-demo.mjs");

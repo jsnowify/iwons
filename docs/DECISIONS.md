@@ -14,3 +14,7 @@ The 2026-10-16 removal brief replaces earlier course and translation plans. Hist
 | 2026-10-16 | Reapply export postprocessing before browser baseline | Inspected output contained cleanup worker and dev output; postprocessing fixes production worker/404 behavior | Preserve equivalent postprocessing in revised pipeline |
 
 No color, font or layout token changes. No new runtime dependencies. English UI only; unused legacy stored language preferences remain compatible.
+
+| 2026-10-16 | Remove active courses and locale UI, retain compatibility-only v4-v6 schemas | Preserve backup import/export and original namespaces without shipping course content | Restore from archive/learn-v1 |
+| 2026-10-16 | Move Warm-up to existing Path SRS and Visualizer to an on-demand standalone tool | Keep reusable engagement after course removal | Restore archived wrappers |
+| 2026-10-16 | Remove one obsolete generated dev route type before rebuilding | Deleted source left stale Next-generated imports; fresh build regenerates current route types | Regenerate with Next |

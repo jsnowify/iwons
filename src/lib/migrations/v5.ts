@@ -1,5 +1,5 @@
-import { emptyLearnProgress, isTrack } from "../foundations/model-v2";
-import { validateFoundationsProgress } from "../foundations/validate-progress";
+import { emptyLearnProgress, isTrack } from "../legacy-learning";
+import { validateFoundationsProgress } from "../legacy-learning";
 export function migrateV4Data(data:Record<string,unknown>):Record<string,unknown> {
   const foundations = emptyLearnProgress();
   if (data.foundations !== undefined) {

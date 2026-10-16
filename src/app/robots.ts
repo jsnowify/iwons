@@ -18,9 +18,8 @@ export default function robots(): MetadataRoute.Robots {
         "/problems/custom/",
         "/design/",
         "/problem-data/",
-        "/learn-data/",
-        "/learn/warm-up/",
-        "/learn/session/",
+
+
         "/dev/",
       ],
     },

@@ -1,8 +1,8 @@
 import { beforeEach, expect, it, vi } from "vitest";
 import { storage } from "@/lib/storage";
-import { emptyLearnProgress } from "@/lib/foundations/model-v2";
-import { emptyFoundationsProgress } from "@/lib/foundations/types";
-import { emptyLearningState } from "@/lib/foundations/learning-state";
+import { emptyLearnProgress } from "@/lib/legacy-learning";
+import { emptyFoundationsProgress } from "@/lib/legacy-learning";
+import { emptyLearningState } from "@/lib/legacy-learning";
 class MemoryStorage {
   [key: string]: unknown;
   getItem(key: string) { return Object.hasOwn(this, key) ? String(this[key]) : null; }
@@ -60,7 +60,7 @@ it("rejects malformed Foundations backups before changing active data", () => {
     expect(() => storage.import(JSON.stringify({ app: "Iwons", schemaVersion: 4, data: { foundations } }))).toThrow();
   }
   expect(JSON.parse(storage.export()).data).toEqual(JSON.parse(before).data);
-  expect(() => storage.import(JSON.stringify({ app: "Iwons", schemaVersion: 4, data: { settings: { ...pathWork.settings, lessonLanguage: "unknown" } } }))).toThrow("lesson language");
+  expect(() => storage.import(JSON.stringify({ app: "Iwons", schemaVersion: 4, data: { settings: { ...pathWork.settings, lessonLanguage: 42 } } }))).toThrow("lesson language");
 });
 it("copies actual v4 lesson progress into Java without deleting the old edition",()=>{
  const foundations={lessonsRead:{"cp1-m1-l1":true},exercisesSolved:{"cp1-e1":true},checkpointScores:{"cp1-m1":{correct:4,total:5,at:100}}};

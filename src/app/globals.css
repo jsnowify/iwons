@@ -5,35 +5,4 @@
 @import "../styles/refinements.css";
 @import "../styles/scrollbars.css";
 @import "../styles/navigation-polish.css";
-@import "../styles/learning-engine.css";
-/* Learn uses the existing manual, folder and station vocabulary. */
-.learn-page { max-width: 1120px; margin-inline: auto; padding: clamp(20px, 4vw, 56px); }
-.learn-heading { padding-block: 24px; border-bottom: 2px solid var(--ink); }
-.learn-heading h1 { font-size: clamp(30px, 4vw, 54px); line-height: 1.15; }
-.learn-heading p { max-width: 68ch; }
-.learn-tracks { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 24px; border-bottom: 2px solid var(--ink); }
-.learn-tracks a { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 16px; border: 2px solid var(--ink); border-bottom: 0; border-radius: 8px 8px 0 0; background: var(--surface); color: var(--ink); }
-.learn-tracks a[aria-current=page] { background: var(--accent-2); color: var(--on-accent); }
-.learn-tracks a:focus-visible, .learn-page a:focus-visible, .learn-page button:focus-visible { outline: 3px dashed var(--accent); outline-offset: 4px; }
-.learn-courses { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,260px),1fr)); gap: 24px; margin-top: 32px; }
-.learn-course { padding: 24px; border: 2px solid var(--ink); border-top: 8px solid var(--ink); background: var(--surface); box-shadow: var(--shadow); }
-.learn-file-label { display: inline-block; border: 2px solid var(--ink); padding: 4px 12px; font-weight: bold; }
-.learn-course h2 { font-size: 28px; margin-top: 20px; }
-.learn-course p, .learn-baseline, .learn-progress { font-size: 16px; line-height: 1.6; }
-.learn-map, .learn-lessons { list-style: none; padding: 0; }
-.learn-map > li { display: flex; align-items: center; gap: 20px; padding: 24px 0; border-bottom: 2px solid var(--ink); }
-.learn-map h2 { font-size: 24px; margin: 0; }
-.learn-station { flex: 0 0 44px; display: grid; place-items: center; height: 44px; border: 2px solid var(--ink); border-radius: var(--radius-sm); box-shadow: 3px 3px 0 var(--shadow-ink); }
-.learn-stamp { display: inline-block; padding: 4px 8px; border: 2px dashed var(--muted); font-size: 14px; color: var(--ink); margin-left: auto; white-space: nowrap; }
-.learn-lessons li { display: flex; align-items: center; gap: 16px; padding: 20px 0; border-bottom: 1px dashed var(--muted); }
-.learn-visualizer { border: 2px solid var(--ink); padding: clamp(16px,3vw,28px); background: var(--surface); margin-block: 32px; }
-.learn-visualizer:focus-visible { outline: 3px dashed var(--accent); outline-offset: 4px; }
-.visual-cells { display: grid; grid-template-columns: repeat(auto-fit,minmax(70px,1fr)); gap: 8px; }
-.visual-cell { display: flex; flex-direction: column; justify-content: center; text-align: center; min-height: 76px; padding: 8px; border: 2px solid var(--ink); box-shadow: 2px 2px 0 var(--shadow-ink); }
-.visual-cell small { font-size: 12px; overflow-wrap: anywhere; }
-.visual-cell[data-visited=true] { border-style: dashed; }
-.visual-cell[data-highlighted=true] { background: var(--accent-2); color: var(--on-accent); border-style: double; border-width: 4px; }
-.visual-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; }
-.learn-visualizer pre,.learn-runtime-result pre { white-space: pre-wrap; overflow-wrap: anywhere; }
-.learn-page textarea { width: 100%; font-family: var(--font-jetbrains),monospace; }
-@media(max-width:600px) { .learn-map > li { flex-wrap: wrap; gap: 12px; } .learn-map > li > div { flex: 1; min-width: 160px; } .learn-map .learn-stamp { margin-left: 56px; } .learn-tracks a { padding-inline: 12px; } }
+@import "../styles/visualizer.css";

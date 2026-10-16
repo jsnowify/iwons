@@ -64,11 +64,11 @@ export function Landing() {
           <i>✳</i>100% YOUR PACE
         </span>
       </div>
-      <section className="learn-entry-keys" aria-labelledby="starting-point-heading">
+      <section className="path-entry-keys" aria-labelledby="starting-point-heading">
         <h2 id="starting-point-heading">Choose your starting point.</h2>
         <nav aria-label="Choose your starting point">
-          <Link prefetch={false} href="/learn/java/computer-programming-1/"><span>New to coding?</span><strong>Start Computer Programming 1 <ArrowUpRight size={18} aria-hidden="true"/></strong><small>Programming fundamentals</small></Link>
-          <Link prefetch={false} href="/learn/java/data-structures-and-algorithms/"><span>Know the basics?</span><strong>Start Data Structures and Algorithms <ArrowUpRight size={18} aria-hidden="true"/></strong><small>Algorithms and data structures</small></Link>
+          <Link prefetch={false} href="/path/0/"><span>New to coding?</span><strong>Start Level 0 <ArrowUpRight size={18} aria-hidden="true"/></strong><small>Build your first useful patterns</small></Link>
+          <Link prefetch={false} href="/visualizer/"><span>See the idea move.</span><strong>Open the Visualizer <ArrowUpRight size={18} aria-hidden="true"/></strong><small>Trace one step at a time</small></Link>
           <Link prefetch={false} href="/path/"><span>Ready to practice?</span><strong>Jump to the Path <ArrowUpRight size={18} aria-hidden="true"/></strong><small>500 original coding challenges</small></Link>
         </nav>
       </section>

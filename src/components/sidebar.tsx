@@ -1,17 +1,17 @@
 "use client";
 import Link from "next/link";
-import { courseNames, courseSlugs, type LearnCourseId } from "@/lib/foundations/model-v2";
 import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { BookOpen, LayoutDashboard, Route, Code2, FileClock, ChartNoAxesCombined, RotateCcw, Layers, CalendarDays, Trophy, Settings, PanelLeftClose, PanelLeftOpen, LockKeyhole, type LucideIcon } from "lucide-react";
+import { BookOpen, Workflow, LayoutDashboard, Route, Code2, FileClock, ChartNoAxesCombined, RotateCcw, Layers, CalendarDays, Trophy, Settings, PanelLeftClose, PanelLeftOpen, LockKeyhole, type LucideIcon } from "lucide-react";
 
 export const navigation = [
   { href: "/dashboard/", label: "Your desk", icon: LayoutDashboard },
-  { href: "/learn/", label: "Learn", icon: BookOpen },
   { href: "/path/", label: "The Path", icon: Route },
   { href: "/problems/", label: "Problems", icon: Code2 },
   { href: "/submissions/", label: "Submissions", icon: FileClock },
   { href: "/progress/", label: "Progress", icon: ChartNoAxesCombined },
+  { href: "/warm-up/", label: "Daily Warm-up", icon: BookOpen },
+  { href: "/visualizer/", label: "Visualizer", icon: Workflow },
   { href: "/review/", label: "Review queue", icon: RotateCcw },
   { href: "/lists/", label: "My lists", icon: Layers },
   { href: "/plans/", label: "Study plans", icon: CalendarDays },
@@ -65,8 +65,8 @@ export function SidebarToggle({ collapsed, onCollapse, controls, state }: { coll
     <span id={tooltipId} role="tooltip" className="sidebar-tab-note">{label}</span>
   </div>;
 }
-export function Sidebar({ current, currentPath = "", learnTrack = "java", due, count, collapsed, onCollapse, profile, xp, level, specimen = false, specimenLabel = "Sidebar specimen", toggleState }: {
-  current: string; currentPath?: string; learnTrack?: import("@/lib/foundations/model-v2").Track; due: number; count: number; collapsed: boolean; onCollapse?: () => void; profile: { name: string; avatar: string }; xp: number; level: number; specimen?: boolean; specimenLabel?: string; toggleState?: "hover" | "focus" | "pressed";
+export function Sidebar({ current, due, count, collapsed, onCollapse, profile, xp, level, specimen = false, specimenLabel = "Sidebar specimen", toggleState }: {
+  current: string; due: number; count: number; collapsed: boolean; onCollapse?: () => void; profile: { name: string; avatar: string }; xp: number; level: number; specimen?: boolean; specimenLabel?: string; toggleState?: "hover" | "focus" | "pressed";
 }) {
   const navigationId = useId();
   return <aside className={`sidebar ${specimen ? "sidebar-specimen" : ""}`} data-collapsed={collapsed} aria-label={specimen ? specimenLabel : "Workspace"}>
@@ -74,7 +74,7 @@ export function Sidebar({ current, currentPath = "", learnTrack = "java", due, c
     <SidebarToggle collapsed={collapsed} onCollapse={onCollapse} controls={navigationId} state={toggleState} />
     <div className="sidebar-scroll" id={navigationId}>
       <div className="sidebar-caption">Workspace</div>
-      <nav aria-label={specimen ? `${specimenLabel} navigation` : "Main navigation"}>{navigation.map((item) => <div key={item.href}>{item.href === "/progress/" ? <div className="sidebar-caption">Keep growing</div> : null}<NavigationItem {...item} collapsed={collapsed} active={current === item.label} count={item.href === "/review/" ? due : item.href === "/problems/" ? count : undefined} />{item.href === "/learn/" && current === "Learn" && !collapsed ? <ul className="learn-nav-courses" aria-label="Learn courses">{(["cp1","cp2","dsa"] as LearnCourseId[]).map(course=><li key={course}><Link prefetch={false} href={`/learn/${learnTrack}/${courseSlugs[course]}/`} aria-label={courseNames[course]} aria-current={currentPath.split("/")[3]===courseSlugs[course] ? "location" : undefined}>{courseNames[course]}</Link></li>)}</ul> : null}</div>)}
+      <nav aria-label={specimen ? `${specimenLabel} navigation` : "Main navigation"}>{navigation.map((item) => <div key={item.href}>{item.href === "/progress/" ? <div className="sidebar-caption">Keep growing</div> : null}<NavigationItem {...item} collapsed={collapsed} active={current === item.label} count={item.href === "/review/" ? due : item.href === "/problems/" ? count : undefined} /></div>)}
       {specimen ? <NavigationItem href="/path/8/" label="Master Printer" icon={LockKeyhole} locked collapsed={collapsed} /> : null}</nav>
       <div className="sidebar-bottom">
         <div className="local-note">Your progress stays on this device. Export a backup in Settings.</div>

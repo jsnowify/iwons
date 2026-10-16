@@ -7,9 +7,9 @@ fs.mkdirSync('artifacts/ui-polish',{recursive:true});
 try{
  for(const theme of ['light','dark'])for(const width of [360,768,1280,1920]){
   const context=await browser.newContext({viewport:{width,height:960},reducedMotion:'reduce'});const page=await context.newPage();const errors=[];page.on('pageerror',error=>errors.push(error.message));
-  for(const [name,path]of [['landing','/'],['problems','/problems/'],['learn','/learn/typescript/computer-programming-1/']]){
+  for(const [name,path]of [['landing','/'],['problems','/problems/'],['visualizer','/visualizer/']]){
    await page.goto('http://127.0.0.1:4174'+path);await page.locator('main h1').first().waitFor();const toggle=page.getByRole('button',{name:`Switch to ${theme} theme`,exact:true});if(await toggle.count())await toggle.click();await page.waitForFunction(value=>document.documentElement.dataset.theme===value,theme);
-   if(name==='landing')await page.locator('.learn-entry-keys').scrollIntoViewIfNeeded();
+   if(name==='landing')await page.locator('.path-entry-keys').scrollIntoViewIfNeeded();
    await page.addScriptTag({path:axe});
    const result=await page.evaluate(async()=>({overflow:document.documentElement.scrollWidth>innerWidth,violations:(await window.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa']}})).violations.map(item=>({id:item.id,nodes:item.nodes.map(node=>node.target)}))}));
    await page.screenshot({path:`artifacts/ui-polish/${name}-${theme}-${width}.png`});report.push({name,theme,width,...result,errors:[...errors]});

@@ -18,30 +18,19 @@
 :root select:focus-visible { outline: 3px dashed var(--accent); outline-offset: 4px; }
 :root select option { color: var(--ink); background: var(--surface); }
 .workspace-toolbar select { min-height: 44px; padding-right: 40px; }
-.learn-language { width: min(100%, 260px); margin-block: 24px; }
-.learn-language label { display: grid; gap: 8px; }
-.learn-language select { width: 100%; }
-.learn-language:has(p) { width: 100%; }
-.learn-language:has(p) select { max-width: 260px; }
 
-.learn-nav-courses { list-style: none; display: grid; gap: 2px; margin: 4px 12px 12px 26px; padding: 0 0 0 16px; border-left: 2px solid var(--ink); }
-.learn-nav-courses a { display: block; overflow-wrap: anywhere; min-height: 44px; padding: 10px 8px; border: 2px solid transparent; border-radius: var(--radius-sm); font-size: 12px; line-height: 1.3; }
-.learn-nav-courses a > span { font-size: 11px; font-weight: 700; min-width: 32px; }
-.learn-nav-courses a:hover { background: var(--elevated); border-color: var(--ink); }
-.learn-nav-courses a[aria-current] { background: var(--accent-2); color: var(--on-accent); border-color: var(--key-border); }
-.learn-nav-courses a:focus-visible { outline: 3px dashed var(--accent); outline-offset: 2px; }
 
-.learn-entry-keys { padding-block: 28px 36px; border-bottom: 2px solid var(--ink); }
-.learn-entry-keys h2 { font-size: 24px; margin-bottom: 20px; }
-.learn-entry-keys nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 2px solid var(--ink); background: var(--surface); box-shadow: 4px 4px 0 var(--shadow-ink); }
-.learn-entry-keys nav a { display: grid; align-content: start; gap: 10px; padding: 24px; min-width: 0; }
-.learn-entry-keys nav a + a { border-left: 2px solid var(--ink); }
-.learn-entry-keys nav a > span { color: var(--muted); font-size: 13px; }
-.learn-entry-keys nav strong { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 17px; }
-.learn-entry-keys nav strong svg { flex-shrink: 0; }
-.learn-entry-keys nav small { font-size: 12px; }
-.learn-entry-keys nav a:hover { background: var(--accent-soft); }
-.learn-entry-keys nav a:focus-visible { outline: 3px dashed var(--accent); outline-offset: -7px; }
+.path-entry-keys { padding-block: 28px 36px; border-bottom: 2px solid var(--ink); }
+.path-entry-keys h2 { font-size: 24px; margin-bottom: 20px; }
+.path-entry-keys nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 2px solid var(--ink); background: var(--surface); box-shadow: 4px 4px 0 var(--shadow-ink); }
+.path-entry-keys nav a { display: grid; align-content: start; gap: 10px; padding: 24px; min-width: 0; }
+.path-entry-keys nav a + a { border-left: 2px solid var(--ink); }
+.path-entry-keys nav a > span { color: var(--muted); font-size: 13px; }
+.path-entry-keys nav strong { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 17px; }
+.path-entry-keys nav strong svg { flex-shrink: 0; }
+.path-entry-keys nav small { font-size: 12px; }
+.path-entry-keys nav a:hover { background: var(--accent-soft); }
+.path-entry-keys nav a:focus-visible { outline: 3px dashed var(--accent); outline-offset: -7px; }
 
 .filterbar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-areas: "search search search sort" "level difficulty topic status"; gap: 16px; align-items: end; }
 .filterbar .search-field { grid-area: search; min-width: 0; width: auto; min-height: 48px; }
@@ -69,9 +58,9 @@
   .filter-toggle small { margin-left: auto; font-size: 11px; }
   .filter-toggle > svg:last-child { margin-left: auto; }
   .filterbar[data-open="true"] .filter-toggle > svg:last-child { transform: rotate(180deg); }
-  .learn-entry-keys nav { grid-template-columns: minmax(0, 1fr); }
-  .learn-entry-keys nav a { padding: 20px; }
-  .learn-entry-keys nav a + a { border-left: 0; border-top: 2px solid var(--ink); }
+  .path-entry-keys nav { grid-template-columns: minmax(0, 1fr); }
+  .path-entry-keys nav a { padding: 20px; }
+  .path-entry-keys nav a + a { border-left: 0; border-top: 2px solid var(--ink); }
   .shell:not(.landing-shell) .topbar { min-height: 68px; height: 68px; padding: 0 12px; gap: 8px; }
   .shell:not(.landing-shell) .topbar .breadcrumb { display: flex; align-items: center; gap: 4px; min-width: 0; flex: 1; }
   .shell:not(.landing-shell) .topbar .breadcrumb strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; }
@@ -84,7 +73,7 @@
   .shell:not(.landing-shell) .topbar-actions .search-trigger > :is(span, kbd) { display: none; }
   .shell:not(.landing-shell) .topbar-actions :is(.search-trigger, .icon-button):active { transform: translate(2px, 2px); box-shadow: none; }
   .shell:not(.landing-shell) .main-shell { padding-bottom: 0; }
-  .shell:not(.landing-shell) :is(.content, .learn-page) { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
+  .shell:not(.landing-shell) .content { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
   .workspace { height: calc(100dvh - 144px - env(safe-area-inset-bottom)); }
   .mobile-nav { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; height: auto; min-height: 74px; padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); border-top: 2px solid var(--ink); background: var(--surface); }
   .mobile-nav :is(a, button) { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; min-width: 0; min-height: 56px; padding: 5px 0; border: 2px solid transparent; border-radius: var(--radius-sm); background: transparent; color: var(--ink); font: inherit; font-size: 11px; line-height: 1.2; text-align: center; text-decoration: none; cursor: pointer; }
@@ -117,7 +106,3 @@
   :root select { appearance: auto; background-image: none; padding-inline-end: 8px; }
 }
 
-/* Full course names remain legible at mobile widths and browser zoom. */
-.learn-page .btn { white-space: normal; text-align: center; min-height: 44px; max-width: 100%; }
-.learn-course { min-width: 0; }
-.learn-file-label { max-width: 100%; overflow-wrap: anywhere; }
