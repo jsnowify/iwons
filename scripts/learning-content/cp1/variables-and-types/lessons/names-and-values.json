@@ -1,0 +1,944 @@
+{
+  "id": "cp1-m2-l1",
+  "moduleId": "cp1-m2",
+  "course": "cp1",
+  "slug": "names-and-values",
+  "concepts": [
+    "named-values"
+  ],
+  "introducedIn": {
+    "java": {
+      "named-values": "cp1-m2-l1"
+    },
+    "python": {
+      "named-values": "cp1-m2-l1"
+    },
+    "javascript": {
+      "named-values": "cp1-m2-l1"
+    },
+    "typescript": {
+      "named-values": "cp1-m2-l1"
+    }
+  },
+  "interactionTypes": [
+    "guess",
+    "run",
+    "trace",
+    "change",
+    "quiz"
+  ],
+  "opening": "predict",
+  "estimatedMinutes": 7,
+  "shared": {
+    "translations": {
+      "en": {
+        "title": "Names and values",
+        "story": "A desk message is easier to change when it has a name. This program first stores Ready under the identifier message, then prints the value found through that name. Predict the output before running. The identifier is part of the program, while Ready is the text value it refers to. You already used a supplied name for input in the previous module. Here you will create that connection yourself, so the source can say what a value means instead of repeating its text everywhere.",
+        "idea": "A variable is a name that refers to a stored value. The first statement gives message the string Ready. A declaration creates the named variable, and its initializer is the first value supplied there. The output statement puts message inside its parentheses, in the position called its argument: the value it is asked to print. Without quotes, that name supplies its stored text. Writing the quoted string message would instead print those seven letters. A program name is also called an identifier. Its spelling matters: message and Message are different names. Concentrate on the connection between name and value before memorizing punctuation.",
+        "make": "Change the stored string to Waiting while keeping the output statement unchanged. Predict why the new value appears even though the output line still says message. The worked example separates creating the binding from using it. Then complete a program whose declaration already supplies a value. If the program prints the literal name, inspect the quotes around the output argument. If it reports an unknown name, compare the identifier's spelling with its declaration, including capitalization.",
+        "recap": "A name and its value are different parts of a program. An unquoted identifier refers to its current value; a quoted word is text in its own right. A useful name describes the role of its value without changing what that value contains. Cover the declaration and explain where the output statement gets its message. Then retrieve that distinction from memory using the cards. The next lesson asks what kind of value a name holds and why that kind matters to an operation."
+      },
+      "fil": null,
+      "ceb": null
+    },
+    "translationStatus": {
+      "en": "reviewed",
+      "fil": "draft",
+      "ceb": "draft"
+    }
+  },
+  "tracks": {
+    "java": {
+      "code": "public class Main {\n    public static void main(String[] args) {\n        String message = \"Ready\";\n        System.out.println(message);\n    }\n}",
+      "stdin": "",
+      "annotations": {
+        "translations": {
+          "en": {
+            "items": [
+              {
+                "line": 3,
+                "text": "Bind the identifier message to the string Ready."
+              },
+              {
+                "line": 4,
+                "text": "Retrieve the stored value through the unquoted identifier."
+              }
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "notes": {
+        "translations": {
+          "en": {
+            "items": [
+              "The Main class and main method are the supplied startup wrapper. String marks this value as text; message is the chosen name."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "predict": {
+        "translations": {
+          "en": {
+            "prompt": "What prints when the output statement uses message?"
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "trace": {
+        "translations": {
+          "en": {
+            "steps": [
+              {
+                "line": 3,
+                "state": "message: Ready; output: empty",
+                "message": "The binding has been created."
+              },
+              {
+                "line": 4,
+                "state": "message: Ready; output: Ready",
+                "message": "Printing uses the current value."
+              }
+            ],
+            "question": "Immediately after the first statement, is the output still empty? Answer Yes or No."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "modify": {
+        "translations": {
+          "en": {
+            "prompt": "Change only the stored value to Waiting; keep the output statement using message."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "commonMistakes": {
+        "translations": {
+          "en": {
+            "items": [
+              "Quoted message is literal text, while unquoted message retrieves the variable's value."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "breakIt": {
+        "translations": {
+          "en": {
+            "prompt": "Put message in quotes in the output argument. Predict the changed result, check it, then restore the unquoted identifier."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "recallCards": [
+        {
+          "id": "cp1-m2-l1-recall-1",
+          "concept": "named-values",
+          "format": "multiple-choice",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "What does an unquoted variable name supply to this output statement?",
+                "options": [
+                  "Its stored value",
+                  "Always its own spelling"
+                ]
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "cp1-m2-l1-recall-2",
+          "concept": "named-values",
+          "format": "short-answer",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "A variable stores Waiting. What does printing its unquoted name produce?"
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "cp1-m2-l1-recall-3",
+          "concept": "named-values",
+          "format": "fill-in",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Complete: A variable connects a name with a ___."
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        }
+      ],
+      "ladder": [
+        {
+          "exerciseId": "cp1-m2-e1",
+          "slug": "inspect-a-named-message",
+          "title": "Inspect a named message",
+          "rung": "worked",
+          "concept": "named-values"
+        },
+        {
+          "exerciseId": "cp1-m2-e2",
+          "slug": "complete-a-named-message",
+          "title": "Complete a named message",
+          "rung": "completion",
+          "concept": "named-values"
+        }
+      ],
+      "skippedRungs": [
+        {
+          "concept": "named-values",
+          "rung": "parsons",
+          "reason": "Worked and completion tasks isolate binding and lookup. Reassignment and independent numeric input follow after their ideas are introduced."
+        },
+        {
+          "concept": "named-values",
+          "rung": "fix",
+          "reason": "Worked and completion tasks isolate binding and lookup. Reassignment and independent numeric input follow after their ideas are introduced."
+        },
+        {
+          "concept": "named-values",
+          "rung": "write",
+          "reason": "Worked and completion tasks isolate binding and lookup. Reassignment and independent numeric input follow after their ideas are introduced."
+        }
+      ]
+    },
+    "python": {
+      "code": "message = \"Ready\"\nprint(message)",
+      "stdin": "",
+      "annotations": {
+        "translations": {
+          "en": {
+            "items": [
+              {
+                "line": 1,
+                "text": "Bind the identifier message to the string Ready."
+              },
+              {
+                "line": 2,
+                "text": "Retrieve the stored value through the unquoted identifier."
+              }
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "notes": {
+        "translations": {
+          "en": {
+            "items": [
+              "The first assignment gives message its string value. Python needs no let keyword for this step."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "predict": {
+        "translations": {
+          "en": {
+            "prompt": "What prints when the output statement uses message?"
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "trace": {
+        "translations": {
+          "en": {
+            "steps": [
+              {
+                "line": 1,
+                "state": "message: Ready; output: empty",
+                "message": "The binding has been created."
+              },
+              {
+                "line": 2,
+                "state": "message: Ready; output: Ready",
+                "message": "Printing uses the current value."
+              }
+            ],
+            "question": "Immediately after the first statement, is the output still empty? Answer Yes or No."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "modify": {
+        "translations": {
+          "en": {
+            "prompt": "Change only the stored value to Waiting; keep the output statement using message."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "commonMistakes": {
+        "translations": {
+          "en": {
+            "items": [
+              "Quoted message is literal text, while unquoted message retrieves the variable's value."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "breakIt": {
+        "translations": {
+          "en": {
+            "prompt": "Put message in quotes in the output argument. Predict the changed result, check it, then restore the unquoted identifier."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "recallCards": [
+        {
+          "id": "cp1-m2-l1-recall-1",
+          "concept": "named-values",
+          "format": "multiple-choice",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "What does an unquoted variable name supply to this output statement?",
+                "options": [
+                  "Its stored value",
+                  "Always its own spelling"
+                ]
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "cp1-m2-l1-recall-2",
+          "concept": "named-values",
+          "format": "short-answer",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "A variable stores Waiting. What does printing its unquoted name produce?"
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "cp1-m2-l1-recall-3",
+          "concept": "named-values",
+          "format": "fill-in",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Complete: A variable connects a name with a ___."
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        }
+      ],
+      "ladder": [
+        {
+          "exerciseId": "cp1-m2-e1",
+          "slug": "inspect-a-named-message",
+          "title": "Inspect a named message",
+          "rung": "worked",
+          "concept": "named-values"
+        },
+        {
+          "exerciseId": "cp1-m2-e2",
+          "slug": "complete-a-named-message",
+          "title": "Complete a named message",
+          "rung": "completion",
+          "concept": "named-values"
+        }
+      ],
+      "skippedRungs": [
+        {
+          "concept": "named-values",
+          "rung": "parsons",
+          "reason": "Worked and completion tasks isolate binding and lookup. Reassignment and independent numeric input follow after their ideas are introduced."
+        },
+        {
+          "concept": "named-values",
+          "rung": "fix",
+          "reason": "Worked and completion tasks isolate binding and lookup. Reassignment and independent numeric input follow after their ideas are introduced."
+        },
+        {
+          "concept": "named-values",
+          "rung": "write",
+          "reason": "Worked and completion tasks isolate binding and lookup. Reassignment and independent numeric input follow after their ideas are introduced."
+        }
+      ]
+    },
+    "javascript": {
+      "code": "let message = \"Ready\";\nconsole.log(message);",
+      "stdin": "",
+      "annotations": {
+        "translations": {
+          "en": {
+            "items": [
+              {
+                "line": 1,
+                "text": "Bind the identifier message to the string Ready."
+              },
+              {
+                "line": 2,
+                "text": "Retrieve the stored value through the unquoted identifier."
+              }
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "notes": {
+        "translations": {
+          "en": {
+            "items": [
+              "let starts a variable declaration. The name follows let and its first value follows the equals sign."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "predict": {
+        "translations": {
+          "en": {
+            "prompt": "What prints when the output statement uses message?"
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "trace": {
+        "translations": {
+          "en": {
+            "steps": [
+              {
+                "line": 1,
+                "state": "message: Ready; output: empty",
+                "message": "The binding has been created."
+              },
+              {
+                "line": 2,
+                "state": "message: Ready; output: Ready",
+                "message": "Printing uses the current value."
+              }
+            ],
+            "question": "Immediately after the first statement, is the output still empty? Answer Yes or No."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "modify": {
+        "translations": {
+          "en": {
+            "prompt": "Change only the stored value to Waiting; keep the output statement using message."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "commonMistakes": {
+        "translations": {
+          "en": {
+            "items": [
+              "Quoted message is literal text, while unquoted message retrieves the variable's value."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "breakIt": {
+        "translations": {
+          "en": {
+            "prompt": "Put message in quotes in the output argument. Predict the changed result, check it, then restore the unquoted identifier."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "recallCards": [
+        {
+          "id": "cp1-m2-l1-recall-1",
+          "concept": "named-values",
+          "format": "multiple-choice",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "What does an unquoted variable name supply to this output statement?",
+                "options": [
+                  "Its stored value",
+                  "Always its own spelling"
+                ]
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "cp1-m2-l1-recall-2",
+          "concept": "named-values",
+          "format": "short-answer",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "A variable stores Waiting. What does printing its unquoted name produce?"
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "cp1-m2-l1-recall-3",
+          "concept": "named-values",
+          "format": "fill-in",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Complete: A variable connects a name with a ___."
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        }
+      ],
+      "ladder": [
+        {
+          "exerciseId": "cp1-m2-e1",
+          "slug": "inspect-a-named-message",
+          "title": "Inspect a named message",
+          "rung": "worked",
+          "concept": "named-values"
+        },
+        {
+          "exerciseId": "cp1-m2-e2",
+          "slug": "complete-a-named-message",
+          "title": "Complete a named message",
+          "rung": "completion",
+          "concept": "named-values"
+        }
+      ],
+      "skippedRungs": [
+        {
+          "concept": "named-values",
+          "rung": "parsons",
+          "reason": "Worked and completion tasks isolate binding and lookup. Reassignment and independent numeric input follow after their ideas are introduced."
+        },
+        {
+          "concept": "named-values",
+          "rung": "fix",
+          "reason": "Worked and completion tasks isolate binding and lookup. Reassignment and independent numeric input follow after their ideas are introduced."
+        },
+        {
+          "concept": "named-values",
+          "rung": "write",
+          "reason": "Worked and completion tasks isolate binding and lookup. Reassignment and independent numeric input follow after their ideas are introduced."
+        }
+      ]
+    },
+    "typescript": {
+      "code": "let message: string = \"Ready\";\nconsole.log(message);",
+      "stdin": "",
+      "annotations": {
+        "translations": {
+          "en": {
+            "items": [
+              {
+                "line": 1,
+                "text": "Bind the identifier message to the string Ready."
+              },
+              {
+                "line": 2,
+                "text": "Retrieve the stored value through the unquoted identifier."
+              }
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "notes": {
+        "translations": {
+          "en": {
+            "items": [
+              "let starts this variable declaration. The string annotation describes text; the next lesson explores types."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "predict": {
+        "translations": {
+          "en": {
+            "prompt": "What prints when the output statement uses message?"
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "trace": {
+        "translations": {
+          "en": {
+            "steps": [
+              {
+                "line": 1,
+                "state": "message: Ready; output: empty",
+                "message": "The binding has been created."
+              },
+              {
+                "line": 2,
+                "state": "message: Ready; output: Ready",
+                "message": "Printing uses the current value."
+              }
+            ],
+            "question": "Immediately after the first statement, is the output still empty? Answer Yes or No."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "modify": {
+        "translations": {
+          "en": {
+            "prompt": "Change only the stored value to Waiting; keep the output statement using message."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "commonMistakes": {
+        "translations": {
+          "en": {
+            "items": [
+              "Quoted message is literal text, while unquoted message retrieves the variable's value."
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "breakIt": {
+        "translations": {
+          "en": {
+            "prompt": "Put message in quotes in the output argument. Predict the changed result, check it, then restore the unquoted identifier."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "recallCards": [
+        {
+          "id": "cp1-m2-l1-recall-1",
+          "concept": "named-values",
+          "format": "multiple-choice",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "What does an unquoted variable name supply to this output statement?",
+                "options": [
+                  "Its stored value",
+                  "Always its own spelling"
+                ]
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "cp1-m2-l1-recall-2",
+          "concept": "named-values",
+          "format": "short-answer",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "A variable stores Waiting. What does printing its unquoted name produce?"
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        },
+        {
+          "id": "cp1-m2-l1-recall-3",
+          "concept": "named-values",
+          "format": "fill-in",
+          "copy": {
+            "translations": {
+              "en": {
+                "prompt": "Complete: A variable connects a name with a ___."
+              },
+              "fil": null,
+              "ceb": null
+            },
+            "translationStatus": {
+              "en": "reviewed",
+              "fil": "draft",
+              "ceb": "draft"
+            }
+          }
+        }
+      ],
+      "ladder": [
+        {
+          "exerciseId": "cp1-m2-e1",
+          "slug": "inspect-a-named-message",
+          "title": "Inspect a named message",
+          "rung": "worked",
+          "concept": "named-values"
+        },
+        {
+          "exerciseId": "cp1-m2-e2",
+          "slug": "complete-a-named-message",
+          "title": "Complete a named message",
+          "rung": "completion",
+          "concept": "named-values"
+        }
+      ],
+      "skippedRungs": [
+        {
+          "concept": "named-values",
+          "rung": "parsons",
+          "reason": "Worked and completion tasks isolate binding and lookup. Reassignment and independent numeric input follow after their ideas are introduced."
+        },
+        {
+          "concept": "named-values",
+          "rung": "fix",
+          "reason": "Worked and completion tasks isolate binding and lookup. Reassignment and independent numeric input follow after their ideas are introduced."
+        },
+        {
+          "concept": "named-values",
+          "rung": "write",
+          "reason": "Worked and completion tasks isolate binding and lookup. Reassignment and independent numeric input follow after their ideas are introduced."
+        }
+      ]
+    }
+  }
+}

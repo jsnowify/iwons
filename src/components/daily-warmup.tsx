@@ -1,4 +1,5 @@
 "use client";
+import { localLearningDay } from "@/lib/foundations/learning-rewards";
 import Link from "next/link";
 import { useState } from "react";
 import { useStore } from "@/store/use-store";
@@ -31,7 +32,7 @@ export function DailyWarmup({ catalogue,limit=3,compact=false,onComplete,recordS
     {current && !ended ? <RecallCard key={`${position}:${current.track}:${current.card.id}`} card={current.card} getAnswer={async()=>{const response=await fetch(`/learn-data/${encodeURIComponent(current.lessonId)}.json`);if(!response.ok)throw new Error("Could not load recall checks");const keys=await response.json() as LessonKeys;return keys.tracks[current.track]!.recall[current.card.id];}} onRate={(correct,rating)=>{
       const now=Date.now();const store=useStore.getState();const key=recallKey(current.course,current.track,current.card.concept,current.card.id);
       const previous=store.learning.recalls[key]??{cardId:current.card.id,course:current.course,track:current.track,concept:current.card.concept,step:0,due:now,successes:0,misses:0};
-      store.setLearning({...store.learning,recalls:{...store.learning.recalls,[key]:rateRecall(previous,rating,correct,now)},recallLog:[...store.learning.recallLog,{key,at:now,correct,rating:correct?rating:"Again"}]});
+      store.setLearning({...store.learning,recalls:{...store.learning.recalls,[key]:rateRecall(previous,rating,correct,now)},recallLog:[...store.learning.recallLog,{key,at:now,day:localLearningDay(now),correct,rating:correct?rating:"Again"}]});
       const nextRevisit=correct?revisit:[...new Set([...revisit,key])];const nextRecalled=correct?[...recalled,key]:recalled;
       setRevisit(nextRevisit);setRecalled(nextRecalled);
       const next=[...queue!];if(!correct)next.splice(Math.min(position+3,next.length),0,current);

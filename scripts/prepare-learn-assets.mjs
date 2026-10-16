@@ -6,6 +6,7 @@ const manifest=JSON.parse(fs.readFileSync("src/data/foundations.json","utf8"));
 const publicRoot=path.resolve("public/learn-public"),keysRoot=path.resolve("public/learn-data");
 fs.mkdirSync(publicRoot,{recursive:true});fs.mkdirSync(keysRoot,{recursive:true});
 const owned=[];
+const rewardIndex={exercises:[],moduleExercises:{}};
 function publish(root,name,value,publicData=false){
  if(publicData)assertLearningPublicContent(value);
  const file=path.resolve(root,name);if(path.dirname(file)!==root)throw new Error("Invalid generated learning asset name");
@@ -21,7 +22,7 @@ for(const course of manifest.courses)for(const station of course.modules){
   const lesson=read(`lessons/${entry.slug}.json`);
   publish(publicRoot,`${lesson.id}.json`,lesson,true);publish(keysRoot,`${lesson.id}.json`,read(`keys/${entry.slug}.json`));
  }
- for(const file of index.exerciseFiles){const exercise=read(file);publish(publicRoot,`exercise-${exercise.id}.json`,exercise,true);publish(keysRoot,`exercise-${exercise.id}.json`,read(`keys/exercise-${exercise.slug}.json`));}
+ for(const file of index.exerciseFiles){const exercise=read(file);publish(publicRoot,`exercise-${exercise.id}.json`,exercise,true);publish(keysRoot,`exercise-${exercise.id}.json`,read(`keys/exercise-${exercise.slug}.json`));rewardIndex.exercises.push({id:exercise.id,xp:exercise.xp});(rewardIndex.moduleExercises[station.id]??=[]).push(exercise.id);}
  const checkpoint=read(index.checkpointFile);assertLearningPublicContent(checkpoint);publish(keysRoot,`checkpoint-${checkpoint.id}.json`,read("keys/checkpoint.json"));
 }
 const inventoryFile=path.join(publicRoot,"generated.json");
@@ -33,4 +34,5 @@ for(const name of previous){
  fs.rmSync(file,{force:true});
 }
 fs.writeFileSync(inventoryFile,JSON.stringify(owned)+"\n");
+fs.writeFileSync("src/data/learning-rewards.json",JSON.stringify(rewardIndex,null,2)+"\n");
 console.log(`Prepared ${owned.length} ready learning assets; temporary design samples are separate.`);

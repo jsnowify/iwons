@@ -1,0 +1,169 @@
+{
+  "lessonId": "cp1-m2-l1",
+  "tracks": {
+    "java": {
+      "expectedOutput": "Ready",
+      "predict": {
+        "answer": "Ready",
+        "reason": "message refers to the stored string Ready, so the output is its value rather than the identifier's spelling.",
+        "nextStep": "Compare the unquoted name in the output statement with its earlier binding."
+      },
+      "trace": {
+        "answer": "Yes",
+        "reason": "The first statement stores the message but does not print it. Output happens in the following statement.",
+        "nextStep": "Separate the statement that stores text from the statement that prints it."
+      },
+      "modify": {
+        "cases": [
+          {
+            "id": "changed",
+            "stdin": "",
+            "expected": "Waiting"
+          }
+        ],
+        "referenceSolution": "public class Main {\n    public static void main(String[] args) {\n        String message = \"Waiting\";\n        System.out.println(message);\n    }\n}"
+      },
+      "recall": {
+        "cp1-m2-l1-recall-1": {
+          "answer": "Its stored value",
+          "reason": "The identifier retrieves its bound value rather than printing its spelling.",
+          "nextStep": "Compare the quoted value with the unquoted output argument."
+        },
+        "cp1-m2-l1-recall-2": {
+          "answer": "Waiting",
+          "reason": "An unquoted name supplies its current stored value, so this changed value produces Waiting.",
+          "nextStep": "Read the stated current value rather than recalling the earlier example."
+        },
+        "cp1-m2-l1-recall-3": {
+          "answer": "value",
+          "caseSensitive": false,
+          "reason": "A variable's value is what the identifier refers to at that point.",
+          "nextStep": "Identify the name and the stored text separately."
+        }
+      }
+    },
+    "python": {
+      "expectedOutput": "Ready",
+      "predict": {
+        "answer": "Ready",
+        "reason": "message refers to the stored string Ready, so the output is its value rather than the identifier's spelling.",
+        "nextStep": "Compare the unquoted name in the output statement with its earlier binding."
+      },
+      "trace": {
+        "answer": "Yes",
+        "reason": "The first statement stores the message but does not print it. Output happens in the following statement.",
+        "nextStep": "Separate the statement that stores text from the statement that prints it."
+      },
+      "modify": {
+        "cases": [
+          {
+            "id": "changed",
+            "stdin": "",
+            "expected": "Waiting"
+          }
+        ],
+        "referenceSolution": "message = \"Waiting\"\nprint(message)"
+      },
+      "recall": {
+        "cp1-m2-l1-recall-1": {
+          "answer": "Its stored value",
+          "reason": "The identifier retrieves its bound value rather than printing its spelling.",
+          "nextStep": "Compare the quoted value with the unquoted output argument."
+        },
+        "cp1-m2-l1-recall-2": {
+          "answer": "Waiting",
+          "reason": "An unquoted name supplies its current stored value, so this changed value produces Waiting.",
+          "nextStep": "Read the stated current value rather than recalling the earlier example."
+        },
+        "cp1-m2-l1-recall-3": {
+          "answer": "value",
+          "caseSensitive": false,
+          "reason": "A variable's value is what the identifier refers to at that point.",
+          "nextStep": "Identify the name and the stored text separately."
+        }
+      }
+    },
+    "javascript": {
+      "expectedOutput": "Ready",
+      "predict": {
+        "answer": "Ready",
+        "reason": "message refers to the stored string Ready, so the output is its value rather than the identifier's spelling.",
+        "nextStep": "Compare the unquoted name in the output statement with its earlier binding."
+      },
+      "trace": {
+        "answer": "Yes",
+        "reason": "The first statement stores the message but does not print it. Output happens in the following statement.",
+        "nextStep": "Separate the statement that stores text from the statement that prints it."
+      },
+      "modify": {
+        "cases": [
+          {
+            "id": "changed",
+            "stdin": "",
+            "expected": "Waiting"
+          }
+        ],
+        "referenceSolution": "let message = \"Waiting\";\nconsole.log(message);"
+      },
+      "recall": {
+        "cp1-m2-l1-recall-1": {
+          "answer": "Its stored value",
+          "reason": "The identifier retrieves its bound value rather than printing its spelling.",
+          "nextStep": "Compare the quoted value with the unquoted output argument."
+        },
+        "cp1-m2-l1-recall-2": {
+          "answer": "Waiting",
+          "reason": "An unquoted name supplies its current stored value, so this changed value produces Waiting.",
+          "nextStep": "Read the stated current value rather than recalling the earlier example."
+        },
+        "cp1-m2-l1-recall-3": {
+          "answer": "value",
+          "caseSensitive": false,
+          "reason": "A variable's value is what the identifier refers to at that point.",
+          "nextStep": "Identify the name and the stored text separately."
+        }
+      }
+    },
+    "typescript": {
+      "expectedOutput": "Ready",
+      "predict": {
+        "answer": "Ready",
+        "reason": "message refers to the stored string Ready, so the output is its value rather than the identifier's spelling.",
+        "nextStep": "Compare the unquoted name in the output statement with its earlier binding."
+      },
+      "trace": {
+        "answer": "Yes",
+        "reason": "The first statement stores the message but does not print it. Output happens in the following statement.",
+        "nextStep": "Separate the statement that stores text from the statement that prints it."
+      },
+      "modify": {
+        "cases": [
+          {
+            "id": "changed",
+            "stdin": "",
+            "expected": "Waiting"
+          }
+        ],
+        "referenceSolution": "let message: string = \"Waiting\";\nconsole.log(message);"
+      },
+      "recall": {
+        "cp1-m2-l1-recall-1": {
+          "answer": "Its stored value",
+          "reason": "The identifier retrieves its bound value rather than printing its spelling.",
+          "nextStep": "Compare the quoted value with the unquoted output argument."
+        },
+        "cp1-m2-l1-recall-2": {
+          "answer": "Waiting",
+          "reason": "An unquoted name supplies its current stored value, so this changed value produces Waiting.",
+          "nextStep": "Read the stated current value rather than recalling the earlier example."
+        },
+        "cp1-m2-l1-recall-3": {
+          "answer": "value",
+          "caseSensitive": false,
+          "reason": "A variable's value is what the identifier refers to at that point.",
+          "nextStep": "Identify the name and the stored text separately."
+        }
+      }
+    }
+  }
+}

@@ -23,7 +23,7 @@ Current phase: V4. The first-module pilot passed its content, native, build, ind
 
 | Course | Modules planned / open | Lessons planned / written / ready | Exercises written | Recall cards |
 | --- | --- | --- | --- | --- |
-| Computer Programming 1 | 12 / 1 | 48 / 4 / 4 | 9 ready | 12 ready |
+| Computer Programming 1 | 12 / 1 | 49 / 9 / 4 | 9 ready + 9 candidate | 12 ready + 15 candidate |
 | Computer Programming 2 | 12 / 0 | 48 / 0 / 0 | 0 | 0 |
 | Data Structures and Algorithms | 20 / 0 | 80 / 0 / 0 | 0 | 0 |
 
@@ -72,3 +72,11 @@ Pilot verification candidate: the locally generated first-module manifest is tem
 - Candidate status is now confirmed by these gates; remaining 43 modules are planned, not complete. No deployment was performed.
 
 - Pilot regression checkpoint: all 13 focused Playwright tests passed after the ready-content transition, including course names, planned-lesson fallback, real runtime probes, navigation polish and compact Pattern strength.
+
+
+## Learning rewards checkpoint
+
+- Added ready-content exercise index, full-first/quarter-other-track XP, daily successful-recall XP, module/course stamps and Polyglot completion display, separate from Path XP. Optional weekly streak freeze bridges one missed day and earns no XP.
+- Independent review corrected midnight/date refresh, consecutive cross-week freezes, timezone-sensitive historical regrouping, imported freeze constraints and text entities. New records preserve local day; legacy timestamps use a stable UTC fallback.
+- Typecheck/lint, 25 focused rewards/engine/migration tests and fresh production build passed. Mounted browser checks passed quarter-track and recall totals, module stamp, frozen-day persistence, no freeze XP and midnight refresh. Evidence artifacts/learning-engine/rewards.json; docs/reviews/learning-rewards.md.
+- Variables and types now has five English lessons and nine exercises per track. Constants and conversion were separated to preserve one main idea per lesson; the course now plans 49 lessons. Native draft execution passed 40 lesson +56 exercise/arrangement cases; all independent review defects resolved with 31 hashed content/key files. Preparing its local ready candidate for build/browser verification; do not count it as open yet.

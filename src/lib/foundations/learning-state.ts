@@ -1,3 +1,4 @@
+import { isLearningDay, learningWeekStart } from "./learning-rewards";
 import { isTrack, type Track, type LearnCourseId } from "./model-v2";
 import { intervals, type Rating } from "../srs";
 
@@ -10,9 +11,9 @@ export interface RecallState {
 export interface LearningAttempt {
   exerciseId: string; course: LearningCourse; track: Track; concept: string;
   rung: Rung; at: number; correct: boolean; clean: boolean; hints: number;
-  confidence: 1 | 2 | 3; durationMs: number;
+  confidence: 1 | 2 | 3; durationMs: number; day?:string;
 }
-export interface RecallEvent { key: string; at: number; correct: boolean; rating: Rating }
+export interface RecallEvent { key: string; at: number; correct: boolean; rating: Rating; day?:string }
 export interface LearningSession {
   id: string; track: Track; startedAt: number; endedAt: number;
   recalled: string[]; revisit: string[]; completed: string[];
@@ -72,24 +73,27 @@ export function dailyShuffle<T extends { id: string }>(items: T[], day: string, 
 export function validateLearningState(value: unknown): asserts value is LearningState {
   const object = (value: unknown): value is Record<string, unknown> => !!value && typeof value === "object" && !Array.isArray(value);
   const number = (value: unknown) => typeof value === "number" && Number.isFinite(value) && value >= 0;
+  const timestamp=(value:unknown)=>number(value)&&!Number.isNaN(new Date(value as number).getTime());
   const text = (value: unknown) => typeof value === "string" && value.length > 0;
   const course = (value: unknown) => typeof value === "string" && ["cp1", "cp2", "dsa", "path"].includes(value);
   const strings = (value: unknown) => Array.isArray(value) && value.every(text);
   const ratings = ["Again", "Hard", "Good", "Easy"];
   if (!object(value) || !object(value.recalls) || !object(value.explanations) || !object(value.completedModules) || !object(value.importedChallenges)
-    || !Array.isArray(value.attempts) || !Array.isArray(value.recallLog) || !Array.isArray(value.sessions) || !strings(value.streakFreezes)) throw new Error("Invalid learning data. Import an intact Iwons backup.");
+    || !Array.isArray(value.attempts) || !Array.isArray(value.recallLog) || !Array.isArray(value.sessions) || (!strings(value.streakFreezes)||!Array.isArray(value.streakFreezes)||value.streakFreezes.some(day=>typeof day!=="string"||!isLearningDay(day)))) throw new Error("Invalid learning data. Import an intact Iwons backup.");
+  const freezes=value.streakFreezes as string[];const ordered=[...freezes].sort();
+  if(new Set(freezes.map(learningWeekStart)).size!==freezes.length||ordered.some((day,index)=>index>0&&Date.parse(`${day}T12:00:00Z`)-Date.parse(`${ordered[index-1]}T12:00:00Z`)===86400000))throw new Error("Invalid weekly learning freezes. Import an intact Iwons backup.");
   for (const [key, item] of Object.entries(value.recalls)) {
     if (!object(item) || !text(item.cardId) || !course(item.course) || !isTrack(item.track) || !text(item.concept) || !Number.isInteger(item.step) || Number(item.step) < 0 || Number(item.step) >= intervals.length
-      || !number(item.due) || !number(item.successes) || !number(item.misses) || (item.lastRating !== undefined && (typeof item.lastRating !== "string" || !ratings.includes(item.lastRating)))
+      || !timestamp(item.due) || !number(item.successes) || !number(item.misses) || (item.lastRating !== undefined && (typeof item.lastRating !== "string" || !ratings.includes(item.lastRating)))
       || key !== recallKey(item.course as LearningCourse, item.track as Track, String(item.concept), String(item.cardId))) throw new Error("Invalid recall schedule. Import an intact Iwons backup.");
   }
   for (const item of value.attempts) if (!object(item) || !text(item.exerciseId) || !course(item.course) || !isTrack(item.track) || !text(item.concept)
-    || (typeof item.rung !== "string" || !["worked", "completion", "parsons", "fix", "write"].includes(item.rung)) || !number(item.at) || typeof item.correct !== "boolean" || typeof item.clean !== "boolean"
-    || !number(item.hints) || (typeof item.confidence !== "number" || ![1, 2, 3].includes(item.confidence)) || !number(item.durationMs)) throw new Error("Invalid learning attempt. Import an intact Iwons backup.");
-  for (const item of value.recallLog) if (!object(item) || !text(item.key) || !Object.hasOwn(value.recalls, String(item.key)) || !number(item.at) || typeof item.correct !== "boolean" || (typeof item.rating !== "string" || !ratings.includes(item.rating))) throw new Error("Invalid recall history. Import an intact Iwons backup.");
-  for (const item of value.sessions) if (!object(item) || !text(item.id) || !isTrack(item.track) || !number(item.startedAt) || !number(item.endedAt) || Number(item.endedAt) < Number(item.startedAt)
+    || (typeof item.rung !== "string" || !["worked", "completion", "parsons", "fix", "write"].includes(item.rung)) || !timestamp(item.at) || typeof item.correct !== "boolean" || typeof item.clean !== "boolean"
+    || !number(item.hints) || (typeof item.confidence !== "number" || ![1, 2, 3].includes(item.confidence)) || !number(item.durationMs) || (item.day!==undefined&&(typeof item.day!=="string"||!isLearningDay(item.day)))) throw new Error("Invalid learning attempt. Import an intact Iwons backup.");
+  for (const item of value.recallLog) if (!object(item) || !text(item.key) || !Object.hasOwn(value.recalls, String(item.key)) || !timestamp(item.at) || typeof item.correct !== "boolean" || (typeof item.rating !== "string" || !ratings.includes(item.rating)) || (item.day!==undefined&&(typeof item.day!=="string"||!isLearningDay(item.day)))) throw new Error("Invalid recall history. Import an intact Iwons backup.");
+  for (const item of value.sessions) if (!object(item) || !text(item.id) || !isTrack(item.track) || !timestamp(item.startedAt) || !timestamp(item.endedAt) || Number(item.endedAt) < Number(item.startedAt)
     || !strings(item.recalled) || !strings(item.revisit) || !strings(item.completed)) throw new Error("Invalid learning session. Import an intact Iwons backup.");
-  if(value.activeSession!==undefined){const item=value.activeSession;if(!object(item)||!text(item.id)||!isTrack(item.track)||!text(item.lessonId)||!text(item.exerciseId)||!number(item.startedAt)||!["warmup","lesson","exercise"].includes(String(item.phase))||!strings(item.recalled)||!strings(item.revisit))throw new Error("Invalid current learning session. Import an intact Iwons backup.");}
+  if(value.activeSession!==undefined){const item=value.activeSession;if(!object(item)||!text(item.id)||!isTrack(item.track)||!text(item.lessonId)||!text(item.exerciseId)||!timestamp(item.startedAt)||!["warmup","lesson","exercise"].includes(String(item.phase))||!strings(item.recalled)||!strings(item.revisit))throw new Error("Invalid current learning session. Import an intact Iwons backup.");}
   if (Object.values(value.explanations).some(item => typeof item !== "string") || Object.values(value.completedModules).some(item => !number(item))) throw new Error("Invalid learning notes. Import an intact Iwons backup.");
   for (const item of Object.values(value.importedChallenges)) if (!object(item) || !isTrack(item.track) || !strings(item.exerciseIds)) throw new Error("Invalid challenge. Import an intact Iwons backup.");
 }

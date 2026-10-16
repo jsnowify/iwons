@@ -3,15 +3,19 @@ import assert from "node:assert/strict";
 import { chromium, expect } from "@playwright/test";
 const browser=await chromium.launch();
 const base=process.env.IWONS_DEV_URL||"http://127.0.0.1:4174";
-const root="src/data/learn/cp1/meet-the-language";
-const manifest=JSON.parse(fs.readFileSync("src/data/foundations.json","utf8")).courses[0].modules[0];
+const moduleId=process.argv[2]||"cp1-m1";
+const courses=JSON.parse(fs.readFileSync("src/data/foundations.json","utf8")).courses;
+const course=courses.find(course=>course.modules.some(entry=>entry.id===moduleId));
+const manifest=course.modules.find(entry=>entry.id===moduleId);
+const courseSlug={cp1:"computer-programming-1",cp2:"computer-programming-2",dsa:"data-structures-and-algorithms"}[course.id];
+const root=`src/data/learn/${course.id}/${manifest.slug}`;
 const report=[];
 try{
  for(const theme of ["light","dark"])for(const track of ["java","python","javascript","typescript"]){
   const page=await browser.newPage({viewport:{width:360,height:900},reducedMotion:"reduce"});
   const errors=[];page.on("pageerror",error=>errors.push(error.message));
-  const map=`${base}/learn/${track}/computer-programming-1/meet-the-language/`;
-  await page.goto(map);await expect(page.getByRole("heading",{name:"Meet the language",exact:true})).toBeVisible();
+  const map=`${base}/learn/${track}/${courseSlug}/${manifest.slug}/`;
+  await page.goto(map);await expect(page.getByRole("heading",{name:manifest.title,exact:true})).toBeVisible();
   const themeButton=page.getByRole("button",{name:`Switch to ${theme} theme`,exact:true});if(await themeButton.count())await themeButton.click();
   await expect(page.getByRole("heading",{name:"Practice ladder",exact:true})).toBeVisible();
   for(const entry of manifest.lessons){
@@ -43,5 +47,5 @@ try{
   await checkpoint.getByRole("button",{name:"Check recall",exact:true}).click();await expect(checkpoint).toContainText("5 of 5 recalled.");
   assert.deepEqual(errors,[]);await page.close();
  }
-}finally{await browser.close();fs.mkdirSync("artifacts/learning-engine",{recursive:true});fs.writeFileSync("artifacts/learning-engine/first-module.json",JSON.stringify(report,null,2)+"\n");}
-console.log(`First module: ${report.length} mounted lesson/track/theme flows passed, plus eight module/checkpoint probes.`);
+}finally{await browser.close();fs.mkdirSync("artifacts/learning-engine",{recursive:true});fs.writeFileSync(`artifacts/learning-engine/${moduleId==="cp1-m1"?"first-module":moduleId}.json`,JSON.stringify(report,null,2)+"\n");}
+console.log(`${manifest.title}: ${report.length} mounted lesson/track/theme flows passed, plus eight module/checkpoint probes.`);

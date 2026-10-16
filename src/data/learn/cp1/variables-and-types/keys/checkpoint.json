@@ -1,0 +1,50 @@
+{
+  "checkpointId": "cp1-m2-checkpoint",
+  "answers": [
+    {
+      "questionId": "lookup",
+      "correctOptionId": "a",
+      "explanations": {
+        "en": "An unquoted identifier retrieves its bound value. Compare it with quoted text before predicting the output.",
+        "fil": null,
+        "ceb": null
+      }
+    },
+    {
+      "questionId": "kind",
+      "correctOptionId": "b",
+      "explanations": {
+        "en": "Quotes create text rather than a numeric literal. Inspect the initializer before choosing an operation.",
+        "fil": null,
+        "ceb": null
+      }
+    },
+    {
+      "questionId": "update",
+      "correctOptionId": "a",
+      "explanations": {
+        "en": "The later assignment replaces the current value before output. Trace the last assignment before the read.",
+        "fil": null,
+        "ceb": null
+      }
+    },
+    {
+      "questionId": "constant",
+      "correctOptionId": "b",
+      "explanations": {
+        "en": "Uppercase naming communicates constant intent in Python without a runtime lock. Compare that guarantee with final and const.",
+        "fil": null,
+        "ceb": null
+      }
+    },
+    {
+      "questionId": "conversion",
+      "correctOptionId": "a",
+      "explanations": {
+        "en": "The converted number has value 7, while the original text retains its zeros. Trace which name the output statement reads.",
+        "fil": null,
+        "ceb": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "lessonId": "cp1-m2-l2",
+  "tracks": {
+    "java": {
+      "expectedOutput": "3.5",
+      "predict": {
+        "answer": "3.5",
+        "reason": "weight is the numeric value 2.5, so adding the numeric value 1 produces 3.5.",
+        "nextStep": "Identify whether the initializer has quotes, then perform the supplied numeric addition."
+      },
+      "trace": {
+        "answer": "2.5",
+        "reason": "The initializer binds weight to 2.5; the output expression does not reassign it.",
+        "nextStep": "Separate the stored value from the result of the output expression."
+      },
+      "modify": {
+        "cases": [
+          {
+            "id": "changed",
+            "stdin": "",
+            "expected": "5.5"
+          }
+        ],
+        "referenceSolution": "public class Main {\n    public static void main(String[] args) {\n        double weight = 4.5;\n        System.out.println(weight + 1);\n    }\n}"
+      },
+      "recall": {
+        "cp1-m2-l2-recall-1": {
+          "answer": "Numeric value",
+          "reason": "The unquoted decimal literal creates a numeric value in each track.",
+          "nextStep": "Inspect whether the initializer is enclosed in quotes."
+        },
+        "cp1-m2-l2-recall-2": {
+          "answer": "3.5",
+          "reason": "The supplied expression adds one to 2.5.",
+          "nextStep": "Read the stored number before applying the addition."
+        },
+        "cp1-m2-l2-recall-3": {
+          "answer": "type",
+          "accepted": [
+            "data type"
+          ],
+          "caseSensitive": false,
+          "reason": "A type describes the kind of value and helps explain valid operations.",
+          "nextStep": "Compare the lesson's numeric and text values."
+        }
+      }
+    },
+    "python": {
+      "expectedOutput": "3.5",
+      "predict": {
+        "answer": "3.5",
+        "reason": "weight is the numeric value 2.5, so adding the numeric value 1 produces 3.5.",
+        "nextStep": "Identify whether the initializer has quotes, then perform the supplied numeric addition."
+      },
+      "trace": {
+        "answer": "2.5",
+        "reason": "The initializer binds weight to 2.5; the output expression does not reassign it.",
+        "nextStep": "Separate the stored value from the result of the output expression."
+      },
+      "modify": {
+        "cases": [
+          {
+            "id": "changed",
+            "stdin": "",
+            "expected": "5.5"
+          }
+        ],
+        "referenceSolution": "weight = 4.5\nprint(weight + 1)"
+      },
+      "recall": {
+        "cp1-m2-l2-recall-1": {
+          "answer": "Numeric value",
+          "reason": "The unquoted decimal literal creates a numeric value in each track.",
+          "nextStep": "Inspect whether the initializer is enclosed in quotes."
+        },
+        "cp1-m2-l2-recall-2": {
+          "answer": "3.5",
+          "reason": "The supplied expression adds one to 2.5.",
+          "nextStep": "Read the stored number before applying the addition."
+        },
+        "cp1-m2-l2-recall-3": {
+          "answer": "type",
+          "accepted": [
+            "data type"
+          ],
+          "caseSensitive": false,
+          "reason": "A type describes the kind of value and helps explain valid operations.",
+          "nextStep": "Compare the lesson's numeric and text values."
+        }
+      }
+    },
+    "javascript": {
+      "expectedOutput": "3.5",
+      "predict": {
+        "answer": "3.5",
+        "reason": "weight is the numeric value 2.5, so adding the numeric value 1 produces 3.5.",
+        "nextStep": "Identify whether the initializer has quotes, then perform the supplied numeric addition."
+      },
+      "trace": {
+        "answer": "2.5",
+        "reason": "The initializer binds weight to 2.5; the output expression does not reassign it.",
+        "nextStep": "Separate the stored value from the result of the output expression."
+      },
+      "modify": {
+        "cases": [
+          {
+            "id": "changed",
+            "stdin": "",
+            "expected": "5.5"
+          }
+        ],
+        "referenceSolution": "let weight = 4.5;\nconsole.log(weight + 1);"
+      },
+      "recall": {
+        "cp1-m2-l2-recall-1": {
+          "answer": "Numeric value",
+          "reason": "The unquoted decimal literal creates a numeric value in each track.",
+          "nextStep": "Inspect whether the initializer is enclosed in quotes."
+        },
+        "cp1-m2-l2-recall-2": {
+          "answer": "3.5",
+          "reason": "The supplied expression adds one to 2.5.",
+          "nextStep": "Read the stored number before applying the addition."
+        },
+        "cp1-m2-l2-recall-3": {
+          "answer": "type",
+          "accepted": [
+            "data type"
+          ],
+          "caseSensitive": false,
+          "reason": "A type describes the kind of value and helps explain valid operations.",
+          "nextStep": "Compare the lesson's numeric and text values."
+        }
+      }
+    },
+    "typescript": {
+      "expectedOutput": "3.5",
+      "predict": {
+        "answer": "3.5",
+        "reason": "weight is the numeric value 2.5, so adding the numeric value 1 produces 3.5.",
+        "nextStep": "Identify whether the initializer has quotes, then perform the supplied numeric addition."
+      },
+      "trace": {
+        "answer": "2.5",
+        "reason": "The initializer binds weight to 2.5; the output expression does not reassign it.",
+        "nextStep": "Separate the stored value from the result of the output expression."
+      },
+      "modify": {
+        "cases": [
+          {
+            "id": "changed",
+            "stdin": "",
+            "expected": "5.5"
+          }
+        ],
+        "referenceSolution": "let weight: number = 4.5;\nconsole.log(weight + 1);"
+      },
+      "recall": {
+        "cp1-m2-l2-recall-1": {
+          "answer": "Numeric value",
+          "reason": "The unquoted decimal literal creates a numeric value in each track.",
+          "nextStep": "Inspect whether the initializer is enclosed in quotes."
+        },
+        "cp1-m2-l2-recall-2": {
+          "answer": "3.5",
+          "reason": "The supplied expression adds one to 2.5.",
+          "nextStep": "Read the stored number before applying the addition."
+        },
+        "cp1-m2-l2-recall-3": {
+          "answer": "type",
+          "accepted": [
+            "data type"
+          ],
+          "caseSensitive": false,
+          "reason": "A type describes the kind of value and helps explain valid operations.",
+          "nextStep": "Compare the lesson's numeric and text values."
+        }
+      }
+    }
+  }
+}

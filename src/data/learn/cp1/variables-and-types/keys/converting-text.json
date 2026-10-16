@@ -1,0 +1,169 @@
+{
+  "lessonId": "cp1-m2-l5",
+  "tracks": {
+    "java": {
+      "expectedOutput": "13",
+      "predict": {
+        "answer": "13",
+        "reason": "Converting the text 12 creates numeric 12, so the supplied addition produces 13.",
+        "nextStep": "Trace the original text, converted count and final addition separately."
+      },
+      "trace": {
+        "answer": "12",
+        "reason": "The conversion creates numeric 12; the later output expression adds one without reassigning count.",
+        "nextStep": "Stop at the conversion before inspecting the output expression."
+      },
+      "modify": {
+        "cases": [
+          {
+            "id": "changed",
+            "stdin": "",
+            "expected": "31"
+          }
+        ],
+        "referenceSolution": "public class Main {\n    public static void main(String[] args) {\n        String digits = \"30\";\n        int count = Integer.parseInt(digits);\n        System.out.println(count + 1);\n    }\n}"
+      },
+      "recall": {
+        "cp1-m2-l5-recall-1": {
+          "answer": "No",
+          "reason": "The converted number is stored separately under count; digits still refers to the original text.",
+          "nextStep": "Follow which name receives the conversion result."
+        },
+        "cp1-m2-l5-recall-2": {
+          "answer": "13",
+          "reason": "Numeric 12 plus one produces 13.",
+          "nextStep": "Complete the conversion before applying the addition."
+        },
+        "cp1-m2-l5-recall-3": {
+          "answer": "conversion",
+          "caseSensitive": false,
+          "reason": "Conversion produces the representation needed by numeric work.",
+          "nextStep": "Identify the conversion operation in your track."
+        }
+      }
+    },
+    "python": {
+      "expectedOutput": "13",
+      "predict": {
+        "answer": "13",
+        "reason": "Converting the text 12 creates numeric 12, so the supplied addition produces 13.",
+        "nextStep": "Trace the original text, converted count and final addition separately."
+      },
+      "trace": {
+        "answer": "12",
+        "reason": "The conversion creates numeric 12; the later output expression adds one without reassigning count.",
+        "nextStep": "Stop at the conversion before inspecting the output expression."
+      },
+      "modify": {
+        "cases": [
+          {
+            "id": "changed",
+            "stdin": "",
+            "expected": "31"
+          }
+        ],
+        "referenceSolution": "digits = \"30\"\ncount = int(digits)\nprint(count + 1)"
+      },
+      "recall": {
+        "cp1-m2-l5-recall-1": {
+          "answer": "No",
+          "reason": "The converted number is stored separately under count; digits still refers to the original text.",
+          "nextStep": "Follow which name receives the conversion result."
+        },
+        "cp1-m2-l5-recall-2": {
+          "answer": "13",
+          "reason": "Numeric 12 plus one produces 13.",
+          "nextStep": "Complete the conversion before applying the addition."
+        },
+        "cp1-m2-l5-recall-3": {
+          "answer": "conversion",
+          "caseSensitive": false,
+          "reason": "Conversion produces the representation needed by numeric work.",
+          "nextStep": "Identify the conversion operation in your track."
+        }
+      }
+    },
+    "javascript": {
+      "expectedOutput": "13",
+      "predict": {
+        "answer": "13",
+        "reason": "Converting the text 12 creates numeric 12, so the supplied addition produces 13.",
+        "nextStep": "Trace the original text, converted count and final addition separately."
+      },
+      "trace": {
+        "answer": "12",
+        "reason": "The conversion creates numeric 12; the later output expression adds one without reassigning count.",
+        "nextStep": "Stop at the conversion before inspecting the output expression."
+      },
+      "modify": {
+        "cases": [
+          {
+            "id": "changed",
+            "stdin": "",
+            "expected": "31"
+          }
+        ],
+        "referenceSolution": "let digits = \"30\";\nlet count = Number(digits);\nconsole.log(count + 1);"
+      },
+      "recall": {
+        "cp1-m2-l5-recall-1": {
+          "answer": "No",
+          "reason": "The converted number is stored separately under count; digits still refers to the original text.",
+          "nextStep": "Follow which name receives the conversion result."
+        },
+        "cp1-m2-l5-recall-2": {
+          "answer": "13",
+          "reason": "Numeric 12 plus one produces 13.",
+          "nextStep": "Complete the conversion before applying the addition."
+        },
+        "cp1-m2-l5-recall-3": {
+          "answer": "conversion",
+          "caseSensitive": false,
+          "reason": "Conversion produces the representation needed by numeric work.",
+          "nextStep": "Identify the conversion operation in your track."
+        }
+      }
+    },
+    "typescript": {
+      "expectedOutput": "13",
+      "predict": {
+        "answer": "13",
+        "reason": "Converting the text 12 creates numeric 12, so the supplied addition produces 13.",
+        "nextStep": "Trace the original text, converted count and final addition separately."
+      },
+      "trace": {
+        "answer": "12",
+        "reason": "The conversion creates numeric 12; the later output expression adds one without reassigning count.",
+        "nextStep": "Stop at the conversion before inspecting the output expression."
+      },
+      "modify": {
+        "cases": [
+          {
+            "id": "changed",
+            "stdin": "",
+            "expected": "31"
+          }
+        ],
+        "referenceSolution": "let digits: string = \"30\";\nlet count: number = Number(digits);\nconsole.log(count + 1);"
+      },
+      "recall": {
+        "cp1-m2-l5-recall-1": {
+          "answer": "No",
+          "reason": "The converted number is stored separately under count; digits still refers to the original text.",
+          "nextStep": "Follow which name receives the conversion result."
+        },
+        "cp1-m2-l5-recall-2": {
+          "answer": "13",
+          "reason": "Numeric 12 plus one produces 13.",
+          "nextStep": "Complete the conversion before applying the addition."
+        },
+        "cp1-m2-l5-recall-3": {
+          "answer": "conversion",
+          "caseSensitive": false,
+          "reason": "Conversion produces the representation needed by numeric work.",
+          "nextStep": "Identify the conversion operation in your track."
+        }
+      }
+    }
+  }
+}

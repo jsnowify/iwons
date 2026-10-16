@@ -3,7 +3,7 @@ import { applyAuthoredModules } from "./learning-authoring.mjs";
 import { writeFileSync, readFileSync } from 'node:fs';
 const cp1 = [
  ['Meet the language','The first message|How code runs|Reading a program|The input desk'],
- ['Variables and types','Names and values|Choosing a type|Changing a value|Constants and conversion'],
+ ['Variables and types','Names and values|Choosing a type|Changing a value|Constants|Converting text'],
  ['Operators','Arithmetic|Division and remainder|Comparisons|Combining expressions'],
  ['Input and output','Reading a line|Reading numbers|Formatting a report|Input boundaries'],
  ['Decisions','One decision|Choosing between paths|Several alternatives|Decision tables'],
@@ -90,5 +90,5 @@ const manifest = {schemaVersion:2,courses:[
 ]};
 const authoredCount=applyAuthoredModules(manifest);
 writeFileSync('src/data/foundations.json',JSON.stringify(manifest,null,2)+'\n');
-console.log(`Learn structure: 3 courses, 44 modules, 176 lessons; ${authoredCount} authored modules restored from seed sources.`);
+console.log(`Learn structure: 3 courses, 44 modules, ${manifest.courses.reduce((sum,course)=>sum+course.modules.reduce((count,station)=>count+station.lessons.length,0),0)} lessons; ${authoredCount} authored modules restored from seed sources.`);
 await import("./prepare-learn-assets.mjs");

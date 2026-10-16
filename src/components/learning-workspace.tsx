@@ -1,4 +1,5 @@
 "use client";
+import { localLearningDay } from "@/lib/foundations/learning-rewards";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
@@ -51,7 +52,7 @@ function ExerciseTrack({exercise,track,description,moduleHref,nextHref,preview,o
  function record(outcome:RunResult){
   setResult(outcome);setSubmittedAccepted(outcome.verdict==="accepted");if(preview){if(outcome.verdict==="accepted")onAccepted?.();return;}
   const store=useStore.getState(),now=Date.now(),correct=outcome.verdict==="accepted";
-  store.setLearning({...store.learning,attempts:[...store.learning.attempts,{exerciseId:exercise.id,course,track,concept:exercise.conceptId??exercise.id,rung:exercise.rung??"write",at:now,correct,clean:correct&&hints===0,hints,confidence:confidence??1,durationMs:Math.max(0,now-(started.current??now))}]});
+  store.setLearning({...store.learning,attempts:[...store.learning.attempts,{exerciseId:exercise.id,course,track,concept:exercise.conceptId??exercise.id,rung:exercise.rung??"write",at:now,day:localLearningDay(now),correct,clean:correct&&hints===0,hints,confidence:confidence??1,durationMs:Math.max(0,now-(started.current??now))}]});
   started.current=now;
   if(correct){store.setFoundationsProgress({...store.foundations,[track]:{...store.foundations[track],exercisesSolved:{...store.foundations[track].exercisesSolved,[exercise.id]:true}}});onAccepted?.();}
  }

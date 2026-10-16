@@ -1,0 +1,78 @@
+{
+  "exerciseId": "cp1-m2-e6",
+  "hiddenCases": [],
+  "variants": {
+    "java": {
+      "referenceSolution": "public class Main {\n    public static void main(String[] args) {\n        int count = 8;\n        count = 10;\n        System.out.println(count);\n    }\n}",
+      "explanations": {
+        "translations": {
+          "en": {
+            "text": "The second assignment replaces count's current value with 10. Trace the sequence and stop before the output reads that value."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "correctAnswer": "10"
+    },
+    "python": {
+      "referenceSolution": "count = 8\ncount = 10\nprint(count)",
+      "explanations": {
+        "translations": {
+          "en": {
+            "text": "The second assignment replaces count's current value with 10. Trace the sequence and stop before the output reads that value."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "correctAnswer": "10"
+    },
+    "javascript": {
+      "referenceSolution": "let count = 8;\ncount = 10;\nconsole.log(count);",
+      "explanations": {
+        "translations": {
+          "en": {
+            "text": "The second assignment replaces count's current value with 10. Trace the sequence and stop before the output reads that value."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "correctAnswer": "10"
+    },
+    "typescript": {
+      "referenceSolution": "let count: number = 8;\ncount = 10;\nconsole.log(count);",
+      "explanations": {
+        "translations": {
+          "en": {
+            "text": "The second assignment replaces count's current value with 10. Trace the sequence and stop before the output reads that value."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      },
+      "correctAnswer": "10"
+    }
+  }
+}

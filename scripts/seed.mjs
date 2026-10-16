@@ -3,6 +3,7 @@ import path from "node:path";
 import { authorUnit } from "./curriculum/author-unit.mjs";
 import { units, levels } from "./curriculum/units.mjs";
 import { validateUnit } from "./validate-problems.ts";
+if (process.argv.includes("--author-variables-module")) await import("./author-variables-module.mjs");
 if (process.argv.includes("--author-first-module")) await import("./author-first-module.mjs");
 if (process.argv.includes("--learn-only")) {
   await import("./seed-learn.mjs");

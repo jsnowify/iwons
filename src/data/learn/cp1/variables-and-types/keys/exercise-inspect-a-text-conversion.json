@@ -1,0 +1,74 @@
+{
+  "exerciseId": "cp1-m2-e8",
+  "hiddenCases": [],
+  "variants": {
+    "java": {
+      "referenceSolution": "public class Main {\n    public static void main(String[] args) {\n        String digits = \"12\";\n        int count = Integer.parseInt(digits);\n        System.out.println(count + 1);\n    }\n}",
+      "explanations": {
+        "translations": {
+          "en": {
+            "text": "digits remains text while count stores the converted number. Trace count before applying the supplied addition, compare the original text, converted value and output expression."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      }
+    },
+    "python": {
+      "referenceSolution": "digits = \"12\"\ncount = int(digits)\nprint(count + 1)",
+      "explanations": {
+        "translations": {
+          "en": {
+            "text": "digits remains text while count stores the converted number. Trace count before applying the supplied addition, compare the original text, converted value and output expression."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      }
+    },
+    "javascript": {
+      "referenceSolution": "let digits = \"12\";\nlet count = Number(digits);\nconsole.log(count + 1);",
+      "explanations": {
+        "translations": {
+          "en": {
+            "text": "digits remains text while count stores the converted number. Trace count before applying the supplied addition, compare the original text, converted value and output expression."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      }
+    },
+    "typescript": {
+      "referenceSolution": "let digits: string = \"12\";\nlet count: number = Number(digits);\nconsole.log(count + 1);",
+      "explanations": {
+        "translations": {
+          "en": {
+            "text": "digits remains text while count stores the converted number. Trace count before applying the supplied addition, compare the original text, converted value and output expression."
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      }
+    }
+  }
+}

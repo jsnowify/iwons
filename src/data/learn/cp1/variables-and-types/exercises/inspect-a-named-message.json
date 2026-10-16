@@ -1,0 +1,199 @@
+{
+  "id": "cp1-m2-e1",
+  "slug": "inspect-a-named-message",
+  "moduleId": "cp1-m2",
+  "afterLessonId": "cp1-m2-l1",
+  "kind": "fill",
+  "track": "foundations",
+  "ioMode": "program",
+  "rung": "worked",
+  "conceptId": "named-values",
+  "javaMinVersion": 8,
+  "xp": 20,
+  "shared": {
+    "translations": {
+      "en": {
+        "title": "Inspect a named message",
+        "statement": "Inspect the complete program that binds a string to message and prints the stored value. Identify the name and its value separately in each labeled step, then run the unchanged example.",
+        "hints": [
+          "Find the statement that first binds message.",
+          "The text on its right is the value; message is its identifier.",
+          "Read the unquoted message in the output statement as retrieve its stored value."
+        ]
+      },
+      "fil": null,
+      "ceb": null
+    },
+    "translationStatus": {
+      "en": "reviewed",
+      "fil": "draft",
+      "ceb": "draft"
+    }
+  },
+  "cases": [
+    {
+      "id": "register",
+      "input": [],
+      "stdin": "",
+      "expected": "Ready"
+    }
+  ],
+  "variants": {
+    "java": {
+      "starterCode": "public class Main {\n    public static void main(String[] args) {\n        String message = \"Ready\";\n        System.out.println(message);\n    }\n}",
+      "functionName": "main",
+      "concepts": [
+        "named-values"
+      ],
+      "introducedIn": {
+        "output": "cp1-m1-l1",
+        "execution-order": "cp1-m1-l2",
+        "source-punctuation": "cp1-m1-l3",
+        "line-input": "cp1-m1-l4",
+        "named-values": "cp1-m2-l1"
+      },
+      "workedSteps": {
+        "translations": {
+          "en": {
+            "steps": [
+              {
+                "label": "Bind a meaningful name",
+                "code": "String message = \"Ready\";",
+                "prompt": "Separate the identifier from its string value."
+              },
+              {
+                "label": "Retrieve the value",
+                "code": "public class Main {\n    public static void main(String[] args) {\n        String message = \"Ready\";\n        System.out.println(message);\n    }\n}",
+                "prompt": "Why is the output argument unquoted?"
+              }
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      }
+    },
+    "python": {
+      "starterCode": "message = \"Ready\"\nprint(message)",
+      "functionName": "main",
+      "concepts": [
+        "named-values"
+      ],
+      "introducedIn": {
+        "output": "cp1-m1-l1",
+        "execution-order": "cp1-m1-l2",
+        "source-punctuation": "cp1-m1-l3",
+        "line-input": "cp1-m1-l4",
+        "named-values": "cp1-m2-l1"
+      },
+      "workedSteps": {
+        "translations": {
+          "en": {
+            "steps": [
+              {
+                "label": "Bind a meaningful name",
+                "code": "message = \"Ready\"",
+                "prompt": "Separate the identifier from its string value."
+              },
+              {
+                "label": "Retrieve the value",
+                "code": "message = \"Ready\"\nprint(message)",
+                "prompt": "Why is the output argument unquoted?"
+              }
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      }
+    },
+    "javascript": {
+      "starterCode": "let message = \"Ready\";\nconsole.log(message);",
+      "functionName": "main",
+      "concepts": [
+        "named-values"
+      ],
+      "introducedIn": {
+        "output": "cp1-m1-l1",
+        "execution-order": "cp1-m1-l2",
+        "source-punctuation": "cp1-m1-l3",
+        "line-input": "cp1-m1-l4",
+        "named-values": "cp1-m2-l1"
+      },
+      "workedSteps": {
+        "translations": {
+          "en": {
+            "steps": [
+              {
+                "label": "Bind a meaningful name",
+                "code": "let message = \"Ready\";",
+                "prompt": "Separate the identifier from its string value."
+              },
+              {
+                "label": "Retrieve the value",
+                "code": "let message = \"Ready\";\nconsole.log(message);",
+                "prompt": "Why is the output argument unquoted?"
+              }
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      }
+    },
+    "typescript": {
+      "starterCode": "let message: string = \"Ready\";\nconsole.log(message);",
+      "functionName": "main",
+      "concepts": [
+        "named-values"
+      ],
+      "introducedIn": {
+        "output": "cp1-m1-l1",
+        "execution-order": "cp1-m1-l2",
+        "source-punctuation": "cp1-m1-l3",
+        "line-input": "cp1-m1-l4",
+        "named-values": "cp1-m2-l1"
+      },
+      "workedSteps": {
+        "translations": {
+          "en": {
+            "steps": [
+              {
+                "label": "Bind a meaningful name",
+                "code": "let message: string = \"Ready\";",
+                "prompt": "Separate the identifier from its string value."
+              },
+              {
+                "label": "Retrieve the value",
+                "code": "let message: string = \"Ready\";\nconsole.log(message);",
+                "prompt": "Why is the output argument unquoted?"
+              }
+            ]
+          },
+          "fil": null,
+          "ceb": null
+        },
+        "translationStatus": {
+          "en": "reviewed",
+          "fil": "draft",
+          "ceb": "draft"
+        }
+      }
+    }
+  }
+}

@@ -14,6 +14,10 @@ const entry=course.modules.find(entry=>entry.id===moduleId)!;
 assert.equal(entry.status,"draft","This command validates draft execution, never publication.");
 const root=path.join("src/data/learn",course.id,entry.slug);
 const introduced=Object.fromEntries(tracks.map(track=>[track,new Set<string>()])) as Record<Track,Set<string>>;
+prior:for(const priorCourse of manifest.courses)for(const station of priorCourse.modules){
+ if(station.id===entry.id)break prior;
+ for(const lesson of station.lessons)if(lesson.status==="ready")for(const track of tracks)for(const [concept,id]of Object.entries(lesson.variants[track]?.introducedIn??{}))if(id===lesson.id)introduced[track].add(concept);
+}
 const snapshots=new Map<string,typeof introduced>();
 let lessonCases=0;
 for(const item of entry.lessons){

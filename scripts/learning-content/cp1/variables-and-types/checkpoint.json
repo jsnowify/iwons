@@ -1,0 +1,87 @@
+{
+  "id": "cp1-m2-checkpoint",
+  "moduleId": "cp1-m2",
+  "translations": {
+    "en": {
+      "questions": [
+        {
+          "id": "lookup",
+          "prompt": "message holds Ready. What does printing the unquoted message identifier use?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Its current stored value"
+            },
+            {
+              "id": "b",
+              "text": "Always the literal letters message"
+            }
+          ]
+        },
+        {
+          "id": "kind",
+          "prompt": "What kind of value do the source quotes create around 2.5?",
+          "options": [
+            {
+              "id": "a",
+              "text": "A numeric fraction automatically"
+            },
+            {
+              "id": "b",
+              "text": "Text containing digit characters"
+            }
+          ]
+        },
+        {
+          "id": "update",
+          "prompt": "count starts at 8, is assigned 9, then prints. Which value is read?",
+          "options": [
+            {
+              "id": "a",
+              "text": "9"
+            },
+            {
+              "id": "b",
+              "text": "8"
+            }
+          ]
+        },
+        {
+          "id": "constant",
+          "prompt": "Does an uppercase Python name automatically reject reassignment?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Yes, exactly like the shown Java final binding"
+            },
+            {
+              "id": "b",
+              "text": "No, it communicates a naming convention"
+            }
+          ]
+        },
+        {
+          "id": "conversion",
+          "prompt": "After converting digit text 007 and printing the numeric value without addition, what appears?",
+          "options": [
+            {
+              "id": "a",
+              "text": "7"
+            },
+            {
+              "id": "b",
+              "text": "007"
+            }
+          ]
+        }
+      ]
+    },
+    "fil": null,
+    "ceb": null
+  },
+  "translationStatus": {
+    "en": "reviewed",
+    "fil": "draft",
+    "ceb": "draft"
+  }
+}

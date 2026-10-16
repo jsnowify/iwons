@@ -2,9 +2,16 @@
 import { create } from "zustand";
 import { persist, type PersistStorage } from "zustand/middleware";
 import { retainSubmissions } from "@/lib/retain-submissions";
-import { emptyLearningState, validateLearningState, type LearningState } from "@/lib/foundations/learning-state";
+import {
+  emptyLearningState,
+  validateLearningState,
+  type LearningState,
+} from "@/lib/foundations/learning-state";
 import { storage, DATA_KEYS } from "@/lib/storage";
-import { emptyLearnProgress, type LearnProgress } from "@/lib/foundations/model-v2";
+import {
+  emptyLearnProgress,
+  type LearnProgress,
+} from "@/lib/foundations/model-v2";
 import { validateLearnProgress } from "@/lib/foundations/validate-progress-v2";
 import type {
   Profile,
@@ -20,7 +27,10 @@ export const DEFAULT_SETTINGS: Settings = {
   codeTrack: "java",
   lessonLanguage: "en",
   theme: "light",
-  readableText:false,motion:true,sound:false,freeBrowse:false,
+  readableText: false,
+  motion: true,
+  sound: false,
+  freeBrowse: false,
   language: "javascript",
   fontSize: 14,
   tabSize: 2,
@@ -33,7 +43,7 @@ export const DEFAULT_SETTINGS: Settings = {
 interface Data {
   learning: LearningState;
   foundations: LearnProgress;
-  archive:LegacyArchive|null;
+  archive: LegacyArchive | null;
   profile: Profile;
   settings: Settings;
   submissions: Submission[];
@@ -65,7 +75,7 @@ interface Store extends Data {
 const defaults: Data = {
   learning: emptyLearningState(),
   foundations: emptyLearnProgress(),
-  archive:null,
+  archive: null,
   profile: { name: "Coder", avatar: "J", onboarded: false },
   settings: DEFAULT_SETTINGS,
   submissions: [],
@@ -79,12 +89,22 @@ const defaults: Data = {
   plans: {},
 };
 const adapter: PersistStorage<Data> = {
-  getItem: () => {if(!storage.migrate())throw new Error("Could not migrate local data. Export a backup to free space.");return ({
-    state: Object.fromEntries(
-      DATA_KEYS.map((k) => [k, k==="settings"?{...DEFAULT_SETTINGS,...storage.read(k,DEFAULT_SETTINGS)}:storage.read(k, defaults[k])]),
-    ) as unknown as Data,
-    version: 6,
-  });
+  getItem: () => {
+    if (!storage.migrate())
+      throw new Error(
+        "Could not migrate local data. Export a backup to free space.",
+      );
+    return {
+      state: Object.fromEntries(
+        DATA_KEYS.map((k) => [
+          k,
+          k === "settings"
+            ? { ...DEFAULT_SETTINGS, ...storage.read(k, DEFAULT_SETTINGS) }
+            : storage.read(k, defaults[k]),
+        ]),
+      ) as unknown as Data,
+      version: 6,
+    };
   },
   setItem: (_, value) => {
     for (const k of DATA_KEYS) storage.write(k, value.state[k]);
@@ -95,18 +115,24 @@ export const useStore = create<Store>()(
   persist(
     (set, get) => ({
       ...defaults,
-      setLearning: (learning) => { validateLearningState(learning); set({ learning }); },
-      setFoundationsProgress: (foundations) => { validateLearnProgress(foundations); set({ foundations }); },
+      setLearning: (learning) => {
+        validateLearningState(learning);
+        set({ learning });
+      },
+      setFoundationsProgress: (foundations) => {
+        validateLearnProgress(foundations);
+        set({ foundations });
+      },
       hydrated: false,
       hydrate: () => {
-        if(storage.migrate())set({ hydrated: true });
+        if (storage.migrate()) set({ hydrated: true });
       },
       updateProfile: (p) => set((s) => ({ profile: { ...s.profile, ...p } })),
       updateSettings: (p) =>
         set((s) => ({ settings: { ...s.settings, ...p } })),
       addSubmission: (submission) =>
         set((s) => {
-          const submissions = retainSubmissions([submission,...s.submissions]);
+          const submissions = retainSubmissions([submission, ...s.submissions]);
           const solved = submission.verdict === "accepted";
           return {
             submissions,
@@ -138,7 +164,7 @@ export const useStore = create<Store>()(
       setPlan: (id, day) => set((s) => ({ plans: { ...s.plans, [id]: day } })),
       cleanup: () =>
         set({
-          submissions: retainSubmissions(get().submissions,2),
+          submissions: retainSubmissions(get().submissions, 2),
         }),
     }),
     {
