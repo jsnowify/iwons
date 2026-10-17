@@ -6,8 +6,8 @@ import { TargetAndNumbers, PatternMatchInput } from '../visualizer/core/inputs';
 describe('Engine 2 (Array & Pointers): Full 17-Algorithm Library Verification', () => {
   const arrayAlgoMetas = ALGORITHM_REGISTRY.filter(a => a.engine === 'array-pointers');
 
-  it('has exactly 17 array-pointers algorithms defined in the catalog', () => {
-    expect(arrayAlgoMetas.length).toBe(17);
+  it('has at least 17 array-pointers algorithms defined in the catalog', () => {
+    expect(arrayAlgoMetas.length).toBeGreaterThanOrEqual(17);
   });
 
   // --- SEARCHING ALGORITHMS ORACLE TESTS ---

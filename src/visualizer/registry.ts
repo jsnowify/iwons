@@ -855,6 +855,83 @@ export const ALGORITHM_REGISTRY: AlgoMetadata[] = [
     blurb:
       "Evicts least recently accessed items in O(1) time by coordinating a hash map and a doubly linked list.",
   },
+
+  // --- PHASE V9: REMAINING TOPICS (GREEDY, MATH, BITS) ---
+  {
+    id: "activity-selection",
+    name: "Greedy Activity Selection",
+    category: "greedy",
+    engine: "array-pointers",
+    complexity: {
+      best: "O(n log n)",
+      average: "O(n log n)",
+      worst: "O(n log n)",
+      space: "O(1)",
+    },
+    inputKind: "numbers",
+    blurb:
+      "Selects the maximum number of mutually compatible activities by greedily picking each next activity with the earliest finish time.",
+  },
+  {
+    id: "fractional-knapsack",
+    name: "Fractional Knapsack",
+    category: "greedy",
+    engine: "bars",
+    complexity: {
+      best: "O(n log n)",
+      average: "O(n log n)",
+      worst: "O(n log n)",
+      space: "O(1)",
+    },
+    inputKind: "numbers",
+    blurb:
+      "Maximizes total knapsack value by greedily packing items in decreasing order of value density, taking fractional portions as needed.",
+  },
+  {
+    id: "euclidean-gcd",
+    name: "Euclidean Algorithm (GCD)",
+    category: "math",
+    engine: "bars",
+    complexity: {
+      best: "O(1)",
+      average: "O(log(min(a, b)))",
+      worst: "O(log(min(a, b)))",
+      space: "O(1)",
+    },
+    inputKind: "numbers",
+    blurb:
+      "Computes the greatest common divisor of two integers by repeatedly replacing the larger number with the division remainder until zero.",
+  },
+  {
+    id: "sieve-of-eratosthenes",
+    name: "Sieve of Eratosthenes",
+    category: "math",
+    engine: "grid-table",
+    complexity: {
+      best: "O(n log log n)",
+      average: "O(n log log n)",
+      worst: "O(n log log n)",
+      space: "O(n)",
+    },
+    inputKind: "numbers",
+    blurb:
+      "Identifies all prime numbers up to N by iteratively crossing out composite multiples of each discovered prime on a 6×6 grid.",
+  },
+  {
+    id: "bitwise-tricks",
+    name: "Brian Kernighan's Bit Counting",
+    category: "bit-manipulation",
+    engine: "array-pointers",
+    complexity: {
+      best: "O(1)",
+      average: "O(k)",
+      worst: "O(k)",
+      space: "O(1)",
+    },
+    inputKind: "numbers",
+    blurb:
+      "Counts set bits in a binary number in O(k) steps using n & (n - 1) to extinguish the lowest set bit on each iteration.",
+  },
 ];
 
 export const CATEGORIES_LIST: { id: AlgorithmCategory; label: string }[] = [
@@ -999,6 +1076,18 @@ export const ALGO_LOADERS: Record<
   "hash-table-chaining": () =>
     import("./algorithms/hashing/hash-table-chaining"),
   "lru-cache": () => import("./algorithms/hashing/lru-cache"),
+
+  // Phase V9: Remaining Topics (Greedy, Math, Bits)
+  "activity-selection": () =>
+    import("./algorithms/greedy/activity-selection"),
+  "fractional-knapsack": () =>
+    import("./algorithms/greedy/fractional-knapsack"),
+  "euclidean-gcd": () =>
+    import("./algorithms/math/euclidean-gcd"),
+  "sieve-of-eratosthenes": () =>
+    import("./algorithms/math/sieve-of-eratosthenes"),
+  "bitwise-tricks": () =>
+    import("./algorithms/bits/bitwise-tricks"),
 };
 
 /**

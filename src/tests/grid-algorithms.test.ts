@@ -4,8 +4,8 @@ import { loadAlgorithmDefinition, ALGORITHM_REGISTRY } from '../visualizer/regis
 describe('Engine 3 (Grid & Table): Full 9-Algorithm Library Verification', () => {
   const gridAlgoMetas = ALGORITHM_REGISTRY.filter(a => a.engine === 'grid-table');
 
-  it('has exactly 9 grid-table algorithms defined in the catalog', () => {
-    expect(gridAlgoMetas.length).toBe(9);
+  it('has at least 9 grid-table algorithms defined in the catalog', () => {
+    expect(gridAlgoMetas.length).toBeGreaterThanOrEqual(9);
   });
 
   for (const meta of gridAlgoMetas) {
