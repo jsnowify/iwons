@@ -198,3 +198,4 @@ export const interpolationSearchDefinition: AlgoDefinition<TargetAndNumbers> = {
 };
 
 export default interpolationSearchDefinition;
+

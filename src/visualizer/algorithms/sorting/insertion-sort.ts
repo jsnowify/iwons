@@ -160,3 +160,4 @@ export const insertionSortDefinition: AlgoDefinition<number[]> = {
 };
 
 export default insertionSortDefinition;
+

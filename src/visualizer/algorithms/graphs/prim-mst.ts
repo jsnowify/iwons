@@ -267,3 +267,4 @@ export const primMstDefinition: AlgoDefinition<GraphDataInput> = {
 };
 
 export default primMstDefinition;
+

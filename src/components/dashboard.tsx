@@ -369,12 +369,6 @@ export function Dashboard({problems}:{problems:CatalogEntry[]}) {
           </Link>
         </div>
       )}
-      <footer className="footer">
-        <span>Built for the work behind the win.</span>
-        <span className="row">
-          <Link href="/about/">About Iwons</Link>
-        </span>
-      </footer>
       <Onboarding open={onboard} onClose={() => setOnboard(false)} />
     </div>
   );

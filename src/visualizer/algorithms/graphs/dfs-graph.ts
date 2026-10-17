@@ -218,3 +218,4 @@ export const dfsGraphDefinition: AlgoDefinition<GraphDataInput> = {
 };
 
 export default dfsGraphDefinition;
+

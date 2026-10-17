@@ -180,3 +180,4 @@ export const slidingWindowVariableDefinition: AlgoDefinition<TargetAndNumbers> =
 };
 
 export default slidingWindowVariableDefinition;
+

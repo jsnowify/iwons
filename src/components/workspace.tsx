@@ -60,7 +60,6 @@ export function Workspace({
   const [language, setLanguage] = useState<Language>("javascript"),
     [code, setCode] = useState(p.starterCode.javascript),
     [loaded, setLoaded] = useState(false),
-    [editorEnabled, setEditorEnabled] = useState(false),
     [failureInput, setFailureInput] = useState<unknown[] | undefined>(
       undefined,
     ),
@@ -483,7 +482,6 @@ export function Workspace({
           className={`tab ${mobile === "code" ? "active" : ""}`}
           onClick={() => {
             setMobile("code");
-            setEditorEnabled(true);
           }}
         >
           Code & results
@@ -743,15 +741,13 @@ export function Workspace({
               });
             }}
           >
-            {loaded && editorEnabled ? (
+            {loaded ? (
               <CodeEditor
                 language={language}
                 code={code}
                 onChange={setCode}
                 onBurst={logTypingBurst}
               />
-            ) : loaded ? (
-              <div className="editor-preview"><pre aria-label="Saved code preview">{code}</pre><button className="btn" type="button" onClick={()=>setEditorEnabled(true)}>Open code editor</button><p className="muted">Your draft is ready. Open the editor when you want to type.</p></div>
             ) : <EditorSkeleton />}
           </div>
           <div className="editor-bottom">

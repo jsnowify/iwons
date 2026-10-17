@@ -231,3 +231,4 @@ export function BarsEngine({ step }: BarsEngineProps) {
     </div>
   );
 }
+

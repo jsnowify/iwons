@@ -202,3 +202,4 @@ export const zAlgorithmDefinition: AlgoDefinition<PatternMatchInput> = {
 };
 
 export default zAlgorithmDefinition;
+

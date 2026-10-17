@@ -248,3 +248,4 @@ export const kruskalMstDefinition: AlgoDefinition<GraphDataInput> = {
 };
 
 export default kruskalMstDefinition;
+

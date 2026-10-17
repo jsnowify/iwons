@@ -209,3 +209,4 @@ export const ternarySearchDefinition: AlgoDefinition<TargetAndNumbers> = {
 };
 
 export default ternarySearchDefinition;
+

@@ -162,3 +162,4 @@ export const stackOperationsDefinition: AlgoDefinition<number[]> = {
 };
 
 export default stackOperationsDefinition;
+

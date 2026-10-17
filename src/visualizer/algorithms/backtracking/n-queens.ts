@@ -201,3 +201,4 @@ export const nQueensDefinition: AlgoDefinition<number | number[]> = {
 };
 
 export default nQueensDefinition;
+

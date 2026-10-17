@@ -151,7 +151,7 @@ export function ProgressPage({problems}:{problems:CatalogEntry[]}) {
     }
   }
   return (
-    <div className="content">
+    <div className="content progress-page">
       <div className="page-heading">
         <div>
           <div className="eyebrow">THE WORK IS ADDING UP.</div>
@@ -204,7 +204,7 @@ export function ProgressPage({problems}:{problems:CatalogEntry[]}) {
           </div>
         ))}
       </div>
-      <div className="dash-grid">
+      <div className="dash-grid progress-details">
         <section className="card fullspan">
           <div className="card-heading">
             <h2>Practice, one square at a time</h2>
@@ -214,7 +214,7 @@ export function ProgressPage({problems}:{problems:CatalogEntry[]}) {
           </div>
           <Heatmap />
         </section>
-        <section className="card" aria-labelledby="pattern-strength-heading" style={{ alignSelf: "start" }}>
+        <section className="card" aria-labelledby="pattern-strength-heading">
           <div className="card-heading">
             <h2 id="pattern-strength-heading">Pattern strength</h2>
             {topics.length > 5 && (

@@ -196,3 +196,4 @@ export const jumpSearchDefinition: AlgoDefinition<TargetAndNumbers> = {
 };
 
 export default jumpSearchDefinition;
+

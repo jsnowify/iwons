@@ -121,10 +121,6 @@ export function PathMap({ levels }: { levels: Omit<PathLevel, "primer" | "exampl
           );
         })}
       </div>
-      <div className="screen-note">
-        No rush, no leaderboard. A chapter stamp celebrates every completed set.
-        Your work stays on this device.
-      </div>
     </>
   );
 }

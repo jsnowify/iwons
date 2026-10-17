@@ -205,3 +205,4 @@ export const exponentialSearchDefinition: AlgoDefinition<TargetAndNumbers> = {
 };
 
 export default exponentialSearchDefinition;
+

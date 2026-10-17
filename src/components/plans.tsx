@@ -187,9 +187,6 @@ export function PlansPage({problems}:{problems:CatalogEntry[]}) {
           </section>
         </>
       )}
-      <div className="screen-note" style={{ marginTop: 24 }}>
-        A missed day is a pause, not a failure. Your plan waits for you.
-      </div>
     </div>
   );
 }

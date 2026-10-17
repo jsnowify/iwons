@@ -140,3 +140,4 @@ Add unit test verifying that the final frame produced by `generate()` matches th
    - *Decision:* SVG with memoized geometries was selected as the optimal fit for retro paper/typewriter design.
 3. **Registry Dynamic Imports:**
    - *Decision:* Instead of bundling 200+ algorithms into the main page bundle, `registry.ts` contains only lightweight metadata (IDs, names, complexities). The actual generator is dynamically imported via `loadAlgorithmDefinition` when the route is loaded.
+

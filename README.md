@@ -34,10 +34,10 @@ The wordmark uses a static block cursor. Skeleton pulse and the editor caret ret
 - Chapter unlocking at 70%, a free-browse option, readable text, motion controls, and an optional carriage bell.
 - A v3 migration that archives previous submissions, progress, notes, lists and drafts. Retired problem URLs explain the change.
 - Search, difficulty/topic/status filters, sorting, bookmarks, and custom lists.
-- On-demand Monaco workspace, per-language drafts, progressive hints, notes, gated editorials, custom cases, stdout, verdicts, and case comparisons.
+- Automatically opened Monaco workspace, per-language drafts, progressive hints, notes, gated editorials, custom cases, stdout, verdicts, and case comparisons.
 - JavaScript/TypeScript execution in disposable workers; lazy Python through Pyodide; configurable Java Beta adapter.
 - Submission history, reopen-in-editor, local progress, activity calendar, streaks, XP, milestones, clean solves, and a downloadable Flex Card PNG.
-- Path-based Daily Warm-up 3, an on-demand algorithm Visualizer, spaced repetition, 30-day and 14-day study plans, fullscreen contests and mock interviews with a shared timer.
+- Path-based Daily Warm-up 3, an immediately visible nine-algorithm Visualizer with optional step audio, spaced repetition, 30-day and 14-day study plans, fullscreen contests and mock interviews with a shared timer.
 - Custom-problem authoring, JSON problem import, and reference-solution checks.
 - Consent-based Iwons Watch, focus/visibility/paste/fullscreen/typing-burst/second-tab signals, scoring, and self-reported welcome-back notes.
 - Versioned local storage, quota recovery, backups, import validation, and confirmed reset.

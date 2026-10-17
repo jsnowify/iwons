@@ -70,6 +70,20 @@ export const viewport: Viewport = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" data-theme="light" suppressHydrationWarning>
+      <head>
+        <style
+          id="picker-scrollbar-rules"
+          dangerouslySetInnerHTML={{
+            __html: `
+::picker(select)::-webkit-scrollbar { width: 12px; height: 12px; }
+::picker(select)::-webkit-scrollbar-track, ::picker(select)::-webkit-scrollbar-corner { background: var(--surface); }
+::picker(select)::-webkit-scrollbar-thumb { background: var(--ink); border: 2px solid var(--surface); border-radius: 4px; }
+::picker(select)::-webkit-scrollbar-thumb:hover { background: var(--accent-text); }
+::picker(select)::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+`,
+          }}
+        />
+      </head>
       <body
         className={`${geist.variable} ${space.variable} ${courier.variable} ${elite.variable} ${jetbrains.variable}`}
       >

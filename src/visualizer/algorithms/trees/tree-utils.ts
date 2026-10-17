@@ -122,3 +122,4 @@ export function cloneInternalTree(root: InternalTreeNode | null): InternalTreeNo
     right: cloneInternalTree(root.right ?? null),
   };
 }
+

@@ -191,3 +191,4 @@ export const activitySelectionDefinition: AlgoDefinition<number[]> = {
 };
 
 export default activitySelectionDefinition;
+

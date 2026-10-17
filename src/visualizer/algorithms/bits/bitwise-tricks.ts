@@ -142,3 +142,4 @@ export const bitwiseTricksDefinition: AlgoDefinition<number[]> = {
 };
 
 export default bitwiseTricksDefinition;
+

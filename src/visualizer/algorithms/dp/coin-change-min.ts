@@ -192,3 +192,4 @@ export const coinChangeMinDefinition: AlgoDefinition<TargetAndNumbers> = {
 };
 
 export default coinChangeMinDefinition;
+

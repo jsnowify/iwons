@@ -150,3 +150,4 @@ export const bucketSortDefinition: AlgoDefinition<number[]> = {
 };
 
 export default bucketSortDefinition;
+

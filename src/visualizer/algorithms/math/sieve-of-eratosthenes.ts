@@ -153,3 +153,4 @@ export const sieveOfEratosthenesDefinition: AlgoDefinition<number[]> = {
 };
 
 export default sieveOfEratosthenesDefinition;
+

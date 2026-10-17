@@ -200,3 +200,4 @@ export const fractionalKnapsackDefinition: AlgoDefinition<number[]> = {
 };
 
 export default fractionalKnapsackDefinition;
+

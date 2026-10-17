@@ -751,3 +751,189 @@
   outline: 3px dashed var(--accent);
   outline-offset: 3px;
 }
+
+/* --------------------------------------------------------------------------
+   7. Catalog Page & Cards
+   -------------------------------------------------------------------------- */
+.visualizer-catalog-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.catalog-search-filter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  border: 2px solid var(--ink);
+  background: var(--surface);
+  box-shadow: 2px 2px 0 var(--shadow-ink);
+}
+
+.catalog-search-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.catalog-search-input {
+  flex: 1;
+  min-width: 240px;
+  height: 40px;
+  padding: 0 14px;
+  border: 1.5px solid var(--ink);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-mono, monospace);
+  font-size: 13px;
+}
+
+.catalog-select-engine {
+  height: 40px;
+  padding: 0 12px;
+  border: 1.5px solid var(--ink);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-mono, monospace);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.catalog-category-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.category-pill-btn {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1.5px solid var(--border-dim);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.category-pill-btn:hover {
+  background: var(--accent-soft);
+  border-color: var(--ink);
+}
+
+.category-pill-btn.active {
+  background: var(--accent);
+  color: var(--on-accent, #fff);
+  border-color: var(--ink);
+  box-shadow: 1.5px 1.5px 0 var(--shadow-ink);
+}
+
+.catalog-counter-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--muted);
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+}
+
+.catalog-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.algo-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  border: 2px solid var(--ink);
+  background: var(--surface);
+  box-shadow: 3px 3px 0 var(--shadow-ink);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.algo-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--shadow-ink);
+}
+
+.algo-card-top {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.algo-card-badges {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.badge-cat {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  background: var(--accent-soft);
+  border: 1px solid var(--ink);
+  color: var(--ink);
+}
+
+.badge-engine {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  background: var(--surface);
+  border: 1px solid var(--border-dim);
+  color: var(--muted);
+}
+
+.algo-card-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 0 0 8px 0;
+  letter-spacing: -0.01em;
+}
+
+.algo-card-blurb {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.algo-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border-dim);
+  font-size: 12px;
+}
+
+.algo-card-complexities {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.algo-card-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 800;
+  color: var(--accent);
+}
+

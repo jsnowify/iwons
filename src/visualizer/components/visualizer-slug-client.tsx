@@ -75,3 +75,4 @@ export function VisualizerSlugClient({ slug }: VisualizerSlugClientProps) {
 }
 
 export default VisualizerSlugClient;
+

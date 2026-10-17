@@ -45,3 +45,4 @@ export function VisualizerTopBar({ algorithm }: VisualizerTopBarProps) {
     </header>
   );
 }
+
