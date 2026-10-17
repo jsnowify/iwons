@@ -158,6 +158,34 @@ Instead of authoring 250 individual animation components with disparate UI logic
 
 ---
 
+### Algorithms Shipped vs. Planned Roadmap
+
+The 6 engines provide complete visual and structural coverage for all 250+ standard algorithms. In accordance with the prompt's ship order ("ship the core algorithms of each engine first—the ones students meet most—and mark the rest as planned in docs/PROGRESS.md; never ship a half-working algorithm"):
+
+- **Currently Shipped & Production-Verified (67 Core Algorithms):**
+  - **Sorting (16/16):** 100% complete. Every standard sorting algorithm in CS curricula.
+  - **Searching (6):** Linear, Binary, Jump, Interpolation, Exponential, Ternary.
+  - **Arrays (8):** Two Pointers, Fast & Slow, Sliding Window (Fixed/Variable), Prefix Sum, Kadane, Dutch Flag, Boyer-Moore.
+  - **Strings (3):** KMP, Rabin-Karp, Z-Algorithm.
+  - **Dynamic Programming (6):** Fibonacci, 0/1 Knapsack, LCS, Edit Distance, Coin Change, Grid Paths.
+  - **Matrices & Backtracking (3):** Matrix Spiral, N-Queens, Sudoku Solver.
+  - **Graphs (7):** BFS, DFS, Dijkstra, Bellman-Ford, Kruskal, Prim, Kahn's Topological Sort.
+  - **Trees & Heaps (7):** Inorder, Preorder, Postorder, Level-Order, BST Search & Insert, AVL Rotations, Binary Heap.
+  - **Nodes & Arrows (6):** Reverse Linked List, Floyd's Cycle, Stack, Queue, Hash Table Chaining, LRU Cache.
+  - **Remaining Topics (5):** Greedy Activity Selection, Fractional Knapsack, Euclidean GCD, Sieve of Eratosthenes, Brian Kernighan Bit Counting.
+
+- **Planned Roadmap (Algorithms #68–250+ on Existing Engines):**
+  - *Engine 1 (Bars):* Bitonic Sort, Stooge Sort, Odd-Even Transposition, Strand Sort.
+  - *Engine 2 (Array & Pointers):* Binary Search on Answer, Lower/Upper Bounds, Difference Array, Merge Sorted Arrays, Reverse & Rotate, Next Permutation, Longest Common Prefix, Manacher's Algorithm, Anagram Window.
+  - *Engine 3 (Grid & Table):* Climbing Stairs, House Robber, Longest Increasing Subsequence, Rod Cutting, Matrix Chain Multiplication, Word Break, Flood Fill, Rat in a Maze, Knight's Tour, Game of Life.
+  - *Engine 4 (Graph):* Floyd-Warshall, A* Search, Kosaraju SCC, Tarjan SCC, Bridges & Articulation Points, Bipartite Check, Edmonds-Karp Max Flow, Eulerian Path.
+  - *Engine 5 (Tree & Heap):* BST Delete, Validate BST, Lowest Common Ancestor, Red-Black Tree, Segment Tree, Fenwick Tree (BIT), Trie (Prefix Tree), Huffman Coding, Median from Data Stream.
+  - *Engine 6 (Nodes & Arrows):* Find Middle Node, Merge Two Sorted Lists, Remove Nth from End, Palindrome Linked List, Monotonic Stack, Min Stack, Circular Queue, Open Addressing (Linear/Quadratic).
+  - *Remaining Topics:* Merge Intervals, Jump Game, Fast Exponentiation, Pascal's Triangle, Power of Two, Single Number XOR, Graham Scan Convex Hull.
+
+
+---
+
 ## 4. Evidence of Dual-Oracle and Property Testing
 
 Every algorithm generator has been tested against independent oracles and invariant assertions across edge cases:
