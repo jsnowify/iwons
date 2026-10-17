@@ -955,8 +955,18 @@ export const ALGO_LOADERS: Record<
   "rabin-karp": () => import("./algorithms/strings/rabin-karp"),
   "z-algorithm": () => import("./algorithms/strings/z-algorithm"),
 
-  // Engine 3: Grid & Table (DP)
+  // Engine 3: Grid & Table (9 Algorithms - DP, Matrices, Backtracking)
   "fibonacci-dp": () => import("./algorithms/dp/fibonacci-dp"),
+  "knapsack-0-1": () => import("./algorithms/dp/knapsack-0-1"),
+  "longest-common-subsequence": () =>
+    import("./algorithms/dp/longest-common-subsequence"),
+  "edit-distance": () => import("./algorithms/dp/edit-distance"),
+  "coin-change-min": () => import("./algorithms/dp/coin-change-min"),
+  "grid-unique-paths": () => import("./algorithms/dp/grid-unique-paths"),
+  "matrix-spiral-traversal": () =>
+    import("./algorithms/matrices/matrix-spiral-traversal"),
+  "n-queens": () => import("./algorithms/backtracking/n-queens"),
+  "sudoku-solver": () => import("./algorithms/backtracking/sudoku-solver"),
 
   // Engine 4: Graph
   "bfs-graph": () => import("./algorithms/graphs/bfs-graph"),
