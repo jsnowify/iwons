@@ -66,6 +66,9 @@ Author: Senior QA Engineer
 | ID | Issue Description | How Discovered | Root Cause | Fix Applied | Test Case |
 | --- | --- | --- | --- | --- | --- |
 | **BUG-001** | Fibonacci DP generator returned F(7) when input was 0 | Unit test with $n=0$ | Logical OR fallback `Number(rawN) \|\| 7` treated falsy `0` as absent | Replaced with `Number.isFinite(Number(rawN)) ? Number(rawN) : 7` | `Engine 3: Fibonacci DP produces correct tabulated values` |
+| **BUG-002** | LRU Cache closure variable narrowed to `never` in TS compiler | `npm run typecheck` in Phase V8 | Closure functions `addToHead` and `removeNode` mutated outer variables `let head, tail`, causing TypeScript control flow analysis to narrow `tail` to `never` in main loop | Encapsulated pointers in `const state = { head: null, tail: null }` object | `Engine 6: LRU Cache operations maintain correct MRU/LRU order and eviction` |
+| **BUG-003** | Textual summary type mismatch on array and tree step properties | `npm run typecheck` in Phase V11 | `VisualizerStage` attempted to read `step.array.elements` instead of `step.array.values` and `step.tree.nodes` instead of `step.tree.treeNodes` | Fixed properties to strictly match discriminated union interfaces in `src/visualizer/core/types.ts` | `visualizer-stage text summary integration` |
+| **BUG-004** | Static HTML export missing paths for dynamic `[slug]` | `next build --turbopack` static export validation | `output: 'export'` requires pre-rendering all dynamic paths | Added `generateStaticParams()` exporting all 67 slugs and set `dynamicParams = false` in `src/app/visualizer/[slug]/page.tsx` | `generateStaticParams returns an entry for every algorithm in ALGORITHM_REGISTRY` |
 
 ---
 
