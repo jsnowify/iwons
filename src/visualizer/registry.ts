@@ -929,8 +929,31 @@ export const ALGO_LOADERS: Record<
   "cycle-sort": () => import("./algorithms/sorting/cycle-sort"),
   "pancake-sort": () => import("./algorithms/sorting/pancake-sort"),
 
-  // Engine 2: Array & Pointers (Search)
+  // Engine 2: Array & Pointers (17 Algorithms - Searching, Arrays, Strings)
+  "linear-search": () => import("./algorithms/searching/linear-search"),
   "binary-search": () => import("./algorithms/searching/binary-search"),
+  "jump-search": () => import("./algorithms/searching/jump-search"),
+  "interpolation-search": () =>
+    import("./algorithms/searching/interpolation-search"),
+  "exponential-search": () =>
+    import("./algorithms/searching/exponential-search"),
+  "ternary-search": () => import("./algorithms/searching/ternary-search"),
+  "two-pointers-pair-sum": () =>
+    import("./algorithms/arrays/two-pointers-pair-sum"),
+  "fast-and-slow-pointers": () =>
+    import("./algorithms/arrays/fast-and-slow-pointers"),
+  "sliding-window-fixed": () =>
+    import("./algorithms/arrays/sliding-window-fixed"),
+  "sliding-window-variable": () =>
+    import("./algorithms/arrays/sliding-window-variable"),
+  "prefix-sum": () => import("./algorithms/arrays/prefix-sum"),
+  "kadanes-algorithm": () => import("./algorithms/arrays/kadanes-algorithm"),
+  "dutch-national-flag": () =>
+    import("./algorithms/arrays/dutch-national-flag"),
+  "boyer-moore-voting": () => import("./algorithms/arrays/boyer-moore-voting"),
+  "kmp-string-match": () => import("./algorithms/strings/kmp-string-match"),
+  "rabin-karp": () => import("./algorithms/strings/rabin-karp"),
+  "z-algorithm": () => import("./algorithms/strings/z-algorithm"),
 
   // Engine 3: Grid & Table (DP)
   "fibonacci-dp": () => import("./algorithms/dp/fibonacci-dp"),

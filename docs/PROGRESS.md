@@ -11,8 +11,8 @@ Active Goal: Rebuild Iwons Visualizer into a unified system powered by 6 reusabl
 | **Phase V1** | Core architecture & Player state machine | **Done** | `src/visualizer/core/types.ts`, `player.ts`, `inputs.ts`, `registry.ts`, 6 initial generators, 17 unit tests in `src/tests/visualizer-core.test.ts`, architecture doc `docs/VISUALIZER_ARCHITECTURE.md`, QA plan `docs/VISUALIZER_QA.md`. |
 | **Phase V2** | UI/UX layout shell & controls | **Done** | 3-zone desktop shell (`VisualizerShell`, `VisualizerTopBar`, `VisualizerStage`, `VisualizerDock`, `VisualizerSidePanel`), mobile tabs, timeline scrubber, keyboard shortcuts, 6 SVG engine renderers, 5 layout tests in `src/tests/visualizer-layout.test.ts`. |
 | **Phase V3** | Engine 1: Bars (Sorting) | **Done** | 16 sorting algorithms (Bubble, Selection, Insertion, Merge, Quick, Heap, Counting, Radix, Bucket, Shell, Cocktail Shaker, Comb, Gnome, Tim Sort, Cycle Sort, Pancake Sort). Live counters, auxiliary stages, 65 unit tests in `src/tests/sorting-algorithms.test.ts`. |
-| **Phase V4** | Engine 2: Array & Pointers | **In Progress** | Searching, two pointers, sliding window, and string algorithms with pointer marks, window highlights, and index tracking. |
-| **Phase V5** | Engine 3: Grid & Table | Pending | 31 DP, matrix, and backtracking algorithms with traceback path. |
+| **Phase V4** | Engine 2: Array & Pointers | **Done** | 17 algorithms (Linear, Binary, Jump, Interpolation, Exponential, Ternary Search; Two Pointers, Fast & Slow, Sliding Window Fixed/Variable, Prefix Sum, Kadane, Dutch Flag, Boyer-Moore; KMP, Rabin-Karp, Z-Algorithm). 30 unit tests in `src/tests/array-algorithms.test.ts`. |
+| **Phase V5** | Engine 3: Grid & Table | **In Progress** | 12 DP, matrix, and backtracking algorithms with traceback path, active cell markers, and table formatting. |
 | **Phase V6** | Engine 4: Graph | Pending | 20 graph traversal, shortest path, MST, and topological algorithms. |
 | **Phase V7** | Engine 5: Tree & Heap | Pending | 23 tree traversals, BST, AVL, trie, heap array-view, recursion call trees. |
 | **Phase V8** | Engine 6: Nodes & Arrows | Pending | 18 linked list, stack/queue, hash table, and LRU cache algorithms. |
@@ -22,6 +22,6 @@ Active Goal: Rebuild Iwons Visualizer into a unified system powered by 6 reusabl
 | **Phase V12** | Senior QA & Principal Review | Pending | Oracle testing (200+ seeded random inputs), property test invariants, visual diffs, `docs/VISUALIZER_REPORT.md`. |
 
 ## Blockers
-None. Next.js 16.4.1 Turbopack build, unit test suite (643 passing), and typecheck all green.
+None. Next.js 16.4.1 Turbopack build, unit test suite (673 passing), and typecheck all green.
 
-NEXT ACTION: Implement Phase V4: Engine 2 (Array & Pointers) algorithms library: Linear Search, Jump Search, Interpolation Search, Exponential Search, Ternary Search, Two Pointers, Fast & Slow Pointers, Sliding Window (Fixed and Variable), Prefix Sum, Kadane's Algorithm, Dutch National Flag, Boyer-Moore Vote, KMP, Rabin-Karp, Z-Algorithm, and oracle tests.
+NEXT ACTION: Implement Phase V5: Engine 3 (Grid & Table) algorithms library: 0/1 Knapsack, Longest Common Subsequence (LCS), Edit Distance (Levenshtein), Coin Change, Grid Unique Paths, Minimum Path Sum, Spiral Matrix, Rotate Matrix, Search 2D Matrix, N-Queens, Sudoku Solver, Rat in a Maze, and oracle tests.
