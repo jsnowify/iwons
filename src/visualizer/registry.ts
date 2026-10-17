@@ -990,6 +990,15 @@ export const ALGO_LOADERS: Record<
   // Engine 6: Nodes & Arrows
   "reverse-linked-list": () =>
     import("./algorithms/linked-lists/reverse-linked-list"),
+  "linked-list-cycle-detection": () =>
+    import("./algorithms/linked-lists/linked-list-cycle-detection"),
+  "stack-operations": () =>
+    import("./algorithms/stacks-queues/stack-operations"),
+  "queue-operations": () =>
+    import("./algorithms/stacks-queues/queue-operations"),
+  "hash-table-chaining": () =>
+    import("./algorithms/hashing/hash-table-chaining"),
+  "lru-cache": () => import("./algorithms/hashing/lru-cache"),
 };
 
 /**

@@ -49,7 +49,7 @@ export const reverseLinkedListDefinition: AlgoDefinition<number[]> = {
     },
   ],
   generate(input: number[]): NodesArrowsStep[] {
-    const raw = input?.length ? input : [1, 2, 3, 4, 5];
+    const raw = input !== undefined ? input : [1, 2, 3, 4, 5];
     const steps: NodesArrowsStep[] = [];
 
     // Construct node models

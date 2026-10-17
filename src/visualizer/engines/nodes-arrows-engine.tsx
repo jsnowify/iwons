@@ -202,7 +202,28 @@ export function NodesArrowsEngine({ step }: NodesArrowsEngineProps) {
           );
         })}
 
-        {/* Cache List / Hash Buckets if present */}
+        {/* Hash Buckets strip if present */}
+        {buckets && buckets.length > 0 && (
+          <g className="hash-buckets-strip" transform={`translate(40, ${startY + nodeHeight + 40})`}>
+            <text x="0" y="0" fill="var(--muted)" fontSize="11px" fontWeight="700" fontFamily="var(--font-mono, monospace)">
+              HASH TABLE BUCKETS (SEPARATE CHAINS):
+            </text>
+            {buckets.map((b, i) => (
+              <g key={b.index} transform={`translate(${i * 140}, 14)`}>
+                <rect x="0" y="0" width="130" height="26" fill="var(--surface)" stroke="var(--ink)" strokeWidth="1.5" rx="3" />
+                <rect x="0" y="0" width="30" height="26" fill="var(--ink)" rx="3 0 0 3" />
+                <text x="15" y="17" textAnchor="middle" fill="var(--surface)" fontSize="11px" fontWeight="700" fontFamily="var(--font-mono, monospace)">
+                  [{b.index}]
+                </text>
+                <text x="78" y="17" textAnchor="middle" fill="var(--ink)" fontSize="11px" fontWeight="700" fontFamily="var(--font-mono, monospace)">
+                  {b.nodeIds.length > 0 ? b.nodeIds.map(id => nodePos.has(id) ? (nodes.find(n => n.id === id)?.val ?? id) : id).join(' → ') : 'empty'}
+                </text>
+              </g>
+            ))}
+          </g>
+        )}
+
+        {/* Cache List if present */}
         {cacheList && (
           <g className="cache-list-strip" transform={`translate(40, ${startY + nodeHeight + 40})`}>
             <text x="0" y="0" fill="var(--muted)" fontSize="11px" fontWeight="700" fontFamily="var(--font-mono, monospace)">
