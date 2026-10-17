@@ -22,10 +22,17 @@ for(const {slug} of retired) {
 }
 const serviceWorker=fs.readFileSync("out/sw.js","utf8");
 const precache=JSON.parse(serviceWorker.match(/const PRECACHE=(\[[^;]+\]);/)[1]);
-const chunkDirectory="out/_next/static/chunks";
-for(const file of fs.readdirSync(chunkDirectory).filter(file=>file.endsWith(".js"))) {
-  const source=fs.readFileSync(`${chunkDirectory}/${file}`,"utf8");
-  if(source.includes("path3-500")&&source.includes("prerequisites"))
-    assert(!precache.includes(`/_next/static/chunks/${file}`),"Offline installation must not eagerly fetch the full catalog.");
+const chunkCandidates = [
+  "out/_next/static/chunks",
+  ".next/static/chunks",
+  ".vercel/output/static/_next/static/chunks",
+];
+const chunkDirectory = chunkCandidates.find((dir) => fs.existsSync(dir));
+if (chunkDirectory) {
+  for (const file of fs.readdirSync(chunkDirectory).filter((file) => file.endsWith(".js"))) {
+    const source = fs.readFileSync(`${chunkDirectory}/${file}`, "utf8");
+    if (source.includes("path3-500") && source.includes("prerequisites"))
+      assert(!precache.includes(`/_next/static/chunks/${file}`), "Offline installation must not eagerly fetch the full catalog.");
+  }
 }
 console.log(`Static export: ${manifest.length} problem pages, lazy packs and social images verified; ${retired.length} retired URLs explain the move; private data stays out of initial HTML.`);
