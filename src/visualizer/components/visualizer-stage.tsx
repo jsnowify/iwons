@@ -71,8 +71,61 @@ export function VisualizerStage({
 
   const legend = getLegendItems(step.engine);
 
+  const getAccessibleSummary = (): string => {
+    switch (step.engine) {
+      case 'bars': {
+        const { values, marks = {} } = step.bars;
+        const compared: number[] = [];
+        const swapped: number[] = [];
+        Object.entries(marks).forEach(([idx, mark]) => {
+          if (mark === 'compared') compared.push(Number(idx));
+          if (mark === 'swapped') swapped.push(Number(idx));
+        });
+        let detail = '';
+        if (swapped.length > 0) {
+          detail = `, currently swapping index ${swapped.join(' and ')}`;
+        } else if (compared.length > 0) {
+          detail = `, currently comparing index ${compared.join(' and ')}`;
+        }
+        return `Array of ${values.length} elements${detail}.`;
+      }
+      case 'array-pointers': {
+        const { values, pointers = [] } = step.array;
+        const ptrDesc = pointers.length
+          ? `, pointers: ${pointers.map(p => `${p.name} at index ${p.index}`).join(', ')}`
+          : '';
+        return `Array of ${values.length} elements${ptrDesc}.`;
+      }
+      case 'grid-table': {
+        const { rows, cols } = step.grid;
+        return `Grid table of ${rows} rows and ${cols} columns.`;
+      }
+      case 'graph': {
+        const { nodes, edges } = step.graph;
+        return `Graph with ${nodes.length} vertices and ${edges.length} edges.`;
+      }
+      case 'tree-heap': {
+        const { treeNodes } = step.tree;
+        return `Binary tree with ${treeNodes.length} nodes.`;
+      }
+      case 'nodes-arrows': {
+        const { nodes } = step.nodesArrows;
+        return `Linked structure with ${nodes.length} nodes.`;
+      }
+      default:
+        return 'Algorithm visualization stage.';
+    }
+  };
+
+  const accessibleSummary = getAccessibleSummary();
+
   return (
     <section className="visualizer-stage-wrapper" aria-label="Algorithm animation stage">
+      {/* Accessible textual summary for screen readers */}
+      <div className="visually-hidden" role="status" aria-live="polite" id="stage-text-summary">
+        {accessibleSummary}
+      </div>
+
       {/* Pinned Step Caption directly above stage for continuous reading */}
       <div className="stage-pinned-caption">
         <div className="caption-badge">
@@ -84,7 +137,12 @@ export function VisualizerStage({
       </div>
 
       {/* Main Canvas Viewport */}
-      <div className="stage-canvas-card">
+      <div
+        className="stage-canvas-card"
+        role="region"
+        aria-label="Algorithm visualization canvas"
+        aria-describedby="stage-text-summary"
+      >
         <EngineRouter step={step} />
 
         {/* Completion Overlay Banner */}

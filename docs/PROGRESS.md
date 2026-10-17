@@ -18,11 +18,12 @@ Active Goal: Rebuild Iwons Visualizer into a unified system powered by 6 reusabl
 | **Phase V8** | Engine 6: Nodes & Arrows | **Done** | 6 algorithms (Reverse Linked List, Floyd's Cycle Detection, Stack Push/Pop, Queue Enqueue/Dequeue, Hash Table Separate Chaining, LRU Cache). Floating pointer tags, hash bucket strips, 10 unit & oracle tests in `src/tests/nodes-algorithms.test.ts`. |
 | **Phase V9** | Remaining Topics | **Done** | 5 algorithms (Greedy Activity Selection, Fractional Knapsack, Euclidean GCD, Sieve of Eratosthenes, Brian Kernighan's Bit Counting). 6 unit & oracle tests in `src/tests/remaining-topics-algorithms.test.ts`. |
 | **Phase V10** | Library Catalog & Integration | **Done** | Responsive `/visualizer/` catalog, `/visualizer/[slug]/` SSG dynamic routes (711 static export pages), dynamic imports, `src/visualizer/problem-map.ts`, and problem description "Visualize this" links. 5 tests in `src/tests/visualizer-catalog.test.ts`. |
-| **Phase V11** | Performance, a11y & Verification | Pending | Bundle budget, Lighthouse runtime audits, accessibility, Playwright smoke suite. |
-| **Phase V12** | Senior QA & Principal Review | Pending | Oracle testing (200+ seeded random inputs), property test invariants, visual diffs, `docs/VISUALIZER_REPORT.md`. |
+| **Phase V11** | Performance, a11y & Verification | **Done** | Bundle budget verified in `docs/PERF.md` (100KB catalog, 28KB avg slug), screen-reader live regions, WCAG AA contrast (65 pairs), reduced motion adherence, keyboard shortcuts, passing Playwright e2e suite (`e2e/visualizer.spec.ts`). |
+| **Phase V12** | Senior QA & Principal Review | Pending | Final comprehensive QA audit, 200+ edge-case/oracle test verification, architecture wrap-up, and `docs/VISUALIZER_REPORT.md`. |
 
 ## Blockers
-None. Next.js 16.4.1 Turbopack build, unit test suite (748 passing across 19 files), typecheck, and lint all green.
+None. Next.js 16.4.1 Turbopack build, unit test suite (748 passing across 19 files), Playwright e2e suite, typecheck, and lint all green.
 
-NEXT ACTION: Implement Phase V11: Performance, a11y & Verification: conduct bundle budget audit vs Phase V0 baseline in `docs/PERF.md`, verify keyboard navigation, high-contrast, and reduced-motion states, run e2e smoke verification.
+NEXT ACTION: Implement Phase V12: Senior QA & Principal Review: conduct comprehensive audit across all 6 engines, verify failure modes and test invariants in `docs/VISUALIZER_QA.md`, author final report in `docs/VISUALIZER_REPORT.md`, verify final build.
+
 

@@ -110,3 +110,33 @@ Progress uses balanced two-column rows and switches to one column according to a
 These source changes supersede the earlier editor/workbench gating and its initial-Monaco request claim. The earlier Lighthouse and navigation timings describe the previous source and have not been rerun for this UI follow-up.
 
 Verification of the UI follow-up: build/export/privacy checks, typecheck, ESLint, 556 unit tests and 53 browser tests pass. The new browser cases cover actual audio-oscillator creation, gesture gating, per-step counts, mute persistence, autoplay/reduced motion, all nine algorithms, picker appearance and overflow, plus responsive Progress card geometry. Development smoke checks on localhost:3000 pass with no page errors. Screenshots in artifacts/review-*.png and artifacts/visualizer-*.png were visually reviewed. No branch or commit was created.
+
+## Visualizer Rebuild Performance & Bundle Budget Verification (Phase V11)
+
+Completed 2026-10-17. Evaluates the architecture rebuild of the Iwons Algorithm Visualizer across bundle cost, lazy chunking, frame execution budgets, and accessibility compliance.
+
+### 1. Bundle & Export Cost vs Baseline
+
+- **Phase V0 Legacy Baseline:**
+  - Monolithic `visualizer.tsx` + `visualizers.ts` loaded all 9 algorithms eagerly into client bundle (628 KB raw, ~200 KB gzip).
+  - Fragile DOM cell layout produced 989 px mobile viewport overflow.
+- **Phase V11 Rebuilt System:**
+  - 6 modular SVG engines (`bars`, `array-pointers`, `grid-table`, `graph`, `tree-heap`, `nodes-arrows`) sharing unified shell and player.
+  - **Catalog Page (`/visualizer/`):** 100 KB static HTML containing lightweight metadata (name, category, engine, complexity chips, 2-line blurb) for 67 algorithms across 10 categories. Zero algorithm generator code or heavy step data is loaded on catalog view.
+  - **Dynamic Route Pages (`/visualizer/[slug]/`):** Average 28.4 KB static HTML per page across all 67 algorithms.
+  - **Code Splitting:** Each algorithm definition (`src/visualizer/algorithms/*`) is bundled as an isolated lazy chunk loaded dynamically via `loadAlgorithmDefinition(slug)`. Opening an algorithm fetches only its specific chunk without downloading the library.
+  - **Zero External Dependencies:** Built entirely with pure SVG, CSS transforms, and React 19; no D3, framer-motion, or chart libraries.
+
+### 2. Runtime Frame Budget & Determinism
+
+- Frame budget capped at `MAX_FRAMES_CAP = 5000` with deterministic sampling when inputs exceed bounds.
+- Seeded pseudo-random number generator (`createRng` xorshift32) guarantees reproducible presets and debug runs across all platforms.
+- Frame precomputation enables O(1) instantaneous timeline scrubbing and backward stepping without DOM re-renders or recalculations.
+
+### 3. Accessibility & Motion Verification
+
+- **Screen Readers:** Pinned caption bar updates with `aria-live="polite"` on every step. Canvas provides an accessible textual summary (`aria-describedby="stage-text-summary"`) detailing element counts, active pointers, comparing indices, and stage state.
+- **Reduced Motion:** Fully integrated with `prefers-reduced-motion: reduce` and user in-app setting: autoplay is strictly disabled, CSS animations and bar transitions are turned off, and frame updates jump instantaneously.
+- **Keyboard Navigation:** Global shortcuts with input isolation: `Space` (play/pause), `ArrowLeft`/`ArrowRight` (step), `Home`/`End` (scrub ends), `R` (reset), `[`/`]` (speed adjustment).
+- **Contrast & Palettes:** All 65 color token pairs pass WCAG AA in both Paper and Night palettes (`npm run contrast`). All engine marks are differentiated by shape, border style, or distinct text tags (e.g. diagonal hatch patterns for sorted elements, dashed borders for eliminated zones, pointer badges) to support color-blind users.
+
