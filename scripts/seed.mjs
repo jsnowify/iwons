@@ -1,8 +1,16 @@
 import fs from "node:fs";
 import path from "node:path";
-import { authorUnit } from "./curriculum/author-unit.mjs";
-import { units, levels } from "./curriculum/units.mjs";
+import { units, levels, projections } from "./curriculum/units.mjs";
 import { validateUnit } from "./validate-problems.ts";
+import { plainRules, plainTasks, rewriteProblem } from "./curriculum/plain-language.mjs";
+// Keep the reading rules in the authoring pipeline, never edit generated statements by hand.
+for (const unit of units) {
+  if (!plainRules[unit.kernel]) throw new Error(`Missing plain-language rules: ${unit.slug}`);
+  unit.definition = plainRules[unit.kernel];
+}
+for (const [index, task] of plainTasks.entries()) projections[index].task = task;
+await import("./curriculum/manifest.mjs");
+const { authorUnit } = await import("./curriculum/author-unit.mjs");
 const manifest=JSON.parse(fs.readFileSync("src/data/curriculum.json","utf8"));
 // Preserve URL aliases, not retired statements or reference code.
 const prior=JSON.parse(fs.readFileSync("src/data/catalog.json","utf8"));
@@ -17,7 +25,7 @@ if(startIndex<0)throw new Error(`Unknown unit ${start}`);
 const only=process.argv.includes("--unit")?process.argv[process.argv.indexOf("--unit")+1]:null;
 if(only&&!units.some(u=>u.slug===only))throw new Error(`Unknown unit ${only}`);
 for(const unit of only ? units.filter(u=>u.slug===only) : units.slice(startIndex)) {
-  authorUnit(unit.slug);
+  authorUnit(unit.slug, rewriteProblem);
   await validateUnit(unit.slug);
 }
 const publicCatalog=[],references=[];

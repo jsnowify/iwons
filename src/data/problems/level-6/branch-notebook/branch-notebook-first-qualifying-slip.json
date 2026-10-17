@@ -16,30 +16,30 @@
   "prerequisites": [
     "path3-315"
   ],
-  "summary": "Traverse the binary tree in root-left-right order and produce its node values. A missing root produces no values. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.",
+  "summary": "Tree preorder. Read the result list from left to right.",
   "stage": "Combine",
   "boss": false,
-  "descriptionMd": "A branching filing cabinet is checked from each parent folder into its left and right subfolders. Ada needs the first qualifying slip while the courier waits at the door. Later matches must not jump ahead in the tray.\n\nTraverse the binary tree in root-left-right order and produce its node values. A missing root produces no values.\n\nReturn the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.\n\nImplement branchNotebookFirstQualifyingSlip(root, k). Use k exactly where specified above.",
-  "unitIntro": "Tree preorder. Traverse the binary tree in root-left-right order and produce its node values. A missing root produces no values. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nroot is the top node of a binary tree. Examples list nodes one level at a time, from left to right. null marks a missing child; [] means no tree. Each node stores its number in val. Its left and right links point to children. The runner builds the nodes for you. k is a whole number. Use it as described in the steps below.\n\nStep 1: Build the result list\nA binary tree is a set of nodes, each with a value and up to two children: left and right. root is the top node. Visit a node by recording its value, then visit its whole left branch, then its whole right branch. Use this same rule at every node. Skip missing children. The result list is the recorded values. An empty tree gives an empty result list.\n\nStep 2: Return the answer\nRead the result list from left to right. Return the first number that is at least k (greater than or equal to k). Return the number, not its position. If none matches, return -1.\n\nWrite your function\nComplete branchNotebookFirstQualifyingSlip(root, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "A binary tree is a set of nodes, each with a value and up to two children: left and right. root is the top node. Visit a node by recording its value, then visit its whole left branch, then its whole right branch. Use this same rule at every node. Skip missing children. The result list is the recorded values. An empty tree gives an empty result list. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
-    "0 <= node count <= 31; JSON null placeholders do not count as nodes.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
-    "Lists are acyclic. Trees use level-order JSON with null for missing children; [] is an empty root. The runner supplies nodes with val/next or val/left/right.",
-    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "0 <= node count <= 31; null marks a missing child and does not count as a node.",
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Linked lists do not loop back to an earlier node. Tree examples list nodes by level; null means a missing child. The runner builds the nodes shown in the examples.",
+    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the number of nodes. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with tree preorder. What state describes the portion you have already processed?",
-    "Traverse the binary tree in root-left-right order and produce its node values. A missing root produces no values. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. Handle the empty derived sequence according to the stated return rule."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "A binary tree is a set of nodes, each with a value and up to two children: left and right. root is the top node. Visit a node by recording its value, then visit its whole left branch, then its whole right branch. Use this same rule at every node. Skip missing children. The result list is the recorded values. An empty tree gives an empty result list. Keep track of the numbers or places you have already checked.",
+    "Read the result list from left to right. Return the first number that is at least k (greater than or equal to k). Return the number, not its position. If none matches, return -1. Check what to do if the result list is empty."
   ],
   "functionName": "branchNotebookFirstQualifyingSlip",
   "mode": "function",
   "starterCode": {
-    "javascript": "function branchNotebookFirstQualifyingSlip(root, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "typescript": "type TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction branchNotebookFirstQualifyingSlip(root: TreeNode | null, k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "python": "def branchNotebookFirstQualifyingSlip(root, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
-    "java": "class Solution {\n  public int branchNotebookFirstQualifyingSlip(TreeNode root, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+    "javascript": "function branchNotebookFirstQualifyingSlip(root, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "typescript": "type TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction branchNotebookFirstQualifyingSlip(root: TreeNode | null, k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "python": "def branchNotebookFirstQualifyingSlip(root, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
+    "java": "class Solution {\n  public int branchNotebookFirstQualifyingSlip(TreeNode root, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -56,7 +56,7 @@
       ],
       "expected": 7,
       "coverage": "worked",
-      "explanation": "The derived sequence is [7,-3,7,0]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 7."
+      "explanation": "Step 1 gives the result list [7,-3,7,0]. Here k = 3. The first number at least 3 is 7. Return that value."
     },
     {
       "id": "path3-316-2",
@@ -72,7 +72,7 @@
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "The derived sequence is [4,4,-2,4]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 4."
+      "explanation": "Step 1 gives the result list [4,4,-2,4]. Here k = 2. The first number at least 2 is 4. Return that value."
     },
     {
       "id": "path3-316-3",
@@ -82,7 +82,7 @@
       ],
       "expected": -1,
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives -1."
+      "explanation": "Step 1 gives the result list []. Here k = 1. No number is at least 1, so return -1."
     }
   ],
   "timeLimitMs": 2000,
@@ -97,7 +97,7 @@
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "Combine: Tree preorder. Build the sequence once, then report exactly what the inspection card requests.",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 6,
     "unit": "branch-notebook",
@@ -120,7 +120,7 @@
       ],
       "expected": 7,
       "coverage": "worked",
-      "explanation": "The derived sequence is [7,-3,7,0]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 7."
+      "explanation": "Step 1 gives the result list [7,-3,7,0]. Here k = 3. The first number at least 3 is 7. Return that value."
     },
     {
       "id": "path3-316-2",
@@ -136,7 +136,7 @@
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "The derived sequence is [4,4,-2,4]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 4."
+      "explanation": "Step 1 gives the result list [4,4,-2,4]. Here k = 2. The first number at least 2 is 4. Return that value."
     }
   ],
   "referenceSolutions": {
@@ -260,6 +260,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nTraverse the binary tree in root-left-right order and produce its node values. A missing root produces no values.\n\nReturn the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction branchNotebookFirstQualifyingSlip(root, k) {\n  const a=root; let out=[];\n  function visit(node){if(!node)return;out.push(node.val);visit(node.left);visit(node.right);}visit(a);\n  return out.find(x=>x>=k)??-1;\n}\n\n\ntypescript\ntype TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction branchNotebookFirstQualifyingSlip(root: TreeNode | null, k: number): number {\n  const a=root; let out:number[]=[];\n  function visit(node:TreeNode|null):void{if(!node)return;out.push(node.val);visit(node.left);visit(node.right);}visit(a);\n  return out.find(x=>x>=k)??-1;\n}\n\n\npython\ndef branchNotebookFirstQualifyingSlip(root, k):\n    a=root\n    out=[]\n    def visit(node):\n        if not node: return\n        out.append(node.val)\n        visit(node.left)\n        visit(node.right)\n    visit(a)\n    return next((x for x in out if x>=k),-1)\n\n\njava\nclass Solution {\n  public int branchNotebookFirstQualifyingSlip(TreeNode root, int k) {\n    TreeNode a=root; List<Integer> out=new ArrayList<>();\n    {class Walk {void visit(TreeNode node){if(node==null)return;out.add(node.val);visit(node.left);visit(node.right);}}new Walk().visit(a);}\n    for(int x:out)if(x>=k)return x;return -1;\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nA binary tree is a set of nodes, each with a value and up to two children: left and right. root is the top node. Visit a node by recording its value, then visit its whole left branch, then its whole right branch. Use this same rule at every node. Skip missing children. The result list is the recorded values. An empty tree gives an empty result list.\n\nReturn the answer\n\nRead the result list from left to right. Return the first number that is at least k (greater than or equal to k). Return the number, not its position. If none matches, return -1.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the number of nodes. These labels describe how work and memory grow with the input.\n\njavascript\nfunction branchNotebookFirstQualifyingSlip(root, k) {\n  const a=root; let out=[];\n  function visit(node){if(!node)return;out.push(node.val);visit(node.left);visit(node.right);}visit(a);\n  return out.find(x=>x>=k)??-1;\n}\n\n\ntypescript\ntype TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction branchNotebookFirstQualifyingSlip(root: TreeNode | null, k: number): number {\n  const a=root; let out:number[]=[];\n  function visit(node:TreeNode|null):void{if(!node)return;out.push(node.val);visit(node.left);visit(node.right);}visit(a);\n  return out.find(x=>x>=k)??-1;\n}\n\n\npython\ndef branchNotebookFirstQualifyingSlip(root, k):\n    a=root\n    out=[]\n    def visit(node):\n        if not node: return\n        out.append(node.val)\n        visit(node.left)\n        visit(node.right)\n    visit(a)\n    return next((x for x in out if x>=k),-1)\n\n\njava\nclass Solution {\n  public int branchNotebookFirstQualifyingSlip(TreeNode root, int k) {\n    TreeNode a=root; List<Integer> out=new ArrayList<>();\n    {class Walk {void visit(TreeNode node){if(node==null)return;out.add(node.val);visit(node.left);visit(node.right);}}new Walk().visit(a);}\n    for(int x:out)if(x>=k)return x;return -1;\n  }\n}\n"
+  },
+  "parameterNames": [
+    "root",
+    "k"
+  ]
 }

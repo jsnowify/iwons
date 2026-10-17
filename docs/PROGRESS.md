@@ -1,25 +1,27 @@
-# Learn removal and performance pass
+# Algorithm Visualizer System Rebuild (Autonomous Progress)
 
-Updated 2026-10-17. Active brief: attachment d002c792-687c-4811-998f-86e1391ef587. This replaces course expansion. English only; preserve all personal data and backup compatibility.
+Updated: 2026-10-17  
+Active Goal: Rebuild Iwons Visualizer into a unified system powered by 6 reusable SVG engines, 200+ algorithms, pure step recorder pattern, and retro typewriter UX layout.
 
-Current phase: Complete including navigation follow-up. Default production navigation prefetch restored, Path payload trimmed, list derivations memoized and footer credit removed.
+## Phase Tracking
 
-| Phase | State | Remaining |
-| --- | --- | --- |
-| P0 Safety/baseline | Done | Full archive and baseline retained |
-| P1 Remove Learn/locales | Done | 544 unit tests, typecheck/lint/build and six browser checks passed |
-| P2 OG/metadata | Done | 501 cached images; 644 route entries; metadata browser check passed |
-| P3 Build/bundle | Done | Turbopack export + static workers; 56.9s build, 544 tests, five browser checks pass |
-| P4 Runtime | Done | Editor/runtime interaction gates, seven Lighthouse audits and bundle graph; final repeat recorded |
-| P4b Footer | Done | 80 route/width/theme observations pass; server footer and clean document flow |
-| P5 Engagement | Done | 547 unit tests and all 44 browser tests pass; real JS/TS/Python, honest Java guard |
-| P5b Creator | Done | About credit retained; footer credit removed by later user instruction |
-| P6 Verify | Done | 44.66s build, 644 entries, final measurements and restoration instructions |
+| Phase | Description | Status | Details |
+| --- | --- | --- | --- |
+| **Phase V0** | Audit current Visualizer | **Done** | `docs/VISUALIZER_AUDIT.md` completed. Baseline bundle 628KB, 989px mobile height, CSS grid card wrapping, fixed bottom bar overlap identified. |
+| **Phase V1** | Core architecture & Player state machine | **Done** | `src/visualizer/core/types.ts`, `player.ts`, `inputs.ts`, `registry.ts`, 6 initial generators, 17 unit tests in `src/tests/visualizer-core.test.ts`, architecture doc `docs/VISUALIZER_ARCHITECTURE.md`, QA plan `docs/VISUALIZER_QA.md`. |
+| **Phase V2** | UI/UX layout shell & controls | **In Progress** | 3-zone desktop, tabbed mobile, control dock with timeline scrubber, speed, presets, and keyboard shortcuts. |
+| **Phase V3** | Engine 1: Bars (Sorting) | Pending | 16 sorting algorithms (Bubble, Insertion, Merge, Quick, Heap, Counting, Radix, Bucket, etc.). |
+| **Phase V4** | Engine 2: Array & Pointers | Pending | 29 search, two pointers, sliding window, and string algorithms. |
+| **Phase V5** | Engine 3: Grid & Table | Pending | 31 DP, matrix, and backtracking algorithms with traceback path. |
+| **Phase V6** | Engine 4: Graph | Pending | 20 graph traversal, shortest path, MST, and topological algorithms. |
+| **Phase V7** | Engine 5: Tree & Heap | Pending | 23 tree traversals, BST, AVL, trie, heap array-view, recursion call trees. |
+| **Phase V8** | Engine 6: Nodes & Arrows | Pending | 18 linked list, stack/queue, hash table, and LRU cache algorithms. |
+| **Phase V9** | Remaining Topics | Pending | 25+ greedy, divide-and-conquer, bit manipulation, and math algorithms. |
+| **Phase V10** | Library Catalog & Integration | Pending | `/visualizer/` catalog, `/visualizer/[slug]/` routes, Path "Visualize this" links. |
+| **Phase V11** | Performance, a11y & Verification | Pending | Bundle budget, Lighthouse runtime audits, accessibility, Playwright smoke suite. |
+| **Phase V12** | Senior QA & Principal Review | Pending | Oracle testing (200+ seeded random inputs), property test invariants, visual diffs, `docs/VISUALIZER_REPORT.md`. |
 
-Baseline: Next trace 151.801507 seconds, 1,641 entries (518 OG, 457 Learn). .next 811,532,226 bytes; cache 348,398,488. Catalog 398,817 bytes; curriculum 376,748. Full unit suite 600 passed; typecheck/lint passed. Archived Learn browser probes passed after export postprocessing. The archived Learn snapshot includes an unfinished second module; no course work is active.
+## Blockers
+None. Next.js 16.4.1 Turbopack build, unit test suite (573 passing), and typecheck all green.
 
-Live HTTP 200 confirms preview-domain image URLs and no Learn nav. Config is static export with trailing slashes. Units are level-page section anchors, not independent routes.
-
-Limits: Java live execution needs a configured endpoint; its unavailable guard is verified. Some mobile LCP/TBT targets remain unmet in the recorded lab run. No deployment was performed.
-
-NEXT ACTION: None. Navigation comparison averages 997.5 ms before / 630.5 ms after under the recorded throttled lab conditions. Build, lint, typecheck, 547 unit tests and 45 browser tests pass. See PERF.md.
+NEXT ACTION: Build Phase V2 UI/UX layout shell and controls: implement 3-zone desktop layout, mobile tabbed panel, control dock with timeline scrubber, and keyboard navigation.

@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-014"
   ],
-  "summary": "Produce the running totals of the readings, including the current reading at each position. Return how many values in the derived sequence are at least k.",
+  "summary": "Loop accumulators. Count the numbers in the result list that are at least k (greater than or equal to k).",
   "stage": "Edge-case trap",
   "boss": false,
-  "descriptionMd": "A spool of adding-machine tape runs from the morning account to the afternoon balance. Ivo marks a threshold on the filing cabinet's inspection card. Only qualifying readings count toward today's clearance stamp.\n\nProduce the running totals of the readings, including the current reading at each position.\n\nReturn how many values in the derived sequence are at least k.\n\nImplement ribbonTotalsThresholdFile(readings, k). Use k exactly where specified above.",
-  "unitIntro": "Loop accumulators. Produce the running totals of the readings, including the current reading at each position. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations).",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is a whole number. Use it as described in the steps below.\n\nStep 1: Build the result list\nStart a total at 0. Read readings from left to right. Add each number to the total, then put the new total in the result list. For [2, 3, -1], the result list is [2, 5, 4].\n\nStep 2: Return the answer\nCount the numbers in the result list that are at least k (greater than or equal to k). Return that count. An empty list gives 0.\n\nWrite your function\nComplete ribbonTotalsThresholdFile(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "Start a total at 0. Read readings from left to right. Add each number to the total, then put the new total in the result list. For [2, 3, -1], the result list is [2, 5, 4]. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
-    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with loop accumulators. What state describes the portion you have already processed?",
-    "Produce the running totals of the readings, including the current reading at each position. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return how many values in the derived sequence are at least k. Handle the empty derived sequence according to the stated return rule."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "Start a total at 0. Read readings from left to right. Add each number to the total, then put the new total in the result list. For [2, 3, -1], the result list is [2, 5, 4]. Keep track of the numbers or places you have already checked.",
+    "Count the numbers in the result list that are at least k (greater than or equal to k). Return that count. An empty list gives 0. Check what to do if the result list is empty."
   ],
   "functionName": "ribbonTotalsThresholdFile",
   "mode": "function",
   "starterCode": {
-    "javascript": "function ribbonTotalsThresholdFile(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "typescript": "function ribbonTotalsThresholdFile(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "python": "def ribbonTotalsThresholdFile(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
-    "java": "class Solution {\n  public int ribbonTotalsThresholdFile(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+    "javascript": "function ribbonTotalsThresholdFile(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "typescript": "function ribbonTotalsThresholdFile(readings: number[], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "python": "def ribbonTotalsThresholdFile(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
+    "java": "class Solution {\n  public int ribbonTotalsThresholdFile(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -55,7 +55,7 @@
       ],
       "expected": 5,
       "coverage": "worked",
-      "explanation": "The derived sequence is [7,4,11,11,23]. Return how many values in the derived sequence are at least k. This gives 5."
+      "explanation": "Step 1 gives the result list [7,4,11,11,23]. Here k = 3. The numbers at least 3 are [7,4,11,11,23]. There are 5, so return 5."
     },
     {
       "id": "path3-015-2",
@@ -70,7 +70,7 @@
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "The derived sequence is [4,8,6,10]. Return how many values in the derived sequence are at least k. This gives 4."
+      "explanation": "Step 1 gives the result list [4,8,6,10]. Here k = 2. The numbers at least 2 are [4,8,6,10]. There are 4, so return 4."
     },
     {
       "id": "path3-015-3",
@@ -80,7 +80,7 @@
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Return how many values in the derived sequence are at least k. This gives 0."
+      "explanation": "Step 1 gives the result list []. Here k = 1. The numbers at least 1 are []. There are 0, so return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -92,7 +92,7 @@
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "Edge-case trap: Loop accumulators. Build the sequence once, then report exactly what the inspection card requests.",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 0,
     "unit": "ribbon-totals",
@@ -115,7 +115,7 @@
       ],
       "expected": 5,
       "coverage": "worked",
-      "explanation": "The derived sequence is [7,4,11,11,23]. Return how many values in the derived sequence are at least k. This gives 5."
+      "explanation": "Step 1 gives the result list [7,4,11,11,23]. Here k = 3. The numbers at least 3 are [7,4,11,11,23]. There are 5, so return 5."
     },
     {
       "id": "path3-015-2",
@@ -130,7 +130,7 @@
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "The derived sequence is [4,8,6,10]. Return how many values in the derived sequence are at least k. This gives 4."
+      "explanation": "Step 1 gives the result list [4,8,6,10]. Here k = 2. The numbers at least 2 are [4,8,6,10]. There are 4, so return 4."
     }
   ],
   "referenceSolutions": {
@@ -282,6 +282,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nProduce the running totals of the readings, including the current reading at each position.\n\nReturn how many values in the derived sequence are at least k.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction ribbonTotalsThresholdFile(readings, k) {\n  const a=readings; let out=[];\n  let total=0;for(const x of a){total+=x;out.push(total);}\n  return out.filter(x=>x>=k).length;\n}\n\n\ntypescript\nfunction ribbonTotalsThresholdFile(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  let total=0;for(const x of a){total+=x;out.push(total);}\n  return out.filter(x=>x>=k).length;\n}\n\n\npython\ndef ribbonTotalsThresholdFile(readings, k):\n    a=readings\n    out=[]\n    total=0\n    for x in a:\n        total+=x\n        out.append(total)\n    return sum(x>=k for x in out)\n\n\njava\nclass Solution {\n  public int ribbonTotalsThresholdFile(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int total=0;for(int x:a){total+=x;out.add(total);}}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nStart a total at 0. Read readings from left to right. Add each number to the total, then put the new total in the result list. For [2, 3, -1], the result list is [2, 5, 4].\n\nReturn the answer\n\nCount the numbers in the result list that are at least k (greater than or equal to k). Return that count. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction ribbonTotalsThresholdFile(readings, k) {\n  const a=readings; let out=[];\n  let total=0;for(const x of a){total+=x;out.push(total);}\n  return out.filter(x=>x>=k).length;\n}\n\n\ntypescript\nfunction ribbonTotalsThresholdFile(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  let total=0;for(const x of a){total+=x;out.push(total);}\n  return out.filter(x=>x>=k).length;\n}\n\n\npython\ndef ribbonTotalsThresholdFile(readings, k):\n    a=readings\n    out=[]\n    total=0\n    for x in a:\n        total+=x\n        out.append(total)\n    return sum(x>=k for x in out)\n\n\njava\nclass Solution {\n  public int ribbonTotalsThresholdFile(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int total=0;for(int x:a){total+=x;out.add(total);}}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
+  },
+  "parameterNames": [
+    "readings",
+    "k"
+  ]
 }

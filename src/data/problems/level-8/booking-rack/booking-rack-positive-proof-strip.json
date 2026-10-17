@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-418"
   ],
-  "summary": "Each booking is [start,end] with start < end and occupies [start,end). Sort by end then start ascending; accept a booking if it starts at or after the last accepted end. Produce accepted durations in acceptance order. Negative times are allowed. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates.",
+  "summary": "Greedy interval selection. Return only numbers greater than 0 from the result list.",
   "stage": "Sequence variation",
   "boss": false,
-  "descriptionMd": "Half-open booking cards compete for a single press whose next job may start exactly when the previous one ends. Pia prepares a clean proof strip for the front desk. Positive derived readings keep their places relative to one another.\n\nEach booking is [start,end] with start < end and occupies [start,end). Sort by end then start ascending; accept a booking if it starts at or after the last accepted end. Produce accepted durations in acceptance order. Negative times are allowed.\n\nReturn only the strictly positive values in the derived sequence, preserving their relative order and duplicates.\n\nImplement bookingRackPositiveProofStrip(drawers, k). k is part of the common inspection-card signature and does not affect this task's result.",
-  "unitIntro": "Greedy interval selection. Each booking is [start,end] with start < end and occupies [start,end). Sort by end then start ascending; accept a booking if it starts at or after the last accepted end. Produce accepted durations in acceptance order. Negative times are allowed. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\ndrawers is a list of bookings. Each row is [start, end]. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nEach booking is [start, end]. It uses time from start up to, but not including, end. Sort bookings by end time, from earliest to latest. For matching end times, put the earlier start first. Accept the first booking. Then accept a booking only if it starts at or after the end of the last one accepted. Record the length, end - start, of each accepted booking. Keep acceptance order. Negative times are allowed. With no bookings, the result list is empty.\n\nStep 2: Return the answer\nReturn only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return [].\n\nWrite your function\nComplete bookingRackPositiveProofStrip(drawers, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "Each booking is [start, end]. It uses time from start up to, but not including, end. Sort bookings by end time, from earliest to latest. For matching end times, put the earlier start first. Accept the first booking. Then accept a booking only if it starts at or after the end of the last one accepted. Record the length, end - start, of each accepted booking. Keep acceptance order. Negative times are allowed. With no bookings, the result list is empty. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
-    "Target time O(n log n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Efficiency goal: time O(n log n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with greedy interval selection. What state describes the portion you have already processed?",
-    "Each booking is [start,end] with start < end and occupies [start,end). Sort by end then start ascending; accept a booking if it starts at or after the last accepted end. Produce accepted durations in acceptance order. Negative times are allowed. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. Handle the empty derived sequence according to the stated return rule."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "Each booking is [start, end]. It uses time from start up to, but not including, end. Sort bookings by end time, from earliest to latest. For matching end times, put the earlier start first. Accept the first booking. Then accept a booking only if it starts at or after the end of the last one accepted. Record the length, end - start, of each accepted booking. Keep acceptance order. Negative times are allowed. With no bookings, the result list is empty. Keep track of the numbers or places you have already checked.",
+    "Return only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return []. Check what to do if the result list is empty."
   ],
   "functionName": "bookingRackPositiveProofStrip",
   "mode": "function",
   "starterCode": {
-    "javascript": "function bookingRackPositiveProofStrip(drawers, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
-    "typescript": "function bookingRackPositiveProofStrip(drawers: number[][], k: number): number[] {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
-    "python": "def bookingRackPositiveProofStrip(drawers, k):\n    # Derive the sequence, then compute the requested receipt.\n    return []\n",
-    "java": "class Solution {\n  public int[] bookingRackPositiveProofStrip(int[][] drawers, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return new int[0];\n  }\n}\n"
+    "javascript": "function bookingRackPositiveProofStrip(drawers, k) {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
+    "typescript": "function bookingRackPositiveProofStrip(drawers: number[][], k: number): number[] {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
+    "python": "def bookingRackPositiveProofStrip(drawers, k):\n    # Build the result list, then return the answer from Step 2.\n    return []\n",
+    "java": "class Solution {\n  public int[] bookingRackPositiveProofStrip(int[][] drawers, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return new int[0];\n  }\n}\n"
   },
   "cases": [
     {
@@ -76,7 +76,7 @@
         6
       ],
       "coverage": "worked",
-      "explanation": "The derived sequence is [4,1,1,1,6]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [4,1,1,1,6]."
+      "explanation": "Step 1 gives the result list [4,1,1,1,6]. Keep only numbers greater than 0, without changing their order. Return [4,1,1,1,6]."
     },
     {
       "id": "path3-419-2",
@@ -106,7 +106,7 @@
         5
       ],
       "coverage": "worked",
-      "explanation": "The derived sequence is [3,5]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [3,5]."
+      "explanation": "Step 1 gives the result list [3,5]. Keep only numbers greater than 0, without changing their order. Return [3,5]."
     },
     {
       "id": "path3-419-3",
@@ -116,7 +116,7 @@
       ],
       "expected": [],
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives []."
+      "explanation": "Step 1 gives the result list []. Keep only numbers greater than 0, without changing their order. Return []."
     }
   ],
   "timeLimitMs": 2000,
@@ -128,7 +128,7 @@
     "time": "O(n log n)",
     "space": "O(n)"
   },
-  "overview": "Sequence variation: Greedy interval selection. Build the sequence once, then report exactly what the inspection card requests.",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 8,
     "unit": "booking-rack",
@@ -172,7 +172,7 @@
         6
       ],
       "coverage": "worked",
-      "explanation": "The derived sequence is [4,1,1,1,6]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [4,1,1,1,6]."
+      "explanation": "Step 1 gives the result list [4,1,1,1,6]. Keep only numbers greater than 0, without changing their order. Return [4,1,1,1,6]."
     },
     {
       "id": "path3-419-2",
@@ -202,7 +202,7 @@
         5
       ],
       "coverage": "worked",
-      "explanation": "The derived sequence is [3,5]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [3,5]."
+      "explanation": "Step 1 gives the result list [3,5]. Keep only numbers greater than 0, without changing their order. Return [3,5]."
     }
   ],
   "referenceSolutions": {
@@ -635,6 +635,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nEach booking is [start,end] with start < end and occupies [start,end). Sort by end then start ascending; accept a booking if it starts at or after the last accepted end. Produce accepted durations in acceptance order. Negative times are allowed.\n\nReturn only the strictly positive values in the derived sequence, preserving their relative order and duplicates.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n log n); space O(n).\n\njavascript\nfunction bookingRackPositiveProofStrip(drawers, k) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]);let end=-Infinity;for(const [s,e]of rows)if(s>=end){out.push(e-s);end=e;}\n  return out.filter(x=>x>0);\n}\n\n\ntypescript\nfunction bookingRackPositiveProofStrip(drawers: number[][], k: number): number[] {\n  const a=drawers; let out:number[]=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]);let end=-Infinity;for(const [s,e]of rows)if(s>=end){out.push(e-s);end=e;}\n  return out.filter(x=>x>0);\n}\n\n\npython\ndef bookingRackPositiveProofStrip(drawers, k):\n    a=drawers\n    out=[]\n    end=float('-inf')\n    for s,e in sorted(a,key=lambda r:(r[1],r[0])):\n        if s>=end:\n            out.append(e-s)\n            end=e\n    return [x for x in out if x>0]\n\n\njava\nclass Solution {\n  public int[] bookingRackPositiveProofStrip(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int[][]rows=a.clone();Arrays.sort(rows,Comparator.comparingInt((int[]r)->r[1]).thenComparingInt(r->r[0]));int end=Integer.MIN_VALUE;for(int[]r:rows)if(r[0]>=end){out.add(r[1]-r[0]);end=r[1];}}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nEach booking is [start, end]. It uses time from start up to, but not including, end. Sort bookings by end time, from earliest to latest. For matching end times, put the earlier start first. Accept the first booking. Then accept a booking only if it starts at or after the end of the last one accepted. Record the length, end - start, of each accepted booking. Keep acceptance order. Negative times are allowed. With no bookings, the result list is empty.\n\nReturn the answer\n\nReturn only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return [].\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n log n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction bookingRackPositiveProofStrip(drawers, k) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]);let end=-Infinity;for(const [s,e]of rows)if(s>=end){out.push(e-s);end=e;}\n  return out.filter(x=>x>0);\n}\n\n\ntypescript\nfunction bookingRackPositiveProofStrip(drawers: number[][], k: number): number[] {\n  const a=drawers; let out:number[]=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]);let end=-Infinity;for(const [s,e]of rows)if(s>=end){out.push(e-s);end=e;}\n  return out.filter(x=>x>0);\n}\n\n\npython\ndef bookingRackPositiveProofStrip(drawers, k):\n    a=drawers\n    out=[]\n    end=float('-inf')\n    for s,e in sorted(a,key=lambda r:(r[1],r[0])):\n        if s>=end:\n            out.append(e-s)\n            end=e\n    return [x for x in out if x>0]\n\n\njava\nclass Solution {\n  public int[] bookingRackPositiveProofStrip(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int[][]rows=a.clone();Arrays.sort(rows,Comparator.comparingInt((int[]r)->r[1]).thenComparingInt(r->r[0]));int end=Integer.MIN_VALUE;for(int[]r:rows)if(r[0]>=end){out.add(r[1]-r[0]);end=r[1];}}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  },
+  "parameterNames": [
+    "drawers",
+    "k"
+  ]
 }

@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-236"
   ],
-  "summary": "Recursively inspect half-open ranges [left,right), starting with the whole array. For each nonempty range, record its sum, then inspect its left half and right half using mid=floor((left+right)/2); stop splitting a one-element range. Produce the recorded sums in that preorder. Return how many values in the derived sequence are even, including 0 and negative even values.",
+  "summary": "Divide-and-conquer recursion. Count the even numbers in the result list.",
   "stage": "Counting variation",
   "boss": false,
-  "descriptionMd": "A shelf audit divides each occupied range in half and records its subtotal before opening smaller ranges. Sol separates readings for the office's even-numbered keys. A zero reading belongs in that count, just like any other even number.\n\nRecursively inspect half-open ranges [left,right), starting with the whole array. For each nonempty range, record its sum, then inspect its left half and right half using mid=floor((left+right)/2); stop splitting a one-element range. Produce the recorded sums in that preorder.\n\nReturn how many values in the derived sequence are even, including 0 and negative even values.\n\nImplement recursiveShelvesEvenKeyCensus(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
-  "unitIntro": "Divide-and-conquer recursion. Recursively inspect half-open ranges [left,right), starting with the whole array. For each nonempty range, record its sum, then inspect its left half and right half using mid=floor((left+right)/2); stop splitting a one-element range. Produce the recorded sums in that preorder. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nStart with the whole readings list as a section. Record the sum of that section. If it has more than one number, split it into a left half and a right half. Use the same steps on the left half first, then on the right half. When a section has an odd length, the left half has one fewer number. A section with one number is not split. Do not record empty sections. The result list contains the sums in the order you record them.\n\nStep 2: Return the answer\nCount the even numbers in the result list. An even number divides by 2 with no remainder. Count 0 and negative even numbers too. Return the count. An empty list gives 0.\n\nWrite your function\nComplete recursiveShelvesEvenKeyCensus(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "Start with the whole readings list as a section. Record the sum of that section. If it has more than one number, split it into a left half and a right half. Use the same steps on the left half first, then on the right half. When a section has an odd length, the left half has one fewer number. A section with one number is not split. Do not record empty sections. The result list contains the sums in the order you record them. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
-    "Target time O(n log n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Efficiency goal: time O(n log n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with divide-and-conquer recursion. What state describes the portion you have already processed?",
-    "Recursively inspect half-open ranges [left,right), starting with the whole array. For each nonempty range, record its sum, then inspect its left half and right half using mid=floor((left+right)/2); stop splitting a one-element range. Produce the recorded sums in that preorder. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return how many values in the derived sequence are even, including 0 and negative even values. Handle the empty derived sequence according to the stated return rule."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "Start with the whole readings list as a section. Record the sum of that section. If it has more than one number, split it into a left half and a right half. Use the same steps on the left half first, then on the right half. When a section has an odd length, the left half has one fewer number. A section with one number is not split. Do not record empty sections. The result list contains the sums in the order you record them. Keep track of the numbers or places you have already checked.",
+    "Count the even numbers in the result list. An even number divides by 2 with no remainder. Count 0 and negative even numbers too. Return the count. An empty list gives 0. Check what to do if the result list is empty."
   ],
   "functionName": "recursiveShelvesEvenKeyCensus",
   "mode": "function",
   "starterCode": {
-    "javascript": "function recursiveShelvesEvenKeyCensus(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "typescript": "function recursiveShelvesEvenKeyCensus(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "python": "def recursiveShelvesEvenKeyCensus(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
-    "java": "class Solution {\n  public int recursiveShelvesEvenKeyCensus(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+    "javascript": "function recursiveShelvesEvenKeyCensus(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "typescript": "function recursiveShelvesEvenKeyCensus(readings: number[], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "python": "def recursiveShelvesEvenKeyCensus(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
+    "java": "class Solution {\n  public int recursiveShelvesEvenKeyCensus(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -55,7 +55,7 @@
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "The derived sequence is [23,4,7,-3,19,7,12,0,12]. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 4."
+      "explanation": "Step 1 gives the result list [23,4,7,-3,19,7,12,0,12]. The even numbers are [4,12,0,12]. There are 4, so return 4."
     },
     {
       "id": "path3-237-2",
@@ -70,7 +70,7 @@
       ],
       "expected": 7,
       "coverage": "worked",
-      "explanation": "The derived sequence is [10,8,4,4,2,-2,4]. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 7."
+      "explanation": "Step 1 gives the result list [10,8,4,4,2,-2,4]. The even numbers are [10,8,4,4,2,-2,4]. There are 7, so return 7."
     },
     {
       "id": "path3-237-3",
@@ -80,7 +80,7 @@
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 0."
+      "explanation": "Step 1 gives the result list []. The even numbers are []. There are 0, so return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -92,7 +92,7 @@
     "time": "O(n log n)",
     "space": "O(n)"
   },
-  "overview": "Counting variation: Divide-and-conquer recursion. Build the sequence once, then report exactly what the inspection card requests.",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 5,
     "unit": "recursive-shelves",
@@ -115,7 +115,7 @@
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "The derived sequence is [23,4,7,-3,19,7,12,0,12]. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 4."
+      "explanation": "Step 1 gives the result list [23,4,7,-3,19,7,12,0,12]. The even numbers are [4,12,0,12]. There are 4, so return 4."
     },
     {
       "id": "path3-237-2",
@@ -130,7 +130,7 @@
       ],
       "expected": 7,
       "coverage": "worked",
-      "explanation": "The derived sequence is [10,8,4,4,2,-2,4]. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 7."
+      "explanation": "Step 1 gives the result list [10,8,4,4,2,-2,4]. The even numbers are [10,8,4,4,2,-2,4]. There are 7, so return 7."
     }
   ],
   "referenceSolutions": {
@@ -282,6 +282,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nRecursively inspect half-open ranges [left,right), starting with the whole array. For each nonempty range, record its sum, then inspect its left half and right half using mid=floor((left+right)/2); stop splitting a one-element range. Produce the recorded sums in that preorder.\n\nReturn how many values in the derived sequence are even, including 0 and negative even values.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n log n); space O(n).\n\njavascript\nfunction recursiveShelvesEvenKeyCensus(readings, k) {\n  const a=readings; let out=[];\n  function visit(l,r){if(l>=r)return;let s=0;for(let i=l;i<r;i++)s+=a[i];out.push(s);if(r-l>1){const m=Math.floor((l+r)/2);visit(l,m);visit(m,r);}}visit(0,a.length);\n  return out.filter(x=>x%2===0).length;\n}\n\n\ntypescript\nfunction recursiveShelvesEvenKeyCensus(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  function visit(l:number,r:number):void{if(l>=r)return;let s=0;for(let i=l;i<r;i++)s+=a[i];out.push(s);if(r-l>1){const m=Math.floor((l+r)/2);visit(l,m);visit(m,r);}}visit(0,a.length);\n  return out.filter(x=>x%2===0).length;\n}\n\n\npython\ndef recursiveShelvesEvenKeyCensus(readings, k):\n    a=readings\n    out=[]\n    def visit(left,right):\n        if left>=right: return\n        out.append(sum(a[left:right]))\n        if right-left>1:\n            mid=(left+right)//2\n            visit(left,mid)\n            visit(mid,right)\n    visit(0,len(a))\n    return sum(x%2==0 for x in out)\n\n\njava\nclass Solution {\n  public int recursiveShelvesEvenKeyCensus(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {class Walk {void visit(int l,int r){if(l>=r)return;int s=0;for(int i=l;i<r;i++)s+=a[i];out.add(s);if(r-l>1){int m=(l+r)/2;visit(l,m);visit(m,r);}}}new Walk().visit(0,a.length);}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nStart with the whole readings list as a section. Record the sum of that section. If it has more than one number, split it into a left half and a right half. Use the same steps on the left half first, then on the right half. When a section has an odd length, the left half has one fewer number. A section with one number is not split. Do not record empty sections. The result list contains the sums in the order you record them.\n\nReturn the answer\n\nCount the even numbers in the result list. An even number divides by 2 with no remainder. Count 0 and negative even numbers too. Return the count. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n log n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction recursiveShelvesEvenKeyCensus(readings, k) {\n  const a=readings; let out=[];\n  function visit(l,r){if(l>=r)return;let s=0;for(let i=l;i<r;i++)s+=a[i];out.push(s);if(r-l>1){const m=Math.floor((l+r)/2);visit(l,m);visit(m,r);}}visit(0,a.length);\n  return out.filter(x=>x%2===0).length;\n}\n\n\ntypescript\nfunction recursiveShelvesEvenKeyCensus(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  function visit(l:number,r:number):void{if(l>=r)return;let s=0;for(let i=l;i<r;i++)s+=a[i];out.push(s);if(r-l>1){const m=Math.floor((l+r)/2);visit(l,m);visit(m,r);}}visit(0,a.length);\n  return out.filter(x=>x%2===0).length;\n}\n\n\npython\ndef recursiveShelvesEvenKeyCensus(readings, k):\n    a=readings\n    out=[]\n    def visit(left,right):\n        if left>=right: return\n        out.append(sum(a[left:right]))\n        if right-left>1:\n            mid=(left+right)//2\n            visit(left,mid)\n            visit(mid,right)\n    visit(0,len(a))\n    return sum(x%2==0 for x in out)\n\n\njava\nclass Solution {\n  public int recursiveShelvesEvenKeyCensus(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {class Walk {void visit(int l,int r){if(l>=r)return;int s=0;for(int i=l;i<r;i++)s+=a[i];out.add(s);if(r-l>1){int m=(l+r)/2;visit(l,m);visit(m,r);}}}new Walk().visit(0,a.length);}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
+  },
+  "parameterNames": [
+    "readings",
+    "k"
+  ]
 }

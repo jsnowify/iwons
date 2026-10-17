@@ -6,10 +6,10 @@
     "kernel": "arithmetic",
     "count": 6,
     "idea": "Variables and expressions",
-    "definition": "For each reading x, produce 2*x + 3. The readings are signed ink adjustments.",
+    "definition": "For each number x in readings, multiply x by 2, then add 3. Put each answer in the result list. Keep the original order. For example, 4 becomes 11, and -2 becomes -1.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Variables and expressions. For each reading x, produce 2*x + 3. The readings are signed ink adjustments. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations)."
+    "intro": "For each number x in readings, multiply x by 2, then add 3. Put each answer in the result list. Keep the original order. For example, 4 becomes 11, and -2 becomes -1. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 0,
@@ -18,10 +18,10 @@
     "kernel": "gates",
     "count": 6,
     "idea": "Conditionals",
-    "definition": "Replace each negative reading with 0; leave every other reading unchanged.",
+    "definition": "Read readings from left to right. Change each number below 0 to 0. Keep every other number as it is. Put the numbers in the result list in the same order.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Conditionals. Replace each negative reading with 0; leave every other reading unchanged. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations)."
+    "intro": "Read readings from left to right. Change each number below 0 to 0. Keep every other number as it is. Put the numbers in the result list in the same order. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 0,
@@ -30,10 +30,10 @@
     "kernel": "prefix",
     "count": 6,
     "idea": "Loop accumulators",
-    "definition": "Produce the running totals of the readings, including the current reading at each position.",
+    "definition": "Start a total at 0. Read readings from left to right. Add each number to the total, then put the new total in the result list. For [2, 3, -1], the result list is [2, 5, 4].",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Loop accumulators. Produce the running totals of the readings, including the current reading at each position. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations)."
+    "intro": "Start a total at 0. Read readings from left to right. Add each number to the total, then put the new total in the result list. For [2, 3, -1], the result list is [2, 5, 4]. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 0,
@@ -42,10 +42,10 @@
     "kernel": "reset",
     "count": 6,
     "idea": "State in a loop",
-    "definition": "Maintain a tally initially 0. A zero reading resets it to 0; any other reading is added to it. Record the tally after every reading.",
+    "definition": "Start a total at 0. Read readings from left to right. If the next number is 0, reset the total to 0. Otherwise, add that number to the total. Put the total in the result list after each number.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "State in a loop. Maintain a tally initially 0. A zero reading resets it to 0; any other reading is added to it. Record the tally after every reading. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations)."
+    "intro": "Start a total at 0. Read readings from left to right. If the next number is 0, reset the total to 0. Otherwise, add that number to the total. Put the total in the result list after each number. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 0,
@@ -54,10 +54,10 @@
     "kernel": "digits",
     "count": 6,
     "idea": "Helper functions",
-    "definition": "For each reading, produce the sum of the decimal digits of its absolute value; the digit sum of 0 is 0.",
+    "definition": "Find the digit sum of each number in readings. Ignore a minus sign, then add the digits. For example, -305 gives 3 + 0 + 5 = 8. The digit sum of 0 is 0. Keep the answers in input order.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Helper functions. For each reading, produce the sum of the decimal digits of its absolute value; the digit sum of 0 is 0. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations)."
+    "intro": "Find the digit sum of each number in readings. Ignore a minus sign, then add the digits. For example, -305 gives 3 + 0 + 5 = 8. The digit sum of 0 is 0. Keep the answers in input order. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 1,
@@ -66,10 +66,10 @@
     "kernel": "differences",
     "count": 10,
     "idea": "Adjacent array positions",
-    "definition": "Produce readings[i] - readings[i-1] for i from 1 onward, preserving that order.",
+    "definition": "Start at the second number in readings. Subtract the number just before it from the current number. Repeat for each later number. Put the answers in order. For [5, 8, 2], the result list is [3, -6]. A list with fewer than two numbers gives an empty result list.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Adjacent array positions. Produce readings[i] - readings[i-1] for i from 1 onward, preserving that order. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations)."
+    "intro": "Start at the second number in readings. Subtract the number just before it from the current number. Repeat for each later number. Put the answers in order. For [5, 8, 2], the result list is [3, -6]. A list with fewer than two numbers gives an empty result list. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 1,
@@ -78,10 +78,10 @@
     "kernel": "runs",
     "count": 10,
     "idea": "String runs",
-    "definition": "A run is a maximal consecutive group of identical characters. Produce its length for each run, from left to right. Spaces are characters too.",
+    "definition": "A run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", the result list is [2, 1, 2].",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "String runs. A run is a maximal consecutive group of identical characters. Produce its length for each run, from left to right. Spaces are characters too. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations)."
+    "intro": "A run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", the result list is [2, 1, 2]. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 1,
@@ -90,10 +90,10 @@
     "kernel": "filter",
     "count": 10,
     "idea": "Stable array filtering",
-    "definition": "Keep only readings strictly greater than 0, in their original order. Repeated readings remain repeated.",
+    "definition": "Keep only numbers greater than 0 from readings. Put them in the result list in their original order. Keep repeated numbers. Leave out 0 and negative numbers.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Stable array filtering. Keep only readings strictly greater than 0, in their original order. Repeated readings remain repeated. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations)."
+    "intro": "Keep only numbers greater than 0 from readings. Put them in the result list in their original order. Keep repeated numbers. Leave out 0 and negative numbers. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 1,
@@ -102,10 +102,10 @@
     "kernel": "rows",
     "count": 10,
     "idea": "Nested array traversal",
-    "definition": "For each row of drawers, produce the sum of that row. Empty rows contribute 0.",
+    "definition": "drawers is a list of rows. Add the numbers in each row. Put one total per row in the result list, in row order. An empty row has a total of 0.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Nested array traversal. For each row of drawers, produce the sum of that row. Empty rows contribute 0. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations)."
+    "intro": "drawers is a list of rows. Add the numbers in each row. Put one total per row in the result list, in row order. An empty row has a total of 0. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 1,
@@ -114,10 +114,10 @@
     "kernel": "words",
     "count": 10,
     "idea": "String scanning",
-    "definition": "Split the line into maximal runs of non-space ASCII characters and produce each run's length. Multiple spaces, leading spaces and trailing spaces do not produce empty words.",
+    "definition": "Read line from left to right. Here, a word is a group of characters with no spaces inside it. Record the length of each word. Ignore extra spaces before, after, or between words. For \"a  cat\", the result list is [1, 3].",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "String scanning. Split the line into maximal runs of non-space ASCII characters and produce each run's length. Multiple spaces, leading spaces and trailing spaces do not produce empty words. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations)."
+    "intro": "Read line from left to right. Here, a word is a group of characters with no spaces inside it. Record the length of each word. Ignore extra spaces before, after, or between words. For \"a  cat\", the result list is [1, 3]. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 2,
@@ -126,10 +126,10 @@
     "kernel": "frequency",
     "count": 10,
     "idea": "Frequency maps",
-    "definition": "Count occurrences of each distinct reading, then produce those counts in increasing order of the associated numeric reading.",
+    "definition": "Count how many times each different number appears in readings. Sort the different numbers from smallest to largest. Put their counts in that order in the result list. For [5, 2, 5], the numbers are 2 and 5, so the result list is [1, 2].",
     "time": "O(n + d log d)",
     "space": "O(n)",
-    "intro": "Frequency maps. Count occurrences of each distinct reading, then produce those counts in increasing order of the associated numeric reading. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Count how many times each different number appears in readings. Sort the different numbers from smallest to largest. Put their counts in that order in the result list. For [5, 2, 5], the numbers are 2 and 5, so the result list is [1, 2]. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 2,
@@ -138,10 +138,10 @@
     "kernel": "unique",
     "count": 10,
     "idea": "Set membership",
-    "definition": "Keep the first occurrence of each distinct reading, preserving encounter order.",
+    "definition": "Keep the first copy of each number in readings. Skip any later copies of the same number. Keep the order in which the numbers first appear. For [4, 2, 4, 3, 2], the result list is [4, 2, 3].",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Set membership. Keep the first occurrence of each distinct reading, preserving encounter order. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Keep the first copy of each number in readings. Skip any later copies of the same number. Keep the order in which the numbers first appear. For [4, 2, 4, 3, 2], the result list is [4, 2, 3]. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 2,
@@ -150,10 +150,10 @@
     "kernel": "intersection",
     "count": 10,
     "idea": "Set intersection",
-    "definition": "The input contains exactly two drawers. Produce the distinct readings present in both drawers, in increasing numeric order.",
+    "definition": "drawers contains two lists of numbers. Find the numbers that appear in both lists. Put each matching number in the result list only once. Sort the result list from smallest to largest.",
     "time": "O(n + d log d)",
     "space": "O(n)",
-    "intro": "Set intersection. The input contains exactly two drawers. Produce the distinct readings present in both drawers, in increasing numeric order. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "drawers contains two lists of numbers. Find the numbers that appear in both lists. Put each matching number in the result list only once. Sort the result list from smallest to largest. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 2,
@@ -162,10 +162,10 @@
     "kernel": "residues",
     "count": 10,
     "idea": "Map grouping",
-    "definition": "Assign each reading x to box ((x % 5) + 5) % 5. Produce the five box counts in box order 0 through 4.",
+    "definition": "There are five boxes, numbered 0 to 4. For each number x in readings, find its box with ((x % 5) + 5) % 5. The % symbol means remainder. This formula also gives a box for negative numbers: -1 goes in box 4. Count the numbers in each box. The result list must contain five counts, in box order 0, 1, 2, 3, 4.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Map grouping. Assign each reading x to box ((x % 5) + 5) % 5. Produce the five box counts in box order 0 through 4. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "There are five boxes, numbered 0 to 4. For each number x in readings, find its box with ((x % 5) + 5) % 5. The % symbol means remainder. This formula also gives a box for negative numbers: -1 goes in box 4. Count the numbers in each box. The result list must contain five counts, in box order 0, 1, 2, 3, 4. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 2,
@@ -174,10 +174,10 @@
     "kernel": "absoluteSort",
     "count": 10,
     "idea": "Comparator sorting",
-    "definition": "Sort readings by absolute value ascending, breaking ties by numeric value ascending. Keep duplicate readings.",
+    "definition": "Sort readings by distance from 0, from nearest to farthest. This distance is called absolute value: both -4 and 4 have distance 4. When two numbers have the same distance, put the smaller number first. Keep all repeated numbers. For [3, -2, 2, -3], the result list is [-2, 2, -3, 3].",
     "time": "O(n log n)",
     "space": "O(n)",
-    "intro": "Comparator sorting. Sort readings by absolute value ascending, breaking ties by numeric value ascending. Keep duplicate readings. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Sort readings by distance from 0, from nearest to farthest. This distance is called absolute value: both -4 and 4 have distance 4. When two numbers have the same distance, put the smaller number first. Keep all repeated numbers. For [3, -2, 2, -3], the result list is [-2, 2, -3, 3]. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 3,
@@ -186,10 +186,10 @@
     "kernel": "mirror",
     "count": 9,
     "idea": "Opposite-end pointers",
-    "definition": "The readings are sorted ascending. Pair the first and last, then the second and second-last, until they meet. Produce each pair's sum in encounter order; an unpaired middle reading is recorded unchanged.",
+    "definition": "readings is already sorted from smallest to largest. Pair its first and last numbers, then its second and second-last numbers. Keep moving toward the middle. Add the two numbers in each pair and record that sum. If one middle number is left, record it by itself. Keep this pair order in the result list.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Opposite-end pointers. The readings are sorted ascending. Pair the first and last, then the second and second-last, until they meet. Produce each pair's sum in encounter order; an unpaired middle reading is recorded unchanged. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "readings is already sorted from smallest to largest. Pair its first and last numbers, then its second and second-last numbers. Keep moving toward the middle. Add the two numbers in each pair and record that sum. If one middle number is left, record it by itself. Keep this pair order in the result list. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 3,
@@ -198,10 +198,10 @@
     "kernel": "compact",
     "count": 9,
     "idea": "Read and write pointers",
-    "definition": "The readings are sorted ascending. Compact adjacent equal values into one value, preserving sorted order.",
+    "definition": "readings is already sorted from smallest to largest. Keep only one copy of each number. Put these numbers in the result list in sorted order.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Read and write pointers. The readings are sorted ascending. Compact adjacent equal values into one value, preserving sorted order. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "readings is already sorted from smallest to largest. Keep only one copy of each number. Put these numbers in the result list in sorted order. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 3,
@@ -210,10 +210,10 @@
     "kernel": "windowSum",
     "count": 9,
     "idea": "Fixed sliding windows",
-    "definition": "For each contiguous window of exactly k readings, produce its sum from left to right. If fewer than k readings exist, produce no window sums.",
+    "definition": "A window is a group of numbers next to each other. Take each window of exactly k numbers in readings, moving one place right each time. Record each window sum from left to right. If the whole input has fewer than k numbers, the result list is empty.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Fixed sliding windows. For each contiguous window of exactly k readings, produce its sum from left to right. If fewer than k readings exist, produce no window sums. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "A window is a group of numbers next to each other. Take each window of exactly k numbers in readings, moving one place right each time. Record each window sum from left to right. If the whole input has fewer than k numbers, the result list is empty. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 3,
@@ -222,10 +222,10 @@
     "kernel": "shortWindow",
     "count": 9,
     "idea": "Variable sliding windows",
-    "definition": "Readings are nonnegative. For each right endpoint, produce the shortest nonempty suffix ending there whose sum is at least k, or 0 when no such suffix exists. k is positive.",
+    "definition": "All numbers in readings are 0 or greater. For each position, find the shortest group that ends at that position and has a sum of at least k. The group must contain at least one number, and its numbers must be next to each other. Record the length of that group. Record 0 if no such group exists. Put one answer per position in the result list.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Variable sliding windows. Readings are nonnegative. For each right endpoint, produce the shortest nonempty suffix ending there whose sum is at least k, or 0 when no such suffix exists. k is positive. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "All numbers in readings are 0 or greater. For each position, find the shortest group that ends at that position and has a sum of at least k. The group must contain at least one number, and its numbers must be next to each other. Record the length of that group. Record 0 if no such group exists. Put one answer per position in the result list. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 3,
@@ -234,10 +234,10 @@
     "kernel": "prefixRanges",
     "count": 9,
     "idea": "Prefix range subtraction",
-    "definition": "For each index i, produce the sum from max(0,i-k+1) through i inclusive. These are trailing ranges that may be shorter than k near the left edge.",
+    "definition": "For each position in readings, add the current number and up to k - 1 numbers just before it. Stop at the start of the input if needed. Record each sum, from left to right. For readings = [2, 3, 4] and k = 2, the result list is [2, 5, 7].",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Prefix range subtraction. For each index i, produce the sum from max(0,i-k+1) through i inclusive. These are trailing ranges that may be shorter than k near the left edge. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "For each position in readings, add the current number and up to k - 1 numbers just before it. Stop at the start of the input if needed. Record each sum, from left to right. For readings = [2, 3, 4] and k = 2, the result list is [2, 5, 7]. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 3,
@@ -246,10 +246,10 @@
     "kernel": "merge",
     "count": 10,
     "idea": "Two sorted streams",
-    "definition": "The input contains exactly two sorted drawers. Produce all their readings in one sorted sequence, preserving duplicates.",
+    "definition": "drawers contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted result list. Keep all repeated numbers, including copies from both input lists.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Two sorted streams. The input contains exactly two sorted drawers. Produce all their readings in one sorted sequence, preserving duplicates. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "drawers contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted result list. Keep all repeated numbers, including copies from both input lists. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 4,
@@ -258,10 +258,10 @@
     "kernel": "cancel",
     "count": 9,
     "idea": "Stack cancellation",
-    "definition": "Read stamps left to right. If a stamp equals the top stamp, remove that top stamp; otherwise push it. Produce the final stack from bottom to top.",
+    "definition": "Treat readings as a row of stamps. Keep a stack, which is a pile where you can add or remove only the top stamp. Read the stamps from left to right. If the next stamp matches the top stamp, remove the top stamp and do not add the new one. Otherwise, put the new stamp on top. The result list is the final stack, from bottom to top.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Stack cancellation. Read stamps left to right. If a stamp equals the top stamp, remove that top stamp; otherwise push it. Produce the final stack from bottom to top. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Treat readings as a row of stamps. Keep a stack, which is a pile where you can add or remove only the top stamp. Read the stamps from left to right. If the next stamp matches the top stamp, remove the top stamp and do not add the new one. Otherwise, put the new stamp on top. The result list is the final stack, from bottom to top. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 4,
@@ -270,10 +270,10 @@
     "kernel": "greater",
     "count": 9,
     "idea": "Monotonic stacks",
-    "definition": "For every reading, produce the distance to the first strictly larger reading to its right, or 0 if none exists.",
+    "definition": "For each number in readings, look to its right. Find the first number that is larger, not equal. Record how many places to the right it is. Record 0 if no larger number is found. Keep the answers in input order.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Monotonic stacks. For every reading, produce the distance to the first strictly larger reading to its right, or 0 if none exists. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "For each number in readings, look to its right. Find the first number that is larger, not equal. Record how many places to the right it is. Record 0 if no larger number is found. Keep the answers in input order. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 4,
@@ -282,10 +282,10 @@
     "kernel": "roundRobin",
     "count": 9,
     "idea": "Queue simulation",
-    "definition": "Jobs arrive together in input order and need the given nonnegative service times. A clerk serves up to k time units, appends unfinished jobs to the queue, and records each job's completion time in original job order. A zero-time job is complete at time 0.",
+    "definition": "Each number in readings is the work time needed by a job. All jobs are ready at time 0, in input order. The worker gives the first job up to k time units. If it still needs work, put it at the back of the line. Then serve the next job. Record when each job finishes, measured from time 0. Return these finish times in original job order. A job needing 0 time finishes at time 0 and uses no worker time.",
     "time": "O(n + total/k)",
     "space": "O(n)",
-    "intro": "Queue simulation. Jobs arrive together in input order and need the given nonnegative service times. A clerk serves up to k time units, appends unfinished jobs to the queue, and records each job's completion time in original job order. A zero-time job is complete at time 0. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Each number in readings is the work time needed by a job. All jobs are ready at time 0, in input order. The worker gives the first job up to k time units. If it still needs work, put it at the back of the line. Then serve the next job. Record when each job finishes, measured from time 0. Return these finish times in original job order. A job needing 0 time finishes at time 0 and uses no worker time. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 4,
@@ -294,10 +294,10 @@
     "kernel": "windowMax",
     "count": 9,
     "idea": "Monotonic deques",
-    "definition": "For every contiguous window of exactly k readings, produce its maximum from left to right. Produce no values if k exceeds the number of readings.",
+    "definition": "Take every group of exactly k numbers next to each other in readings. Move the group one place right each time. Record the largest number in each group, from left to right. If k is larger than the input length, the result list is empty.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Monotonic deques. For every contiguous window of exactly k readings, produce its maximum from left to right. Produce no values if k exceeds the number of readings. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Take every group of exactly k numbers next to each other in readings. Move the group one place right each time. Record the largest number in each group, from left to right. If k is larger than the input length, the result list is empty. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 4,
@@ -306,10 +306,10 @@
     "kernel": "undo",
     "count": 9,
     "idea": "Stack history",
-    "definition": "A nonnegative event pushes that value onto a stack. A negative event removes up to abs(event) values from its top. Produce the final stack from bottom to top.",
+    "definition": "Use a stack, which is a pile where you add and remove items only at the top. Read readings from left to right. A number of 0 or more adds that number to the top. A negative number tells you how many top items to remove: -3 means remove up to three items. Stop if the stack becomes empty. The result list is the final stack, from bottom to top.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Stack history. A nonnegative event pushes that value onto a stack. A negative event removes up to abs(event) values from its top. Produce the final stack from bottom to top. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Use a stack, which is a pile where you add and remove items only at the top. Read readings from left to right. A number of 0 or more adds that number to the top. A negative number tells you how many top items to remove: -3 means remove up to three items. Stop if the stack becomes empty. The result list is the final stack, from bottom to top. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 5,
@@ -318,10 +318,10 @@
     "kernel": "recursive",
     "count": 9,
     "idea": "Divide-and-conquer recursion",
-    "definition": "Recursively inspect half-open ranges [left,right), starting with the whole array. For each nonempty range, record its sum, then inspect its left half and right half using mid=floor((left+right)/2); stop splitting a one-element range. Produce the recorded sums in that preorder.",
+    "definition": "Start with the whole readings list as a section. Record the sum of that section. If it has more than one number, split it into a left half and a right half. Use the same steps on the left half first, then on the right half. When a section has an odd length, the left half has one fewer number. A section with one number is not split. Do not record empty sections. The result list contains the sums in the order you record them.",
     "time": "O(n log n)",
     "space": "O(n)",
-    "intro": "Divide-and-conquer recursion. Recursively inspect half-open ranges [left,right), starting with the whole array. For each nonempty range, record its sum, then inspect its left half and right half using mid=floor((left+right)/2); stop splitting a one-element range. Produce the recorded sums in that preorder. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Start with the whole readings list as a section. Record the sum of that section. If it has more than one number, split it into a left half and a right half. Use the same steps on the left half first, then on the right half. When a section has an odd length, the left half has one fewer number. A section with one number is not split. Do not record empty sections. The result list contains the sums in the order you record them. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 5,
@@ -330,10 +330,10 @@
     "kernel": "mergeSort",
     "count": 9,
     "idea": "Merge sort",
-    "definition": "Produce readings sorted numerically ascending using a merge-based divide-and-conquer approach. Keep duplicate readings.",
+    "definition": "Sort readings from smallest to largest using merge sort. To use merge sort, split the list into smaller parts, sort those parts, then join the sorted parts in order. Keep all repeated numbers. The result list is the sorted list.",
     "time": "O(n log n)",
     "space": "O(n)",
-    "intro": "Merge sort. Produce readings sorted numerically ascending using a merge-based divide-and-conquer approach. Keep duplicate readings. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Sort readings from smallest to largest using merge sort. To use merge sort, split the list into smaller parts, sort those parts, then join the sorted parts in order. Keep all repeated numbers. The result list is the sorted list. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 5,
@@ -342,10 +342,10 @@
     "kernel": "lowerBound",
     "count": 9,
     "idea": "Binary search boundaries",
-    "definition": "The input contains two rows: a sorted drawer and query values. For each query, produce the first index whose drawer value is at least that query; use the drawer's length if no such index exists.",
+    "definition": "drawers contains two rows: a sorted number list, then a list of queries. Each query is a number to look up. For each query, find the first position in the sorted list whose number is at least the query. Positions, also called indexes, start at 0. If no number is large enough, record the length of the sorted list. Put the answers in query order.",
     "time": "O(q log(n+1))",
     "space": "O(n)",
-    "intro": "Binary search boundaries. The input contains two rows: a sorted drawer and query values. For each query, produce the first index whose drawer value is at least that query; use the drawer's length if no such index exists. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "drawers contains two rows: a sorted number list, then a list of queries. Each query is a number to look up. For each query, find the first position in the sorted list whose number is at least the query. Positions, also called indexes, start at 0. If no number is large enough, record the length of the sorted list. Put the answers in query order. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 5,
@@ -354,10 +354,10 @@
     "kernel": "sqrt",
     "count": 9,
     "idea": "Binary search on answers",
-    "definition": "For each nonnegative reading x, produce the greatest integer r with r*r <= x. Use integer comparisons rather than floating-point rounding.",
+    "definition": "For each number x in readings, find the largest whole number r whose square is at most x. A square means a number multiplied by itself. For example, x = 10 gives 3, because 3 * 3 = 9 but 4 * 4 = 16. Use whole-number comparisons, not rounded decimal square roots. Keep the answers in input order.",
     "time": "O(n log M)",
     "space": "O(n)",
-    "intro": "Binary search on answers. For each nonnegative reading x, produce the greatest integer r with r*r <= x. Use integer comparisons rather than floating-point rounding. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "For each number x in readings, find the largest whole number r whose square is at most x. A square means a number multiplied by itself. For example, x = 10 gives 3, because 3 * 3 = 9 but 4 * 4 = 16. Use whole-number comparisons, not rounded decimal square roots. Keep the answers in input order. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 5,
@@ -366,10 +366,10 @@
     "kernel": "bits",
     "count": 9,
     "idea": "Bit counting",
-    "definition": "For each nonnegative reading, produce the number of 1 bits in its binary representation. The reading 0 contributes 0.",
+    "definition": "Write each number in readings in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order.",
     "time": "O(n log M)",
     "space": "O(n)",
-    "intro": "Bit counting. For each nonnegative reading, produce the number of 1 bits in its binary representation. The reading 0 contributes 0. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Write each number in readings in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 5,
@@ -378,10 +378,10 @@
     "kernel": "xor",
     "count": 10,
     "idea": "Prefix bit state",
-    "definition": "Maintain a register initially 0. XOR each nonnegative reading into it and record the register after each reading.",
+    "definition": "Start a stored number at 0. Read readings from left to right. Combine the stored number and the next number with bitwise XOR. XOR compares their binary digits: matching digits give 0, and different digits give 1. Use leading zeros when needed. For example, 3 XOR 5 is 6 because 011 XOR 101 gives 110. Record the stored number after each update.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Prefix bit state. Maintain a register initially 0. XOR each nonnegative reading into it and record the register after each reading. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Start a stored number at 0. Read readings from left to right. Combine the stored number and the next number with bitwise XOR. XOR compares their binary digits: matching digits give 0, and different digits give 1. Use leading zeros when needed. For example, 3 XOR 5 is 6 because 011 XOR 101 gives 110. Record the stored number after each update. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 6,
@@ -390,10 +390,10 @@
     "kernel": "list",
     "count": 9,
     "idea": "Linked traversal",
-    "definition": "Traverse the supplied acyclic linked list from head to tail and produce its node values in that order.",
+    "definition": "head is the first node of a linked list. A node holds a number in val and a link to the next node in next. Follow next until there are no more nodes. Record each val in order. The list has no loops. An empty list gives an empty result list.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Linked traversal. Traverse the supplied acyclic linked list from head to tail and produce its node values in that order. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "head is the first node of a linked list. A node holds a number in val and a link to the next node in next. Follow next until there are no more nodes. Record each val in order. The list has no loops. An empty list gives an empty result list. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 6,
@@ -402,10 +402,10 @@
     "kernel": "reverseList",
     "count": 9,
     "idea": "Linked pointer reversal",
-    "definition": "Reverse the links of the supplied acyclic linked list, then traverse the reversed list to produce its values. An empty head produces no values.",
+    "definition": "Reverse the links in the linked list given by head. Each node has a number in val and a link in next. After the links are reversed, follow the new list from start to end. Record its values in that order. An empty list gives an empty result list.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Linked pointer reversal. Reverse the links of the supplied acyclic linked list, then traverse the reversed list to produce its values. An empty head produces no values. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Reverse the links in the linked list given by head. Each node has a number in val and a link in next. After the links are reversed, follow the new list from start to end. Record its values in that order. An empty list gives an empty result list. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 6,
@@ -414,10 +414,10 @@
     "kernel": "middleList",
     "count": 9,
     "idea": "Fast and slow pointers",
-    "definition": "Find the middle node using fast and slow pointers, choosing the second middle for even-length lists. Produce values from that node to the tail; an empty head produces no values.",
+    "definition": "Find the middle node of the linked list given by head. Each node stores a number in val and a link in next. Use two pointers: one moves one link at a time, and the other moves two. If there are two middle nodes, choose the second one. Record the values from that middle node to the end. An empty list gives an empty result list.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Fast and slow pointers. Find the middle node using fast and slow pointers, choosing the second middle for even-length lists. Produce values from that node to the tail; an empty head produces no values. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Find the middle node of the linked list given by head. Each node stores a number in val and a link in next. Use two pointers: one moves one link at a time, and the other moves two. If there are two middle nodes, choose the second one. Record the values from that middle node to the end. An empty list gives an empty result list. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 6,
@@ -426,10 +426,10 @@
     "kernel": "treeDfs",
     "count": 9,
     "idea": "Tree preorder",
-    "definition": "Traverse the binary tree in root-left-right order and produce its node values. A missing root produces no values.",
+    "definition": "A binary tree is a set of nodes, each with a value and up to two children: left and right. root is the top node. Visit a node by recording its value, then visit its whole left branch, then its whole right branch. Use this same rule at every node. Skip missing children. The result list is the recorded values. An empty tree gives an empty result list.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Tree preorder. Traverse the binary tree in root-left-right order and produce its node values. A missing root produces no values. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "A binary tree is a set of nodes, each with a value and up to two children: left and right. root is the top node. Visit a node by recording its value, then visit its whole left branch, then its whole right branch. Use this same rule at every node. Skip missing children. The result list is the recorded values. An empty tree gives an empty result list. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 6,
@@ -438,10 +438,10 @@
     "kernel": "treeBfs",
     "count": 9,
     "idea": "Tree breadth-first traversal",
-    "definition": "Produce the sum of node values at each depth of the binary tree, starting with depth 0 at the root. Missing children contribute nothing.",
+    "definition": "root is the top node of a binary tree. Each node has a value and up to two children. The root is at depth 0, its children are at depth 1, and so on. Add the values at each depth. Put one sum per depth in the result list, starting at depth 0. Missing children add nothing. An empty tree gives an empty result list.",
     "time": "O(n)",
     "space": "O(n)",
-    "intro": "Tree breadth-first traversal. Produce the sum of node values at each depth of the binary tree, starting with depth 0 at the root. Missing children contribute nothing. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "root is the top node of a binary tree. Each node has a value and up to two children. The root is at depth 0, its children are at depth 1, and so on. Add the values at each depth. Put one sum per depth in the result list, starting at depth 0. Missing children add nothing. An empty tree gives an empty result list. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 6,
@@ -450,10 +450,10 @@
     "kernel": "bst",
     "count": 10,
     "idea": "BST range pruning",
-    "definition": "The input is a binary search tree with distinct values. Produce its values in the inclusive range [k,k+12], in ascending order, pruning subtrees that cannot meet that range.",
+    "definition": "root is a binary search tree with no repeated values. In this tree, all values in a left branch are smaller than its parent, and all values in a right branch are larger. Find values from k through k + 12, including both ends. Put them in the result list from smallest to largest. Skip branches whose values cannot be in this range. An empty tree gives an empty result list.",
     "time": "O(h + r)",
     "space": "O(n)",
-    "intro": "BST range pruning. The input is a binary search tree with distinct values. Produce its values in the inclusive range [k,k+12], in ascending order, pruning subtrees that cannot meet that range. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "root is a binary search tree with no repeated values. In this tree, all values in a left branch are smaller than its parent, and all values in a right branch are larger. Find values from k through k + 12, including both ends. Put them in the result list from smallest to largest. Skip branches whose values cannot be in this range. An empty tree gives an empty result list. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 7,
@@ -462,10 +462,10 @@
     "kernel": "bfs",
     "count": 10,
     "idea": "Graph breadth-first distances",
-    "definition": "links is a square 0/1 adjacency matrix of a directed graph. From vertex 0, produce the shortest number of edges to every vertex in index order. Unreachable vertices contribute -1; an empty graph produces no distances.",
+    "definition": "A graph is a set of points joined by paths. Here, paths go in one direction. Start at point 0. For each point, find the fewest paths you must follow to reach it. Record these distances in point order: 0, 1, 2, and so on. The distance to point 0 is 0. Record -1 for a point you cannot reach. A graph with no points gives an empty result list.",
     "time": "O(V^2)",
     "space": "O(n)",
-    "intro": "Graph breadth-first distances. links is a square 0/1 adjacency matrix of a directed graph. From vertex 0, produce the shortest number of edges to every vertex in index order. Unreachable vertices contribute -1; an empty graph produces no distances. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "A graph is a set of points joined by paths. Here, paths go in one direction. Start at point 0. For each point, find the fewest paths you must follow to reach it. Record these distances in point order: 0, 1, 2, and so on. The distance to point 0 is 0. Record -1 for a point you cannot reach. A graph with no points gives an empty result list. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 7,
@@ -474,10 +474,10 @@
     "kernel": "topo",
     "count": 10,
     "idea": "Topological queues",
-    "definition": "links is a square 0/1 directed adjacency matrix. Queue all zero-indegree vertices in increasing order; pop FIFO, visit neighbors in increasing order, and enqueue a neighbor when its indegree becomes zero. Produce this vertex order, or no values if a cycle prevents a complete order.",
+    "definition": "Each point in this graph is a task. A path from task a to task b means a must happen before b. Put all tasks with no paths coming into them in a queue, in number order. A queue serves the task at its front first. Remove that task, record its number, and remove its outgoing paths. Check its next tasks in number order. Add a task to the back of the queue as soon as it has no paths left coming in. If you cannot record every task, the rules contain a loop: use an empty result list instead.",
     "time": "O(V^2)",
     "space": "O(n)",
-    "intro": "Topological queues. links is a square 0/1 directed adjacency matrix. Queue all zero-indegree vertices in increasing order; pop FIFO, visit neighbors in increasing order, and enqueue a neighbor when its indegree becomes zero. Produce this vertex order, or no values if a cycle prevents a complete order. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Each point in this graph is a task. A path from task a to task b means a must happen before b. Put all tasks with no paths coming into them in a queue, in number order. A queue serves the task at its front first. Remove that task, record its number, and remove its outgoing paths. Check its next tasks in number order. Add a task to the back of the queue as soon as it has no paths left coming in. If you cannot record every task, the rules contain a loop: use an empty result list instead. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 7,
@@ -486,10 +486,10 @@
     "kernel": "dijkstra",
     "count": 10,
     "idea": "Priority-queue shortest paths",
-    "definition": "links is a square directed adjacency matrix: 0 means no edge, and a positive value is its cost. From vertex 0, produce each vertex's minimum total cost in vertex order, using -1 for unreachable vertices. The empty graph produces no costs.",
+    "definition": "Each point in this graph is a place, and each one-way path has a travel cost. Start at point 0. Find the lowest total travel cost to each point. Put these costs in point order. The cost to point 0 is 0. Record -1 for any point you cannot reach. A graph with no points gives an empty result list.",
     "time": "O(V^2 + E log V)",
     "space": "O(n)",
-    "intro": "Priority-queue shortest paths. links is a square directed adjacency matrix: 0 means no edge, and a positive value is its cost. From vertex 0, produce each vertex's minimum total cost in vertex order, using -1 for unreachable vertices. The empty graph produces no costs. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Each point in this graph is a place, and each one-way path has a travel cost. Start at point 0. Find the lowest total travel cost to each point. Put these costs in point order. The cost to point 0 is 0. Record -1 for any point you cannot reach. A graph with no points gives an empty result list. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 7,
@@ -498,10 +498,10 @@
     "kernel": "heap",
     "count": 10,
     "idea": "Binary heaps",
-    "definition": "Insert all readings into a binary min-heap and repeatedly remove the smallest. Produce that removal sequence, preserving duplicates.",
+    "definition": "Put all numbers from readings into a min-heap. A min-heap is a tree-shaped collection that keeps its smallest number at the top. Remove the smallest number, record it, and repeat until the heap is empty. Keep repeated numbers. The result list is the removal order.",
     "time": "O(n log n)",
     "space": "O(n)",
-    "intro": "Binary heaps. Insert all readings into a binary min-heap and repeatedly remove the smallest. Produce that removal sequence, preserving duplicates. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Put all numbers from readings into a min-heap. A min-heap is a tree-shaped collection that keeps its smallest number at the top. Remove the smallest number, record it, and repeat until the heap is empty. Keep repeated numbers. The result list is the removal order. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 7,
@@ -510,10 +510,10 @@
     "kernel": "union",
     "count": 10,
     "idea": "Union-find components",
-    "definition": "links is a symmetric 0/1 adjacency matrix. Union every connected pair, then produce the size of the component containing each vertex, in vertex order. Self-links do not change a component.",
+    "definition": "This graph has two-way links between points. Points belong to the same group if you can travel between them, even through other points. Use union-find: start with one group per point, then join groups when a link connects them. For each point, count all points in its group, including itself. Record these counts in point order. A link from a point to itself does not make a larger group. A graph with no points gives an empty result list.",
     "time": "O(V^2 alpha(V))",
     "space": "O(n)",
-    "intro": "Union-find components. links is a symmetric 0/1 adjacency matrix. Union every connected pair, then produce the size of the component containing each vertex, in vertex order. Self-links do not change a component. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "This graph has two-way links between points. Points belong to the same group if you can travel between them, even through other points. Use union-find: start with one group per point, then join groups when a link connects them. For each point, count all points in its group, including itself. Record these counts in point order. A link from a point to itself does not make a larger group. A graph with no points gives an empty result list. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 7,
@@ -522,10 +522,10 @@
     "kernel": "trie",
     "count": 10,
     "idea": "Trie prefix counts",
-    "definition": "For each lowercase word, consider each of its nonempty prefixes and count how many input words begin with that prefix, including repeated words and the word itself. Produce the sum of these counts for each word in input order.",
+    "definition": "A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in words, look at all its prefixes with at least one letter. Count how many input words start with each prefix, then add those counts. Count repeated input words separately, and include the word itself. Put one total per word in the result list, in input order.",
     "time": "O(total characters)",
     "space": "O(n)",
-    "intro": "Trie prefix counts. For each lowercase word, consider each of its nonempty prefixes and count how many input words begin with that prefix, including repeated words and the word itself. Produce the sum of these counts for each word in input order. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in words, look at all its prefixes with at least one letter. Count how many input words start with each prefix, then add those counts. Count repeated input words separately, and include the word itself. Put one total per word in the result list, in input order. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 7,
@@ -534,10 +534,10 @@
     "kernel": "components",
     "count": 10,
     "idea": "Graph depth-first components",
-    "definition": "links is a symmetric 0/1 adjacency matrix. Start a depth-first traversal at each still-unvisited vertex, in increasing index order. Produce the number of vertices in each component, in that start order.",
+    "definition": "This graph has two-way links between points. A group, also called a connected component, contains all points that can reach one another. Start at point 0, then check the other points in number order. Whenever a point has not been visited, explore its whole group depth first: follow a path as far as you can before going back. Record how many points are in that group. The result list follows the order in which you first find the groups. A graph with no points gives an empty result list.",
     "time": "O(V^2)",
     "space": "O(n)",
-    "intro": "Graph depth-first components. links is a symmetric 0/1 adjacency matrix. Start a depth-first traversal at each still-unvisited vertex, in increasing index order. Produce the number of vertices in each component, in that start order. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "This graph has two-way links between points. A group, also called a connected component, contains all points that can reach one another. Start at point 0, then check the other points in number order. Whenever a point has not been visited, explore its whole group depth first: follow a path as far as you can before going back. Record how many points are in that group. The result list follows the order in which you first find the groups. A graph with no points gives an empty result list. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 8,
@@ -546,10 +546,10 @@
     "kernel": "intervalGreedy",
     "count": 10,
     "idea": "Greedy interval selection",
-    "definition": "Each booking is [start,end] with start < end and occupies [start,end). Sort by end then start ascending; accept a booking if it starts at or after the last accepted end. Produce accepted durations in acceptance order. Negative times are allowed.",
+    "definition": "Each booking is [start, end]. It uses time from start up to, but not including, end. Sort bookings by end time, from earliest to latest. For matching end times, put the earlier start first. Accept the first booking. Then accept a booking only if it starts at or after the end of the last one accepted. Record the length, end - start, of each accepted booking. Keep acceptance order. Negative times are allowed. With no bookings, the result list is empty.",
     "time": "O(n log n)",
     "space": "O(n)",
-    "intro": "Greedy interval selection. Each booking is [start,end] with start < end and occupies [start,end). Sort by end then start ascending; accept a booking if it starts at or after the last accepted end. Produce accepted durations in acceptance order. Negative times are allowed. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Each booking is [start, end]. It uses time from start up to, but not including, end. Sort bookings by end time, from earliest to latest. For matching end times, put the earlier start first. Accept the first booking. Then accept a booking only if it starts at or after the end of the last one accepted. Record the length, end - start, of each accepted booking. Keep acceptance order. Negative times are allowed. With no bookings, the result list is empty. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 8,
@@ -558,10 +558,10 @@
     "kernel": "tiling",
     "count": 10,
     "idea": "Counting dynamic programming",
-    "definition": "For each width x, count the ordered ways to fill a one-row ribbon using pieces of widths 1 and 3. A width of 0 has one empty arrangement. Produce the counts in input order.",
+    "definition": "Each number x in readings is the width of a one-row strip. Fill it exactly using pieces of width 1 or 3. Count the different orders of pieces that work. For width 4, the orders are [1,1,1,1], [1,3], and [3,1], so the count is 3. Width 0 has one way: use no pieces. Record one count per input width, in order.",
     "time": "O(n + M)",
     "space": "O(n)",
-    "intro": "Counting dynamic programming. For each width x, count the ordered ways to fill a one-row ribbon using pieces of widths 1 and 3. A width of 0 has one empty arrangement. Produce the counts in input order. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Each number x in readings is the width of a one-row strip. Fill it exactly using pieces of width 1 or 3. Count the different orders of pieces that work. For width 4, the orders are [1,1,1,1], [1,3], and [3,1], so the count is 3. Width 0 has one way: use no pieces. Record one count per input width, in order. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 8,
@@ -570,10 +570,10 @@
     "kernel": "coins",
     "count": 10,
     "idea": "Unbounded dynamic programming",
-    "definition": "For each nonnegative postage amount, produce the smallest number of stamps needed using unlimited denominations 1, 4 and 9. Zero postage uses zero stamps.",
+    "definition": "Each number in readings is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order.",
     "time": "O(n + M)",
     "space": "O(n)",
-    "intro": "Unbounded dynamic programming. For each nonnegative postage amount, produce the smallest number of stamps needed using unlimited denominations 1, 4 and 9. Zero postage uses zero stamps. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Each number in readings is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 8,
@@ -582,10 +582,10 @@
     "kernel": "knapsack",
     "count": 10,
     "idea": "Zero-one knapsack",
-    "definition": "Each parcel is [weight,value], with positive weight and nonnegative value. For every capacity from 0 through k, produce the maximum total value obtainable by choosing each parcel at most once and using no more than that capacity.",
+    "definition": "Each row of drawers is a parcel: [weight, value]. The weight is positive, and the value is 0 or more. A bag can hold a total weight up to its capacity. For every capacity from 0 through k, find the largest total value you can pack. You may use each parcel at most once. You may leave parcels out. Put one answer per capacity in the result list, including capacity 0.",
     "time": "O(n*k)",
     "space": "O(k)",
-    "intro": "Zero-one knapsack. Each parcel is [weight,value], with positive weight and nonnegative value. For every capacity from 0 through k, produce the maximum total value obtainable by choosing each parcel at most once and using no more than that capacity. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Each row of drawers is a parcel: [weight, value]. The weight is positive, and the value is 0 or more. A bag can hold a total weight up to its capacity. For every capacity from 0 through k, find the largest total value you can pack. You may use each parcel at most once. You may leave parcels out. Put one answer per capacity in the result list, including capacity 0. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 8,
@@ -594,10 +594,10 @@
     "kernel": "lis",
     "count": 10,
     "idea": "Sequence DP with binary search",
-    "definition": "For each index i, produce the greatest length of a strictly increasing subsequence that ends at readings[i]. Equal values cannot extend a subsequence.",
+    "definition": "A subsequence keeps numbers in their original order but may skip some numbers. For each position in readings, find the longest strictly increasing subsequence that ends at that position. Strictly increasing means each next number must be larger; equal numbers do not count as an increase. Record the length, not the chosen numbers. Put one length per position in the result list.",
     "time": "O(n log n)",
     "space": "O(n)",
-    "intro": "Sequence DP with binary search. For each index i, produce the greatest length of a strictly increasing subsequence that ends at readings[i]. Equal values cannot extend a subsequence. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "A subsequence keeps numbers in their original order but may skip some numbers. For each position in readings, find the longest strictly increasing subsequence that ends at that position. Strictly increasing means each next number must be larger; equal numbers do not count as an increase. Record the length, not the chosen numbers. Put one length per position in the result list. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 8,
@@ -606,10 +606,10 @@
     "kernel": "matrixChain",
     "count": 10,
     "idea": "Interval dynamic programming",
-    "definition": "readings are positive matrix dimensions: matrix i has shape readings[i] by readings[i+1]. For every prefix containing 1,2,... matrices, produce its minimum scalar multiplication cost over all parenthesizations. Fewer than two dimensions produces no costs.",
+    "definition": "readings lists matrix sizes. A matrix is a table of numbers with rows and columns. Matrix 0 has readings[0] rows and readings[1] columns. Matrix 1 has readings[1] rows and readings[2] columns, and so on. Multiplying an a-by-b matrix by a b-by-c matrix costs a * b * c number multiplications. You may group the matrices with brackets, but must keep their order. Different groups can have different costs. For the first matrix alone, record 0. Then record the least total cost for the first two matrices, the first three, and so on. Fewer than two size numbers means there are no matrices, so the result list is empty.",
     "time": "O(n^3)",
     "space": "O(n^2)",
-    "intro": "Interval dynamic programming. readings are positive matrix dimensions: matrix i has shape readings[i] by readings[i+1]. For every prefix containing 1,2,... matrices, produce its minimum scalar multiplication cost over all parenthesizations. Fewer than two dimensions produces no costs. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "readings lists matrix sizes. A matrix is a table of numbers with rows and columns. Matrix 0 has readings[0] rows and readings[1] columns. Matrix 1 has readings[1] rows and readings[2] columns, and so on. Multiplying an a-by-b matrix by a b-by-c matrix costs a * b * c number multiplications. You may group the matrices with brackets, but must keep their order. Different groups can have different costs. For the first matrix alone, record 0. Then record the least total cost for the first two matrices, the first three, and so on. Fewer than two size numbers means there are no matrices, so the result list is empty. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 8,
@@ -618,10 +618,10 @@
     "kernel": "subsets",
     "count": 10,
     "idea": "Backtracking choices",
-    "definition": "Choose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices.",
+    "definition": "Choose any positions from readings, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in the result list.",
     "time": "O(n*2^n)",
     "space": "O(2^n)",
-    "intro": "Backtracking choices. Choose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Choose any positions from readings, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in the result list. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 8,
@@ -630,10 +630,10 @@
     "kernel": "assignments",
     "count": 10,
     "idea": "Backtracking with occupancy",
-    "definition": "There are n desks and n clerks. readings[row] is an n-bit permission mask for desk row. Assign one distinct clerk to each desk, using only allowed bits. For each possible clerk at desk 0, produce the number of complete assignments with that first clerk; forbidden first choices contribute 0. An empty roster produces no counts.",
+    "definition": "There are n desks and n clerks, both numbered from 0. Here, n is the length of readings. Each number in readings is a permission mask for one desk. A mask uses binary digits. Each digit is called a bit: a 1 in bit c allows clerk c to use that desk. Bit 0 is the rightmost digit. Assign exactly one clerk to each desk, with no clerk used twice. Follow every permission mask. For each clerk c, count the complete assignments where clerk c gets desk 0. Put those counts in clerk order. A forbidden first choice has count 0. With no desks, the result list is empty.",
     "time": "O(n*n!)",
     "space": "O(n)",
-    "intro": "Backtracking with occupancy. There are n desks and n clerks. readings[row] is an n-bit permission mask for desk row. Assign one distinct clerk to each desk, using only allowed bits. For each possible clerk at desk 0, produce the number of complete assignments with that first clerk; forbidden first choices contribute 0. An empty roster produces no counts. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "There are n desks and n clerks, both numbered from 0. Here, n is the length of readings. Each number in readings is a permission mask for one desk. A mask uses binary digits. Each digit is called a bit: a 1 in bit c allows clerk c to use that desk. Bit 0 is the rightmost digit. Assign exactly one clerk to each desk, with no clerk used twice. Follow every permission mask. For each clerk c, count the complete assignments where clerk c gets desk 0. Put those counts in clerk order. A forbidden first choice has count 0. With no desks, the result list is empty. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   },
   {
     "level": 8,
@@ -642,9 +642,9 @@
     "kernel": "weightedIntervals",
     "count": 10,
     "idea": "Scheduling DP and binary search",
-    "definition": "Each reservation is [start,end,reward], with start < end and nonnegative reward, occupying [start,end). Sort by end, then start, then reward. For each nonempty prefix of this sorted list, produce the maximum reward from nonoverlapping reservations in that prefix. Touching endpoints are compatible.",
+    "definition": "Each row of drawers is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, the result list is empty.",
     "time": "O(n log n)",
     "space": "O(n)",
-    "intro": "Scheduling DP and binary search. Each reservation is [start,end,reward], with start < end and nonnegative reward, occupying [start,end). Sort by end, then start, then reward. For each nonempty prefix of this sorted list, produce the maximum reward from nonoverlapping reservations in that prefix. Touching endpoints are compatible. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys."
+    "intro": "Each row of drawers is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, the result list is empty. Each card builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1."
   }
 ]

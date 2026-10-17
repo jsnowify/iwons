@@ -1,0 +1,41 @@
+/* Native, accessible select pickers use the same attached paper frame everywhere.
+   Unsupported browsers retain their platform picker and keyboard behavior. */
+@supports (appearance: base-select) {
+  :root select:not([multiple]):not([size]), ::picker(select) { appearance: base-select; }
+  :root select:not([multiple]):not([size]) {
+    background-image: none; padding-inline: 12px; gap: 16px;
+    min-height: 44px; cursor: pointer;
+    transition: box-shadow var(--fast), translate var(--fast), background-color var(--fast);
+  }
+  :root select:active { translate: 1px 1px; }
+  :root select:open { border-end-start-radius: 0; border-end-end-radius: 0; background-color: var(--accent-soft); }
+  :root select::picker-icon { color: var(--ink); transition: rotate var(--fast); }
+  :root select:open::picker-icon { rotate: 180deg; }
+  ::picker(select) {
+    margin-block: -2px 0; border: 2px solid var(--ink); border-radius: 0;
+    background: var(--surface); color: var(--ink); box-shadow: var(--shadow);
+    font: inherit; max-height: min(360px, 60dvh); max-width: calc(100vw - 24px);
+    overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--ink) var(--surface);
+    opacity: 0; transform: translateY(-4px); transform-origin: top;
+    transition: opacity var(--fast), transform var(--fast), display var(--fast) allow-discrete, overlay var(--fast) allow-discrete;
+  }
+  :open::picker(select) { opacity: 1; transform: translateY(0); }
+  @starting-style { :open::picker(select) { opacity: 0; transform: translateY(-4px); } }
+  :root select option {
+    display: flex; align-items: center; gap: 12px; min-height: 44px;
+    padding: 10px 12px; white-space: normal; overflow-wrap: anywhere;
+    background: var(--surface); color: var(--ink); cursor: pointer;
+    transition: background-color var(--fast);
+  }
+  :root select option + option { border-top: 1px dashed var(--muted); }
+  :root select option:is(:hover, :focus-visible) { background: var(--accent-soft); outline: 2px dashed var(--accent); outline-offset: -4px; }
+  :root select option:checked { background: var(--accent-2); color: var(--on-accent); font-weight: 700; }
+  :root select option:disabled { color: var(--muted); cursor: not-allowed; }
+  :root select option::checkmark { display: none; content: none; }
+}
+:root[data-motion="off"] select, :root[data-motion="off"] select::picker-icon,
+:root[data-motion="off"] ::picker(select), :root[data-motion="off"] select option { transition: none !important; transform: none !important; translate: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  select, select::picker-icon, ::picker(select), select option { transition: none !important; transform: none !important; translate: none !important; }
+}
+@media (forced-colors: active) { :root select { appearance: auto; } }

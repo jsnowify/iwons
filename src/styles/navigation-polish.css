@@ -107,8 +107,19 @@
 }
 
 
-.editor-preview { height: 100%; overflow: auto; padding: calc(var(--spacing) * 6); }
-.editor-preview pre { white-space: pre-wrap; overflow-wrap: anywhere; margin-bottom: calc(var(--spacing) * 6); font: 13px var(--font-code); }
 
 .chapter-stamps .option-row { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,180px),1fr)); }
 .chapter-stamps .stamp { min-width: 0; min-height: 80px; }
+/* Balanced rows rather than one short panel beside three stacked panels. */
+.progress-page { container-type: inline-size; }
+.progress-details { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
+.progress-details > .stack { display: contents; }
+.progress-details .card { min-width: 0; }
+#pattern-strength-list { max-height: 36rem; overflow-y: auto; padding-right: 8px; }
+@media (max-width: 767px) { .progress-details { grid-template-columns: minmax(0, 1fr); } }
+
+@container (max-width: 640px) { .progress-details { grid-template-columns: minmax(0, 1fr); } }
+
+.efficiency-goal { border: 1px dashed var(--muted); padding: 12px; margin-block: 20px; font-size: 12px; }
+.efficiency-goal summary { cursor: pointer; min-height: 44px; align-content: center; font-weight: 700; }
+.efficiency-goal summary:focus-visible { outline: 3px dashed var(--accent); outline-offset: 4px; }

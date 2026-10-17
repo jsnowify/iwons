@@ -16,30 +16,30 @@
   "prerequisites": [
     "path3-357"
   ],
-  "summary": "links is a square 0/1 directed adjacency matrix. Queue all zero-indegree vertices in increasing order; pop FIFO, visit neighbors in increasing order, and enqueue a neighbor when its indegree becomes zero. Produce this vertex order, or no values if a cycle prevents a complete order. Return the sum of strictly positive values in the derived sequence, or 0 when none exist.",
+  "summary": "Topological queues. Add only numbers greater than 0 from the result list.",
   "stage": "Filtered variation",
   "boss": false,
-  "descriptionMd": "A dispatch board permits a job only after every incoming dependency has been removed. Alma prepares an invoice that accepts only positive ink adjustments. Zero and negative derived readings stay off the invoice.\n\nlinks is a square 0/1 directed adjacency matrix. Queue all zero-indegree vertices in increasing order; pop FIFO, visit neighbors in increasing order, and enqueue a neighbor when its indegree becomes zero. Produce this vertex order, or no values if a cycle prevents a complete order.\n\nReturn the sum of strictly positive values in the derived sequence, or 0 when none exist.\n\nImplement dispatchOrderPositiveInkInvoice(links, k). k is part of the common inspection-card signature and does not affect this task's result.",
-  "unitIntro": "Topological queues. links is a square 0/1 directed adjacency matrix. Queue all zero-indegree vertices in increasing order; pop FIFO, visit neighbors in increasing order, and enqueue a neighbor when its indegree becomes zero. Produce this vertex order, or no values if a cycle prevents a complete order. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nlinks is a square table of 0s and 1s. Points are numbered from 0. A 1 at links[a][b] means a one-way path goes from point a to point b. A 0 means no path. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nEach point in this graph is a task. A path from task a to task b means a must happen before b. Put all tasks with no paths coming into them in a queue, in number order. A queue serves the task at its front first. Remove that task, record its number, and remove its outgoing paths. Check its next tasks in number order. Add a task to the back of the queue as soon as it has no paths left coming in. If you cannot record every task, the rules contain a loop: use an empty result list instead.\n\nStep 2: Return the answer\nAdd only numbers greater than 0 from the result list. Do not add 0 or negative numbers. Return the total, or 0 if no numbers match.\n\nWrite your function\nComplete dispatchOrderPositiveInkInvoice(links, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "Each point in this graph is a task. A path from task a to task b means a must happen before b. Put all tasks with no paths coming into them in a queue, in number order. A queue serves the task at its front first. Remove that task, record its number, and remove its outgoing paths. Check its next tasks in number order. Add a task to the back of the queue as soon as it has no paths left coming in. If you cannot record every task, the rules contain a loop: use an empty result list instead. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 16.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
-    "The adjacency matrix is square and has at most 16 vertices; binary entries are 0 or 1, weighted entries are 0 through 13.",
-    "Target time O(V^2); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "The graph has at most 16 points. Its table has the same number of rows and columns. Link entries are 0 or 1; cost entries are 0 through 13.",
+    "Efficiency goal: time O(V^2); extra memory, including the result list, O(n). n is the input length; V is the number of graph points. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with topological queues. What state describes the portion you have already processed?",
-    "links is a square 0/1 directed adjacency matrix. Queue all zero-indegree vertices in increasing order; pop FIFO, visit neighbors in increasing order, and enqueue a neighbor when its indegree becomes zero. Produce this vertex order, or no values if a cycle prevents a complete order. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return the sum of strictly positive values in the derived sequence, or 0 when none exist. Handle the empty derived sequence according to the stated return rule."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "Each point in this graph is a task. A path from task a to task b means a must happen before b. Put all tasks with no paths coming into them in a queue, in number order. A queue serves the task at its front first. Remove that task, record its number, and remove its outgoing paths. Check its next tasks in number order. Add a task to the back of the queue as soon as it has no paths left coming in. If you cannot record every task, the rules contain a loop: use an empty result list instead. Keep track of the numbers or places you have already checked.",
+    "Add only numbers greater than 0 from the result list. Do not add 0 or negative numbers. Return the total, or 0 if no numbers match. Check what to do if the result list is empty."
   ],
   "functionName": "dispatchOrderPositiveInkInvoice",
   "mode": "function",
   "starterCode": {
-    "javascript": "function dispatchOrderPositiveInkInvoice(links, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "typescript": "function dispatchOrderPositiveInkInvoice(links: number[][], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "python": "def dispatchOrderPositiveInkInvoice(links, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
-    "java": "class Solution {\n  public int dispatchOrderPositiveInkInvoice(int[][] links, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+    "javascript": "function dispatchOrderPositiveInkInvoice(links, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "typescript": "function dispatchOrderPositiveInkInvoice(links: number[][], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "python": "def dispatchOrderPositiveInkInvoice(links, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
+    "java": "class Solution {\n  public int dispatchOrderPositiveInkInvoice(int[][] links, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -99,7 +99,7 @@
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "The derived sequence is []. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 0."
+      "explanation": "Step 1 gives the result list []. Keep [] and add those numbers. Return 0."
     },
     {
       "id": "path3-358-2",
@@ -145,7 +145,7 @@
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "The derived sequence is []. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 0."
+      "explanation": "Step 1 gives the result list []. Keep [] and add those numbers. Return 0."
     },
     {
       "id": "path3-358-3",
@@ -155,7 +155,7 @@
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 0."
+      "explanation": "Step 1 gives the result list []. Keep [] and add those numbers. Return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -167,7 +167,7 @@
     "time": "O(V^2)",
     "space": "O(n)"
   },
-  "overview": "Filtered variation: Topological queues. Build the sequence once, then report exactly what the inspection card requests.",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 7,
     "unit": "dispatch-order",
@@ -233,7 +233,7 @@
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "The derived sequence is []. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 0."
+      "explanation": "Step 1 gives the result list []. Keep [] and add those numbers. Return 0."
     },
     {
       "id": "path3-358-2",
@@ -279,7 +279,7 @@
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "The derived sequence is []. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 0."
+      "explanation": "Step 1 gives the result list []. Keep [] and add those numbers. Return 0."
     }
   ],
   "referenceSolutions": {
@@ -773,6 +773,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nlinks is a square 0/1 directed adjacency matrix. Queue all zero-indegree vertices in increasing order; pop FIFO, visit neighbors in increasing order, and enqueue a neighbor when its indegree becomes zero. Produce this vertex order, or no values if a cycle prevents a complete order.\n\nReturn the sum of strictly positive values in the derived sequence, or 0 when none exist.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(V^2); space O(n).\n\njavascript\nfunction dispatchOrderPositiveInkInvoice(links, k) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n\n\ntypescript\nfunction dispatchOrderPositiveInkInvoice(links: number[][], k: number): number {\n  const a=links; let out:number[]=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n\n\npython\ndef dispatchOrderPositiveInkInvoice(links, k):\n    a=links\n    out=[]\n    from collections import deque\n    n=len(a)\n    degree=[sum(row[v] for row in a) for v in range(n)]\n    queue=deque(v for v in range(n) if degree[v]==0)\n    while queue:\n        u=queue.popleft()\n        out.append(u)\n        for v in range(n):\n            if a[u][v]:\n                degree[v]-=1\n                if degree[v]==0: queue.append(v)\n    if len(out)!=n: out=[]\n    return sum(x for x in out if x>0)\n\n\njava\nclass Solution {\n  public int dispatchOrderPositiveInkInvoice(int[][] links, int k) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;int[]degree=new int[n];for(int[]row:a)for(int v=0;v<n;v++)degree[v]+=row[v];Deque<Integer>queue=new ArrayDeque<>();for(int v=0;v<n;v++)if(degree[v]==0)queue.add(v);while(!queue.isEmpty()){int u=queue.remove();out.add(u);for(int v=0;v<n;v++)if(a[u][v]!=0&&--degree[v]==0)queue.add(v);}if(out.size()!=n)out.clear();}\n    int answer=0;for(int x:out)if(x>0)answer+=x;return answer;\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nEach point in this graph is a task. A path from task a to task b means a must happen before b. Put all tasks with no paths coming into them in a queue, in number order. A queue serves the task at its front first. Remove that task, record its number, and remove its outgoing paths. Check its next tasks in number order. Add a task to the back of the queue as soon as it has no paths left coming in. If you cannot record every task, the rules contain a loop: use an empty result list instead.\n\nReturn the answer\n\nAdd only numbers greater than 0 from the result list. Do not add 0 or negative numbers. Return the total, or 0 if no numbers match.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(V^2); extra memory, including the result list, O(n). n is the input length; V is the number of graph points. These labels describe how work and memory grow with the input.\n\njavascript\nfunction dispatchOrderPositiveInkInvoice(links, k) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n\n\ntypescript\nfunction dispatchOrderPositiveInkInvoice(links: number[][], k: number): number {\n  const a=links; let out:number[]=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n\n\npython\ndef dispatchOrderPositiveInkInvoice(links, k):\n    a=links\n    out=[]\n    from collections import deque\n    n=len(a)\n    degree=[sum(row[v] for row in a) for v in range(n)]\n    queue=deque(v for v in range(n) if degree[v]==0)\n    while queue:\n        u=queue.popleft()\n        out.append(u)\n        for v in range(n):\n            if a[u][v]:\n                degree[v]-=1\n                if degree[v]==0: queue.append(v)\n    if len(out)!=n: out=[]\n    return sum(x for x in out if x>0)\n\n\njava\nclass Solution {\n  public int dispatchOrderPositiveInkInvoice(int[][] links, int k) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;int[]degree=new int[n];for(int[]row:a)for(int v=0;v<n;v++)degree[v]+=row[v];Deque<Integer>queue=new ArrayDeque<>();for(int v=0;v<n;v++)if(degree[v]==0)queue.add(v);while(!queue.isEmpty()){int u=queue.remove();out.add(u);for(int v=0;v<n;v++)if(a[u][v]!=0&&--degree[v]==0)queue.add(v);}if(out.size()!=n)out.clear();}\n    int answer=0;for(int x:out)if(x>0)answer+=x;return answer;\n  }\n}\n"
+  },
+  "parameterNames": [
+    "links",
+    "k"
+  ]
 }

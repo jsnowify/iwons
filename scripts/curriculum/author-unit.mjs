@@ -29,7 +29,7 @@ const stories=[
   name=>`${name} prepares a clean proof strip for the front desk. Positive derived readings keep their places relative to one another.`,
   name=>`${name} adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.`,
 ];
-export function authorUnit(slug) {
+export function authorUnit(slug, rewrite = problem => problem) {
   const unit=units.find(u=>u.slug===slug);if(!unit)throw new Error(`Unknown unit ${slug}`);
   const kernel=kernels[unit.kernel];if(!kernel)throw new Error(`Missing ${unit.kernel}`);
   const intro=JSON.parse(fs.readFileSync("src/data/units.json","utf8")).find(u=>u.slug===slug).intro;
@@ -42,9 +42,11 @@ export function authorUnit(slug) {
     const large = mode===4 && ["array","text","list","tree","bst","pair","queries"].includes(kernel.family) && !["recursive","subsets","matrixChain"].includes(unit.kernel);
     const caseKernel = large ? { ...kernel, max: 50000 } : kernel;
     const rawCases = casesFor(caseKernel);
+    const sequences=[];
     const cases=rawCases.map((c,i)=>{
       const args=structuredClone(c.input);args[0]=nodes(args[0],kernel.family);
       const sequence=candidateFunction(...args),expected=receipts[mode](sequence,c.input[1]);
+      sequences.push(sequence);
       return {id:`${entry.id}-${i+1}`,input:c.input,expected,coverage:c.coverage,...(i<3?{explanation:`The derived sequence is ${JSON.stringify(sequence)}. ${mode===9?`Its weighted products are ${JSON.stringify(sequence.map((x,j)=>(j+1)*x))}. `:""}${projection.task} This gives ${JSON.stringify(expected)}.`}:{})};
     });
     const names=["Mina","Sol","Ivo","Neri","Alma","Rafi","Pia","Tomas","Luz","Ada"];
@@ -59,7 +61,7 @@ export function authorUnit(slug) {
     const p={...entry,descriptionMd:`${scenes[slug]} ${stories[mode](names[(index+unit.level)%names.length])}\n\n${unit.definition}\n\n${projection.task}\n\nImplement ${ref.fn}(${input.name}, k). ${[2,3].includes(mode)||["windowSum","shortWindow","prefixRanges","windowMax","roundRobin","bst","knapsack"].includes(unit.kernel)?"Use k exactly where specified above.":"k is part of the common inspection-card signature and does not affect this task's result."}`,
       unitIntro:intro,constraints,hints,functionName:ref.fn,mode:"function",starterCode:ref.starterCode,cases:cases.slice(0,3),timeLimitMs:2000,javaParams:ref.javaParams,...(ref.inputKinds?{inputKinds:ref.inputKinds}:{}),complexity:{time:unit.time,space:unit.space},overview:`${entry.stage}: ${unit.idea}. ${entry.revisit??"Build the sequence once, then report exactly what the inspection card requests."}`,tags:{level:unit.level,unit:slug,topic:unit.idea,pattern:unit.idea,bigO:unit.time},workedExamples:cases.slice(0,2),referenceSolutions:ref.solutions,
       privateData:{hiddenCases:cases.slice(3),editorialMd:`The working idea\n\n${unit.definition}\n\n${projection.task}\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time ${unit.time}; space ${unit.space}.\n\n${Object.entries(ref.solutions).map(([language,code])=>`${language}\n${code}`).join("\n\n")}`}};
-    fs.writeFileSync(path.join(folder,`${entry.slug}.json`),JSON.stringify(p,null,2)+"\n");
+    fs.writeFileSync(path.join(folder,`${entry.slug}.json`),JSON.stringify(rewrite(p,{unit,kernel,mode,input,sequences}),null,2)+"\n");
   }
   return members;
 }

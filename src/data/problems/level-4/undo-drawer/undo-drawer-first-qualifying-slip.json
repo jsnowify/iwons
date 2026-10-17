@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-224"
   ],
-  "summary": "A nonnegative event pushes that value onto a stack. A negative event removes up to abs(event) values from its top. Produce the final stack from bottom to top. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.",
+  "summary": "Stack history. Read the result list from left to right.",
   "stage": "Combine",
   "boss": false,
-  "descriptionMd": "An experimental filing machine records both new cards and requests to undo recent cards. Tomas needs the first qualifying slip while the courier waits at the door. Later matches must not jump ahead in the tray.\n\nA nonnegative event pushes that value onto a stack. A negative event removes up to abs(event) values from its top. Produce the final stack from bottom to top.\n\nReturn the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.\n\nImplement undoDrawerFirstQualifyingSlip(readings, k). Use k exactly where specified above.",
-  "unitIntro": "Stack history. A nonnegative event pushes that value onto a stack. A negative event removes up to abs(event) values from its top. Produce the final stack from bottom to top. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is a whole number. Use it as described in the steps below.\n\nStep 1: Build the result list\nUse a stack, which is a pile where you add and remove items only at the top. Read readings from left to right. A number of 0 or more adds that number to the top. A negative number tells you how many top items to remove: -3 means remove up to three items. Stop if the stack becomes empty. The result list is the final stack, from bottom to top.\n\nStep 2: Return the answer\nRead the result list from left to right. Return the first number that is at least k (greater than or equal to k). Return the number, not its position. If none matches, return -1.\n\nWrite your function\nComplete undoDrawerFirstQualifyingSlip(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "Use a stack, which is a pile where you add and remove items only at the top. Read readings from left to right. A number of 0 or more adds that number to the top. A negative number tells you how many top items to remove: -3 means remove up to three items. Stop if the stack becomes empty. The result list is the final stack, from bottom to top. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
-    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with stack history. What state describes the portion you have already processed?",
-    "A nonnegative event pushes that value onto a stack. A negative event removes up to abs(event) values from its top. Produce the final stack from bottom to top. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. Handle the empty derived sequence according to the stated return rule."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "Use a stack, which is a pile where you add and remove items only at the top. Read readings from left to right. A number of 0 or more adds that number to the top. A negative number tells you how many top items to remove: -3 means remove up to three items. Stop if the stack becomes empty. The result list is the final stack, from bottom to top. Keep track of the numbers or places you have already checked.",
+    "Read the result list from left to right. Return the first number that is at least k (greater than or equal to k). Return the number, not its position. If none matches, return -1. Check what to do if the result list is empty."
   ],
   "functionName": "undoDrawerFirstQualifyingSlip",
   "mode": "function",
   "starterCode": {
-    "javascript": "function undoDrawerFirstQualifyingSlip(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "typescript": "function undoDrawerFirstQualifyingSlip(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "python": "def undoDrawerFirstQualifyingSlip(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
-    "java": "class Solution {\n  public int undoDrawerFirstQualifyingSlip(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+    "javascript": "function undoDrawerFirstQualifyingSlip(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "typescript": "function undoDrawerFirstQualifyingSlip(readings: number[], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "python": "def undoDrawerFirstQualifyingSlip(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
+    "java": "class Solution {\n  public int undoDrawerFirstQualifyingSlip(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -55,7 +55,7 @@
       ],
       "expected": 7,
       "coverage": "worked",
-      "explanation": "The derived sequence is [7,0,12]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 7."
+      "explanation": "Step 1 gives the result list [7,0,12]. Here k = 3. The first number at least 3 is 7. Return that value."
     },
     {
       "id": "path3-225-2",
@@ -70,7 +70,7 @@
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "The derived sequence is [4]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 4."
+      "explanation": "Step 1 gives the result list [4]. Here k = 2. The first number at least 2 is 4. Return that value."
     },
     {
       "id": "path3-225-3",
@@ -80,7 +80,7 @@
       ],
       "expected": -1,
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives -1."
+      "explanation": "Step 1 gives the result list []. Here k = 1. No number is at least 1, so return -1."
     }
   ],
   "timeLimitMs": 2000,
@@ -92,7 +92,7 @@
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "Combine: Stack history. Build the sequence once, then report exactly what the inspection card requests.",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 4,
     "unit": "undo-drawer",
@@ -115,7 +115,7 @@
       ],
       "expected": 7,
       "coverage": "worked",
-      "explanation": "The derived sequence is [7,0,12]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 7."
+      "explanation": "Step 1 gives the result list [7,0,12]. Here k = 3. The first number at least 3 is 7. Return that value."
     },
     {
       "id": "path3-225-2",
@@ -130,7 +130,7 @@
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "The derived sequence is [4]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 4."
+      "explanation": "Step 1 gives the result list [4]. Here k = 2. The first number at least 2 is 4. Return that value."
     }
   ],
   "referenceSolutions": {
@@ -282,6 +282,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nA nonnegative event pushes that value onto a stack. A negative event removes up to abs(event) values from its top. Produce the final stack from bottom to top.\n\nReturn the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction undoDrawerFirstQualifyingSlip(readings, k) {\n  const a=readings; let out=[];\n  for(const x of a){if(x>=0)out.push(x);else for(let i=0;i<-x&&out.length;i++)out.pop();}\n  return out.find(x=>x>=k)??-1;\n}\n\n\ntypescript\nfunction undoDrawerFirstQualifyingSlip(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  for(const x of a){if(x>=0)out.push(x);else for(let i=0;i<-x&&out.length;i++)out.pop();}\n  return out.find(x=>x>=k)??-1;\n}\n\n\npython\ndef undoDrawerFirstQualifyingSlip(readings, k):\n    a=readings\n    out=[]\n    for x in a:\n        if x>=0: out.append(x)\n        else:\n            for _ in range(min(-x,len(out))): out.pop()\n    return next((x for x in out if x>=k),-1)\n\n\njava\nclass Solution {\n  public int undoDrawerFirstQualifyingSlip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){if(x>=0)out.add(x);else for(int i=0;i<-x&&!out.isEmpty();i++)out.remove(out.size()-1);}}\n    for(int x:out)if(x>=k)return x;return -1;\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nUse a stack, which is a pile where you add and remove items only at the top. Read readings from left to right. A number of 0 or more adds that number to the top. A negative number tells you how many top items to remove: -3 means remove up to three items. Stop if the stack becomes empty. The result list is the final stack, from bottom to top.\n\nReturn the answer\n\nRead the result list from left to right. Return the first number that is at least k (greater than or equal to k). Return the number, not its position. If none matches, return -1.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction undoDrawerFirstQualifyingSlip(readings, k) {\n  const a=readings; let out=[];\n  for(const x of a){if(x>=0)out.push(x);else for(let i=0;i<-x&&out.length;i++)out.pop();}\n  return out.find(x=>x>=k)??-1;\n}\n\n\ntypescript\nfunction undoDrawerFirstQualifyingSlip(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  for(const x of a){if(x>=0)out.push(x);else for(let i=0;i<-x&&out.length;i++)out.pop();}\n  return out.find(x=>x>=k)??-1;\n}\n\n\npython\ndef undoDrawerFirstQualifyingSlip(readings, k):\n    a=readings\n    out=[]\n    for x in a:\n        if x>=0: out.append(x)\n        else:\n            for _ in range(min(-x,len(out))): out.pop()\n    return next((x for x in out if x>=k),-1)\n\n\njava\nclass Solution {\n  public int undoDrawerFirstQualifyingSlip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){if(x>=0)out.add(x);else for(int i=0;i<-x&&!out.isEmpty();i++)out.remove(out.size()-1);}}\n    for(int x:out)if(x>=k)return x;return -1;\n  }\n}\n"
+  },
+  "parameterNames": [
+    "readings",
+    "k"
+  ]
 }

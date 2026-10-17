@@ -1,11 +1,42 @@
-.visualizer-stage { border: 2px solid var(--ink); padding: clamp(16px,3vw,28px); background: var(--surface); margin-block: 32px; }
+﻿.visualizer-page .page-heading { margin-bottom: 24px; }
+.visualizer-workbench { display: grid; gap: 0; min-width: 0; }
+.visualizer-toolbar { display: grid; grid-template-columns: minmax(200px, 300px) minmax(0, 1fr); align-items: center; gap: 24px; border: 2px solid var(--ink); border-bottom: 0; padding: 20px 24px; background: var(--surface); }
+.visualizer-toolbar label, .visual-controls label { display: grid; gap: 8px; font-size: 12px; font-weight: 700; margin: 0; }
+.visualizer-toolbar select { width: 100%; min-width: 0; }
+.algorithm-summary p { margin: 0 0 8px; }
+.algorithm-summary small { color: var(--muted); }
+.visualizer-stage { border: 2px solid var(--ink); padding: clamp(16px,3vw,28px); background: var(--surface); margin: 0; min-width: 0; }
 .visualizer-stage:focus-visible { outline: 3px dashed var(--accent); outline-offset: 4px; }
-.visual-cells { display: grid; grid-template-columns: repeat(auto-fit,minmax(70px,1fr)); gap: 8px; }
-.visual-cell { display: flex; flex-direction: column; justify-content: center; text-align: center; min-height: 76px; padding: 8px; border: 2px solid var(--ink); box-shadow: 2px 2px 0 var(--shadow-ink); }
-.visual-cell small { font-size: 12px; overflow-wrap: anywhere; }
-.visual-cell[data-visited=true] { border-style: dashed; }
+.visual-stage-heading { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; }
+.visual-stage-heading h2, .visual-stage-heading p { margin: 0; }
+.visual-stage-heading h2 { margin-bottom: 8px; }
+.visual-cells { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,90px),1fr)); gap: 12px; }
+.visual-cell { display: flex; flex-direction: column; justify-content: center; text-align: center; min-height: 90px; gap: 8px; padding: 10px 6px; border: 2px solid var(--ink); box-shadow: 2px 2px 0 var(--shadow-ink); min-width: 0; }
+.visual-cell strong { font-size: 22px; }
+.visual-cell small { font-size: 11px; overflow-wrap: anywhere; }
+.visual-cell[data-visited=true] { border-style: dashed; background: var(--accent-soft); }
 .visual-cell[data-highlighted=true] { background: var(--accent-2); color: var(--on-accent); border-style: double; border-width: 4px; }
-.visual-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; }
-.visualizer-stage pre { white-space: pre-wrap; overflow-wrap: anywhere; }
-
-.interaction-option {display:flex;align-items:center;gap:8px;min-height:44px;}
+.visualizer-stage[data-stepped=true] .visual-cell[data-highlighted=true] { animation: card-tap var(--normal) ease-out; }
+@keyframes card-tap { from { transform: translateY(-4px); } to { transform: translateY(0); } }
+.visual-explanation { margin-block: 24px; padding: 16px; border-left: 3px solid var(--accent-3); background: var(--accent-soft); min-height: 120px; }
+.visual-explanation p { margin: 0 0 12px; }
+.visualizer-stage pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 12px; }
+.visual-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; padding-bottom: 24px; border-bottom: 1px dashed var(--muted); }
+.visual-controls label { min-width: 120px; }
+.visual-controls select { min-height: 48px; }
+.visual-prediction { margin-top: 16px; }
+.visual-prediction form { display: grid; gap: 12px; margin-top: 12px; }
+.visual-prediction form label { display: grid; gap: 8px; }
+.visual-prediction form button { justify-self: start; }
+.visual-help { font-size: 11px; line-height: 1.7; margin-top: 16px; }
+.interaction-option { display: flex; align-items: center; gap: 8px; min-height: 44px; }
+@media (max-width: 767px) {
+  .visualizer-toolbar { grid-template-columns: minmax(0,1fr); gap: 16px; padding: 16px; }
+  .visual-controls { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .visual-controls .btn { width: 100%; }
+  .visual-controls label { grid-column: 1 / -1; }
+  .visual-cell strong { font-size: 18px; }
+  .visual-cell { min-height: 76px; }
+}
+:root[data-motion="off"] .visual-cell { animation: none !important; }
+@media (prefers-reduced-motion: reduce) { .visual-cell { animation: none !important; } }

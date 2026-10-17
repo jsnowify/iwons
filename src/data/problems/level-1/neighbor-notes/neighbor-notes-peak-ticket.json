@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-034"
   ],
-  "summary": "Produce readings[i] - readings[i-1] for i from 1 onward, preserving that order. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative.",
+  "summary": "Adjacent array positions. Return the largest number in the result list.",
   "stage": "Optimize",
   "boss": false,
-  "descriptionMd": "Two adjacent gauge readings describe how the press changed between successive sheets. Rafi is setting the upper stop on an old office gauge. The largest derived reading goes on its label, even if the whole tray is below zero.\n\nProduce readings[i] - readings[i-1] for i from 1 onward, preserving that order.\n\nReturn the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative.\n\nImplement neighborNotesPeakTicket(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
-  "unitIntro": "Adjacent array positions. Produce readings[i] - readings[i-1] for i from 1 onward, preserving that order. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations).",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nStart at the second number in readings. Subtract the number just before it from the current number. Repeat for each later number. Put the answers in order. For [5, 8, 2], the result list is [3, -6]. A list with fewer than two numbers gives an empty result list.\n\nStep 2: Return the answer\nReturn the largest number in the result list. If the list is empty, return 0. If all numbers are negative, return the largest negative number; do not replace it with 0.\n\nWrite your function\nComplete neighborNotesPeakTicket(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "Start at the second number in readings. Subtract the number just before it from the current number. Repeat for each later number. Put the answers in order. For [5, 8, 2], the result list is [3, -6]. A list with fewer than two numbers gives an empty result list. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 50000.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
-    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with adjacent array positions. What state describes the portion you have already processed?",
-    "Produce readings[i] - readings[i-1] for i from 1 onward, preserving that order. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. Handle the empty derived sequence according to the stated return rule."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "Start at the second number in readings. Subtract the number just before it from the current number. Repeat for each later number. Put the answers in order. For [5, 8, 2], the result list is [3, -6]. A list with fewer than two numbers gives an empty result list. Keep track of the numbers or places you have already checked.",
+    "Return the largest number in the result list. If the list is empty, return 0. If all numbers are negative, return the largest negative number; do not replace it with 0. Check what to do if the result list is empty."
   ],
   "functionName": "neighborNotesPeakTicket",
   "mode": "function",
   "starterCode": {
-    "javascript": "function neighborNotesPeakTicket(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "typescript": "function neighborNotesPeakTicket(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "python": "def neighborNotesPeakTicket(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
-    "java": "class Solution {\n  public int neighborNotesPeakTicket(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+    "javascript": "function neighborNotesPeakTicket(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "typescript": "function neighborNotesPeakTicket(readings: number[], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "python": "def neighborNotesPeakTicket(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
+    "java": "class Solution {\n  public int neighborNotesPeakTicket(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -55,7 +55,7 @@
       ],
       "expected": 12,
       "coverage": "worked",
-      "explanation": "The derived sequence is [-10,10,-7,12]. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. This gives 12."
+      "explanation": "Step 1 gives the result list [-10,10,-7,12]. The largest number is 12. Return 12."
     },
     {
       "id": "path3-035-2",
@@ -70,7 +70,7 @@
       ],
       "expected": 6,
       "coverage": "worked",
-      "explanation": "The derived sequence is [0,-6,6]. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. This gives 6."
+      "explanation": "Step 1 gives the result list [0,-6,6]. The largest number is 6. Return 6."
     },
     {
       "id": "path3-035-3",
@@ -80,7 +80,7 @@
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. This gives 0."
+      "explanation": "Step 1 gives the result list []. The list is empty, so return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -92,7 +92,7 @@
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "Optimize: Adjacent array positions. Build the sequence once, then report exactly what the inspection card requests.",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 1,
     "unit": "neighbor-notes",
@@ -115,7 +115,7 @@
       ],
       "expected": 12,
       "coverage": "worked",
-      "explanation": "The derived sequence is [-10,10,-7,12]. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. This gives 12."
+      "explanation": "Step 1 gives the result list [-10,10,-7,12]. The largest number is 12. Return 12."
     },
     {
       "id": "path3-035-2",
@@ -130,7 +130,7 @@
       ],
       "expected": 6,
       "coverage": "worked",
-      "explanation": "The derived sequence is [0,-6,6]. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. This gives 6."
+      "explanation": "Step 1 gives the result list [0,-6,6]. The largest number is 6. Return 6."
     }
   ],
   "referenceSolutions": {
@@ -50218,6 +50218,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nProduce readings[i] - readings[i-1] for i from 1 onward, preserving that order.\n\nReturn the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction neighborNotesPeakTicket(readings, k) {\n  const a=readings; let out=[];\n  for(let i=1;i<a.length;i++)out.push(a[i]-a[i-1]);\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n\n\ntypescript\nfunction neighborNotesPeakTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  for(let i=1;i<a.length;i++)out.push(a[i]-a[i-1]);\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n\n\npython\ndef neighborNotesPeakTicket(readings, k):\n    a=readings\n    out=[]\n    for i in range(1,len(a)): out.append(a[i]-a[i-1])\n    return max(out,default=0)\n\n\njava\nclass Solution {\n  public int neighborNotesPeakTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int i=1;i<a.length;i++)out.add(a[i]-a[i-1]);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.max(answer,x);return answer;\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nStart at the second number in readings. Subtract the number just before it from the current number. Repeat for each later number. Put the answers in order. For [5, 8, 2], the result list is [3, -6]. A list with fewer than two numbers gives an empty result list.\n\nReturn the answer\n\nReturn the largest number in the result list. If the list is empty, return 0. If all numbers are negative, return the largest negative number; do not replace it with 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction neighborNotesPeakTicket(readings, k) {\n  const a=readings; let out=[];\n  for(let i=1;i<a.length;i++)out.push(a[i]-a[i-1]);\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n\n\ntypescript\nfunction neighborNotesPeakTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  for(let i=1;i<a.length;i++)out.push(a[i]-a[i-1]);\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n\n\npython\ndef neighborNotesPeakTicket(readings, k):\n    a=readings\n    out=[]\n    for i in range(1,len(a)): out.append(a[i]-a[i-1])\n    return max(out,default=0)\n\n\njava\nclass Solution {\n  public int neighborNotesPeakTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int i=1;i<a.length;i++)out.add(a[i]-a[i-1]);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.max(answer,x);return answer;\n  }\n}\n"
+  },
+  "parameterNames": [
+    "readings",
+    "k"
+  ]
 }

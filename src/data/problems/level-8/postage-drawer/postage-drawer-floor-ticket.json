@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-435"
   ],
-  "summary": "For each nonnegative postage amount, produce the smallest number of stamps needed using unlimited denominations 1, 4 and 9. Zero postage uses zero stamps. Return the smallest value in the derived sequence, or 0 for an empty sequence.",
+  "summary": "Unbounded dynamic programming. Return the smallest number in the result list.",
   "stage": "Boundary variation",
   "boss": false,
-  "descriptionMd": "An old postage drawer contains unlimited stamps valued at one, four and nine units. Neri is checking the lower stop before the ribbon press opens. A negative reading is a real measurement and must not be replaced by an invented zero.\n\nFor each nonnegative postage amount, produce the smallest number of stamps needed using unlimited denominations 1, 4 and 9. Zero postage uses zero stamps.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nImplement postageDrawerFloorTicket(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
-  "unitIntro": "Unbounded dynamic programming. For each nonnegative postage amount, produce the smallest number of stamps needed using unlimited denominations 1, 4 and 9. Zero postage uses zero stamps. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nEach number in readings is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order.\n\nStep 2: Return the answer\nReturn the smallest number in the result list. If the list is empty, return 0.\n\nWrite your function\nComplete postageDrawerFloorTicket(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "Each number in readings is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Readings are integers from 0 through 40.",
-    "Target time O(n + M); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers are whole numbers from 0 through 40.",
+    "Efficiency goal: time O(n + M); extra memory, including the result list, O(n). n is the input length; M is the largest input number. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with unbounded dynamic programming. What state describes the portion you have already processed?",
-    "For each nonnegative postage amount, produce the smallest number of stamps needed using unlimited denominations 1, 4 and 9. Zero postage uses zero stamps. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return the smallest value in the derived sequence, or 0 for an empty sequence. Handle the empty derived sequence according to the stated return rule."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "Each number in readings is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order. Keep track of the numbers or places you have already checked.",
+    "Return the smallest number in the result list. If the list is empty, return 0. Check what to do if the result list is empty."
   ],
   "functionName": "postageDrawerFloorTicket",
   "mode": "function",
   "starterCode": {
-    "javascript": "function postageDrawerFloorTicket(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "typescript": "function postageDrawerFloorTicket(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "python": "def postageDrawerFloorTicket(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
-    "java": "class Solution {\n  public int postageDrawerFloorTicket(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+    "javascript": "function postageDrawerFloorTicket(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "typescript": "function postageDrawerFloorTicket(readings: number[], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "python": "def postageDrawerFloorTicket(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
+    "java": "class Solution {\n  public int postageDrawerFloorTicket(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -55,7 +55,7 @@
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "The derived sequence is [4,3,4,0,3]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+      "explanation": "Step 1 gives the result list [4,3,4,0,3]. The smallest number is 0. Return 0."
     },
     {
       "id": "path3-436-2",
@@ -70,7 +70,7 @@
       ],
       "expected": 1,
       "coverage": "worked",
-      "explanation": "The derived sequence is [1,1,2,1]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 1."
+      "explanation": "Step 1 gives the result list [1,1,2,1]. The smallest number is 1. Return 1."
     },
     {
       "id": "path3-436-3",
@@ -80,7 +80,7 @@
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+      "explanation": "Step 1 gives the result list []. The list is empty, so return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -92,7 +92,7 @@
     "time": "O(n + M)",
     "space": "O(n)"
   },
-  "overview": "Boundary variation: Unbounded dynamic programming. Build the sequence once, then report exactly what the inspection card requests.",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 8,
     "unit": "postage-drawer",
@@ -115,7 +115,7 @@
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "The derived sequence is [4,3,4,0,3]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 0."
+      "explanation": "Step 1 gives the result list [4,3,4,0,3]. The smallest number is 0. Return 0."
     },
     {
       "id": "path3-436-2",
@@ -130,7 +130,7 @@
       ],
       "expected": 1,
       "coverage": "worked",
-      "explanation": "The derived sequence is [1,1,2,1]. Return the smallest value in the derived sequence, or 0 for an empty sequence. This gives 1."
+      "explanation": "Step 1 gives the result list [1,1,2,1]. The smallest number is 1. Return 1."
     }
   ],
   "referenceSolutions": {
@@ -282,6 +282,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nFor each nonnegative postage amount, produce the smallest number of stamps needed using unlimited denominations 1, 4 and 9. Zero postage uses zero stamps.\n\nReturn the smallest value in the derived sequence, or 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n + M); space O(n).\n\njavascript\nfunction postageDrawerFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(m+1);dp[0]=0;for(let x=1;x<=m;x++)for(const coin of [1,4,9])if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);out=a.map(x=>dp[x]);\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\nfunction postageDrawerFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(m+1);dp[0]=0;for(let x=1;x<=m;x++)for(const coin of [1,4,9])if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);out=a.map(x=>dp[x]);\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef postageDrawerFloorTicket(readings, k):\n    a=readings\n    out=[]\n    m=max(a,default=0)\n    dp=[m+1]*(m+1)\n    dp[0]=0\n    for x in range(1,m+1):\n        for coin in (1,4,9):\n            if coin<=x: dp[x]=min(dp[x],dp[x-coin]+1)\n    out=[dp[x] for x in a]\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int postageDrawerFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int m=0;for(int x:a)m=Math.max(m,x);int[]dp=new int[m+1];Arrays.fill(dp,m+1);dp[0]=0;for(int x=1;x<=m;x++)for(int coin:new int[]{1,4,9})if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);for(int x:a)out.add(dp[x]);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nEach number in readings is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order.\n\nReturn the answer\n\nReturn the smallest number in the result list. If the list is empty, return 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n + M); extra memory, including the result list, O(n). n is the input length; M is the largest input number. These labels describe how work and memory grow with the input.\n\njavascript\nfunction postageDrawerFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(m+1);dp[0]=0;for(let x=1;x<=m;x++)for(const coin of [1,4,9])if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);out=a.map(x=>dp[x]);\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\nfunction postageDrawerFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(m+1);dp[0]=0;for(let x=1;x<=m;x++)for(const coin of [1,4,9])if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);out=a.map(x=>dp[x]);\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef postageDrawerFloorTicket(readings, k):\n    a=readings\n    out=[]\n    m=max(a,default=0)\n    dp=[m+1]*(m+1)\n    dp[0]=0\n    for x in range(1,m+1):\n        for coin in (1,4,9):\n            if coin<=x: dp[x]=min(dp[x],dp[x-coin]+1)\n    out=[dp[x] for x in a]\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int postageDrawerFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int m=0;for(int x:a)m=Math.max(m,x);int[]dp=new int[m+1];Arrays.fill(dp,m+1);dp[0]=0;for(int x=1;x<=m;x++)for(int coin:new int[]{1,4,9})if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);for(int x:a)out.add(dp[x]);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+  },
+  "parameterNames": [
+    "readings",
+    "k"
+  ]
 }

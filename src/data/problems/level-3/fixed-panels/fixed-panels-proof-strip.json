@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-140"
   ],
-  "summary": "For each contiguous window of exactly k readings, produce its sum from left to right. If fewer than k readings exist, produce no window sums. Return the entire derived sequence, preserving its order.",
+  "summary": "Fixed sliding windows. Return the whole result list in the order you built it.",
   "stage": "Warm-up",
   "boss": false,
-  "descriptionMd": "A rectangular stencil reveals exactly k neighboring readings on the moving paper strip. Neri rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nFor each contiguous window of exactly k readings, produce its sum from left to right. If fewer than k readings exist, produce no window sums.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement fixedPanelsProofStrip(readings, k). Use k exactly where specified above.",
-  "unitIntro": "Fixed sliding windows. For each contiguous window of exactly k readings, produce its sum from left to right. If fewer than k readings exist, produce no window sums. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is a whole number. Use it as described in the steps below.\n\nStep 1: Build the result list\nA window is a group of numbers next to each other. Take each window of exactly k numbers in readings, moving one place right each time. Record each window sum from left to right. If the whole input has fewer than k numbers, the result list is empty.\n\nStep 2: Return the answer\nReturn the whole result list in the order you built it. If it is empty, return [].\n\nWrite your function\nComplete fixedPanelsProofStrip(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "A window is a group of numbers next to each other. Take each window of exactly k numbers in readings, moving one place right each time. Record each window sum from left to right. If the whole input has fewer than k numbers, the result list is empty. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
-    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with fixed sliding windows. What state describes the portion you have already processed?",
-    "For each contiguous window of exactly k readings, produce its sum from left to right. If fewer than k readings exist, produce no window sums. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return the entire derived sequence, preserving its order. Handle the empty derived sequence according to the stated return rule."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "A window is a group of numbers next to each other. Take each window of exactly k numbers in readings, moving one place right each time. Record each window sum from left to right. If the whole input has fewer than k numbers, the result list is empty. Keep track of the numbers or places you have already checked.",
+    "Return the whole result list in the order you built it. If it is empty, return []. Check what to do if the result list is empty."
   ],
   "functionName": "fixedPanelsProofStrip",
   "mode": "function",
   "starterCode": {
-    "javascript": "function fixedPanelsProofStrip(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
-    "typescript": "function fixedPanelsProofStrip(readings: number[], k: number): number[] {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
-    "python": "def fixedPanelsProofStrip(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return []\n",
-    "java": "class Solution {\n  public int[] fixedPanelsProofStrip(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return new int[0];\n  }\n}\n"
+    "javascript": "function fixedPanelsProofStrip(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
+    "typescript": "function fixedPanelsProofStrip(readings: number[], k: number): number[] {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
+    "python": "def fixedPanelsProofStrip(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return []\n",
+    "java": "class Solution {\n  public int[] fixedPanelsProofStrip(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return new int[0];\n  }\n}\n"
   },
   "cases": [
     {
@@ -59,7 +59,7 @@
         19
       ],
       "coverage": "worked",
-      "explanation": "The derived sequence is [11,4,19]. Return the entire derived sequence, preserving its order. This gives [11,4,19]."
+      "explanation": "Step 1 gives the result list [11,4,19]. Step 2 asks for that whole list, so return [11,4,19]."
     },
     {
       "id": "path3-149-2",
@@ -78,7 +78,7 @@
         2
       ],
       "coverage": "worked",
-      "explanation": "The derived sequence is [8,2,2]. Return the entire derived sequence, preserving its order. This gives [8,2,2]."
+      "explanation": "Step 1 gives the result list [8,2,2]. Step 2 asks for that whole list, so return [8,2,2]."
     },
     {
       "id": "path3-149-3",
@@ -88,7 +88,7 @@
       ],
       "expected": [],
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Return the entire derived sequence, preserving its order. This gives []."
+      "explanation": "Step 1 gives the result list []. Step 2 asks for that whole list, so return []."
     }
   ],
   "timeLimitMs": 2000,
@@ -100,7 +100,7 @@
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "Warm-up: Fixed sliding windows. Build the sequence once, then report exactly what the inspection card requests.",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 3,
     "unit": "fixed-panels",
@@ -127,7 +127,7 @@
         19
       ],
       "coverage": "worked",
-      "explanation": "The derived sequence is [11,4,19]. Return the entire derived sequence, preserving its order. This gives [11,4,19]."
+      "explanation": "Step 1 gives the result list [11,4,19]. Step 2 asks for that whole list, so return [11,4,19]."
     },
     {
       "id": "path3-149-2",
@@ -146,7 +146,7 @@
         2
       ],
       "coverage": "worked",
-      "explanation": "The derived sequence is [8,2,2]. Return the entire derived sequence, preserving its order. This gives [8,2,2]."
+      "explanation": "Step 1 gives the result list [8,2,2]. Step 2 asks for that whole list, so return [8,2,2]."
     }
   ],
   "referenceSolutions": {
@@ -370,6 +370,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nFor each contiguous window of exactly k readings, produce its sum from left to right. If fewer than k readings exist, produce no window sums.\n\nReturn the entire derived sequence, preserving its order.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction fixedPanelsProofStrip(readings, k) {\n  const a=readings; let out=[];\n  let s=0;for(let i=0;i<a.length;i++){s+=a[i];if(i>=k)s-=a[i-k];if(i>=k-1)out.push(s);}\n  return out;\n}\n\n\ntypescript\nfunction fixedPanelsProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  let s=0;for(let i=0;i<a.length;i++){s+=a[i];if(i>=k)s-=a[i-k];if(i>=k-1)out.push(s);}\n  return out;\n}\n\n\npython\ndef fixedPanelsProofStrip(readings, k):\n    a=readings\n    out=[]\n    s=0\n    for i,x in enumerate(a):\n        s+=x\n        if i>=k: s-=a[i-k]\n        if i>=k-1: out.append(s)\n    return out\n\n\njava\nclass Solution {\n  public int[] fixedPanelsProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int s=0;for(int i=0;i<a.length;i++){s+=a[i];if(i>=k)s-=a[i-k];if(i>=k-1)out.add(s);}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nA window is a group of numbers next to each other. Take each window of exactly k numbers in readings, moving one place right each time. Record each window sum from left to right. If the whole input has fewer than k numbers, the result list is empty.\n\nReturn the answer\n\nReturn the whole result list in the order you built it. If it is empty, return [].\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction fixedPanelsProofStrip(readings, k) {\n  const a=readings; let out=[];\n  let s=0;for(let i=0;i<a.length;i++){s+=a[i];if(i>=k)s-=a[i-k];if(i>=k-1)out.push(s);}\n  return out;\n}\n\n\ntypescript\nfunction fixedPanelsProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  let s=0;for(let i=0;i<a.length;i++){s+=a[i];if(i>=k)s-=a[i-k];if(i>=k-1)out.push(s);}\n  return out;\n}\n\n\npython\ndef fixedPanelsProofStrip(readings, k):\n    a=readings\n    out=[]\n    s=0\n    for i,x in enumerate(a):\n        s+=x\n        if i>=k: s-=a[i-k]\n        if i>=k-1: out.append(s)\n    return out\n\n\njava\nclass Solution {\n  public int[] fixedPanelsProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int s=0;for(int i=0;i<a.length;i++){s+=a[i];if(i>=k)s-=a[i-k];if(i>=k-1)out.add(s);}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  },
+  "parameterNames": [
+    "readings",
+    "k"
+  ]
 }

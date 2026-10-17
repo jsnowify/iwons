@@ -17,31 +17,31 @@
     "path3-369",
     "path3-013"
   ],
-  "summary": "links is a square directed adjacency matrix: 0 means no edge, and a positive value is its cost. From vertex 0, produce each vertex's minimum total cost in vertex order, using -1 for unreachable vertices. The empty graph produces no costs. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.",
+  "summary": "Priority-queue shortest paths. Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on.",
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Level 0: loop accumulators",
-  "descriptionMd": "Each switchboard cable charges a different positive transmission cost for a routed message. Pia adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nlinks is a square directed adjacency matrix: 0 means no edge, and a positive value is its cost. From vertex 0, produce each vertex's minimum total cost in vertex order, using -1 for unreachable vertices. The empty graph produces no costs.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement weightedLinesBossReceipt(links, k). k is part of the common inspection-card signature and does not affect this task's result.",
-  "unitIntro": "Priority-queue shortest paths. links is a square directed adjacency matrix: 0 means no edge, and a positive value is its cost. From vertex 0, produce each vertex's minimum total cost in vertex order, using -1 for unreachable vertices. The empty graph produces no costs. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nlinks is a square table of travel costs. Points are numbered from 0. A positive number at links[a][b] is the cost to go from point a to point b. A 0 means no path, not a free path. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nEach point in this graph is a place, and each one-way path has a travel cost. Start at point 0. Find the lowest total travel cost to each point. Put these costs in point order. The cost to point 0 is 0. Record -1 for any point you cannot reach. A graph with no points gives an empty result list.\n\nStep 2: Return the answer\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWrite your function\nComplete weightedLinesBossReceipt(links, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "Each point in this graph is a place, and each one-way path has a travel cost. Start at point 0. Find the lowest total travel cost to each point. Put these costs in point order. The cost to point 0 is 0. Record -1 for any point you cannot reach. A graph with no points gives an empty result list. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 16.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
-    "The adjacency matrix is square and has at most 16 vertices; binary entries are 0 or 1, weighted entries are 0 through 13.",
-    "Target time O(V^2 + E log V); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "The graph has at most 16 points. Its table has the same number of rows and columns. Link entries are 0 or 1; cost entries are 0 through 13.",
+    "Efficiency goal: time O(V^2 + E log V); extra memory, including the result list, O(n). n is the input length; V is the number of graph points; E is the number of graph links. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with priority-queue shortest paths. What state describes the portion you have already processed?",
-    "links is a square directed adjacency matrix: 0 means no edge, and a positive value is its cost. From vertex 0, produce each vertex's minimum total cost in vertex order, using -1 for unreachable vertices. The empty graph produces no costs. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. Use an accumulator and a one-based position counter, revisiting the first level's loop work."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "Each point in this graph is a place, and each one-way path has a travel cost. Start at point 0. Find the lowest total travel cost to each point. Put these costs in point order. The cost to point 0 is 0. Record -1 for any point you cannot reach. A graph with no points gives an empty result list. Keep track of the numbers or places you have already checked.",
+    "Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0. Check what to do if the result list is empty."
   ],
   "functionName": "weightedLinesBossReceipt",
   "mode": "function",
   "starterCode": {
-    "javascript": "function weightedLinesBossReceipt(links, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "typescript": "function weightedLinesBossReceipt(links: number[][], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "python": "def weightedLinesBossReceipt(links, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
-    "java": "class Solution {\n  public int weightedLinesBossReceipt(int[][] links, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+    "javascript": "function weightedLinesBossReceipt(links, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "typescript": "function weightedLinesBossReceipt(links: number[][], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "python": "def weightedLinesBossReceipt(links, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
+    "java": "class Solution {\n  public int weightedLinesBossReceipt(int[][] links, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -101,7 +101,7 @@
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "The derived sequence is [0,-1,-1,4,-1,-1]. Its weighted products are [0,-2,-3,16,-5,-6]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 0."
+      "explanation": "Step 1 gives the result list [0,-1,-1,4,-1,-1]. Multiply by positions that start at 1: 1 * (0) + 2 * (-1) + 3 * (-1) + 4 * (4) + 5 * (-1) + 6 * (-1) = 0. Return 0."
     },
     {
       "id": "path3-370-2",
@@ -147,7 +147,7 @@
       ],
       "expected": 54,
       "coverage": "worked",
-      "explanation": "The derived sequence is [0,-1,3,13,-1]. Its weighted products are [0,-2,9,52,-5]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 54."
+      "explanation": "Step 1 gives the result list [0,-1,3,13,-1]. Multiply by positions that start at 1: 1 * (0) + 2 * (-1) + 3 * (3) + 4 * (13) + 5 * (-1) = 54. Return 54."
     },
     {
       "id": "path3-370-3",
@@ -157,7 +157,7 @@
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Its weighted products are []. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 0."
+      "explanation": "Step 1 gives the result list []. There are no numbers to multiply or add, so return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -169,7 +169,7 @@
     "time": "O(V^2 + E log V)",
     "space": "O(n)"
   },
-  "overview": "Boss · revisit: Priority-queue shortest paths. Level 0: loop accumulators",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 7,
     "unit": "weighted-lines",
@@ -235,7 +235,7 @@
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "The derived sequence is [0,-1,-1,4,-1,-1]. Its weighted products are [0,-2,-3,16,-5,-6]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 0."
+      "explanation": "Step 1 gives the result list [0,-1,-1,4,-1,-1]. Multiply by positions that start at 1: 1 * (0) + 2 * (-1) + 3 * (-1) + 4 * (4) + 5 * (-1) + 6 * (-1) = 0. Return 0."
     },
     {
       "id": "path3-370-2",
@@ -281,7 +281,7 @@
       ],
       "expected": 54,
       "coverage": "worked",
-      "explanation": "The derived sequence is [0,-1,3,13,-1]. Its weighted products are [0,-2,9,52,-5]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 54."
+      "explanation": "Step 1 gives the result list [0,-1,3,13,-1]. Multiply by positions that start at 1: 1 * (0) + 2 * (-1) + 3 * (3) + 4 * (13) + 5 * (-1) = 54. Return 54."
     }
   ],
   "referenceSolutions": {
@@ -775,6 +775,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nlinks is a square directed adjacency matrix: 0 means no edge, and a positive value is its cost. From vertex 0, produce each vertex's minimum total cost in vertex order, using -1 for unreachable vertices. The empty graph produces no costs.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(V^2 + E log V); space O(n).\n\njavascript\nfunction weightedLinesBossReceipt(links, k) {\n  const a=links; let out=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction weightedLinesBossReceipt(links: number[][], k: number): number {\n  const a=links; let out:number[]=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap:number[][]=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last!;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef weightedLinesBossReceipt(links, k):\n    a=links\n    out=[]\n    import heapq\n    n=len(a)\n    dist=[float('inf')]*n\n    heap=[]\n    if n:\n        dist[0]=0\n        heap=[(0,0)]\n    while heap:\n        cost,u=heapq.heappop(heap)\n        if cost!=dist[u]: continue\n        for v in range(n):\n            if a[u][v]>0 and cost+a[u][v]<dist[v]:\n                dist[v]=cost+a[u][v]\n                heapq.heappush(heap,(dist[v],v))\n    out=[d if d!=float('inf') else -1 for d in dist]\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int weightedLinesBossReceipt(int[][] links, int k) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;int[]dist=new int[n];Arrays.fill(dist,Integer.MAX_VALUE);PriorityQueue<int[]>heap=new PriorityQueue<>(Comparator.comparingInt(x->x[0]));if(n>0){dist[0]=0;heap.add(new int[]{0,0});}while(!heap.isEmpty()){int[]entry=heap.remove();int cost=entry[0],u=entry[1];if(cost!=dist[u])continue;for(int v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.add(new int[]{dist[v],v});}}for(int d:dist)out.add(d==Integer.MAX_VALUE?-1:d);}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nEach point in this graph is a place, and each one-way path has a travel cost. Start at point 0. Find the lowest total travel cost to each point. Put these costs in point order. The cost to point 0 is 0. Record -1 for any point you cannot reach. A graph with no points gives an empty result list.\n\nReturn the answer\n\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(V^2 + E log V); extra memory, including the result list, O(n). n is the input length; V is the number of graph points; E is the number of graph links. These labels describe how work and memory grow with the input.\n\njavascript\nfunction weightedLinesBossReceipt(links, k) {\n  const a=links; let out=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction weightedLinesBossReceipt(links: number[][], k: number): number {\n  const a=links; let out:number[]=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap:number[][]=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last!;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef weightedLinesBossReceipt(links, k):\n    a=links\n    out=[]\n    import heapq\n    n=len(a)\n    dist=[float('inf')]*n\n    heap=[]\n    if n:\n        dist[0]=0\n        heap=[(0,0)]\n    while heap:\n        cost,u=heapq.heappop(heap)\n        if cost!=dist[u]: continue\n        for v in range(n):\n            if a[u][v]>0 and cost+a[u][v]<dist[v]:\n                dist[v]=cost+a[u][v]\n                heapq.heappush(heap,(dist[v],v))\n    out=[d if d!=float('inf') else -1 for d in dist]\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int weightedLinesBossReceipt(int[][] links, int k) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;int[]dist=new int[n];Arrays.fill(dist,Integer.MAX_VALUE);PriorityQueue<int[]>heap=new PriorityQueue<>(Comparator.comparingInt(x->x[0]));if(n>0){dist[0]=0;heap.add(new int[]{0,0});}while(!heap.isEmpty()){int[]entry=heap.remove();int cost=entry[0],u=entry[1];if(cost!=dist[u])continue;for(int v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.add(new int[]{dist[v],v});}}for(int d:dist)out.add(d==Integer.MAX_VALUE?-1:d);}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+  },
+  "parameterNames": [
+    "links",
+    "k"
+  ]
 }

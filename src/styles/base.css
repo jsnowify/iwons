@@ -778,15 +778,6 @@ kbd {
   color: var(--text);
   font-weight: 500;
 }
-.footer {
-  font-size: 10px;
-  color: var(--muted);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 28px;
-  padding: 0 0 8px;
-}
 .dot {
   width: 5px;
   height: 5px;
@@ -1813,11 +1804,6 @@ kbd {
   }
   .onboarding-banner p {
     font-size: 10px;
-  }
-  .footer {
-    gap: 16px;
-    align-items: flex-start;
-    font-size: 9px;
   }
   .filterbar {
     gap: 8px;

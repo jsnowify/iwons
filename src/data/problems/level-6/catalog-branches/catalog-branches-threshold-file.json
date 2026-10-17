@@ -16,30 +16,30 @@
   "prerequisites": [
     "path3-332"
   ],
-  "summary": "The input is a binary search tree with distinct values. Produce its values in the inclusive range [k,k+12], in ascending order, pruning subtrees that cannot meet that range. Return how many values in the derived sequence are at least k.",
+  "summary": "BST range pruning. Count the numbers in the result list that are at least k (greater than or equal to k).",
   "stage": "Edge-case trap",
   "boss": false,
-  "descriptionMd": "An ordered folder tree can skip entire branches outside the inspector's requested number range. Luz marks a threshold on the filing cabinet's inspection card. Only qualifying readings count toward today's clearance stamp.\n\nThe input is a binary search tree with distinct values. Produce its values in the inclusive range [k,k+12], in ascending order, pruning subtrees that cannot meet that range.\n\nReturn how many values in the derived sequence are at least k.\n\nImplement catalogBranchesThresholdFile(root, k). Use k exactly where specified above.",
-  "unitIntro": "BST range pruning. The input is a binary search tree with distinct values. Produce its values in the inclusive range [k,k+12], in ascending order, pruning subtrees that cannot meet that range. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nroot is the top node of a binary search tree. Examples list nodes one level at a time, from left to right. null marks a missing child; [] means no tree. Each node stores its number in val. Its left and right links point to children. The runner builds the nodes for you. k is a whole number. Use it as described in the steps below.\n\nStep 1: Build the result list\nroot is a binary search tree with no repeated values. In this tree, all values in a left branch are smaller than its parent, and all values in a right branch are larger. Find values from k through k + 12, including both ends. Put them in the result list from smallest to largest. Skip branches whose values cannot be in this range. An empty tree gives an empty result list.\n\nStep 2: Return the answer\nCount the numbers in the result list that are at least k (greater than or equal to k). Return that count. An empty list gives 0.\n\nWrite your function\nComplete catalogBranchesThresholdFile(root, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "root is a binary search tree with no repeated values. In this tree, all values in a left branch are smaller than its parent, and all values in a right branch are larger. Find values from k through k + 12, including both ends. Put them in the result list from smallest to largest. Skip branches whose values cannot be in this range. An empty tree gives an empty result list. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
-    "0 <= node count <= 31; JSON null placeholders do not count as nodes.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
-    "Lists are acyclic. Trees use level-order JSON with null for missing children; [] is an empty root. The runner supplies nodes with val/next or val/left/right.",
-    "Target time O(h + r); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "0 <= node count <= 31; null marks a missing child and does not count as a node.",
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Linked lists do not loop back to an earlier node. Tree examples list nodes by level; null means a missing child. The runner builds the nodes shown in the examples.",
+    "Efficiency goal: time O(h + r); extra memory, including the result list, O(n). n is the number of nodes; h is the longest root-to-leaf path in the tree; a leaf is a node with no children; r is the number of tree values found. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with bst range pruning. What state describes the portion you have already processed?",
-    "The input is a binary search tree with distinct values. Produce its values in the inclusive range [k,k+12], in ascending order, pruning subtrees that cannot meet that range. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return how many values in the derived sequence are at least k. Handle the empty derived sequence according to the stated return rule."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "root is a binary search tree with no repeated values. In this tree, all values in a left branch are smaller than its parent, and all values in a right branch are larger. Find values from k through k + 12, including both ends. Put them in the result list from smallest to largest. Skip branches whose values cannot be in this range. An empty tree gives an empty result list. Keep track of the numbers or places you have already checked.",
+    "Count the numbers in the result list that are at least k (greater than or equal to k). Return that count. An empty list gives 0. Check what to do if the result list is empty."
   ],
   "functionName": "catalogBranchesThresholdFile",
   "mode": "function",
   "starterCode": {
-    "javascript": "function catalogBranchesThresholdFile(root, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "typescript": "type TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction catalogBranchesThresholdFile(root: TreeNode | null, k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "python": "def catalogBranchesThresholdFile(root, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
-    "java": "class Solution {\n  public int catalogBranchesThresholdFile(TreeNode root, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+    "javascript": "function catalogBranchesThresholdFile(root, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "typescript": "type TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction catalogBranchesThresholdFile(root: TreeNode | null, k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "python": "def catalogBranchesThresholdFile(root, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
+    "java": "class Solution {\n  public int catalogBranchesThresholdFile(TreeNode root, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -55,7 +55,7 @@
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "The derived sequence is [7,12]. Return how many values in the derived sequence are at least k. This gives 2."
+      "explanation": "Step 1 gives the result list [7,12]. Here k = 3. The numbers at least 3 are [7,12]. There are 2, so return 2."
     },
     {
       "id": "path3-333-2",
@@ -68,7 +68,7 @@
       ],
       "expected": 1,
       "coverage": "worked",
-      "explanation": "The derived sequence is [4]. Return how many values in the derived sequence are at least k. This gives 1."
+      "explanation": "Step 1 gives the result list [4]. Here k = 2. The numbers at least 2 are [4]. There are 1, so return 1."
     },
     {
       "id": "path3-333-3",
@@ -78,7 +78,7 @@
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Return how many values in the derived sequence are at least k. This gives 0."
+      "explanation": "Step 1 gives the result list []. Here k = 1. The numbers at least 1 are []. There are 0, so return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -93,7 +93,7 @@
     "time": "O(h + r)",
     "space": "O(n)"
   },
-  "overview": "Edge-case trap: BST range pruning. Build the sequence once, then report exactly what the inspection card requests.",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 6,
     "unit": "catalog-branches",
@@ -115,7 +115,7 @@
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "The derived sequence is [7,12]. Return how many values in the derived sequence are at least k. This gives 2."
+      "explanation": "Step 1 gives the result list [7,12]. Here k = 3. The numbers at least 3 are [7,12]. There are 2, so return 2."
     },
     {
       "id": "path3-333-2",
@@ -128,7 +128,7 @@
       ],
       "expected": 1,
       "coverage": "worked",
-      "explanation": "The derived sequence is [4]. Return how many values in the derived sequence are at least k. This gives 1."
+      "explanation": "Step 1 gives the result list [4]. Here k = 2. The numbers at least 2 are [4]. There are 1, so return 1."
     }
   ],
   "referenceSolutions": {
@@ -241,6 +241,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nThe input is a binary search tree with distinct values. Produce its values in the inclusive range [k,k+12], in ascending order, pruning subtrees that cannot meet that range.\n\nReturn how many values in the derived sequence are at least k.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(h + r); space O(n).\n\njavascript\nfunction catalogBranchesThresholdFile(root, k) {\n  const a=root; let out=[];\n  function visit(node){if(!node)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.push(node.val);if(node.val<k+12)visit(node.right);}visit(a);\n  return out.filter(x=>x>=k).length;\n}\n\n\ntypescript\ntype TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction catalogBranchesThresholdFile(root: TreeNode | null, k: number): number {\n  const a=root; let out:number[]=[];\n  function visit(node:TreeNode|null):void{if(!node)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.push(node.val);if(node.val<k+12)visit(node.right);}visit(a);\n  return out.filter(x=>x>=k).length;\n}\n\n\npython\ndef catalogBranchesThresholdFile(root, k):\n    a=root\n    out=[]\n    def visit(node):\n        if not node: return\n        if node.val>k: visit(node.left)\n        if k<=node.val<=k+12: out.append(node.val)\n        if node.val<k+12: visit(node.right)\n    visit(a)\n    return sum(x>=k for x in out)\n\n\njava\nclass Solution {\n  public int catalogBranchesThresholdFile(TreeNode root, int k) {\n    TreeNode a=root; List<Integer> out=new ArrayList<>();\n    {class Walk {void visit(TreeNode node){if(node==null)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.add(node.val);if(node.val<k+12)visit(node.right);}}new Walk().visit(a);}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nroot is a binary search tree with no repeated values. In this tree, all values in a left branch are smaller than its parent, and all values in a right branch are larger. Find values from k through k + 12, including both ends. Put them in the result list from smallest to largest. Skip branches whose values cannot be in this range. An empty tree gives an empty result list.\n\nReturn the answer\n\nCount the numbers in the result list that are at least k (greater than or equal to k). Return that count. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(h + r); extra memory, including the result list, O(n). n is the number of nodes; h is the longest root-to-leaf path in the tree; a leaf is a node with no children; r is the number of tree values found. These labels describe how work and memory grow with the input.\n\njavascript\nfunction catalogBranchesThresholdFile(root, k) {\n  const a=root; let out=[];\n  function visit(node){if(!node)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.push(node.val);if(node.val<k+12)visit(node.right);}visit(a);\n  return out.filter(x=>x>=k).length;\n}\n\n\ntypescript\ntype TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction catalogBranchesThresholdFile(root: TreeNode | null, k: number): number {\n  const a=root; let out:number[]=[];\n  function visit(node:TreeNode|null):void{if(!node)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.push(node.val);if(node.val<k+12)visit(node.right);}visit(a);\n  return out.filter(x=>x>=k).length;\n}\n\n\npython\ndef catalogBranchesThresholdFile(root, k):\n    a=root\n    out=[]\n    def visit(node):\n        if not node: return\n        if node.val>k: visit(node.left)\n        if k<=node.val<=k+12: out.append(node.val)\n        if node.val<k+12: visit(node.right)\n    visit(a)\n    return sum(x>=k for x in out)\n\n\njava\nclass Solution {\n  public int catalogBranchesThresholdFile(TreeNode root, int k) {\n    TreeNode a=root; List<Integer> out=new ArrayList<>();\n    {class Walk {void visit(TreeNode node){if(node==null)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.add(node.val);if(node.val<k+12)visit(node.right);}}new Walk().visit(a);}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
+  },
+  "parameterNames": [
+    "root",
+    "k"
+  ]
 }

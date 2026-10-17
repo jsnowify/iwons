@@ -17,31 +17,31 @@
     "path3-409",
     "path3-013"
   ],
-  "summary": "links is a symmetric 0/1 adjacency matrix. Start a depth-first traversal at each still-unvisited vertex, in increasing index order. Produce the number of vertices in each component, in that start order. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.",
+  "summary": "Graph depth-first components. Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on.",
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Level 0: loop accumulators",
-  "descriptionMd": "An inspector follows each cable family fully before starting another unvisited switchboard island. Pia adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nlinks is a symmetric 0/1 adjacency matrix. Start a depth-first traversal at each still-unvisited vertex, in increasing index order. Produce the number of vertices in each component, in that start order.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement islandLedgersBossReceipt(links, k). k is part of the common inspection-card signature and does not affect this task's result.",
-  "unitIntro": "Graph depth-first components. links is a symmetric 0/1 adjacency matrix. Start a depth-first traversal at each still-unvisited vertex, in increasing index order. Produce the number of vertices in each component, in that start order. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nlinks is a square table of 0s and 1s. Points are numbered from 0. A 1 at links[a][b] joins points a and b in both directions. A 0 means no link. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nThis graph has two-way links between points. A group, also called a connected component, contains all points that can reach one another. Start at point 0, then check the other points in number order. Whenever a point has not been visited, explore its whole group depth first: follow a path as far as you can before going back. Record how many points are in that group. The result list follows the order in which you first find the groups. A graph with no points gives an empty result list.\n\nStep 2: Return the answer\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWrite your function\nComplete islandLedgersBossReceipt(links, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "This graph has two-way links between points. A group, also called a connected component, contains all points that can reach one another. Start at point 0, then check the other points in number order. Whenever a point has not been visited, explore its whole group depth first: follow a path as far as you can before going back. Record how many points are in that group. The result list follows the order in which you first find the groups. A graph with no points gives an empty result list. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 16.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
-    "The adjacency matrix is square and has at most 16 vertices; binary entries are 0 or 1, weighted entries are 0 through 13.",
-    "Target time O(V^2); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "The graph has at most 16 points. Its table has the same number of rows and columns. Link entries are 0 or 1; cost entries are 0 through 13.",
+    "Efficiency goal: time O(V^2); extra memory, including the result list, O(n). n is the input length; V is the number of graph points. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with graph depth-first components. What state describes the portion you have already processed?",
-    "links is a symmetric 0/1 adjacency matrix. Start a depth-first traversal at each still-unvisited vertex, in increasing index order. Produce the number of vertices in each component, in that start order. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. Use an accumulator and a one-based position counter, revisiting the first level's loop work."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "This graph has two-way links between points. A group, also called a connected component, contains all points that can reach one another. Start at point 0, then check the other points in number order. Whenever a point has not been visited, explore its whole group depth first: follow a path as far as you can before going back. Record how many points are in that group. The result list follows the order in which you first find the groups. A graph with no points gives an empty result list. Keep track of the numbers or places you have already checked.",
+    "Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0. Check what to do if the result list is empty."
   ],
   "functionName": "islandLedgersBossReceipt",
   "mode": "function",
   "starterCode": {
-    "javascript": "function islandLedgersBossReceipt(links, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "typescript": "function islandLedgersBossReceipt(links: number[][], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "python": "def islandLedgersBossReceipt(links, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
-    "java": "class Solution {\n  public int islandLedgersBossReceipt(int[][] links, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+    "javascript": "function islandLedgersBossReceipt(links, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "typescript": "function islandLedgersBossReceipt(links: number[][], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "python": "def islandLedgersBossReceipt(links, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
+    "java": "class Solution {\n  public int islandLedgersBossReceipt(int[][] links, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -101,7 +101,7 @@
       ],
       "expected": 10,
       "coverage": "worked",
-      "explanation": "The derived sequence is [2,4]. Its weighted products are [2,8]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 10."
+      "explanation": "Step 1 gives the result list [2,4]. Multiply by positions that start at 1: 1 * (2) + 2 * (4) = 10. Return 10."
     },
     {
       "id": "path3-410-2",
@@ -147,7 +147,7 @@
       ],
       "expected": 7,
       "coverage": "worked",
-      "explanation": "The derived sequence is [3,2]. Its weighted products are [3,4]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 7."
+      "explanation": "Step 1 gives the result list [3,2]. Multiply by positions that start at 1: 1 * (3) + 2 * (2) = 7. Return 7."
     },
     {
       "id": "path3-410-3",
@@ -157,7 +157,7 @@
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Its weighted products are []. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 0."
+      "explanation": "Step 1 gives the result list []. There are no numbers to multiply or add, so return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -169,7 +169,7 @@
     "time": "O(V^2)",
     "space": "O(n)"
   },
-  "overview": "Boss · revisit: Graph depth-first components. Level 0: loop accumulators",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 7,
     "unit": "island-ledgers",
@@ -235,7 +235,7 @@
       ],
       "expected": 10,
       "coverage": "worked",
-      "explanation": "The derived sequence is [2,4]. Its weighted products are [2,8]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 10."
+      "explanation": "Step 1 gives the result list [2,4]. Multiply by positions that start at 1: 1 * (2) + 2 * (4) = 10. Return 10."
     },
     {
       "id": "path3-410-2",
@@ -281,7 +281,7 @@
       ],
       "expected": 7,
       "coverage": "worked",
-      "explanation": "The derived sequence is [3,2]. Its weighted products are [3,4]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 7."
+      "explanation": "Step 1 gives the result list [3,2]. Multiply by positions that start at 1: 1 * (3) + 2 * (2) = 7. Return 7."
     }
   ],
   "referenceSolutions": {
@@ -775,6 +775,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nlinks is a symmetric 0/1 adjacency matrix. Start a depth-first traversal at each still-unvisited vertex, in increasing index order. Produce the number of vertices in each component, in that start order.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(V^2); space O(n).\n\njavascript\nfunction islandLedgersBossReceipt(links, k) {\n  const a=links; let out=[];\n  const n=a.length,seen=Array(n).fill(false);for(let start=0;start<n;start++){if(seen[start])continue;const stack=[start];seen[start]=true;let count=0;while(stack.length){const u=stack.pop();count++;for(let v=0;v<n;v++)if(a[u][v]&&!seen[v]){seen[v]=true;stack.push(v);}}out.push(count);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction islandLedgersBossReceipt(links: number[][], k: number): number {\n  const a=links; let out:number[]=[];\n  const n=a.length,seen=Array(n).fill(false);for(let start=0;start<n;start++){if(seen[start])continue;const stack=[start];seen[start]=true;let count=0;while(stack.length){const u=stack.pop()!;count++;for(let v=0;v<n;v++)if(a[u][v]&&!seen[v]){seen[v]=true;stack.push(v);}}out.push(count);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef islandLedgersBossReceipt(links, k):\n    a=links\n    out=[]\n    n=len(a)\n    seen=[False]*n\n    for start in range(n):\n        if seen[start]: continue\n        stack=[start]\n        seen[start]=True\n        count=0\n        while stack:\n            u=stack.pop()\n            count+=1\n            for v in range(n):\n                if a[u][v] and not seen[v]:\n                    seen[v]=True\n                    stack.append(v)\n        out.append(count)\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int islandLedgersBossReceipt(int[][] links, int k) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;boolean[]seen=new boolean[n];for(int start=0;start<n;start++){if(seen[start])continue;Deque<Integer>stack=new ArrayDeque<>();stack.push(start);seen[start]=true;int count=0;while(!stack.isEmpty()){int u=stack.pop();count++;for(int v=0;v<n;v++)if(a[u][v]!=0&&!seen[v]){seen[v]=true;stack.push(v);}}out.add(count);}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nThis graph has two-way links between points. A group, also called a connected component, contains all points that can reach one another. Start at point 0, then check the other points in number order. Whenever a point has not been visited, explore its whole group depth first: follow a path as far as you can before going back. Record how many points are in that group. The result list follows the order in which you first find the groups. A graph with no points gives an empty result list.\n\nReturn the answer\n\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(V^2); extra memory, including the result list, O(n). n is the input length; V is the number of graph points. These labels describe how work and memory grow with the input.\n\njavascript\nfunction islandLedgersBossReceipt(links, k) {\n  const a=links; let out=[];\n  const n=a.length,seen=Array(n).fill(false);for(let start=0;start<n;start++){if(seen[start])continue;const stack=[start];seen[start]=true;let count=0;while(stack.length){const u=stack.pop();count++;for(let v=0;v<n;v++)if(a[u][v]&&!seen[v]){seen[v]=true;stack.push(v);}}out.push(count);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction islandLedgersBossReceipt(links: number[][], k: number): number {\n  const a=links; let out:number[]=[];\n  const n=a.length,seen=Array(n).fill(false);for(let start=0;start<n;start++){if(seen[start])continue;const stack=[start];seen[start]=true;let count=0;while(stack.length){const u=stack.pop()!;count++;for(let v=0;v<n;v++)if(a[u][v]&&!seen[v]){seen[v]=true;stack.push(v);}}out.push(count);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef islandLedgersBossReceipt(links, k):\n    a=links\n    out=[]\n    n=len(a)\n    seen=[False]*n\n    for start in range(n):\n        if seen[start]: continue\n        stack=[start]\n        seen[start]=True\n        count=0\n        while stack:\n            u=stack.pop()\n            count+=1\n            for v in range(n):\n                if a[u][v] and not seen[v]:\n                    seen[v]=True\n                    stack.append(v)\n        out.append(count)\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int islandLedgersBossReceipt(int[][] links, int k) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;boolean[]seen=new boolean[n];for(int start=0;start<n;start++){if(seen[start])continue;Deque<Integer>stack=new ArrayDeque<>();stack.push(start);seen[start]=true;int count=0;while(!stack.isEmpty()){int u=stack.pop();count++;for(int v=0;v<n;v++)if(a[u][v]!=0&&!seen[v]){seen[v]=true;stack.push(v);}}out.add(count);}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+  },
+  "parameterNames": [
+    "links",
+    "k"
+  ]
 }

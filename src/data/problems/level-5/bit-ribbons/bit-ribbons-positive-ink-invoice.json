@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-273"
   ],
-  "summary": "For each nonnegative reading, produce the number of 1 bits in its binary representation. The reading 0 contributes 0. Return the sum of strictly positive values in the derived sequence, or 0 when none exist.",
+  "summary": "Bit counting. Add only numbers greater than 0 from the result list.",
   "stage": "Filtered variation",
   "boss": false,
-  "descriptionMd": "A punch ribbon stores its active holes as the set bits of a nonnegative reading. Ivo prepares an invoice that accepts only positive ink adjustments. Zero and negative derived readings stay off the invoice.\n\nFor each nonnegative reading, produce the number of 1 bits in its binary representation. The reading 0 contributes 0.\n\nReturn the sum of strictly positive values in the derived sequence, or 0 when none exist.\n\nImplement bitRibbonsPositiveInkInvoice(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
-  "unitIntro": "Bit counting. For each nonnegative reading, produce the number of 1 bits in its binary representation. The reading 0 contributes 0. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nWrite each number in readings in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order.\n\nStep 2: Return the answer\nAdd only numbers greater than 0 from the result list. Do not add 0 or negative numbers. Return the total, or 0 if no numbers match.\n\nWrite your function\nComplete bitRibbonsPositiveInkInvoice(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "Write each number in readings in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Readings are integers from 0 through 1000000.",
-    "Target time O(n log M); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers are whole numbers from 0 through 1000000.",
+    "Efficiency goal: time O(n log M); extra memory, including the result list, O(n). n is the input length; M is the largest input number. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with bit counting. What state describes the portion you have already processed?",
-    "For each nonnegative reading, produce the number of 1 bits in its binary representation. The reading 0 contributes 0. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return the sum of strictly positive values in the derived sequence, or 0 when none exist. Handle the empty derived sequence according to the stated return rule."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "Write each number in readings in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order. Keep track of the numbers or places you have already checked.",
+    "Add only numbers greater than 0 from the result list. Do not add 0 or negative numbers. Return the total, or 0 if no numbers match. Check what to do if the result list is empty."
   ],
   "functionName": "bitRibbonsPositiveInkInvoice",
   "mode": "function",
   "starterCode": {
-    "javascript": "function bitRibbonsPositiveInkInvoice(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "typescript": "function bitRibbonsPositiveInkInvoice(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "python": "def bitRibbonsPositiveInkInvoice(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
-    "java": "class Solution {\n  public int bitRibbonsPositiveInkInvoice(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+    "javascript": "function bitRibbonsPositiveInkInvoice(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "typescript": "function bitRibbonsPositiveInkInvoice(readings: number[], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "python": "def bitRibbonsPositiveInkInvoice(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
+    "java": "class Solution {\n  public int bitRibbonsPositiveInkInvoice(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -55,7 +55,7 @@
       ],
       "expected": 10,
       "coverage": "worked",
-      "explanation": "The derived sequence is [3,2,3,0,2]. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 10."
+      "explanation": "Step 1 gives the result list [3,2,3,0,2]. Keep [3,2,3,2] and add those numbers. Return 10."
     },
     {
       "id": "path3-274-2",
@@ -70,7 +70,7 @@
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "The derived sequence is [1,1,1,1]. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 4."
+      "explanation": "Step 1 gives the result list [1,1,1,1]. Keep [1,1,1,1] and add those numbers. Return 4."
     },
     {
       "id": "path3-274-3",
@@ -80,7 +80,7 @@
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 0."
+      "explanation": "Step 1 gives the result list []. Keep [] and add those numbers. Return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -92,7 +92,7 @@
     "time": "O(n log M)",
     "space": "O(n)"
   },
-  "overview": "Filtered variation: Bit counting. Build the sequence once, then report exactly what the inspection card requests.",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 5,
     "unit": "bit-ribbons",
@@ -115,7 +115,7 @@
       ],
       "expected": 10,
       "coverage": "worked",
-      "explanation": "The derived sequence is [3,2,3,0,2]. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 10."
+      "explanation": "Step 1 gives the result list [3,2,3,0,2]. Keep [3,2,3,2] and add those numbers. Return 10."
     },
     {
       "id": "path3-274-2",
@@ -130,7 +130,7 @@
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "The derived sequence is [1,1,1,1]. Return the sum of strictly positive values in the derived sequence, or 0 when none exist. This gives 4."
+      "explanation": "Step 1 gives the result list [1,1,1,1]. Keep [1,1,1,1] and add those numbers. Return 4."
     }
   ],
   "referenceSolutions": {
@@ -282,6 +282,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nFor each nonnegative reading, produce the number of 1 bits in its binary representation. The reading 0 contributes 0.\n\nReturn the sum of strictly positive values in the derived sequence, or 0 when none exist.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n log M); space O(n).\n\njavascript\nfunction bitRibbonsPositiveInkInvoice(readings, k) {\n  const a=readings; let out=[];\n  for(let x of a){let count=0;while(x){x&=x-1;count++;}out.push(count);}\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n\n\ntypescript\nfunction bitRibbonsPositiveInkInvoice(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  for(let x of a){let count=0;while(x){x&=x-1;count++;}out.push(count);}\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n\n\npython\ndef bitRibbonsPositiveInkInvoice(readings, k):\n    a=readings\n    out=[]\n    for x in a:\n        count=0\n        while x:\n            x&=x-1\n            count+=1\n        out.append(count)\n    return sum(x for x in out if x>0)\n\n\njava\nclass Solution {\n  public int bitRibbonsPositiveInkInvoice(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){int count=0;while(x!=0){x&=x-1;count++;}out.add(count);}}\n    int answer=0;for(int x:out)if(x>0)answer+=x;return answer;\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nWrite each number in readings in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order.\n\nReturn the answer\n\nAdd only numbers greater than 0 from the result list. Do not add 0 or negative numbers. Return the total, or 0 if no numbers match.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n log M); extra memory, including the result list, O(n). n is the input length; M is the largest input number. These labels describe how work and memory grow with the input.\n\njavascript\nfunction bitRibbonsPositiveInkInvoice(readings, k) {\n  const a=readings; let out=[];\n  for(let x of a){let count=0;while(x){x&=x-1;count++;}out.push(count);}\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n\n\ntypescript\nfunction bitRibbonsPositiveInkInvoice(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  for(let x of a){let count=0;while(x){x&=x-1;count++;}out.push(count);}\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n\n\npython\ndef bitRibbonsPositiveInkInvoice(readings, k):\n    a=readings\n    out=[]\n    for x in a:\n        count=0\n        while x:\n            x&=x-1\n            count+=1\n        out.append(count)\n    return sum(x for x in out if x>0)\n\n\njava\nclass Solution {\n  public int bitRibbonsPositiveInkInvoice(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){int count=0;while(x!=0){x&=x-1;count++;}out.add(count);}}\n    int answer=0;for(int x:out)if(x>0)answer+=x;return answer;\n  }\n}\n"
+  },
+  "parameterNames": [
+    "readings",
+    "k"
+  ]
 }

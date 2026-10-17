@@ -16,30 +16,30 @@
   "prerequisites": [
     "path3-313"
   ],
-  "summary": "Produce the sum of node values at each depth of the binary tree, starting with depth 0 at the root. Missing children contribute nothing. Return the entire derived sequence, preserving its order.",
+  "summary": "Tree breadth-first traversal. Return the whole result list in the order you built it.",
   "stage": "Warm-up",
   "boss": false,
-  "descriptionMd": "The cabinet supervisor collects one total for every floor of a binary folder tree. Pia rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nProduce the sum of node values at each depth of the binary tree, starting with depth 0 at the root. Missing children contribute nothing.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement floorRegisterProofStrip(root, k). k is part of the common inspection-card signature and does not affect this task's result.",
-  "unitIntro": "Tree breadth-first traversal. Produce the sum of node values at each depth of the binary tree, starting with depth 0 at the root. Missing children contribute nothing. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nroot is the top node of a binary tree. Examples list nodes one level at a time, from left to right. null marks a missing child; [] means no tree. Each node stores its number in val. Its left and right links point to children. The runner builds the nodes for you. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nroot is the top node of a binary tree. Each node has a value and up to two children. The root is at depth 0, its children are at depth 1, and so on. Add the values at each depth. Put one sum per depth in the result list, starting at depth 0. Missing children add nothing. An empty tree gives an empty result list.\n\nStep 2: Return the answer\nReturn the whole result list in the order you built it. If it is empty, return [].\n\nWrite your function\nComplete floorRegisterProofStrip(root, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "root is the top node of a binary tree. Each node has a value and up to two children. The root is at depth 0, its children are at depth 1, and so on. Add the values at each depth. Put one sum per depth in the result list, starting at depth 0. Missing children add nothing. An empty tree gives an empty result list. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
-    "0 <= node count <= 31; JSON null placeholders do not count as nodes.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
-    "Lists are acyclic. Trees use level-order JSON with null for missing children; [] is an empty root. The runner supplies nodes with val/next or val/left/right.",
-    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "0 <= node count <= 31; null marks a missing child and does not count as a node.",
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Linked lists do not loop back to an earlier node. Tree examples list nodes by level; null means a missing child. The runner builds the nodes shown in the examples.",
+    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the number of nodes. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with tree breadth-first traversal. What state describes the portion you have already processed?",
-    "Produce the sum of node values at each depth of the binary tree, starting with depth 0 at the root. Missing children contribute nothing. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return the entire derived sequence, preserving its order. Handle the empty derived sequence according to the stated return rule."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "root is the top node of a binary tree. Each node has a value and up to two children. The root is at depth 0, its children are at depth 1, and so on. Add the values at each depth. Put one sum per depth in the result list, starting at depth 0. Missing children add nothing. An empty tree gives an empty result list. Keep track of the numbers or places you have already checked.",
+    "Return the whole result list in the order you built it. If it is empty, return []. Check what to do if the result list is empty."
   ],
   "functionName": "floorRegisterProofStrip",
   "mode": "function",
   "starterCode": {
-    "javascript": "function floorRegisterProofStrip(root, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
-    "typescript": "type TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction floorRegisterProofStrip(root: TreeNode | null, k: number): number[] {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
-    "python": "def floorRegisterProofStrip(root, k):\n    # Derive the sequence, then compute the requested receipt.\n    return []\n",
-    "java": "class Solution {\n  public int[] floorRegisterProofStrip(TreeNode root, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return new int[0];\n  }\n}\n"
+    "javascript": "function floorRegisterProofStrip(root, k) {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
+    "typescript": "type TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction floorRegisterProofStrip(root: TreeNode | null, k: number): number[] {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
+    "python": "def floorRegisterProofStrip(root, k):\n    # Build the result list, then return the answer from Step 2.\n    return []\n",
+    "java": "class Solution {\n  public int[] floorRegisterProofStrip(TreeNode root, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return new int[0];\n  }\n}\n"
   },
   "cases": [
     {
@@ -60,7 +60,7 @@
         7
       ],
       "coverage": "worked",
-      "explanation": "The derived sequence is [7,-3,7]. Return the entire derived sequence, preserving its order. This gives [7,-3,7]."
+      "explanation": "Step 1 gives the result list [7,-3,7]. Step 2 asks for that whole list, so return [7,-3,7]."
     },
     {
       "id": "path3-322-2",
@@ -80,7 +80,7 @@
         2
       ],
       "coverage": "worked",
-      "explanation": "The derived sequence is [4,4,2]. Return the entire derived sequence, preserving its order. This gives [4,4,2]."
+      "explanation": "Step 1 gives the result list [4,4,2]. Step 2 asks for that whole list, so return [4,4,2]."
     },
     {
       "id": "path3-322-3",
@@ -90,7 +90,7 @@
       ],
       "expected": [],
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Return the entire derived sequence, preserving its order. This gives []."
+      "explanation": "Step 1 gives the result list []. Step 2 asks for that whole list, so return []."
     }
   ],
   "timeLimitMs": 2000,
@@ -105,7 +105,7 @@
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "Warm-up: Tree breadth-first traversal. Build the sequence once, then report exactly what the inspection card requests.",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 6,
     "unit": "floor-register",
@@ -132,7 +132,7 @@
         7
       ],
       "coverage": "worked",
-      "explanation": "The derived sequence is [7,-3,7]. Return the entire derived sequence, preserving its order. This gives [7,-3,7]."
+      "explanation": "Step 1 gives the result list [7,-3,7]. Step 2 asks for that whole list, so return [7,-3,7]."
     },
     {
       "id": "path3-322-2",
@@ -152,7 +152,7 @@
         2
       ],
       "coverage": "worked",
-      "explanation": "The derived sequence is [4,4,2]. Return the entire derived sequence, preserving its order. This gives [4,4,2]."
+      "explanation": "Step 1 gives the result list [4,4,2]. Step 2 asks for that whole list, so return [4,4,2]."
     }
   ],
   "referenceSolutions": {
@@ -300,6 +300,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nProduce the sum of node values at each depth of the binary tree, starting with depth 0 at the root. Missing children contribute nothing.\n\nReturn the entire derived sequence, preserving its order.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction floorRegisterProofStrip(root, k) {\n  const a=root; let out=[];\n  if(a){const queue=[a];let head=0;while(head<queue.length){const end=queue.length;let s=0;while(head<end){const node=queue[head++];s+=node.val;if(node.left)queue.push(node.left);if(node.right)queue.push(node.right);}out.push(s);}}\n  return out;\n}\n\n\ntypescript\ntype TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction floorRegisterProofStrip(root: TreeNode | null, k: number): number[] {\n  const a=root; let out:number[]=[];\n  if(a){const queue=[a];let head=0;while(head<queue.length){const end=queue.length;let s=0;while(head<end){const node=queue[head++];s+=node.val;if(node.left)queue.push(node.left);if(node.right)queue.push(node.right);}out.push(s);}}\n  return out;\n}\n\n\npython\ndef floorRegisterProofStrip(root, k):\n    a=root\n    out=[]\n    from collections import deque\n    queue=deque([a] if a else [])\n    while queue:\n        s=0\n        for _ in range(len(queue)):\n            node=queue.popleft()\n            s+=node.val\n            if node.left: queue.append(node.left)\n            if node.right: queue.append(node.right)\n        out.append(s)\n    return out\n\n\njava\nclass Solution {\n  public int[] floorRegisterProofStrip(TreeNode root, int k) {\n    TreeNode a=root; List<Integer> out=new ArrayList<>();\n    {if(a!=null){Deque<TreeNode>queue=new ArrayDeque<>();queue.add(a);while(!queue.isEmpty()){int count=queue.size(),s=0;while(count-->0){TreeNode node=queue.remove();s+=node.val;if(node.left!=null)queue.add(node.left);if(node.right!=null)queue.add(node.right);}out.add(s);}}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nroot is the top node of a binary tree. Each node has a value and up to two children. The root is at depth 0, its children are at depth 1, and so on. Add the values at each depth. Put one sum per depth in the result list, starting at depth 0. Missing children add nothing. An empty tree gives an empty result list.\n\nReturn the answer\n\nReturn the whole result list in the order you built it. If it is empty, return [].\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the number of nodes. These labels describe how work and memory grow with the input.\n\njavascript\nfunction floorRegisterProofStrip(root, k) {\n  const a=root; let out=[];\n  if(a){const queue=[a];let head=0;while(head<queue.length){const end=queue.length;let s=0;while(head<end){const node=queue[head++];s+=node.val;if(node.left)queue.push(node.left);if(node.right)queue.push(node.right);}out.push(s);}}\n  return out;\n}\n\n\ntypescript\ntype TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction floorRegisterProofStrip(root: TreeNode | null, k: number): number[] {\n  const a=root; let out:number[]=[];\n  if(a){const queue=[a];let head=0;while(head<queue.length){const end=queue.length;let s=0;while(head<end){const node=queue[head++];s+=node.val;if(node.left)queue.push(node.left);if(node.right)queue.push(node.right);}out.push(s);}}\n  return out;\n}\n\n\npython\ndef floorRegisterProofStrip(root, k):\n    a=root\n    out=[]\n    from collections import deque\n    queue=deque([a] if a else [])\n    while queue:\n        s=0\n        for _ in range(len(queue)):\n            node=queue.popleft()\n            s+=node.val\n            if node.left: queue.append(node.left)\n            if node.right: queue.append(node.right)\n        out.append(s)\n    return out\n\n\njava\nclass Solution {\n  public int[] floorRegisterProofStrip(TreeNode root, int k) {\n    TreeNode a=root; List<Integer> out=new ArrayList<>();\n    {if(a!=null){Deque<TreeNode>queue=new ArrayDeque<>();queue.add(a);while(!queue.isEmpty()){int count=queue.size(),s=0;while(count-->0){TreeNode node=queue.remove();s+=node.val;if(node.left!=null)queue.add(node.left);if(node.right!=null)queue.add(node.right);}out.add(s);}}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  },
+  "parameterNames": [
+    "root",
+    "k"
+  ]
 }

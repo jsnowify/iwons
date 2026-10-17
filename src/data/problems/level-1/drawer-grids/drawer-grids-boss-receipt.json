@@ -16,30 +16,30 @@
   "prerequisites": [
     "path3-069"
   ],
-  "summary": "For each row of drawers, produce the sum of that row. Empty rows contribute 0. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.",
+  "summary": "Nested array traversal. Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on.",
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Earlier foundation work; the first unit establishes the prerequisite",
-  "descriptionMd": "The supply cabinet has uneven rows of drawers, including a few rows left entirely empty. Mina adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nFor each row of drawers, produce the sum of that row. Empty rows contribute 0.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement drawerGridsBossReceipt(drawers, k). k is part of the common inspection-card signature and does not affect this task's result.",
-  "unitIntro": "Nested array traversal. For each row of drawers, produce the sum of that row. Empty rows contribute 0. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations).",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\ndrawers is a list of rows. Each row is a list of numbers and may be empty. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\ndrawers is a list of rows. Add the numbers in each row. Put one total per row in the result list, in row order. An empty row has a total of 0.\n\nStep 2: Return the answer\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWrite your function\nComplete drawerGridsBossReceipt(drawers, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "drawers is a list of rows. Add the numbers in each row. Put one total per row in the result list, in row order. An empty row has a total of 0. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 16 per row.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
-    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with nested array traversal. What state describes the portion you have already processed?",
-    "For each row of drawers, produce the sum of that row. Empty rows contribute 0. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. Use an accumulator and a one-based position counter, revisiting the first level's loop work."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "drawers is a list of rows. Add the numbers in each row. Put one total per row in the result list, in row order. An empty row has a total of 0. Keep track of the numbers or places you have already checked.",
+    "Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0. Check what to do if the result list is empty."
   ],
   "functionName": "drawerGridsBossReceipt",
   "mode": "function",
   "starterCode": {
-    "javascript": "function drawerGridsBossReceipt(drawers, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "typescript": "function drawerGridsBossReceipt(drawers: number[][], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "python": "def drawerGridsBossReceipt(drawers, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
-    "java": "class Solution {\n  public int drawerGridsBossReceipt(int[][] drawers, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+    "javascript": "function drawerGridsBossReceipt(drawers, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "typescript": "function drawerGridsBossReceipt(drawers: number[][], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "python": "def drawerGridsBossReceipt(drawers, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
+    "java": "class Solution {\n  public int drawerGridsBossReceipt(int[][] drawers, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -68,7 +68,7 @@
       ],
       "expected": 150,
       "coverage": "worked",
-      "explanation": "The derived sequence is [12,0,12,-2,22]. Its weighted products are [12,0,36,-8,110]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 150."
+      "explanation": "Step 1 gives the result list [12,0,12,-2,22]. Multiply by positions that start at 1: 1 * (12) + 2 * (0) + 3 * (12) + 4 * (-2) + 5 * (22) = 150. Return 150."
     },
     {
       "id": "path3-070-2",
@@ -92,7 +92,7 @@
       ],
       "expected": 12,
       "coverage": "worked",
-      "explanation": "The derived sequence is [6,0,-6,6]. Its weighted products are [6,0,-18,24]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 12."
+      "explanation": "Step 1 gives the result list [6,0,-6,6]. Multiply by positions that start at 1: 1 * (6) + 2 * (0) + 3 * (-6) + 4 * (6) = 12. Return 12."
     },
     {
       "id": "path3-070-3",
@@ -102,7 +102,7 @@
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Its weighted products are []. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 0."
+      "explanation": "Step 1 gives the result list []. There are no numbers to multiply or add, so return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -114,7 +114,7 @@
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "Boss · revisit: Nested array traversal. Earlier foundation work; the first unit establishes the prerequisite",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 1,
     "unit": "drawer-grids",
@@ -149,7 +149,7 @@
       ],
       "expected": 150,
       "coverage": "worked",
-      "explanation": "The derived sequence is [12,0,12,-2,22]. Its weighted products are [12,0,36,-8,110]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 150."
+      "explanation": "Step 1 gives the result list [12,0,12,-2,22]. Multiply by positions that start at 1: 1 * (12) + 2 * (0) + 3 * (12) + 4 * (-2) + 5 * (22) = 150. Return 150."
     },
     {
       "id": "path3-070-2",
@@ -173,7 +173,7 @@
       ],
       "expected": 12,
       "coverage": "worked",
-      "explanation": "The derived sequence is [6,0,-6,6]. Its weighted products are [6,0,-18,24]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 12."
+      "explanation": "Step 1 gives the result list [6,0,-6,6]. Multiply by positions that start at 1: 1 * (6) + 2 * (0) + 3 * (-6) + 4 * (6) = 12. Return 12."
     }
   ],
   "referenceSolutions": {
@@ -585,6 +585,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nFor each row of drawers, produce the sum of that row. Empty rows contribute 0.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction drawerGridsBossReceipt(drawers, k) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction drawerGridsBossReceipt(drawers: number[][], k: number): number {\n  const a=drawers; let out:number[]=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef drawerGridsBossReceipt(drawers, k):\n    a=drawers\n    out=[]\n    for row in a: out.append(sum(row))\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int drawerGridsBossReceipt(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {for(int[]row:a){int s=0;for(int x:row)s+=x;out.add(s);}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\ndrawers is a list of rows. Add the numbers in each row. Put one total per row in the result list, in row order. An empty row has a total of 0.\n\nReturn the answer\n\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction drawerGridsBossReceipt(drawers, k) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction drawerGridsBossReceipt(drawers: number[][], k: number): number {\n  const a=drawers; let out:number[]=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef drawerGridsBossReceipt(drawers, k):\n    a=drawers\n    out=[]\n    for row in a: out.append(sum(row))\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int drawerGridsBossReceipt(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {for(int[]row:a){int s=0;for(int x:row)s+=x;out.add(s);}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+  },
+  "parameterNames": [
+    "drawers",
+    "k"
+  ]
 }

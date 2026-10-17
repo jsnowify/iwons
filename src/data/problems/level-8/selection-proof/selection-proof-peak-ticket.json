@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-474"
   ],
-  "summary": "Choose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative.",
+  "summary": "Backtracking choices. Return the largest number in the result list.",
   "stage": "Optimize",
   "boss": false,
-  "descriptionMd": "A sample tray allows each physical slip to be either included or excluded from a signed total. Ivo is setting the upper stop on an old office gauge. The largest derived reading goes on its label, even if the whole tray is below zero.\n\nChoose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices.\n\nReturn the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative.\n\nImplement selectionProofPeakTicket(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
-  "unitIntro": "Backtracking choices. Choose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nChoose any positions from readings, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in the result list.\n\nStep 2: Return the answer\nReturn the largest number in the result list. If the list is empty, return 0. If all numbers are negative, return the largest negative number; do not replace it with 0.\n\nWrite your function\nComplete selectionProofPeakTicket(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "Choose any positions from readings, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in the result list. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 10.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
-    "Target time O(n*2^n); auxiliary space including the derived sequence O(2^n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Efficiency goal: time O(n*2^n); extra memory, including the result list, O(2^n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with backtracking choices. What state describes the portion you have already processed?",
-    "Choose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. Handle the empty derived sequence according to the stated return rule."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "Choose any positions from readings, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in the result list. Keep track of the numbers or places you have already checked.",
+    "Return the largest number in the result list. If the list is empty, return 0. If all numbers are negative, return the largest negative number; do not replace it with 0. Check what to do if the result list is empty."
   ],
   "functionName": "selectionProofPeakTicket",
   "mode": "function",
   "starterCode": {
-    "javascript": "function selectionProofPeakTicket(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "typescript": "function selectionProofPeakTicket(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "python": "def selectionProofPeakTicket(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
-    "java": "class Solution {\n  public int selectionProofPeakTicket(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+    "javascript": "function selectionProofPeakTicket(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "typescript": "function selectionProofPeakTicket(readings: number[], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "python": "def selectionProofPeakTicket(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
+    "java": "class Solution {\n  public int selectionProofPeakTicket(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -55,7 +55,7 @@
       ],
       "expected": 26,
       "coverage": "worked",
-      "explanation": "The derived sequence is [-3,0,4,7,9,11,12,14,16,19,23,26]. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. This gives 26."
+      "explanation": "Step 1 gives the result list [-3,0,4,7,9,11,12,14,16,19,23,26]. The largest number is 26. Return 26."
     },
     {
       "id": "path3-475-2",
@@ -70,7 +70,7 @@
       ],
       "expected": 12,
       "coverage": "worked",
-      "explanation": "The derived sequence is [-2,0,2,4,6,8,10,12]. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. This gives 12."
+      "explanation": "Step 1 gives the result list [-2,0,2,4,6,8,10,12]. The largest number is 12. Return 12."
     },
     {
       "id": "path3-475-3",
@@ -80,7 +80,7 @@
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "The derived sequence is [0]. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. This gives 0."
+      "explanation": "Step 1 gives the result list [0]. The largest number is 0. Return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -92,7 +92,7 @@
     "time": "O(n*2^n)",
     "space": "O(2^n)"
   },
-  "overview": "Optimize: Backtracking choices. Build the sequence once, then report exactly what the inspection card requests.",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 8,
     "unit": "selection-proof",
@@ -115,7 +115,7 @@
       ],
       "expected": 26,
       "coverage": "worked",
-      "explanation": "The derived sequence is [-3,0,4,7,9,11,12,14,16,19,23,26]. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. This gives 26."
+      "explanation": "Step 1 gives the result list [-3,0,4,7,9,11,12,14,16,19,23,26]. The largest number is 26. Return 26."
     },
     {
       "id": "path3-475-2",
@@ -130,7 +130,7 @@
       ],
       "expected": 12,
       "coverage": "worked",
-      "explanation": "The derived sequence is [-2,0,2,4,6,8,10,12]. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. This gives 12."
+      "explanation": "Step 1 gives the result list [-2,0,2,4,6,8,10,12]. The largest number is 12. Return 12."
     }
   ],
   "referenceSolutions": {
@@ -228,6 +228,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nChoose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices.\n\nReturn the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n*2^n); space O(2^n).\n\njavascript\nfunction selectionProofPeakTicket(readings, k) {\n  const a=readings; let out=[];\n  const sums=new Set();function visit(i,s){if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n\n\ntypescript\nfunction selectionProofPeakTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const sums=new Set<number>();function visit(i:number,s:number):void{if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n\n\npython\ndef selectionProofPeakTicket(readings, k):\n    a=readings\n    out=[]\n    sums=set()\n    def visit(i,s):\n        if i==len(a):\n            sums.add(s)\n            return\n        visit(i+1,s)\n        visit(i+1,s+a[i])\n    visit(0,0)\n    out=sorted(sums)\n    return max(out,default=0)\n\n\njava\nclass Solution {\n  public int selectionProofPeakTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Set<Integer>sums=new TreeSet<>();class Walk {void visit(int i,int s){if(i==a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}}new Walk().visit(0,0);out.addAll(sums);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.max(answer,x);return answer;\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nChoose any positions from readings, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in the result list.\n\nReturn the answer\n\nReturn the largest number in the result list. If the list is empty, return 0. If all numbers are negative, return the largest negative number; do not replace it with 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n*2^n); extra memory, including the result list, O(2^n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction selectionProofPeakTicket(readings, k) {\n  const a=readings; let out=[];\n  const sums=new Set();function visit(i,s){if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n\n\ntypescript\nfunction selectionProofPeakTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const sums=new Set<number>();function visit(i:number,s:number):void{if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n\n\npython\ndef selectionProofPeakTicket(readings, k):\n    a=readings\n    out=[]\n    sums=set()\n    def visit(i,s):\n        if i==len(a):\n            sums.add(s)\n            return\n        visit(i+1,s)\n        visit(i+1,s+a[i])\n    visit(0,0)\n    out=sorted(sums)\n    return max(out,default=0)\n\n\njava\nclass Solution {\n  public int selectionProofPeakTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Set<Integer>sums=new TreeSet<>();class Walk {void visit(int i,int s){if(i==a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}}new Walk().visit(0,0);out.addAll(sums);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.max(answer,x);return answer;\n  }\n}\n"
+  },
+  "parameterNames": [
+    "readings",
+    "k"
+  ]
 }

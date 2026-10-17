@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-116"
   ],
-  "summary": "Assign each reading x to box ((x % 5) + 5) % 5. Produce the five box counts in box order 0 through 4. Return how many values in the derived sequence are even, including 0 and negative even values.",
+  "summary": "Map grouping. Count the even numbers in the result list.",
   "stage": "Counting variation",
   "boss": false,
-  "descriptionMd": "Five pigeonholes collect signed correction slips according to their normalized remainder. Luz separates readings for the office's even-numbered keys. A zero reading belongs in that count, just like any other even number.\n\nAssign each reading x to box ((x % 5) + 5) % 5. Produce the five box counts in box order 0 through 4.\n\nReturn how many values in the derived sequence are even, including 0 and negative even values.\n\nImplement remainderBoxesEvenKeyCensus(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
-  "unitIntro": "Map grouping. Assign each reading x to box ((x % 5) + 5) % 5. Produce the five box counts in box order 0 through 4. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nThere are five boxes, numbered 0 to 4. For each number x in readings, find its box with ((x % 5) + 5) % 5. The % symbol means remainder. This formula also gives a box for negative numbers: -1 goes in box 4. Count the numbers in each box. The result list must contain five counts, in box order 0, 1, 2, 3, 4.\n\nStep 2: Return the answer\nCount the even numbers in the result list. An even number divides by 2 with no remainder. Count 0 and negative even numbers too. Return the count. An empty list gives 0.\n\nWrite your function\nComplete remainderBoxesEvenKeyCensus(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "There are five boxes, numbered 0 to 4. For each number x in readings, find its box with ((x % 5) + 5) % 5. The % symbol means remainder. This formula also gives a box for negative numbers: -1 goes in box 4. Count the numbers in each box. The result list must contain five counts, in box order 0, 1, 2, 3, 4. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
-    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with map grouping. What state describes the portion you have already processed?",
-    "Assign each reading x to box ((x % 5) + 5) % 5. Produce the five box counts in box order 0 through 4. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return how many values in the derived sequence are even, including 0 and negative even values. Handle the empty derived sequence according to the stated return rule."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "There are five boxes, numbered 0 to 4. For each number x in readings, find its box with ((x % 5) + 5) % 5. The % symbol means remainder. This formula also gives a box for negative numbers: -1 goes in box 4. Count the numbers in each box. The result list must contain five counts, in box order 0, 1, 2, 3, 4. Keep track of the numbers or places you have already checked.",
+    "Count the even numbers in the result list. An even number divides by 2 with no remainder. Count 0 and negative even numbers too. Return the count. An empty list gives 0. Check what to do if the result list is empty."
   ],
   "functionName": "remainderBoxesEvenKeyCensus",
   "mode": "function",
   "starterCode": {
-    "javascript": "function remainderBoxesEvenKeyCensus(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "typescript": "function remainderBoxesEvenKeyCensus(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "python": "def remainderBoxesEvenKeyCensus(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
-    "java": "class Solution {\n  public int remainderBoxesEvenKeyCensus(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+    "javascript": "function remainderBoxesEvenKeyCensus(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "typescript": "function remainderBoxesEvenKeyCensus(readings: number[], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "python": "def remainderBoxesEvenKeyCensus(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
+    "java": "class Solution {\n  public int remainderBoxesEvenKeyCensus(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -55,7 +55,7 @@
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "The derived sequence is [1,0,4,0,0]. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 4."
+      "explanation": "Step 1 gives the result list [1,0,4,0,0]. The even numbers are [0,4,0,0]. There are 4, so return 4."
     },
     {
       "id": "path3-117-2",
@@ -70,7 +70,7 @@
       ],
       "expected": 3,
       "coverage": "worked",
-      "explanation": "The derived sequence is [0,0,0,1,3]. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 3."
+      "explanation": "Step 1 gives the result list [0,0,0,1,3]. The even numbers are [0,0,0]. There are 3, so return 3."
     },
     {
       "id": "path3-117-3",
@@ -80,7 +80,7 @@
       ],
       "expected": 5,
       "coverage": "empty",
-      "explanation": "The derived sequence is [0,0,0,0,0]. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 5."
+      "explanation": "Step 1 gives the result list [0,0,0,0,0]. The even numbers are [0,0,0,0,0]. There are 5, so return 5."
     }
   ],
   "timeLimitMs": 2000,
@@ -92,7 +92,7 @@
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "Counting variation: Map grouping. Build the sequence once, then report exactly what the inspection card requests.",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 2,
     "unit": "remainder-boxes",
@@ -115,7 +115,7 @@
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "The derived sequence is [1,0,4,0,0]. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 4."
+      "explanation": "Step 1 gives the result list [1,0,4,0,0]. The even numbers are [0,4,0,0]. There are 4, so return 4."
     },
     {
       "id": "path3-117-2",
@@ -130,7 +130,7 @@
       ],
       "expected": 3,
       "coverage": "worked",
-      "explanation": "The derived sequence is [0,0,0,1,3]. Return how many values in the derived sequence are even, including 0 and negative even values. This gives 3."
+      "explanation": "Step 1 gives the result list [0,0,0,1,3]. The even numbers are [0,0,0]. There are 3, so return 3."
     }
   ],
   "referenceSolutions": {
@@ -282,6 +282,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nAssign each reading x to box ((x % 5) + 5) % 5. Produce the five box counts in box order 0 through 4.\n\nReturn how many values in the derived sequence are even, including 0 and negative even values.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction remainderBoxesEvenKeyCensus(readings, k) {\n  const a=readings; let out=[];\n  out=[0,0,0,0,0];for(const x of a)out[((x%5)+5)%5]++;\n  return out.filter(x=>x%2===0).length;\n}\n\n\ntypescript\nfunction remainderBoxesEvenKeyCensus(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  out=[0,0,0,0,0];for(const x of a)out[((x%5)+5)%5]++;\n  return out.filter(x=>x%2===0).length;\n}\n\n\npython\ndef remainderBoxesEvenKeyCensus(readings, k):\n    a=readings\n    out=[]\n    out=[0]*5\n    for x in a: out[x%5]+=1\n    return sum(x%2==0 for x in out)\n\n\njava\nclass Solution {\n  public int remainderBoxesEvenKeyCensus(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int[]boxes=new int[5];for(int x:a)boxes[Math.floorMod(x,5)]++;for(int x:boxes)out.add(x);}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nThere are five boxes, numbered 0 to 4. For each number x in readings, find its box with ((x % 5) + 5) % 5. The % symbol means remainder. This formula also gives a box for negative numbers: -1 goes in box 4. Count the numbers in each box. The result list must contain five counts, in box order 0, 1, 2, 3, 4.\n\nReturn the answer\n\nCount the even numbers in the result list. An even number divides by 2 with no remainder. Count 0 and negative even numbers too. Return the count. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction remainderBoxesEvenKeyCensus(readings, k) {\n  const a=readings; let out=[];\n  out=[0,0,0,0,0];for(const x of a)out[((x%5)+5)%5]++;\n  return out.filter(x=>x%2===0).length;\n}\n\n\ntypescript\nfunction remainderBoxesEvenKeyCensus(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  out=[0,0,0,0,0];for(const x of a)out[((x%5)+5)%5]++;\n  return out.filter(x=>x%2===0).length;\n}\n\n\npython\ndef remainderBoxesEvenKeyCensus(readings, k):\n    a=readings\n    out=[]\n    out=[0]*5\n    for x in a: out[x%5]+=1\n    return sum(x%2==0 for x in out)\n\n\njava\nclass Solution {\n  public int remainderBoxesEvenKeyCensus(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int[]boxes=new int[5];for(int x:a)boxes[Math.floorMod(x,5)]++;for(int x:boxes)out.add(x);}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
+  },
+  "parameterNames": [
+    "readings",
+    "k"
+  ]
 }

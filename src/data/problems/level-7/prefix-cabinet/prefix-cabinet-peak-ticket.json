@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-394"
   ],
-  "summary": "For each lowercase word, consider each of its nonempty prefixes and count how many input words begin with that prefix, including repeated words and the word itself. Produce the sum of these counts for each word in input order. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative.",
+  "summary": "Trie prefix counts. Return the largest number in the result list.",
   "stage": "Optimize",
   "boss": false,
-  "descriptionMd": "A character-by-character filing cabinet shares its early drawers among labels with matching prefixes. Sol is setting the upper stop on an old office gauge. The largest derived reading goes on its label, even if the whole tray is below zero.\n\nFor each lowercase word, consider each of its nonempty prefixes and count how many input words begin with that prefix, including repeated words and the word itself. Produce the sum of these counts for each word in input order.\n\nReturn the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative.\n\nImplement prefixCabinetPeakTicket(words, k). k is part of the common inspection-card signature and does not affect this task's result.",
-  "unitIntro": "Trie prefix counts. For each lowercase word, consider each of its nonempty prefixes and count how many input words begin with that prefix, including repeated words and the word itself. Produce the sum of these counts for each word in input order. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nwords is a list of words. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nA prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in words, look at all its prefixes with at least one letter. Count how many input words start with each prefix, then add those counts. Count repeated input words separately, and include the word itself. Put one total per word in the result list, in input order.\n\nStep 2: Return the answer\nReturn the largest number in the result list. If the list is empty, return 0. If all numbers are negative, return the largest negative number; do not replace it with 0.\n\nWrite your function\nComplete prefixCabinetPeakTicket(words, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in words, look at all its prefixes with at least one letter. Count how many input words start with each prefix, then add those counts. Count repeated input words separately, and include the word itself. Put one total per word in the result list, in input order. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
     "There are at most 64 lowercase English words, each with 1 to 12 letters.",
-    "Target time O(total characters); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "Efficiency goal: time O(total characters); extra memory, including the result list, O(n). n is the input length; total characters means all word lengths added together. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with trie prefix counts. What state describes the portion you have already processed?",
-    "For each lowercase word, consider each of its nonempty prefixes and count how many input words begin with that prefix, including repeated words and the word itself. Produce the sum of these counts for each word in input order. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. Handle the empty derived sequence according to the stated return rule."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in words, look at all its prefixes with at least one letter. Count how many input words start with each prefix, then add those counts. Count repeated input words separately, and include the word itself. Put one total per word in the result list, in input order. Keep track of the numbers or places you have already checked.",
+    "Return the largest number in the result list. If the list is empty, return 0. If all numbers are negative, return the largest negative number; do not replace it with 0. Check what to do if the result list is empty."
   ],
   "functionName": "prefixCabinetPeakTicket",
   "mode": "function",
   "starterCode": {
-    "javascript": "function prefixCabinetPeakTicket(words, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "typescript": "function prefixCabinetPeakTicket(words: string[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "python": "def prefixCabinetPeakTicket(words, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
-    "java": "class Solution {\n  public int prefixCabinetPeakTicket(String[] words, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+    "javascript": "function prefixCabinetPeakTicket(words, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "typescript": "function prefixCabinetPeakTicket(words: string[], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "python": "def prefixCabinetPeakTicket(words, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
+    "java": "class Solution {\n  public int prefixCabinetPeakTicket(String[] words, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -54,7 +54,7 @@
       ],
       "expected": 10,
       "coverage": "worked",
-      "explanation": "The derived sequence is [7,10,7,5]. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. This gives 10."
+      "explanation": "Step 1 gives the result list [7,10,7,5]. The largest number is 10. Return 10."
     },
     {
       "id": "path3-395-2",
@@ -68,7 +68,7 @@
       ],
       "expected": 5,
       "coverage": "worked",
-      "explanation": "The derived sequence is [5,5,4]. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. This gives 5."
+      "explanation": "Step 1 gives the result list [5,5,4]. The largest number is 5. Return 5."
     },
     {
       "id": "path3-395-3",
@@ -78,7 +78,7 @@
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. This gives 0."
+      "explanation": "Step 1 gives the result list []. The list is empty, so return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -90,7 +90,7 @@
     "time": "O(total characters)",
     "space": "O(n)"
   },
-  "overview": "Optimize: Trie prefix counts. Build the sequence once, then report exactly what the inspection card requests.",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 7,
     "unit": "prefix-cabinet",
@@ -112,7 +112,7 @@
       ],
       "expected": 10,
       "coverage": "worked",
-      "explanation": "The derived sequence is [7,10,7,5]. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. This gives 10."
+      "explanation": "Step 1 gives the result list [7,10,7,5]. The largest number is 10. Return 10."
     },
     {
       "id": "path3-395-2",
@@ -126,7 +126,7 @@
       ],
       "expected": 5,
       "coverage": "worked",
-      "explanation": "The derived sequence is [5,5,4]. Return the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative. This gives 5."
+      "explanation": "Step 1 gives the result list [5,5,4]. The largest number is 5. Return 5."
     }
   ],
   "referenceSolutions": {
@@ -273,6 +273,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nFor each lowercase word, consider each of its nonempty prefixes and count how many input words begin with that prefix, including repeated words and the word itself. Produce the sum of these counts for each word in input order.\n\nReturn the largest value in the derived sequence, or 0 for an empty sequence. Negative maxima must remain negative.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(total characters); space O(n).\n\njavascript\nfunction prefixCabinetPeakTicket(words, k) {\n  const a=words; let out=[];\n  const next=[new Map()],counts=[0];for(const word of a){let node=0;for(const c of word){if(!next[node].has(c)){next[node].set(c,next.length);next.push(new Map());counts.push(0);}node=next[node].get(c);counts[node]++;}}for(const word of a){let node=0,s=0;for(const c of word){node=next[node].get(c);s+=counts[node];}out.push(s);}\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n\n\ntypescript\nfunction prefixCabinetPeakTicket(words: string[], k: number): number {\n  const a=words; let out:number[]=[];\n  const next=[new Map()],counts=[0];for(const word of a){let node=0;for(const c of word){if(!next[node].has(c)){next[node].set(c,next.length);next.push(new Map());counts.push(0);}node=next[node].get(c);counts[node]++;}}for(const word of a){let node=0,s=0;for(const c of word){node=next[node].get(c);s+=counts[node];}out.push(s);}\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n\n\npython\ndef prefixCabinetPeakTicket(words, k):\n    a=words\n    out=[]\n    next_nodes=[{}]\n    counts=[0]\n    for word in a:\n        node=0\n        for c in word:\n            if c not in next_nodes[node]:\n                next_nodes[node][c]=len(next_nodes)\n                next_nodes.append({})\n                counts.append(0)\n            node=next_nodes[node][c]\n            counts[node]+=1\n    for word in a:\n        node=0\n        s=0\n        for c in word:\n            node=next_nodes[node][c]\n            s+=counts[node]\n        out.append(s)\n    return max(out,default=0)\n\n\njava\nclass Solution {\n  public int prefixCabinetPeakTicket(String[] words, int k) {\n    String[] a=words; List<Integer> out=new ArrayList<>();\n    {List<Map<Character,Integer>>next=new ArrayList<>();next.add(new HashMap<>());List<Integer>counts=new ArrayList<>();counts.add(0);for(String word:a){int node=0;for(char c:word.toCharArray()){if(!next.get(node).containsKey(c)){next.get(node).put(c,next.size());next.add(new HashMap<>());counts.add(0);}node=next.get(node).get(c);counts.set(node,counts.get(node)+1);}}for(String word:a){int node=0,s=0;for(char c:word.toCharArray()){node=next.get(node).get(c);s+=counts.get(node);}out.add(s);}}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.max(answer,x);return answer;\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nA prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in words, look at all its prefixes with at least one letter. Count how many input words start with each prefix, then add those counts. Count repeated input words separately, and include the word itself. Put one total per word in the result list, in input order.\n\nReturn the answer\n\nReturn the largest number in the result list. If the list is empty, return 0. If all numbers are negative, return the largest negative number; do not replace it with 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(total characters); extra memory, including the result list, O(n). n is the input length; total characters means all word lengths added together. These labels describe how work and memory grow with the input.\n\njavascript\nfunction prefixCabinetPeakTicket(words, k) {\n  const a=words; let out=[];\n  const next=[new Map()],counts=[0];for(const word of a){let node=0;for(const c of word){if(!next[node].has(c)){next[node].set(c,next.length);next.push(new Map());counts.push(0);}node=next[node].get(c);counts[node]++;}}for(const word of a){let node=0,s=0;for(const c of word){node=next[node].get(c);s+=counts[node];}out.push(s);}\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n\n\ntypescript\nfunction prefixCabinetPeakTicket(words: string[], k: number): number {\n  const a=words; let out:number[]=[];\n  const next=[new Map()],counts=[0];for(const word of a){let node=0;for(const c of word){if(!next[node].has(c)){next[node].set(c,next.length);next.push(new Map());counts.push(0);}node=next[node].get(c);counts[node]++;}}for(const word of a){let node=0,s=0;for(const c of word){node=next[node].get(c);s+=counts[node];}out.push(s);}\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n\n\npython\ndef prefixCabinetPeakTicket(words, k):\n    a=words\n    out=[]\n    next_nodes=[{}]\n    counts=[0]\n    for word in a:\n        node=0\n        for c in word:\n            if c not in next_nodes[node]:\n                next_nodes[node][c]=len(next_nodes)\n                next_nodes.append({})\n                counts.append(0)\n            node=next_nodes[node][c]\n            counts[node]+=1\n    for word in a:\n        node=0\n        s=0\n        for c in word:\n            node=next_nodes[node][c]\n            s+=counts[node]\n        out.append(s)\n    return max(out,default=0)\n\n\njava\nclass Solution {\n  public int prefixCabinetPeakTicket(String[] words, int k) {\n    String[] a=words; List<Integer> out=new ArrayList<>();\n    {List<Map<Character,Integer>>next=new ArrayList<>();next.add(new HashMap<>());List<Integer>counts=new ArrayList<>();counts.add(0);for(String word:a){int node=0;for(char c:word.toCharArray()){if(!next.get(node).containsKey(c)){next.get(node).put(c,next.size());next.add(new HashMap<>());counts.add(0);}node=next.get(node).get(c);counts.set(node,counts.get(node)+1);}}for(String word:a){int node=0,s=0;for(char c:word.toCharArray()){node=next.get(node).get(c);s+=counts.get(node);}out.add(s);}}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.max(answer,x);return answer;\n  }\n}\n"
+  },
+  "parameterNames": [
+    "words",
+    "k"
+  ]
 }

@@ -52,9 +52,6 @@ test("chapter gates, free browsing, readable text, and motion settings persist",
   await expect(page.locator("html")).toHaveAttribute("data-readable", "true");
   await expect(page.locator("html")).toHaveAttribute("data-motion", "off");
   await page.goto("/problems/neighbor-notes-proof-strip/");
-  const openEditor = page.getByRole("button", {name:"Open code editor",exact:true});
-  await page.locator(".monaco-editor").or(openEditor).first().waitFor();
-  if(await openEditor.isVisible()) await openEditor.click();
   await page.locator(".monaco-editor").waitFor();
   await expect(
     page.getByRole("button", { name: "Run", exact: true }),

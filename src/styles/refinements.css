@@ -128,7 +128,6 @@ dialog.modal[open] { display: grid; place-items: center; }
   .section-grid > *, .dash-grid > *, .path-intro > * { min-width: 0; }
   .btn { max-width: 100%; min-height: 44px; white-space: normal; overflow-wrap: anywhere; padding: 8px; gap: 4px; flex-wrap: wrap; }
   .btn.small { padding: 8px 6px; }
-  .footer .row { flex-wrap: wrap; min-width: 0; }
   .page-heading { flex-wrap: wrap; }
   .practice-meta, .card-heading, .daily-card .between { flex-wrap: wrap; }
   .practice-card h2, .practice-card p { max-width: 100%; }

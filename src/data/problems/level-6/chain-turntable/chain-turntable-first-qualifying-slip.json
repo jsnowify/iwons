@@ -16,30 +16,30 @@
   "prerequisites": [
     "path3-297"
   ],
-  "summary": "Reverse the links of the supplied acyclic linked list, then traverse the reversed list to produce its values. An empty head produces no values. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.",
+  "summary": "Linked pointer reversal. Read the result list from left to right.",
   "stage": "Combine",
   "boss": false,
-  "descriptionMd": "The repair bench must reverse a linked chain of labels without dropping the unvisited tail. Ada needs the first qualifying slip while the courier waits at the door. Later matches must not jump ahead in the tray.\n\nReverse the links of the supplied acyclic linked list, then traverse the reversed list to produce its values. An empty head produces no values.\n\nReturn the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.\n\nImplement chainTurntableFirstQualifyingSlip(head, k). Use k exactly where specified above.",
-  "unitIntro": "Linked pointer reversal. Reverse the links of the supplied acyclic linked list, then traverse the reversed list to produce its values. An empty head produces no values. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nhead is the first node of a linked list. In examples, [4, 7] means nodes 4 then 7, linked in that order. [] means no nodes. The runner builds the nodes for you. k is a whole number. Use it as described in the steps below.\n\nStep 1: Build the result list\nReverse the links in the linked list given by head. Each node has a number in val and a link in next. After the links are reversed, follow the new list from start to end. Record its values in that order. An empty list gives an empty result list.\n\nStep 2: Return the answer\nRead the result list from left to right. Return the first number that is at least k (greater than or equal to k). Return the number, not its position. If none matches, return -1.\n\nWrite your function\nComplete chainTurntableFirstQualifyingSlip(head, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "Reverse the links in the linked list given by head. Each node has a number in val and a link in next. After the links are reversed, follow the new list from start to end. Record its values in that order. An empty list gives an empty result list. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
-    "Lists are acyclic. Trees use level-order JSON with null for missing children; [] is an empty root. The runner supplies nodes with val/next or val/left/right.",
-    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Linked lists do not loop back to an earlier node. Tree examples list nodes by level; null means a missing child. The runner builds the nodes shown in the examples.",
+    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the number of nodes. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with linked pointer reversal. What state describes the portion you have already processed?",
-    "Reverse the links of the supplied acyclic linked list, then traverse the reversed list to produce its values. An empty head produces no values. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. Handle the empty derived sequence according to the stated return rule."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "Reverse the links in the linked list given by head. Each node has a number in val and a link in next. After the links are reversed, follow the new list from start to end. Record its values in that order. An empty list gives an empty result list. Keep track of the numbers or places you have already checked.",
+    "Read the result list from left to right. Return the first number that is at least k (greater than or equal to k). Return the number, not its position. If none matches, return -1. Check what to do if the result list is empty."
   ],
   "functionName": "chainTurntableFirstQualifyingSlip",
   "mode": "function",
   "starterCode": {
-    "javascript": "function chainTurntableFirstQualifyingSlip(head, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "typescript": "type ListNode = { val: number; next: ListNode | null };\nfunction chainTurntableFirstQualifyingSlip(head: ListNode | null, k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "python": "def chainTurntableFirstQualifyingSlip(head, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
-    "java": "class Solution {\n  public int chainTurntableFirstQualifyingSlip(ListNode head, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+    "javascript": "function chainTurntableFirstQualifyingSlip(head, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "typescript": "type ListNode = { val: number; next: ListNode | null };\nfunction chainTurntableFirstQualifyingSlip(head: ListNode | null, k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "python": "def chainTurntableFirstQualifyingSlip(head, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
+    "java": "class Solution {\n  public int chainTurntableFirstQualifyingSlip(ListNode head, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -56,7 +56,7 @@
       ],
       "expected": 12,
       "coverage": "worked",
-      "explanation": "The derived sequence is [12,0,7,-3,7]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 12."
+      "explanation": "Step 1 gives the result list [12,0,7,-3,7]. Here k = 3. The first number at least 3 is 12. Return that value."
     },
     {
       "id": "path3-298-2",
@@ -71,7 +71,7 @@
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "The derived sequence is [4,-2,4,4]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 4."
+      "explanation": "Step 1 gives the result list [4,-2,4,4]. Here k = 2. The first number at least 2 is 4. Return that value."
     },
     {
       "id": "path3-298-3",
@@ -81,7 +81,7 @@
       ],
       "expected": -1,
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives -1."
+      "explanation": "Step 1 gives the result list []. Here k = 1. No number is at least 1, so return -1."
     }
   ],
   "timeLimitMs": 2000,
@@ -96,7 +96,7 @@
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "Combine: Linked pointer reversal. Build the sequence once, then report exactly what the inspection card requests.",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 6,
     "unit": "chain-turntable",
@@ -119,7 +119,7 @@
       ],
       "expected": 12,
       "coverage": "worked",
-      "explanation": "The derived sequence is [12,0,7,-3,7]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 12."
+      "explanation": "Step 1 gives the result list [12,0,7,-3,7]. Here k = 3. The first number at least 3 is 12. Return that value."
     },
     {
       "id": "path3-298-2",
@@ -134,7 +134,7 @@
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "The derived sequence is [4,-2,4,4]. Return the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index. This gives 4."
+      "explanation": "Step 1 gives the result list [4,-2,4,4]. Here k = 2. The first number at least 2 is 4. Return that value."
     }
   ],
   "referenceSolutions": {
@@ -286,6 +286,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nReverse the links of the supplied acyclic linked list, then traverse the reversed list to produce its values. An empty head produces no values.\n\nReturn the first value in the derived sequence that is at least k, or -1 if there is none. Return the value, not its index.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction chainTurntableFirstQualifyingSlip(head, k) {\n  const a=head; let out=[];\n  let previous=null,node=a;while(node){const next=node.next;node.next=previous;previous=node;node=next;}for(node=previous;node;node=node.next)out.push(node.val);\n  return out.find(x=>x>=k)??-1;\n}\n\n\ntypescript\ntype ListNode = { val: number; next: ListNode | null };\nfunction chainTurntableFirstQualifyingSlip(head: ListNode | null, k: number): number {\n  const a=head; let out:number[]=[];\n  let previous:ListNode|null=null,node:ListNode|null=a;while(node){const next:ListNode|null=node.next;node.next=previous;previous=node;node=next;}for(node=previous;node;node=node.next)out.push(node.val);\n  return out.find(x=>x>=k)??-1;\n}\n\n\npython\ndef chainTurntableFirstQualifyingSlip(head, k):\n    a=head\n    out=[]\n    previous=None\n    node=a\n    while node:\n        next_node=node.next\n        node.next=previous\n        previous=node\n        node=next_node\n    node=previous\n    while node:\n        out.append(node.val)\n        node=node.next\n    return next((x for x in out if x>=k),-1)\n\n\njava\nclass Solution {\n  public int chainTurntableFirstQualifyingSlip(ListNode head, int k) {\n    ListNode a=head; List<Integer> out=new ArrayList<>();\n    {ListNode previous=null,node=a;while(node!=null){ListNode next=node.next;node.next=previous;previous=node;node=next;}for(node=previous;node!=null;node=node.next)out.add(node.val);}\n    for(int x:out)if(x>=k)return x;return -1;\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nReverse the links in the linked list given by head. Each node has a number in val and a link in next. After the links are reversed, follow the new list from start to end. Record its values in that order. An empty list gives an empty result list.\n\nReturn the answer\n\nRead the result list from left to right. Return the first number that is at least k (greater than or equal to k). Return the number, not its position. If none matches, return -1.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the number of nodes. These labels describe how work and memory grow with the input.\n\njavascript\nfunction chainTurntableFirstQualifyingSlip(head, k) {\n  const a=head; let out=[];\n  let previous=null,node=a;while(node){const next=node.next;node.next=previous;previous=node;node=next;}for(node=previous;node;node=node.next)out.push(node.val);\n  return out.find(x=>x>=k)??-1;\n}\n\n\ntypescript\ntype ListNode = { val: number; next: ListNode | null };\nfunction chainTurntableFirstQualifyingSlip(head: ListNode | null, k: number): number {\n  const a=head; let out:number[]=[];\n  let previous:ListNode|null=null,node:ListNode|null=a;while(node){const next:ListNode|null=node.next;node.next=previous;previous=node;node=next;}for(node=previous;node;node=node.next)out.push(node.val);\n  return out.find(x=>x>=k)??-1;\n}\n\n\npython\ndef chainTurntableFirstQualifyingSlip(head, k):\n    a=head\n    out=[]\n    previous=None\n    node=a\n    while node:\n        next_node=node.next\n        node.next=previous\n        previous=node\n        node=next_node\n    node=previous\n    while node:\n        out.append(node.val)\n        node=node.next\n    return next((x for x in out if x>=k),-1)\n\n\njava\nclass Solution {\n  public int chainTurntableFirstQualifyingSlip(ListNode head, int k) {\n    ListNode a=head; List<Integer> out=new ArrayList<>();\n    {ListNode previous=null,node=a;while(node!=null){ListNode next=node.next;node.next=previous;previous=node;node=next;}for(node=previous;node!=null;node=node.next)out.add(node.val);}\n    for(int x:out)if(x>=k)return x;return -1;\n  }\n}\n"
+  },
+  "parameterNames": [
+    "head",
+    "k"
+  ]
 }

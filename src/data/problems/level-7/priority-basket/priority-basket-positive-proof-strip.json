@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-378"
   ],
-  "summary": "Insert all readings into a binary min-heap and repeatedly remove the smallest. Produce that removal sequence, preserving duplicates. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates.",
+  "summary": "Binary heaps. Return only numbers greater than 0 from the result list.",
   "stage": "Sequence variation",
   "boss": false,
-  "descriptionMd": "A heap-shaped basket keeps the smallest numbered service ticket ready at its opening. Rafi prepares a clean proof strip for the front desk. Positive derived readings keep their places relative to one another.\n\nInsert all readings into a binary min-heap and repeatedly remove the smallest. Produce that removal sequence, preserving duplicates.\n\nReturn only the strictly positive values in the derived sequence, preserving their relative order and duplicates.\n\nImplement priorityBasketPositiveProofStrip(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
-  "unitIntro": "Binary heaps. Insert all readings into a binary min-heap and repeatedly remove the smallest. Produce that removal sequence, preserving duplicates. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nPut all numbers from readings into a min-heap. A min-heap is a tree-shaped collection that keeps its smallest number at the top. Remove the smallest number, record it, and repeat until the heap is empty. Keep repeated numbers. The result list is the removal order.\n\nStep 2: Return the answer\nReturn only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return [].\n\nWrite your function\nComplete priorityBasketPositiveProofStrip(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "Put all numbers from readings into a min-heap. A min-heap is a tree-shaped collection that keeps its smallest number at the top. Remove the smallest number, record it, and repeat until the heap is empty. Keep repeated numbers. The result list is the removal order. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
-    "Target time O(n log n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Efficiency goal: time O(n log n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with binary heaps. What state describes the portion you have already processed?",
-    "Insert all readings into a binary min-heap and repeatedly remove the smallest. Produce that removal sequence, preserving duplicates. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. Handle the empty derived sequence according to the stated return rule."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "Put all numbers from readings into a min-heap. A min-heap is a tree-shaped collection that keeps its smallest number at the top. Remove the smallest number, record it, and repeat until the heap is empty. Keep repeated numbers. The result list is the removal order. Keep track of the numbers or places you have already checked.",
+    "Return only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return []. Check what to do if the result list is empty."
   ],
   "functionName": "priorityBasketPositiveProofStrip",
   "mode": "function",
   "starterCode": {
-    "javascript": "function priorityBasketPositiveProofStrip(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
-    "typescript": "function priorityBasketPositiveProofStrip(readings: number[], k: number): number[] {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
-    "python": "def priorityBasketPositiveProofStrip(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return []\n",
-    "java": "class Solution {\n  public int[] priorityBasketPositiveProofStrip(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return new int[0];\n  }\n}\n"
+    "javascript": "function priorityBasketPositiveProofStrip(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
+    "typescript": "function priorityBasketPositiveProofStrip(readings: number[], k: number): number[] {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
+    "python": "def priorityBasketPositiveProofStrip(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return []\n",
+    "java": "class Solution {\n  public int[] priorityBasketPositiveProofStrip(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return new int[0];\n  }\n}\n"
   },
   "cases": [
     {
@@ -59,7 +59,7 @@
         12
       ],
       "coverage": "worked",
-      "explanation": "The derived sequence is [-3,0,7,7,12]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [7,7,12]."
+      "explanation": "Step 1 gives the result list [-3,0,7,7,12]. Keep only numbers greater than 0, without changing their order. Return [7,7,12]."
     },
     {
       "id": "path3-379-2",
@@ -78,7 +78,7 @@
         4
       ],
       "coverage": "worked",
-      "explanation": "The derived sequence is [-2,4,4,4]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [4,4,4]."
+      "explanation": "Step 1 gives the result list [-2,4,4,4]. Keep only numbers greater than 0, without changing their order. Return [4,4,4]."
     },
     {
       "id": "path3-379-3",
@@ -88,7 +88,7 @@
       ],
       "expected": [],
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives []."
+      "explanation": "Step 1 gives the result list []. Keep only numbers greater than 0, without changing their order. Return []."
     }
   ],
   "timeLimitMs": 2000,
@@ -100,7 +100,7 @@
     "time": "O(n log n)",
     "space": "O(n)"
   },
-  "overview": "Sequence variation: Binary heaps. Build the sequence once, then report exactly what the inspection card requests.",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 7,
     "unit": "priority-basket",
@@ -127,7 +127,7 @@
         12
       ],
       "coverage": "worked",
-      "explanation": "The derived sequence is [-3,0,7,7,12]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [7,7,12]."
+      "explanation": "Step 1 gives the result list [-3,0,7,7,12]. Keep only numbers greater than 0, without changing their order. Return [7,7,12]."
     },
     {
       "id": "path3-379-2",
@@ -146,7 +146,7 @@
         4
       ],
       "coverage": "worked",
-      "explanation": "The derived sequence is [-2,4,4,4]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [4,4,4]."
+      "explanation": "Step 1 gives the result list [-2,4,4,4]. Keep only numbers greater than 0, without changing their order. Return [4,4,4]."
     }
   ],
   "referenceSolutions": {
@@ -342,6 +342,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nInsert all readings into a binary min-heap and repeatedly remove the smallest. Produce that removal sequence, preserving duplicates.\n\nReturn only the strictly positive values in the derived sequence, preserving their relative order and duplicates.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n log n); space O(n).\n\njavascript\nfunction priorityBasketPositiveProofStrip(readings, k) {\n  const a=readings; let out=[];\n  const heap=[];for(const x of a){heap.push(x);let i=heap.length-1;while(i){const p=(i-1)>>1;if(heap[p]<=heap[i])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}while(heap.length){out.push(heap[0]);const last=heap.pop();if(!heap.length)break;heap[0]=last;let i=0;while(true){let j=i,l=2*i+1,r=l+1;if(l<heap.length&&heap[l]<heap[j])j=l;if(r<heap.length&&heap[r]<heap[j])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}\n  return out.filter(x=>x>0);\n}\n\n\ntypescript\nfunction priorityBasketPositiveProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  const heap=[];for(const x of a){heap.push(x);let i=heap.length-1;while(i){const p=(i-1)>>1;if(heap[p]<=heap[i])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}while(heap.length){out.push(heap[0]);const last=heap.pop();if(!heap.length)break;heap[0]=last!;let i=0;while(true){let j=i,l=2*i+1,r=l+1;if(l<heap.length&&heap[l]<heap[j])j=l;if(r<heap.length&&heap[r]<heap[j])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}\n  return out.filter(x=>x>0);\n}\n\n\npython\ndef priorityBasketPositiveProofStrip(readings, k):\n    a=readings\n    out=[]\n    import heapq\n    heap=a[:]\n    heapq.heapify(heap)\n    while heap: out.append(heapq.heappop(heap))\n    return [x for x in out if x>0]\n\n\njava\nclass Solution {\n  public int[] priorityBasketPositiveProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {PriorityQueue<Integer>heap=new PriorityQueue<>();for(int x:a)heap.add(x);while(!heap.isEmpty())out.add(heap.remove());}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nPut all numbers from readings into a min-heap. A min-heap is a tree-shaped collection that keeps its smallest number at the top. Remove the smallest number, record it, and repeat until the heap is empty. Keep repeated numbers. The result list is the removal order.\n\nReturn the answer\n\nReturn only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return [].\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n log n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction priorityBasketPositiveProofStrip(readings, k) {\n  const a=readings; let out=[];\n  const heap=[];for(const x of a){heap.push(x);let i=heap.length-1;while(i){const p=(i-1)>>1;if(heap[p]<=heap[i])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}while(heap.length){out.push(heap[0]);const last=heap.pop();if(!heap.length)break;heap[0]=last;let i=0;while(true){let j=i,l=2*i+1,r=l+1;if(l<heap.length&&heap[l]<heap[j])j=l;if(r<heap.length&&heap[r]<heap[j])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}\n  return out.filter(x=>x>0);\n}\n\n\ntypescript\nfunction priorityBasketPositiveProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  const heap=[];for(const x of a){heap.push(x);let i=heap.length-1;while(i){const p=(i-1)>>1;if(heap[p]<=heap[i])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}while(heap.length){out.push(heap[0]);const last=heap.pop();if(!heap.length)break;heap[0]=last!;let i=0;while(true){let j=i,l=2*i+1,r=l+1;if(l<heap.length&&heap[l]<heap[j])j=l;if(r<heap.length&&heap[r]<heap[j])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}\n  return out.filter(x=>x>0);\n}\n\n\npython\ndef priorityBasketPositiveProofStrip(readings, k):\n    a=readings\n    out=[]\n    import heapq\n    heap=a[:]\n    heapq.heapify(heap)\n    while heap: out.append(heapq.heappop(heap))\n    return [x for x in out if x>0]\n\n\njava\nclass Solution {\n  public int[] priorityBasketPositiveProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {PriorityQueue<Integer>heap=new PriorityQueue<>();for(int x:a)heap.add(x);while(!heap.isEmpty())out.add(heap.remove());}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  },
+  "parameterNames": [
+    "readings",
+    "k"
+  ]
 }

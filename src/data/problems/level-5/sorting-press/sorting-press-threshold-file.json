@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-241"
   ],
-  "summary": "Produce readings sorted numerically ascending using a merge-based divide-and-conquer approach. Keep duplicate readings. Return how many values in the derived sequence are at least k.",
+  "summary": "Merge sort. Count the numbers in the result list that are at least k (greater than or equal to k).",
   "stage": "Edge-case trap",
   "boss": false,
-  "descriptionMd": "Two small sorted proof trays are repeatedly joined by the office's divide-and-merge press. Tomas marks a threshold on the filing cabinet's inspection card. Only qualifying readings count toward today's clearance stamp.\n\nProduce readings sorted numerically ascending using a merge-based divide-and-conquer approach. Keep duplicate readings.\n\nReturn how many values in the derived sequence are at least k.\n\nImplement sortingPressThresholdFile(readings, k). Use k exactly where specified above.",
-  "unitIntro": "Merge sort. Produce readings sorted numerically ascending using a merge-based divide-and-conquer approach. Keep duplicate readings. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is a whole number. Use it as described in the steps below.\n\nStep 1: Build the result list\nSort readings from smallest to largest using merge sort. To use merge sort, split the list into smaller parts, sort those parts, then join the sorted parts in order. Keep all repeated numbers. The result list is the sorted list.\n\nStep 2: Return the answer\nCount the numbers in the result list that are at least k (greater than or equal to k). Return that count. An empty list gives 0.\n\nWrite your function\nComplete sortingPressThresholdFile(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "Sort readings from smallest to largest using merge sort. To use merge sort, split the list into smaller parts, sort those parts, then join the sorted parts in order. Keep all repeated numbers. The result list is the sorted list. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
-    "Target time O(n log n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Efficiency goal: time O(n log n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with merge sort. What state describes the portion you have already processed?",
-    "Produce readings sorted numerically ascending using a merge-based divide-and-conquer approach. Keep duplicate readings. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return how many values in the derived sequence are at least k. Handle the empty derived sequence according to the stated return rule."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "Sort readings from smallest to largest using merge sort. To use merge sort, split the list into smaller parts, sort those parts, then join the sorted parts in order. Keep all repeated numbers. The result list is the sorted list. Keep track of the numbers or places you have already checked.",
+    "Count the numbers in the result list that are at least k (greater than or equal to k). Return that count. An empty list gives 0. Check what to do if the result list is empty."
   ],
   "functionName": "sortingPressThresholdFile",
   "mode": "function",
   "starterCode": {
-    "javascript": "function sortingPressThresholdFile(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "typescript": "function sortingPressThresholdFile(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "python": "def sortingPressThresholdFile(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
-    "java": "class Solution {\n  public int sortingPressThresholdFile(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+    "javascript": "function sortingPressThresholdFile(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "typescript": "function sortingPressThresholdFile(readings: number[], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "python": "def sortingPressThresholdFile(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
+    "java": "class Solution {\n  public int sortingPressThresholdFile(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -55,7 +55,7 @@
       ],
       "expected": 3,
       "coverage": "worked",
-      "explanation": "The derived sequence is [-3,0,7,7,12]. Return how many values in the derived sequence are at least k. This gives 3."
+      "explanation": "Step 1 gives the result list [-3,0,7,7,12]. Here k = 3. The numbers at least 3 are [7,7,12]. There are 3, so return 3."
     },
     {
       "id": "path3-242-2",
@@ -70,7 +70,7 @@
       ],
       "expected": 3,
       "coverage": "worked",
-      "explanation": "The derived sequence is [-2,4,4,4]. Return how many values in the derived sequence are at least k. This gives 3."
+      "explanation": "Step 1 gives the result list [-2,4,4,4]. Here k = 2. The numbers at least 2 are [4,4,4]. There are 3, so return 3."
     },
     {
       "id": "path3-242-3",
@@ -80,7 +80,7 @@
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Return how many values in the derived sequence are at least k. This gives 0."
+      "explanation": "Step 1 gives the result list []. Here k = 1. The numbers at least 1 are []. There are 0, so return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -92,7 +92,7 @@
     "time": "O(n log n)",
     "space": "O(n)"
   },
-  "overview": "Edge-case trap: Merge sort. Build the sequence once, then report exactly what the inspection card requests.",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 5,
     "unit": "sorting-press",
@@ -115,7 +115,7 @@
       ],
       "expected": 3,
       "coverage": "worked",
-      "explanation": "The derived sequence is [-3,0,7,7,12]. Return how many values in the derived sequence are at least k. This gives 3."
+      "explanation": "Step 1 gives the result list [-3,0,7,7,12]. Here k = 3. The numbers at least 3 are [7,7,12]. There are 3, so return 3."
     },
     {
       "id": "path3-242-2",
@@ -130,7 +130,7 @@
       ],
       "expected": 3,
       "coverage": "worked",
-      "explanation": "The derived sequence is [-2,4,4,4]. Return how many values in the derived sequence are at least k. This gives 3."
+      "explanation": "Step 1 gives the result list [-2,4,4,4]. Here k = 2. The numbers at least 2 are [4,4,4]. There are 3, so return 3."
     }
   ],
   "referenceSolutions": {
@@ -282,6 +282,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nProduce readings sorted numerically ascending using a merge-based divide-and-conquer approach. Keep duplicate readings.\n\nReturn how many values in the derived sequence are at least k.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n log n); space O(n).\n\njavascript\nfunction sortingPressThresholdFile(readings, k) {\n  const a=readings; let out=[];\n  function sort(xs){if(xs.length<2)return xs;const m=Math.floor(xs.length/2),left=sort(xs.slice(0,m)),right=sort(xs.slice(m)),merged=[];let i=0,j=0;while(i<left.length||j<right.length)merged.push(j===right.length||(i<left.length&&left[i]<=right[j])?left[i++]:right[j++]);return merged;}out=sort([...a]);\n  return out.filter(x=>x>=k).length;\n}\n\n\ntypescript\nfunction sortingPressThresholdFile(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  function sort(xs:number[]):number[]{if(xs.length<2)return xs;const m=Math.floor(xs.length/2),left=sort(xs.slice(0,m)),right=sort(xs.slice(m)),merged=[];let i=0,j=0;while(i<left.length||j<right.length)merged.push(j===right.length||(i<left.length&&left[i]<=right[j])?left[i++]:right[j++]);return merged;}out=sort([...a]);\n  return out.filter(x=>x>=k).length;\n}\n\n\npython\ndef sortingPressThresholdFile(readings, k):\n    a=readings\n    out=[]\n    def sort(xs):\n        if len(xs)<2: return xs\n        mid=len(xs)//2\n        left,right=sort(xs[:mid]),sort(xs[mid:])\n        merged=[]\n        i=j=0\n        while i<len(left) or j<len(right):\n            if j==len(right) or (i<len(left) and left[i]<=right[j]):\n                merged.append(left[i])\n                i+=1\n            else:\n                merged.append(right[j])\n                j+=1\n        return merged\n    out=sort(a[:])\n    return sum(x>=k for x in out)\n\n\njava\nclass Solution {\n  public int sortingPressThresholdFile(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {class Sorter {int[]sort(int[]xs){if(xs.length<2)return xs;int m=xs.length/2;int[]left=sort(Arrays.copyOfRange(xs,0,m)),right=sort(Arrays.copyOfRange(xs,m,xs.length)),merged=new int[xs.length];int i=0,j=0,t=0;while(i<left.length||j<right.length)merged[t++]=j==right.length||(i<left.length&&left[i]<=right[j])?left[i++]:right[j++];return merged;}}for(int x:new Sorter().sort(a.clone()))out.add(x);}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nSort readings from smallest to largest using merge sort. To use merge sort, split the list into smaller parts, sort those parts, then join the sorted parts in order. Keep all repeated numbers. The result list is the sorted list.\n\nReturn the answer\n\nCount the numbers in the result list that are at least k (greater than or equal to k). Return that count. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n log n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction sortingPressThresholdFile(readings, k) {\n  const a=readings; let out=[];\n  function sort(xs){if(xs.length<2)return xs;const m=Math.floor(xs.length/2),left=sort(xs.slice(0,m)),right=sort(xs.slice(m)),merged=[];let i=0,j=0;while(i<left.length||j<right.length)merged.push(j===right.length||(i<left.length&&left[i]<=right[j])?left[i++]:right[j++]);return merged;}out=sort([...a]);\n  return out.filter(x=>x>=k).length;\n}\n\n\ntypescript\nfunction sortingPressThresholdFile(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  function sort(xs:number[]):number[]{if(xs.length<2)return xs;const m=Math.floor(xs.length/2),left=sort(xs.slice(0,m)),right=sort(xs.slice(m)),merged=[];let i=0,j=0;while(i<left.length||j<right.length)merged.push(j===right.length||(i<left.length&&left[i]<=right[j])?left[i++]:right[j++]);return merged;}out=sort([...a]);\n  return out.filter(x=>x>=k).length;\n}\n\n\npython\ndef sortingPressThresholdFile(readings, k):\n    a=readings\n    out=[]\n    def sort(xs):\n        if len(xs)<2: return xs\n        mid=len(xs)//2\n        left,right=sort(xs[:mid]),sort(xs[mid:])\n        merged=[]\n        i=j=0\n        while i<len(left) or j<len(right):\n            if j==len(right) or (i<len(left) and left[i]<=right[j]):\n                merged.append(left[i])\n                i+=1\n            else:\n                merged.append(right[j])\n                j+=1\n        return merged\n    out=sort(a[:])\n    return sum(x>=k for x in out)\n\n\njava\nclass Solution {\n  public int sortingPressThresholdFile(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {class Sorter {int[]sort(int[]xs){if(xs.length<2)return xs;int m=xs.length/2;int[]left=sort(Arrays.copyOfRange(xs,0,m)),right=sort(Arrays.copyOfRange(xs,m,xs.length)),merged=new int[xs.length];int i=0,j=0,t=0;while(i<left.length||j<right.length)merged[t++]=j==right.length||(i<left.length&&left[i]<=right[j])?left[i++]:right[j++];return merged;}}for(int x:new Sorter().sort(a.clone()))out.add(x);}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
+  },
+  "parameterNames": [
+    "readings",
+    "k"
+  ]
 }

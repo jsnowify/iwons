@@ -5,6 +5,8 @@ const manifest=JSON.parse(fs.readFileSync("src/data/curriculum.json","utf8"));
 for(const p of manifest) {
   const html=fs.readFileSync(`out/problems/${p.slug}/index.html`,"utf8");
   assert(!html.includes("hiddenCases")&&!html.includes("referenceSolutions"),`Private data in initial HTML: ${p.slug}`);
+  for (const heading of ["Your task", "Inputs", "Step 1: Build the result list", "Step 2: Return the answer", "Write your function"])
+    assert(html.includes(`<h2>${heading}</h2>`), `Missing readable server-rendered section ${heading}: ${p.slug}`);
   const pack=JSON.parse(fs.readFileSync(`out/problem-data/${p.slug}.json`,"utf8"));
   assert(pack.hiddenCases.length>=6&&pack.editorialMd.length>0,`Missing lazy pack: ${p.slug}`);
   const image=fs.readFileSync(`out/og/${p.slug}.png`);

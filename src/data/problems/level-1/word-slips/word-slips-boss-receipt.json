@@ -16,30 +16,30 @@
   "prerequisites": [
     "path3-079"
   ],
-  "summary": "Split the line into maximal runs of non-space ASCII characters and produce each run's length. Multiple spaces, leading spaces and trailing spaces do not produce empty words. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.",
+  "summary": "String scanning. Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on.",
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Earlier foundation work; the first unit establishes the prerequisite",
-  "descriptionMd": "A teleprinter uses runs of spaces to separate the words on its paper message roll. Mina adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nSplit the line into maximal runs of non-space ASCII characters and produce each run's length. Multiple spaces, leading spaces and trailing spaces do not produce empty words.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement wordSlipsBossReceipt(line, k). k is part of the common inspection-card signature and does not affect this task's result.",
-  "unitIntro": "String scanning. Split the line into maximal runs of non-space ASCII characters and produce each run's length. Multiple spaces, leading spaces and trailing spaces do not produce empty words. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys (earlier units are used while the first two levels establish the foundations).",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nline is text. A character is one letter, digit, space, or punctuation mark. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nRead line from left to right. Here, a word is a group of characters with no spaces inside it. Record the length of each word. Ignore extra spaces before, after, or between words. For \"a  cat\", the result list is [1, 3].\n\nStep 2: Return the answer\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWrite your function\nComplete wordSlipsBossReceipt(line, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "Read line from left to right. Here, a word is a group of characters with no spaces inside it. Record the length of each word. Ignore extra spaces before, after, or between words. For \"a  cat\", the result list is [1, 3]. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "The line contains ASCII characters; the only word separator is a space.",
-    "Target time O(n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "The text uses ASCII characters (a basic character set). Only an ordinary space separates words.",
+    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with string scanning. What state describes the portion you have already processed?",
-    "Split the line into maximal runs of non-space ASCII characters and produce each run's length. Multiple spaces, leading spaces and trailing spaces do not produce empty words. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. Use an accumulator and a one-based position counter, revisiting the first level's loop work."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "Read line from left to right. Here, a word is a group of characters with no spaces inside it. Record the length of each word. Ignore extra spaces before, after, or between words. For \"a  cat\", the result list is [1, 3]. Keep track of the numbers or places you have already checked.",
+    "Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0. Check what to do if the result list is empty."
   ],
   "functionName": "wordSlipsBossReceipt",
   "mode": "function",
   "starterCode": {
-    "javascript": "function wordSlipsBossReceipt(line, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "typescript": "function wordSlipsBossReceipt(line: string, k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "python": "def wordSlipsBossReceipt(line, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
-    "java": "class Solution {\n  public int wordSlipsBossReceipt(String line, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+    "javascript": "function wordSlipsBossReceipt(line, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "typescript": "function wordSlipsBossReceipt(line: string, k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "python": "def wordSlipsBossReceipt(line, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
+    "java": "class Solution {\n  public int wordSlipsBossReceipt(String line, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -50,7 +50,7 @@
       ],
       "expected": 18,
       "coverage": "worked",
-      "explanation": "The derived sequence is [4,7]. Its weighted products are [4,14]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 18."
+      "explanation": "Step 1 gives the result list [4,7]. Multiply by positions that start at 1: 1 * (4) + 2 * (7) = 18. Return 18."
     },
     {
       "id": "path3-080-2",
@@ -60,7 +60,7 @@
       ],
       "expected": 8,
       "coverage": "worked",
-      "explanation": "The derived sequence is [2,3]. Its weighted products are [2,6]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 8."
+      "explanation": "Step 1 gives the result list [2,3]. Multiply by positions that start at 1: 1 * (2) + 2 * (3) = 8. Return 8."
     },
     {
       "id": "path3-080-3",
@@ -70,7 +70,7 @@
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Its weighted products are []. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 0."
+      "explanation": "Step 1 gives the result list []. There are no numbers to multiply or add, so return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -82,7 +82,7 @@
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "Boss · revisit: String scanning. Earlier foundation work; the first unit establishes the prerequisite",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 1,
     "unit": "word-slips",
@@ -99,7 +99,7 @@
       ],
       "expected": 18,
       "coverage": "worked",
-      "explanation": "The derived sequence is [4,7]. Its weighted products are [4,14]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 18."
+      "explanation": "Step 1 gives the result list [4,7]. Multiply by positions that start at 1: 1 * (4) + 2 * (7) = 18. Return 18."
     },
     {
       "id": "path3-080-2",
@@ -109,7 +109,7 @@
       ],
       "expected": 8,
       "coverage": "worked",
-      "explanation": "The derived sequence is [2,3]. Its weighted products are [2,6]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 8."
+      "explanation": "Step 1 gives the result list [2,3]. Multiply by positions that start at 1: 1 * (2) + 2 * (3) = 8. Return 8."
     }
   ],
   "referenceSolutions": {
@@ -175,6 +175,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nSplit the line into maximal runs of non-space ASCII characters and produce each run's length. Multiple spaces, leading spaces and trailing spaces do not produce empty words.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n); space O(n).\n\njavascript\nfunction wordSlipsBossReceipt(line, k) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction wordSlipsBossReceipt(line: string, k: number): number {\n  const a=line; let out:number[]=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef wordSlipsBossReceipt(line, k):\n    a=line\n    out=[]\n    length=0\n    for c in a+' ':\n        if c==' ':\n            if length: out.append(length)\n            length=0\n        else: length+=1\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int wordSlipsBossReceipt(String line, int k) {\n    String a=line; List<Integer> out=new ArrayList<>();\n    {int len=0;for(int i=0;i<=a.length();i++){if(i==a.length()||a.charAt(i)==' '){if(len>0)out.add(len);len=0;}else len++;}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nRead line from left to right. Here, a word is a group of characters with no spaces inside it. Record the length of each word. Ignore extra spaces before, after, or between words. For \"a  cat\", the result list is [1, 3].\n\nReturn the answer\n\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction wordSlipsBossReceipt(line, k) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction wordSlipsBossReceipt(line: string, k: number): number {\n  const a=line; let out:number[]=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef wordSlipsBossReceipt(line, k):\n    a=line\n    out=[]\n    length=0\n    for c in a+' ':\n        if c==' ':\n            if length: out.append(length)\n            length=0\n        else: length+=1\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int wordSlipsBossReceipt(String line, int k) {\n    String a=line; List<Integer> out=new ArrayList<>();\n    {int len=0;for(int i=0;i<=a.length();i++){if(i==a.length()||a.charAt(i)==' '){if(len>0)out.add(len);len=0;}else len++;}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+  },
+  "parameterNames": [
+    "line",
+    "k"
+  ]
 }

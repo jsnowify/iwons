@@ -17,30 +17,30 @@
     "path3-479",
     "path3-013"
   ],
-  "summary": "Choose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.",
+  "summary": "Backtracking choices. Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on.",
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Level 0: loop accumulators",
-  "descriptionMd": "A sample tray allows each physical slip to be either included or excluded from a signed total. Tomas adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nChoose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement selectionProofBossReceipt(readings, k). k is part of the common inspection-card signature and does not affect this task's result.",
-  "unitIntro": "Backtracking choices. Choose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nChoose any positions from readings, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in the result list.\n\nStep 2: Return the answer\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWrite your function\nComplete selectionProofBossReceipt(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "Choose any positions from readings, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in the result list. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 10.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
-    "Target time O(n*2^n); auxiliary space including the derived sequence O(2^n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Efficiency goal: time O(n*2^n); extra memory, including the result list, O(2^n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with backtracking choices. What state describes the portion you have already processed?",
-    "Choose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. Use an accumulator and a one-based position counter, revisiting the first level's loop work."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "Choose any positions from readings, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in the result list. Keep track of the numbers or places you have already checked.",
+    "Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0. Check what to do if the result list is empty."
   ],
   "functionName": "selectionProofBossReceipt",
   "mode": "function",
   "starterCode": {
-    "javascript": "function selectionProofBossReceipt(readings, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "typescript": "function selectionProofBossReceipt(readings: number[], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "python": "def selectionProofBossReceipt(readings, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
-    "java": "class Solution {\n  public int selectionProofBossReceipt(int[] readings, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+    "javascript": "function selectionProofBossReceipt(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "typescript": "function selectionProofBossReceipt(readings: number[], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "python": "def selectionProofBossReceipt(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
+    "java": "class Solution {\n  public int selectionProofBossReceipt(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -57,7 +57,7 @@
       ],
       "expected": 1243,
       "coverage": "worked",
-      "explanation": "The derived sequence is [-3,0,4,7,9,11,12,14,16,19,23,26]. Its weighted products are [-3,0,12,28,45,66,84,112,144,190,253,312]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 1243."
+      "explanation": "Step 1 gives the result list [-3,0,4,7,9,11,12,14,16,19,23,26]. Multiply by positions that start at 1: 1 * (-3) + 2 * (0) + 3 * (4) + 4 * (7) + 5 * (9) + 6 * (11) + 7 * (12) + 8 * (14) + 9 * (16) + 10 * (19) + 11 * (23) + 12 * (26) = 1243. Return 1243."
     },
     {
       "id": "path3-480-2",
@@ -72,7 +72,7 @@
       ],
       "expected": 264,
       "coverage": "worked",
-      "explanation": "The derived sequence is [-2,0,2,4,6,8,10,12]. Its weighted products are [-2,0,6,16,30,48,70,96]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 264."
+      "explanation": "Step 1 gives the result list [-2,0,2,4,6,8,10,12]. Multiply by positions that start at 1: 1 * (-2) + 2 * (0) + 3 * (2) + 4 * (4) + 5 * (6) + 6 * (8) + 7 * (10) + 8 * (12) = 264. Return 264."
     },
     {
       "id": "path3-480-3",
@@ -82,7 +82,7 @@
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "The derived sequence is [0]. Its weighted products are [0]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 0."
+      "explanation": "Step 1 gives the result list [0]. Multiply by positions that start at 1: 1 * (0) = 0. Return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -94,7 +94,7 @@
     "time": "O(n*2^n)",
     "space": "O(2^n)"
   },
-  "overview": "Boss · revisit: Backtracking choices. Level 0: loop accumulators",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 8,
     "unit": "selection-proof",
@@ -117,7 +117,7 @@
       ],
       "expected": 1243,
       "coverage": "worked",
-      "explanation": "The derived sequence is [-3,0,4,7,9,11,12,14,16,19,23,26]. Its weighted products are [-3,0,12,28,45,66,84,112,144,190,253,312]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 1243."
+      "explanation": "Step 1 gives the result list [-3,0,4,7,9,11,12,14,16,19,23,26]. Multiply by positions that start at 1: 1 * (-3) + 2 * (0) + 3 * (4) + 4 * (7) + 5 * (9) + 6 * (11) + 7 * (12) + 8 * (14) + 9 * (16) + 10 * (19) + 11 * (23) + 12 * (26) = 1243. Return 1243."
     },
     {
       "id": "path3-480-2",
@@ -132,7 +132,7 @@
       ],
       "expected": 264,
       "coverage": "worked",
-      "explanation": "The derived sequence is [-2,0,2,4,6,8,10,12]. Its weighted products are [-2,0,6,16,30,48,70,96]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 264."
+      "explanation": "Step 1 gives the result list [-2,0,2,4,6,8,10,12]. Multiply by positions that start at 1: 1 * (-2) + 2 * (0) + 3 * (2) + 4 * (4) + 5 * (6) + 6 * (8) + 7 * (10) + 8 * (12) = 264. Return 264."
     }
   ],
   "referenceSolutions": {
@@ -230,6 +230,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nChoose any subset of reading positions, including the empty subset, and sum its readings. Produce every distinct achievable sum in ascending order. Equal readings at different positions remain separate choices.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n*2^n); space O(2^n).\n\njavascript\nfunction selectionProofBossReceipt(readings, k) {\n  const a=readings; let out=[];\n  const sums=new Set();function visit(i,s){if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction selectionProofBossReceipt(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const sums=new Set<number>();function visit(i:number,s:number):void{if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef selectionProofBossReceipt(readings, k):\n    a=readings\n    out=[]\n    sums=set()\n    def visit(i,s):\n        if i==len(a):\n            sums.add(s)\n            return\n        visit(i+1,s)\n        visit(i+1,s+a[i])\n    visit(0,0)\n    out=sorted(sums)\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int selectionProofBossReceipt(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Set<Integer>sums=new TreeSet<>();class Walk {void visit(int i,int s){if(i==a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}}new Walk().visit(0,0);out.addAll(sums);}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nChoose any positions from readings, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in the result list.\n\nReturn the answer\n\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n*2^n); extra memory, including the result list, O(2^n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction selectionProofBossReceipt(readings, k) {\n  const a=readings; let out=[];\n  const sums=new Set();function visit(i,s){if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction selectionProofBossReceipt(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const sums=new Set<number>();function visit(i:number,s:number):void{if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef selectionProofBossReceipt(readings, k):\n    a=readings\n    out=[]\n    sums=set()\n    def visit(i,s):\n        if i==len(a):\n            sums.add(s)\n            return\n        visit(i+1,s)\n        visit(i+1,s+a[i])\n    visit(0,0)\n    out=sorted(sums)\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int selectionProofBossReceipt(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Set<Integer>sums=new TreeSet<>();class Walk {void visit(int i,int s){if(i==a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}}new Walk().visit(0,0);out.addAll(sums);}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+  },
+  "parameterNames": [
+    "readings",
+    "k"
+  ]
 }

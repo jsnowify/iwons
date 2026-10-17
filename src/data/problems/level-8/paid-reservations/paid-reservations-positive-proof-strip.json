@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-498"
   ],
-  "summary": "Each reservation is [start,end,reward], with start < end and nonnegative reward, occupying [start,end). Sort by end, then start, then reward. For each nonempty prefix of this sorted list, produce the maximum reward from nonoverlapping reservations in that prefix. Touching endpoints are compatible. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates.",
+  "summary": "Scheduling DP and binary search. Return only numbers greater than 0 from the result list.",
   "stage": "Sequence variation",
   "boss": false,
-  "descriptionMd": "Reward-bearing reservation cards require a prefix account that weighs payment against compatible earlier work. Pia prepares a clean proof strip for the front desk. Positive derived readings keep their places relative to one another.\n\nEach reservation is [start,end,reward], with start < end and nonnegative reward, occupying [start,end). Sort by end, then start, then reward. For each nonempty prefix of this sorted list, produce the maximum reward from nonoverlapping reservations in that prefix. Touching endpoints are compatible.\n\nReturn only the strictly positive values in the derived sequence, preserving their relative order and duplicates.\n\nImplement paidReservationsPositiveProofStrip(drawers, k). k is part of the common inspection-card signature and does not affect this task's result.",
-  "unitIntro": "Scheduling DP and binary search. Each reservation is [start,end,reward], with start < end and nonnegative reward, occupying [start,end). Sort by end, then start, then reward. For each nonempty prefix of this sorted list, produce the maximum reward from nonoverlapping reservations in that prefix. Touching endpoints are compatible. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\ndrawers is a list of bookings. Each row is [start, end, reward]. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nEach row of drawers is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, the result list is empty.\n\nStep 2: Return the answer\nReturn only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return [].\n\nWrite your function\nComplete paidReservationsPositiveProofStrip(drawers, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "Each row of drawers is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, the result list is empty. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
-    "Target time O(n log n); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Efficiency goal: time O(n log n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with scheduling dp and binary search. What state describes the portion you have already processed?",
-    "Each reservation is [start,end,reward], with start < end and nonnegative reward, occupying [start,end). Sort by end, then start, then reward. For each nonempty prefix of this sorted list, produce the maximum reward from nonoverlapping reservations in that prefix. Touching endpoints are compatible. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. Handle the empty derived sequence according to the stated return rule."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "Each row of drawers is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, the result list is empty. Keep track of the numbers or places you have already checked.",
+    "Return only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return []. Check what to do if the result list is empty."
   ],
   "functionName": "paidReservationsPositiveProofStrip",
   "mode": "function",
   "starterCode": {
-    "javascript": "function paidReservationsPositiveProofStrip(drawers, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
-    "typescript": "function paidReservationsPositiveProofStrip(drawers: number[][], k: number): number[] {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
-    "python": "def paidReservationsPositiveProofStrip(drawers, k):\n    # Derive the sequence, then compute the requested receipt.\n    return []\n",
-    "java": "class Solution {\n  public int[] paidReservationsPositiveProofStrip(int[][] drawers, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return new int[0];\n  }\n}\n"
+    "javascript": "function paidReservationsPositiveProofStrip(drawers, k) {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
+    "typescript": "function paidReservationsPositiveProofStrip(drawers: number[][], k: number): number[] {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
+    "python": "def paidReservationsPositiveProofStrip(drawers, k):\n    # Build the result list, then return the answer from Step 2.\n    return []\n",
+    "java": "class Solution {\n  public int[] paidReservationsPositiveProofStrip(int[][] drawers, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return new int[0];\n  }\n}\n"
   },
   "cases": [
     {
@@ -81,7 +81,7 @@
         39
       ],
       "coverage": "worked",
-      "explanation": "The derived sequence is [4,7,14,23,39]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [4,7,14,23,39]."
+      "explanation": "Step 1 gives the result list [4,7,14,23,39]. Keep only numbers greater than 0, without changing their order. Return [4,7,14,23,39]."
     },
     {
       "id": "path3-499-2",
@@ -117,7 +117,7 @@
         11
       ],
       "coverage": "worked",
-      "explanation": "The derived sequence is [4,8,9,11]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [4,8,9,11]."
+      "explanation": "Step 1 gives the result list [4,8,9,11]. Keep only numbers greater than 0, without changing their order. Return [4,8,9,11]."
     },
     {
       "id": "path3-499-3",
@@ -127,7 +127,7 @@
       ],
       "expected": [],
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives []."
+      "explanation": "Step 1 gives the result list []. Keep only numbers greater than 0, without changing their order. Return []."
     }
   ],
   "timeLimitMs": 2000,
@@ -139,7 +139,7 @@
     "time": "O(n log n)",
     "space": "O(n)"
   },
-  "overview": "Sequence variation: Scheduling DP and binary search. Build the sequence once, then report exactly what the inspection card requests.",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 8,
     "unit": "paid-reservations",
@@ -188,7 +188,7 @@
         39
       ],
       "coverage": "worked",
-      "explanation": "The derived sequence is [4,7,14,23,39]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [4,7,14,23,39]."
+      "explanation": "Step 1 gives the result list [4,7,14,23,39]. Keep only numbers greater than 0, without changing their order. Return [4,7,14,23,39]."
     },
     {
       "id": "path3-499-2",
@@ -224,7 +224,7 @@
         11
       ],
       "coverage": "worked",
-      "explanation": "The derived sequence is [4,8,9,11]. Return only the strictly positive values in the derived sequence, preserving their relative order and duplicates. This gives [4,8,9,11]."
+      "explanation": "Step 1 gives the result list [4,8,9,11]. Keep only numbers greater than 0, without changing their order. Return [4,8,9,11]."
     }
   ],
   "referenceSolutions": {
@@ -781,6 +781,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nEach reservation is [start,end,reward], with start < end and nonnegative reward, occupying [start,end). Sort by end, then start, then reward. For each nonempty prefix of this sorted list, produce the maximum reward from nonoverlapping reservations in that prefix. Touching endpoints are compatible.\n\nReturn only the strictly positive values in the derived sequence, preserving their relative order and duplicates.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n log n); space O(n).\n\njavascript\nfunction paidReservationsPositiveProofStrip(drawers, k) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out.filter(x=>x>0);\n}\n\n\ntypescript\nfunction paidReservationsPositiveProofStrip(drawers: number[][], k: number): number[] {\n  const a=drawers; let out:number[]=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out.filter(x=>x>0);\n}\n\n\npython\ndef paidReservationsPositiveProofStrip(drawers, k):\n    a=drawers\n    out=[]\n    rows=sorted(a,key=lambda r:(r[1],r[0],r[2]))\n    dp=[0]\n    for i,(start,end,reward) in enumerate(rows):\n        left,right=0,i\n        while left<right:\n            mid=(left+right)//2\n            if rows[mid][1]<=start: left=mid+1\n            else: right=mid\n        dp.append(max(dp[i],dp[left]+reward))\n    out=dp[1:]\n    return [x for x in out if x>0]\n\n\njava\nclass Solution {\n  public int[] paidReservationsPositiveProofStrip(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int[][]rows=a.clone();Arrays.sort(rows,Comparator.comparingInt((int[]r)->r[1]).thenComparingInt(r->r[0]).thenComparingInt(r->r[2]));int[]dp=new int[rows.length+1];for(int i=0;i<rows.length;i++){int l=0,r=i;while(l<r){int m=(l+r)/2;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp[i+1]=Math.max(dp[i],dp[l]+rows[i][2]);out.add(dp[i+1]);}}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nEach row of drawers is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, the result list is empty.\n\nReturn the answer\n\nReturn only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return [].\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n log n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction paidReservationsPositiveProofStrip(drawers, k) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out.filter(x=>x>0);\n}\n\n\ntypescript\nfunction paidReservationsPositiveProofStrip(drawers: number[][], k: number): number[] {\n  const a=drawers; let out:number[]=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out.filter(x=>x>0);\n}\n\n\npython\ndef paidReservationsPositiveProofStrip(drawers, k):\n    a=drawers\n    out=[]\n    rows=sorted(a,key=lambda r:(r[1],r[0],r[2]))\n    dp=[0]\n    for i,(start,end,reward) in enumerate(rows):\n        left,right=0,i\n        while left<right:\n            mid=(left+right)//2\n            if rows[mid][1]<=start: left=mid+1\n            else: right=mid\n        dp.append(max(dp[i],dp[left]+reward))\n    out=dp[1:]\n    return [x for x in out if x>0]\n\n\njava\nclass Solution {\n  public int[] paidReservationsPositiveProofStrip(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int[][]rows=a.clone();Arrays.sort(rows,Comparator.comparingInt((int[]r)->r[1]).thenComparingInt(r->r[0]).thenComparingInt(r->r[2]));int[]dp=new int[rows.length+1];for(int i=0;i<rows.length;i++){int l=0,r=i;while(l<r){int m=(l+r)/2;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp[i+1]=Math.max(dp[i],dp[l]+rows[i][2]);out.add(dp[i+1]);}}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  },
+  "parameterNames": [
+    "drawers",
+    "k"
+  ]
 }

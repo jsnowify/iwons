@@ -17,31 +17,31 @@
     "path3-389",
     "path3-013"
   ],
-  "summary": "links is a symmetric 0/1 adjacency matrix. Union every connected pair, then produce the size of the component containing each vertex, in vertex order. Self-links do not change a component. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.",
+  "summary": "Union-find components. Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on.",
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Level 0: loop accumulators",
-  "descriptionMd": "The maintenance desk joins connected switchboard sockets into shared cable families. Pia adds numbered weights to the final receipt at the unit's inspection desk. The first derived reading has weight one, so its position matters as much as its value.\n\nlinks is a symmetric 0/1 adjacency matrix. Union every connected pair, then produce the size of the component containing each vertex, in vertex order. Self-links do not change a component.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nImplement cableFamiliesBossReceipt(links, k). k is part of the common inspection-card signature and does not affect this task's result.",
-  "unitIntro": "Union-find components. links is a symmetric 0/1 adjacency matrix. Union every connected pair, then produce the size of the component containing each vertex, in vertex order. Self-links do not change a component. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nlinks is a square table of 0s and 1s. Points are numbered from 0. A 1 at links[a][b] joins points a and b in both directions. A 0 means no link. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nThis graph has two-way links between points. Points belong to the same group if you can travel between them, even through other points. Use union-find: start with one group per point, then join groups when a link connects them. For each point, count all points in its group, including itself. Record these counts in point order. A link from a point to itself does not make a larger group. A graph with no points gives an empty result list.\n\nStep 2: Return the answer\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWrite your function\nComplete cableFamiliesBossReceipt(links, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "This graph has two-way links between points. Points belong to the same group if you can travel between them, even through other points. Use union-find: start with one group per point, then join groups when a link connects them. For each point, count all points in its group, including itself. Record these counts in point order. A link from a point to itself does not make a larger group. A graph with no points gives an empty result list. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 16.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
-    "The adjacency matrix is square and has at most 16 vertices; binary entries are 0 or 1, weighted entries are 0 through 13.",
-    "Target time O(V^2 alpha(V)); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "The graph has at most 16 points. Its table has the same number of rows and columns. Link entries are 0 or 1; cost entries are 0 through 13.",
+    "Efficiency goal: time O(V^2 alpha(V)); extra memory, including the result list, O(n). n is the input length; V is the number of graph points. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with union-find components. What state describes the portion you have already processed?",
-    "links is a symmetric 0/1 adjacency matrix. Union every connected pair, then produce the size of the component containing each vertex, in vertex order. Self-links do not change a component. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. Use an accumulator and a one-based position counter, revisiting the first level's loop work."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "This graph has two-way links between points. Points belong to the same group if you can travel between them, even through other points. Use union-find: start with one group per point, then join groups when a link connects them. For each point, count all points in its group, including itself. Record these counts in point order. A link from a point to itself does not make a larger group. A graph with no points gives an empty result list. Keep track of the numbers or places you have already checked.",
+    "Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0. Check what to do if the result list is empty."
   ],
   "functionName": "cableFamiliesBossReceipt",
   "mode": "function",
   "starterCode": {
-    "javascript": "function cableFamiliesBossReceipt(links, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "typescript": "function cableFamiliesBossReceipt(links: number[][], k: number): number {\n  // Derive the sequence, then compute the requested receipt.\n  return 0;\n}\n",
-    "python": "def cableFamiliesBossReceipt(links, k):\n    # Derive the sequence, then compute the requested receipt.\n    return 0\n",
-    "java": "class Solution {\n  public int cableFamiliesBossReceipt(int[][] links, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return 0;\n  }\n}\n"
+    "javascript": "function cableFamiliesBossReceipt(links, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "typescript": "function cableFamiliesBossReceipt(links: number[][], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
+    "python": "def cableFamiliesBossReceipt(links, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
+    "java": "class Solution {\n  public int cableFamiliesBossReceipt(int[][] links, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -101,7 +101,7 @@
       ],
       "expected": 74,
       "coverage": "worked",
-      "explanation": "The derived sequence is [2,4,4,2,4,4]. Its weighted products are [2,8,12,8,20,24]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 74."
+      "explanation": "Step 1 gives the result list [2,4,4,2,4,4]. Multiply by positions that start at 1: 1 * (2) + 2 * (4) + 3 * (4) + 4 * (2) + 5 * (4) + 6 * (4) = 74. Return 74."
     },
     {
       "id": "path3-390-2",
@@ -147,7 +147,7 @@
       ],
       "expected": 38,
       "coverage": "worked",
-      "explanation": "The derived sequence is [3,2,3,3,2]. Its weighted products are [3,4,9,12,10]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 38."
+      "explanation": "Step 1 gives the result list [3,2,3,3,2]. Multiply by positions that start at 1: 1 * (3) + 2 * (2) + 3 * (3) + 4 * (3) + 5 * (2) = 38. Return 38."
     },
     {
       "id": "path3-390-3",
@@ -157,7 +157,7 @@
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Its weighted products are []. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 0."
+      "explanation": "Step 1 gives the result list []. There are no numbers to multiply or add, so return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -169,7 +169,7 @@
     "time": "O(V^2 alpha(V))",
     "space": "O(n)"
   },
-  "overview": "Boss · revisit: Union-find components. Level 0: loop accumulators",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 7,
     "unit": "cable-families",
@@ -235,7 +235,7 @@
       ],
       "expected": 74,
       "coverage": "worked",
-      "explanation": "The derived sequence is [2,4,4,2,4,4]. Its weighted products are [2,8,12,8,20,24]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 74."
+      "explanation": "Step 1 gives the result list [2,4,4,2,4,4]. Multiply by positions that start at 1: 1 * (2) + 2 * (4) + 3 * (4) + 4 * (2) + 5 * (4) + 6 * (4) = 74. Return 74."
     },
     {
       "id": "path3-390-2",
@@ -281,7 +281,7 @@
       ],
       "expected": 38,
       "coverage": "worked",
-      "explanation": "The derived sequence is [3,2,3,3,2]. Its weighted products are [3,4,9,12,10]. Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence. This gives 38."
+      "explanation": "Step 1 gives the result list [3,2,3,3,2]. Multiply by positions that start at 1: 1 * (3) + 2 * (2) + 3 * (3) + 4 * (3) + 5 * (2) = 38. Return 38."
     }
   ],
   "referenceSolutions": {
@@ -775,6 +775,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nlinks is a symmetric 0/1 adjacency matrix. Union every connected pair, then produce the size of the component containing each vertex, in vertex order. Self-links do not change a component.\n\nReturn the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(V^2 alpha(V)); space O(n).\n\njavascript\nfunction cableFamiliesBossReceipt(links, k) {\n  const a=links; let out=[];\n  const n=a.length,parent=Array.from({length:n},(_,i)=>i),size=Array(n).fill(1);function find(x){while(parent[x]!==x){parent[x]=parent[parent[x]];x=parent[x];}return x;}for(let u=0;u<n;u++)for(let v=u+1;v<n;v++)if(a[u][v]){let x=find(u),y=find(v);if(x!==y){if(size[x]<size[y])[x,y]=[y,x];parent[y]=x;size[x]+=size[y];}}out=parent.map((_,v)=>size[find(v)]);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction cableFamiliesBossReceipt(links: number[][], k: number): number {\n  const a=links; let out:number[]=[];\n  const n=a.length,parent=Array.from({length:n},(_,i)=>i),size=Array(n).fill(1);function find(x:number):number{while(parent[x]!==x){parent[x]=parent[parent[x]];x=parent[x];}return x;}for(let u=0;u<n;u++)for(let v=u+1;v<n;v++)if(a[u][v]){let x=find(u),y=find(v);if(x!==y){if(size[x]<size[y])[x,y]=[y,x];parent[y]=x;size[x]+=size[y];}}out=parent.map((_,v)=>size[find(v)]);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef cableFamiliesBossReceipt(links, k):\n    a=links\n    out=[]\n    n=len(a)\n    parent=list(range(n))\n    size=[1]*n\n    def find(x):\n        while parent[x]!=x:\n            parent[x]=parent[parent[x]]\n            x=parent[x]\n        return x\n    for u in range(n):\n        for v in range(u+1,n):\n            if a[u][v]:\n                x,y=find(u),find(v)\n                if x!=y:\n                    if size[x]<size[y]: x,y=y,x\n                    parent[y]=x\n                    size[x]+=size[y]\n    out=[size[find(v)] for v in range(n)]\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int cableFamiliesBossReceipt(int[][] links, int k) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;int[]parent=new int[n],size=new int[n];for(int v=0;v<n;v++){parent[v]=v;size[v]=1;}class DSU {int find(int x){while(parent[x]!=x){parent[x]=parent[parent[x]];x=parent[x];}return x;}}DSU d=new DSU();for(int u=0;u<n;u++)for(int v=u+1;v<n;v++)if(a[u][v]!=0){int x=d.find(u),y=d.find(v);if(x!=y){if(size[x]<size[y]){int t=x;x=y;y=t;}parent[y]=x;size[x]+=size[y];}}for(int v=0;v<n;v++)out.add(size[d.find(v)]);}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\nThis graph has two-way links between points. Points belong to the same group if you can travel between them, even through other points. Use union-find: start with one group per point, then join groups when a link connects them. For each point, count all points in its group, including itself. Record these counts in point order. A link from a point to itself does not make a larger group. A graph with no points gives an empty result list.\n\nReturn the answer\n\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(V^2 alpha(V)); extra memory, including the result list, O(n). n is the input length; V is the number of graph points. These labels describe how work and memory grow with the input.\n\njavascript\nfunction cableFamiliesBossReceipt(links, k) {\n  const a=links; let out=[];\n  const n=a.length,parent=Array.from({length:n},(_,i)=>i),size=Array(n).fill(1);function find(x){while(parent[x]!==x){parent[x]=parent[parent[x]];x=parent[x];}return x;}for(let u=0;u<n;u++)for(let v=u+1;v<n;v++)if(a[u][v]){let x=find(u),y=find(v);if(x!==y){if(size[x]<size[y])[x,y]=[y,x];parent[y]=x;size[x]+=size[y];}}out=parent.map((_,v)=>size[find(v)]);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction cableFamiliesBossReceipt(links: number[][], k: number): number {\n  const a=links; let out:number[]=[];\n  const n=a.length,parent=Array.from({length:n},(_,i)=>i),size=Array(n).fill(1);function find(x:number):number{while(parent[x]!==x){parent[x]=parent[parent[x]];x=parent[x];}return x;}for(let u=0;u<n;u++)for(let v=u+1;v<n;v++)if(a[u][v]){let x=find(u),y=find(v);if(x!==y){if(size[x]<size[y])[x,y]=[y,x];parent[y]=x;size[x]+=size[y];}}out=parent.map((_,v)=>size[find(v)]);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef cableFamiliesBossReceipt(links, k):\n    a=links\n    out=[]\n    n=len(a)\n    parent=list(range(n))\n    size=[1]*n\n    def find(x):\n        while parent[x]!=x:\n            parent[x]=parent[parent[x]]\n            x=parent[x]\n        return x\n    for u in range(n):\n        for v in range(u+1,n):\n            if a[u][v]:\n                x,y=find(u),find(v)\n                if x!=y:\n                    if size[x]<size[y]: x,y=y,x\n                    parent[y]=x\n                    size[x]+=size[y]\n    out=[size[find(v)] for v in range(n)]\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int cableFamiliesBossReceipt(int[][] links, int k) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;int[]parent=new int[n],size=new int[n];for(int v=0;v<n;v++){parent[v]=v;size[v]=1;}class DSU {int find(int x){while(parent[x]!=x){parent[x]=parent[parent[x]];x=parent[x];}return x;}}DSU d=new DSU();for(int u=0;u<n;u++)for(int v=u+1;v<n;v++)if(a[u][v]!=0){int x=d.find(u),y=d.find(v);if(x!=y){if(size[x]<size[y]){int t=x;x=y;y=t;}parent[y]=x;size[x]+=size[y];}}for(int v=0;v<n;v++)out.add(size[d.find(v)]);}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+  },
+  "parameterNames": [
+    "links",
+    "k"
+  ]
 }

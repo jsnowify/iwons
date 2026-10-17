@@ -373,11 +373,6 @@ kbd {
   font-family: var(--font-ui);
   font-weight: 700;
 }
-.footer {
-  font-size: 10px;
-  border-top: 1px dashed var(--ink);
-  padding-top: 20px;
-}
 .empty strong {
   font-size: 15px;
   font-family: var(--font-display);

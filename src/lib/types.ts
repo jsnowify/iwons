@@ -41,6 +41,7 @@ export interface Problem {
   complexity: { time: string; space: string };
   overview: string;
   javaParams: string[];
+  parameterNames?: string[];
   privateData?: PrivateProblem;
   unit?: string;
   stage?: string;

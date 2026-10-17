@@ -2,15 +2,9 @@
 import { create } from "zustand";
 import { persist, type PersistStorage } from "zustand/middleware";
 import { retainSubmissions } from "@/lib/retain-submissions";
-import {
-  emptyLearningState,
-  type LearningState,
-} from "@/lib/legacy-learning";
+import { emptyLearningState, type LearningState } from "@/lib/legacy-learning";
 import { storage, DATA_KEYS } from "@/lib/storage";
-import {
-  emptyLearnProgress,
-  type LearnProgress,
-} from "@/lib/legacy-learning";
+import { emptyLearnProgress, type LearnProgress } from "@/lib/legacy-learning";
 import type {
   Profile,
   Settings,

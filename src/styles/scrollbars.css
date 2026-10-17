@@ -7,3 +7,6 @@
 @supports selector(::-webkit-scrollbar) {
   * { scrollbar-width: auto; scrollbar-color: auto; }
 }
+
+/* Picker menus live in the browser top layer, so target their scrollbar too. */
+::picker(select) { overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--ink) var(--surface); }

@@ -16,30 +16,30 @@
   "prerequisites": [
     "path3-091"
   ],
-  "summary": "The input contains exactly two drawers. Produce the distinct readings present in both drawers, in increasing numeric order. Return the entire derived sequence, preserving its order.",
+  "summary": "Set intersection. Return the whole result list in the order you built it.",
   "stage": "Warm-up",
   "boss": false,
-  "descriptionMd": "Two departments have exchanged lists of reading tags for their shared equipment shelf. Ivo rolls a fresh proof strip into the office typewriter. The supervisor wants the readings in their precise working order before signing the file.\n\nThe input contains exactly two drawers. Produce the distinct readings present in both drawers, in increasing numeric order.\n\nReturn the entire derived sequence, preserving its order.\n\nImplement sharedDrawersProofStrip(drawers, k). k is part of the common inspection-card signature and does not affect this task's result.",
-  "unitIntro": "Set intersection. The input contains exactly two drawers. Produce the distinct readings present in both drawers, in increasing numeric order. Keep the sequence order specified here before computing the requested receipt. A scan invariant says what has been processed and what remains. Work through the proof strip first, then change the returned summary without changing the definition of that sequence. The last card revisits loop accumulators from Hello, Keys.",
+  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\ndrawers contains exactly two lists of numbers. The first list is drawers[0]; the second is drawers[1]. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\ndrawers contains two lists of numbers. Find the numbers that appear in both lists. Put each matching number in the result list only once. Sort the result list from smallest to largest.\n\nStep 2: Return the answer\nReturn the whole result list in the order you built it. If it is empty, return [].\n\nWrite your function\nComplete sharedDrawersProofStrip(drawers, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
+  "unitIntro": "drawers contains two lists of numbers. Find the numbers that appear in both lists. Put each matching number in the result list only once. Sort the result list from smallest to largest. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
   "constraints": [
     "0 <= input size <= 64 per row.",
-    "1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
-    "Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
+    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
     "The input has exactly two rows, each containing at most 64 integers.",
-    "Target time O(n + d log d); auxiliary space including the derived sequence O(n). n is the input length; d distinct values; q query count; M maximum reading; V vertices; E edges; h tree height; r reported tree nodes."
+    "Efficiency goal: time O(n + d log d); extra memory, including the result list, O(n). n is the combined length of the two lists; d is the number of different values. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Start with set intersection. What state describes the portion you have already processed?",
-    "The input contains exactly two drawers. Produce the distinct readings present in both drawers, in increasing numeric order. Derive each required reading once; do not restart the whole procedure for every output position.",
-    "Return the entire derived sequence, preserving its order. Handle the empty derived sequence according to the stated return rule."
+    "Try a small example by hand. Follow Step 1 and write down its result list.",
+    "drawers contains two lists of numbers. Find the numbers that appear in both lists. Put each matching number in the result list only once. Sort the result list from smallest to largest. Keep track of the numbers or places you have already checked.",
+    "Return the whole result list in the order you built it. If it is empty, return []. Check what to do if the result list is empty."
   ],
   "functionName": "sharedDrawersProofStrip",
   "mode": "function",
   "starterCode": {
-    "javascript": "function sharedDrawersProofStrip(drawers, k) {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
-    "typescript": "function sharedDrawersProofStrip(drawers: number[][], k: number): number[] {\n  // Derive the sequence, then compute the requested receipt.\n  return [];\n}\n",
-    "python": "def sharedDrawersProofStrip(drawers, k):\n    # Derive the sequence, then compute the requested receipt.\n    return []\n",
-    "java": "class Solution {\n  public int[] sharedDrawersProofStrip(int[][] drawers, int k) {\n    // Derive the sequence, then compute the requested receipt.\n    return new int[0];\n  }\n}\n"
+    "javascript": "function sharedDrawersProofStrip(drawers, k) {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
+    "typescript": "function sharedDrawersProofStrip(drawers: number[][], k: number): number[] {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
+    "python": "def sharedDrawersProofStrip(drawers, k):\n    # Build the result list, then return the answer from Step 2.\n    return []\n",
+    "java": "class Solution {\n  public int[] sharedDrawersProofStrip(int[][] drawers, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return new int[0];\n  }\n}\n"
   },
   "cases": [
     {
@@ -59,7 +59,7 @@
       ],
       "expected": [],
       "coverage": "worked",
-      "explanation": "The derived sequence is []. Return the entire derived sequence, preserving its order. This gives []."
+      "explanation": "Step 1 gives the result list []. Step 2 asks for that whole list, so return []."
     },
     {
       "id": "path3-101-2",
@@ -79,7 +79,7 @@
       ],
       "expected": [],
       "coverage": "worked",
-      "explanation": "The derived sequence is []. Return the entire derived sequence, preserving its order. This gives []."
+      "explanation": "Step 1 gives the result list []. Step 2 asks for that whole list, so return []."
     },
     {
       "id": "path3-101-3",
@@ -92,7 +92,7 @@
       ],
       "expected": [],
       "coverage": "empty",
-      "explanation": "The derived sequence is []. Return the entire derived sequence, preserving its order. This gives []."
+      "explanation": "Step 1 gives the result list []. Step 2 asks for that whole list, so return []."
     }
   ],
   "timeLimitMs": 2000,
@@ -104,7 +104,7 @@
     "time": "O(n + d log d)",
     "space": "O(n)"
   },
-  "overview": "Warm-up: Set intersection. Build the sequence once, then report exactly what the inspection card requests.",
+  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
   "tags": {
     "level": 2,
     "unit": "shared-drawers",
@@ -130,7 +130,7 @@
       ],
       "expected": [],
       "coverage": "worked",
-      "explanation": "The derived sequence is []. Return the entire derived sequence, preserving its order. This gives []."
+      "explanation": "Step 1 gives the result list []. Step 2 asks for that whole list, so return []."
     },
     {
       "id": "path3-101-2",
@@ -150,7 +150,7 @@
       ],
       "expected": [],
       "coverage": "worked",
-      "explanation": "The derived sequence is []. Return the entire derived sequence, preserving its order. This gives []."
+      "explanation": "Step 1 gives the result list []. Step 2 asks for that whole list, so return []."
     }
   ],
   "referenceSolutions": {
@@ -507,6 +507,10 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "The working idea\n\nThe input contains exactly two drawers. Produce the distinct readings present in both drawers, in increasing numeric order.\n\nReturn the entire derived sequence, preserving its order.\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time O(n + d log d); space O(n).\n\njavascript\nfunction sharedDrawersProofStrip(drawers, k) {\n  const a=drawers; let out=[];\n  const right=new Set(a[1]);out=[...new Set(a[0])].filter(x=>right.has(x)).sort((x,y)=>x-y);\n  return out;\n}\n\n\ntypescript\nfunction sharedDrawersProofStrip(drawers: number[][], k: number): number[] {\n  const a=drawers; let out:number[]=[];\n  const right=new Set(a[1]);out=[...new Set(a[0])].filter(x=>right.has(x)).sort((x,y)=>x-y);\n  return out;\n}\n\n\npython\ndef sharedDrawersProofStrip(drawers, k):\n    a=drawers\n    out=[]\n    out=sorted(set(a[0]) & set(a[1]))\n    return out\n\n\njava\nclass Solution {\n  public int[] sharedDrawersProofStrip(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {Set<Integer>right=new HashSet<>();for(int x:a[1])right.add(x);Set<Integer>both=new TreeSet<>();for(int x:a[0])if(right.contains(x))both.add(x);out.addAll(both);}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
-  }
+    "editorialMd": "Build the result list\n\ndrawers contains two lists of numbers. Find the numbers that appear in both lists. Put each matching number in the result list only once. Sort the result list from smallest to largest.\n\nReturn the answer\n\nReturn the whole result list in the order you built it. If it is empty, return [].\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n + d log d); extra memory, including the result list, O(n). n is the combined length of the two lists; d is the number of different values. These labels describe how work and memory grow with the input.\n\njavascript\nfunction sharedDrawersProofStrip(drawers, k) {\n  const a=drawers; let out=[];\n  const right=new Set(a[1]);out=[...new Set(a[0])].filter(x=>right.has(x)).sort((x,y)=>x-y);\n  return out;\n}\n\n\ntypescript\nfunction sharedDrawersProofStrip(drawers: number[][], k: number): number[] {\n  const a=drawers; let out:number[]=[];\n  const right=new Set(a[1]);out=[...new Set(a[0])].filter(x=>right.has(x)).sort((x,y)=>x-y);\n  return out;\n}\n\n\npython\ndef sharedDrawersProofStrip(drawers, k):\n    a=drawers\n    out=[]\n    out=sorted(set(a[0]) & set(a[1]))\n    return out\n\n\njava\nclass Solution {\n  public int[] sharedDrawersProofStrip(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {Set<Integer>right=new HashSet<>();for(int x:a[1])right.add(x);Set<Integer>both=new TreeSet<>();for(int x:a[0])if(right.contains(x))both.add(x);out.addAll(both);}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+  },
+  "parameterNames": [
+    "drawers",
+    "k"
+  ]
 }
