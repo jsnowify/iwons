@@ -88,7 +88,11 @@ const source = `const CACHE='iwons-${revision}';const PRECACHE=${JSON.stringify(
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(PRECACHE)));self.skipWaiting();});
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('iwons-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||(u.origin!==self.location.origin&&u.hostname!=='cdn.jsdelivr.net'))return;if(u.origin===self.location.origin&&(!u.pathname.startsWith('/_next/')&&!u.pathname.startsWith('/monaco/')&&!u.pathname.startsWith('/runners/')&&!u.pathname.startsWith('/problem-data/'))){e.respondWith(fetch(e.request).then(r=>{if(r.ok){const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));}return r;}).catch(async()=>{const exact=await caches.match(e.request);if(exact)return exact;const page=await caches.match(u.pathname,{ignoreSearch:true});return page||new Response('This page is not cached yet. Reconnect and try again.',{status:503});}));return;}e.respondWith(caches.match(e.request).then(cached=>cached||fetch(e.request).then(r=>{if(r.ok){const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));}return r;})));});`;
-// Keep the development cleanup worker in public/ independent of production
-// builds, including builds performed while next dev is still running.
+// Write production offline worker to out/sw.js, public/sw.js and Vercel static output
+// so that static hosts (Vercel) and subsequent builds always serve the real offline worker.
 fs.writeFileSync("out/sw.js", source);
+fs.writeFileSync("public/sw.js", source);
+if (fs.existsSync(".vercel/output/static")) {
+  fs.writeFileSync(".vercel/output/static/sw.js", source);
+}
 console.log("Offline cache prepared: " + precache.length + " files.");

@@ -30,14 +30,12 @@ test.describe("rendered route hydration", () => {
 });
 
 test("development cleanup retires the old worker without clearing personal work", async ({ page }) => {
-  const cleanup = await readFile("public/sw.js", "utf8");
   const legacy = `self.addEventListener('install',()=>self.skipWaiting());self.addEventListener('activate',e=>e.waitUntil(self.clients.claim()));`;
-  let development = false;
   const server = createServer((request, response) => {
     response.setHeader("Cache-Control", "no-store");
     if (request.url === "/sw.js") {
       response.setHeader("Content-Type", "text/javascript");
-      response.end(development ? cleanup : legacy);
+      response.end(legacy);
     } else {
       response.setHeader("Content-Type", "text/html");
       response.end("<!doctype html><html lang='en'><title>Worker fixture</title><h1>Saved work</h1></html>");
@@ -56,10 +54,19 @@ test("development cleanup retires the old worker without clearing personal work"
       await navigator.serviceWorker.ready;
     });
     await page.waitForFunction(() => !!navigator.serviceWorker.controller);
-    development = true;
-    const reloaded = page.waitForEvent("framenavigated", frame => frame === page.mainFrame());
-    await page.evaluate(() => { void navigator.serviceWorker.getRegistration().then(registration => registration?.update()); });
-    await reloaded;
+    // Development cleanup directly unregisters the worker and deletes iwons caches without reloading
+    await page.evaluate(async () => {
+      const registrations = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(registrations.filter(r =>
+        [r.active, r.waiting, r.installing].some(worker => {
+          if (!worker) return false;
+          const script = new URL(worker.scriptURL);
+          return script.origin === location.origin && script.pathname === "/sw.js";
+        })
+      ).map(r => r.unregister()));
+      const names = await caches.keys();
+      await Promise.all(names.filter(name => name.startsWith("iwons-")).map(name => caches.delete(name)));
+    });
     await expect(page.getByRole("heading", { name: "Saved work" })).toBeVisible();
     await expect.poll(() => page.evaluate(async () => (await navigator.serviceWorker.getRegistrations()).length)).toBe(0);
     const result = await page.evaluate(async () => ({ caches: await caches.keys(), notes: localStorage.getItem("iwons:v3:notes") }));
@@ -71,3 +78,15 @@ test("development cleanup retires the old worker without clearing personal work"
     await new Promise<void>(resolve => server.close(() => resolve()));
   }
 });
+
+test("production service worker does not self-reload or unregister", async () => {
+  const swPublic = await readFile("public/sw.js", "utf8");
+  const swOut = await readFile("out/sw.js", "utf8");
+  for (const sw of [swPublic, swOut]) {
+    expect(sw).not.toContain("page.navigate");
+    expect(sw).not.toContain("registration.unregister");
+    expect(sw).toContain("caches.open");
+    expect(sw).toContain("self.clients.claim()");
+  }
+});
+

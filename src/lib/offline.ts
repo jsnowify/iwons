@@ -6,13 +6,17 @@ export async function configureOffline(production: boolean, signal: AbortSignal)
   }
   const registrations = await navigator.serviceWorker.getRegistrations();
   if (signal.aborted) return;
-  // public/sw.js is a cleanup worker in development. Updating an existing
-  // registration replaces stale production caches and refreshes its clients.
+  // In development, unregister any existing service worker and remove stale caches
+  // directly without reloading the page or needing a separate cleanup worker.
   await Promise.all(registrations.filter(registration =>
     [registration.active, registration.waiting, registration.installing].some(worker => {
       if (!worker) return false;
       const script = new URL(worker.scriptURL);
       return script.origin === location.origin && script.pathname === "/sw.js";
     }),
-  ).map(registration => registration.update()));
+  ).map(registration => registration.unregister()));
+  if (typeof caches !== "undefined") {
+    const names = await caches.keys();
+    await Promise.all(names.filter(name => name.startsWith("iwons-")).map(name => caches.delete(name)));
+  }
 }

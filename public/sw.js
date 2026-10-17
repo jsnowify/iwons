@@ -1,14 +1,4 @@
-// Development cleanup only. The build generates the offline worker in out/sw.js.
-self.addEventListener("install", () => self.skipWaiting());
-self.addEventListener("activate", event => {
-  event.waitUntil((async () => {
-    const names = await caches.keys();
-    await Promise.all(names.filter(name => name.startsWith("iwons-")).map(name => caches.delete(name)));
-    await self.clients.claim();
-    const pages = await self.clients.matchAll({ type: "window" });
-    await self.registration.unregister();
-    // Reload once with fresh development HTML and chunks. Personal work lives
-    // in localStorage; existing pagehide handlers flush open editor drafts.
-    await Promise.allSettled(pages.map(page => page.navigate(page.url)));
-  })());
-});
+const CACHE='iwons-mvbwbf7m';const PRECACHE=["/about/","/icon.svg","/","/manifest.webmanifest","/path/0/","/path/","/_next/static/chunks/01s_f_3qlcqtb.js","/_next/static/chunks/0cz1d0mv5g_q7.js","/_next/static/chunks/0ffu9yvfjy9fk.js","/_next/static/chunks/0zmsmzurrasnx.js","/_next/static/chunks/1o5j99eqrefn6.js","/_next/static/chunks/1x6obpmlu1_c2.js","/_next/static/chunks/25t1x48qnqqb1.css","/_next/static/chunks/2gjjiklm1jms_.js","/_next/static/chunks/2kzd2bib-2ux6.js","/_next/static/chunks/3436d2vzpktgd.js","/_next/static/chunks/42wta-g9kv-4-.css","/_next/static/chunks/turbopack-2c3mg3r-05n1w.js","/_next/static/media/03bda585a99c6450-s.p.32sris142tqlb.woff2","/_next/static/media/5f440d3eea613716-s.p.1xmps1tcyqv34.woff2","/_next/static/media/87d3ffffac5dafea-s.p.3a10o7es2neby.woff2"];
+self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(PRECACHE)));self.skipWaiting();});
+self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('iwons-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||(u.origin!==self.location.origin&&u.hostname!=='cdn.jsdelivr.net'))return;if(u.origin===self.location.origin&&(!u.pathname.startsWith('/_next/')&&!u.pathname.startsWith('/monaco/')&&!u.pathname.startsWith('/runners/')&&!u.pathname.startsWith('/problem-data/'))){e.respondWith(fetch(e.request).then(r=>{if(r.ok){const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));}return r;}).catch(async()=>{const exact=await caches.match(e.request);if(exact)return exact;const page=await caches.match(u.pathname,{ignoreSearch:true});return page||new Response('This page is not cached yet. Reconnect and try again.',{status:503});}));return;}e.respondWith(caches.match(e.request).then(cached=>cached||fetch(e.request).then(r=>{if(r.ok){const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));}return r;})));});

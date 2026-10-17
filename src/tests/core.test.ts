@@ -137,3 +137,53 @@ describe("problem authoring", () => {
     expect(() => validateProblem({ title: "x" })).toThrow();
   });
 });
+
+describe("offline service worker configuration", () => {
+  it("unregisters stale sw.js and deletes iwons caches in development without touching other apps", async () => {
+    const unregisterMock = vi.fn().mockResolvedValue(true);
+    const foreignUnregister = vi.fn().mockResolvedValue(true);
+    const deleteCacheMock = vi.fn().mockResolvedValue(true);
+    const mockWorker = { scriptURL: "http://localhost:3000/sw.js" };
+    const foreignWorker = { scriptURL: "http://localhost:3000/foreign-sw.js" };
+
+    vi.stubGlobal("location", { origin: "http://localhost:3000" });
+    vi.stubGlobal("navigator", {
+      serviceWorker: {
+        register: vi.fn(),
+        getRegistrations: vi.fn().mockResolvedValue([
+          { active: mockWorker, unregister: unregisterMock },
+          { active: foreignWorker, unregister: foreignUnregister },
+        ]),
+      },
+    });
+    vi.stubGlobal("caches", {
+      keys: vi.fn().mockResolvedValue(["iwons-old-cache", "another-app"]),
+      delete: deleteCacheMock,
+    });
+
+    const controller = new AbortController();
+    const { configureOffline } = await import("@/lib/offline");
+    await configureOffline(false, controller.signal);
+
+    expect(unregisterMock).toHaveBeenCalled();
+    expect(foreignUnregister).not.toHaveBeenCalled();
+    expect(deleteCacheMock).toHaveBeenCalledWith("iwons-old-cache");
+    expect(deleteCacheMock).not.toHaveBeenCalledWith("another-app");
+  });
+
+  it("registers /sw.js in production mode", async () => {
+    const registerMock = vi.fn().mockResolvedValue({});
+    vi.stubGlobal("navigator", {
+      serviceWorker: {
+        register: registerMock,
+      },
+    });
+
+    const controller = new AbortController();
+    const { configureOffline } = await import("@/lib/offline");
+    await configureOffline(true, controller.signal);
+
+    expect(registerMock).toHaveBeenCalledWith("/sw.js");
+  });
+});
+

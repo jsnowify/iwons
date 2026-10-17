@@ -52,6 +52,7 @@ export const metadata: Metadata = {
   },
   description:
     "An original coding adventure, one keystroke at a time. Start the Iwons Path with 500 original challenges in JavaScript, TypeScript, Python, and Java.",
+  verification: { google: "iB53T08hbGrfdsAmrKTVhocsuFV5rgOwT5imiFu2Iu8" },
   manifest: "/manifest.webmanifest",
   openGraph: {
     title: "Iwons — Type it. Test it. Own it.",
