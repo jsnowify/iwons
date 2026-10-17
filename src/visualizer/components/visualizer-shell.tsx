@@ -195,8 +195,8 @@ export function VisualizerShell({ algorithm }: VisualizerShellProps) {
   // Randomize Handler
   const handleRandomize = () => {
     setInputError(null);
-    if (algorithm.inputKind === 'numbers') {
-      const randomArr = generateRandomNumbers(8, 10, 95, Math.floor(Math.random() * 10000) + 1);
+    if (algorithm.inputKind === 'numbers' || algorithm.inputKind === 'tree') {
+      const randomArr = generateRandomNumbers(7, 10, 95, Math.floor(Math.random() * 10000) + 1);
       const newSteps = computeSteps(randomArr);
       dispatch({ type: 'SET_STEPS', steps: newSteps });
     } else if (algorithm.inputKind === 'target-and-numbers') {
@@ -213,8 +213,8 @@ export function VisualizerShell({ algorithm }: VisualizerShellProps) {
   const handleApplyCustomInput = (rawText: string) => {
     setInputError(null);
     try {
-      if (algorithm.inputKind === 'numbers') {
-        const parsed = parseNumberList(rawText);
+      if (algorithm.inputKind === 'numbers' || algorithm.inputKind === 'tree') {
+        const parsed = parseNumberList(rawText, 1, 15);
         if (!parsed.success || !parsed.value) {
           setInputError(parsed.error ?? 'Invalid numbers.');
           return;

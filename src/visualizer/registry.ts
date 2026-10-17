@@ -980,6 +980,12 @@ export const ALGO_LOADERS: Record<
 
   // Engine 5: Tree & Heap
   "binary-tree-inorder": () => import("./algorithms/trees/binary-tree-inorder"),
+  "binary-tree-preorder": () => import("./algorithms/trees/binary-tree-preorder"),
+  "binary-tree-postorder": () => import("./algorithms/trees/binary-tree-postorder"),
+  "binary-tree-level-order": () => import("./algorithms/trees/binary-tree-level-order"),
+  "bst-search-insert": () => import("./algorithms/trees/bst-search-insert"),
+  "avl-tree-rotations": () => import("./algorithms/trees/avl-tree-rotations"),
+  "binary-heap-operations": () => import("./algorithms/heaps/binary-heap-operations"),
 
   // Engine 6: Nodes & Arrows
   "reverse-linked-list": () =>

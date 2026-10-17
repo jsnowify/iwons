@@ -227,8 +227,8 @@ export function VisualizerDock({
           </div>
         )}
 
-        {/* Randomize Button for numeric/array algorithms */}
-        {(inputKind === 'numbers' || inputKind === 'target-and-numbers') && (
+        {/* Randomize Button for numeric/array/tree algorithms */}
+        {(inputKind === 'numbers' || inputKind === 'target-and-numbers' || inputKind === 'tree') && (
           <button
             type="button"
             className="dock-btn secondary randomize-btn"
@@ -253,7 +253,7 @@ export function VisualizerDock({
             placeholder={
               inputKind === 'target-and-numbers'
                 ? 'Target | 10, 20, 30...'
-                : inputKind === 'numbers'
+                : inputKind === 'numbers' || inputKind === 'tree'
                 ? 'e.g. 45, 12, 85, 32...'
                 : inputKind === 'pattern-match'
                 ? 'Text | Pattern'

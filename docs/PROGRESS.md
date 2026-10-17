@@ -14,14 +14,14 @@ Active Goal: Rebuild Iwons Visualizer into a unified system powered by 6 reusabl
 | **Phase V4** | Engine 2: Array & Pointers | **Done** | 17 algorithms (Linear, Binary, Jump, Interpolation, Exponential, Ternary Search; Two Pointers, Fast & Slow, Sliding Window Fixed/Variable, Prefix Sum, Kadane, Dutch Flag, Boyer-Moore; KMP, Rabin-Karp, Z-Algorithm). 30 unit tests in `src/tests/array-algorithms.test.ts`. |
 | **Phase V5** | Engine 3: Grid & Table | **Done** | 9 algorithms (Fibonacci, 0/1 Knapsack, LCS, Edit Distance, Coin Change, Grid Unique Paths, Matrix Spiral, N-Queens, Sudoku Solver). Traceback paths, 19 unit tests in `src/tests/grid-algorithms.test.ts`. |
 | **Phase V6** | Engine 4: Graph | **Done** | 7 algorithms (BFS, DFS, Dijkstra, Bellman-Ford, Kruskal, Prim, Kahn's Topological Sort). Circular SVG layouts, priority queues, 16 unit tests in `src/tests/graph-algorithms.test.ts`. |
-| **Phase V7** | Engine 5: Tree & Heap | **In Progress** | Tree traversals, BST search/insert, AVL rotations, and Binary Heap operations. |
-| **Phase V8** | Engine 6: Nodes & Arrows | Pending | 18 linked list, stack/queue, hash table, and LRU cache algorithms. |
+| **Phase V7** | Engine 5: Tree & Heap | **Done** | 7 algorithms (Inorder, Preorder, Postorder, BFS Level-Order, BST Search & Insert, AVL Self-Balancing, Binary Heap Operations). Knuth inorder layout, 18 unit & oracle tests in `src/tests/tree-algorithms.test.ts`. |
+| **Phase V8** | Engine 6: Nodes & Arrows | Pending | Linked list, stack/queue, hash table, and LRU cache algorithms. |
 | **Phase V9** | Remaining Topics | Pending | 25+ greedy, divide-and-conquer, bit manipulation, and math algorithms. |
 | **Phase V10** | Library Catalog & Integration | Pending | `/visualizer/` catalog, `/visualizer/[slug]/` routes, Path "Visualize this" links. |
 | **Phase V11** | Performance, a11y & Verification | Pending | Bundle budget, Lighthouse runtime audits, accessibility, Playwright smoke suite. |
 | **Phase V12** | Senior QA & Principal Review | Pending | Oracle testing (200+ seeded random inputs), property test invariants, visual diffs, `docs/VISUALIZER_REPORT.md`. |
 
 ## Blockers
-None. Next.js 16.4.1 Turbopack build, unit test suite (708 passing), and typecheck all green.
+None. Next.js 16.4.1 Turbopack build, unit test suite (726 passing), typecheck, and lint all green.
 
-NEXT ACTION: Implement Phase V7: Engine 5 (Tree & Heap) algorithms library: Inorder, Preorder, Postorder Traversals; Binary Search Tree (BST) Search and Insertion; AVL Tree Rotations; Binary Heap (Insert, Extract-Min, Heapify with synchronized Tree + Array view), and tree oracle tests.
+NEXT ACTION: Implement Phase V8: Engine 6 (Nodes & Arrows) algorithms library: Singly & Doubly Linked Lists (Reverse, Middle, Detect Cycle Floyd), Stack operations, Queue operations, Hash Table Separate Chaining, and LRU Cache eviction, with dual-oracle tests.
