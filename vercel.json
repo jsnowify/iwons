@@ -1,22 +1,47 @@
 {
   "redirects": [
     {
-      "source": "/learn/:path*",
+      "source": "/learn",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/:locale(tl|ceb)/:section(path|problems|dashboard|submissions|progress|review|lists|plans|contest|settings|about|visualizer|warm-up|topics)/:path*",
-      "destination": "/:section/:path*/",
-      "permanent": true
-    },
-    {
-      "source": "/tl/:path*",
+      "source": "/learn/",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/ceb/:path*",
+      "source": "/learn/:path+",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(tl|ceb)/:section(path|problems|dashboard|submissions|progress|review|lists|plans|contest|settings|about|visualizer|warm-up|topics)",
+      "destination": "/:section/",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(tl|ceb)/:section(path|problems|dashboard|submissions|progress|review|lists|plans|contest|settings|about|visualizer|warm-up|topics)/",
+      "destination": "/:section/",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(tl|ceb)/:section(path|problems|dashboard|submissions|progress|review|lists|plans|contest|settings|about|visualizer|warm-up|topics)/:path+",
+      "destination": "/:section/:path+/",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(tl|ceb)",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(tl|ceb)/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(tl|ceb)/:path*",
       "destination": "/",
       "permanent": true
     },

@@ -52,15 +52,39 @@ export const metadata: Metadata = {
   },
   description:
     "An original coding adventure, one keystroke at a time. Start the Iwons Path with 500 original challenges in JavaScript, TypeScript, Python, and Java.",
-  verification: { google: "iB53T08hbGrfdsAmrKTVhocsuFV5rgOwT5imiFu2Iu8" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  verification: {
+    google: "iB53T08hbGrfdsAmrKTVhocsuFV5rgOwT5imiFu2Iu8",
+    ...(process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { other: { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION } }
+      : {}),
+  },
   manifest: "/manifest.webmanifest",
   openGraph: {
     title: "Iwons — Type it. Test it. Own it.",
     description: "Build the habit. Learn the patterns. Own every solve.",
+    url: `${siteUrl}/`,
+    siteName: "Iwons",
+    locale: "en_US",
     type: "website",
-    images: [ogImage("home")],
+    images: [{ url: `${siteUrl}${ogImage("home")}`, width: 1200, height: 630, alt: "Iwons coding practice adventure" }],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Iwons — Type it. Test it. Own it.",
+    description: "Build the habit. Learn the patterns. Own every solve.",
+    images: [`${siteUrl}${ogImage("home")}`],
+  },
   icons: { icon: "/icon.svg", apple: "/icons/192/" },
 };
 export const viewport: Viewport = {

@@ -1,0 +1,36 @@
+# Iwons
+
+> An original coding adventure, one keystroke at a time. Practice 500 challenges across 9 chapters and 54 units in JavaScript, TypeScript, Python, and Java. Built by Snowi (https://snowi-cambronero.vercel.app/).
+
+Iwons is a browser-only, privacy-preserving coding practice platform. There is no application backend or remote database; all personal progress, submissions, and code remain in the user's browser localStorage.
+
+## Main Navigation & Curricula
+
+- [Home](https://iwons.vercel.app/): Overview of the Iwons platform, methodology, and starting points.
+- [The Path](https://iwons.vercel.app/path/): The core curriculum structured into 9 chapters and 54 units.
+- [Problems Catalog](https://iwons.vercel.app/problems/): Searchable index of 500 original algorithmic coding exercises.
+- [Algorithm Visualizer](https://iwons.vercel.app/visualizer/): Interactive workbench powered by 6 SVG engines visualizing 67 data structures and algorithms.
+- [Study Plans](https://iwons.vercel.app/plans/): Curated practice tracks and schedules.
+- [About Iwons](https://iwons.vercel.app/about/): Philosophy, honest progress tracking, and runtime architecture.
+- [Personal Desk](https://iwons.vercel.app/dashboard/): Local workspace and recent problem history.
+- [Progress Tracker](https://iwons.vercel.app/progress/): Chapter completion statistics and learning metrics.
+- [Daily Warm-up](https://iwons.vercel.app/warm-up/): Spaced repetition practice queue.
+- [Contest Mode](https://iwons.vercel.app/contest/): Timed competitive practice sprints.
+
+## The 9 Chapters of the Iwons Path
+
+- [Chapter 1: Hello, Keys](https://iwons.vercel.app/path/0/): Variables, expressions, conditionals, loop accumulators, and helper functions (30 challenges).
+- [Chapter 2: Typebars](https://iwons.vercel.app/path/1/): Adjacent positions, string runs, stable array filtering, and string scanning (50 challenges).
+- [Chapter 3: Roller & Platen](https://iwons.vercel.app/path/2/): Frequency counting, key normalization, two-pointer rendezvous, and sliding windows (50 challenges).
+- [Chapter 4: Ribbon & Spool](https://iwons.vercel.app/path/3/): Substring matches, prefix sums, binary search variants, and fast/slow pointers (50 challenges).
+- [Chapter 5: Line Space Lever](https://iwons.vercel.app/path/4/): Stacks, queues, monotonicity, and recursion foundations (50 challenges).
+- [Chapter 6: Carriage Return](https://iwons.vercel.app/path/5/): Linked node traversal, reversals, merge patterns, and node removals (50 challenges).
+- [Chapter 7: Shift Lock](https://iwons.vercel.app/path/6/): Binary trees, traversals, binary search trees, and heaps (70 challenges).
+- [Chapter 8: Bell & Margin](https://iwons.vercel.app/path/7/): Graph representation, BFS, DFS, and topological sorting (70 challenges).
+- [Chapter 9: Escapement](https://iwons.vercel.app/path/8/): Dynamic programming, memoization, interval scheduling, and backtracking (80 challenges).
+
+## Technical Runtimes & Safety
+
+User code executes exclusively inside dedicated Web Workers with termination timeouts. No user code is ever executed on the main thread or sent to any remote server.
+JavaScript and TypeScript execute with self-hosted Sucrase and V8 runtimes. Python executes with browser-side WebAssembly via Pyodide. Java mode requires an explicitly configured external runtime endpoint.
+

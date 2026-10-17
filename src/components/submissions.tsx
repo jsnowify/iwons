@@ -116,6 +116,7 @@ export function SubmissionDetail({problems}:{problems:CatalogEntry[]}) {
   if (!store.hydrated)
     return (
       <div className="content">
+        <h1 className="sr-only">Submission detail</h1>
         <div className="skeleton" style={{ height: 240 }} />
       </div>
     );

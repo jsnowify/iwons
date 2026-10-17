@@ -335,6 +335,7 @@ export function CustomWorkspace() {
   if (!store.hydrated)
     return (
       <div className="content">
+        <h1 className="sr-only">Custom problem workspace</h1>
         <div className="skeleton" style={{ height: 200 }} />
       </div>
     );

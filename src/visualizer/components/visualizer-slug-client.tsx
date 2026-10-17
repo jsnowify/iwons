@@ -47,10 +47,47 @@ export function VisualizerSlugClient({ slug }: VisualizerSlugClientProps) {
 
   if (loading) {
     return (
-      <div className="visualizer-loading-state" style={{ padding: '60px 20px', textAlign: 'center' }}>
-        <Loader2 className="animate-spin" size={32} style={{ margin: '0 auto 16px', color: 'var(--accent)' }} />
-        <h2 style={{ fontSize: '18px', fontWeight: 800 }}>Loading {meta?.name ?? slug}...</h2>
-        <p style={{ color: 'var(--muted)', fontSize: '13px' }}>Precomputing steps and preparing interactive stage.</p>
+      <div className="visualizer-shell visualizer-loading-shell">
+        <header className="visualizer-top-bar" aria-label="Visualizer header">
+          <div className="top-bar-left">
+            <Link href="/visualizer/" className="back-library-link" aria-label="Back to Algorithm Library">
+              <ArrowLeft size={16} aria-hidden="true" />
+              <span>Library</span>
+            </Link>
+            <span className="top-bar-divider" aria-hidden="true">/</span>
+            <h1 className="algorithm-heading">{meta?.name ?? slug}</h1>
+            {meta && (
+              <span className="category-chip" data-category={meta.category}>
+                {meta.category.replace(/-/g, ' ')}
+              </span>
+            )}
+          </div>
+          {meta && (
+            <div className="top-bar-right" aria-label="Algorithm complexity">
+              <div className="complexity-chips">
+                <span className="complexity-chip best" title="Best-case time complexity">
+                  <small>Best</small> <strong>{meta.complexity.best}</strong>
+                </span>
+                <span className="complexity-chip avg" title="Average time complexity">
+                  <small>Avg</small> <strong>{meta.complexity.average}</strong>
+                </span>
+                <span className="complexity-chip worst" title="Worst-case time complexity">
+                  <small>Worst</small> <strong>{meta.complexity.worst}</strong>
+                </span>
+                <span className="complexity-chip space" title="Space complexity">
+                  <small>Space</small> <strong>{meta.complexity.space}</strong>
+                </span>
+              </div>
+            </div>
+          )}
+        </header>
+        <div className="visualizer-loading-state" style={{ padding: '60px 20px', textAlign: 'center' }}>
+          <Loader2 className="animate-spin" size={32} style={{ margin: '0 auto 16px', color: 'var(--accent)' }} />
+          <h2 style={{ fontSize: '18px', fontWeight: 800 }}>Preparing {meta?.name ?? slug}...</h2>
+          <p style={{ color: 'var(--muted)', fontSize: '13px', maxWidth: '600px', margin: '8px auto' }}>
+            {meta?.blurb ?? 'Precomputing steps and preparing interactive stage.'}
+          </p>
+        </div>
       </div>
     );
   }

@@ -54,12 +54,22 @@ export default async function ProblemPage({
       learningResourceType: "Coding exercise",
       url: `${site}/problems/${p.slug}/`,
       keywords: [...p.topics, ...p.patterns].join(", "),
+      teaches: [...p.topics, ...p.patterns].join(", "),
+      inLanguage: "en",
+      isAccessibleForFree: true,
+      author: {
+        "@type": "Person",
+        name: "Snowi",
+        url: "https://snowi-cambronero.vercel.app/",
+      },
+      datePublished: "2026-10-16T00:00:00.000Z",
+      dateModified: "2026-10-17T00:00:00.000Z",
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Iwons", item: site },
+        { "@type": "ListItem", position: 1, name: "Home", item: `${site}/` },
         {
           "@type": "ListItem",
           position: 2,

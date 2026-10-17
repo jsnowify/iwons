@@ -133,3 +133,4 @@ Tested with live HTTP requests to `https://iwons.vercel.app/`:
    - Path, Levels, and Topics missing `BreadcrumbList`.
    - Visualizer missing `ItemList` and `LearningResource`.
 8. **AI Crawlers (`llms.txt`):** No `llms.txt` file exists at the root.
+

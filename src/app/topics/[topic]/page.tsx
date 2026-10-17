@@ -20,6 +20,8 @@ export async function generateMetadata({
     alternates: { canonical: `/topics/${topic}/` },
   };
 }
+import { siteUrl } from "@/lib/site-url";
+
 export default async function Topic({
   params,
 }: {
@@ -28,5 +30,38 @@ export default async function Topic({
   const { topic } = await params;
   const t = topics.find((t) => topicSlug(t) === topic);
   if (!t) notFound();
-  return <ProblemList problems={problems.map(({id,slug,title,difficulty,level,topics,patterns,unit,stage,boss,revisit,summary,order})=>({id,slug,title,difficulty,level,topics,patterns,unit,stage,boss,revisit,summary,order}))} initialTopic={t} />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: `${siteUrl}/`,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Problems",
+                item: `${siteUrl}/problems/`,
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: t,
+                item: `${siteUrl}/topics/${topic}/`,
+              },
+            ],
+          }),
+        }}
+      />
+      <ProblemList problems={problems.map(({id,slug,title,difficulty,level,topics,patterns,unit,stage,boss,revisit,summary,order})=>({id,slug,title,difficulty,level,topics,patterns,unit,stage,boss,revisit,summary,order}))} initialTopic={t} />
+    </>
+  );
 }

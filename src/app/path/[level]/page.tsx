@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getLevels, getLevel, getProblems } from "@/lib/problems";
 import { LevelAccess } from "@/components/path-map";
 import unitData from "@/data/units.json";
+import { siteUrl } from "@/lib/site-url";
 export const dynamicParams = false;
 export function generateStaticParams() {
   return getLevels().map((l) => ({ level: String(l.id) }));
@@ -36,6 +37,35 @@ export default async function Page({
   const problems = getProblems().filter((p) => p.level === l.id);
   return (
     <div className="content">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: `${siteUrl}/`,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "The Path",
+                item: `${siteUrl}/path/`,
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: `Chapter ${l.id + 1}: ${l.name}`,
+                item: `${siteUrl}/path/${l.id}/`,
+              },
+            ],
+          }),
+        }}
+      />
       <Link href="/path/" className="text-link" style={{ marginBottom: 24 }}>
         <ArrowLeft size={12} />
         The whole Path
