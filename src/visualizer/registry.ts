@@ -968,8 +968,15 @@ export const ALGO_LOADERS: Record<
   "n-queens": () => import("./algorithms/backtracking/n-queens"),
   "sudoku-solver": () => import("./algorithms/backtracking/sudoku-solver"),
 
-  // Engine 4: Graph
+  // Engine 4: Graph (7 Algorithms - BFS, DFS, Shortest Paths, MST, TopoSort)
   "bfs-graph": () => import("./algorithms/graphs/bfs-graph"),
+  "dfs-graph": () => import("./algorithms/graphs/dfs-graph"),
+  dijkstra: () => import("./algorithms/graphs/dijkstra"),
+  "bellman-ford": () => import("./algorithms/graphs/bellman-ford"),
+  "kruskal-mst": () => import("./algorithms/graphs/kruskal-mst"),
+  "prim-mst": () => import("./algorithms/graphs/prim-mst"),
+  "topological-sort-kahns": () =>
+    import("./algorithms/graphs/topological-sort-kahns"),
 
   // Engine 5: Tree & Heap
   "binary-tree-inorder": () => import("./algorithms/trees/binary-tree-inorder"),

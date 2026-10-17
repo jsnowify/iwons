@@ -13,8 +13,8 @@ Active Goal: Rebuild Iwons Visualizer into a unified system powered by 6 reusabl
 | **Phase V3** | Engine 1: Bars (Sorting) | **Done** | 16 sorting algorithms (Bubble, Selection, Insertion, Merge, Quick, Heap, Counting, Radix, Bucket, Shell, Cocktail Shaker, Comb, Gnome, Tim Sort, Cycle Sort, Pancake Sort). Live counters, auxiliary stages, 65 unit tests in `src/tests/sorting-algorithms.test.ts`. |
 | **Phase V4** | Engine 2: Array & Pointers | **Done** | 17 algorithms (Linear, Binary, Jump, Interpolation, Exponential, Ternary Search; Two Pointers, Fast & Slow, Sliding Window Fixed/Variable, Prefix Sum, Kadane, Dutch Flag, Boyer-Moore; KMP, Rabin-Karp, Z-Algorithm). 30 unit tests in `src/tests/array-algorithms.test.ts`. |
 | **Phase V5** | Engine 3: Grid & Table | **Done** | 9 algorithms (Fibonacci, 0/1 Knapsack, LCS, Edit Distance, Coin Change, Grid Unique Paths, Matrix Spiral, N-Queens, Sudoku Solver). Traceback paths, 19 unit tests in `src/tests/grid-algorithms.test.ts`. |
-| **Phase V6** | Engine 4: Graph | **In Progress** | Graph traversal, shortest path, MST, and topological algorithms (BFS, DFS, Dijkstra, Bellman-Ford, Kruskal, Prim, Kahn's Topological Sort). |
-| **Phase V7** | Engine 5: Tree & Heap | Pending | 23 tree traversals, BST, AVL, trie, heap array-view, recursion call trees. |
+| **Phase V6** | Engine 4: Graph | **Done** | 7 algorithms (BFS, DFS, Dijkstra, Bellman-Ford, Kruskal, Prim, Kahn's Topological Sort). Circular SVG layouts, priority queues, 16 unit tests in `src/tests/graph-algorithms.test.ts`. |
+| **Phase V7** | Engine 5: Tree & Heap | **In Progress** | Tree traversals, BST search/insert, AVL rotations, and Binary Heap operations. |
 | **Phase V8** | Engine 6: Nodes & Arrows | Pending | 18 linked list, stack/queue, hash table, and LRU cache algorithms. |
 | **Phase V9** | Remaining Topics | Pending | 25+ greedy, divide-and-conquer, bit manipulation, and math algorithms. |
 | **Phase V10** | Library Catalog & Integration | Pending | `/visualizer/` catalog, `/visualizer/[slug]/` routes, Path "Visualize this" links. |
@@ -22,6 +22,6 @@ Active Goal: Rebuild Iwons Visualizer into a unified system powered by 6 reusabl
 | **Phase V12** | Senior QA & Principal Review | Pending | Oracle testing (200+ seeded random inputs), property test invariants, visual diffs, `docs/VISUALIZER_REPORT.md`. |
 
 ## Blockers
-None. Next.js 16.4.1 Turbopack build, unit test suite (692 passing), and typecheck all green.
+None. Next.js 16.4.1 Turbopack build, unit test suite (708 passing), and typecheck all green.
 
-NEXT ACTION: Implement Phase V6: Engine 4 (Graph) algorithms library: Breadth-First Search (BFS), Depth-First Search (DFS), Dijkstra's Shortest Path, Bellman-Ford, Kruskal's MST (with Disjoint Set Union), Prim's MST, Topological Sort (Kahn's), and graph oracle tests.
+NEXT ACTION: Implement Phase V7: Engine 5 (Tree & Heap) algorithms library: Inorder, Preorder, Postorder Traversals; Binary Search Tree (BST) Search and Insertion; AVL Tree Rotations; Binary Heap (Insert, Extract-Min, Heapify with synchronized Tree + Array view), and tree oracle tests.
