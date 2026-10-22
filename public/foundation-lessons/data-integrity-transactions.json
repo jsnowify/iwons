@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "data-integrity-transactions",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What does a transaction guarantee?",
+      "options": [
+        "Its changes all succeed or all fail together",
+        "Every query is fast",
+        "Nobody else can read the data"
+      ],
+      "answer": 0,
+      "explanation": "That all-or-nothing property is called atomicity, and it keeps data from being left half changed.",
+      "hint": "Think about the money transfer."
+    },
+    {
+      "prompt": "In the example, why is the balance still 100?",
+      "options": [
+        "The first update was never run",
+        "The second update broke the rule, so the whole transaction was undone",
+        "The database ignores updates"
+      ],
+      "answer": 1,
+      "explanation": "The CHECK constraint rejected the second update, so the transaction rolled back, undoing the first update as well.",
+      "hint": "What did the rollback undo?"
+    },
+    {
+      "prompt": "What is the job of a constraint such as CHECK (balance >= 0)?",
+      "options": [
+        "To keep invalid data from being stored",
+        "To speed up queries",
+        "To back up the data"
+      ],
+      "answer": 0,
+      "explanation": "Constraints are rules the database enforces so that bad data cannot get in.",
+      "hint": "It is a rule the data must obey."
+    }
+  ]
+}

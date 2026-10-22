@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "design-patterns",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What is a design pattern?",
+      "options": [
+        "A rule that every program must follow",
+        "A named, reusable solution to a common problem",
+        "A way of decorating a user interface"
+      ],
+      "answer": 1,
+      "explanation": "A pattern is a proven way to solve a problem that keeps appearing, with a name so people can talk about it.",
+      "hint": "Patterns are solutions with names."
+    },
+    {
+      "prompt": "In the observer pattern, what happens when the publisher publishes?",
+      "options": [
+        "Every subscribed listener is told",
+        "Only the first listener is told",
+        "The publisher stops running"
+      ],
+      "answer": 0,
+      "explanation": "The publisher notifies everyone who subscribed, without knowing who they are or what they do.",
+      "hint": "Look at the output of the snippet."
+    },
+    {
+      "prompt": "When is a pattern worth using?",
+      "options": [
+        "Always, in every program",
+        "When it solves a real problem you actually have",
+        "Only in very large programs"
+      ],
+      "answer": 1,
+      "explanation": "A pattern helps when it fits a real problem. Using one for show only adds complexity.",
+      "hint": "Remember the last sentence of the explanation."
+    }
+  ]
+}

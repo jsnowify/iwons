@@ -1,11 +1,10 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getLevels, getLevel, getProblems } from "@/lib/problems";
 import { LevelAccess } from "@/components/path-map";
 import unitData from "@/data/units.json";
-import { TopicFoundation, TopicChallenge, TopicChallengeStatus } from "@/components/topic-foundation";
 import { siteUrl } from "@/lib/site-url";
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -109,10 +108,9 @@ export default async function Page({
           <h2>Try your hand.</h2>
           {unitData.filter(unit => unit.level === l.id).map(unit => <section className="path-unit" key={unit.slug} id={unit.slug}>
           <h2>{unit.name}</h2><p>{unit.intro}</p>
-          <TopicFoundation id={unit.slug} level={l.id}>
           {problems.filter(p => p.unit === unit.slug).map((p, i) => (
-            <TopicChallenge
-              slug={p.slug}
+            <Link
+              className="level-problem-link" href={`/problems/${p.slug}/`}
               key={p.id}
             >
               <span className="level-key">{i + 1}</span>
@@ -122,9 +120,9 @@ export default async function Page({
                 <p>Uses: {unit.idea}, lists and loops, receipt rules</p>
               </div>
               <span className={`badge ${p.difficulty}`}>{p.difficulty}</span>
-              <TopicChallengeStatus />
-            </TopicChallenge>
-          ))}</TopicFoundation></section>)}
+              <ArrowRight size={17} aria-label="Open challenge" />
+            </Link>
+          ))}</section>)}
         </section>
       ) : null}
     </div>

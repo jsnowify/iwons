@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "variables-constants",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "const score = 5;\nconsole.log(score);",
+      "hints": [
+        "Find the line that gives score its value.",
+        "Change the 5 after the equals sign to 12. Leave console.log(score) as it is.",
+        "This trips up lots of people. The value belongs after the equals sign; this complete example prints it."
+      ],
+      "answerCode": "const score = 12;\nconsole.log(score);"
+    },
+    "python": {
+      "starterCode": "score = 5\nprint(score)",
+      "hints": [
+        "Find the line that gives score its value.",
+        "Change the 5 after the equals sign to 12. Leave print(score) as it is.",
+        "This trips up lots of people. The value belongs after the equals sign; this complete example prints it."
+      ],
+      "answerCode": "score = 12\nprint(score)"
+    }
+  }
+}

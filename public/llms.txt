@@ -2,7 +2,7 @@
 
 > An original coding adventure, one keystroke at a time. Practice 500 challenges across 9 chapters and 54 units in JavaScript, TypeScript, Python, and Java. Built by Snowi (https://snowi-cambronero.vercel.app/).
 
-Iwons is a browser-only, privacy-preserving coding practice platform. There is no application backend or remote database; all personal progress, submissions, and code remain in the user's browser localStorage.
+Iwons is a privacy-preserving coding practice platform with full account-free guest learning and optional free accounts for cross-device sync and leaderboards. Guest progress is stored locally in the browser.
 
 ## Main Navigation & Curricula
 
@@ -31,6 +31,6 @@ Iwons is a browser-only, privacy-preserving coding practice platform. There is n
 
 ## Technical Runtimes & Safety
 
-User code executes exclusively inside dedicated Web Workers with termination timeouts. No user code is ever executed on the main thread or sent to any remote server.
-JavaScript and TypeScript execute with self-hosted Sucrase and V8 runtimes. Python executes with browser-side WebAssembly via Pyodide. Java mode requires an explicitly configured external runtime endpoint.
+Client-side user code executes inside dedicated Web Workers with termination timeouts. No user code is ever executed on the main thread.
+JavaScript and TypeScript execute with self-hosted Sucrase and V8 runtimes. Python executes with browser-side WebAssembly via Pyodide. The server-side Judge0 integration supports Java for published server exercises. Java execution is not available for browser-only challenges.
 

@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "error-handling",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "const text = require(\"fs\").readFileSync(0, \"utf8\").trim();\nconst number = Number(text);\nconsole.log(number * 2);",
+      "hints": [
+        "Run it with abc as the input and read what prints. Check the number before you use it.",
+        "Add if (Number.isNaN(number)) { ... } else { ... }. Print \"Please enter a number\" in the first block.",
+        "This trips up lots of people. Number(\"abc\") is NaN, and NaN * 2 is still NaN, so check first. Here is the complete code."
+      ],
+      "answerCode": "const text = require(\"fs\").readFileSync(0, \"utf8\").trim();\nconst number = Number(text);\nif (Number.isNaN(number)) {\n  console.log(\"Please enter a number\");\n} else {\n  console.log(number * 2);\n}"
+    },
+    "python": {
+      "starterCode": "text = input()\nnumber = int(text)\nprint(number * 2)",
+      "hints": [
+        "Run it with abc as the input and read the error. The risky line is the one that converts the text.",
+        "Wrap the conversion and the print in try:, then add except ValueError: that prints \"Please enter a number\".",
+        "This trips up lots of people. The except block only runs when the try block raises a ValueError. Here is the complete code."
+      ],
+      "answerCode": "text = input()\ntry:\n    number = int(text)\n    print(number * 2)\nexcept ValueError:\n    print(\"Please enter a number\")"
+    }
+  }
+}

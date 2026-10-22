@@ -4,12 +4,12 @@ export const localDay = (date: number | Date) => {
   const d = new Date(date);
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 };
-export function getStats(submissions: Submission[]) {
+export function getStats(submissions: Submission[], progress: Record<string, boolean> = {}) {
   const accepted = submissions.filter((s) => s.verdict === "accepted");
-  const solved = new Set(accepted.map((s) => s.problemId));
+  const solved = new Set([...accepted.map((s) => s.problemId), ...Object.keys(progress).filter(id => progress[id])]);
   const clean = accepted.filter(
     (s) =>
-      integrityKind(s.integrity, s.mode === "contest") === "clean" &&
+      s.source !== "server" && integrityKind(s.integrity, s.mode === "contest") === "clean" &&
       !s.viewedEditorial &&
       s.hintsUsed === 0,
   );
@@ -26,6 +26,7 @@ export function getStats(submissions: Submission[]) {
   let cleanStreak = 0;
   for (const s of accepted) {
     if (
+      s.source === "server" ||
       integrityKind(s.integrity, s.mode === "contest") !== "clean" ||
       s.viewedEditorial ||
       s.hintsUsed > 0

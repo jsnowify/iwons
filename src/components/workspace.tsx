@@ -38,11 +38,11 @@ import type {
 import { languageNames, verdictNames } from "@/lib/presentation";
 import { storage } from "@/lib/storage";
 import { useStore } from "@/store/use-store";
-import { isLevelUnlocked } from "@/lib/path";
 import { playBell } from "@/lib/sound";
 import { useWatch } from "@/lib/watch/use-watch";
 import { Button, Modal, EditorSkeleton, useToast, Badge } from "./ui";
 import { Onboarding } from "./onboarding";
+import { useAccount } from "./account-provider";
 import { ResultsPanel } from "./results-panel";
 const CodeEditor = dynamic(() => import("./code-editor"), {
   ssr: false,
@@ -57,6 +57,7 @@ export function Workspace({
 }) {
   const store = useStore(),
     toast = useToast();
+  const account = useAccount();
   const [language, setLanguage] = useState<Language>("javascript"),
     [code, setCode] = useState(p.starterCode.javascript),
     [loaded, setLoaded] = useState(false),
@@ -92,10 +93,6 @@ export function Workspace({
     bodyRef = useRef<HTMLDivElement>(null),
     runRef = useRef<(submit: boolean) => void>(() => {}),
     autoSubmitted = useRef(false);
-  const levelLocked =
-    !p.id.startsWith("custom-") &&
-    (!store.hydrated || !isLevelUnlocked(p.level, store.progress, store.settings.freeBrowse) ||
-      (!!p.unit && !store.topicFoundations[p.unit]?.completed));
   const contest = store.sessions.contest;
   const inContest =
     !!contest && !contest.finished && contest.problemIds.includes(p.id);
@@ -123,13 +120,13 @@ export function Workspace({
     };
   }, []);
   useEffect(() => {
-    if (!store.hydrated) return;
+    if (!store.hydrated || !account.ready) return;
     const l = store.settings.language;
     setLanguage(l);
     setCode(storage.read(`drafts:${p.id}:${l}`, p.starterCode[l]));
     setLoaded(true);
     store.setSession({ lastProblem: p.slug });
-  }, [store.hydrated, p.id]);
+  }, [store.hydrated, account.ready, account.progressVersion, p.id]);
   useEffect(() => {
     if (!loaded) return;
     const t = setTimeout(
@@ -196,7 +193,7 @@ export function Workspace({
     return data;
   }
   async function execute(submit: boolean, force = false) {
-    if (running || levelLocked) return;
+    if (running) return;
     if (!store.profile.onboarded) {
       setOnboard(true);
       return;
@@ -351,22 +348,6 @@ export function Workspace({
   const timer = `${String(Math.floor(seconds / 60)).padStart(2, "0")}:${String(seconds % 60).padStart(2, "0")}`;
   return (
     <div className={`workspace ${focus ? "focus-mode" : ""}`}>
-      {levelLocked ? (
-        <div className="gate-banner">
-          <span>
-            {p.unit && !store.topicFoundations[p.unit]?.completed
-              ? "Complete this topic's Foundation Lesson before starting its challenges."
-              : `This chapter opens after 70% of Level ${Math.max(0, p.level - 1)}. Free browse is available in Settings.`}
-          </span>
-          <Link
-            prefetch={false}
-            href={`/path/${p.level}/${p.unit ? `#${p.unit}` : ""}`}
-            className="text-link"
-          >
-            Return to your chapter →
-          </Link>
-        </div>
-      ) : null}
       <div className="workspace-toolbar">
         <div className="row">
           <Link
@@ -417,14 +398,14 @@ export function Workspace({
           <Button
             variant="secondary"
             loading={running}
-            disabled={!loaded || levelLocked}
+            disabled={!loaded}
             onClick={() => void execute(false)}
           >
             <Play size={12} />
             Run
           </Button>
           <Button
-            disabled={running || !loaded || levelLocked}
+            disabled={running || !loaded}
             onClick={() => void execute(true)}
           >
             <Send size={12} />
@@ -565,6 +546,7 @@ export function Workspace({
                       <textarea
                         className="note-editor"
                         aria-label="Problem notes"
+                    maxLength={20000}
                         value={store.notes[p.id] ?? ""}
                         onChange={(e) => store.setNote(p.id, e.target.value)}
                         placeholder={

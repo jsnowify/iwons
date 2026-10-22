@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "maps-dictionaries",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "const words = require(\"fs\").readFileSync(0, \"utf8\").trim().split(\" \");\nconst counts = {};\nfor (const word of words) {\n  counts[word] = 1;\n}\nconsole.log(counts[\"apple\"] || 0);",
+      "hints": [
+        "The line inside the loop always stores 1. What should it store instead?",
+        "Add 1 to the count the word already has: (counts[word] || 0) + 1.",
+        "This trips up lots of people. A missing key gives undefined, so || 0 makes the first count start from zero. Here is the complete code."
+      ],
+      "answerCode": "const words = require(\"fs\").readFileSync(0, \"utf8\").trim().split(\" \");\nconst counts = {};\nfor (const word of words) {\n  counts[word] = (counts[word] || 0) + 1;\n}\nconsole.log(counts[\"apple\"] || 0);"
+    },
+    "python": {
+      "starterCode": "words = input().split()\ncounts = {}\nfor word in words:\n    counts[word] = 1\nprint(counts.get(\"apple\", 0))",
+      "hints": [
+        "The line inside the loop always stores 1. What should it store instead?",
+        "Add 1 to the count the word already has: counts.get(word, 0) + 1.",
+        "This trips up lots of people. get(word, 0) gives 0 for a new word, so the first count starts from zero. Here is the complete code."
+      ],
+      "answerCode": "words = input().split()\ncounts = {}\nfor word in words:\n    counts[word] = counts.get(word, 0) + 1\nprint(counts.get(\"apple\", 0))"
+    }
+  }
+}

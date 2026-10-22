@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "syntax-semantics",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "Which statement describes syntax?",
+      "options": [
+        "The rules for how code must be written",
+        "What the code is trying to achieve",
+        "How fast the code runs"
+      ],
+      "answer": 0,
+      "explanation": "Syntax is the grammar of a language: where brackets, quotes and keywords must go. If the grammar is broken, the computer cannot read the code at all.",
+      "hint": "Syntax is to code what grammar is to a sentence."
+    },
+    {
+      "prompt": "A program runs without any error but prints the wrong answer. What kind of problem is that?",
+      "options": [
+        "A syntax error",
+        "A semantic problem: valid code that means something different from what you intended",
+        "A broken keyboard"
+      ],
+      "answer": 1,
+      "explanation": "The code was readable, so the syntax was fine. It just meant something different from what you wanted, and that is a semantic problem. These are often harder to find because nothing crashes.",
+      "hint": "If the computer could read it and run it, was the grammar the problem?"
+    },
+    {
+      "prompt": "Which line has a syntax error?",
+      "options": [
+        "total = 2 + 3",
+        "total = 2 + 3 + 4",
+        "total = 2 + * 3"
+      ],
+      "answer": 2,
+      "explanation": "In 2 + * 3 two operators sit next to each other with no value between them, which breaks the grammar. The other two lines are readable, whatever they mean.",
+      "hint": "Look for a line the computer could not even read, not one that gives a surprising answer."
+    }
+  ]
+}

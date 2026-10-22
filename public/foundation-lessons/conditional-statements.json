@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "conditional-statements",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "const temperature = Number(require(\"fs\").readFileSync(0, \"utf8\").trim());\nif (temperature > 20) {\n  console.log(\"Warm\");\n} else {\n  console.log(\"Cool\");\n}",
+      "hints": [
+        "Which number should the new check compare the temperature with?",
+        "Add a check for temperature > 30 that prints Hot, and put it first. Turn the old if into an else if.",
+        "This trips up lots of people. Order matters: if > 20 comes first, 35 prints Warm. Here is the complete code."
+      ],
+      "answerCode": "const temperature = Number(require(\"fs\").readFileSync(0, \"utf8\").trim());\nif (temperature > 30) {\n  console.log(\"Hot\");\n} else if (temperature > 20) {\n  console.log(\"Warm\");\n} else {\n  console.log(\"Cool\");\n}"
+    },
+    "python": {
+      "starterCode": "temperature = int(input())\nif temperature > 20:\n    print(\"Warm\")\nelse:\n    print(\"Cool\")",
+      "hints": [
+        "Which number should the new check compare the temperature with?",
+        "Add a check for temperature > 30 that prints Hot, and put it first. Turn the old if into an elif.",
+        "This trips up lots of people. Order matters: if > 20 comes first, 35 prints Warm. Here is the complete code."
+      ],
+      "answerCode": "temperature = int(input())\nif temperature > 30:\n    print(\"Hot\")\nelif temperature > 20:\n    print(\"Warm\")\nelse:\n    print(\"Cool\")"
+    }
+  }
+}

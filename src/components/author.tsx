@@ -168,7 +168,8 @@ export function AuthorPage() {
             <textarea
               required
               rows={5}
-              value={description}
+              maxLength={20000}
+            value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Describe the task in your own words. Include what the function receives and returns."
             />
@@ -187,13 +188,14 @@ export function AuthorPage() {
             </label>
             <label>
               Topics <small>comma separated</small>
-              <input value={topic} onChange={(e) => setTopic(e.target.value)} />
+              <input maxLength={200} value={topic} onChange={(e) => setTopic(e.target.value)} />
             </label>
           </div>
           <label>
             Function name
             <input
               required
+              maxLength={80}
               value={fn}
               onChange={(e) => setFn(e.target.value)}
               pattern="[A-Za-z_$][A-Za-z0-9_$]*"
@@ -223,6 +225,7 @@ export function AuthorPage() {
               required
               rows={8}
               className="mono"
+              maxLength={20000}
               value={starter[language]}
               onChange={(e) =>
                 setStarter((v) => ({ ...v, [language]: e.target.value }))
@@ -246,7 +249,8 @@ export function AuthorPage() {
                 required
                 rows={8}
                 className="mono"
-                value={cases}
+                maxLength={100000}
+              value={cases}
                 onChange={(e) => setCases(e.target.value)}
               />
             </label>
@@ -256,7 +260,8 @@ export function AuthorPage() {
                 required
                 rows={8}
                 className="mono"
-                value={hidden}
+                maxLength={200000}
+              value={hidden}
                 onChange={(e) => setHidden(e.target.value)}
               />
             </label>
@@ -270,6 +275,7 @@ export function AuthorPage() {
             <textarea
               rows={7}
               className="mono"
+              maxLength={20000}
               value={reference}
               onChange={(e) => setReference(e.target.value)}
               placeholder="Test your own solution against all the cases before saving."

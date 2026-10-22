@@ -1,0 +1,22 @@
+{
+  "id": "server-add-two-numbers",
+  "title": "Add Two Numbers",
+  "description": "Read two whole numbers separated by whitespace. Print their sum on one line. Each number is between -1,000,000 and 1,000,000.",
+  "starters": {
+    "java": "import java.util.Scanner;\n\npublic class Main {\n  public static void main(String[] args) {\n    Scanner input = new Scanner(System.in);\n    int first = input.nextInt();\n    int second = input.nextInt();\n    // Print the sum of first and second.\n  }\n}\n",
+    "python": "import sys\n\nfirst, second = map(int, sys.stdin.read().split())\n# Print the sum of first and second.\n",
+    "javascript": "const fs = require('fs');\nconst [first, second] = fs.readFileSync(0, 'utf8').trim().split(/\\s+/).map(Number);\n// Print the sum of first and second.\n"
+  },
+  "cases": [
+    {
+      "id": "example-1",
+      "stdin": "2 3\n",
+      "expected": "5\n"
+    },
+    {
+      "id": "example-2",
+      "stdin": "-7 4\n",
+      "expected": "-3\n"
+    }
+  ]
+}

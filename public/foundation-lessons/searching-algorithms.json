@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "searching-algorithms",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "const lines = require(\"fs\").readFileSync(0, \"utf8\").trim().split(\"\\n\");\nconst numbers = lines[0].split(\" \").map(Number);\nconst target = Number(lines[1]);\nlet low = 0;\nlet high = numbers.length - 1;\nlet answer = -1;\nwhile (low <= high) {\n  const middle = Math.floor((low + high) / 2);\n  if (numbers[middle] === target) {\n    answer = middle;\n    break;\n  } else if (numbers[middle] < target) {\n    // the target can only be in the right half\n  } else {\n    // the target can only be in the left half\n  }\n}\nconsole.log(answer);",
+      "hints": [
+        "If the middle number is too small, the target is to its right. If it is too big, the target is to its left.",
+        "In the first branch set low = middle + 1, and in the second set high = middle - 1.",
+        "This trips up lots of people. The +1 and -1 skip the middle, which you already checked, so the loop always makes progress. Here is the complete code."
+      ],
+      "answerCode": "const lines = require(\"fs\").readFileSync(0, \"utf8\").trim().split(\"\\n\");\nconst numbers = lines[0].split(\" \").map(Number);\nconst target = Number(lines[1]);\nlet low = 0;\nlet high = numbers.length - 1;\nlet answer = -1;\nwhile (low <= high) {\n  const middle = Math.floor((low + high) / 2);\n  if (numbers[middle] === target) {\n    answer = middle;\n    break;\n  } else if (numbers[middle] < target) {\n    low = middle + 1;\n  } else {\n    high = middle - 1;\n  }\n}\nconsole.log(answer);"
+    },
+    "python": {
+      "starterCode": "numbers = list(map(int, input().split()))\ntarget = int(input())\nlow = 0\nhigh = len(numbers) - 1\nanswer = -1\nwhile low <= high:\n    middle = (low + high) // 2\n    if numbers[middle] == target:\n        answer = middle\n        break\n    elif numbers[middle] < target:\n        pass  # the target can only be in the right half\n    else:\n        pass  # the target can only be in the left half\nprint(answer)",
+      "hints": [
+        "If the middle number is too small, the target is to its right. If it is too big, the target is to its left.",
+        "Replace the first pass with low = middle + 1, and the second pass with high = middle - 1.",
+        "This trips up lots of people. The +1 and -1 skip the middle, which you already checked, so the loop always makes progress. Here is the complete code."
+      ],
+      "answerCode": "numbers = list(map(int, input().split()))\ntarget = int(input())\nlow = 0\nhigh = len(numbers) - 1\nanswer = -1\nwhile low <= high:\n    middle = (low + high) // 2\n    if numbers[middle] == target:\n        answer = middle\n        break\n    elif numbers[middle] < target:\n        low = middle + 1\n    else:\n        high = middle - 1\nprint(answer)"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "input-output",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "const name = require(\"fs\").readFileSync(0, \"utf8\").trim();\nconsole.log(\"Hello, Iwons!\");",
+      "hints": [
+        "The program reads the name but never uses it. Look at what the last line prints.",
+        "Build the message from three pieces joined with +: \"Hello, \", then name, then \"!\".",
+        "This trips up lots of people. The name goes outside quotes so its value is used. Here is the complete code."
+      ],
+      "answerCode": "const name = require(\"fs\").readFileSync(0, \"utf8\").trim();\nconsole.log(\"Hello, \" + name + \"!\");"
+    },
+    "python": {
+      "starterCode": "name = input()\nprint(\"Hello, Iwons!\")",
+      "hints": [
+        "The program reads the name but never uses it. Look at what the last line prints.",
+        "Build the message from three pieces joined with +: \"Hello, \", then name, then \"!\".",
+        "This trips up lots of people. The name goes outside quotes so its value is used. Here is the complete code."
+      ],
+      "answerCode": "name = input()\nprint(\"Hello, \" + name + \"!\")"
+    }
+  }
+}

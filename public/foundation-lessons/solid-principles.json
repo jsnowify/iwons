@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "solid-principles",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What does the S in SOLID stand for?",
+      "options": [
+        "Speed",
+        "Single responsibility: a class should have one job",
+        "Simple syntax"
+      ],
+      "answer": 1,
+      "explanation": "Single responsibility means a class has one reason to change, which keeps it small and focused.",
+      "hint": "It is about how many jobs one class does."
+    },
+    {
+      "prompt": "Dependency inversion says high-level code should depend on what?",
+      "options": [
+        "The most complex class available",
+        "Global variables",
+        "Abstractions, such as an interface, rather than concrete details"
+      ],
+      "answer": 2,
+      "explanation": "Depending on a promise instead of a specific class lets you swap the details, like the sender in the example.",
+      "hint": "Look at what Notifier depends on."
+    },
+    {
+      "prompt": "The O in SOLID means code should be open to extension but closed to modification. What does that suggest?",
+      "options": [
+        "Add new behaviour by adding new code, instead of editing code that already works",
+        "Never change any code after it is written",
+        "Always copy and paste existing classes"
+      ],
+      "answer": 0,
+      "explanation": "You extend behaviour, for example with a new sender class, without editing code that already works and is tested.",
+      "hint": "How did the example add a new kind of sender?"
+    }
+  ]
+}

@@ -36,11 +36,14 @@ import { getStats } from "@/lib/stats";
 import { downloadExport } from "@/lib/storage";
 import { configureOffline } from "@/lib/offline";
 import { ToastProvider, Modal, Button } from "./ui";
+import { AccountProvider } from "./account-provider";
+import { AccountNotice } from "./account-panel";
+import { AccountMenu } from "./account-menu";
 import { Sidebar, NavigationItem, navigation as nav } from "./sidebar";
 export function Shell({ children, footer }: { children: ReactNode; footer: ReactNode }) {
   return (
     <ToastProvider>
-      <ShellContent footer={footer}>{children}</ShellContent>
+      <AccountProvider><ShellContent footer={footer}>{children}</ShellContent></AccountProvider>
     </ToastProvider>
   );
 }
@@ -54,11 +57,12 @@ function ShellContent({ children, footer }: { children: ReactNode; footer: React
     profile: state.profile,
     settings: state.settings,
     submissions: state.submissions,
+    progress: state.progress,
     srs: state.srs,
     updateSettings: state.updateSettings,
     cleanup: state.cleanup,
   })));
-  const stats = useMemo(() => getStats(store.submissions), [store.submissions]);
+  const stats = useMemo(() => getStats(store.submissions, store.progress), [store.submissions, store.progress]);
   const [command, setCommand] = useState(false),
     [query, setQuery] = useState(""),
     [help, setHelp] = useState(false),
@@ -74,7 +78,9 @@ function ShellContent({ children, footer }: { children: ReactNode; footer: React
       n.href === "/"
         ? pathname === "/"
         : pathname.startsWith(n.href.replace(/\/$/, "")),
-    )?.label ?? (pathname.startsWith("/settings") ? "Settings" : "Workspace");
+    )?.label ?? (pathname.startsWith("/settings") ? "Settings" : pathname.startsWith("/leaderboard") ? "Leaderboards"
+      : pathname.startsWith("/login") ? "Sign in" : pathname.startsWith("/signup") ? "Create account"
+      : pathname.startsWith("/reset-password") ? "Reset password" : pathname.startsWith("/profile") ? "Profile" : "Workspace");
   useEffect(() => {
     const storageError = () => setQuota(true);
     // Migration may fail synchronously before later effects install listeners.
@@ -211,9 +217,10 @@ function ShellContent({ children, footer }: { children: ReactNode; footer: React
             >
               <CircleHelp size={18} aria-hidden="true" />
             </Link>
+            <AccountMenu />
           </div>
         </header>
-        <main id="main">{children}</main>
+        <main id="main"><AccountNotice />{children}</main>
         {footer}
       </div>
       {!landing ? (

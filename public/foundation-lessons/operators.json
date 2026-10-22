@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "operators",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "console.log(2 + 3);\nconsole.log(17 / 5);",
+      "hints": [
+        "Look at the operator symbol on each line. Each symbol does a different job.",
+        "Change 2 + 3 to 4 + 6, and change the / on the second line to %.",
+        "This trips up lots of people. / divides, but % gives what is left over. Here is the complete code."
+      ],
+      "answerCode": "console.log(4 + 6);\nconsole.log(17 % 5);"
+    },
+    "python": {
+      "starterCode": "print(2 + 3)\nprint(17 / 5)",
+      "hints": [
+        "Look at the operator symbol on each line. Each symbol does a different job.",
+        "Change 2 + 3 to 4 + 6, and change the / on the second line to %.",
+        "This trips up lots of people. / divides, but % gives what is left over. Here is the complete code."
+      ],
+      "answerCode": "print(4 + 6)\nprint(17 % 5)"
+    }
+  }
+}

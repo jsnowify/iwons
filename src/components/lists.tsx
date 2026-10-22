@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Plus, Layers, ArrowRight, Trash2, ListChecks } from "lucide-react";
 import { useStore } from "@/store/use-store";
 import { problemUrl } from "@/lib/presentation";
+import { cleanText } from "@/lib/text";
 import { Button, Modal, Empty, ProgressBar, useToast, Badge } from "./ui";
 export function ListsPage({problems}:{problems:CatalogEntry[]}) {
   const store = useStore(),
@@ -155,11 +156,11 @@ export function ListsPage({problems}:{problems:CatalogEntry[]}) {
             Cancel
           </Button>
           <Button
-            disabled={!name.trim()}
+            disabled={!cleanText(name, 60)}
             onClick={() => {
               const list = {
                 id: editing ?? crypto.randomUUID(),
-                name: name.trim(),
+                name: cleanText(name, 60),
                 problemIds: selected,
               };
               store.setLists(

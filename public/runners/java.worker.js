@@ -1,6 +1,6 @@
 self.onmessage=async({data:req})=>{
   try {
-    if(!req.judgeUrl)throw new Error('Java Beta needs your self-hosted Judge0 CE URL. Add it in Settings → Java runtime. Code is sent only to that endpoint.');
+    if(!req.judgeUrl)throw new Error('Java execution runs through the server judge.');
     const base=new URL(req.judgeUrl);
     if(!['https:','http:'].includes(base.protocol)||base.username||base.password)throw new Error('Use a valid HTTP(S) endpoint without embedded credentials.');
     const url=base.href.replace(/\/$/,'');

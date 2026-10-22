@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "concurrency-parallelism",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What is parallelism?",
+      "options": [
+        "Running tasks at the very same moment on different cores",
+        "Switching between tasks on one worker",
+        "Writing code that has no loops"
+      ],
+      "answer": 0,
+      "explanation": "Parallelism needs more than one core running work at once. Switching on one worker is concurrency.",
+      "hint": "Is anything literally happening at the same moment?"
+    },
+    {
+      "prompt": "Two tasks both add 1 to a shared counter at the same time and one update is lost. What is this called?",
+      "options": [
+        "A race condition",
+        "Garbage collection",
+        "A system call"
+      ],
+      "answer": 0,
+      "explanation": "When the result depends on the exact timing of tasks sharing data, you have a race condition.",
+      "hint": "The result depends on who gets there first."
+    },
+    {
+      "prompt": "Which statement is true?",
+      "options": [
+        "Concurrency always makes a program faster",
+        "A program can be concurrent on a single core",
+        "Parallelism needs only one core"
+      ],
+      "answer": 1,
+      "explanation": "A single core can switch between tasks, which is concurrency. Parallelism needs several cores, and concurrency alone does not guarantee speed.",
+      "hint": "Can one worker juggle two tasks?"
+    }
+  ]
+}

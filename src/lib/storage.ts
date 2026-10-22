@@ -18,6 +18,11 @@ const PREFIX = "iwons:v6:",
   PREVIOUS_PREFIX = "iwons:v2:",
   LEGACY_PREFIX = "iwons:v1:";
 let migrationReady = false;
+let accountScope: string | null = null;
+const ACCOUNT_PREFIX = "iwons:account:v1:";
+const activePrefix = () => accountScope ? `${ACCOUNT_PREFIX}${accountScope}:` : PREFIX;
+const META_PREFIX = "iwons:sync-meta:v1:";
+const metaKey = () => META_PREFIX + (accountScope ?? "guest");
 function record(value: unknown): value is Record<string, unknown> {
   return !!value && typeof value === "object" && !Array.isArray(value);
 }
@@ -37,8 +42,8 @@ function validateImport(data: Record<string, unknown>) {
   if (
     p !== undefined &&
     (!record(p) ||
-      typeof p.name !== "string" ||
-      typeof p.avatar !== "string" ||
+      typeof p.name !== "string" || p.name.length > 200 ||
+      typeof p.avatar !== "string" || p.avatar.length > 16 ||
       typeof p.onboarded !== "boolean")
   )
     throw new Error("Invalid profile in backup.");
@@ -109,6 +114,7 @@ function validateImport(data: Record<string, unknown>) {
           "runtime_error",
           "compile_error",
           "time_limit",
+          "internal_error",
         ].includes(String(s.verdict)) ||
         !Array.isArray(s.results) ||
         !record(s.integrity) ||
@@ -167,7 +173,7 @@ function allKeys() {
   if (!available()) return [];
   try {
     return Object.keys(window.localStorage).filter(
-      (k) => [PREFIX, TRACK_PREFIX, FOUNDATIONS_PREFIX, PATH_PREFIX, PREVIOUS_PREFIX, LEGACY_PREFIX].some(prefix => k.startsWith(prefix)),
+      (k) => [activePrefix(), ...(accountScope ? [] : [TRACK_PREFIX, FOUNDATIONS_PREFIX, PATH_PREFIX, PREVIOUS_PREFIX, LEGACY_PREFIX])].some(prefix => k.startsWith(prefix)),
     );
   } catch {
     return [];
@@ -243,14 +249,76 @@ function validateEnvelope(data: Record<string, unknown>) {
   validateImport(data);
 }
 export const storage = {
+  accountId() { return accountScope; },
+  switchAccount(id: string | null) {
+    if (id !== null && !/^[a-zA-Z0-9-]{1,100}$/.test(id)) throw new Error("Invalid account cache scope.");
+    accountScope = id;
+    if (available() && id) setRaw(activePrefix() + "schemaVersion", 6);
+  },
+  syncTimes() { return available() ? readRaw<Record<string, number>>(metaKey(), {}) : {}; },
+  setSyncTimes(times: Record<string, number>) { if (available()) setRaw(metaKey(), times); },
+  syncPending(value?: boolean) {
+    const key = metaKey() + ":pending";
+    if (value !== undefined && available()) setRaw(key, value);
+    return available() ? readRaw<boolean>(key, false) : false;
+  },
+  verificationQueue(value?: unknown): unknown {
+    const key = metaKey() + ":verification:v1";
+    if (value !== undefined && available()) {
+      try { setRaw(key, value); } catch (error) { failure(error); }
+    }
+    return available() ? readRaw<unknown>(key, null) : null;
+  },
+  syncChoice(id: string, value?: boolean) {
+    const key = META_PREFIX + "import-choice:" + id;
+    if (value !== undefined && available()) setRaw(key, value);
+    return available() ? readRaw<boolean>(key, false) : false;
+  },
+  invitationDismissed(value?: boolean) {
+    const key = META_PREFIX + "invitation-dismissed";
+    if (value !== undefined && available()) setRaw(key, value);
+    return available() ? readRaw<boolean>(key, false) : false;
+  },
+  foundationDiscoveryDismissed(value?: boolean) {
+    const key = META_PREFIX + "foundation-discovery:v1";
+    if (value !== undefined && available()) {
+      try { setRaw(key, value); } catch (error) { failure(error); }
+    }
+    return available() ? readRaw<boolean>(key, false) : false;
+  },
+  foundationLanguage(value?: "javascript" | "python") {
+    const key = META_PREFIX + "foundation-language:v1";
+    if (value !== undefined && available()) {
+      try { setRaw(key, value); } catch (error) { failure(error); }
+    }
+    const saved = available() ? readRaw<string | null>(key, null) : null;
+    return saved === "javascript" || saved === "python" ? saved : null;
+  },
   read<T>(key: string, fallback: T): T {
-    return available() ? readRaw(PREFIX + key, fallback) : fallback;
+    return available() ? readRaw(activePrefix() + key, fallback) : fallback;
   },
   write(key: string, value: unknown) {
     if (!available()) return false;
     if (this.read<number>("schemaVersion", 0) !== 6 && !this.migrate()) return false;
     try {
-      setRaw(PREFIX + key, value);
+      const previous = readRaw<unknown>(activePrefix() + key, undefined);
+      setRaw(activePrefix() + key, value);
+      if (JSON.stringify(previous) !== JSON.stringify(value)) {
+        const times = readRaw<Record<string, number>>(metaKey(), {});
+        if (key === "settings" && record(value)) for (const [name, next] of Object.entries(value)) {
+          if (!record(previous) || JSON.stringify(previous[name]) !== JSON.stringify(next)) times[`settings:${name}`] = Date.now();
+        }
+        if (key.startsWith("drafts:")) times[key.replace(/^drafts:([^:]+):/, "drafts:$1_")] = Date.now();
+        if (key === "topicFoundations" && record(value)) for (const [topicId, topic] of Object.entries(value)) {
+          if (!record(topic) || !record(topic.steps)) continue;
+          const beforeTopic = record(previous) && record(previous[topicId]) ? previous[topicId] : undefined;
+          const beforeSteps = beforeTopic && record(beforeTopic.steps) ? beforeTopic.steps : {};
+          for (const [id, step] of Object.entries(topic.steps)) if (JSON.stringify(step) !== JSON.stringify(beforeSteps[id]))
+            times[`foundation:${topicId}:${id}`] = Date.now();
+        }
+        setRaw(metaKey(), times);
+        window.dispatchEvent(new CustomEvent("iwons:data-write", { detail: { key, accountId: accountScope } }));
+      }
       return true;
     } catch (e) {
       failure(e);
@@ -259,15 +327,15 @@ export const storage = {
   },
   remove(key: string) {
     try {
-      if (available()) window.localStorage.removeItem(PREFIX + key);
+      if (available()) window.localStorage.removeItem(activePrefix() + key);
     } catch (e) {
       failure(e);
     }
   },
   keys() {
     return allKeys()
-      .filter((k) => k.startsWith(PREFIX))
-      .map((k) => k.slice(PREFIX.length));
+      .filter((k) => k.startsWith(activePrefix()))
+      .map((k) => k.slice(activePrefix().length));
   },
   usage() {
     return allKeys().reduce(
@@ -288,7 +356,7 @@ export const storage = {
     const pathEdition = Object.keys(namespace(PATH_PREFIX)).length > 0;
     const previous = Object.keys(namespace(PREVIOUS_PREFIX)).length > 0;
     const data: Record<string, unknown> = current
-      ? namespace(PREFIX)
+      ? namespace(activePrefix())
       : namespace(trackEdition ? TRACK_PREFIX : foundationsEdition ? FOUNDATIONS_PREFIX : pathEdition ? PATH_PREFIX : previous ? PREVIOUS_PREFIX : LEGACY_PREFIX);
     if (current && data.archive) data.archive = this.readArchive();
     else if (data.archive) data.archive = resolveArchive(data.archive as LegacyArchive);
@@ -341,9 +409,9 @@ export const storage = {
     );
     try {
       // Replace the active edition, retaining the original v1/v2/v3 namespaces.
-      for (const key of allKeys().filter(key => key.startsWith(PREFIX))) window.localStorage.removeItem(key);
+      for (const key of allKeys().filter(key => key.startsWith(activePrefix()))) window.localStorage.removeItem(key);
       for (const [key, value] of Object.entries({ ...data, schemaVersion: 6 }))
-        setRaw(PREFIX + key, value);
+        setRaw(activePrefix() + key, value);
       migrationReady = true;
     } catch (e) {
       for (const key of allKeys()) window.localStorage.removeItem(key);
@@ -355,6 +423,7 @@ export const storage = {
   },
   clear() {
     for (const key of allKeys()) window.localStorage.removeItem(key);
+    if (available()) window.localStorage.removeItem(metaKey() + ":verification:v1");
     migrationReady = false;
   },
   migrate() {
@@ -363,7 +432,7 @@ export const storage = {
       migrationReady = true;
       return true;
     }
-    const before = Object.fromEntries(allKeys().filter(key => key.startsWith(PREFIX)).map(key => [key, window.localStorage.getItem(key)!]));
+    const before = Object.fromEntries(allKeys().filter(key => key.startsWith(activePrefix())).map(key => [key, window.localStorage.getItem(key)!]));
     try {
       const currentTracks = namespace(TRACK_PREFIX);
       const currentFoundations = namespace(FOUNDATIONS_PREFIX);
@@ -386,13 +455,13 @@ export const storage = {
         });
         migrated = next;
       }
-      for (const [key, value] of Object.entries(migrateV5Data(Object.keys(currentTracks).length ? migrated : migrateV4Data(Object.keys(currentFoundations).length ? migrated : migrateV3Data(migrated))))) if (key !== "schemaVersion") setRaw(PREFIX + key, value);
-      setRaw(PREFIX + "schemaVersion", 6);
+      for (const [key, value] of Object.entries(migrateV5Data(Object.keys(currentTracks).length ? migrated : migrateV4Data(Object.keys(currentFoundations).length ? migrated : migrateV3Data(migrated))))) if (key !== "schemaVersion") setRaw(activePrefix() + key, value);
+      setRaw(activePrefix() + "schemaVersion", 6);
       migrationReady = true;
       return true;
     } catch (e) {
       for (const key of allKeys())
-        if (key.startsWith(PREFIX))
+        if (key.startsWith(activePrefix()))
           window.localStorage.removeItem(key);
       for (const [key, value] of Object.entries(before)) window.localStorage.setItem(key, value);
       migrationReady = false;

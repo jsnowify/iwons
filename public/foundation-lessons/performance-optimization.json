@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "performance-optimization",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What should you do before optimizing?",
+      "options": [
+        "Measure to find the slow part",
+        "Rewrite everything in a faster language",
+        "Remove all the comments"
+      ],
+      "answer": 0,
+      "explanation": "Profiling shows where the time really goes, so you fix the right thing instead of guessing.",
+      "hint": "You cannot fix what you have not found."
+    },
+    {
+      "prompt": "What does a cache do?",
+      "options": [
+        "Saves the result of slow work so it can be reused",
+        "Deletes old data",
+        "Splits the program into modules"
+      ],
+      "answer": 0,
+      "explanation": "A cache trades memory for speed by remembering answers you have already worked out.",
+      "hint": "It remembers answers."
+    },
+    {
+      "prompt": "Why not optimize everything?",
+      "options": [
+        "Faster code is often harder to read, so only the parts that matter are worth it",
+        "Optimizing is not allowed",
+        "Computers are always fast enough"
+      ],
+      "answer": 0,
+      "explanation": "Optimizations have a cost in complexity, so spend them where the measurements say they pay off.",
+      "hint": "What does extra speed often cost?"
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import type { Problem, PrivateProblem, TestCase } from "./types";
+import { cleanBlock, cleanText } from "./text";
 const languages = ["javascript", "typescript", "python", "java"] as const;
 export function validateCases(value: unknown, name = "Cases"): TestCase[] {
   if (!Array.isArray(value) || !value.length || value.length > 100)
@@ -20,6 +21,11 @@ export function validateCases(value: unknown, name = "Cases"): TestCase[] {
     };
   });
 }
+function shortList(value: unknown, count: number, length: number, fallback: string[]) {
+  if (!Array.isArray(value) || !value.every((item) => typeof item === "string")) return fallback;
+  const items = value.slice(0, count).map((item) => cleanText(item, length)).filter(Boolean);
+  return items.length ? items : fallback;
+}
 export function validateProblem(value: unknown): Problem {
   if (!value || typeof value !== "object")
     throw new Error("Provide a problem object.");
@@ -39,6 +45,11 @@ export function validateProblem(value: unknown): Problem {
     )
   )
     throw new Error("Provide starterCode for all four languages.");
+  if ((p.title as string).length > 400 || (p.descriptionMd as string).length > 20_000)
+    throw new Error("Keep the title under 100 characters and the description under 20,000.");
+  for (const language of languages)
+    if (((p.starterCode as Record<string, string>)[language]).length > 20_000)
+      throw new Error("Keep each starter under 20,000 characters.");
   const cases = validateCases(p.cases);
   const rawPrivate =
     p.privateData && typeof p.privateData === "object"
@@ -50,7 +61,7 @@ export function validateProblem(value: unknown): Problem {
   const privateData: PrivateProblem = {
     hiddenCases: hidden.length ? validateCases(hidden, "Hidden cases") : [],
     editorialMd:
-      typeof rawPrivate.editorialMd === "string" ? rawPrivate.editorialMd : "",
+      typeof rawPrivate.editorialMd === "string" ? cleanBlock(rawPrivate.editorialMd, 20_000) : "",
   };
   const id =
     typeof p.id === "string" && /^custom-[a-zA-Z0-9-]+$/.test(p.id)
@@ -60,22 +71,15 @@ export function validateProblem(value: unknown): Problem {
     id,
     level:typeof p.level==="number"?p.level:0,prerequisites:Array.isArray(p.prerequisites)?p.prerequisites:[],
     slug: id,
-    title: (p.title as string).trim().slice(0, 100),
-    descriptionMd: (p.descriptionMd as string).trim(),
+    title: cleanText(p.title as string, 100) || "Untitled problem",
+    descriptionMd: cleanBlock(p.descriptionMd as string, 20_000),
     functionName: p.functionName as string,
     difficulty: p.difficulty as Problem["difficulty"],
     mode: p.mode === "operations" ? "operations" : "function",
     starterCode: p.starterCode as Problem["starterCode"],
     cases,
-    topics:
-      Array.isArray(p.topics) && p.topics.every((t) => typeof t === "string")
-        ? p.topics
-        : ["Custom"],
-    patterns:
-      Array.isArray(p.patterns) &&
-      p.patterns.every((t) => typeof t === "string")
-        ? p.patterns
-        : ["Custom"],
+    topics: shortList(p.topics, 10, 40, ["Custom"]),
+    patterns: shortList(p.patterns, 10, 40, ["Custom"]),
     constraints:
       Array.isArray(p.constraints) &&
       p.constraints.every((t) => typeof t === "string")

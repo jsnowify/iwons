@@ -5,6 +5,7 @@ import { readFileSync, mkdirSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { transform } from "sucrase";
 import { compare } from "@/lib/harness/compare";
+import { normalizeProgramOutput } from "@/lib/runners/program-shim";
 import type { RunRequest, RunResult, Problem, TestCase } from "@/lib/types";
 type Reference = {
   slug: string;
@@ -33,6 +34,72 @@ it("all foundation answer hints pass their checks in the dedicated runner", asyn
   }
 }, 60000);
 const dir = resolve("artifacts/test-workers");
+const lessonTexts = () => JSON.parse(readFileSync("src/data/foundation-lessons.json", "utf8")) as import("@/lib/foundation-track").FoundationLessonCopy[];
+const practiceFor = (id: string) => JSON.parse(readFileSync(`public/foundation-lessons/${id}.json`, "utf8")) as import("@/lib/foundation-track").CodePractice;
+const pythonAvailable = spawnSync("python", ["--version"]).status === 0;
+const runPython = (code: string, stdin = "") => {
+  const done = spawnSync("python", ["-I", "-c", code], { encoding: "utf8", timeout: 5000, input: stdin });
+  return { output: normalizeProgramOutput(done.stdout), ok: done.status === 0 };
+};
+it("runs every standalone Foundation example, answer and starter in the real JavaScript worker", async () => {
+  const { lessonCases } = await import("@/lib/foundation-track");
+  let count = 0;
+  for (const lesson of lessonTexts()) {
+    if (lesson.type !== "code") continue;
+    const js = practiceFor(lesson.id).languages.javascript;
+    const cases = lessonCases(lesson, "javascript").map((item, index) => ({ id: `case-${index}`, input: [], stdin: item.stdin, expected: item.expected }));
+    const example = await run({ code: lesson.languages.javascript.exampleCode, mode: "program", functionName: "", timeLimitMs: 2000,
+      cases: [{ id: "example", input: [], stdin: lesson.exampleInput ?? "", expected: lesson.languages.javascript.exampleOutput ?? lesson.exampleOutput }] });
+    expect(example.verdict, `${lesson.id} example: ${JSON.stringify(example)}`).toBe("accepted");
+    const answer = await run({ code: js.answerCode, mode: "program", functionName: "", cases, timeLimitMs: 2000 });
+    expect(answer.verdict, `${lesson.id} answer: ${JSON.stringify(answer)}`).toBe("accepted");
+    const starter = await run({ code: js.starterCode, mode: "program", functionName: "", cases, timeLimitMs: 2000 });
+    expect(starter.verdict, `${lesson.id} starter should not pass yet`).not.toBe("accepted");
+    count++;
+  }
+  expect(count).toBe(30);
+}, 120000);
+// The browser runs Python in Pyodide; a local CPython gives the same output for these basic programs.
+it.skipIf(!pythonAvailable)("runs every standalone Foundation Python example, answer and starter", async () => {
+  const { lessonCases } = await import("@/lib/foundation-track");
+  let count = 0;
+  for (const lesson of lessonTexts()) {
+    if (lesson.type !== "code") continue;
+    const python = practiceFor(lesson.id).languages.python;
+    const example = runPython(lesson.languages.python.exampleCode, lesson.exampleInput ?? "");
+    expect(example, `${lesson.id} example`).toEqual({ output: lesson.languages.python.exampleOutput ?? lesson.exampleOutput, ok: true });
+    const cases = lessonCases(lesson, "python");
+    for (const item of cases) expect(runPython(python.answerCode, item.stdin), `${lesson.id} answer for ${JSON.stringify(item.stdin)}`).toEqual({ output: item.expected, ok: true });
+    const starters = cases.map(item => runPython(python.starterCode, item.stdin));
+    expect(starters.some((result, index) => !result.ok || result.output !== cases[index].expected), `${lesson.id} starter should not pass yet`).toBe(true);
+    count++;
+  }
+  expect(count).toBe(30);
+}, 120000);
+it("every concept lesson JavaScript snippet prints exactly the output shown, in the real worker", async () => {
+  let checked = 0;
+  for (const lesson of lessonTexts()) {
+    if (lesson.type !== "concept") continue;
+    const snippet = lesson.snippets?.javascript;
+    if (!snippet) continue;
+    const result = await run({ code: snippet.code, mode: "program", functionName: "", timeLimitMs: 2000,
+      cases: [{ id: lesson.id, input: [], expected: snippet.output }] });
+    expect(result.verdict, `${lesson.id}: ${JSON.stringify(result)}`).toBe("accepted");
+    checked++;
+  }
+  expect(checked).toBeGreaterThan(15);
+}, 60000);
+it.skipIf(!pythonAvailable)("every concept lesson Python snippet prints exactly the output shown", () => {
+  let checked = 0;
+  for (const lesson of lessonTexts()) {
+    if (lesson.type !== "concept") continue;
+    const snippet = lesson.snippets?.python;
+    if (!snippet) continue;
+    expect(runPython(snippet.code), lesson.id).toEqual({ output: snippet.output, ok: true });
+    checked++;
+  }
+  expect(checked).toBeGreaterThan(15);
+}, 120000);
 let sharedWorker: Worker | undefined;
 afterAll(async () => { await sharedWorker?.terminate(); });
 beforeAll(() => {

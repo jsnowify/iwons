@@ -1,4 +1,5 @@
 "use client";
+import { FoundationDiscovery } from "./foundation-discovery";
 import type { ProblemSummary } from "@/lib/types";
 type CatalogEntry = Pick<ProblemSummary, "id" | "slug" | "title" | "difficulty" | "level" | "topics" | "patterns" | "unit" | "stage" | "boss" | "revisit" | "summary" | "order">;
 import { useEffect, useState, useMemo } from "react";
@@ -110,6 +111,7 @@ export function ProblemList({ initialTopic = "", problems }: { initialTopic?: st
           New problem
         </Link>
       </div>
+      {!initialTopic ? <FoundationDiscovery /> : null}
       <div className="tabs" style={{ marginBottom: 24 }}>
         {[
           ["all", "All problems"],

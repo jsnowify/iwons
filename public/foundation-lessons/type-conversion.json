@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "type-conversion",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "const lines = require(\"fs\").readFileSync(0, \"utf8\").trim().split(\"\\n\");\nconst first = lines[0];\nconst second = lines[1];\nconsole.log(first + second);",
+      "hints": [
+        "Run it and look at what prints for 3 and 4. Two pieces of text are being joined.",
+        "Wrap each of first and second in Number(...) before adding them.",
+        "This trips up lots of people. Number(first) + Number(second) adds numbers, while first + second joins text. Here is the complete code."
+      ],
+      "answerCode": "const lines = require(\"fs\").readFileSync(0, \"utf8\").trim().split(\"\\n\");\nconst first = lines[0];\nconst second = lines[1];\nconsole.log(Number(first) + Number(second));"
+    },
+    "python": {
+      "starterCode": "first = input()\nsecond = input()\nprint(first + second)",
+      "hints": [
+        "Run it and look at what prints for 3 and 4. Two pieces of text are being joined.",
+        "Wrap each of first and second in int(...) before adding them.",
+        "This trips up lots of people. int(first) + int(second) adds numbers, while first + second joins text. Here is the complete code."
+      ],
+      "answerCode": "first = input()\nsecond = input()\nprint(int(first) + int(second))"
+    }
+  }
+}

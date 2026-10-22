@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "arrays-lists",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "const numbers = require(\"fs\").readFileSync(0, \"utf8\").trim().split(\" \").map(Number);\nconsole.log(numbers[0]);",
+      "hints": [
+        "The program prints the item at index 0. Which index is the last item?",
+        "The last index is one less than the length: numbers.length - 1.",
+        "This trips up lots of people. Counting starts at 0, so the last index is length minus 1. Here is the complete code."
+      ],
+      "answerCode": "const numbers = require(\"fs\").readFileSync(0, \"utf8\").trim().split(\" \").map(Number);\nconsole.log(numbers[numbers.length - 1]);"
+    },
+    "python": {
+      "starterCode": "numbers = list(map(int, input().split()))\nprint(numbers[0])",
+      "hints": [
+        "The program prints the item at index 0. Which index is the last item?",
+        "Python lets you count from the end: numbers[-1] is the last item, or use numbers[len(numbers) - 1].",
+        "This trips up lots of people. Counting starts at 0, and -1 counts from the end. Here is the complete code."
+      ],
+      "answerCode": "numbers = list(map(int, input().split()))\nprint(numbers[-1])"
+    }
+  }
+}

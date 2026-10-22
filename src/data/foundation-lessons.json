@@ -1,0 +1,1840 @@
+[
+  {
+    "id": "programming-fundamentals",
+    "type": "concept",
+    "title": "Programming fundamentals",
+    "summary": "What code is, and how a computer turns it into action.",
+    "topics": [],
+    "explanation": [
+      "Programming means writing step-by-step instructions, called source code, for a computer.",
+      "A compiler translates the whole program first, while an interpreter reads and runs it line by line.",
+      "A runtime is the environment that runs your program, such as Node.js or the Python interpreter."
+    ],
+    "illustration": "source code\n  |-> compiler\n  |     -> machine code\n  |        -> runs\n  |-> interpreter\n        -> runs, line by line",
+    "illustrationCaption": "Two routes from source code to a running program. A compiler translates everything into machine code first. An interpreter reads and runs it line by line. Either way, a runtime does the running.",
+    "snippets": {
+      "javascript": {
+        "code": "console.log(\"Hello!\");",
+        "output": "Hello!",
+        "caption": "One line of source code. Node.js or your browser is the runtime that runs it."
+      },
+      "python": {
+        "code": "print(\"Hello!\")",
+        "output": "Hello!",
+        "caption": "One line of source code. The Python interpreter is the runtime that runs it."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back any time to read it again."
+  },
+  {
+    "id": "syntax-semantics",
+    "type": "concept",
+    "title": "Syntax and semantics",
+    "summary": "How code is written versus what it means.",
+    "topics": [],
+    "explanation": [
+      "Syntax is the set of rules for how code must be written, like the grammar of a sentence.",
+      "Semantics is what the code means, which is what it actually does when it runs.",
+      "Code can follow the syntax perfectly and still do the wrong thing."
+    ],
+    "illustration": "syntax error:\n  print(\"Hi\"\n  (a bracket is missing, so the\n   code cannot even be read)\n\nsemantic mistake:\n  4 + 6 / 2\n  (readable, but it means 4 + 3,\n   not (4 + 6) / 2)",
+    "illustrationCaption": "Two different kinds of mistake. A syntax error breaks the grammar, so the computer cannot read the line. A semantic mistake is readable code that means something other than what you intended.",
+    "snippets": {
+      "javascript": {
+        "code": "console.log(4 + 6 / 2);\nconsole.log((4 + 6) / 2);",
+        "output": "7\n5",
+        "caption": "Both lines are valid syntax. They print 7 and 5, because the brackets change the meaning."
+      },
+      "python": {
+        "code": "print(4 + 6 / 2)\nprint((4 + 6) / 2)",
+        "output": "7.0\n5.0",
+        "caption": "Both lines are valid syntax. They print 7.0 and 5.0, because the brackets change the meaning."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; you can revisit it whenever it helps."
+  },
+  {
+    "id": "variables-constants",
+    "type": "code",
+    "title": "Variables and constants",
+    "summary": "Give a value a name, then use it.",
+    "topics": [
+      "Variables"
+    ],
+    "explanation": [
+      "A variable is a name for a value.",
+      "Once a value has a name, you can use the name wherever you would use the value.",
+      "A constant is a name whose value should never change, such as a tax rate."
+    ],
+    "exampleOutput": "7",
+    "task": "Change the number stored in score to 12, then print the stored number.",
+    "expectedOutput": "12",
+    "successMessage": "You stored 12 in score and printed it. Lesson done; try a different value whenever you like.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, const score = 7 gives the number 7 the name score and stops the name from being reassigned. Use let for a variable that will change.",
+        "exampleCode": "const score = 7;\nconsole.log(score);"
+      },
+      "python": {
+        "note": "In Python, score = 7 gives the number 7 the name score. Python has no const, so names in ALL_CAPS, like MAX_SCORE, mark constants by habit.",
+        "exampleCode": "score = 7\nprint(score)"
+      }
+    }
+  },
+  {
+    "id": "data-types",
+    "type": "code",
+    "title": "Data types",
+    "summary": "Numbers, text, true/false and nothing at all.",
+    "topics": [],
+    "explanation": [
+      "A data type says what kind of value you have: a whole number, a decimal number, text, true or false, or nothing at all (null).",
+      "The type decides what you can do with a value, because adding numbers works differently from joining text.",
+      "Some languages check types before running (static typing), while JavaScript and Python check while running (dynamic typing)."
+    ],
+    "exampleOutput": "Ada 12 1.5 false null",
+    "task": "The last value, nickname, holds nothing yet. Give it the text \"Adi\" so the last thing printed is Adi.",
+    "expectedOutput": "Ada 12 1.5 false Adi",
+    "successMessage": "nickname is text now, so it printed Adi instead of nothing. Lesson done; try changing the other values too.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, null means \"no value\" on purpose, and whole numbers and decimals share one number type.",
+        "exampleCode": "const name = \"Ada\";\nconst age = 12;\nconst height = 1.5;\nconst isStudent = false;\nconst nickname = null;\nconsole.log(name, age, height, isStudent, nickname);",
+        "exampleOutput": "Ada 12 1.5 false null",
+        "expectedOutput": "Ada 12 1.5 false Adi"
+      },
+      "python": {
+        "note": "In Python, None means \"no value\" on purpose, and whole numbers (int) and decimals (float) are separate types.",
+        "exampleCode": "name = \"Ada\"\nage = 12\nheight = 1.5\nis_student = False\nnickname = None\nprint(name, age, height, is_student, nickname)",
+        "exampleOutput": "Ada 12 1.5 False None",
+        "expectedOutput": "Ada 12 1.5 False Adi"
+      }
+    }
+  },
+  {
+    "id": "operators",
+    "type": "code",
+    "title": "Operators",
+    "summary": "Do math, compare values and combine conditions.",
+    "topics": [
+      "Arithmetic",
+      "Math"
+    ],
+    "explanation": [
+      "Operators are symbols that work on values: arithmetic (+ - * / %), comparison (> < ==), logical (and, or, not), assignment (= and +=), and bitwise (& and |, which work on binary digits).",
+      "An expression such as 9 % 4 pairs an operator with its values, and % gives the remainder after dividing.",
+      "Multiplication and division happen before addition and subtraction, and brackets change the order."
+    ],
+    "exampleOutput": "5\n1",
+    "task": "Change the first line to print the sum of 4 and 6, and the second line to print the remainder when 17 is divided by 5.",
+    "expectedOutput": "10\n2",
+    "successMessage": "4 + 6 is 10, and 17 % 5 leaves a remainder of 2. Lesson done; try the other operators too.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, console.log(9 % 4) prints 1, the remainder of 9 divided by 4. The logical operators are && (and), || (or) and ! (not).",
+        "exampleCode": "console.log(2 + 3);\nconsole.log(9 % 4);"
+      },
+      "python": {
+        "note": "In Python, print(9 % 4) prints 1, the remainder of 9 divided by 4. The logical operators are the words and, or and not.",
+        "exampleCode": "print(2 + 3)\nprint(9 % 4)"
+      }
+    }
+  },
+  {
+    "id": "expressions-statements",
+    "type": "code",
+    "title": "Expressions and statements",
+    "summary": "Pieces that produce a value, and pieces that do something.",
+    "topics": [
+      "Expressions"
+    ],
+    "explanation": [
+      "An expression is code that produces a value, such as width * height.",
+      "A statement is a complete instruction that does something, such as storing a value or printing one.",
+      "Statements are often built from expressions, like storing the result of an expression in a variable."
+    ],
+    "exampleOutput": "18",
+    "task": "Replace the 0 with an expression, so area holds the width times the height and the program prints 24.",
+    "expectedOutput": "24",
+    "successMessage": "width * height is an expression, and storing it in area is a statement. It printed 24. Lesson done.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, a statement usually ends with a semicolon.",
+        "exampleCode": "const width = 6;\nconst height = 3;\nconst area = width * height;\nconsole.log(area);"
+      },
+      "python": {
+        "note": "In Python, each statement normally sits on its own line.",
+        "exampleCode": "width = 6\nheight = 3\narea = width * height\nprint(area)"
+      }
+    }
+  },
+  {
+    "id": "input-output",
+    "type": "code",
+    "title": "Input and output",
+    "summary": "Show results and read what someone gives you.",
+    "topics": [
+      "Printing",
+      "Input"
+    ],
+    "explanation": [
+      "Output is what a program shows, and input is what it receives, such as text typed by a person.",
+      "Programs read input as text, so what arrives is always a string.",
+      "Printing the result is how a program answers."
+    ],
+    "exampleInput": "Sam\n",
+    "exampleOutput": "Hello, Sam!",
+    "task": "The program reads a name. Make it print Hello, then the name, then an exclamation mark, such as Hello, Ada!",
+    "expectedOutput": "Hello, Ada!",
+    "cases": [
+      {
+        "stdin": "Ada\n",
+        "expected": "Hello, Ada!"
+      },
+      {
+        "stdin": "Mia\n",
+        "expected": "Hello, Mia!"
+      }
+    ],
+    "successMessage": "Your program greeted each name it was given. Lesson done; input and output are in almost every program.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, require(\"fs\").readFileSync(0, \"utf8\") reads everything that was typed, and .trim() removes the extra line break.",
+        "exampleCode": "const name = require(\"fs\").readFileSync(0, \"utf8\").trim();\nconsole.log(\"Hello, \" + name + \"!\");"
+      },
+      "python": {
+        "note": "In Python, input() reads one line of typed text.",
+        "exampleCode": "name = input()\nprint(\"Hello, \" + name + \"!\")"
+      }
+    }
+  },
+  {
+    "id": "type-conversion",
+    "type": "code",
+    "title": "Type conversion",
+    "summary": "Turn text into numbers and back, on purpose.",
+    "topics": [],
+    "explanation": [
+      "Type conversion changes a value from one type to another, such as the text \"5\" into the number 5.",
+      "Implicit conversion happens automatically, while explicit conversion is when you ask for it with a function.",
+      "Input arrives as text, so numbers you read must be converted before you do math with them."
+    ],
+    "exampleOutput": "6",
+    "task": "The program reads two numbers, but they arrive as text, so + joins them instead of adding. Convert them so it prints their sum.",
+    "expectedOutput": "7",
+    "cases": [
+      {
+        "stdin": "3\n4\n",
+        "expected": "7"
+      },
+      {
+        "stdin": "10\n20\n",
+        "expected": "30"
+      }
+    ],
+    "successMessage": "You converted the text to numbers before adding, so 3 and 4 made 7 and not 34. Lesson done.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, Number(\"5\") turns text into a number.",
+        "exampleCode": "const text = \"5\";\nconst number = Number(text);\nconsole.log(number + 1);"
+      },
+      "python": {
+        "note": "In Python, int(\"5\") turns text into a whole number.",
+        "exampleCode": "text = \"5\"\nnumber = int(text)\nprint(number + 1)"
+      }
+    }
+  },
+  {
+    "id": "conditional-statements",
+    "type": "code",
+    "title": "Conditional statements",
+    "summary": "Make your program choose between paths.",
+    "topics": [
+      "Conditionals",
+      "Logic"
+    ],
+    "explanation": [
+      "A condition is a check with a true or false answer, such as temperature > 20 (greater than 20).",
+      "if runs a block when its check is true, else if tries another check, and else runs when nothing matched.",
+      "A switch picks one path by comparing a value with several exact options."
+    ],
+    "exampleOutput": "Cool",
+    "task": "Add one more check so a temperature above 30 prints Hot. Above 20 still prints Warm, and everything else prints Cool.",
+    "expectedOutput": "Hot",
+    "cases": [
+      {
+        "stdin": "35\n",
+        "expected": "Hot"
+      },
+      {
+        "stdin": "25\n",
+        "expected": "Warm"
+      },
+      {
+        "stdin": "10\n",
+        "expected": "Cool"
+      }
+    ],
+    "successMessage": "Your three paths work: Hot, Warm and Cool. Lesson done; the order of the checks is what made it work.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, else if adds another check, and a switch statement compares a value with several case labels.",
+        "exampleCode": "const temperature = 10;\nif (temperature > 20) {\n  console.log(\"Warm\");\n} else {\n  console.log(\"Cool\");\n}"
+      },
+      "python": {
+        "note": "In Python, elif adds another check, and the indented lines under each check belong to it.",
+        "exampleCode": "temperature = 10\nif temperature > 20:\n    print(\"Warm\")\nelse:\n    print(\"Cool\")"
+      }
+    }
+  },
+  {
+    "id": "loops-iteration",
+    "type": "code",
+    "title": "Loops and iteration",
+    "summary": "Repeat work without repeating yourself.",
+    "topics": [
+      "Loop",
+      "Iteration",
+      "Traversal"
+    ],
+    "explanation": [
+      "A loop repeats code until a stopping rule says to finish.",
+      "A for loop counts through a range, a while loop runs as long as a condition stays true, and a do-while loop always runs once before checking.",
+      "break leaves a loop early, and continue skips straight to the next turn."
+    ],
+    "exampleOutput": "1\n2\n3",
+    "task": "The loop prints 1 to 5. Change it so it skips 3 and prints 1, 2, 4 and 5, each on its own line.",
+    "expectedOutput": "1\n2\n4\n5",
+    "successMessage": "continue skipped the number 3 and the loop carried on with 4 and 5. Lesson done.",
+    "languages": {
+      "javascript": {
+        "note": "This for loop starts count at 1, continues while count <= 3 (at most 3), and adds 1 after each turn. A while or do...while loop does the same with just a condition.",
+        "exampleCode": "for (let count = 1; count <= 3; count += 1) {\n  console.log(count);\n}"
+      },
+      "python": {
+        "note": "In Python, range(1, 4) gives 1, 2 and 3: it starts at 1 and stops just before 4. Python has no do-while; a while loop with break does the same job.",
+        "exampleCode": "for count in range(1, 4):\n    print(count)"
+      }
+    }
+  },
+  {
+    "id": "functions-procedures",
+    "type": "code",
+    "title": "Functions and procedures",
+    "summary": "Package steps into a reusable, named tool.",
+    "topics": [
+      "Functions"
+    ],
+    "explanation": [
+      "A function is a named piece of code you can run whenever you need it.",
+      "A parameter is a name for a value the function receives, an argument is the value you pass in, and return sends a result back.",
+      "A function that only does something, without returning a value, is often called a procedure."
+    ],
+    "exampleOutput": "5",
+    "task": "Make greet use its name parameter, so greet(\"Ada\") returns \"Hello, Ada!\" and greet(\"Mia\") returns \"Hello, Mia!\".",
+    "expectedOutput": "Hello, Ada!\nHello, Mia!",
+    "successMessage": "greet now uses whatever name it is given. Lesson done; one function, many results.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, function add(first, second) { ... } defines the function, and add(2, 3) calls it with two arguments.",
+        "exampleCode": "function add(first, second) {\n  return first + second;\n}\nconsole.log(add(2, 3));"
+      },
+      "python": {
+        "note": "In Python, def add(first, second): defines the function, and add(2, 3) calls it with two arguments.",
+        "exampleCode": "def add(first, second):\n    return first + second\n\nprint(add(2, 3))"
+      }
+    }
+  },
+  {
+    "id": "scope-lifetime",
+    "type": "code",
+    "title": "Scope and lifetime",
+    "summary": "Where a name can be seen, and how long it lives.",
+    "topics": [
+      "Scope"
+    ],
+    "explanation": [
+      "Scope is the part of a program where a name can be used.",
+      "A local variable lives inside one function and disappears when the function ends, while a global variable can be seen everywhere.",
+      "Code can look outward at the names around it (lexical scope), but not inward at a function's locals."
+    ],
+    "exampleOutput": "Hello!",
+    "task": "This program crashes because message only exists inside makeMessage. Fix it so it prints Scope works!",
+    "expectedOutput": "Scope works!",
+    "successMessage": "message lives inside the function, so the function returned it to the outside. Lesson done.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, const and let belong to the nearest pair of curly braces, and a function can read names from the code around it.",
+        "exampleCode": "const greeting = \"Hello\";\nfunction shout() {\n  const ending = \"!\";\n  return greeting + ending;\n}\nconsole.log(shout());"
+      },
+      "python": {
+        "note": "In Python, a name made inside def is local to that function, and a function can read names defined outside it.",
+        "exampleCode": "greeting = \"Hello\"\n\ndef shout():\n    ending = \"!\"\n    return greeting + ending\n\nprint(shout())"
+      }
+    }
+  },
+  {
+    "id": "mutability-immutability",
+    "type": "code",
+    "title": "Mutability and immutability",
+    "summary": "Values that can change, and values that can't.",
+    "topics": [],
+    "explanation": [
+      "A mutable value can be changed in place, while an immutable value never changes, and any \"change\" makes a new value.",
+      "Lists are mutable, and text strings are immutable.",
+      "Knowing which is which explains why a change can show up in more than one place."
+    ],
+    "exampleOutput": "cat CAT",
+    "task": "Add \"done\" to the list tags, so the program prints 3 for the number of items.",
+    "expectedOutput": "3",
+    "successMessage": "You changed the list in place, so it now holds three items. Lesson done.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, const stops the name from being reassigned, but the list itself is still mutable, so push can change it.",
+        "exampleCode": "const word = \"cat\";\nconst loud = word.toUpperCase();\nconsole.log(word, loud);"
+      },
+      "python": {
+        "note": "In Python, lists are mutable, so append changes the list itself, while strings and tuples never change.",
+        "exampleCode": "word = \"cat\"\nloud = word.upper()\nprint(word, loud)"
+      }
+    }
+  },
+  {
+    "id": "error-handling",
+    "type": "code",
+    "title": "Error handling",
+    "summary": "Expect things to go wrong, and recover calmly.",
+    "topics": [],
+    "explanation": [
+      "An error happens when something goes wrong while a program runs, such as turning the text \"abc\" into a number.",
+      "Validation checks input before it is used, and error handling lets a program recover instead of crashing.",
+      "A friendly message that says what to fix is better than a crash."
+    ],
+    "exampleOutput": "Not a number",
+    "task": "Right now bad input breaks the program. Make it print \"Please enter a number\" when the input is not a number, and print double the number otherwise.",
+    "expectedOutput": "42",
+    "cases": [
+      {
+        "stdin": "21\n",
+        "expected": "42"
+      },
+      {
+        "stdin": "abc\n",
+        "expected": "Please enter a number"
+      },
+      {
+        "stdin": "0\n",
+        "expected": "0"
+      }
+    ],
+    "successMessage": "Good numbers are doubled and bad input gets a friendly message instead of a crash. Lesson done.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, Number(\"abc\") does not crash; it gives NaN (not a number), which this practice runner shows as null, so check with Number.isNaN. Code that can throw is wrapped in try and catch.",
+        "exampleCode": "const text = \"abc\";\nconst number = Number(text);\nif (Number.isNaN(number)) {\n  console.log(\"Not a number\");\n} else {\n  console.log(number * 2);\n}"
+      },
+      "python": {
+        "note": "In Python, int(\"abc\") raises a ValueError. try runs the risky code, and except catches the error so the program can recover.",
+        "exampleCode": "text = \"abc\"\ntry:\n    number = int(text)\n    print(number * 2)\nexcept ValueError:\n    print(\"Not a number\")"
+      }
+    }
+  },
+  {
+    "id": "arrays-lists",
+    "type": "code",
+    "title": "Arrays and lists",
+    "summary": "Keep many values in order.",
+    "topics": [
+      "Arrays"
+    ],
+    "explanation": [
+      "An array (a list in Python) keeps many values in order.",
+      "Each value has a position called an index, and the first index is 0.",
+      "You can read an item by its index, add items, and ask how many there are."
+    ],
+    "exampleOutput": "banana",
+    "task": "The program reads some numbers. Make it print the last number instead of the first.",
+    "expectedOutput": "40",
+    "cases": [
+      {
+        "stdin": "10 20 30 40\n",
+        "expected": "40"
+      },
+      {
+        "stdin": "5 9\n",
+        "expected": "9"
+      },
+      {
+        "stdin": "7\n",
+        "expected": "7"
+      }
+    ],
+    "successMessage": "You found the last item, whatever the length of the list. Lesson done.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, fruits[1] reads the second item, and fruits.length tells how many items there are.",
+        "exampleCode": "const fruits = [\"apple\", \"banana\", \"cherry\"];\nconsole.log(fruits[1]);"
+      },
+      "python": {
+        "note": "In Python, fruits[1] reads the second item, len(fruits) tells how many items there are, and fruits[-1] is the last item.",
+        "exampleCode": "fruits = [\"apple\", \"banana\", \"cherry\"]\nprint(fruits[1])"
+      }
+    }
+  },
+  {
+    "id": "strings-text",
+    "type": "code",
+    "title": "Strings and text processing",
+    "summary": "Search, slice and format text.",
+    "topics": [
+      "Strings"
+    ],
+    "explanation": [
+      "A string is text, and each character has an index just like an item in an array.",
+      "You can slice out a piece, search for text inside it, and format it, for example by changing the case.",
+      "Under the hood each character is stored as a number using an encoding such as Unicode."
+    ],
+    "exampleOutput": "ana",
+    "task": "The program reads a word. Make it print only the first three letters, in capital letters.",
+    "expectedOutput": "BAN",
+    "cases": [
+      {
+        "stdin": "banana\n",
+        "expected": "BAN"
+      },
+      {
+        "stdin": "kiwi\n",
+        "expected": "KIW"
+      },
+      {
+        "stdin": "ab\n",
+        "expected": "AB"
+      }
+    ],
+    "successMessage": "You sliced the word and changed its case. Lesson done; text tools like these are everywhere.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, word.slice(0, 3) takes the first three characters, and word.toUpperCase() changes the case.",
+        "exampleCode": "const word = \"banana\";\nconsole.log(word.slice(1, 4));"
+      },
+      "python": {
+        "note": "In Python, word[:3] takes the first three characters, and word.upper() changes the case.",
+        "exampleCode": "word = \"banana\"\nprint(word[1:4])"
+      }
+    }
+  },
+  {
+    "id": "stacks-queues",
+    "type": "code",
+    "title": "Stacks and queues",
+    "summary": "Last in first out, and first in first out.",
+    "topics": [
+      "Stacks",
+      "Queues"
+    ],
+    "explanation": [
+      "A stack is last in, first out, like a pile of plates where you take from the top.",
+      "A queue is first in, first out, like a line at a shop where you serve the front.",
+      "Both are lists with a rule about which end you add to and which end you take from."
+    ],
+    "exampleOutput": "b",
+    "task": "The program takes words from the front, like a queue, so they print in the same order. Change it to take from the end, like a stack, so the words print in reverse.",
+    "expectedOutput": "c\nb\na",
+    "cases": [
+      {
+        "stdin": "a b c\n",
+        "expected": "c\nb\na"
+      },
+      {
+        "stdin": "one two\n",
+        "expected": "two\none"
+      },
+      {
+        "stdin": "x\n",
+        "expected": "x"
+      }
+    ],
+    "successMessage": "Taking from the end made it a stack, so the last word in came out first. Lesson done.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, push adds to the end, pop removes from the end, and shift removes from the front.",
+        "exampleCode": "const stack = [];\nstack.push(\"a\");\nstack.push(\"b\");\nconsole.log(stack.pop());"
+      },
+      "python": {
+        "note": "In Python, append adds to the end, pop() removes from the end, and pop(0) removes from the front.",
+        "exampleCode": "stack = []\nstack.append(\"a\")\nstack.append(\"b\")\nprint(stack.pop())"
+      }
+    }
+  },
+  {
+    "id": "maps-dictionaries",
+    "type": "code",
+    "title": "Maps and dictionaries",
+    "summary": "Look things up by a key.",
+    "topics": [
+      "Maps",
+      "Frequency"
+    ],
+    "explanation": [
+      "A map (a dictionary in Python, an object in JavaScript) stores values under keys, so you can look one up by name.",
+      "Looking up a key is fast, even when the map holds many items.",
+      "Counting is a classic use: each word is a key and its count is the value."
+    ],
+    "exampleOutput": "9",
+    "task": "The program should count how many times each word appears, then print the count for apple. Right now every count stays at 1. Fix the counting.",
+    "expectedOutput": "2",
+    "cases": [
+      {
+        "stdin": "apple pear apple\n",
+        "expected": "2"
+      },
+      {
+        "stdin": "pear pear\n",
+        "expected": "0"
+      },
+      {
+        "stdin": "apple apple apple apple\n",
+        "expected": "4"
+      }
+    ],
+    "successMessage": "Each word now adds one to its own count. Lesson done; counting with a map shows up everywhere.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, counts[word] reads a key, and (counts[word] || 0) gives 0 when the key is missing.",
+        "exampleCode": "const ages = { Ada: 12, Mia: 9 };\nconsole.log(ages[\"Mia\"]);"
+      },
+      "python": {
+        "note": "In Python, counts.get(word, 0) gives 0 when the key is missing.",
+        "exampleCode": "ages = {\"Ada\": 12, \"Mia\": 9}\nprint(ages[\"Mia\"])"
+      }
+    }
+  },
+  {
+    "id": "sets",
+    "type": "code",
+    "title": "Sets",
+    "summary": "A collection with no duplicates.",
+    "topics": [
+      "Set"
+    ],
+    "explanation": [
+      "A set holds values with no duplicates, and adding a value that is already there changes nothing.",
+      "Checking whether a value is in a set is fast.",
+      "Sets are handy for removing duplicates and for asking whether you have seen something before."
+    ],
+    "exampleOutput": "3",
+    "task": "The program reads some numbers. Make it print how many different numbers there are, counting each value once.",
+    "expectedOutput": "3",
+    "cases": [
+      {
+        "stdin": "1 2 2 3 3 3\n",
+        "expected": "3"
+      },
+      {
+        "stdin": "5 5 5\n",
+        "expected": "1"
+      },
+      {
+        "stdin": "4 8\n",
+        "expected": "2"
+      }
+    ],
+    "successMessage": "A set keeps each value once, so its size is the number of different values. Lesson done.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, new Set(numbers) removes duplicates, and its size property says how many values remain.",
+        "exampleCode": "const seen = new Set([1, 2, 2, 3]);\nconsole.log(seen.size);"
+      },
+      "python": {
+        "note": "In Python, set(numbers) removes duplicates, and len(...) says how many values remain.",
+        "exampleCode": "seen = set([1, 2, 2, 3])\nprint(len(seen))"
+      }
+    }
+  },
+  {
+    "id": "linked-lists",
+    "type": "code",
+    "title": "Linked lists",
+    "summary": "Values chained together, one link at a time.",
+    "topics": [
+      "Linked"
+    ],
+    "explanation": [
+      "A linked list is a chain of nodes, and each node holds a value and a link to the next node.",
+      "The last node links to nothing (null or None), which is how you know the chain has ended.",
+      "To visit every node you start at the head and keep following the links."
+    ],
+    "exampleOutput": "b",
+    "task": "The program builds a linked list from the words it reads but only prints the first one. Walk the chain by following next links, and print every value on its own line.",
+    "expectedOutput": "1\n2\n3",
+    "cases": [
+      {
+        "stdin": "1 2 3\n",
+        "expected": "1\n2\n3"
+      },
+      {
+        "stdin": "7\n",
+        "expected": "7"
+      },
+      {
+        "stdin": "4 5\n",
+        "expected": "4\n5"
+      }
+    ],
+    "successMessage": "You followed the links from the head until there were none left. Lesson done.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, a while loop that runs until current is null is the usual way to walk a chain.",
+        "exampleCode": "class Node {\n  constructor(value, next = null) {\n    this.value = value;\n    this.next = next;\n  }\n}\nconst head = new Node(\"a\", new Node(\"b\", new Node(\"c\")));\nconsole.log(head.next.value);"
+      },
+      "python": {
+        "note": "In Python, a while loop that runs until current is None is the usual way to walk a chain.",
+        "exampleCode": "class Node:\n    def __init__(self, value, next=None):\n        self.value = value\n        self.next = next\n\nhead = Node(\"a\", Node(\"b\", Node(\"c\")))\nprint(head.next.value)"
+      }
+    }
+  },
+  {
+    "id": "trees",
+    "type": "code",
+    "title": "Trees",
+    "summary": "Hierarchies, and binary search trees.",
+    "topics": [
+      "Trees"
+    ],
+    "explanation": [
+      "A tree is a hierarchy with one root node at the top, and each node can have children below it.",
+      "In a binary tree each node has at most two children, called left and right.",
+      "In a binary search tree smaller values go left and larger values go right, so visiting left, then the node, then right gives the values in sorted order."
+    ],
+    "exampleOutput": "1\n2\n3",
+    "task": "The program builds a binary search tree from the numbers it reads, but inOrder only prints the root. Make inOrder visit the left side first, then the node, then the right side, so the numbers print in sorted order.",
+    "expectedOutput": "1\n3\n4\n5\n8",
+    "cases": [
+      {
+        "stdin": "5 3 8 1 4\n",
+        "expected": "1\n3\n4\n5\n8"
+      },
+      {
+        "stdin": "2 1 3\n",
+        "expected": "1\n2\n3"
+      },
+      {
+        "stdin": "9\n",
+        "expected": "9"
+      }
+    ],
+    "successMessage": "Left, node, right: the recursion walked the whole tree in sorted order. Lesson done.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, a function that calls itself on node.left and node.right walks the tree one branch at a time.",
+        "exampleCode": "class Node {\n  constructor(value) {\n    this.value = value;\n    this.left = null;\n    this.right = null;\n  }\n}\nfunction insert(node, value) {\n  if (node === null) return new Node(value);\n  if (value < node.value) node.left = insert(node.left, value);\n  else node.right = insert(node.right, value);\n  return node;\n}\nfunction inOrder(node) {\n  if (node === null) return;\n  inOrder(node.left);\n  console.log(node.value);\n  inOrder(node.right);\n}\nlet root = null;\nfor (const number of [2, 1, 3]) root = insert(root, number);\ninOrder(root);"
+      },
+      "python": {
+        "note": "In Python, a function that calls itself on node.left and node.right walks the tree one branch at a time.",
+        "exampleCode": "class Node:\n    def __init__(self, value):\n        self.value = value\n        self.left = None\n        self.right = None\n\ndef insert(node, value):\n    if node is None:\n        return Node(value)\n    if value < node.value:\n        node.left = insert(node.left, value)\n    else:\n        node.right = insert(node.right, value)\n    return node\n\ndef in_order(node):\n    if node is None:\n        return\n    in_order(node.left)\n    print(node.value)\n    in_order(node.right)\n\nroot = None\nfor number in [2, 1, 3]:\n    root = insert(root, number)\nin_order(root)"
+      }
+    }
+  },
+  {
+    "id": "graphs",
+    "type": "code",
+    "title": "Graphs",
+    "summary": "Nodes, edges and how to walk them.",
+    "topics": [
+      "Graph"
+    ],
+    "explanation": [
+      "A graph is a set of nodes joined by edges, such as people and friendships or cities and roads.",
+      "Traversal means visiting every node you can reach, and breadth-first search visits the nearest nodes first.",
+      "A visited set stops you from going round in circles."
+    ],
+    "exampleOutput": "B C",
+    "task": "The program starts a breadth-first walk from the node it reads, but never adds any neighbours to the queue. Add each neighbour that has not been visited yet, so every reachable node is printed.",
+    "expectedOutput": "A\nB\nC\nD",
+    "cases": [
+      {
+        "stdin": "A\n",
+        "expected": "A\nB\nC\nD"
+      },
+      {
+        "stdin": "B\n",
+        "expected": "B\nD"
+      },
+      {
+        "stdin": "D\n",
+        "expected": "D"
+      }
+    ],
+    "successMessage": "The queue visited the nearest nodes first, and the visited set kept D from printing twice. Lesson done.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, a Set remembers visited nodes, and an array used as a queue gives the order with push and shift.",
+        "exampleCode": "const graph = { A: [\"B\", \"C\"], B: [\"D\"], C: [\"D\"], D: [] };\nconsole.log(graph[\"A\"].join(\" \"));"
+      },
+      "python": {
+        "note": "In Python, a set remembers visited nodes, and a list used as a queue gives the order with append and pop(0).",
+        "exampleCode": "graph = {\"A\": [\"B\", \"C\"], \"B\": [\"D\"], \"C\": [\"D\"], \"D\": []}\nprint(\" \".join(graph[\"A\"]))"
+      }
+    }
+  },
+  {
+    "id": "searching-algorithms",
+    "type": "code",
+    "title": "Searching algorithms",
+    "summary": "Linear and binary search.",
+    "topics": [
+      "Search"
+    ],
+    "explanation": [
+      "Searching means finding where a value is, or finding out that it is missing.",
+      "Linear search checks items one by one, so it can take as many steps as there are items.",
+      "Binary search works on sorted data and halves the search area each step, so it needs only a handful of steps."
+    ],
+    "exampleOutput": "2",
+    "task": "Finish the binary search. The program reads sorted numbers and a target, and prints the target's index or -1. In each branch, throw away the half that cannot hold the target.",
+    "expectedOutput": "3",
+    "cases": [
+      {
+        "stdin": "1 3 5 7 9\n7\n",
+        "expected": "3"
+      },
+      {
+        "stdin": "1 3 5 7 9\n4\n",
+        "expected": "-1"
+      },
+      {
+        "stdin": "2 4 6\n4\n",
+        "expected": "1"
+      }
+    ],
+    "successMessage": "Each step threw away half of what was left. Lesson done; that is why binary search is so fast.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, Math.floor((low + high) / 2) finds the middle index, and low and high mark the part still being searched.",
+        "exampleCode": "const numbers = [4, 8, 15, 16];\nconsole.log(numbers.indexOf(15));"
+      },
+      "python": {
+        "note": "In Python, (low + high) // 2 finds the middle index, and low and high mark the part still being searched.",
+        "exampleCode": "numbers = [4, 8, 15, 16]\nprint(numbers.index(15))"
+      }
+    }
+  },
+  {
+    "id": "sorting-algorithms",
+    "type": "code",
+    "title": "Sorting algorithms",
+    "summary": "Bubble, insertion, merge and quick sort.",
+    "topics": [
+      "Sorting"
+    ],
+    "explanation": [
+      "Sorting puts items in order, which makes searching and comparing much easier.",
+      "Bubble sort swaps neighbours that are out of order, and insertion sort slides each item into its place.",
+      "Merge sort and quicksort split the work into smaller parts, which is much faster on big lists."
+    ],
+    "exampleOutput": "1 2 3",
+    "task": "This bubble sort compares neighbours but never swaps them. Add the swap so the numbers print in order, smallest first.",
+    "expectedOutput": "1 2 3",
+    "cases": [
+      {
+        "stdin": "3 1 2\n",
+        "expected": "1 2 3"
+      },
+      {
+        "stdin": "5 4 3 2 1\n",
+        "expected": "1 2 3 4 5"
+      },
+      {
+        "stdin": "1 2\n",
+        "expected": "1 2"
+      }
+    ],
+    "successMessage": "Each pass pushed the biggest remaining number to the end, and the list came out sorted. Lesson done.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, swapping two items needs a temporary variable so neither value is lost.",
+        "exampleCode": "const numbers = [3, 1, 2];\nnumbers.sort((a, b) => a - b);\nconsole.log(numbers.join(\" \"));"
+      },
+      "python": {
+        "note": "In Python, a, b = b, a swaps two values in one line.",
+        "exampleCode": "numbers = [3, 1, 2]\nnumbers.sort()\nprint(\" \".join(map(str, numbers)))"
+      }
+    }
+  },
+  {
+    "id": "recursion",
+    "type": "code",
+    "title": "Recursion",
+    "summary": "A function that solves a smaller version of itself.",
+    "topics": [
+      "Recursion"
+    ],
+    "explanation": [
+      "Recursion means a function calls itself to solve a smaller version of the same problem.",
+      "Every recursive function needs a base case that stops the calls, and a recursive case that moves toward it.",
+      "Without a base case it would call itself forever."
+    ],
+    "exampleOutput": "3\n2\n1",
+    "task": "factorial(n) multiplies n by every whole number below it, so factorial(5) is 120. The base case is done, but the recursive case just returns 0. Replace it with a call to factorial on a smaller number.",
+    "expectedOutput": "120",
+    "cases": [
+      {
+        "stdin": "5\n",
+        "expected": "120"
+      },
+      {
+        "stdin": "0\n",
+        "expected": "1"
+      },
+      {
+        "stdin": "3\n",
+        "expected": "6"
+      }
+    ],
+    "successMessage": "Each call handled one number and left the rest to a smaller call. Lesson done.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, a function can call itself by name inside its own body.",
+        "exampleCode": "function countdown(n) {\n  if (n === 0) return;\n  console.log(n);\n  countdown(n - 1);\n}\ncountdown(3);"
+      },
+      "python": {
+        "note": "In Python, a function can call itself by name inside its own body.",
+        "exampleCode": "def countdown(n):\n    if n == 0:\n        return\n    print(n)\n    countdown(n - 1)\n\ncountdown(3)"
+      }
+    }
+  },
+  {
+    "id": "algorithmic-complexity",
+    "type": "concept",
+    "title": "Algorithmic complexity",
+    "summary": "Big O: how time and space grow with the input.",
+    "topics": [],
+    "explanation": [
+      "Big O describes how the time or memory a program needs grows as its input gets bigger.",
+      "O(1) stays the same, O(n) grows in step with the input, and O(n squared) grows much faster, such as a loop inside a loop.",
+      "Time is how many steps a program takes, and space is how much extra memory it uses."
+    ],
+    "illustration": "items       10    1,000    1 million\nO(1)         1        1        1\nO(log n)     4       10       20\nO(n)        10    1,000    1 million\nO(n^2)     100    1 million  too slow",
+    "illustrationCaption": "How many steps each kind of growth needs as the input gets bigger. O(1) and O(log n) barely change, O(n) grows in step with the input, and O(n squared) quickly becomes far too slow.",
+    "snippets": {
+      "javascript": {
+        "code": "const numbers = [1, 2, 3];\nlet steps = 0;\nfor (const a of numbers) {\n  steps += 1; // one pass: O(n)\n}\nfor (const a of numbers) {\n  for (const b of numbers) {\n    steps += 1; // a pass inside a pass: O(n squared)\n  }\n}\nconsole.log(steps);",
+        "output": "12",
+        "caption": "With three items, the single loop takes 3 steps and the nested loops take 9, 12 in all. With a thousand items it would be 1,000 and 1,000,000."
+      },
+      "python": {
+        "code": "numbers = [1, 2, 3]\nsteps = 0\nfor a in numbers:\n    steps += 1  # one pass: O(n)\nfor a in numbers:\n    for b in numbers:\n        steps += 1  # a pass inside a pass: O(n squared)\nprint(steps)",
+        "output": "12",
+        "caption": "With three items, the single loop takes 3 steps and the nested loops take 9, 12 in all. With a thousand items it would be 1,000 and 1,000,000."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; Big O gets easier the more programs you read."
+  },
+  {
+    "id": "problem-solving-techniques",
+    "type": "code",
+    "title": "Problem-solving techniques",
+    "summary": "Decomposition, two pointers, sliding window, divide and conquer.",
+    "topics": [
+      "Pointers",
+      "Windows",
+      "Prefix"
+    ],
+    "explanation": [
+      "Problem-solving techniques are reusable ideas: decomposition splits a big problem into small steps, two pointers walk in from both ends, a sliding window moves over a range, and divide and conquer splits the data in half.",
+      "Most of them turn slow repeated work into a single careful pass.",
+      "Naming the technique helps you spot the same shape in a new problem."
+    ],
+    "exampleOutput": "5\n5",
+    "task": "Use two pointers to check whether any two different numbers in a sorted list add up to the target. Finish the two branches: move the left pointer up when the sum is too small, and the right pointer down when it is too big.",
+    "expectedOutput": "yes",
+    "cases": [
+      {
+        "stdin": "1 2 4 7 11\n9\n",
+        "expected": "yes"
+      },
+      {
+        "stdin": "1 2 3\n10\n",
+        "expected": "no"
+      },
+      {
+        "stdin": "2 5\n7\n",
+        "expected": "yes"
+      }
+    ],
+    "successMessage": "Two pointers closed in from both ends and checked each pair once. Lesson done.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, two index variables, left and right, start at the ends and move toward each other.",
+        "exampleCode": "const numbers = [1, 2, 3, 4];\nlet left = 0;\nlet right = numbers.length - 1;\nwhile (left < right) {\n  console.log(numbers[left] + numbers[right]);\n  left += 1;\n  right -= 1;\n}"
+      },
+      "python": {
+        "note": "In Python, two index variables, left and right, start at the ends and move toward each other.",
+        "exampleCode": "numbers = [1, 2, 3, 4]\nleft = 0\nright = len(numbers) - 1\nwhile left < right:\n    print(numbers[left] + numbers[right])\n    left += 1\n    right -= 1"
+      }
+    }
+  },
+  {
+    "id": "abstraction",
+    "type": "concept",
+    "title": "Abstraction",
+    "summary": "Hide the details, keep the idea.",
+    "topics": [],
+    "explanation": [
+      "Abstraction means hiding the details and showing only what you need to use something.",
+      "You press a button on a microwave without knowing how it heats food, and a function works the same way.",
+      "Good abstractions let you think about what a piece of code does, not how it does it."
+    ],
+    "illustration": "you call:        average(list)\n                    |\nhidden inside:   add them up\n                 count them\n                 divide",
+    "illustrationCaption": "The caller only sees the name average and what it returns. The adding, counting and dividing stay hidden inside the function.",
+    "snippets": {
+      "javascript": {
+        "code": "function average(numbers) {\n  let total = 0;\n  for (const n of numbers) total += n;\n  return total / numbers.length;\n}\nconsole.log(average([2, 4, 6]));",
+        "output": "4",
+        "caption": "You use average without caring how it adds and divides."
+      },
+      "python": {
+        "code": "def average(numbers):\n    total = 0\n    for n in numbers:\n        total += n\n    return total / len(numbers)\n\nprint(average([2, 4, 6]))",
+        "output": "4.0",
+        "caption": "You use average without caring how it adds and divides."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "encapsulation",
+    "type": "concept",
+    "title": "Encapsulation",
+    "summary": "Keep data and the code that guards it together.",
+    "topics": [],
+    "explanation": [
+      "Encapsulation keeps data and the code that works on it together, and controls how outsiders can reach it.",
+      "Other code uses a small set of methods instead of changing the data directly.",
+      "That way the data can be protected from invalid changes."
+    ],
+    "illustration": "+------------------------+\n| Account                |\n|   balance  (hidden)    |\n|   deposit(amount)      |\n|   get balance          |\n+------------------------+\n   only these are public",
+    "illustrationCaption": "An Account object keeps its balance private. The outside can only use the methods the account offers, so every change goes through its checks.",
+    "snippets": {
+      "javascript": {
+        "code": "class Account {\n  #balance = 0;\n  deposit(amount) {\n    if (amount > 0) {\n      this.#balance += amount;\n    }\n  }\n  get balance() {\n    return this.#balance;\n  }\n}\nconst account = new Account();\naccount.deposit(50);\naccount.deposit(-20);\nconsole.log(account.balance);",
+        "output": "50",
+        "caption": "The # makes the balance private. deposit rejects the negative amount, so the balance stays 50."
+      },
+      "python": {
+        "code": "class Account:\n    def __init__(self):\n        self._balance = 0\n\n    def deposit(self, amount):\n        if amount > 0:\n            self._balance += amount\n\n    @property\n    def balance(self):\n        return self._balance\n\naccount = Account()\naccount.deposit(50)\naccount.deposit(-20)\nprint(account.balance)",
+        "output": "50",
+        "caption": "The leading underscore marks the balance as private by habit. deposit rejects the negative amount, so the balance stays 50."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "modularity",
+    "type": "concept",
+    "title": "Modularity",
+    "summary": "Build programs from small, swappable parts.",
+    "topics": [],
+    "explanation": [
+      "Modularity means building a program from small, separate parts called modules, each with one clear purpose.",
+      "A module can be changed, tested or replaced without rewriting everything else.",
+      "Parts connect through a few clear entry points."
+    ],
+    "illustration": "main\n |-- input    (read the data)\n |-- rules    (decide)\n |-- output   (show the result)",
+    "illustrationCaption": "A program split into three modules. Each one does a single job, and main joins them together.",
+    "snippets": {
+      "javascript": {
+        "code": "function parse(text) {\n  return text.split(\" \").map(Number);\n}\nfunction total(numbers) {\n  return numbers.reduce((a, b) => a + b, 0);\n}\nfunction show(value) {\n  console.log(\"Total: \" + value);\n}\nshow(total(parse(\"1 2 3\")));",
+        "output": "Total: 6",
+        "caption": "Three small functions, each with one job, joined in one line."
+      },
+      "python": {
+        "code": "def parse(text):\n    return [int(part) for part in text.split()]\n\ndef total(numbers):\n    return sum(numbers)\n\ndef show(value):\n    print(\"Total: \" + str(value))\n\nshow(total(parse(\"1 2 3\")))",
+        "output": "Total: 6",
+        "caption": "Three small functions, each with one job, joined in one line."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "object-oriented-programming",
+    "type": "code",
+    "title": "Object-oriented programming",
+    "summary": "Classes, objects, inheritance, composition and polymorphism.",
+    "topics": [],
+    "explanation": [
+      "A class is a blueprint, and an object is one thing built from it, with its own data and behaviour.",
+      "Inheritance lets a class reuse another class's code, composition builds a class by holding other objects, and polymorphism lets different classes answer the same method call in their own way.",
+      "Use inheritance when something truly is a kind of something, and composition when it has something."
+    ],
+    "exampleOutput": "Woof",
+    "task": "The program reads animal kinds and asks each one to speak. Cat does not have its own speak yet, so it prints ... Give Cat a speak method that returns Meow.",
+    "expectedOutput": "Woof\nMeow",
+    "cases": [
+      {
+        "stdin": "dog cat\n",
+        "expected": "Woof\nMeow"
+      },
+      {
+        "stdin": "cat\n",
+        "expected": "Meow"
+      },
+      {
+        "stdin": "dog dog\n",
+        "expected": "Woof\nWoof"
+      }
+    ],
+    "successMessage": "Each class answered speak in its own way, and the loop did not need to know which was which. That is polymorphism. Lesson done.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, class Dog extends Animal inherits from Animal, and a method with the same name overrides it.",
+        "exampleCode": "class Animal {\n  speak() {\n    return \"...\";\n  }\n}\nclass Dog extends Animal {\n  speak() {\n    return \"Woof\";\n  }\n}\nconsole.log(new Dog().speak());"
+      },
+      "python": {
+        "note": "In Python, class Dog(Animal) inherits from Animal, and a method with the same name overrides it.",
+        "exampleCode": "class Animal:\n    def speak(self):\n        return \"...\"\n\nclass Dog(Animal):\n    def speak(self):\n        return \"Woof\"\n\nprint(Dog().speak())"
+      }
+    }
+  },
+  {
+    "id": "functional-programming",
+    "type": "code",
+    "title": "Functional programming",
+    "summary": "Pure functions, higher-order functions and immutability.",
+    "topics": [],
+    "explanation": [
+      "A pure function always returns the same result for the same inputs and changes nothing outside itself.",
+      "A higher-order function takes a function as an argument or returns one, as map and filter do.",
+      "Building new values instead of changing old ones makes code easier to follow."
+    ],
+    "exampleOutput": "2 4 6",
+    "task": "The program prints the square of every number. Change it so it only squares the even numbers, by filtering first and then mapping, and prints those squares.",
+    "expectedOutput": "4 16",
+    "cases": [
+      {
+        "stdin": "1 2 3 4\n",
+        "expected": "4 16"
+      },
+      {
+        "stdin": "2 3\n",
+        "expected": "4"
+      },
+      {
+        "stdin": "6\n",
+        "expected": "36"
+      }
+    ],
+    "successMessage": "filter chose the even numbers and map squared them, with no loop and no changes to the original list. Lesson done.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, numbers.filter(test) keeps the items that pass, and numbers.map(change) builds a new list of results.",
+        "exampleCode": "const numbers = [1, 2, 3];\nconst doubled = numbers.map(n => n * 2);\nconsole.log(doubled.join(\" \"));"
+      },
+      "python": {
+        "note": "In Python, filter(test, numbers) keeps the items that pass, and map(change, numbers) builds the results.",
+        "exampleCode": "numbers = [1, 2, 3]\ndoubled = list(map(lambda n: n * 2, numbers))\nprint(\" \".join(map(str, doubled)))"
+      }
+    }
+  },
+  {
+    "id": "declarative-imperative",
+    "type": "concept",
+    "title": "Declarative vs imperative",
+    "summary": "Say what you want, or say how to get it.",
+    "topics": [],
+    "explanation": [
+      "Imperative code spells out how to do something, step by step.",
+      "Declarative code states what result you want and lets the language or library work out the steps.",
+      "Most programs mix both styles."
+    ],
+    "illustration": "imperative:\n  take a number, is it even?\n  if yes, put it in a new list...\n\ndeclarative:\n  give me the even numbers",
+    "illustrationCaption": "The same job described two ways. The imperative version lists every step, while the declarative version only says what is wanted.",
+    "snippets": {
+      "javascript": {
+        "code": "const numbers = [1, 2, 3, 4, 5, 6];\nconst evens = [];\nfor (const n of numbers) {\n  if (n % 2 === 0) {\n    evens.push(n);\n  }\n}\nconsole.log(evens.join(\" \"));\nconsole.log(numbers.filter(n => n % 2 === 0).join(\" \"));",
+        "output": "2 4 6\n2 4 6",
+        "caption": "Both print the even numbers. The loop says how, and filter says what."
+      },
+      "python": {
+        "code": "numbers = [1, 2, 3, 4, 5, 6]\nevens = []\nfor n in numbers:\n    if n % 2 == 0:\n        evens.append(n)\nprint(\" \".join(map(str, evens)))\nprint(\" \".join(str(n) for n in numbers if n % 2 == 0))",
+        "output": "2 4 6\n2 4 6",
+        "caption": "Both print the even numbers. The loop says how, and the comprehension says what."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "separation-of-concerns",
+    "type": "concept",
+    "title": "Separation of concerns",
+    "summary": "One part, one job.",
+    "topics": [],
+    "explanation": [
+      "Separation of concerns means each part of a program deals with one kind of problem.",
+      "A common split is the screen (how it looks), the rules (what it decides) and the data (where it is stored).",
+      "When the concerns are separate, a change to one rarely forces changes to the others."
+    ],
+    "illustration": "screen   how it looks\n   |\nrules    what it decides\n   |\ndata     where it is kept",
+    "illustrationCaption": "Three concerns stacked in layers. The screen shows results, the rules decide them, and the data layer stores them.",
+    "snippets": {
+      "javascript": {
+        "code": "function priceWithTax(price) {\n  return price * 1.1;\n}\nfunction format(value) {\n  return \"$\" + value.toFixed(2);\n}\nconsole.log(format(priceWithTax(10)));",
+        "output": "$11.00",
+        "caption": "priceWithTax is a rule and format is presentation. You can change the tax rate or the currency symbol independently."
+      },
+      "python": {
+        "code": "def price_with_tax(price):\n    return price * 1.1\n\ndef format_price(value):\n    return f\"${value:.2f}\"\n\nprint(format_price(price_with_tax(10)))",
+        "output": "$11.00",
+        "caption": "price_with_tax is a rule and format_price is presentation. You can change the tax rate or the currency symbol independently."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "solid-principles",
+    "type": "concept",
+    "title": "SOLID principles",
+    "summary": "Five habits for code that is easy to change.",
+    "topics": [],
+    "explanation": [
+      "SOLID is five habits for object-oriented code: single responsibility, open/closed, Liskov substitution, interface segregation and dependency inversion.",
+      "Each one is a way of keeping parts small, replaceable and loosely connected.",
+      "They are guidelines, not laws, so use them when they make code simpler."
+    ],
+    "illustration": "S  one class, one job\nO  extend it, don't edit it\nL  a subclass can stand in\nI  small, focused interfaces\nD  depend on abstractions",
+    "illustrationCaption": "The five SOLID habits, one line each. Together they aim to make code easy to extend and hard to break.",
+    "snippets": {
+      "javascript": {
+        "code": "class ConsoleSender {\n  send(text) {\n    console.log(text);\n  }\n}\nclass Notifier {\n  constructor(sender) {\n    this.sender = sender;\n  }\n  notify(text) {\n    this.sender.send(text);\n  }\n}\nnew Notifier(new ConsoleSender()).notify(\"Hello\");",
+        "output": "Hello",
+        "caption": "Notifier depends on anything that has a send method, so ConsoleSender could be swapped for an email sender without changing Notifier. That is dependency inversion."
+      },
+      "python": {
+        "code": "class ConsoleSender:\n    def send(self, text):\n        print(text)\n\nclass Notifier:\n    def __init__(self, sender):\n        self.sender = sender\n\n    def notify(self, text):\n        self.sender.send(text)\n\nNotifier(ConsoleSender()).notify(\"Hello\")",
+        "output": "Hello",
+        "caption": "Notifier depends on anything that has a send method, so ConsoleSender could be swapped for an email sender without changing Notifier. That is dependency inversion."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "dry-kiss-yagni",
+    "type": "concept",
+    "title": "DRY, KISS, YAGNI",
+    "summary": "Three reminders to keep things simple.",
+    "topics": [],
+    "explanation": [
+      "DRY means don't repeat yourself, so each piece of knowledge lives in one place.",
+      "KISS means keep it simple, because the simplest solution that works is the easiest to understand and fix.",
+      "YAGNI means you aren't going to need it, so don't build features before you need them."
+    ],
+    "illustration": "DRY    one rule, one place\nKISS   the simple way first\nYAGNI  build it when needed",
+    "illustrationCaption": "Three short reminders. Avoid repeating yourself, prefer simple solutions, and do not build things you do not need yet.",
+    "snippets": {
+      "javascript": {
+        "code": "const TAX_RATE = 0.1;\nfunction withTax(price) {\n  return price + price * TAX_RATE;\n}\nconsole.log(withTax(10), withTax(20));",
+        "output": "11 22",
+        "caption": "The tax rate lives in one place. Change it once, and every price follows."
+      },
+      "python": {
+        "code": "TAX_RATE = 0.1\n\ndef with_tax(price):\n    return price + price * TAX_RATE\n\nprint(with_tax(10), with_tax(20))",
+        "output": "11.0 22.0",
+        "caption": "The tax rate lives in one place. Change it once, and every price follows."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "design-patterns",
+    "type": "concept",
+    "title": "Design patterns",
+    "summary": "Named solutions to problems that keep coming back.",
+    "topics": [],
+    "explanation": [
+      "A design pattern is a named, reusable solution to a problem that keeps coming up.",
+      "Examples are the observer, where listeners are told when something changes, and the factory, which creates objects for you.",
+      "Patterns give a team shared words, but they should solve a real problem, not decorate the code."
+    ],
+    "illustration": "publisher --> listener A\n          --> listener B\n          --> listener C\n\n(the observer pattern)",
+    "illustrationCaption": "The observer pattern. One publisher tells every listener when something happens, and the listeners can come and go without the publisher changing.",
+    "snippets": {
+      "javascript": {
+        "code": "const listeners = [];\nfunction subscribe(listener) {\n  listeners.push(listener);\n}\nfunction publish(message) {\n  for (const listener of listeners) listener(message);\n}\nsubscribe(message => console.log(\"A got \" + message));\nsubscribe(message => console.log(\"B got \" + message));\npublish(\"hi\");",
+        "output": "A got hi\nB got hi",
+        "caption": "Both listeners are told when the message is published."
+      },
+      "python": {
+        "code": "listeners = []\n\ndef subscribe(listener):\n    listeners.append(listener)\n\ndef publish(message):\n    for listener in listeners:\n        listener(message)\n\nsubscribe(lambda message: print(\"A got \" + message))\nsubscribe(lambda message: print(\"B got \" + message))\npublish(\"hi\")",
+        "output": "A got hi\nB got hi",
+        "caption": "Both listeners are told when the message is published."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "interfaces-contracts",
+    "type": "concept",
+    "title": "Interfaces and contracts",
+    "summary": "Agree on what a part promises, not how it works.",
+    "topics": [],
+    "explanation": [
+      "An interface lists what something can do, and a contract is the promise about how it behaves.",
+      "Code that relies on the interface works with any part that keeps the promise.",
+      "The inside of a part can change safely as long as the contract stays the same."
+    ],
+    "illustration": "caller  -->  [ area() ]  -->  Square\n                         -->  Circle\n\nthe promise: area() gives a number",
+    "illustrationCaption": "The caller only knows the promise, that area() returns a number. Any shape that keeps the promise can be used.",
+    "snippets": {
+      "javascript": {
+        "code": "class Square {\n  constructor(side) {\n    this.side = side;\n  }\n  area() {\n    return this.side * this.side;\n  }\n}\nclass Rectangle {\n  constructor(width, height) {\n    this.width = width;\n    this.height = height;\n  }\n  area() {\n    return this.width * this.height;\n  }\n}\nfor (const shape of [new Square(3), new Rectangle(3, 4)]) {\n  console.log(shape.area());\n}",
+        "output": "9\n12",
+        "caption": "The loop only relies on every shape having an area method. It works for any new shape that keeps that promise."
+      },
+      "python": {
+        "code": "class Square:\n    def __init__(self, side):\n        self.side = side\n\n    def area(self):\n        return self.side * self.side\n\nclass Rectangle:\n    def __init__(self, width, height):\n        self.width = width\n        self.height = height\n\n    def area(self):\n        return self.width * self.height\n\nfor shape in [Square(3), Rectangle(3, 4)]:\n    print(shape.area())",
+        "output": "9\n12",
+        "caption": "The loop only relies on every shape having an area method. It works for any new shape that keeps that promise."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "binary-number-systems",
+    "type": "concept",
+    "title": "Binary and number systems",
+    "summary": "How computers count with only 0 and 1.",
+    "topics": [],
+    "explanation": [
+      "Computers store everything as bits, which are 0s and 1s.",
+      "Binary is base 2, where each place is worth twice the one to its right, while decimal is base 10 and hexadecimal is base 16.",
+      "Eight bits make a byte, which can hold 256 different values."
+    ],
+    "illustration": "binary    1   0   1   1\nplace     8   4   2   1\n          8 + 0 + 2 + 1 = 11",
+    "illustrationCaption": "The binary number 1011 read place by place. The places are worth 8, 4, 2 and 1, and adding the places that hold a 1 gives 11.",
+    "snippets": {
+      "javascript": {
+        "code": "console.log((11).toString(2));\nconsole.log(parseInt(\"1011\", 2));",
+        "output": "1011\n11",
+        "caption": "toString(2) writes a number in binary, and parseInt with base 2 reads binary back."
+      },
+      "python": {
+        "code": "print(format(11, \"b\"))\nprint(int(\"1011\", 2))",
+        "output": "1011\n11",
+        "caption": "format(..., \"b\") writes a number in binary, and int with base 2 reads binary back."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "computer-architecture",
+    "type": "concept",
+    "title": "Computer architecture",
+    "summary": "CPU, memory and storage, and how they cooperate.",
+    "topics": [],
+    "explanation": [
+      "The CPU runs instructions, memory (RAM) holds the data and programs in use right now, and storage keeps data when the power is off.",
+      "The CPU is much faster than memory, and memory is much faster than storage, so computers keep recently used data close by in caches.",
+      "A program's instructions are fetched, decoded and executed, over and over."
+    ],
+    "illustration": "CPU --> cache --> RAM --> disk\n\nleft:  fast, small, costly\nright: slow, large, cheap",
+    "illustrationCaption": "The memory hierarchy. The closer to the CPU, the faster and smaller the memory is, and the further away, the slower and larger it gets.",
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "memory-management",
+    "type": "concept",
+    "title": "Memory management",
+    "summary": "Stack, heap, references and garbage collection.",
+    "topics": [],
+    "explanation": [
+      "The stack holds small, short-lived data such as a function's local variables, and the heap holds larger data that can live longer.",
+      "A reference is a value that points to data on the heap, so two names can point to the same data.",
+      "Garbage collection frees heap data that nothing refers to any more."
+    ],
+    "illustration": "stack            heap\n a -----------> [1, 2]\n b ------------^\n\n(two names, one list)",
+    "illustrationCaption": "Two variables on the stack, a and b, both point to the same list on the heap. Changing the list through one name changes what the other sees.",
+    "snippets": {
+      "javascript": {
+        "code": "const a = [1];\nconst b = a;\nb.push(2);\nconsole.log(a.length);",
+        "output": "2",
+        "caption": "b is not a copy. It points to the same array, so pushing through b also changes a."
+      },
+      "python": {
+        "code": "a = [1]\nb = a\nb.append(2)\nprint(len(a))",
+        "output": "2",
+        "caption": "b is not a copy. It points to the same list, so appending through b also changes a."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "operating-system-fundamentals",
+    "type": "concept",
+    "title": "Operating system fundamentals",
+    "summary": "Processes, threads, files and system calls.",
+    "topics": [],
+    "explanation": [
+      "The operating system shares the computer between programs and manages memory, files and devices.",
+      "A process is a running program with its own memory, and a thread is a path of work inside a process that shares its memory.",
+      "A program asks the operating system to do things, such as read a file, through system calls."
+    ],
+    "illustration": "your program\n   |  system call:\n   |  \"read this file\"\noperating system\n   |  drives\ndisk, screen, network",
+    "illustrationCaption": "A program never touches the hardware directly. It makes a system call, and the operating system does the work and hands back the result.",
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "concurrency-parallelism",
+    "type": "concept",
+    "title": "Concurrency and parallelism",
+    "summary": "Doing many things at once, or looking like it.",
+    "topics": [],
+    "explanation": [
+      "Concurrency means managing several tasks that overlap in time, and parallelism means running them at the very same moment on different CPU cores.",
+      "Concurrency is about structure, and parallelism is about speed.",
+      "Sharing data between tasks needs care, because two tasks changing it at once can corrupt it, which is called a race condition."
+    ],
+    "illustration": "concurrent (one worker):\n  A . B . A . B\n\nparallel (two workers):\n  A A A A\n  B B B B",
+    "illustrationCaption": "With concurrency, one worker switches between tasks A and B so both make progress. With parallelism, two workers run A and B at the same moment.",
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "asynchronous-programming",
+    "type": "concept",
+    "title": "Asynchronous programming",
+    "summary": "Callbacks, promises and async/await.",
+    "topics": [],
+    "explanation": [
+      "Asynchronous code starts slow work, such as a network request, and carries on without waiting for it.",
+      "A callback runs when the work finishes, a promise stands for a result that will arrive, and async/await lets you write the waiting as if it were normal code.",
+      "Waiting without blocking keeps a program responsive."
+    ],
+    "illustration": "start the request\ncarry on with other work\n...\nresult arrives\nrun the next step",
+    "illustrationCaption": "An asynchronous request. The program starts the slow work, keeps going, and picks up the result later when it arrives.",
+    "snippets": {
+      "javascript": {
+        "code": "async function job() {\n  await Promise.resolve();\n  console.log(\"job finished\");\n}\nasync function main() {\n  const task = job();\n  console.log(\"started the job\");\n  await task;\n  console.log(\"all done\");\n}\nmain();",
+        "output": "started the job\njob finished\nall done",
+        "caption": "main starts the job, prints, and only then waits for the job to finish."
+      },
+      "python": {
+        "code": "import asyncio\n\nasync def job():\n    await asyncio.sleep(0)\n    print(\"job finished\")\n\nasync def main():\n    task = asyncio.create_task(job())\n    print(\"started the job\")\n    await task\n    print(\"all done\")\n\nasyncio.run(main())",
+        "output": "started the job\njob finished\nall done",
+        "caption": "main starts the job, prints, and only then waits for the job to finish."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "networking-fundamentals",
+    "type": "concept",
+    "title": "Networking fundamentals",
+    "summary": "IP, TCP, UDP, DNS and HTTP.",
+    "topics": [],
+    "explanation": [
+      "Every device on a network has an IP address, and DNS turns a name like example.com into that address.",
+      "TCP delivers data reliably and in order, UDP is faster but may lose or reorder data, and HTTP is the language browsers and servers speak on top of TCP.",
+      "A request goes out and a response comes back, each with a status code and sometimes data."
+    ],
+    "illustration": "browser --DNS--> 93.184.216.34\nbrowser --HTTP request--> server\nbrowser <--HTTP response-- server",
+    "illustrationCaption": "Loading a page. The browser first asks DNS for the server's address, then sends an HTTP request to it and gets an HTTP response back.",
+    "snippets": {
+      "javascript": {
+        "code": "const url = new URL(\"https://example.com:8080/docs?page=2\");\nconsole.log(url.hostname, url.port, url.searchParams.get(\"page\"));",
+        "output": "example.com 8080 2",
+        "caption": "A URL has a host name, an optional port and a query string."
+      },
+      "python": {
+        "code": "from urllib.parse import urlparse, parse_qs\nurl = urlparse(\"https://example.com:8080/docs?page=2\")\nprint(url.hostname, url.port, parse_qs(url.query)[\"page\"][0])",
+        "output": "example.com 8080 2",
+        "caption": "A URL has a host name, an optional port and a query string."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "data-serialization",
+    "type": "concept",
+    "title": "Data serialization",
+    "summary": "JSON, XML and binary formats.",
+    "topics": [],
+    "explanation": [
+      "Serialization turns data in memory into text or bytes that can be stored or sent, and deserialization turns it back.",
+      "JSON and XML are text formats that people can read, while binary formats are smaller and faster but not readable.",
+      "Both sides must agree on the format, or the data cannot be understood."
+    ],
+    "illustration": "object in memory\n   |  serialize\n   v\n{\"name\":\"Ada\",\"age\":12}\n   |  deserialize\n   v\nobject again",
+    "illustrationCaption": "Data is turned into JSON text so it can be saved or sent, and turned back into an object on the other side.",
+    "snippets": {
+      "javascript": {
+        "code": "const text = JSON.stringify({ name: \"Ada\", age: 12 });\nconsole.log(text);\nconsole.log(JSON.parse(text).age);",
+        "output": "{\"name\":\"Ada\",\"age\":12}\n12",
+        "caption": "JSON.stringify serializes, and JSON.parse deserializes."
+      },
+      "python": {
+        "code": "import json\ntext = json.dumps({\"name\": \"Ada\", \"age\": 12})\nprint(text)\nprint(json.loads(text)[\"age\"])",
+        "output": "{\"name\": \"Ada\", \"age\": 12}\n12",
+        "caption": "json.dumps serializes, and json.loads deserializes. Python adds spaces after the colons and commas."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "database-fundamentals",
+    "type": "concept",
+    "title": "Database fundamentals",
+    "summary": "Tables, relationships, SQL and NoSQL.",
+    "topics": [],
+    "explanation": [
+      "A relational database stores data in tables of rows and columns, and relationships link rows in one table to rows in another.",
+      "SQL is the language for asking questions of a relational database, such as selecting the rows that match a condition.",
+      "NoSQL databases store data in other shapes, such as documents or key-value pairs, and trade some structure for flexibility."
+    ],
+    "illustration": "users          orders\nid name        id user total\n1  Ada         7  1    20\n2  Mia         8  1    35\n\norders.user -> users.id",
+    "illustrationCaption": "Two tables linked by a relationship. Each order stores the id of the user who made it, so Ada's two orders both point to user 1.",
+    "snippets": {
+      "python": {
+        "code": "import sqlite3\n\ndb = sqlite3.connect(\":memory:\")\ndb.execute(\"CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT)\")\ndb.execute(\"INSERT INTO users (name) VALUES ('Ada'), ('Mia')\")\nfor row in db.execute(\"SELECT name FROM users WHERE id = 2\"):\n    print(row[0])",
+        "output": "Mia",
+        "caption": "SQL creates a table, adds rows and selects the row whose id is 2. Python's built-in sqlite3 runs it."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "data-integrity-transactions",
+    "type": "concept",
+    "title": "Data integrity and transactions",
+    "summary": "Constraints and ACID.",
+    "topics": [],
+    "explanation": [
+      "Data integrity means the data stays correct and consistent, which databases protect with constraints such as unique keys and required values.",
+      "A transaction groups several changes so they all succeed or all fail together.",
+      "ACID stands for atomicity, consistency, isolation and durability, the four promises a reliable transaction makes."
+    ],
+    "illustration": "BEGIN\n  take 50 from Ada\n  give 50 to Mia\nCOMMIT      all changes stick\n\nan error?  ROLLBACK, nothing changed",
+    "illustrationCaption": "A money transfer as a transaction. Either both steps happen and are committed, or an error undoes everything and the balances stay as they were.",
+    "snippets": {
+      "python": {
+        "code": "import sqlite3\n\ndb = sqlite3.connect(\":memory:\")\ndb.execute(\"CREATE TABLE accounts (name TEXT PRIMARY KEY, balance INTEGER CHECK (balance >= 0))\")\ndb.execute(\"INSERT INTO accounts VALUES ('Ada', 100)\")\ndb.commit()\ntry:\n    with db:\n        db.execute(\"UPDATE accounts SET balance = balance - 30 WHERE name = 'Ada'\")\n        db.execute(\"UPDATE accounts SET balance = balance - 90 WHERE name = 'Ada'\")\nexcept sqlite3.IntegrityError:\n    print(\"rolled back\")\nprint(db.execute(\"SELECT balance FROM accounts\").fetchone()[0])",
+        "output": "rolled back\n100",
+        "caption": "The second update breaks the CHECK constraint, so the whole transaction is rolled back, including the first update, and the balance is still 100."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "debugging",
+    "type": "code",
+    "title": "Debugging",
+    "summary": "Tracing, logs and finding root causes.",
+    "topics": [],
+    "explanation": [
+      "Debugging is finding out why a program does not do what you expect, and then fixing the cause.",
+      "Trace the program by hand, or print values as it runs, to see where reality stops matching your plan.",
+      "Fix the root cause rather than the symptom, and check that nothing else broke."
+    ],
+    "exampleOutput": "i = 1 total = 1\ni = 2 total = 3\ni = 3 total = 6",
+    "task": "The program should print the sum of 1 up to n, so 5 gives 15. It prints too little. Trace the loop, find the off-by-one mistake and fix it.",
+    "expectedOutput": "15",
+    "cases": [
+      {
+        "stdin": "5\n",
+        "expected": "15"
+      },
+      {
+        "stdin": "1\n",
+        "expected": "1"
+      },
+      {
+        "stdin": "10\n",
+        "expected": "55"
+      }
+    ],
+    "successMessage": "The loop stopped one number too early, and you found it by tracing. Lesson done; off-by-one mistakes are among the most common bugs.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, console.log inside the loop shows each value as it changes.",
+        "exampleCode": "let total = 0;\nfor (let i = 1; i <= 3; i++) {\n  total += i;\n  console.log(\"i =\", i, \"total =\", total);\n}"
+      },
+      "python": {
+        "note": "In Python, print inside the loop shows each value as it changes.",
+        "exampleCode": "total = 0\nfor i in range(1, 4):\n    total += i\n    print(\"i =\", i, \"total =\", total)"
+      }
+    }
+  },
+  {
+    "id": "testing",
+    "type": "code",
+    "title": "Testing",
+    "summary": "Unit, integration and end-to-end tests.",
+    "topics": [],
+    "explanation": [
+      "A test runs your code with a known input and checks that the result is what you expect.",
+      "A unit test checks one small piece, an integration test checks that pieces work together, and an end-to-end test checks the whole program the way a user would.",
+      "Passing tests give you the confidence to change code without fear."
+    ],
+    "exampleOutput": "PASS",
+    "task": "This tiny test runner checks isEven on three inputs and prints PASS or FAIL for each. All three fail. Read what the tests expect and fix isEven so all three print PASS.",
+    "expectedOutput": "PASS\nPASS\nPASS",
+    "successMessage": "Three tests, three passes. The tests showed you exactly what was wrong. Lesson done.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, a test compares the actual result with the expected result and reports the outcome.",
+        "exampleCode": "function double(n) {\n  return n * 2;\n}\nconsole.log(double(4) === 8 ? \"PASS\" : \"FAIL\");"
+      },
+      "python": {
+        "note": "In Python, a test compares the actual result with the expected result and reports the outcome.",
+        "exampleCode": "def double(n):\n    return n * 2\n\nprint(\"PASS\" if double(4) == 8 else \"FAIL\")"
+      }
+    }
+  },
+  {
+    "id": "version-control",
+    "type": "concept",
+    "title": "Version control",
+    "summary": "Git, commits, branches and merges.",
+    "topics": [],
+    "explanation": [
+      "Version control records every change to your files, so you can see what changed, who changed it, and go back.",
+      "In Git, a commit is a saved snapshot, a branch is a separate line of work, and a merge brings branches together.",
+      "Small commits with clear messages make history easy to read and mistakes easy to undo."
+    ],
+    "illustration": "main     A --- B ---------- E\n                \\         /\nfeature          C ---- D",
+    "illustrationCaption": "A branch history. Work on a feature branch (commits C and D) happens separately from main, and a merge brings it back as commit E.",
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "code-readability",
+    "type": "concept",
+    "title": "Code readability",
+    "summary": "Naming, formatting and structure.",
+    "topics": [],
+    "explanation": [
+      "Readable code is written for people first, because code is read far more often than it is written.",
+      "Clear names, consistent formatting and small functions make the meaning obvious.",
+      "A comment should explain why, not repeat what the code already says."
+    ],
+    "illustration": "calc(a, b)       unclear\n\ndiscountAmount(price,\n               quantity)  clear",
+    "illustrationCaption": "The same idea with two names. A good name tells you what a function does before you read its body.",
+    "snippets": {
+      "javascript": {
+        "code": "function calc(a, b) {\n  return a * b * 0.2;\n}\nfunction discountAmount(price, quantity) {\n  const DISCOUNT_RATE = 0.2;\n  return price * quantity * DISCOUNT_RATE;\n}\nconsole.log(calc(10, 2), discountAmount(10, 2));",
+        "output": "4 4",
+        "caption": "Both functions give the same answer. Only the second explains itself."
+      },
+      "python": {
+        "code": "def calc(a, b):\n    return a * b * 0.2\n\ndef discount_amount(price, quantity):\n    DISCOUNT_RATE = 0.2\n    return price * quantity * DISCOUNT_RATE\n\nprint(calc(10, 2), discount_amount(10, 2))",
+        "output": "4.0 4.0",
+        "caption": "Both functions give the same answer. Only the second explains itself."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "refactoring",
+    "type": "code",
+    "title": "Refactoring",
+    "summary": "Improve the code without changing what it does.",
+    "topics": [],
+    "explanation": [
+      "Refactoring means improving how code is organized without changing what it does.",
+      "Common moves are extracting repeated code into a function, giving things clearer names and removing duplication.",
+      "Make small steps and run your checks after each one."
+    ],
+    "exampleOutput": "Tea: $3.30",
+    "task": "The program prints two price lines with the same tax formula copied twice. Add a third line, Pie at 5, but instead of copying the formula again, move it into a function called withTax and use it for all three lines.",
+    "expectedOutput": "Tea: $3.30\nCake: $4.40\nPie: $5.50",
+    "successMessage": "One function now holds the formula, so a change to the tax rate happens in one place. Lesson done.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, a small function that returns the formatted price removes the repeated formula.",
+        "exampleCode": "const TAX = 1.1;\nfunction withTax(price) {\n  return (price * TAX).toFixed(2);\n}\nconsole.log(\"Tea: $\" + withTax(3));"
+      },
+      "python": {
+        "note": "In Python, a small function that returns the formatted price removes the repeated formula.",
+        "exampleCode": "TAX = 1.1\n\ndef with_tax(price):\n    return f\"{price * TAX:.2f}\"\n\nprint(\"Tea: $\" + with_tax(3))"
+      }
+    }
+  },
+  {
+    "id": "data-validation",
+    "type": "code",
+    "title": "Data validation",
+    "summary": "Check input before you trust it.",
+    "topics": [],
+    "explanation": [
+      "Data validation checks that input is acceptable before the program uses it.",
+      "Check the type, the range, the length and the format, and reject anything that does not fit.",
+      "Validate on the server even when the page already checked, because users can bypass the page."
+    ],
+    "exampleOutput": "valid",
+    "task": "The program reads an age and always prints valid. Make it print valid only for whole numbers from 0 to 120, and invalid for anything else, such as -5, 150 or abc.",
+    "expectedOutput": "valid",
+    "cases": [
+      {
+        "stdin": "25\n",
+        "expected": "valid"
+      },
+      {
+        "stdin": "-5\n",
+        "expected": "invalid"
+      },
+      {
+        "stdin": "abc\n",
+        "expected": "invalid"
+      },
+      {
+        "stdin": "150\n",
+        "expected": "invalid"
+      }
+    ],
+    "successMessage": "Good ages pass and anything odd is rejected before it can cause trouble. Lesson done.",
+    "languages": {
+      "javascript": {
+        "note": "In JavaScript, Number.isInteger(age) is false for NaN, so it catches text that is not a number.",
+        "exampleCode": "const age = Number(\"25\");\nconsole.log(Number.isInteger(age) && age >= 0 && age <= 120 ? \"valid\" : \"invalid\");"
+      },
+      "python": {
+        "note": "In Python, int(text) raises a ValueError when the text is not a whole number, which try and except can catch.",
+        "exampleCode": "age = int(\"25\")\nprint(\"valid\" if 0 <= age <= 120 else \"invalid\")"
+      }
+    }
+  },
+  {
+    "id": "security-fundamentals",
+    "type": "concept",
+    "title": "Security fundamentals",
+    "summary": "Authentication, authorization, encryption basics and safe input.",
+    "topics": [],
+    "explanation": [
+      "Authentication checks who you are, and authorization checks what you are allowed to do.",
+      "Encryption scrambles data so only someone with the key can read it, and passwords should be stored only as salted hashes, never as plain text.",
+      "Treat all input as untrusted: validate it, and never build commands or queries by pasting input into text."
+    ],
+    "illustration": "authentication  \"Who are you?\"\n                (log in)\n\nauthorization   \"May you do this?\"\n                (permissions)",
+    "illustrationCaption": "Two different checks. Authentication proves who you are, and authorization decides what that person may do.",
+    "snippets": {
+      "javascript": {
+        "code": "function escapeHtml(text) {\n  return text.replace(/&/g, \"&amp;\").replace(/</g, \"&lt;\").replace(/>/g, \"&gt;\");\n}\nconsole.log(escapeHtml(\"<script>alert(1)</script>\"));",
+        "output": "&lt;script&gt;alert(1)&lt;/script&gt;",
+        "caption": "Escaping turns special characters into harmless text, so pasted input cannot run as code on a page."
+      },
+      "python": {
+        "code": "import sqlite3\n\ndb = sqlite3.connect(\":memory:\")\ndb.execute(\"CREATE TABLE users (name TEXT)\")\ndb.execute(\"INSERT INTO users VALUES ('Ada')\")\nname = \"x' OR '1'='1\"\nrows = db.execute(\"SELECT * FROM users WHERE name = ?\", (name,)).fetchall()\nprint(len(rows))",
+        "output": "0",
+        "caption": "The ? placeholder keeps the input as data, so the attack text matches no user. Pasting it into the query text could have returned every row."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "api-fundamentals",
+    "type": "concept",
+    "title": "API fundamentals",
+    "summary": "Endpoints, status codes and contracts.",
+    "topics": [],
+    "explanation": [
+      "An API lets one program use another through agreed requests and responses.",
+      "A web API has endpoints (URLs), uses methods such as GET to read and POST to create, and answers with a status code such as 200 for success or 404 for not found.",
+      "The API's contract says what to send and what comes back, so both sides can change independently."
+    ],
+    "illustration": "GET /users/7    --> 200 OK\n                    {\"name\":\"Ada\"}\nGET /users/999  --> 404 Not Found",
+    "illustrationCaption": "Two requests to the same API. A user that exists gets a 200 response with data, and a user that does not exist gets a 404.",
+    "snippets": {
+      "javascript": {
+        "code": "const users = { 7: \"Ada\" };\nfunction getUser(id) {\n  if (!(id in users)) return { status: 404 };\n  return { status: 200, name: users[id] };\n}\nconsole.log(getUser(7).status, getUser(999).status);",
+        "output": "200 404",
+        "caption": "A tiny pretend endpoint that answers 200 when the user exists and 404 when it does not."
+      },
+      "python": {
+        "code": "users = {7: \"Ada\"}\n\ndef get_user(user_id):\n    if user_id not in users:\n        return {\"status\": 404}\n    return {\"status\": 200, \"name\": users[user_id]}\n\nprint(get_user(7)[\"status\"], get_user(999)[\"status\"])",
+        "output": "200 404",
+        "caption": "A tiny pretend endpoint that answers 200 when the user exists and 404 when it does not."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "dependency-management",
+    "type": "concept",
+    "title": "Dependency management",
+    "summary": "Using other people's code safely.",
+    "topics": [],
+    "explanation": [
+      "A dependency is code written by someone else that your project uses, such as a library.",
+      "A package manager downloads dependencies, and a lock file records the exact versions so everyone gets the same ones.",
+      "Each dependency is a trade-off: it saves time but can bring bugs, security problems and updates to keep up with."
+    ],
+    "illustration": "your app\n |- library A  (2.1.0)\n |   |- library C  (1.4.2)\n |- library B  (0.9.1)",
+    "illustrationCaption": "A dependency tree. Your app uses libraries A and B, and library A uses library C, so you depend on C indirectly.",
+    "snippets": {
+      "javascript": {
+        "code": "function major(version) {\n  return Number(version.split(\".\")[0]);\n}\nconsole.log(major(\"2.1.0\") === major(\"2.9.3\"));\nconsole.log(major(\"2.1.0\") === major(\"3.0.0\"));",
+        "output": "true\nfalse",
+        "caption": "Versions look like major.minor.patch. Within one major number updates should be safe, while a new major number may break your code."
+      },
+      "python": {
+        "code": "def major(version):\n    return int(version.split(\".\")[0])\n\nprint(major(\"2.1.0\") == major(\"2.9.3\"))\nprint(major(\"2.1.0\") == major(\"3.0.0\"))",
+        "output": "True\nFalse",
+        "caption": "Versions look like major.minor.patch. Within one major number updates should be safe, while a new major number may break your code."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "software-architecture",
+    "type": "concept",
+    "title": "Software architecture",
+    "summary": "Layers, coupling and cohesion.",
+    "topics": [],
+    "explanation": [
+      "Software architecture is how a system is split into parts and how those parts depend on each other.",
+      "A common design uses layers, such as presentation, logic and data, where each layer only talks to the one below it.",
+      "Good architecture has low coupling, so parts depend on each other as little as possible, and high cohesion, so each part's contents belong together."
+    ],
+    "illustration": "presentation   screens, buttons\n      |\nlogic          rules, decisions\n      |\ndata           database, files",
+    "illustrationCaption": "A layered design. Each layer only talks to the layer below it, so a change in one layer rarely spreads to the others.",
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "performance-optimization",
+    "type": "concept",
+    "title": "Performance optimization",
+    "summary": "Profiling and caching.",
+    "topics": [],
+    "explanation": [
+      "Performance work starts with measuring, because the slow part is often not where you expect.",
+      "Profiling finds where time is spent, and caching saves the result of slow work so you can reuse it.",
+      "Only optimize what the measurements show matters, because faster code is often harder to read."
+    ],
+    "illustration": "1. measure   find the slow part\n2. change    fix only that\n3. measure   did it help?",
+    "illustrationCaption": "The optimization loop. Measure first, change one thing, then measure again to check it really helped.",
+    "snippets": {
+      "javascript": {
+        "code": "const cache = {};\nfunction fib(n) {\n  if (n < 2) return n;\n  if (cache[n] !== undefined) return cache[n];\n  cache[n] = fib(n - 1) + fib(n - 2);\n  return cache[n];\n}\nconsole.log(fib(40));",
+        "output": "102334155",
+        "caption": "Without the cache this would make hundreds of millions of calls. With it, each value is worked out once."
+      },
+      "python": {
+        "code": "cache = {}\n\ndef fib(n):\n    if n < 2:\n        return n\n    if n not in cache:\n        cache[n] = fib(n - 1) + fib(n - 2)\n    return cache[n]\n\nprint(fib(40))",
+        "output": "102334155",
+        "caption": "Without the cache this would make hundreds of millions of calls. With it, each value is worked out once."
+      }
+    },
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  },
+  {
+    "id": "build-deployment",
+    "type": "concept",
+    "title": "Build and deployment",
+    "summary": "Compilation, packaging and CI/CD.",
+    "topics": [],
+    "explanation": [
+      "A build turns source code into something that can run, by compiling, bundling files and packaging them.",
+      "Deployment puts that build where users can reach it, such as on a server.",
+      "CI/CD automates the steps: continuous integration builds and tests every change, and continuous delivery ships the changes that pass."
+    ],
+    "illustration": "push --> build --> test --> deploy\n          |        |\n       fails?   fails?\n       stop and tell you",
+    "illustrationCaption": "A CI/CD pipeline. Every push is built and tested automatically, and a failure at any step stops the pipeline and tells the team.",
+    "successMessage": "You got them all. Lesson done; come back whenever you want a refresher."
+  }
+]

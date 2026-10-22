@@ -2,14 +2,18 @@
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { useAccount } from "./account-provider";
+import { AccountAvatar } from "./account-avatar";
 import { BookOpen, Workflow, LayoutDashboard, Route, Code2, FileClock, ChartNoAxesCombined, RotateCcw, Layers, CalendarDays, Trophy, Settings, PanelLeftClose, PanelLeftOpen, LockKeyhole, type LucideIcon } from "lucide-react";
 
 export const navigation = [
   { href: "/dashboard/", label: "Your desk", icon: LayoutDashboard },
   { href: "/path/", label: "The Path", icon: Route },
+  { href: "/foundation/", label: "Foundation", icon: BookOpen },
   { href: "/problems/", label: "Problems", icon: Code2 },
   { href: "/submissions/", label: "Submissions", icon: FileClock },
   { href: "/progress/", label: "Progress", icon: ChartNoAxesCombined },
+  { href: "/leaderboard/", label: "Leaderboards", icon: Trophy },
   { href: "/warm-up/", label: "Daily Warm-up", icon: BookOpen },
   { href: "/visualizer/", label: "Visualizer", icon: Workflow },
   { href: "/review/", label: "Review queue", icon: RotateCcw },
@@ -69,17 +73,19 @@ export function Sidebar({ current, due, count, collapsed, onCollapse, profile, x
   current: string; due: number; count: number; collapsed: boolean; onCollapse?: () => void; profile: { name: string; avatar: string }; xp: number; level: number; specimen?: boolean; specimenLabel?: string; toggleState?: "hover" | "focus" | "pressed";
 }) {
   const navigationId = useId();
+  const account = useAccount();
+  const signedIn = !!account.user && !specimen;
   return <aside className={`sidebar ${specimen ? "sidebar-specimen" : ""}`} data-collapsed={collapsed} aria-label={specimen ? specimenLabel : "Workspace"}>
     <div className="sidebar-brand"><Link href="/" className="wordmark" aria-label="Iwons home"><span className="brand-icon">ı</span><span className="brand-name">Iwons<span className="brand-dot" /></span></Link></div>
     <SidebarToggle collapsed={collapsed} onCollapse={onCollapse} controls={navigationId} state={toggleState} />
     <div className="sidebar-scroll" id={navigationId}>
       <div className="sidebar-caption">Workspace</div>
       <nav aria-label={specimen ? `${specimenLabel} navigation` : "Main navigation"}>{navigation.map((item) => <div key={item.href}>{item.href === "/progress/" ? <div className="sidebar-caption">Keep growing</div> : null}<NavigationItem {...item} collapsed={collapsed} active={current === item.label} count={item.href === "/review/" ? due : item.href === "/problems/" ? count : undefined} /></div>)}
-      {specimen ? <NavigationItem href="/path/8/" label="Master Printer" icon={LockKeyhole} locked collapsed={collapsed} /> : null}</nav>
+      {specimen ? <NavigationItem href="/path/8/" label="Master Printer" icon={BookOpen} collapsed={collapsed} /> : null}</nav>
       <div className="sidebar-bottom">
-        <div className="local-note">Your progress stays on this device. Export a backup in Settings.</div>
+        <div className="local-note">{signedIn ? "Your progress syncs to your account. Export a copy in Settings." : "Your progress stays on this device. Export a backup in Settings."}</div>
         <NavigationItem href="/settings/" label="Settings" icon={Settings} active={current === "Settings"} collapsed={collapsed} />
-        <Link href="/settings/" className="profile-link" title={`${profile.name}, Level ${level}, ${xp} XP`} aria-label={collapsed ? `${profile.name}, profile settings` : undefined}><span className="avatar">{profile.avatar}</span><span className="profile-text">{profile.name}<small>Level {level} · {xp} XP</small></span></Link>
+        <Link href={signedIn ? "/profile/" : "/settings/"} className="profile-link" title={`${profile.name}, Level ${level}, ${xp} XP`} aria-label={collapsed ? `${profile.name}, profile settings` : undefined}><AccountAvatar initial={profile.avatar} url={signedIn ? account.user?.avatarUrl : undefined} /><span className="profile-text">{profile.name}<small>Level {level} · {xp} XP</small></span></Link>
       </div>
     </div>
   </aside>;

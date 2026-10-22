@@ -1,0 +1,7 @@
+[
+  { "id": "core-fundamentals", "title": "Core programming fundamentals", "order": 1 },
+  { "id": "data-structures-algorithms", "title": "Data structures and algorithms", "order": 2 },
+  { "id": "principles-design", "title": "Programming principles and design", "order": 3 },
+  { "id": "cs-fundamentals", "title": "Computer science fundamentals", "order": 4 },
+  { "id": "software-engineering", "title": "Practical software engineering foundations", "order": 5 }
+]

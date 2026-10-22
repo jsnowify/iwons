@@ -2,6 +2,7 @@ import { siteUrl } from "@/lib/site-url";
 import type { MetadataRoute } from "next";
 import { problems, topics, topicSlug } from "@/lib/catalog";
 import { ALGORITHM_REGISTRY } from "@/visualizer/registry";
+import { foundationLessons } from "@/lib/foundation-track";
 
 export const dynamic = "force-static";
 
@@ -14,6 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "problems/",
     "plans/",
     "path/",
+    "foundation/",
+    ...foundationLessons.map(lesson => `foundation/${lesson.id}/`),
     ...Array.from({ length: 9 }, (_, i) => `path/${i}/`),
     "about/",
     "visualizer/",
@@ -27,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "review/",
     "lists/",
     "settings/",
+    "leaderboard/",
     "submissions/",
     "problems/new/",
   ];

@@ -36,7 +36,7 @@ for (const width of [320, 1440]) {
     await page.goto('/settings/');
     const readable = page.getByRole('switch', { name: /Readable text/ });
     await expect(page.getByRole('checkbox')).toHaveCount(0);
-    await expect(page.getByRole('switch')).toHaveCount(5);
+    await expect(page.getByRole('switch')).toHaveCount(4);
     for (const toggle of await page.getByRole('switch').all()) {
       await expect(toggle).toHaveCSS('appearance', 'none');
       await expect(toggle).toHaveCSS('width', '40px');
@@ -47,10 +47,7 @@ for (const width of [320, 1440]) {
     await expect(readable).toBeChecked();
     await expect(page.locator('html')).toHaveAttribute('data-readable', 'true');
     await page.goto('/path/');
-    const browse = page.getByRole('switch', { name: 'Free browse all chapters', exact: true });
-    await expect(browse).toHaveCSS('appearance', 'none');
-    await browse.check();
-    await page.goto('/settings/');
-    await expect(page.getByRole('switch', { name: /Free browse/ })).toBeChecked();
+    await expect(page.getByRole('switch', { name: /Free browse/ })).toHaveCount(0);
+    await expect(page.locator('.path-station a.chapter-card')).toHaveCount(9);
   });
 }

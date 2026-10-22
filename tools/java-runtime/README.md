@@ -1,6 +1,7 @@
-# Local Java execution service (not yet verified)
+# Local Judge0 developer harness (operator testing only)
 
-This optional Judge0 service is separate from Iwons' static, browser-only application. No application database or backend is introduced. Do not enable Java or generate Foundations content until the live browser probes pass.
+> [!NOTE]
+> Production and server judging use a managed server-side Judge0 integration. This directory contains an isolated local Docker container test harness for operator benchmarking.
 
 The current machine has insufficient system-drive space. The attempted image download was stopped, its Redis/PostgreSQL images removed, its 40 build-cache records removed, and the five identified interrupted-pull/build leases released. Containerd cleanup plus filesystem trim recovered 6.5 GiB inside Docker. Windows still retains unused space in `docker_data.vhdx`; compacting it requires an Administrator session. The coding session is not elevated. Docker Desktop was stopped after cleanup. The existing `welcome-to-docker` image/container was preserved.
 

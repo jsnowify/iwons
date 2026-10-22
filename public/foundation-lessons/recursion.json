@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "recursion",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "function factorial(n) {\n  if (n === 0) {\n    return 1;\n  }\n  return 0;\n}\nconsole.log(factorial(Number(require(\"fs\").readFileSync(0, \"utf8\").trim())));",
+      "hints": [
+        "The recursive case should use the answer for a smaller number.",
+        "factorial(n) is n times factorial(n - 1). Return that.",
+        "This trips up lots of people. The base case makes the calls stop, and n - 1 makes each call smaller, so it always reaches the base. Here is the complete code."
+      ],
+      "answerCode": "function factorial(n) {\n  if (n === 0) {\n    return 1;\n  }\n  return n * factorial(n - 1);\n}\nconsole.log(factorial(Number(require(\"fs\").readFileSync(0, \"utf8\").trim())));"
+    },
+    "python": {
+      "starterCode": "def factorial(n):\n    if n == 0:\n        return 1\n    return 0\n\nprint(factorial(int(input())))",
+      "hints": [
+        "The recursive case should use the answer for a smaller number.",
+        "factorial(n) is n times factorial(n - 1). Return that.",
+        "This trips up lots of people. The base case makes the calls stop, and n - 1 makes each call smaller, so it always reaches the base. Here is the complete code."
+      ],
+      "answerCode": "def factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n - 1)\n\nprint(factorial(int(input())))"
+    }
+  }
+}

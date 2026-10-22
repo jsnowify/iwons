@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "database-fundamentals",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "In a relational database, what does a relationship do?",
+      "options": [
+        "Links rows in one table to rows in another",
+        "Sorts the rows alphabetically",
+        "Encrypts a table"
+      ],
+      "answer": 0,
+      "explanation": "A relationship, usually a stored id, connects related rows, like an order and the user who placed it.",
+      "hint": "Look at orders.user in the picture."
+    },
+    {
+      "prompt": "What is SQL used for?",
+      "options": [
+        "Styling web pages",
+        "Asking questions of, and changing, a relational database",
+        "Compiling programs"
+      ],
+      "answer": 1,
+      "explanation": "SQL is the standard language for querying and updating relational databases.",
+      "hint": "SELECT is one of its words."
+    },
+    {
+      "prompt": "What is a common trade-off of NoSQL databases?",
+      "options": [
+        "They store data in flexible shapes but give up some of the structure and guarantees of tables",
+        "They can only store numbers",
+        "They never lose data in any situation"
+      ],
+      "answer": 0,
+      "explanation": "Document and key-value stores are flexible and often scale easily, but you give up some structure and sometimes some guarantees.",
+      "hint": "What does flexible usually cost?"
+    }
+  ]
+}

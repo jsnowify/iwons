@@ -12,7 +12,7 @@ import {
   Code2,
 } from "lucide-react";
 import { useStore } from "@/store/use-store";
-import { verdictNames, languageNames, problemUrl } from "@/lib/presentation";
+import { verdictNames, languageNames, problemUrl, serverDemo } from "@/lib/presentation";
 import { storage } from "@/lib/storage";
 import { integrityKind } from "@/lib/watch/badge";
 import { Badge, Empty, Button, useToast } from "./ui";
@@ -52,7 +52,7 @@ export function SubmissionsPage({problems}:{problems:CatalogEntry[]}) {
           list.map((s) => {
             const p = [...problems, ...store.customProblems].find(
               (p) => p.id === s.problemId,
-            );
+            ) ?? (s.problemId === serverDemo.id ? serverDemo : undefined);
             return (
               <Link
                 href={`/submissions/detail/?id=${s.id}`}
@@ -76,14 +76,14 @@ export function SubmissionsPage({problems}:{problems:CatalogEntry[]}) {
                   {verdictNames[s.verdict]}
                 </span>
                 <span className="muted">{languageNames[s.language]}</span>
-                <Badge kind={integrityKind(s.integrity, s.mode === "contest")}>
+                {s.source === "server" ? <Badge>Server judged</Badge> : <Badge kind={integrityKind(s.integrity, s.mode === "contest")}>
                   <ShieldCheck size={11} />
                   {integrityKind(s.integrity, s.mode === "contest").replace(
                     /^./,
                     (c) => c.toUpperCase(),
                   )}{" "}
                   · {s.integrity.score}
-                </Badge>
+                </Badge>}
                 <ArrowUpRight size={15} className="muted" />
               </Link>
             );
@@ -136,7 +136,7 @@ export function SubmissionDetail({problems}:{problems:CatalogEntry[]}) {
     );
   const p = [...problems, ...store.customProblems].find(
     (p) => p.id === s.problemId,
-  );
+  ) ?? (s.problemId === serverDemo.id ? serverDemo : undefined);
   const kind = integrityKind(s.integrity, s.mode === "contest");
   const labels: Record<string, string> = {
     tab_hidden: "Left the Iwons tab",
@@ -218,12 +218,11 @@ export function SubmissionDetail({problems}:{problems:CatalogEntry[]}) {
                 <ShieldCheck size={16} />
                 Iwons Watch
               </h2>
-              <Badge kind={kind}>
-                {kind.charAt(0).toUpperCase() + kind.slice(1)} ·{" "}
-                {s.integrity.score}/100
+              <Badge kind={s.source === "server" ? "" : kind}>
+                {s.source === "server" ? "Not recorded" : `${kind.charAt(0).toUpperCase() + kind.slice(1)} · ${s.integrity.score}/100`}
               </Badge>
             </div>
-            <div className="field-grid" style={{ fontSize: 12 }}>
+            {s.source !== "server" ? <div className="field-grid" style={{ fontSize: 12 }}>
               <div className="muted">
                 Tab switches{" "}
                 <strong className="accent">{s.integrity.tabSwitches}</strong>
@@ -238,12 +237,12 @@ export function SubmissionDetail({problems}:{problems:CatalogEntry[]}) {
               <div className="muted">
                 Fullscreen exits <strong>{s.integrity.fullscreenExits}</strong>
               </div>
-            </div>
+            </div> : <p>Watch data stays on the device where it was recorded. It is not part of account sync or this server-judged exercise.</p>}
             <hr />
             <p className="muted" style={{ fontSize: 11 }}>
               Hints used: {s.hintsUsed} · Editorial viewed:{" "}
               {s.viewedEditorial ? "Yes" : "No"}.{" "}
-              {kind === "clean" && !s.hintsUsed && !s.viewedEditorial
+              {s.source === "server" ? "No Watch-based clean verdict is assigned to this submission." : kind === "clean" && !s.hintsUsed && !s.viewedEditorial
                 ? "This attempt qualifies as clean."
                 : "This attempt is recorded with assistance or integrity signals."}
             </p>

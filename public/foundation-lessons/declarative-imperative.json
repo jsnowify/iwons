@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "declarative-imperative",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "Which best describes imperative code?",
+      "options": [
+        "It states the result you want and nothing else",
+        "It spells out the steps to get the result",
+        "It cannot use loops"
+      ],
+      "answer": 1,
+      "explanation": "Imperative code is a recipe of steps. Loops are a very common part of it.",
+      "hint": "Think of the recipe versus the order at a restaurant."
+    },
+    {
+      "prompt": "SQL's SELECT name FROM users WHERE age > 18 is mostly which style?",
+      "options": [
+        "Declarative: it says what rows you want, not how to find them",
+        "Imperative: it lists each step of the search",
+        "Neither: it is not code"
+      ],
+      "answer": 0,
+      "explanation": "You describe the result and the database decides how to find it. That is the declarative style.",
+      "hint": "Did you say how the database should search?"
+    },
+    {
+      "prompt": "Why might you choose the declarative version of the even-number example?",
+      "options": [
+        "It is always faster",
+        "It is shorter and shows the intent clearly",
+        "It uses no memory"
+      ],
+      "answer": 1,
+      "explanation": "It states what you want in one line, which is easier to read. It is not always faster, and it still uses memory.",
+      "hint": "Which version tells you the goal at a glance?"
+    }
+  ]
+}

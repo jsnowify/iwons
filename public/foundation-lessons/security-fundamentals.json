@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "security-fundamentals",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What is the difference between authentication and authorization?",
+      "options": [
+        "Authentication proves who you are, and authorization decides what you may do",
+        "They mean exactly the same thing",
+        "Authorization proves who you are, and authentication decides what you may do"
+      ],
+      "answer": 0,
+      "explanation": "First the system checks who you are, then it checks what that person is allowed to do.",
+      "hint": "One is identity, the other is permission."
+    },
+    {
+      "prompt": "How should a website store passwords?",
+      "options": [
+        "As plain text, so they can be shown to users who forget",
+        "As salted hashes, never as plain text",
+        "In the page's source code"
+      ],
+      "answer": 1,
+      "explanation": "A salted hash cannot be turned back into the password, so even a leaked database does not reveal passwords.",
+      "hint": "Could you ever need to read a password back?"
+    },
+    {
+      "prompt": "Why is the placeholder in the SQL example safer than pasting the input into the query?",
+      "options": [
+        "It keeps input as plain data, so it cannot change the query",
+        "It makes the query run faster",
+        "It removes the need to validate input"
+      ],
+      "answer": 0,
+      "explanation": "With a placeholder the database treats the input only as a value, so special characters cannot rewrite the query.",
+      "hint": "What could attacker text do if it became part of the query itself?"
+    }
+  ]
+}

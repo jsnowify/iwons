@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "encapsulation",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What is the main idea of encapsulation?",
+      "options": [
+        "Make every variable public so anyone can change it",
+        "Keep data with the code that works on it, and control how it is reached",
+        "Put each function in its own file"
+      ],
+      "answer": 1,
+      "explanation": "Encapsulation bundles data with its behaviour and limits direct access. It is about control, not file layout.",
+      "hint": "Think about the account that guards its balance."
+    },
+    {
+      "prompt": "Why does the Account hide its balance?",
+      "options": [
+        "To save memory",
+        "So it prints faster",
+        "So nothing can set it to an invalid value by accident"
+      ],
+      "answer": 2,
+      "explanation": "If the balance is private, all changes go through deposit, which can check them. Hiding it has nothing to do with speed or memory.",
+      "hint": "What does deposit check that a direct change would not?"
+    },
+    {
+      "prompt": "In the example, what happens to account.deposit(-20)?",
+      "options": [
+        "The balance stays 50, because deposit rejects negative amounts",
+        "The balance becomes 30",
+        "The program crashes"
+      ],
+      "answer": 0,
+      "explanation": "deposit only adds amounts above zero, so the negative deposit is ignored and the balance stays 50.",
+      "hint": "Read the if inside deposit."
+    }
+  ]
+}

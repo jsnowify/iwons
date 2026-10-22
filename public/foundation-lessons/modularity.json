@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "modularity",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What is a module?",
+      "options": [
+        "A small, separate part of a program with one clear purpose",
+        "Another name for a bug",
+        "The slowest part of a program"
+      ],
+      "answer": 0,
+      "explanation": "A module groups related code behind a clear purpose, so it can be understood, tested and changed on its own.",
+      "hint": "Think of the three boxes under main."
+    },
+    {
+      "prompt": "Why is modularity helpful?",
+      "options": [
+        "It makes every program faster",
+        "It lets you change one part without rewriting the rest",
+        "It removes the need to test"
+      ],
+      "answer": 1,
+      "explanation": "Because each part has a narrow job, a change stays local. It does not guarantee speed, and tests are still needed.",
+      "hint": "What happens to the other boxes if you rewrite one?"
+    },
+    {
+      "prompt": "In the example, what does total need to know about parse?",
+      "options": [
+        "Nothing: it only needs a list of numbers",
+        "How parse splits the text",
+        "The name of the file parse lives in"
+      ],
+      "answer": 0,
+      "explanation": "total accepts any list of numbers, from any source. That is what keeps the parts swappable.",
+      "hint": "What does total receive?"
+    }
+  ]
+}

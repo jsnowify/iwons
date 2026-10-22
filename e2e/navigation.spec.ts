@@ -2,9 +2,9 @@
 test.use({serviceWorkers:'block'});
 test('main navigation warms destinations and changes pages without reloading the document',async({page})=>{
  const fetched:string[]=[];const heavy:string[]=[];let documents=0;
- page.on('request',request=>{fetched.push(new URL(request.url()).pathname);if(request.isNavigationRequest()&&request.frame()===page.mainFrame())documents++;if(/\/monaco\/|\/runners\/|pyodide/.test(request.url()))heavy.push(request.url());});
+ page.on('request',request=>{if(request.headers()['rsc']==='1')fetched.push(new URL(request.url()).pathname);if(request.isNavigationRequest()&&request.frame()===page.mainFrame())documents++;if(/\/monaco\/|\/runners\/|pyodide/.test(request.url()))heavy.push(request.url());});
  await page.goto('/path/');
- await expect.poll(()=>fetched.some(path=>path.startsWith('/progress/')&&path.endsWith('.txt')),{timeout:15000}).toBe(true);
+ await expect.poll(()=>fetched.some(path=>path.startsWith('/progress/')),{timeout:15000}).toBe(true);
  await expect(page.getByRole('contentinfo')).not.toContainText(/Made by|Snowi/);
  const marker=await page.evaluate(()=>{const value=crypto.randomUUID();(window as Window&{navigationMarker?:string}).navigationMarker=value;return value;});
  await page.getByRole('navigation',{name:'Main navigation',exact:true}).getByRole('link',{name:'Progress',exact:true}).click();

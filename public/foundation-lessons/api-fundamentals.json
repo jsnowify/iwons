@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "api-fundamentals",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What is an API?",
+      "options": [
+        "A way for one program to use another through agreed requests and responses",
+        "A type of database",
+        "A programming language"
+      ],
+      "answer": 0,
+      "explanation": "An API is an agreed interface between programs, so they can work together without knowing each other's insides.",
+      "hint": "It is how programs talk to each other."
+    },
+    {
+      "prompt": "What does an HTTP status code of 404 mean?",
+      "options": [
+        "Success",
+        "The requested thing was not found",
+        "The server is on fire"
+      ],
+      "answer": 1,
+      "explanation": "404 means the server could not find what was asked for. 200 is success.",
+      "hint": "You have probably seen this on a web page."
+    },
+    {
+      "prompt": "Why does an API publish a contract?",
+      "options": [
+        "So both sides know what to send and expect, and can change independently",
+        "So nobody can use it",
+        "To make requests slower"
+      ],
+      "answer": 0,
+      "explanation": "As long as the contract holds, the server and its clients can each change their insides without breaking the other.",
+      "hint": "Remember the lesson on interfaces."
+    }
+  ]
+}

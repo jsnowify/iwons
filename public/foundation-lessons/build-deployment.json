@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "build-deployment",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What does a build do?",
+      "options": [
+        "Turns source code into something that can run",
+        "Deletes unused files",
+        "Writes the tests for you"
+      ],
+      "answer": 0,
+      "explanation": "Building compiles, bundles and packages your code into a form that can be run or shipped.",
+      "hint": "It prepares the code to run."
+    },
+    {
+      "prompt": "What does continuous integration do?",
+      "options": [
+        "Builds and tests every change automatically",
+        "Deletes old branches",
+        "Pays for the servers"
+      ],
+      "answer": 0,
+      "explanation": "CI checks every change as it arrives, so problems are found while they are small.",
+      "hint": "Remember the pipeline picture."
+    },
+    {
+      "prompt": "Why automate deployment?",
+      "options": [
+        "It is repeatable and less likely to go wrong than manual steps",
+        "It lets you skip testing",
+        "It makes the code shorter"
+      ],
+      "answer": 0,
+      "explanation": "A pipeline does the same steps every time, which removes a lot of human error.",
+      "hint": "Humans forget steps, and scripts do not."
+    }
+  ]
+}

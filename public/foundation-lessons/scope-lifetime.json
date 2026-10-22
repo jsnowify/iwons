@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "scope-lifetime",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "function makeMessage() {\n  const message = \"Scope works!\";\n}\nmakeMessage();\nconsole.log(message);",
+      "hints": [
+        "Read the error: the last line asks for message, but message was made inside the function.",
+        "Make the function return message, then print the value that makeMessage() gives back.",
+        "This trips up lots of people. A name made inside a function stays inside it, so send the value out with return. Here is the complete code."
+      ],
+      "answerCode": "function makeMessage() {\n  const message = \"Scope works!\";\n  return message;\n}\nconsole.log(makeMessage());"
+    },
+    "python": {
+      "starterCode": "def make_message():\n    message = \"Scope works!\"\n\nmake_message()\nprint(message)",
+      "hints": [
+        "Read the error: the last line asks for message, but message was made inside the function.",
+        "Make the function return message, then print the value that make_message() gives back.",
+        "This trips up lots of people. A name made inside a function stays inside it, so send the value out with return. Here is the complete code."
+      ],
+      "answerCode": "def make_message():\n    message = \"Scope works!\"\n    return message\n\nprint(make_message())"
+    }
+  }
+}

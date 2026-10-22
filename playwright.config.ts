@@ -13,8 +13,8 @@ export default defineConfig({
     trace: "retain-on-failure",
   },
   webServer: {
-    command: "node scripts/serve.mjs",
-    env: { PORT: "4173" },
+    command: "node --conditions=react-server --import tsx scripts/test-server.ts",
+    env: { PORT: "4173", AUTH_TRUST_HOST: "true", AUTH_URL: "http://127.0.0.1:4173", TRUSTED_IP_HEADER: "x-forwarded-for" },
     url: "http://127.0.0.1:4173",
     reuseExistingServer: !process.env.CI,
     timeout: 30000,

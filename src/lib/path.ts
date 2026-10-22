@@ -1,19 +1,6 @@
 import levelProblems from "@/data/level-problems.json";
-export function isLevelUnlocked(
-  level: number,
-  progress: Record<string, boolean>,
-  freeBrowse = false,
-) {
-  if (freeBrowse || level === 0) return true;
-  for (let i = 0; i < level; i++) {
-    const previous = levelProblems[i] ?? [];
-    if (
-      !previous.length ||
-      previous.filter((id) => progress[id]).length <
-        Math.ceil(previous.length * 0.7)
-    )
-      return false;
-  }
+// Kept for existing callers and backups. Progress never controls access.
+export function isLevelUnlocked(_level: number, _progress: Record<string, boolean>, _freeBrowse = false) {
   return true;
 }
 export function levelProgress(

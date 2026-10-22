@@ -1,0 +1,54 @@
+.foundation-page { max-width: 1180px; }
+.foundation-list { list-style: none; padding: 0; margin: 24px 0; }
+.foundation-list-title { flex: 1; min-width: 0; }
+.foundation-list-title :is(h2, h3) { font-size: 20px; margin: 0 0 6px; }
+.foundation-list-title > span { font-size: 14px; }
+.foundation-list-status { display: flex; gap: 6px; align-items: center; font-size: 13px; }
+.foundation-page .foundation-lesson { max-width: none; }
+.foundation-page .foundation-explanation { max-width: 76ch; }
+.foundation-page :is(.foundation-hints, .foundation-hint) { display: grid; gap: 16px; min-width: 0; }
+.foundation-page .code-view { max-width: 100%; white-space: pre-wrap; overflow-wrap: anywhere; }
+.foundation-page p > code { white-space: pre-wrap; overflow-wrap: anywhere; }
+.foundation-page .foundation-hint { display: grid; }
+.foundation-discovery { display: flex; flex-wrap: wrap; gap: 4px 16px; align-items: center; margin-block: 12px 24px; font-size: 14px; }
+.foundation-discovery p { margin: 0; }
+.foundation-discovery .btn { padding: 6px 8px; min-height: 36px; font-size: 12px; }
+.related-foundation { font-size: 14px; }
+@media (max-width: 600px) {
+  .foundation-list .level-problem-link { flex-wrap: wrap; gap: 12px; }
+  .foundation-list-title { flex-basis: calc(100% - 64px); }
+  .foundation-list-status { margin-left: 48px; }
+}
+.foundation-rollout { font-size: 13px; margin-top: 8px; }
+.foundation-module { margin-top: 40px; display: grid; gap: 12px; }
+.foundation-module-header { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: flex-end; justify-content: space-between; }
+.foundation-module-header h2 { margin: 4px 0 0; }
+.foundation-module-count { display: flex; gap: 6px; align-items: center; font-size: 13px; }
+.foundation-module .foundation-list { margin: 8px 0 0; }
+.foundation-pending { opacity: 0.78; cursor: default; }
+.foundation-pending:hover { transform: none; box-shadow: none; }
+.foundation-list-status .badge { transform: none; }
+.foundation-languages { flex-wrap: wrap; gap: 8px; }
+.foundation-languages .btn[aria-pressed="true"] { background: var(--accent-2); color: var(--on-accent); }
+.foundation-example-body { display: grid; gap: 12px; }
+.foundation-example-body[hidden] { display: none; }
+.foundation-status:empty { display: none; }
+.foundation-illustration { margin: 0; display: grid; gap: 12px; min-width: 0; }
+.foundation-illustration figcaption { font-size: 14px; max-width: 76ch; }
+.foundation-page .foundation-illustration pre { overflow-x: auto; white-space: pre; overflow-wrap: normal; }
+.concept-question { border: 1px dashed var(--ink); border-radius: 2px; margin: 0; padding: 16px; display: grid; gap: 12px; min-width: 0; }
+.concept-question legend { font: 700 16px var(--font-display); padding: 0 8px; max-width: 100%; }
+.concept-question .check-row { align-items: center; padding: 6px 10px; border: 1px solid transparent; border-radius: 2px; cursor: pointer; font-size: 13px; }
+.concept-question .check-row:hover:not(:has(input:disabled)) { border-color: var(--control-border); }
+.concept-question .check-row:has(input:checked) { border-color: var(--ink); }
+.concept-question .check-row:has(input:disabled) { cursor: default; }
+/* Radios must not pick up the shared text-field box (min-height, padding, border, full width). */
+.concept-question input[type="radio"] { accent-color: var(--accent); width: 18px; height: 18px; min-height: 0; padding: 0; border: 0; background: transparent; flex: 0 0 18px; margin: 0; }
+.concept-question input[type="radio"]:focus-visible { outline: 3px dashed var(--accent-text); outline-offset: 3px; }
+.concept-question input[type="radio"]:disabled { opacity: 0.6; }
+.concept-feedback { font-size: 14px; min-height: 1.7em; }
+.concept-feedback:empty { display: none; }
+.foundation-cases { display: grid; gap: 12px; }
+.foundation-case { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 4px 16px; padding: 12px 16px; border: 1px dashed var(--ink); border-radius: 2px; align-items: start; min-width: 0; }
+.foundation-case p { margin: 0; }
+.foundation-case .code-view { margin: 4px 0 0; padding: 10px 12px; }

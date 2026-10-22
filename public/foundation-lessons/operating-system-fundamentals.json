@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "operating-system-fundamentals",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What is a process?",
+      "options": [
+        "A running program with its own memory",
+        "A kind of file",
+        "A part of the keyboard"
+      ],
+      "answer": 0,
+      "explanation": "A process is a program in the middle of running, and the operating system gives it its own memory.",
+      "hint": "Think of a program that is running right now."
+    },
+    {
+      "prompt": "How does a thread differ from a process?",
+      "options": [
+        "A thread has its own separate memory",
+        "A thread is a path of work inside a process and shares the process's memory",
+        "They are exactly the same thing"
+      ],
+      "answer": 1,
+      "explanation": "Threads in one process share its memory, which makes sharing easy and mistakes easy. Separate processes are isolated from each other.",
+      "hint": "Which one shares memory?"
+    },
+    {
+      "prompt": "When a program reads a file, what does it do?",
+      "options": [
+        "Reads the disk hardware directly",
+        "Makes a system call and lets the operating system do it",
+        "Asks the user to type the file in"
+      ],
+      "answer": 1,
+      "explanation": "Programs go through the operating system with a system call, which keeps hardware access safe and shared.",
+      "hint": "Who is in charge of the disk?"
+    }
+  ]
+}

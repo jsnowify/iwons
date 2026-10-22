@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "dependency-management",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What is a dependency?",
+      "options": [
+        "Code written by someone else that your project uses",
+        "A bug in your own code",
+        "A file only the operating system reads"
+      ],
+      "answer": 0,
+      "explanation": "A dependency is any library or package your project relies on that you did not write yourself.",
+      "hint": "Think of a library you import."
+    },
+    {
+      "prompt": "What does a lock file do?",
+      "options": [
+        "Stops anyone from editing your code",
+        "Records the exact versions so everyone installs the same ones",
+        "Encrypts your project"
+      ],
+      "answer": 1,
+      "explanation": "The lock file makes installs repeatable, so the code that works on your machine works on everyone else's.",
+      "hint": "It locks the versions."
+    },
+    {
+      "prompt": "Which change in a version number most likely breaks your code?",
+      "options": [
+        "2.1.0 to 2.1.1",
+        "2.1.0 to 2.2.0",
+        "2.1.0 to 3.0.0"
+      ],
+      "answer": 2,
+      "explanation": "A new major number signals changes that may not be compatible, so check the notes before updating.",
+      "hint": "Which number is the major one?"
+    }
+  ]
+}

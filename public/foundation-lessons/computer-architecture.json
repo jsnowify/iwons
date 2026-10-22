@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "computer-architecture",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What does the CPU do?",
+      "options": [
+        "Stores your files when the power is off",
+        "Runs the instructions of programs",
+        "Connects the computer to the internet"
+      ],
+      "answer": 1,
+      "explanation": "The CPU fetches, decodes and executes instructions. Storage keeps files, and a network card handles the internet.",
+      "hint": "Think of it as the part that does the work."
+    },
+    {
+      "prompt": "Why do computers have caches?",
+      "options": [
+        "Memory is slower than the CPU, so keeping recently used data close saves waiting",
+        "To make the screen brighter",
+        "To store the operating system forever"
+      ],
+      "answer": 0,
+      "explanation": "A cache is small, fast memory near the CPU that holds data you are likely to need again soon.",
+      "hint": "What is the gap between the CPU and RAM?"
+    },
+    {
+      "prompt": "Which one keeps your data when the power is switched off?",
+      "options": [
+        "RAM",
+        "Cache",
+        "Storage, such as an SSD"
+      ],
+      "answer": 2,
+      "explanation": "RAM and cache are wiped when the power goes off. Storage such as an SSD or hard disk keeps data.",
+      "hint": "Which one holds your saved files?"
+    }
+  ]
+}

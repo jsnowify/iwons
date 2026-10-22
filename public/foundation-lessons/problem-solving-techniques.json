@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "problem-solving-techniques",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "const lines = require(\"fs\").readFileSync(0, \"utf8\").trim().split(\"\\n\");\nconst numbers = lines[0].split(\" \").map(Number);\nconst target = Number(lines[1]);\nlet left = 0;\nlet right = numbers.length - 1;\nlet found = false;\nwhile (left < right) {\n  const sum = numbers[left] + numbers[right];\n  if (sum === target) {\n    found = true;\n    break;\n  } else if (sum < target) {\n    // the sum is too small\n  } else {\n    // the sum is too big\n  }\n}\nconsole.log(found ? \"yes\" : \"no\");",
+      "hints": [
+        "Since the list is sorted, a bigger left number makes the sum bigger, and a smaller right number makes it smaller.",
+        "Too small: left += 1. Too big: right -= 1.",
+        "This trips up lots of people. If neither pointer moves, the loop never ends. Here is the complete code."
+      ],
+      "answerCode": "const lines = require(\"fs\").readFileSync(0, \"utf8\").trim().split(\"\\n\");\nconst numbers = lines[0].split(\" \").map(Number);\nconst target = Number(lines[1]);\nlet left = 0;\nlet right = numbers.length - 1;\nlet found = false;\nwhile (left < right) {\n  const sum = numbers[left] + numbers[right];\n  if (sum === target) {\n    found = true;\n    break;\n  } else if (sum < target) {\n    left += 1;\n  } else {\n    right -= 1;\n  }\n}\nconsole.log(found ? \"yes\" : \"no\");"
+    },
+    "python": {
+      "starterCode": "numbers = list(map(int, input().split()))\ntarget = int(input())\nleft = 0\nright = len(numbers) - 1\nfound = False\nwhile left < right:\n    total = numbers[left] + numbers[right]\n    if total == target:\n        found = True\n        break\n    elif total < target:\n        pass  # the sum is too small\n    else:\n        pass  # the sum is too big\nprint(\"yes\" if found else \"no\")",
+      "hints": [
+        "Since the list is sorted, a bigger left number makes the sum bigger, and a smaller right number makes it smaller.",
+        "Too small: left += 1. Too big: right -= 1.",
+        "This trips up lots of people. If neither pointer moves, the loop never ends. Here is the complete code."
+      ],
+      "answerCode": "numbers = list(map(int, input().split()))\ntarget = int(input())\nleft = 0\nright = len(numbers) - 1\nfound = False\nwhile left < right:\n    total = numbers[left] + numbers[right]\n    if total == target:\n        found = True\n        break\n    elif total < target:\n        left += 1\n    else:\n        right -= 1\nprint(\"yes\" if found else \"no\")"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "data-serialization",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What is serialization?",
+      "options": [
+        "Turning data in memory into text or bytes that can be stored or sent",
+        "Putting items in numbered order",
+        "Making a program run in series"
+      ],
+      "answer": 0,
+      "explanation": "Serialization converts in-memory data into a format for storage or transport, and deserialization reverses it.",
+      "hint": "Think about saving an object to a file."
+    },
+    {
+      "prompt": "Why might you choose a binary format over JSON?",
+      "options": [
+        "It is easier for people to read",
+        "It is smaller and faster to process",
+        "It needs no agreement between the sender and receiver"
+      ],
+      "answer": 1,
+      "explanation": "Binary formats pack data tightly, but people cannot read them directly. Both sides still must agree on the format.",
+      "hint": "What do you trade away when you give up readability?"
+    },
+    {
+      "prompt": "What happens if the sender and receiver disagree about the format?",
+      "options": [
+        "The receiver cannot understand the data",
+        "The data repairs itself",
+        "Nothing, formats are optional"
+      ],
+      "answer": 0,
+      "explanation": "A format is a shared agreement, and without it the bytes have no meaning to the receiver.",
+      "hint": "How would you read a language nobody told you about?"
+    }
+  ]
+}

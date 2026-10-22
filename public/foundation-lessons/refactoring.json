@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "refactoring",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "console.log(\"Tea: $\" + (3 * 1.1).toFixed(2));\nconsole.log(\"Cake: $\" + (4 * 1.1).toFixed(2));",
+      "hints": [
+        "The formula (price * 1.1).toFixed(2) appears twice. Where could it live once?",
+        "Write function withTax(price) that returns (price * 1.1).toFixed(2), then call it for Tea, Cake and Pie.",
+        "This trips up lots of people. The function takes the price as a parameter, so the same code works for every item. Here is the complete code."
+      ],
+      "answerCode": "function withTax(price) {\n  return (price * 1.1).toFixed(2);\n}\nconsole.log(\"Tea: $\" + withTax(3));\nconsole.log(\"Cake: $\" + withTax(4));\nconsole.log(\"Pie: $\" + withTax(5));"
+    },
+    "python": {
+      "starterCode": "print(\"Tea: $\" + f\"{3 * 1.1:.2f}\")\nprint(\"Cake: $\" + f\"{4 * 1.1:.2f}\")",
+      "hints": [
+        "The formula f\"{price * 1.1:.2f}\" appears twice. Where could it live once?",
+        "Write def with_tax(price) that returns the formatted price, then call it for Tea, Cake and Pie.",
+        "This trips up lots of people. The function takes the price as a parameter, so the same code works for every item. Here is the complete code."
+      ],
+      "answerCode": "def with_tax(price):\n    return f\"{price * 1.1:.2f}\"\n\nprint(\"Tea: $\" + with_tax(3))\nprint(\"Cake: $\" + with_tax(4))\nprint(\"Pie: $\" + with_tax(5))"
+    }
+  }
+}

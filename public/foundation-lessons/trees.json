@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "trees",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "class Node {\n  constructor(value) {\n    this.value = value;\n    this.left = null;\n    this.right = null;\n  }\n}\nfunction insert(node, value) {\n  if (node === null) return new Node(value);\n  if (value < node.value) node.left = insert(node.left, value);\n  else node.right = insert(node.right, value);\n  return node;\n}\nfunction inOrder(node) {\n  if (node === null) return;\n  console.log(node.value);\n}\nconst numbers = require(\"fs\").readFileSync(0, \"utf8\").trim().split(\" \").map(Number);\nlet root = null;\nfor (const number of numbers) root = insert(root, number);\ninOrder(root);",
+      "hints": [
+        "inOrder prints the node but never looks at its children.",
+        "Call inOrder(node.left) before the console.log line, and inOrder(node.right) after it.",
+        "This trips up lots of people. The print sits between the two calls, which is what puts the values in order. Here is the complete code."
+      ],
+      "answerCode": "class Node {\n  constructor(value) {\n    this.value = value;\n    this.left = null;\n    this.right = null;\n  }\n}\nfunction insert(node, value) {\n  if (node === null) return new Node(value);\n  if (value < node.value) node.left = insert(node.left, value);\n  else node.right = insert(node.right, value);\n  return node;\n}\nfunction inOrder(node) {\n  if (node === null) return;\n  inOrder(node.left);\n  console.log(node.value);\n  inOrder(node.right);\n}\nconst numbers = require(\"fs\").readFileSync(0, \"utf8\").trim().split(\" \").map(Number);\nlet root = null;\nfor (const number of numbers) root = insert(root, number);\ninOrder(root);"
+    },
+    "python": {
+      "starterCode": "class Node:\n    def __init__(self, value):\n        self.value = value\n        self.left = None\n        self.right = None\n\ndef insert(node, value):\n    if node is None:\n        return Node(value)\n    if value < node.value:\n        node.left = insert(node.left, value)\n    else:\n        node.right = insert(node.right, value)\n    return node\n\ndef in_order(node):\n    if node is None:\n        return\n    print(node.value)\n\nnumbers = list(map(int, input().split()))\nroot = None\nfor number in numbers:\n    root = insert(root, number)\nin_order(root)",
+      "hints": [
+        "in_order prints the node but never looks at its children.",
+        "Call in_order(node.left) before the print line, and in_order(node.right) after it.",
+        "This trips up lots of people. The print sits between the two calls, which is what puts the values in order. Here is the complete code."
+      ],
+      "answerCode": "class Node:\n    def __init__(self, value):\n        self.value = value\n        self.left = None\n        self.right = None\n\ndef insert(node, value):\n    if node is None:\n        return Node(value)\n    if value < node.value:\n        node.left = insert(node.left, value)\n    else:\n        node.right = insert(node.right, value)\n    return node\n\ndef in_order(node):\n    if node is None:\n        return\n    in_order(node.left)\n    print(node.value)\n    in_order(node.right)\n\nnumbers = list(map(int, input().split()))\nroot = None\nfor number in numbers:\n    root = insert(root, number)\nin_order(root)"
+    }
+  }
+}

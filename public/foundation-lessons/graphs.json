@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "graphs",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "const graph = { A: [\"B\", \"C\"], B: [\"D\"], C: [\"D\"], D: [] };\nconst start = require(\"fs\").readFileSync(0, \"utf8\").trim();\nconst visited = new Set([start]);\nconst queue = [start];\nwhile (queue.length > 0) {\n  const node = queue.shift();\n  console.log(node);\n  // add each neighbour that has not been visited yet\n}",
+      "hints": [
+        "Only the start node ever enters the queue. Where should the others come from?",
+        "Loop over graph[node]. For each neighbour not in visited, add it to visited and push it onto the queue.",
+        "This trips up lots of people. Mark a node as visited when you queue it, not when you print it, or D would be queued twice. Here is the complete code."
+      ],
+      "answerCode": "const graph = { A: [\"B\", \"C\"], B: [\"D\"], C: [\"D\"], D: [] };\nconst start = require(\"fs\").readFileSync(0, \"utf8\").trim();\nconst visited = new Set([start]);\nconst queue = [start];\nwhile (queue.length > 0) {\n  const node = queue.shift();\n  console.log(node);\n  for (const next of graph[node]) {\n    if (!visited.has(next)) {\n      visited.add(next);\n      queue.push(next);\n    }\n  }\n}"
+    },
+    "python": {
+      "starterCode": "graph = {\"A\": [\"B\", \"C\"], \"B\": [\"D\"], \"C\": [\"D\"], \"D\": []}\nstart = input()\nvisited = {start}\nqueue = [start]\nwhile len(queue) > 0:\n    node = queue.pop(0)\n    print(node)\n    # add each neighbour that has not been visited yet",
+      "hints": [
+        "Only the start node ever enters the queue. Where should the others come from?",
+        "Loop over graph[node]. For each neighbour not in visited, add it to visited and append it to the queue.",
+        "This trips up lots of people. Mark a node as visited when you queue it, not when you print it, or D would be queued twice. Here is the complete code."
+      ],
+      "answerCode": "graph = {\"A\": [\"B\", \"C\"], \"B\": [\"D\"], \"C\": [\"D\"], \"D\": []}\nstart = input()\nvisited = {start}\nqueue = [start]\nwhile len(queue) > 0:\n    node = queue.pop(0)\n    print(node)\n    for next_node in graph[node]:\n        if next_node not in visited:\n            visited.add(next_node)\n            queue.append(next_node)"
+    }
+  }
+}

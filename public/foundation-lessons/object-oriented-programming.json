@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "object-oriented-programming",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "class Animal {\n  speak() {\n    return \"...\";\n  }\n}\nclass Dog extends Animal {\n  speak() {\n    return \"Woof\";\n  }\n}\nclass Cat extends Animal {}\nconst makers = { dog: () => new Dog(), cat: () => new Cat() };\nfor (const kind of require(\"fs\").readFileSync(0, \"utf8\").trim().split(\" \")) {\n  console.log(makers[kind]().speak());\n}",
+      "hints": [
+        "Dog overrides speak, but Cat is empty, so it uses Animal's version.",
+        "Give Cat its own speak method, just like Dog has, and return \"Meow\".",
+        "This trips up lots of people. A subclass only replaces a method if it defines one with the same name. Here is the complete code."
+      ],
+      "answerCode": "class Animal {\n  speak() {\n    return \"...\";\n  }\n}\nclass Dog extends Animal {\n  speak() {\n    return \"Woof\";\n  }\n}\nclass Cat extends Animal {\n  speak() {\n    return \"Meow\";\n  }\n}\nconst makers = { dog: () => new Dog(), cat: () => new Cat() };\nfor (const kind of require(\"fs\").readFileSync(0, \"utf8\").trim().split(\" \")) {\n  console.log(makers[kind]().speak());\n}"
+    },
+    "python": {
+      "starterCode": "class Animal:\n    def speak(self):\n        return \"...\"\n\nclass Dog(Animal):\n    def speak(self):\n        return \"Woof\"\n\nclass Cat(Animal):\n    pass\n\nmakers = {\"dog\": Dog, \"cat\": Cat}\nfor kind in input().split():\n    print(makers[kind]().speak())",
+      "hints": [
+        "Dog overrides speak, but Cat only says pass, so it uses Animal's version.",
+        "Give Cat its own speak method, just like Dog has, and return \"Meow\".",
+        "This trips up lots of people. A subclass only replaces a method if it defines one with the same name. Here is the complete code."
+      ],
+      "answerCode": "class Animal:\n    def speak(self):\n        return \"...\"\n\nclass Dog(Animal):\n    def speak(self):\n        return \"Woof\"\n\nclass Cat(Animal):\n    def speak(self):\n        return \"Meow\"\n\nmakers = {\"dog\": Dog, \"cat\": Cat}\nfor kind in input().split():\n    print(makers[kind]().speak())"
+    }
+  }
+}

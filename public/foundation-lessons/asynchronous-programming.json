@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "asynchronous-programming",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What does asynchronous code let a program do?",
+      "options": [
+        "Start slow work and carry on without waiting for it",
+        "Run faster than the CPU allows",
+        "Skip error handling"
+      ],
+      "answer": 0,
+      "explanation": "Async code does not block while it waits, so other work, or the user interface, stays responsive.",
+      "hint": "Think about what a program does while it waits for the network."
+    },
+    {
+      "prompt": "In the example, why is started the job printed before job finished?",
+      "options": [
+        "main did not wait for the job until it reached await",
+        "The job failed",
+        "Printing is always first"
+      ],
+      "answer": 0,
+      "explanation": "main started the job, carried on to the print, and only waited when it reached await.",
+      "hint": "Look at where await sits."
+    },
+    {
+      "prompt": "What is a promise?",
+      "options": [
+        "A stand-in for a result that will arrive later",
+        "A kind of loop",
+        "A comment about future work"
+      ],
+      "answer": 0,
+      "explanation": "A promise represents a value that is not ready yet, and await pauses only until it is.",
+      "hint": "It is a stand-in for a future result."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "networking-fundamentals",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What does DNS do?",
+      "options": [
+        "Encrypts your messages",
+        "Turns a name like example.com into an IP address",
+        "Makes pages load faster"
+      ],
+      "answer": 1,
+      "explanation": "DNS is the internet's phone book, turning names people remember into the addresses computers use.",
+      "hint": "Computers need an address, not a name."
+    },
+    {
+      "prompt": "Which protocol guarantees data arrives complete and in order?",
+      "options": [
+        "UDP",
+        "TCP",
+        "DNS"
+      ],
+      "answer": 1,
+      "explanation": "TCP re-sends lost data and keeps order. UDP skips that for speed, which suits live video or games.",
+      "hint": "One of them trades reliability for speed."
+    },
+    {
+      "prompt": "In the example, which part is the port?",
+      "options": [
+        "example.com",
+        "8080",
+        "page=2"
+      ],
+      "answer": 1,
+      "explanation": "The port is the number after the colon, 8080. example.com is the host, and page=2 is part of the query.",
+      "hint": "It is the number after the colon."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "functions-procedures",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "function greet(name) {\n  return \"Hello!\";\n}\nconsole.log(greet(\"Ada\"));\nconsole.log(greet(\"Mia\"));",
+      "hints": [
+        "greet receives name, but the return line ignores it.",
+        "Join three pieces with +: \"Hello, \", then name, then \"!\".",
+        "This trips up lots of people. name sits outside the quotes so its value is used. Here is the complete code."
+      ],
+      "answerCode": "function greet(name) {\n  return \"Hello, \" + name + \"!\";\n}\nconsole.log(greet(\"Ada\"));\nconsole.log(greet(\"Mia\"));"
+    },
+    "python": {
+      "starterCode": "def greet(name):\n    return \"Hello!\"\n\nprint(greet(\"Ada\"))\nprint(greet(\"Mia\"))",
+      "hints": [
+        "greet receives name, but the return line ignores it.",
+        "Join three pieces with +: \"Hello, \", then name, then \"!\".",
+        "This trips up lots of people. name sits outside the quotes so its value is used. Here is the complete code."
+      ],
+      "answerCode": "def greet(name):\n    return \"Hello, \" + name + \"!\"\n\nprint(greet(\"Ada\"))\nprint(greet(\"Mia\"))"
+    }
+  }
+}

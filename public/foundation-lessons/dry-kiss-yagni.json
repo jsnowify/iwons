@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "dry-kiss-yagni",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "You find the same tax calculation copied in five places. Which principle does that break?",
+      "options": [
+        "YAGNI",
+        "DRY",
+        "KISS"
+      ],
+      "answer": 1,
+      "explanation": "DRY says each piece of knowledge should live in one place. Five copies mean five places to fix when the rate changes.",
+      "hint": "Which principle is about repetition?"
+    },
+    {
+      "prompt": "You add a plugin system for features nobody has asked for. Which principle does that break?",
+      "options": [
+        "YAGNI: you aren't going to need it",
+        "DRY",
+        "SOLID"
+      ],
+      "answer": 0,
+      "explanation": "Building ahead of need adds code to write, test and maintain for a benefit that may never arrive.",
+      "hint": "Which principle says to build only what you need?"
+    },
+    {
+      "prompt": "Which solution does KISS favour?",
+      "options": [
+        "The cleverest one that uses the newest tricks",
+        "The simplest one that works and is easy to explain",
+        "The one with the most layers"
+      ],
+      "answer": 1,
+      "explanation": "KISS prefers simple, readable solutions. Clever code is harder to understand and fix.",
+      "hint": "Easy to understand and fix is the goal."
+    }
+  ]
+}

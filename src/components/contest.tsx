@@ -15,7 +15,6 @@ import {
   Flag,
 } from "lucide-react";
 import { problemUrl } from "@/lib/presentation";
-import { isLevelUnlocked } from "@/lib/path";
 import { useStore } from "@/store/use-store";
 import { Button, Badge, Modal, useToast } from "./ui";
 import { Onboarding } from "./onboarding";
@@ -52,14 +51,9 @@ export function ContestPage({problems}:{problems:CatalogEntry[]}) {
       return;
     }
     try {
-      const pool = problems.filter(
-        (p) =>
-          (!difficulty || p.difficulty === difficulty) &&
-          isLevelUnlocked(p.level, store.progress, store.settings.freeBrowse) &&
-          (!p.unit || store.topicFoundations[p.unit]?.completed),
-      );
+      const pool = problems.filter(p => !difficulty || p.difficulty === difficulty);
       if (pool.length < count)
-        throw new Error("Complete more topic foundations on the Path, or choose fewer problems for this difficulty.");
+        throw new Error("Choose fewer problems or another difficulty.");
       await fullscreen();
       for (let i = pool.length - 1; i > 0; i--) {
         const values = new Uint32Array(1);

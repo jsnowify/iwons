@@ -14,7 +14,7 @@ export function runCode(
       cases: [],
       compileError: {
         message:
-          "The CheerpJ backend is not available: browser compilation needs a bundled compiler and a compatible license. Choose your self-hosted Judge0 CE endpoint in Settings.",
+          "The CheerpJ backend is not available.",
       },
     });
   return new Promise((resolve) => {
@@ -61,7 +61,7 @@ export function runCode(
     else
       onStatus(
         language === "java"
-          ? "Sending to your Judge0 endpoint…"
+          ? "Connecting to server judge…"
           : "Running test cases…",
       );
     worker.onmessage = (e) => {

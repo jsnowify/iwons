@@ -8,7 +8,7 @@ import {
   ShieldCheck,
   HardDrive,
   Trash2,
-  ExternalLink,
+
 } from "lucide-react";
 import { useStore } from "@/store/use-store";
 import { storage, downloadExport } from "@/lib/storage";
@@ -17,6 +17,7 @@ import type { Language } from "@/lib/types";
 import { Button, Modal, ProgressBar, useToast } from "./ui";
 import { Onboarding } from "./onboarding";
 import { ArchivePanel } from "./archive-panel";
+import { AccountPanel } from "./account-panel";
 export function SettingsPage() {
   const store = useStore(),
     toast = useToast();
@@ -59,6 +60,7 @@ export function SettingsPage() {
           {error}
         </div>
       ) : null}
+      <AccountPanel />
       <section className="settings-section">
         <div>
           <h2>Your profile</h2>
@@ -154,21 +156,6 @@ export function SettingsPage() {
             <span>
               A tiny carriage bell{" "}
               <small>Play a soft bell on Accepted. Off by default.</small>
-            </span>
-          </label>
-          <label className="check-row">
-            <input
-              type="checkbox" role="switch"
-              checked={store.settings.freeBrowse}
-              onChange={(e) =>
-                store.updateSettings({ freeBrowse: e.target.checked })
-              }
-            />
-            <span>
-              Free browse{" "}
-              <small>
-                Open all released Path chapters without the 70% prerequisite.
-              </small>
             </span>
           </label>
           <div className="field-grid">
@@ -282,57 +269,16 @@ export function SettingsPage() {
       <section className="settings-section">
         <div>
           <h2>
-            Java runtime <span className="badge minor">Beta</span>
+            Java & server execution
           </h2>
-          <p>Bring your own execution endpoint.</p>
+          <p>Built-in server judging.</p>
         </div>
         <div className="settings-fields">
-          <label>
-            Backend
-            <select
-              value={store.settings.javaBackend}
-              onChange={(e) =>
-                store.updateSettings({
-                  javaBackend: e.target.value as "remote" | "cheerpj",
-                })
-              }
-            >
-              <option value="remote">Self-hosted Judge0 CE</option>
-              <option value="cheerpj" disabled>
-                CheerpJ · not available
-              </option>
-            </select>
-          </label>
-          <label>
-            Judge0 CE URL
-            <input
-              type="url"
-              placeholder="https://judge.your-domain.com"
-              value={store.settings.judgeUrl}
-              onChange={(e) =>
-                store.updateSettings({ judgeUrl: e.target.value.trim() })
-              }
-            />
-          </label>
           <p>
-            Running Java sends your solution and cases to this endpoint. Use a
-            CORS-enabled instance you control. Iwons discovers the available
-            Java language ID and polls for results. This integration has not
-            been verified against your server.
+            Java challenges and server-verified problems execute securely through
+            our server-side Judge0 integration. No endpoint configuration or API
+            keys are required.
           </p>
-          <p>
-            CheerpJ is not bundled: compiling source in-browser requires
-            additional compiler distribution and a license suitable for your
-            use.
-          </p>
-          <a
-            href="https://ce.judge0.com/"
-            target="_blank"
-            rel="noreferrer"
-            className="text-link accent"
-          >
-            Judge0 CE documentation <ExternalLink size={12} />
-          </a>
         </div>
       </section>
       <section className="settings-section">

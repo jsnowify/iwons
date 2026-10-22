@@ -4,7 +4,8 @@ export type Verdict =
   | "wrong_answer"
   | "runtime_error"
   | "time_limit"
-  | "compile_error";
+  | "compile_error"
+  | "internal_error";
 export type Difficulty = "easy" | "medium" | "hard";
 export interface TestCase {
   id: string;
@@ -116,6 +117,7 @@ export interface IntegritySummary {
   events: IntegrityEvent[];
 }
 export interface Submission {
+  source?: "server" | "local";
   id: string;
   problemId: string;
   language: Language;

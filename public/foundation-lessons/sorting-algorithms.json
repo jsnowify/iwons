@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "sorting-algorithms",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "const numbers = require(\"fs\").readFileSync(0, \"utf8\").trim().split(\" \").map(Number);\nfor (let pass = 0; pass < numbers.length; pass++) {\n  for (let i = 0; i < numbers.length - 1; i++) {\n    if (numbers[i] > numbers[i + 1]) {\n      // swap numbers[i] and numbers[i + 1]\n    }\n  }\n}\nconsole.log(numbers.join(\" \"));",
+      "hints": [
+        "The if finds neighbours in the wrong order, but its block is empty.",
+        "Swap the two neighbours: save numbers[i] in temp, copy numbers[i + 1] into numbers[i], then put temp into numbers[i + 1].",
+        "This trips up lots of people. Without the temporary variable, the first assignment overwrites a value before you saved it. Here is the complete code."
+      ],
+      "answerCode": "const numbers = require(\"fs\").readFileSync(0, \"utf8\").trim().split(\" \").map(Number);\nfor (let pass = 0; pass < numbers.length; pass++) {\n  for (let i = 0; i < numbers.length - 1; i++) {\n    if (numbers[i] > numbers[i + 1]) {\n      const temp = numbers[i];\n      numbers[i] = numbers[i + 1];\n      numbers[i + 1] = temp;\n    }\n  }\n}\nconsole.log(numbers.join(\" \"));"
+    },
+    "python": {
+      "starterCode": "numbers = list(map(int, input().split()))\nfor _ in range(len(numbers)):\n    for i in range(len(numbers) - 1):\n        if numbers[i] > numbers[i + 1]:\n            pass  # swap numbers[i] and numbers[i + 1]\nprint(\" \".join(map(str, numbers)))",
+      "hints": [
+        "The if finds neighbours in the wrong order, but it does nothing about it.",
+        "Replace the pass with a swap: numbers[i], numbers[i + 1] = numbers[i + 1], numbers[i].",
+        "This trips up lots of people. Both sides of the swap are worked out before either assignment happens, so no value is lost. Here is the complete code."
+      ],
+      "answerCode": "numbers = list(map(int, input().split()))\nfor _ in range(len(numbers)):\n    for i in range(len(numbers) - 1):\n        if numbers[i] > numbers[i + 1]:\n            numbers[i], numbers[i + 1] = numbers[i + 1], numbers[i]\nprint(\" \".join(map(str, numbers)))"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "version-control",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What is a commit in Git?",
+      "options": [
+        "A saved snapshot of your changes, with a message",
+        "A copy of the whole internet",
+        "A way to delete a branch"
+      ],
+      "answer": 0,
+      "explanation": "A commit records the state of your files at a point in time, with a message saying why.",
+      "hint": "It is a snapshot you can return to."
+    },
+    {
+      "prompt": "Why work on a branch?",
+      "options": [
+        "So your changes stay separate until they are ready to merge",
+        "Because main cannot be edited",
+        "To make the files smaller"
+      ],
+      "answer": 0,
+      "explanation": "A branch isolates work in progress, so main stays stable and several people can work at once.",
+      "hint": "What does separate buy you?"
+    },
+    {
+      "prompt": "What makes a good commit?",
+      "options": [
+        "A small, focused change with a clear message",
+        "Every change from the whole week in one commit",
+        "An empty message"
+      ],
+      "answer": 0,
+      "explanation": "Small, well-described commits are easy to review, understand and undo.",
+      "hint": "Think about reading the history later."
+    }
+  ]
+}

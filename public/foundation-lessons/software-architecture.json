@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "software-architecture",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What is a layer in a layered architecture?",
+      "options": [
+        "A group of related code that only talks to the layer below it",
+        "A coat of paint on the user interface",
+        "A backup copy of the database"
+      ],
+      "answer": 0,
+      "explanation": "Layers group code by role, and limiting who talks to whom keeps dependencies under control.",
+      "hint": "Look at the picture: who talks to whom?"
+    },
+    {
+      "prompt": "What does low coupling mean?",
+      "options": [
+        "Parts depend on each other as little as possible",
+        "Every part depends on every other part",
+        "The program has few parts"
+      ],
+      "answer": 0,
+      "explanation": "Low coupling means a change in one part rarely forces changes in others.",
+      "hint": "Coupling is about how tightly parts are tied together."
+    },
+    {
+      "prompt": "What does high cohesion mean?",
+      "options": [
+        "The contents of a part belong together and serve one purpose",
+        "The part is very large",
+        "The part is copied in many places"
+      ],
+      "answer": 0,
+      "explanation": "A cohesive part has one clear purpose, so it is easier to understand, test and reuse.",
+      "hint": "Think of how well a part's contents fit together."
+    }
+  ]
+}

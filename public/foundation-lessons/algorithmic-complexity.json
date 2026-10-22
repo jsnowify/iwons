@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "algorithmic-complexity",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "Which describes O(n)?",
+      "options": [
+        "The time stays the same however big the input is",
+        "The time grows in step with the size of the input",
+        "The time grows with the square of the input"
+      ],
+      "answer": 1,
+      "explanation": "O(n) is linear: double the input and the work roughly doubles. O(1) would stay the same, and O(n squared) would quadruple.",
+      "hint": "n is the size of the input, and the work grows in proportion to it."
+    },
+    {
+      "prompt": "A loop inside another loop, each going over all n items, is usually which?",
+      "options": [
+        "O(1)",
+        "O(log n)",
+        "O(n squared)"
+      ],
+      "answer": 2,
+      "explanation": "The inner loop runs n times for each of the n outer turns, so about n times n steps. That is why nested loops get slow so fast.",
+      "hint": "Count the steps: n turns of the outer loop, each running the inner loop n times."
+    },
+    {
+      "prompt": "Binary search halves the data at each step. How does its time grow?",
+      "options": [
+        "Logarithmically: doubling the data adds only one more step",
+        "Linearly, in step with the data",
+        "It does not depend on the data at all"
+      ],
+      "answer": 0,
+      "explanation": "Halving again and again reaches one item in about log n steps, so a million items need only about 20. That is far better than linear.",
+      "hint": "Think about how many times you can halve a million before one item is left."
+    }
+  ]
+}

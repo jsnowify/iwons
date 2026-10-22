@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "expressions-statements",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "const width = 6;\nconst height = 4;\nconst area = 0;\nconsole.log(area);",
+      "hints": [
+        "The line with area stores a value. Which expression gives the area of a rectangle?",
+        "Replace the 0 with width * height. The two names are already defined above.",
+        "This trips up lots of people. Names stand in for their values, so no quotes are needed. Here is the complete code."
+      ],
+      "answerCode": "const width = 6;\nconst height = 4;\nconst area = width * height;\nconsole.log(area);"
+    },
+    "python": {
+      "starterCode": "width = 6\nheight = 4\narea = 0\nprint(area)",
+      "hints": [
+        "The line with area stores a value. Which expression gives the area of a rectangle?",
+        "Replace the 0 with width * height. The two names are already defined above.",
+        "This trips up lots of people. Names stand in for their values, so no quotes are needed. Here is the complete code."
+      ],
+      "answerCode": "width = 6\nheight = 4\narea = width * height\nprint(area)"
+    }
+  }
+}

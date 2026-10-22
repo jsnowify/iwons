@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "mutability-immutability",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "const tags = [\"new\", \"work\"];\nconsole.log(tags.length);",
+      "hints": [
+        "The list needs one more item before its length is printed.",
+        "Add the line tags.push(\"done\"); above console.log. Lists can be changed in place.",
+        "This trips up lots of people. push changes the list itself, and it works even though tags is a const. Here is the complete code."
+      ],
+      "answerCode": "const tags = [\"new\", \"work\"];\ntags.push(\"done\");\nconsole.log(tags.length);"
+    },
+    "python": {
+      "starterCode": "tags = [\"new\", \"work\"]\nprint(len(tags))",
+      "hints": [
+        "The list needs one more item before its length is printed.",
+        "Add the line tags.append(\"done\") above print. Lists can be changed in place.",
+        "This trips up lots of people. append changes the list itself instead of making a new one. Here is the complete code."
+      ],
+      "answerCode": "tags = [\"new\", \"work\"]\ntags.append(\"done\")\nprint(len(tags))"
+    }
+  }
+}

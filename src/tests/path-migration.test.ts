@@ -88,24 +88,29 @@ describe("v1 work survives the Path release", () => {
     expect(window.dispatchEvent).toHaveBeenCalled();
   });
 });
-describe("chapter prerequisites", () => {
-  const first = problems.filter((p) => p.level === 0),
-    second = problems.filter((p) => p.level === 1);
-  const solved = (items: typeof problems) =>
-    Object.fromEntries(items.map((p) => [p.id, true]));
-  it("requires exactly seventy percent of each completed chapter", () => {
-    expect(isLevelUnlocked(0, {})).toBe(true);
-    expect(isLevelUnlocked(1, solved(first.slice(0, 20)))).toBe(false);
-    expect(isLevelUnlocked(1, solved(first.slice(0, 21)))).toBe(true);
-    expect(isLevelUnlocked(2, solved([...first, ...second.slice(0, 34)]))).toBe(
-      false,
-    );
-    expect(isLevelUnlocked(2, solved([...first, ...second.slice(0, 35)]))).toBe(
-      true,
-    );
-    expect(isLevelUnlocked(2, solved(second))).toBe(false);
-    expect(isLevelUnlocked(2, {}, true)).toBe(true);
+describe("unrestricted chapter access", () => {
+  it("opens every chapter regardless of earlier solves or the legacy free-browse preference", () => {
+    for (let level = 0; level <= 8; level++) {
+      expect(isLevelUnlocked(level, {})).toBe(true);
+      expect(isLevelUnlocked(level, {}, false)).toBe(true);
+      expect(isLevelUnlocked(level, {}, true)).toBe(true);
+      expect(isLevelUnlocked(level, { [problems[0].id]: true })).toBe(true);
+    }
   });
+});
+it("round-trips the optional track beside legacy lessons, challenge progress, and drafts", () => {
+  storage.migrate();
+  const legacy = { completed: true, steps: { first: { code: "old lesson", completed: true, hintsUsed: 1, attempts: 2 } } };
+  const track = { completed: false, steps: { variables: { code: "const score = 12;", completed: true, hintsUsed: 3, attempts: 1 } } };
+  storage.write("topicFoundations", { "receipt-arithmetic": legacy, "foundation-track-v1": track });
+  storage.write("progress", { challenge: true });
+  storage.write("drafts:challenge:javascript", "challenge draft");
+  const backup = storage.export();
+  expect(JSON.parse(backup).schemaVersion).toBe(6);
+  storage.clear(); storage.import(backup);
+  expect(storage.read("topicFoundations", {})).toEqual({ "receipt-arithmetic": legacy, "foundation-track-v1": track });
+  expect(storage.read("progress", {})).toEqual({ challenge: true });
+  expect(storage.read("drafts:challenge:javascript", "")).toBe("challenge draft");
 });
 it("preserves both earlier editions through v2 migration and a portable v3 round trip", () => {
   const previous = { ...original, notes: { "iwons-001": "My first Path notebook" }, archive: { schemaVersion: 1, migratedAt: 1, sourcePrefix: "iwons:v1:" } };

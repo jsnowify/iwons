@@ -2,9 +2,9 @@ import fs from "node:fs";
 import path from "node:path";
 import assert from "node:assert/strict";
 
-const OUT_DIR = path.resolve("out");
+const OUT_DIR = path.resolve(".next/server/app");
 if (!fs.existsSync(OUT_DIR)) {
-  console.error("Error: out/ directory does not exist. Run 'npm run build' first.");
+  console.error("Error: Next server build does not exist. Run 'npm run build' first.");
   process.exit(1);
 }
 
@@ -21,8 +21,8 @@ function report(condition, message) {
 console.log("🔍 Running SEO, Crawlability, and Indexability Checks...");
 
 // 1. Robots.txt checks
-const robotsPath = path.join(OUT_DIR, "robots.txt");
-report(fs.existsSync(robotsPath), "out/robots.txt must exist");
+const robotsPath = path.join(OUT_DIR, "robots.txt.body");
+report(fs.existsSync(robotsPath), "Prerendered robots.txt must exist");
 if (fs.existsSync(robotsPath)) {
   const robots = fs.readFileSync(robotsPath, "utf8");
   report(robots.includes("Allow: /"), "robots.txt must allow root /");
@@ -34,8 +34,8 @@ if (fs.existsSync(robotsPath)) {
 }
 
 // 2. Sitemap.xml checks
-const sitemapPath = path.join(OUT_DIR, "sitemap.xml");
-report(fs.existsSync(sitemapPath), "out/sitemap.xml must exist");
+const sitemapPath = path.join(OUT_DIR, "sitemap.xml.body");
+report(fs.existsSync(sitemapPath), "Prerendered sitemap.xml must exist");
 let sitemapUrls = [];
 if (fs.existsSync(sitemapPath)) {
   const sitemap = fs.readFileSync(sitemapPath, "utf8");
@@ -59,8 +59,8 @@ if (fs.existsSync(sitemapPath)) {
 }
 
 // 3. llms.txt check
-const llmsPath = path.join(OUT_DIR, "llms.txt");
-report(fs.existsSync(llmsPath), "out/llms.txt must exist");
+const llmsPath = path.resolve("public/llms.txt");
+report(fs.existsSync(llmsPath), "public/llms.txt must exist");
 if (fs.existsSync(llmsPath)) {
   const llms = fs.readFileSync(llmsPath, "utf8");
   report(llms.includes(PRODUCTION_DOMAIN), "llms.txt must reference production domain");
@@ -96,17 +96,23 @@ for (const file of htmlFiles) {
   const html = fs.readFileSync(file, "utf8");
 
   // Skip 404 page and _not-found
+  if (rel.startsWith("_global-error")) continue; // Next's internal error template is not an indexable route.
   if (rel === "404.html" || rel === "404/index.html" || rel.startsWith("_not-found")) {
     report(html.includes("noindex") || html.includes("UNDEFINED"), "404 page should have noindex or error state");
     continue;
   }
 
   // Check if retired legacy problem
-  const problemSlugMatch = rel.match(/^problems\/([^/]+)\/index\.html$/);
+  const problemSlugMatch = rel.match(/^problems\/([^/]+)\.html$/);
   const isRetired = problemSlugMatch && retiredSlugs.has(problemSlugMatch[1]);
 
   if (isRetired) {
     report(html.includes("noindex"), `Retired legacy problem must have noindex: ${rel}`);
+    continue;
+  }
+
+  if (/^(login|signup|profile|reset-password)(\/index)?\.html$/.test(rel)) {
+    report(/<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i.test(html), `Account page must remain unindexed: ${rel}`);
     continue;
   }
 

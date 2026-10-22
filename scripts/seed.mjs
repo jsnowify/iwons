@@ -1,5 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
+import { seedFoundationTrack } from "./curriculum/foundation-track.mjs";
+const optionalLessons = seedFoundationTrack();
+if (process.argv.includes("--foundation-only")) {
+  console.log(`Published ${optionalLessons} optional Foundation lessons; challenge content unchanged.`);
+  process.exit(0);
+}
+import { seedJudgeDemo } from "./curriculum/judge-problem.mjs";
+seedJudgeDemo();
 import { units, levels, projections } from "./curriculum/units.mjs";
 import { validateUnit } from "./validate-problems.ts";
 import { plainRules, plainTasks, rewriteProblem } from "./curriculum/plain-language.mjs";

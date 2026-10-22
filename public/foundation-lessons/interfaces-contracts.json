@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "interfaces-contracts",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What is a contract in this sense?",
+      "options": [
+        "A legal document signed by the team",
+        "A promise about what a part accepts and returns",
+        "A comment at the top of a file"
+      ],
+      "answer": 1,
+      "explanation": "A contract states what a part takes in and what it gives back, so other code can rely on it.",
+      "hint": "It is a promise about behaviour."
+    },
+    {
+      "prompt": "Why does the loop work for both Square and Rectangle?",
+      "options": [
+        "They share the same class",
+        "They both keep the same promise: they have an area method",
+        "Rectangle inherits from Square"
+      ],
+      "answer": 1,
+      "explanation": "The loop only relies on area existing, and both shapes provide it. They do not even need a shared parent.",
+      "hint": "What does the loop call on each shape?"
+    },
+    {
+      "prompt": "What can you safely change inside Square?",
+      "options": [
+        "How it works out the area, as long as area still returns the right number",
+        "The name of its area method",
+        "Whether area returns a number or a word"
+      ],
+      "answer": 0,
+      "explanation": "Callers depend only on the contract, so the inside is free to change while the promise holds.",
+      "hint": "Which change keeps the promise?"
+    }
+  ]
+}

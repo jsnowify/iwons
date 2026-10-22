@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getLevels } from "@/lib/problems";
 import { PathMap } from "@/components/path-map";
 import { siteUrl } from "@/lib/site-url";
+import { FoundationDiscovery } from "@/components/foundation-discovery";
 
 export const metadata: Metadata = {
   title: "The Iwons Path",
@@ -57,6 +58,7 @@ export default function Page() {
           ]),
         }}
       />
+      <FoundationDiscovery />
       <PathMap levels={levels.map(({id,name,subtitle,tier,count,released,concepts}) => ({id,name,subtitle,tier,count,released,concepts}))} />
     </div>
   );

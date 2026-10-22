@@ -2,8 +2,10 @@ import Link from "next/link";
 import type { Problem, ProblemSummary } from "@/lib/types";
 import { problemUrl, topicSlug } from "@/lib/presentation";
 import { getVisualizerForProblem } from "@/visualizer/problem-map";
+import { relatedFoundationLessons } from "@/lib/foundation-track";
 export function ProblemDescription({ problem: p, related = [] }: { problem: Problem; related?: Pick<ProblemSummary,"id"|"slug"|"title">[] }) {
   const visualizer = getVisualizerForProblem(p);
+  const lessons = relatedFoundationLessons(p.topics);
   return (
     <article className="description-content">
       <span className="eyebrow">
@@ -35,6 +37,9 @@ export function ProblemDescription({ problem: p, related = [] }: { problem: Prob
         </p>
       ) : null}
       {p.unit ? <Link prefetch={false} className="text-link" href={`/path/${p.level}/#${p.unit}`}>Back to this unit</Link> : null}
+      {lessons.length ? <p className="related-foundation">Related lessons (optional): {lessons.map((lesson, index) => <span key={lesson.id}>
+        {index > 0 ? ", " : ""}<Link prefetch={false} className="text-link" href={`/foundation/${lesson.id}/`}>{lesson.title}</Link>
+      </span>)}</p> : null}
       {p.stage ? <p><strong>{p.stage}</strong>{p.revisit ? ` · ${p.revisit}` : ""}</p> : null}
       {p.descriptionMd.split("\n\n").map((paragraph, index) => {
         const [heading, ...body] = paragraph.split("\n");

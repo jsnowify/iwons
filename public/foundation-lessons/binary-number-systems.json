@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "binary-number-systems",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What is the decimal value of the binary number 101?",
+      "options": [
+        "3",
+        "5",
+        "7"
+      ],
+      "answer": 1,
+      "explanation": "The places are 4, 2 and 1, and 101 has a 1 in the 4 place and the 1 place, so 4 + 1 = 5.",
+      "hint": "Add up the place values wherever there is a 1."
+    },
+    {
+      "prompt": "How many different values can one byte (8 bits) hold?",
+      "options": [
+        "8",
+        "128",
+        "256"
+      ],
+      "answer": 2,
+      "explanation": "Each of the 8 bits has two choices, so there are 2 to the power of 8, which is 256 values (0 to 255).",
+      "hint": "Each extra bit doubles the number of values."
+    },
+    {
+      "prompt": "Why do computers use binary?",
+      "options": [
+        "Electronic parts are simplest to build with two states, on and off",
+        "Binary numbers are shorter than decimal ones",
+        "Humans find binary easier to read"
+      ],
+      "answer": 0,
+      "explanation": "Two states, such as voltage high or low, are reliable and cheap to build, so everything is stored as 0s and 1s.",
+      "hint": "Think about a switch."
+    }
+  ]
+}

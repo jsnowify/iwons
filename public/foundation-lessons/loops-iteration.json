@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "loops-iteration",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "for (let count = 1; count <= 5; count += 1) {\n  console.log(count);\n}",
+      "hints": [
+        "Inside the loop you need a check for the one number you want to skip.",
+        "Before the console.log line, add if (count === 3) { continue; }.",
+        "This trips up lots of people. continue must come before the line that prints, or 3 is printed first. Here is the complete loop."
+      ],
+      "answerCode": "for (let count = 1; count <= 5; count += 1) {\n  if (count === 3) {\n    continue;\n  }\n  console.log(count);\n}"
+    },
+    "python": {
+      "starterCode": "for count in range(1, 6):\n    print(count)",
+      "hints": [
+        "Inside the loop you need a check for the one number you want to skip.",
+        "Before the print line, add if count == 3: and put continue on the indented line below it.",
+        "This trips up lots of people. continue must come before the line that prints, or 3 is printed first. Here is the complete loop."
+      ],
+      "answerCode": "for count in range(1, 6):\n    if count == 3:\n        continue\n    print(count)"
+    }
+  }
+}

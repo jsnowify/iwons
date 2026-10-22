@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "data-types",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "const name = \"Ada\";\nconst age = 12;\nconst height = 1.5;\nconst isStudent = false;\nconst nickname = null;\nconsole.log(name, age, height, isStudent, nickname);",
+      "hints": [
+        "Find the line that stores nickname.",
+        "Replace null with \"Adi\". Keep the quotes so it is text.",
+        "This trips up lots of people. Text needs quotes, and null means no value. Here is the complete code."
+      ],
+      "answerCode": "const name = \"Ada\";\nconst age = 12;\nconst height = 1.5;\nconst isStudent = false;\nconst nickname = \"Adi\";\nconsole.log(name, age, height, isStudent, nickname);"
+    },
+    "python": {
+      "starterCode": "name = \"Ada\"\nage = 12\nheight = 1.5\nis_student = False\nnickname = None\nprint(name, age, height, is_student, nickname)",
+      "hints": [
+        "Find the line that stores nickname.",
+        "Replace None with \"Adi\". Keep the quotes so it is text.",
+        "This trips up lots of people. Text needs quotes, and None means no value. Here is the complete code."
+      ],
+      "answerCode": "name = \"Ada\"\nage = 12\nheight = 1.5\nis_student = False\nnickname = \"Adi\"\nprint(name, age, height, is_student, nickname)"
+    }
+  }
+}

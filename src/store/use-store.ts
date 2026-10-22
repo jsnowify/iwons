@@ -4,6 +4,7 @@ import { persist, type PersistStorage } from "zustand/middleware";
 import { retainSubmissions } from "@/lib/retain-submissions";
 import { emptyLearningState, type LearningState } from "@/lib/legacy-learning";
 import { storage, DATA_KEYS } from "@/lib/storage";
+import { cleanText } from "@/lib/text";
 import type { TopicFoundationProgress, FoundationStepProgress } from "@/lib/topic-foundations";
 import { emptyLearnProgress, type LearnProgress } from "@/lib/legacy-learning";
 import type {
@@ -116,7 +117,9 @@ export const useStore = create<Store>()(
       hydrate: () => {
         if (storage.migrate()) set({ hydrated: true });
       },
-      updateProfile: (p) => set((s) => ({ profile: { ...s.profile, ...p } })),
+      updateProfile: (p) => set((s) => ({ profile: { ...s.profile, ...p,
+        ...(typeof p.name === "string" ? { name: cleanText(p.name, 32) || "Coder" } : {}),
+        ...(typeof p.avatar === "string" ? { avatar: cleanText(p.avatar, 4) || s.profile.avatar } : {}) } })),
       updateSettings: (p) =>
         set((s) => ({ settings: { ...s.settings, ...p } })),
       addSubmission: (submission) =>

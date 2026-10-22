@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "memory-management",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "In the example, why is a.length 2 after pushing to b?",
+      "options": [
+        "a and b point to the same array",
+        "push changes every array in the program",
+        "b is a copy of a"
+      ],
+      "answer": 0,
+      "explanation": "const b = a copies the reference, not the array, so both names refer to one array on the heap.",
+      "hint": "Is b a copy, or another name?"
+    },
+    {
+      "prompt": "What does garbage collection do?",
+      "options": [
+        "Deletes your source code",
+        "Frees memory that nothing refers to any more",
+        "Makes the CPU run faster"
+      ],
+      "answer": 1,
+      "explanation": "It finds heap data that no variable can reach any more and frees that memory for reuse.",
+      "hint": "Think of taking out the rubbish nobody wants."
+    },
+    {
+      "prompt": "Which kind of data usually goes on the stack?",
+      "options": [
+        "Large files",
+        "A function's local variables, which live only while it runs",
+        "Everything the program ever creates"
+      ],
+      "answer": 1,
+      "explanation": "The stack is for small, short-lived data that disappears when the function returns. Larger, longer-lived data goes on the heap.",
+      "hint": "What happens to local variables when a function ends?"
+    }
+  ]
+}

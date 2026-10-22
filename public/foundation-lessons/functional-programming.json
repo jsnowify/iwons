@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "functional-programming",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "const numbers = require(\"fs\").readFileSync(0, \"utf8\").trim().split(\" \").map(Number);\nconst result = numbers.map(n => n * n);\nconsole.log(result.join(\" \"));",
+      "hints": [
+        "The program squares everything. Which method keeps only some items?",
+        "Call numbers.filter(n => n % 2 === 0) first, then .map(n => n * n) on the result.",
+        "This trips up lots of people. Filter first, then map, because mapping first would square the odd numbers too. Here is the complete code."
+      ],
+      "answerCode": "const numbers = require(\"fs\").readFileSync(0, \"utf8\").trim().split(\" \").map(Number);\nconst result = numbers.filter(n => n % 2 === 0).map(n => n * n);\nconsole.log(result.join(\" \"));"
+    },
+    "python": {
+      "starterCode": "numbers = list(map(int, input().split()))\nresult = list(map(lambda n: n * n, numbers))\nprint(\" \".join(map(str, result)))",
+      "hints": [
+        "The program squares everything. Which function keeps only some items?",
+        "Wrap numbers in filter(lambda n: n % 2 == 0, numbers) before mapping the squares.",
+        "This trips up lots of people. Filter first, then map, because mapping first would square the odd numbers too. Here is the complete code."
+      ],
+      "answerCode": "numbers = list(map(int, input().split()))\nresult = list(map(lambda n: n * n, filter(lambda n: n % 2 == 0, numbers)))\nprint(\" \".join(map(str, result)))"
+    }
+  }
+}

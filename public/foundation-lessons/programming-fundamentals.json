@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "programming-fundamentals",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What is source code?",
+      "options": [
+        "The text of instructions that you write for a computer",
+        "The electricity a computer uses to run",
+        "A program that is already made of 0s and 1s"
+      ],
+      "answer": 0,
+      "explanation": "Source code is the human-readable text programmers write. A compiler or interpreter turns it into something the computer can actually run.",
+      "hint": "Think about what you type into an editor before anything runs."
+    },
+    {
+      "prompt": "What is the main difference between a compiler and an interpreter?",
+      "options": [
+        "A compiler only works for Python, and an interpreter only works for Java",
+        "A compiler translates the program ahead of time, while an interpreter reads and runs it as it goes",
+        "An interpreter always makes code faster than a compiler"
+      ],
+      "answer": 1,
+      "explanation": "A compiler translates the whole program first and then runs the result. An interpreter reads your code and runs it line by line. Neither is always faster, and many languages use a mix of both.",
+      "hint": "Re-read the illustration: one route translates first, the other runs line by line."
+    },
+    {
+      "prompt": "Which of these is a runtime?",
+      "options": [
+        "A text editor that colours your code",
+        "The name of a variable",
+        "Node.js, which runs JavaScript outside a browser"
+      ],
+      "answer": 2,
+      "explanation": "A runtime is the environment that executes your program. Node.js does that for JavaScript. An editor only helps you write code, and a variable is just a name inside your code.",
+      "hint": "A runtime is the thing that actually runs the program, not the thing that helps you write it."
+    }
+  ]
+}

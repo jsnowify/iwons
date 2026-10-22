@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "testing",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "function isEven(n) {\n  return n % 2 === 1;\n}\nconst tests = [[2, true], [3, false], [10, true]];\nfor (const [input, expected] of tests) {\n  console.log(isEven(input) === expected ? \"PASS\" : \"FAIL\");\n}",
+      "hints": [
+        "Look at the first test: isEven(2) should be true. What does isEven return for 2 right now?",
+        "An even number leaves a remainder of 0 when divided by 2, not 1.",
+        "This trips up lots of people. The tests were right and the function was wrong. Change === 1 to === 0. Here is the complete code."
+      ],
+      "answerCode": "function isEven(n) {\n  return n % 2 === 0;\n}\nconst tests = [[2, true], [3, false], [10, true]];\nfor (const [input, expected] of tests) {\n  console.log(isEven(input) === expected ? \"PASS\" : \"FAIL\");\n}"
+    },
+    "python": {
+      "starterCode": "def is_even(n):\n    return n % 2 == 1\n\ntests = [(2, True), (3, False), (10, True)]\nfor value, expected in tests:\n    print(\"PASS\" if is_even(value) == expected else \"FAIL\")",
+      "hints": [
+        "Look at the first test: is_even(2) should be True. What does is_even return for 2 right now?",
+        "An even number leaves a remainder of 0 when divided by 2, not 1.",
+        "This trips up lots of people. The tests were right and the function was wrong. Change == 1 to == 0. Here is the complete code."
+      ],
+      "answerCode": "def is_even(n):\n    return n % 2 == 0\n\ntests = [(2, True), (3, False), (10, True)]\nfor value, expected in tests:\n    print(\"PASS\" if is_even(value) == expected else \"FAIL\")"
+    }
+  }
+}

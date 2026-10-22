@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "separation-of-concerns",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What does separation of concerns mean?",
+      "options": [
+        "Each part deals with one kind of problem",
+        "All code goes in one big file",
+        "Only one person may edit the code"
+      ],
+      "answer": 0,
+      "explanation": "Keeping one concern per part means each part is simpler and can change on its own.",
+      "hint": "Think about the layers in the picture."
+    },
+    {
+      "prompt": "In the example, which function is presentation?",
+      "options": [
+        "priceWithTax",
+        "format",
+        "Both of them"
+      ],
+      "answer": 1,
+      "explanation": "format decides how a number looks, which is presentation. priceWithTax decides the amount, which is a rule.",
+      "hint": "Which one produces the dollar sign?"
+    },
+    {
+      "prompt": "Why is it handy that the tax rule is separate from the formatting?",
+      "options": [
+        "You can change one without touching the other",
+        "It makes the program run twice as fast",
+        "It means you never need to test the rule"
+      ],
+      "answer": 0,
+      "explanation": "A change to the tax rate does not touch the formatting code, and the other way round. That is the benefit of separation.",
+      "hint": "What would you have to edit to change only the currency symbol?"
+    }
+  ]
+}

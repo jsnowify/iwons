@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "strings-text",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "const word = require(\"fs\").readFileSync(0, \"utf8\").trim();\nconsole.log(word.toUpperCase());",
+      "hints": [
+        "The program already makes capital letters. It still prints the whole word.",
+        "Take the first three characters with word.slice(0, 3), then change the case.",
+        "This trips up lots of people. slice(0, 3) stops just before index 3, so it keeps three characters. Here is the complete code."
+      ],
+      "answerCode": "const word = require(\"fs\").readFileSync(0, \"utf8\").trim();\nconsole.log(word.slice(0, 3).toUpperCase());"
+    },
+    "python": {
+      "starterCode": "word = input()\nprint(word.upper())",
+      "hints": [
+        "The program already makes capital letters. It still prints the whole word.",
+        "Take the first three characters with word[:3], then change the case.",
+        "This trips up lots of people. word[:3] stops just before index 3, so it keeps three characters. Here is the complete code."
+      ],
+      "answerCode": "word = input()\nprint(word[:3].upper())"
+    }
+  }
+}

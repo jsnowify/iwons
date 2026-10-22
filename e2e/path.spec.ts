@@ -1,7 +1,5 @@
 import { test, expect } from "@playwright/test";
 import { readFile } from "node:fs/promises";
-import { completedFoundations } from "./foundation-fixture";
-test.beforeEach(async ({ page }) => { await completedFoundations(page); });
 
 test("command search loads on demand and reaches the end of the 500-problem index", async ({ page }) => {
   const manifest = JSON.parse(await readFile("src/data/curriculum.json", "utf8"));
@@ -36,7 +34,7 @@ test("the 500-card drawer paginates, resets filters, and links to complete units
   await expect(page.locator(".level-problem-link")).toHaveCount(90);
   await expect(page.locator(".path-unit").last().locator(".level-problem-link").last()).toContainText("Boss");
 });
-test("chapter gates, free browsing, readable text, and motion settings persist", async ({
+test("all chapters open with zero progress; readable text and motion settings persist", async ({
   page,
 }) => {
   await page.goto("/path/");
@@ -45,9 +43,8 @@ test("chapter gates, free browsing, readable text, and motion settings persist",
   await page.goto("/problems/neighbor-notes-proof-strip/");
   await expect(
     page.getByRole("button", { name: "Run", exact: true }),
-  ).toBeDisabled();
+  ).toBeEnabled();
   await page.goto("/settings/");
-  await page.getByRole("switch", { name: /Free browse/ }).check();
   await page.getByRole("switch", { name: /Readable text/ }).check();
   await page.getByRole("switch", { name: /motion/i }).uncheck();
   await page.reload();
@@ -60,7 +57,7 @@ test("chapter gates, free browsing, readable text, and motion settings persist",
   ).toBeEnabled();
   await page.goto("/path/3/");
   await expect(
-    page.getByText("Free browse is on.", { exact: false }),
+    page.getByText("Chapter 4 is open.", { exact: false }),
   ).toBeVisible();
   await expect(page.locator(".level-problem-link")).toHaveCount(55);
 });

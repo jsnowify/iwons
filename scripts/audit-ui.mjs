@@ -3,13 +3,13 @@ import path from "node:path";
 import { spawn } from "node:child_process";
 import { chromium } from "@playwright/test";
 
-// Audit the production export with a fresh local profile. No personal browser data is read.
+// Audit the production Next server with a fresh local profile. No personal browser data is read.
 const routes = ["/", "/dashboard/", "/path/", "/path/0/", "/path/8/", "/problems/", "/problems/receipt-arithmetic-proof-strip/", "/problems/new/", "/problems/custom/", "/submissions/", "/submissions/detail/", "/progress/", "/review/", "/lists/", "/plans/", "/contest/", "/warm-up/", "/settings/", "/about/", "/design/", "/visualizer/", ...["bubble-sort", "binary-search", "fibonacci-dp", "bfs-graph", "binary-tree-inorder", "reverse-linked-list"].map(id => `/visualizer/${id}/`)];
 const widths = [320, 768, 1280, 1920];
 const themes = ["light", "dark"];
 const output = path.resolve("artifacts/ui-audit");
 fs.mkdirSync(output, { recursive: true });
-const server = spawn(process.execPath, ["scripts/serve.mjs"], { env: { ...process.env, PORT: "4175" }, windowsHide: true, stdio: "ignore" });
+const server = spawn(process.execPath, ["node_modules/next/dist/bin/next", "start", "--port", "4175"], { env: process.env, windowsHide: true, stdio: "ignore" });
 let browser;
 const results = [];
 try {

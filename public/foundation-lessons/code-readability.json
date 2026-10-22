@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "code-readability",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "Why does readability matter?",
+      "options": [
+        "Code is read far more often than it is written",
+        "The computer reads names slowly",
+        "Short names run faster"
+      ],
+      "answer": 0,
+      "explanation": "People spend most of their time reading code, so making it easy to understand saves time and mistakes.",
+      "hint": "Who reads the code, besides the computer?"
+    },
+    {
+      "prompt": "Which name is best for a function that works out a discount?",
+      "options": [
+        "calc",
+        "discountAmount",
+        "x"
+      ],
+      "answer": 1,
+      "explanation": "discountAmount says what it returns. calc and x make the reader open the body to find out.",
+      "hint": "Which one explains itself?"
+    },
+    {
+      "prompt": "What should a good comment explain?",
+      "options": [
+        "Why the code does something non-obvious",
+        "Exactly what each line does in words",
+        "Who is the best programmer on the team"
+      ],
+      "answer": 0,
+      "explanation": "The code shows what it does, so use comments for the reasons that the code cannot show.",
+      "hint": "Code can show what, but not why."
+    }
+  ]
+}

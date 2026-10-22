@@ -19,13 +19,14 @@ import { levelProgress } from "@/lib/path";
 import { levels } from "@/lib/levels";
 import { languageNames, topicSlug } from "@/lib/presentation";
 import { Heatmap } from "./heatmap";
+import { ProfileOverview } from "./profile-overview";
 import { Button, ProgressBar, useToast } from "./ui";
 export function ProgressPage({problems}:{problems:CatalogEntry[]}) {
   const topics = [...new Set(problems.flatMap(p=>p.topics))];
   const [patternsExpanded, setPatternsExpanded] = useState(false);
   const store = useStore(),
     toast = useToast();
-  const stats = getStats(store.submissions);
+  const stats = getStats(store.submissions, store.progress);
   const all = [...problems, ...store.customProblems];
   const badges = [
     {
@@ -191,6 +192,7 @@ export function ProgressPage({problems}:{problems:CatalogEntry[]}) {
             })}
         </div>
       </section>
+      <ProfileOverview problems={problems} />
       <div className="stat-grid">
         {[
           ["Solved", stats.solved.size],

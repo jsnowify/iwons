@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "linked-lists",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "class Node {\n  constructor(value, next = null) {\n    this.value = value;\n    this.next = next;\n  }\n}\nconst values = require(\"fs\").readFileSync(0, \"utf8\").trim().split(\" \");\nlet head = null;\nfor (let i = values.length - 1; i >= 0; i--) {\n  head = new Node(values[i], head);\n}\nlet current = head;\nconsole.log(current.value);",
+      "hints": [
+        "The last line prints one value and stops. You need a loop.",
+        "Loop while current is not null: print current.value, then move on with current = current.next.",
+        "This trips up lots of people. If you forget to move current forward, the loop never ends. Here is the complete code."
+      ],
+      "answerCode": "class Node {\n  constructor(value, next = null) {\n    this.value = value;\n    this.next = next;\n  }\n}\nconst values = require(\"fs\").readFileSync(0, \"utf8\").trim().split(\" \");\nlet head = null;\nfor (let i = values.length - 1; i >= 0; i--) {\n  head = new Node(values[i], head);\n}\nlet current = head;\nwhile (current !== null) {\n  console.log(current.value);\n  current = current.next;\n}"
+    },
+    "python": {
+      "starterCode": "class Node:\n    def __init__(self, value, next=None):\n        self.value = value\n        self.next = next\n\nvalues = input().split()\nhead = None\nfor value in reversed(values):\n    head = Node(value, head)\ncurrent = head\nprint(current.value)",
+      "hints": [
+        "The last line prints one value and stops. You need a loop.",
+        "Loop while current is not None: print current.value, then move on with current = current.next.",
+        "This trips up lots of people. If you forget to move current forward, the loop never ends. Here is the complete code."
+      ],
+      "answerCode": "class Node:\n    def __init__(self, value, next=None):\n        self.value = value\n        self.next = next\n\nvalues = input().split()\nhead = None\nfor value in reversed(values):\n    head = Node(value, head)\ncurrent = head\nwhile current is not None:\n    print(current.value)\n    current = current.next"
+    }
+  }
+}

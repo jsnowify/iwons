@@ -1,13 +1,12 @@
 "use client";
 import Link from "next/link";
-import { ArrowRight, Lock, Check, Map as MapIcon } from "lucide-react";
+import { ArrowRight, Check, Map as MapIcon } from "lucide-react";
 import type { PathLevel } from "@/lib/types";
 import { useStore } from "@/store/use-store";
-import { isLevelUnlocked, levelProgress } from "@/lib/path";
-import { ProgressBar, useToast } from "./ui";
+import { levelProgress } from "@/lib/path";
+import { ProgressBar } from "./ui";
 export function PathMap({ levels }: { levels: Omit<PathLevel, "primer" | "example">[] }) {
-  const store = useStore(),
-    toast = useToast();
+  const store = useStore();
   return (
     <>
       <div className="path-intro">
@@ -30,36 +29,16 @@ export function PathMap({ levels }: { levels: Omit<PathLevel, "primer" | "exampl
             Your map, your pace.
           </strong>
           <p>
-            Solve 70% of a chapter to open the next. All nine chapters are ready, with 500 original problems.
+            All nine chapters and 500 challenges are open. Start anywhere and learn at your own pace.
           </p>
-          <label className="path-toggle" style={{ marginTop: 12 }}>
-            <input
-              type="checkbox" role="switch"
-              checked={store.settings.freeBrowse}
-              onChange={(e) => {
-                store.updateSettings({ freeBrowse: e.target.checked });
-                toast(
-                  e.target.checked
-                    ? "Free browsing is on. Follow your curiosity."
-                    : "The guided Path is back on.",
-                );
-              }}
-            />
-            Free browse all chapters
-          </label>
         </aside>
       </div>
       <div className="path-map">
         {levels.map((level) => {
-          const progress = levelProgress(level.id, store.progress),
-            unlocked = isLevelUnlocked(
-              level.id,
-              store.progress,
-              store.settings.freeBrowse,
-            );
+          const progress = levelProgress(level.id, store.progress);
           return (
             <article
-              className={`path-station ${!unlocked ? "locked" : ""} ${!level.released ? "planned" : ""}`}
+              className={`path-station ${!level.released ? "planned" : ""}`}
               key={level.id}
             >
               <Link className="chapter-card" href={`/path/${level.id}/`}>
@@ -69,19 +48,14 @@ export function PathMap({ levels }: { levels: Omit<PathLevel, "primer" | "exampl
                 >
                   <span className="level-key">0{level.id}</span>
                   <span
-                    className={`path-status ${!level.released ? "muted" : unlocked ? "success" : "warning"}`}
+                    className={`path-status ${!level.released ? "muted" : "success"}`}
                   >
                     {!level.released ? (
                       "In the works"
                     ) : progress.solved === progress.total ? (
                       "Stamped!"
-                    ) : unlocked ? (
-                      "Open for typing"
                     ) : (
-                      <span className="row" style={{ gap: 4 }}>
-                        <Lock size={10} />
-                        Locked
-                      </span>
+                      "Open for typing"
                     )}
                   </span>
                 </div>
@@ -125,54 +99,7 @@ export function PathMap({ levels }: { levels: Omit<PathLevel, "primer" | "exampl
   );
 }
 export function LevelAccess({ level }: { level: PathLevel }) {
-  const store = useStore();
-  const unlocked = isLevelUnlocked(
-    level.id,
-    store.progress,
-    store.settings.freeBrowse,
-  );
-  const p = levelProgress(Math.max(0, level.id - 1), store.progress);
-  if (!level.released)
-    return (
-      <div className="archive-note">
-        <strong>Still on the drafting table.</strong>
-        <p>
-          This chapter is mapped, with {level.count} original challenges
-          planned. Start with one of the three released chapters while we let
-          the ink dry.
-        </p>
-        <Link href="/path/" className="text-link">
-          Back to the Path →
-        </Link>
-      </div>
-    );
-  if (!store.hydrated)
-    return (
-      <div className="skeleton" style={{ height: 60, marginBottom: 24 }} />
-    );
-  if (unlocked)
-    return (
-      <div className="screen-note row" style={{ marginBottom: 24, minHeight:60 }}>
-        <Check size={15} />
-        {store.settings.freeBrowse
-          ? "Free browse is on."
-          : `Chapter ${level.id + 1} is open.`}{" "}
-        Type when you’re ready.
-      </div>
-    );
-  return (
-    <div className="archive-note">
-      <strong className="row">
-        <Lock size={15} />A little more practice first.
-      </strong>
-      <p>
-        Solve {p.threshold} of {p.total} exercises in Level {level.id - 1} to
-        unlock this chapter ({p.solved} done). Or turn on free browse in
-        Settings.
-      </p>
-      <Link href={`/path/${level.id - 1}/`} className="text-link">
-        Back one chapter →
-      </Link>
-    </div>
-  );
+  return <div className="screen-note row" style={{ marginBottom: 24, minHeight: 60 }}>
+    <Check size={15} />Chapter {level.id + 1} is open. Type when you&apos;re ready.
+  </div>;
 }

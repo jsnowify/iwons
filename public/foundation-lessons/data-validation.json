@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "data-validation",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "const text = require(\"fs\").readFileSync(0, \"utf8\").trim();\nconst age = Number(text);\nconsole.log(\"valid\");",
+      "hints": [
+        "The program never looks at the age. Decide what a good age must satisfy.",
+        "Check Number.isInteger(age), age >= 0 and age <= 120 together with &&, and print invalid otherwise.",
+        "This trips up lots of people. Number(\"abc\") is NaN, and NaN is not an integer, so the isInteger check rejects it. Here is the complete code."
+      ],
+      "answerCode": "const text = require(\"fs\").readFileSync(0, \"utf8\").trim();\nconst age = Number(text);\nif (text !== \"\" && Number.isInteger(age) && age >= 0 && age <= 120) {\n  console.log(\"valid\");\n} else {\n  console.log(\"invalid\");\n}"
+    },
+    "python": {
+      "starterCode": "text = input()\nprint(\"valid\")",
+      "hints": [
+        "The program never looks at the age. Decide what a good age must satisfy.",
+        "Convert with int(text) inside try, treat a ValueError as invalid, and check 0 <= age <= 120.",
+        "This trips up lots of people. int(\"abc\") raises a ValueError, so catching it lets you reject bad input instead of crashing. Here is the complete code."
+      ],
+      "answerCode": "text = input()\ntry:\n    age = int(text)\nexcept ValueError:\n    age = -1\nprint(\"valid\" if 0 <= age <= 120 else \"invalid\")"
+    }
+  }
+}

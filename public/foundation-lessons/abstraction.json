@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "id": "abstraction",
+  "type": "concept",
+  "check": [
+    {
+      "prompt": "What does abstraction do?",
+      "options": [
+        "Makes code run faster",
+        "Hides details so you can focus on what something does",
+        "Removes the need for functions"
+      ],
+      "answer": 1,
+      "explanation": "Abstraction hides the how so you can work with the what. It does not make code faster, and functions are one of the main ways to build it.",
+      "hint": "Think of the microwave button."
+    },
+    {
+      "prompt": "Which is an example of abstraction?",
+      "options": [
+        "Copying the same code into three places",
+        "Naming every variable x",
+        "Calling sort() without knowing which sorting algorithm it uses"
+      ],
+      "answer": 2,
+      "explanation": "You use sort() through its name and what it promises, and the algorithm inside stays hidden. The other two make code harder to understand.",
+      "hint": "Look for the one where details are hidden behind a simple name."
+    },
+    {
+      "prompt": "Why is hiding the details useful?",
+      "options": [
+        "The inside can change later without breaking the people who use it",
+        "It makes the program shorter in every case",
+        "It means nobody needs to test it"
+      ],
+      "answer": 0,
+      "explanation": "If callers only rely on what the function promises, you can improve the inside freely. Abstraction does not remove the need to test.",
+      "hint": "What can you do to the inside if nobody depends on it?"
+    }
+  ]
+}

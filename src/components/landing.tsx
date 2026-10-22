@@ -37,7 +37,7 @@ export function Landing() {
           </div>
           <p className="hero-note">
             <HardDrive size={12} />
-            No account. No pressure. Your progress stays with you.
+            No account needed to start. Practice as a guest, or create a free account to sync and join leaderboards.
           </p>
         </div>
         <div className="hero-art">

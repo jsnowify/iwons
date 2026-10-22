@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "id": "sets",
+  "type": "code",
+  "languages": {
+    "javascript": {
+      "starterCode": "const numbers = require(\"fs\").readFileSync(0, \"utf8\").trim().split(\" \").map(Number);\nconsole.log(numbers.length);",
+      "hints": [
+        "The program counts every item, including repeats. What collection ignores repeats?",
+        "Make a set from the numbers with new Set(numbers) and print its size.",
+        "This trips up lots of people. length counts items, but size counts the values left after duplicates are removed. Here is the complete code."
+      ],
+      "answerCode": "const numbers = require(\"fs\").readFileSync(0, \"utf8\").trim().split(\" \").map(Number);\nconsole.log(new Set(numbers).size);"
+    },
+    "python": {
+      "starterCode": "numbers = list(map(int, input().split()))\nprint(len(numbers))",
+      "hints": [
+        "The program counts every item, including repeats. What collection ignores repeats?",
+        "Make a set from the numbers with set(numbers) and print its length.",
+        "This trips up lots of people. len of the list counts repeats, but len of the set counts each value once. Here is the complete code."
+      ],
+      "answerCode": "numbers = list(map(int, input().split()))\nprint(len(set(numbers)))"
+    }
+  }
+}

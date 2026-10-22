@@ -29,7 +29,7 @@ import { Onboarding } from "./onboarding";
 export function Dashboard({problems}:{problems:CatalogEntry[]}) {
   const topics = [...new Set(problems.flatMap(p=>p.topics))];
   const store = useStore();
-  const stats = getStats(store.submissions);
+  const stats = getStats(store.submissions, store.progress);
   const [onboard, setOnboard] = useState(false);
   const available = problems.filter((p) =>
     isLevelUnlocked(p.level, store.progress, store.settings.freeBrowse),
