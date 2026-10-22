@@ -104,10 +104,15 @@ Copy `.env.example` to `.env.local` and configure these **server-only** entries:
 The workspace's dedicated Atlas `iwons` project/cluster has been provisioned on
 the free AWS Singapore tier, with the `iwons` database and a database-scoped
 `iwons_app` user. Local `.env.local` contains the generated connection and HMAC
-secret and is ignored by Git. Only this machine's public IPv4 address is allowed;
-deployment access still needs its own network configuration. This machine's DNS
-resolver rejects SRV queries, so its local connection uses Atlas's equivalent
-standard TLS replica-set URI. Other environments may use the SRV URI normally.
+secret and is ignored by Git. Production is configured at
+`https://iwons.vercel.app`. Atlas permits dynamic Vercel egress through
+`0.0.0.0/0`, following its documented Vercel integration setup; TLS and the
+database-scoped application's credentials remain required. This is network
+reachability from any IPv4 address, not anonymous database access. Fixed egress
+can narrow this list if configured later. This machine's DNS resolver rejects
+SRV queries, so the configured connection uses Atlas's equivalent standard TLS
+replica-set URI. Other environments may use the SRV URI normally. See the
+[production verification record](production-release.md).
 
 | Variable | Purpose |
 | --- | --- |
