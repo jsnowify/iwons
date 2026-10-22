@@ -11,11 +11,13 @@ function CodeEditor({
   onChange,
   language,
   onBurst,
+  readOnly = false,
 }: {
   code: string;
   onChange: (s: string) => void;
   language: Language;
   onBurst: () => void;
+  readOnly?: boolean;
 }) {
   const settings = useStore((s) => s.settings);
   const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
@@ -83,6 +85,7 @@ function CodeEditor({
       onMount={mount}
       loading={<EditorSkeleton />}
       options={{
+        readOnly,
         fontSize: settings.fontSize,
         tabSize: settings.tabSize,
         fontFamily: "var(--font-jetbrains), monospace",

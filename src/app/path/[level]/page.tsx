@@ -1,10 +1,11 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { getLevels, getLevel, getProblems } from "@/lib/problems";
 import { LevelAccess } from "@/components/path-map";
 import unitData from "@/data/units.json";
+import { TopicFoundation, TopicChallenge, TopicChallengeStatus } from "@/components/topic-foundation";
 import { siteUrl } from "@/lib/site-url";
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -36,7 +37,7 @@ export default async function Page({
   if (!l) notFound();
   const problems = getProblems().filter((p) => p.level === l.id);
   return (
-    <div className="content">
+    <div className="content path-chapter">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -108,21 +109,22 @@ export default async function Page({
           <h2>Try your hand.</h2>
           {unitData.filter(unit => unit.level === l.id).map(unit => <section className="path-unit" key={unit.slug} id={unit.slug}>
           <h2>{unit.name}</h2><p>{unit.intro}</p>
+          <TopicFoundation id={unit.slug} level={l.id}>
           {problems.filter(p => p.unit === unit.slug).map((p, i) => (
-            <Link
-              href={`/problems/${p.slug}/`}
-              className="level-problem-link"
+            <TopicChallenge
+              slug={p.slug}
               key={p.id}
             >
               <span className="level-key">{i + 1}</span>
               <div style={{ flex: 1 }}>
                 <h3>{p.title}</h3>
                 <p>{p.stage}{p.revisit ? ` · ${p.revisit}` : ""}</p>
+                <p>Uses: {unit.idea}, lists and loops, receipt rules</p>
               </div>
               <span className={`badge ${p.difficulty}`}>{p.difficulty}</span>
-              <ArrowRight size={17} />
-            </Link>
-          ))}</section>)}
+              <TopicChallengeStatus />
+            </TopicChallenge>
+          ))}</TopicFoundation></section>)}
         </section>
       ) : null}
     </div>

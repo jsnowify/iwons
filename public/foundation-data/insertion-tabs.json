@@ -1,0 +1,424 @@
+{
+  "id": "insertion-tabs",
+  "title": "Insertion tabs",
+  "concepts": [
+    "Binary search boundaries",
+    "Lists and loops",
+    "Receipt rules"
+  ],
+  "foundation": {
+    "steps": [
+      {
+        "id": "read",
+        "title": "Return the list you built",
+        "explanation": "Binary search boundaries is this topic's new tool. drawers contains two rows: a sorted number list, then a list of queries. Each query is a number to look up",
+        "exampleCode": "function practice(drawers, k) {\n  const a=drawers; let out=[];\n  for(const x of a[1]){let l=0,r=a[0].length;while(l<r){const m=Math.floor((l+r)/2);if(a[0][m]<x)l=m+1;else r=m;}out.push(l);}\n  return out;\n}\n",
+        "starterCode": "function practice(drawers, k) {\n  const a=drawers; let out=[];\n  for(const x of a[1]){let l=0,r=a[0].length;while(l<r){const m=Math.floor((l+r)/2);if(a[0][m]<x)l=m+1;else r=m;}out.push(l);}\n  return ___;\n}\n",
+        "task": "Replace ___ with out to send the result list back.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "read-0",
+            "input": [
+              [
+                [
+                  -3,
+                  0,
+                  7,
+                  7,
+                  12
+                ],
+                []
+              ],
+              3
+            ],
+            "expected": []
+          },
+          {
+            "id": "read-1",
+            "input": [
+              [
+                [
+                  -2,
+                  4,
+                  4,
+                  4
+                ],
+                [
+                  9
+                ]
+              ],
+              2
+            ],
+            "expected": [
+              4
+            ]
+          },
+          {
+            "id": "read-2",
+            "input": [
+              [
+                [],
+                []
+              ],
+              1
+            ],
+            "expected": []
+          }
+        ],
+        "hints": [
+          "The list is named out.",
+          "The final instruction is return out;.",
+          "That's totally normal, this trips up lots of people.\nfunction practice(drawers, k) {\n  const a=drawers; let out=[];\n  for(const x of a[1]){let l=0,r=a[0].length;while(l<r){const m=Math.floor((l+r)/2);if(a[0][m]<x)l=m+1;else r=m;}out.push(l);}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ]
+      },
+      {
+        "id": "trace",
+        "title": "Fill a smaller piece",
+        "explanation": "push adds one value to the end of a list. Find that instruction in the example. Fill its name in the starter and inspect the returned values.",
+        "exampleCode": "function practice(drawers, k) {\n  const a=drawers; let out=[];\n  for(const x of a[1]){let l=0,r=a[0].length;while(l<r){const m=Math.floor((l+r)/2);if(a[0][m]<x)l=m+1;else r=m;}out.push(l);}\n  return out;\n}\n",
+        "starterCode": "function practice(drawers, k) {\n  const a=drawers; let out=[];\n  for(const x of a[1]){let l=0,r=a[0].length;while(l<r){const m=Math.floor((l+r)/2);if(a[0][m]<x)l=m+1;else r=m;}out.___(l);}\n  return out;\n}\n",
+        "task": "Replace ___ with push to add an item to out.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "trace-0",
+            "input": [
+              [
+                [
+                  -3,
+                  0,
+                  7,
+                  7,
+                  12
+                ],
+                []
+              ],
+              3
+            ],
+            "expected": []
+          },
+          {
+            "id": "trace-1",
+            "input": [
+              [
+                [
+                  -2,
+                  4,
+                  4,
+                  4
+                ],
+                [
+                  9
+                ]
+              ],
+              2
+            ],
+            "expected": [
+              4
+            ]
+          },
+          {
+            "id": "trace-2",
+            "input": [
+              [
+                [],
+                []
+              ],
+              1
+            ],
+            "expected": []
+          }
+        ],
+        "hints": [
+          "Look for the instruction that adds an item.",
+          "Write out.push where the starter says out.___.",
+          "That's totally normal, this trips up lots of people.\nfunction practice(drawers, k) {\n  const a=drawers; let out=[];\n  for(const x of a[1]){let l=0,r=a[0].length;while(l<r){const m=Math.floor((l+r)/2);if(a[0][m]<x)l=m+1;else r=m;}out.push(l);}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ]
+      },
+      {
+        "id": "receipt",
+        "title": "Make a receipt from a list",
+        "explanation": "A total adds the numbers in a list. Start at zero and add one number at a time; an empty list stays at zero. let gives a value a name that you can update, and += adds to that value.",
+        "exampleCode": "function practice(a) {\n  let n = 0;\n  for (const x of a) { n += x; }\n  return n;\n}",
+        "starterCode": "function practice(a) {\n  let n = 0;\n  for (const x of a) { /* add x to n */ }\n  return n;\n}",
+        "task": "Add x to n inside the loop to return the total.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "receipt-0",
+            "input": [
+              [
+                2,
+                3
+              ]
+            ],
+            "expected": 5
+          },
+          {
+            "id": "receipt-1",
+            "input": [
+              []
+            ],
+            "expected": 0
+          },
+          {
+            "id": "receipt-2",
+            "input": [
+              [
+                0,
+                -2,
+                4
+              ]
+            ],
+            "expected": 2
+          }
+        ],
+        "hints": [
+          "The loop visits each number once.",
+          "Inside the loop, write n += x; (this means add x to n).",
+          "That's totally normal, this trips up lots of people.\nfunction practice(a) {\n  let n = 0;\n  for (const x of a) { n += x; }\n  return n;\n}\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ],
+        "referenceCode": "// a is the list you just built; k is the requested cutoff.\nfunction total(a) { let n = 0; for (const x of a) n += x; return n; }\nfunction countAtLeast(a, k) { let n = 0; for (const x of a) if (x >= k) n++; return n; }\nfunction firstAtLeast(a, k) { for (const x of a) if (x >= k) return x; return -1; }\nfunction peak(a) { if (!a.length) return 0; let n = a[0]; for (const x of a) if (x > n) n = x; return n; }\nfunction floor(a) { if (!a.length) return 0; let n = a[0]; for (const x of a) if (x < n) n = x; return n; }\nfunction countEven(a) { let n = 0; for (const x of a) if (x % 2 === 0) n++; return n; }\nfunction positiveTotal(a) { let n = 0; for (const x of a) if (x > 0) n += x; return n; }\nfunction positives(a) { const out = []; for (const x of a) if (x > 0) out.push(x); return out; }\nfunction weighted(a) { let n = 0; for (let i = 0; i < a.length; i++) n += (i + 1) * a[i]; return n; }"
+      },
+      {
+        "id": "rebuild",
+        "title": "Rebuild the working instructions",
+        "explanation": "Keep the supplied function and result list. Rebuild the part that fills the list using the example as a guide. Re-run whenever you want to check a change.",
+        "exampleCode": "function practice(drawers, k) {\n  const a=drawers; let out=[];\n  for(const x of a[1]){let l=0,r=a[0].length;while(l<r){const m=Math.floor((l+r)/2);if(a[0][m]<x)l=m+1;else r=m;}out.push(l);}\n  return out;\n}\n",
+        "starterCode": "function practice(drawers, k) {\n  const a=drawers; let out=[];\n  // Rebuild the derived list here.\n  return out;\n}\n",
+        "task": "Fill the result list using this topic's rule.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "rebuild-0",
+            "input": [
+              [
+                [
+                  -3,
+                  0,
+                  7,
+                  7,
+                  12
+                ],
+                []
+              ],
+              3
+            ],
+            "expected": []
+          },
+          {
+            "id": "rebuild-1",
+            "input": [
+              [
+                [
+                  -2,
+                  4,
+                  4,
+                  4
+                ],
+                [
+                  9
+                ]
+              ],
+              2
+            ],
+            "expected": [
+              4
+            ]
+          },
+          {
+            "id": "rebuild-2",
+            "input": [
+              [
+                [],
+                []
+              ],
+              1
+            ],
+            "expected": []
+          }
+        ],
+        "hints": [
+          "drawers contains two rows: a sorted number list, then a list of queries. Each query is a number to look up. For each query, find the first position in the sorted list whose number is at least the query. Positions, also called indexes, start at 0. If no number is large enough, record the length of the sorted list. Put the answers in query order.",
+          "Revisit the example and copy one instruction at a time, checking what it does.",
+          "That's totally normal, this trips up lots of people.\nfunction practice(drawers, k) {\n  const a=drawers; let out=[];\n  for(const x of a[1]){let l=0,r=a[0].length;while(l<r){const m=Math.floor((l+r)/2);if(a[0][m]<x)l=m+1;else r=m;}out.push(l);}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ]
+      },
+      {
+        "id": "recall",
+        "title": "Ready for the proof strip",
+        "explanation": "Write the small function again with less help. The first challenge uses the same input and output rule. Use return to send the finished list back.",
+        "exampleCode": "function practice(drawers, k) {\n  const a=drawers; let out=[];\n  for(const x of a[1]){let l=0,r=a[0].length;while(l<r){const m=Math.floor((l+r)/2);if(a[0][m]<x)l=m+1;else r=m;}out.push(l);}\n  return out;\n}\n",
+        "starterCode": "function practice(drawers, k) {\n  // Build and return the result list.\n}",
+        "task": "Build the derived list for this topic, then return it.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "recall-0",
+            "input": [
+              [
+                [
+                  -3,
+                  0,
+                  7,
+                  7,
+                  12
+                ],
+                []
+              ],
+              3
+            ],
+            "expected": []
+          },
+          {
+            "id": "recall-1",
+            "input": [
+              [
+                [
+                  -2,
+                  4,
+                  4,
+                  4
+                ],
+                [
+                  9
+                ]
+              ],
+              2
+            ],
+            "expected": [
+              4
+            ]
+          },
+          {
+            "id": "recall-2",
+            "input": [
+              [
+                [],
+                []
+              ],
+              1
+            ],
+            "expected": []
+          }
+        ],
+        "hints": [
+          "drawers contains two rows: a sorted number list, then a list of queries. Each query is a number to look up. For each query, find the first position in the sorted list whose number is at least the query. Positions, also called indexes, start at 0. If no number is large enough, record the length of the sorted list. Put the answers in query order.",
+          "Create the result list, process the input in order, and return the list.",
+          "That's totally normal, this trips up lots of people.\nfunction practice(drawers, k) {\n  const a=drawers; let out=[];\n  for(const x of a[1]){let l=0,r=a[0].length;while(l<r){const m=Math.floor((l+r)/2);if(a[0][m]<x)l=m+1;else r=m;}out.push(l);}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ],
+        "recall": {
+          "prompt": "Without hints: which keyword sends a function's answer back?",
+          "answer": "return"
+        }
+      }
+    ]
+  },
+  "challenges": [
+    "path3-249",
+    "path3-250",
+    "path3-251",
+    "path3-252",
+    "path3-253",
+    "path3-254",
+    "path3-255",
+    "path3-256",
+    "path3-257"
+  ]
+}

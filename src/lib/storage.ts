@@ -10,6 +10,7 @@ import { migrateV4Data } from "./migrations/v5";
 import type { LegacyArchive } from "./types";
 import { migrateV5Data } from "./migrations/v6";
 import { validateLearningState } from "./legacy-learning";
+import { validateTopicFoundations } from "./topic-foundations";
 const PREFIX = "iwons:v6:",
   TRACK_PREFIX = "iwons:v5:",
   FOUNDATIONS_PREFIX = "iwons:v4:",
@@ -24,6 +25,7 @@ function finite(value: unknown) {
   return typeof value === "number" && Number.isFinite(value);
 }
 function validateImport(data: Record<string, unknown>) {
+  if (data.topicFoundations !== undefined) validateTopicFoundations(data.topicFoundations);
   if (data.learning !== undefined) validateLearningState(data.learning);
   if (data.foundations !== undefined) {
     if (record(data.foundations) && "java" in data.foundations) validateLearnProgress(data.foundations);
@@ -134,6 +136,7 @@ function validateImport(data: Record<string, unknown>) {
 }
 
 export const DATA_KEYS = [
+  "topicFoundations",
   "profile",
   "settings",
   "submissions",

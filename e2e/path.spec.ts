@@ -1,5 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { readFile } from "node:fs/promises";
+import { completedFoundations } from "./foundation-fixture";
+test.beforeEach(async ({ page }) => { await completedFoundations(page); });
 
 test("command search loads on demand and reaches the end of the 500-problem index", async ({ page }) => {
   const manifest = JSON.parse(await readFile("src/data/curriculum.json", "utf8"));
@@ -45,9 +47,9 @@ test("chapter gates, free browsing, readable text, and motion settings persist",
     page.getByRole("button", { name: "Run", exact: true }),
   ).toBeDisabled();
   await page.goto("/settings/");
-  await page.getByRole("checkbox", { name: /Free browse/ }).check();
-  await page.getByRole("checkbox", { name: /Readable text/ }).check();
-  await page.getByRole("checkbox", { name: /motion/i }).uncheck();
+  await page.getByRole("switch", { name: /Free browse/ }).check();
+  await page.getByRole("switch", { name: /Readable text/ }).check();
+  await page.getByRole("switch", { name: /motion/i }).uncheck();
   await page.reload();
   await expect(page.locator("html")).toHaveAttribute("data-readable", "true");
   await expect(page.locator("html")).toHaveAttribute("data-motion", "off");

@@ -34,7 +34,7 @@ export function PathMap({ levels }: { levels: Omit<PathLevel, "primer" | "exampl
           </p>
           <label className="path-toggle" style={{ marginTop: 12 }}>
             <input
-              type="checkbox"
+              type="checkbox" role="switch"
               checked={store.settings.freeBrowse}
               onChange={(e) => {
                 store.updateSettings({ freeBrowse: e.target.checked });

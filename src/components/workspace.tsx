@@ -94,7 +94,8 @@ export function Workspace({
     autoSubmitted = useRef(false);
   const levelLocked =
     !p.id.startsWith("custom-") &&
-    !isLevelUnlocked(p.level, store.progress, store.settings.freeBrowse);
+    (!store.hydrated || !isLevelUnlocked(p.level, store.progress, store.settings.freeBrowse) ||
+      (!!p.unit && !store.topicFoundations[p.unit]?.completed));
   const contest = store.sessions.contest;
   const inContest =
     !!contest && !contest.finished && contest.problemIds.includes(p.id);
@@ -353,12 +354,13 @@ export function Workspace({
       {levelLocked ? (
         <div className="gate-banner">
           <span>
-            This chapter opens after 70% of Level {Math.max(0, p.level - 1)}.
-            Free browse is available in Settings.
+            {p.unit && !store.topicFoundations[p.unit]?.completed
+              ? "Complete this topic's Foundation Lesson before starting its challenges."
+              : `This chapter opens after 70% of Level ${Math.max(0, p.level - 1)}. Free browse is available in Settings.`}
           </span>
           <Link
             prefetch={false}
-            href={`/path/${Math.max(0, p.level - 1)}/`}
+            href={`/path/${p.level}/${p.unit ? `#${p.unit}` : ""}`}
             className="text-link"
           >
             Return to your chapter →

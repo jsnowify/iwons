@@ -1,0 +1,393 @@
+{
+  "id": "catalog-branches",
+  "title": "Catalog branches",
+  "concepts": [
+    "BST range pruning",
+    "Lists and loops",
+    "Receipt rules"
+  ],
+  "foundation": {
+    "steps": [
+      {
+        "id": "read",
+        "title": "Return the list you built",
+        "explanation": "BST range pruning is this topic's new tool. root is a binary search tree with no repeated values. In this tree, all values in a left branch are smaller than its parent, and all values in a right branch are larger",
+        "exampleCode": "function practice(root, k) {\n  const a=root; let out=[];\n  function visit(node){if(!node)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.push(node.val);if(node.val<k+12)visit(node.right);}visit(a);\n  return out;\n}\n",
+        "starterCode": "function practice(root, k) {\n  const a=root; let out=[];\n  function visit(node){if(!node)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.push(node.val);if(node.val<k+12)visit(node.right);}visit(a);\n  return ___;\n}\n",
+        "task": "Replace ___ with out to send the result list back.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "read-0",
+            "input": [
+              [
+                7,
+                0,
+                12,
+                -3
+              ],
+              3
+            ],
+            "expected": [
+              7,
+              12
+            ]
+          },
+          {
+            "id": "read-1",
+            "input": [
+              [
+                4,
+                -2
+              ],
+              2
+            ],
+            "expected": [
+              4
+            ]
+          },
+          {
+            "id": "read-2",
+            "input": [
+              [],
+              1
+            ],
+            "expected": []
+          }
+        ],
+        "hints": [
+          "The list is named out.",
+          "The final instruction is return out;.",
+          "That's totally normal, this trips up lots of people.\nfunction practice(root, k) {\n  const a=root; let out=[];\n  function visit(node){if(!node)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.push(node.val);if(node.val<k+12)visit(node.right);}visit(a);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ],
+        "inputKinds": {
+          "0": "tree"
+        }
+      },
+      {
+        "id": "trace",
+        "title": "Fill a smaller piece",
+        "explanation": "push adds one value to the end of a list. Find that instruction in the example. Fill its name in the starter and inspect the returned values.",
+        "exampleCode": "function practice(root, k) {\n  const a=root; let out=[];\n  function visit(node){if(!node)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.push(node.val);if(node.val<k+12)visit(node.right);}visit(a);\n  return out;\n}\n",
+        "starterCode": "function practice(root, k) {\n  const a=root; let out=[];\n  function visit(node){if(!node)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.___(node.val);if(node.val<k+12)visit(node.right);}visit(a);\n  return out;\n}\n",
+        "task": "Replace ___ with push to add an item to out.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "trace-0",
+            "input": [
+              [
+                7,
+                0,
+                12,
+                -3
+              ],
+              3
+            ],
+            "expected": [
+              7,
+              12
+            ]
+          },
+          {
+            "id": "trace-1",
+            "input": [
+              [
+                4,
+                -2
+              ],
+              2
+            ],
+            "expected": [
+              4
+            ]
+          },
+          {
+            "id": "trace-2",
+            "input": [
+              [],
+              1
+            ],
+            "expected": []
+          }
+        ],
+        "hints": [
+          "Look for the instruction that adds an item.",
+          "Write out.push where the starter says out.___.",
+          "That's totally normal, this trips up lots of people.\nfunction practice(root, k) {\n  const a=root; let out=[];\n  function visit(node){if(!node)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.push(node.val);if(node.val<k+12)visit(node.right);}visit(a);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ],
+        "inputKinds": {
+          "0": "tree"
+        }
+      },
+      {
+        "id": "receipt",
+        "title": "Make a receipt from a list",
+        "explanation": "A total adds the numbers in a list. Start at zero and add one number at a time; an empty list stays at zero. let gives a value a name that you can update, and += adds to that value.",
+        "exampleCode": "function practice(a) {\n  let n = 0;\n  for (const x of a) { n += x; }\n  return n;\n}",
+        "starterCode": "function practice(a) {\n  let n = 0;\n  for (const x of a) { /* add x to n */ }\n  return n;\n}",
+        "task": "Add x to n inside the loop to return the total.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "receipt-0",
+            "input": [
+              [
+                2,
+                3
+              ]
+            ],
+            "expected": 5
+          },
+          {
+            "id": "receipt-1",
+            "input": [
+              []
+            ],
+            "expected": 0
+          },
+          {
+            "id": "receipt-2",
+            "input": [
+              [
+                0,
+                -2,
+                4
+              ]
+            ],
+            "expected": 2
+          }
+        ],
+        "hints": [
+          "The loop visits each number once.",
+          "Inside the loop, write n += x; (this means add x to n).",
+          "That's totally normal, this trips up lots of people.\nfunction practice(a) {\n  let n = 0;\n  for (const x of a) { n += x; }\n  return n;\n}\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ],
+        "referenceCode": "// a is the list you just built; k is the requested cutoff.\nfunction total(a) { let n = 0; for (const x of a) n += x; return n; }\nfunction countAtLeast(a, k) { let n = 0; for (const x of a) if (x >= k) n++; return n; }\nfunction firstAtLeast(a, k) { for (const x of a) if (x >= k) return x; return -1; }\nfunction peak(a) { if (!a.length) return 0; let n = a[0]; for (const x of a) if (x > n) n = x; return n; }\nfunction floor(a) { if (!a.length) return 0; let n = a[0]; for (const x of a) if (x < n) n = x; return n; }\nfunction countEven(a) { let n = 0; for (const x of a) if (x % 2 === 0) n++; return n; }\nfunction positiveTotal(a) { let n = 0; for (const x of a) if (x > 0) n += x; return n; }\nfunction positives(a) { const out = []; for (const x of a) if (x > 0) out.push(x); return out; }\nfunction weighted(a) { let n = 0; for (let i = 0; i < a.length; i++) n += (i + 1) * a[i]; return n; }"
+      },
+      {
+        "id": "rebuild",
+        "title": "Rebuild the working instructions",
+        "explanation": "Keep the supplied function and result list. Rebuild the part that fills the list using the example as a guide. Re-run whenever you want to check a change.",
+        "exampleCode": "function practice(root, k) {\n  const a=root; let out=[];\n  function visit(node){if(!node)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.push(node.val);if(node.val<k+12)visit(node.right);}visit(a);\n  return out;\n}\n",
+        "starterCode": "function practice(root, k) {\n  const a=root; let out=[];\n  // Rebuild the derived list here.\n  return out;\n}\n",
+        "task": "Fill the result list using this topic's rule.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "rebuild-0",
+            "input": [
+              [
+                7,
+                0,
+                12,
+                -3
+              ],
+              3
+            ],
+            "expected": [
+              7,
+              12
+            ]
+          },
+          {
+            "id": "rebuild-1",
+            "input": [
+              [
+                4,
+                -2
+              ],
+              2
+            ],
+            "expected": [
+              4
+            ]
+          },
+          {
+            "id": "rebuild-2",
+            "input": [
+              [],
+              1
+            ],
+            "expected": []
+          }
+        ],
+        "hints": [
+          "root is a binary search tree with no repeated values. In this tree, all values in a left branch are smaller than its parent, and all values in a right branch are larger. Find values from k through k + 12, including both ends. Put them in the result list from smallest to largest. Skip branches whose values cannot be in this range. An empty tree gives an empty result list.",
+          "Revisit the example and copy one instruction at a time, checking what it does.",
+          "That's totally normal, this trips up lots of people.\nfunction practice(root, k) {\n  const a=root; let out=[];\n  function visit(node){if(!node)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.push(node.val);if(node.val<k+12)visit(node.right);}visit(a);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ],
+        "inputKinds": {
+          "0": "tree"
+        }
+      },
+      {
+        "id": "recall",
+        "title": "Ready for the proof strip",
+        "explanation": "Write the small function again with less help. The first challenge uses the same input and output rule. Use return to send the finished list back.",
+        "exampleCode": "function practice(root, k) {\n  const a=root; let out=[];\n  function visit(node){if(!node)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.push(node.val);if(node.val<k+12)visit(node.right);}visit(a);\n  return out;\n}\n",
+        "starterCode": "function practice(root, k) {\n  // Build and return the result list.\n}",
+        "task": "Build the derived list for this topic, then return it.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "recall-0",
+            "input": [
+              [
+                7,
+                0,
+                12,
+                -3
+              ],
+              3
+            ],
+            "expected": [
+              7,
+              12
+            ]
+          },
+          {
+            "id": "recall-1",
+            "input": [
+              [
+                4,
+                -2
+              ],
+              2
+            ],
+            "expected": [
+              4
+            ]
+          },
+          {
+            "id": "recall-2",
+            "input": [
+              [],
+              1
+            ],
+            "expected": []
+          }
+        ],
+        "hints": [
+          "root is a binary search tree with no repeated values. In this tree, all values in a left branch are smaller than its parent, and all values in a right branch are larger. Find values from k through k + 12, including both ends. Put them in the result list from smallest to largest. Skip branches whose values cannot be in this range. An empty tree gives an empty result list.",
+          "Create the result list, process the input in order, and return the list.",
+          "That's totally normal, this trips up lots of people.\nfunction practice(root, k) {\n  const a=root; let out=[];\n  function visit(node){if(!node)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.push(node.val);if(node.val<k+12)visit(node.right);}visit(a);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ],
+        "recall": {
+          "prompt": "Without hints: which keyword sends a function's answer back?",
+          "answer": "return"
+        },
+        "inputKinds": {
+          "0": "tree"
+        }
+      }
+    ]
+  },
+  "challenges": [
+    "path3-331",
+    "path3-332",
+    "path3-333",
+    "path3-334",
+    "path3-335",
+    "path3-336",
+    "path3-337",
+    "path3-338",
+    "path3-339",
+    "path3-340"
+  ]
+}

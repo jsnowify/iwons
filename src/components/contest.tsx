@@ -1,6 +1,6 @@
 "use client";
 import type { ProblemSummary } from "@/lib/types";
-type CatalogEntry = Pick<ProblemSummary, "id" | "slug" | "title" | "difficulty" | "level" | "topics">;
+type CatalogEntry = Pick<ProblemSummary, "id" | "slug" | "title" | "difficulty" | "level" | "topics" | "unit">;
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -52,14 +52,15 @@ export function ContestPage({problems}:{problems:CatalogEntry[]}) {
       return;
     }
     try {
-      await fullscreen();
       const pool = problems.filter(
         (p) =>
           (!difficulty || p.difficulty === difficulty) &&
-          isLevelUnlocked(p.level, store.progress, store.settings.freeBrowse),
+          isLevelUnlocked(p.level, store.progress, store.settings.freeBrowse) &&
+          (!p.unit || store.topicFoundations[p.unit]?.completed),
       );
       if (pool.length < count)
-        throw new Error("Choose fewer problems for this difficulty.");
+        throw new Error("Complete more topic foundations on the Path, or choose fewer problems for this difficulty.");
+      await fullscreen();
       for (let i = pool.length - 1; i > 0; i--) {
         const values = new Uint32Array(1);
         crypto.getRandomValues(values);

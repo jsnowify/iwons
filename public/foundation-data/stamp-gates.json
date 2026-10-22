@@ -1,0 +1,366 @@
+{
+  "id": "stamp-gates",
+  "title": "Stamp gates",
+  "concepts": [
+    "Conditionals",
+    "Lists and loops",
+    "Receipt rules"
+  ],
+  "foundation": {
+    "steps": [
+      {
+        "id": "compare",
+        "title": "Ask a yes-or-no question",
+        "explanation": "A comparison checks whether something is true. The < sign means less than. A number below zero is negative.",
+        "exampleCode": "function practice() {\n  return -2 < 0;\n}",
+        "starterCode": "function practice() {\n  return -2 < ___;\n}",
+        "task": "Replace ___ with 0 to check whether -2 is negative.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "compare-0",
+            "input": [],
+            "expected": true
+          }
+        ],
+        "hints": [
+          "Compare -2 with zero.",
+          "Write 0 in the blank.",
+          "That's totally normal, this trips up lots of people.\nfunction practice() {\n  return -2 < 0;\n}\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ]
+      },
+      {
+        "id": "choose",
+        "title": "Choose what to return",
+        "explanation": "An if instruction runs its block only when the comparison is true. A block is the instructions inside curly brackets. If x is not negative, the later return keeps x.",
+        "exampleCode": "function practice(x) {\n  if (x < 0) { return 0; }\n  return x;\n}",
+        "starterCode": "function practice(x) {\n  if (___) { return 0; }\n  return x;\n}",
+        "task": "Fill the comparison so negative inputs become zero.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "choose-0",
+            "input": [
+              -3
+            ],
+            "expected": 0
+          },
+          {
+            "id": "choose-1",
+            "input": [
+              2
+            ],
+            "expected": 2
+          },
+          {
+            "id": "choose-2",
+            "input": [
+              0
+            ],
+            "expected": 0
+          }
+        ],
+        "hints": [
+          "Ask whether x is below zero.",
+          "Replace ___ with x < 0.",
+          "That's totally normal, this trips up lots of people.\nfunction practice(x) {\n  if (x < 0) { return 0; }\n  return x;\n}\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ]
+      },
+      {
+        "id": "else",
+        "title": "Keep the other numbers",
+        "explanation": "else runs when the if comparison is false. Zero is not below zero, so keep it as it is. Only one of these two blocks runs for each input.",
+        "exampleCode": "function practice(x) {\n  if (x < 0) { return 0; }\n  else { return x; }\n}",
+        "starterCode": "function practice(x) {\n  if (x < 0) { return 0; }\n  else { /* keep x */ }\n}",
+        "task": "Write the instruction that keeps a nonnegative input.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "else-0",
+            "input": [
+              -1
+            ],
+            "expected": 0
+          },
+          {
+            "id": "else-1",
+            "input": [
+              7
+            ],
+            "expected": 7
+          },
+          {
+            "id": "else-2",
+            "input": [
+              0
+            ],
+            "expected": 0
+          }
+        ],
+        "hints": [
+          "The other branch returns the input unchanged.",
+          "Write return x; in the else block.",
+          "That's totally normal, this trips up lots of people.\nfunction practice(x) {\n  if (x < 0) { return 0; }\n  else { return x; }\n}\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ]
+      },
+      {
+        "id": "list",
+        "title": "Make a choice for every item",
+        "explanation": "Use the loop you learned in Receipt arithmetic to visit every reading. Make the if choice inside that loop. Each visit adds exactly one value to out.",
+        "exampleCode": "function practice(readings) {\n  const out = [];\n  for (const x of readings) {\n    if (x < 0) { out.push(0); }\n    else { out.push(x); }\n  }\n  return out;\n}",
+        "starterCode": "function practice(readings) {\n  const out = [];\n  for (const x of readings) {\n    // Add 0 if x is negative; otherwise add x.\n  }\n  return out;\n}",
+        "task": "Write the if and else blocks inside the loop.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "list-0",
+            "input": [
+              [
+                -3,
+                0,
+                4
+              ]
+            ],
+            "expected": [
+              0,
+              0,
+              4
+            ]
+          },
+          {
+            "id": "list-1",
+            "input": [
+              []
+            ],
+            "expected": []
+          }
+        ],
+        "hints": [
+          "Use out.push inside both branches.",
+          "if (x < 0) { out.push(0); } else { out.push(x); }",
+          "That's totally normal, this trips up lots of people.\nfunction practice(readings) {\n  const out = [];\n  for (const x of readings) {\n    if (x < 0) { out.push(0); }\n    else { out.push(x); }\n  }\n  return out;\n}\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ]
+      },
+      {
+        "id": "receipt",
+        "title": "Make a receipt from a list",
+        "explanation": "A total adds the numbers in a list. Start at zero and add one number at a time; an empty list stays at zero. let gives a value a name that you can update, and += adds to that value.",
+        "exampleCode": "function practice(a) {\n  let n = 0;\n  for (const x of a) { n += x; }\n  return n;\n}",
+        "starterCode": "function practice(a) {\n  let n = 0;\n  for (const x of a) { /* add x to n */ }\n  return n;\n}",
+        "task": "Add x to n inside the loop to return the total.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "receipt-0",
+            "input": [
+              [
+                2,
+                3
+              ]
+            ],
+            "expected": 5
+          },
+          {
+            "id": "receipt-1",
+            "input": [
+              []
+            ],
+            "expected": 0
+          },
+          {
+            "id": "receipt-2",
+            "input": [
+              [
+                0,
+                -2,
+                4
+              ]
+            ],
+            "expected": 2
+          }
+        ],
+        "hints": [
+          "The loop visits each number once.",
+          "Inside the loop, write n += x; (this means add x to n).",
+          "That's totally normal, this trips up lots of people.\nfunction practice(a) {\n  let n = 0;\n  for (const x of a) { n += x; }\n  return n;\n}\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ],
+        "referenceCode": "// a is the list you just built; k is the requested cutoff.\nfunction total(a) { let n = 0; for (const x of a) n += x; return n; }\nfunction countAtLeast(a, k) { let n = 0; for (const x of a) if (x >= k) n++; return n; }\nfunction firstAtLeast(a, k) { for (const x of a) if (x >= k) return x; return -1; }\nfunction peak(a) { if (!a.length) return 0; let n = a[0]; for (const x of a) if (x > n) n = x; return n; }\nfunction floor(a) { if (!a.length) return 0; let n = a[0]; for (const x of a) if (x < n) n = x; return n; }\nfunction countEven(a) { let n = 0; for (const x of a) if (x % 2 === 0) n++; return n; }\nfunction positiveTotal(a) { let n = 0; for (const x of a) if (x > 0) n += x; return n; }\nfunction positives(a) { const out = []; for (const x of a) if (x > 0) out.push(x); return out; }\nfunction weighted(a) { let n = 0; for (let i = 0; i < a.length; i++) n += (i + 1) * a[i]; return n; }"
+      },
+      {
+        "id": "recall",
+        "title": "Build a strip with choices",
+        "explanation": "Put your loop and choices together with less help. Your first challenge follows this same rule. Recall the comparison from your first step before moving on.",
+        "exampleCode": "function practice(readings) {\n  const out = [];\n  for (const x of readings) {\n    if (x < 0) { out.push(0); }\n    else { out.push(x); }\n  }\n  return out;\n}",
+        "starterCode": "function practice(readings) {\n  // Build and return the new list.\n}",
+        "task": "Return the readings with every negative value replaced by 0.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "recall-0",
+            "input": [
+              [
+                -2,
+                0,
+                5
+              ]
+            ],
+            "expected": [
+              0,
+              0,
+              5
+            ]
+          },
+          {
+            "id": "recall-1",
+            "input": [
+              [
+                -7
+              ]
+            ],
+            "expected": [
+              0
+            ]
+          },
+          {
+            "id": "recall-2",
+            "input": [
+              []
+            ],
+            "expected": []
+          }
+        ],
+        "hints": [
+          "Start with an empty out list, then loop through readings.",
+          "Choose out.push(0) for x < 0, or out.push(x) otherwise, then return out.",
+          "That's totally normal, this trips up lots of people.\nfunction practice(readings) {\n  const out = [];\n  for (const x of readings) {\n    if (x < 0) { out.push(0); }\n    else { out.push(x); }\n  }\n  return out;\n}\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ],
+        "recall": {
+          "prompt": "Without hints: is -2 < 0 true or false?",
+          "answer": "true"
+        }
+      }
+    ]
+  },
+  "challenges": [
+    "path3-007",
+    "path3-008",
+    "path3-009",
+    "path3-010",
+    "path3-011",
+    "path3-012"
+  ]
+}

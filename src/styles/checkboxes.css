@@ -1,0 +1,74 @@
+/* Shared native checkbox and switch appearance. Keep application controls as
+   real inputs so labels, keyboard interaction, forms, and checked state work. */
+input[type="checkbox"] {
+  appearance: none;
+  display: inline-grid;
+  place-content: center;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  margin: 0;
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  background: var(--surface);
+  box-shadow: 1px 1px 0 var(--shadow-ink);
+  vertical-align: middle;
+  cursor: pointer;
+}
+input[type="checkbox"]::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 6px;
+  border-left: 2px solid var(--on-accent);
+  border-bottom: 2px solid var(--on-accent);
+  transform: translateY(-1px) rotate(-45deg);
+  visibility: hidden;
+}
+input[type="checkbox"]:checked,
+input[type="checkbox"]:indeterminate { background: var(--accent-2); }
+input[type="checkbox"]:checked::before { visibility: visible; }
+input[type="checkbox"]:indeterminate::before {
+  height: 0;
+  border-left: 0;
+  transform: none;
+  visibility: visible;
+}
+input[type="checkbox"]:focus-visible {
+  outline: 3px dashed var(--accent-text);
+  outline-offset: 4px;
+}
+input[type="checkbox"]:disabled { opacity: 0.5; cursor: not-allowed; }
+.check-row > input[type="checkbox"] { margin-top: 3px; }
+:is(.check-row, .list-picker, .path-toggle, .interaction-option) { min-height: 44px; }
+
+/* Opt into the shared switch variant with role="switch". */
+input[type="checkbox"][role="switch"] {
+  display: inline-block;
+  flex-basis: 40px;
+  width: 40px;
+  height: 24px;
+  box-shadow: 2px 2px 0 var(--shadow-ink);
+}
+input[type="checkbox"][role="switch"]::before {
+  width: 14px;
+  height: 14px;
+  margin: 3px;
+  border: 0;
+  background: var(--ink);
+  transform: none;
+  visibility: visible;
+}
+input[type="checkbox"][role="switch"]:checked::before {
+  background: var(--on-accent);
+  transform: translateX(16px);
+}
+
+@media (forced-colors: active) {
+  input[type="checkbox"], input[type="checkbox"][role="switch"] {
+    appearance: auto;
+    box-shadow: none;
+  }
+  input[type="checkbox"]::before { content: none; }
+}

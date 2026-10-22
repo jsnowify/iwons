@@ -1,0 +1,922 @@
+[
+  {
+    "id": "receipt-arithmetic",
+    "title": "Receipt arithmetic",
+    "level": 0,
+    "concepts": [
+      "Variables and expressions",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "sum",
+      "variable",
+      "input",
+      "list",
+      "receipt",
+      "recall"
+    ]
+  },
+  {
+    "id": "stamp-gates",
+    "title": "Stamp gates",
+    "level": 0,
+    "concepts": [
+      "Conditionals",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "compare",
+      "choose",
+      "else",
+      "list",
+      "receipt",
+      "recall"
+    ]
+  },
+  {
+    "id": "ribbon-totals",
+    "title": "Ribbon totals",
+    "level": 0,
+    "concepts": [
+      "Loop accumulators",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "reset-tallies",
+    "title": "Reset tallies",
+    "level": 0,
+    "concepts": [
+      "State in a loop",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "digit-workshop",
+    "title": "Digit workshop",
+    "level": 0,
+    "concepts": [
+      "Helper functions",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "neighbor-notes",
+    "title": "Neighbor notes",
+    "level": 1,
+    "concepts": [
+      "Adjacent array positions",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "ribbon-runs",
+    "title": "Ribbon runs",
+    "level": 1,
+    "concepts": [
+      "String runs",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "positive-trays",
+    "title": "Positive trays",
+    "level": 1,
+    "concepts": [
+      "Stable array filtering",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "drawer-grids",
+    "title": "Drawer grids",
+    "level": 1,
+    "concepts": [
+      "Nested array traversal",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "word-slips",
+    "title": "Word slips",
+    "level": 1,
+    "concepts": [
+      "String scanning",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "frequency-files",
+    "title": "Frequency files",
+    "level": 2,
+    "concepts": [
+      "Frequency maps",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "first-arrivals",
+    "title": "First arrivals",
+    "level": 2,
+    "concepts": [
+      "Set membership",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "shared-drawers",
+    "title": "Shared drawers",
+    "level": 2,
+    "concepts": [
+      "Set intersection",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "remainder-boxes",
+    "title": "Remainder boxes",
+    "level": 2,
+    "concepts": [
+      "Map grouping",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "magnitude-order",
+    "title": "Magnitude order",
+    "level": 2,
+    "concepts": [
+      "Comparator sorting",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "facing-cards",
+    "title": "Facing cards",
+    "level": 3,
+    "concepts": [
+      "Opposite-end pointers",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "duplicate-carriage",
+    "title": "Duplicate carriage",
+    "level": 3,
+    "concepts": [
+      "Read and write pointers",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "fixed-panels",
+    "title": "Fixed panels",
+    "level": 3,
+    "concepts": [
+      "Fixed sliding windows",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "expanding-panels",
+    "title": "Expanding panels",
+    "level": 3,
+    "concepts": [
+      "Variable sliding windows",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "prefix-stencils",
+    "title": "Prefix stencils",
+    "level": 3,
+    "concepts": [
+      "Prefix range subtraction",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "paired-drawers",
+    "title": "Paired drawers",
+    "level": 3,
+    "concepts": [
+      "Two sorted streams",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "canceling-stamps",
+    "title": "Canceling stamps",
+    "level": 4,
+    "concepts": [
+      "Stack cancellation",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "taller-keycaps",
+    "title": "Taller keycaps",
+    "level": 4,
+    "concepts": [
+      "Monotonic stacks",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "round-desk",
+    "title": "Round desk",
+    "level": 4,
+    "concepts": [
+      "Queue simulation",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "window-pegs",
+    "title": "Window pegs",
+    "level": 4,
+    "concepts": [
+      "Monotonic deques",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "undo-drawer",
+    "title": "Undo drawer",
+    "level": 4,
+    "concepts": [
+      "Stack history",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "recursive-shelves",
+    "title": "Recursive shelves",
+    "level": 5,
+    "concepts": [
+      "Divide-and-conquer recursion",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "sorting-press",
+    "title": "Sorting press",
+    "level": 5,
+    "concepts": [
+      "Merge sort",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "insertion-tabs",
+    "title": "Insertion tabs",
+    "level": 5,
+    "concepts": [
+      "Binary search boundaries",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "square-gauges",
+    "title": "Square gauges",
+    "level": 5,
+    "concepts": [
+      "Binary search on answers",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "bit-ribbons",
+    "title": "Bit ribbons",
+    "level": 5,
+    "concepts": [
+      "Bit counting",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "xor-register",
+    "title": "Xor register",
+    "level": 5,
+    "concepts": [
+      "Prefix bit state",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "chain-inspection",
+    "title": "Chain inspection",
+    "level": 6,
+    "concepts": [
+      "Linked traversal",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "chain-turntable",
+    "title": "Chain turntable",
+    "level": 6,
+    "concepts": [
+      "Linked pointer reversal",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "midpoint-chain",
+    "title": "Midpoint chain",
+    "level": 6,
+    "concepts": [
+      "Fast and slow pointers",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "branch-notebook",
+    "title": "Branch notebook",
+    "level": 6,
+    "concepts": [
+      "Tree preorder",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "floor-register",
+    "title": "Floor register",
+    "level": 6,
+    "concepts": [
+      "Tree breadth-first traversal",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "catalog-branches",
+    "title": "Catalog branches",
+    "level": 6,
+    "concepts": [
+      "BST range pruning",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "switchboard-rings",
+    "title": "Switchboard rings",
+    "level": 7,
+    "concepts": [
+      "Graph breadth-first distances",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "dispatch-order",
+    "title": "Dispatch order",
+    "level": 7,
+    "concepts": [
+      "Topological queues",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "weighted-lines",
+    "title": "Weighted lines",
+    "level": 7,
+    "concepts": [
+      "Priority-queue shortest paths",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "priority-basket",
+    "title": "Priority basket",
+    "level": 7,
+    "concepts": [
+      "Binary heaps",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "cable-families",
+    "title": "Cable families",
+    "level": 7,
+    "concepts": [
+      "Union-find components",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "prefix-cabinet",
+    "title": "Prefix cabinet",
+    "level": 7,
+    "concepts": [
+      "Trie prefix counts",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "island-ledgers",
+    "title": "Island ledgers",
+    "level": 7,
+    "concepts": [
+      "Graph depth-first components",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "booking-rack",
+    "title": "Booking rack",
+    "level": 8,
+    "concepts": [
+      "Greedy interval selection",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "tiling-ribbon",
+    "title": "Tiling ribbon",
+    "level": 8,
+    "concepts": [
+      "Counting dynamic programming",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "postage-drawer",
+    "title": "Postage drawer",
+    "level": 8,
+    "concepts": [
+      "Unbounded dynamic programming",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "parcel-budget",
+    "title": "Parcel budget",
+    "level": 8,
+    "concepts": [
+      "Zero-one knapsack",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "rising-labels",
+    "title": "Rising labels",
+    "level": 8,
+    "concepts": [
+      "Sequence DP with binary search",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "press-parentheses",
+    "title": "Press parentheses",
+    "level": 8,
+    "concepts": [
+      "Interval dynamic programming",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "selection-proof",
+    "title": "Selection proof",
+    "level": 8,
+    "concepts": [
+      "Backtracking choices",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "roster-proof",
+    "title": "Roster proof",
+    "level": 8,
+    "concepts": [
+      "Backtracking with occupancy",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  },
+  {
+    "id": "paid-reservations",
+    "title": "Paid reservations",
+    "level": 8,
+    "concepts": [
+      "Scheduling DP and binary search",
+      "Lists and loops",
+      "Receipt rules"
+    ],
+    "stepIds": [
+      "read",
+      "trace",
+      "receipt",
+      "rebuild",
+      "recall"
+    ]
+  }
+]

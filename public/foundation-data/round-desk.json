@@ -1,0 +1,416 @@
+{
+  "id": "round-desk",
+  "title": "Round desk",
+  "concepts": [
+    "Queue simulation",
+    "Lists and loops",
+    "Receipt rules"
+  ],
+  "foundation": {
+    "steps": [
+      {
+        "id": "read",
+        "title": "Return the list you built",
+        "explanation": "Queue simulation is this topic's new tool. Each number in readings is the work time needed by a job. All jobs are ready at time 0, in input order",
+        "exampleCode": "function practice(readings, k) {\n  const a=readings; let out=[];\n  const remaining=[...a],queue=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return out;\n}\n",
+        "starterCode": "function practice(readings, k) {\n  const a=readings; let out=[];\n  const remaining=[...a],queue=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return ___;\n}\n",
+        "task": "Replace ___ with out to send the result list back.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "read-0",
+            "input": [
+              [
+                7,
+                3,
+                7,
+                0,
+                12
+              ],
+              3
+            ],
+            "expected": [
+              22,
+              6,
+              23,
+              0,
+              29
+            ]
+          },
+          {
+            "id": "read-1",
+            "input": [
+              [
+                4,
+                4,
+                2,
+                4
+              ],
+              2
+            ],
+            "expected": [
+              10,
+              12,
+              6,
+              14
+            ]
+          },
+          {
+            "id": "read-2",
+            "input": [
+              [],
+              1
+            ],
+            "expected": []
+          }
+        ],
+        "hints": [
+          "The list is named out.",
+          "The final instruction is return out;.",
+          "That's totally normal, this trips up lots of people.\nfunction practice(readings, k) {\n  const a=readings; let out=[];\n  const remaining=[...a],queue=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ]
+      },
+      {
+        "id": "trace",
+        "title": "Fill a smaller piece",
+        "explanation": "An empty list is written as []. The working instructions fill that list. Supply the empty list before running the example.",
+        "exampleCode": "function practice(readings, k) {\n  const a=readings; let out=[];\n  const remaining=[...a],queue=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return out;\n}\n",
+        "starterCode": "function practice(readings, k) {\n  const a=readings; let out=___;\n  const remaining=[...a],queue=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return out;\n}\n",
+        "task": "Replace ___ with [] to begin with an empty list.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "trace-0",
+            "input": [
+              [
+                7,
+                3,
+                7,
+                0,
+                12
+              ],
+              3
+            ],
+            "expected": [
+              22,
+              6,
+              23,
+              0,
+              29
+            ]
+          },
+          {
+            "id": "trace-1",
+            "input": [
+              [
+                4,
+                4,
+                2,
+                4
+              ],
+              2
+            ],
+            "expected": [
+              10,
+              12,
+              6,
+              14
+            ]
+          },
+          {
+            "id": "trace-2",
+            "input": [
+              [],
+              1
+            ],
+            "expected": []
+          }
+        ],
+        "hints": [
+          "Use square brackets with nothing inside.",
+          "Write let out=[] where the list is created.",
+          "That's totally normal, this trips up lots of people.\nfunction practice(readings, k) {\n  const a=readings; let out=[];\n  const remaining=[...a],queue=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ]
+      },
+      {
+        "id": "receipt",
+        "title": "Make a receipt from a list",
+        "explanation": "A total adds the numbers in a list. Start at zero and add one number at a time; an empty list stays at zero. let gives a value a name that you can update, and += adds to that value.",
+        "exampleCode": "function practice(a) {\n  let n = 0;\n  for (const x of a) { n += x; }\n  return n;\n}",
+        "starterCode": "function practice(a) {\n  let n = 0;\n  for (const x of a) { /* add x to n */ }\n  return n;\n}",
+        "task": "Add x to n inside the loop to return the total.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "receipt-0",
+            "input": [
+              [
+                2,
+                3
+              ]
+            ],
+            "expected": 5
+          },
+          {
+            "id": "receipt-1",
+            "input": [
+              []
+            ],
+            "expected": 0
+          },
+          {
+            "id": "receipt-2",
+            "input": [
+              [
+                0,
+                -2,
+                4
+              ]
+            ],
+            "expected": 2
+          }
+        ],
+        "hints": [
+          "The loop visits each number once.",
+          "Inside the loop, write n += x; (this means add x to n).",
+          "That's totally normal, this trips up lots of people.\nfunction practice(a) {\n  let n = 0;\n  for (const x of a) { n += x; }\n  return n;\n}\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ],
+        "referenceCode": "// a is the list you just built; k is the requested cutoff.\nfunction total(a) { let n = 0; for (const x of a) n += x; return n; }\nfunction countAtLeast(a, k) { let n = 0; for (const x of a) if (x >= k) n++; return n; }\nfunction firstAtLeast(a, k) { for (const x of a) if (x >= k) return x; return -1; }\nfunction peak(a) { if (!a.length) return 0; let n = a[0]; for (const x of a) if (x > n) n = x; return n; }\nfunction floor(a) { if (!a.length) return 0; let n = a[0]; for (const x of a) if (x < n) n = x; return n; }\nfunction countEven(a) { let n = 0; for (const x of a) if (x % 2 === 0) n++; return n; }\nfunction positiveTotal(a) { let n = 0; for (const x of a) if (x > 0) n += x; return n; }\nfunction positives(a) { const out = []; for (const x of a) if (x > 0) out.push(x); return out; }\nfunction weighted(a) { let n = 0; for (let i = 0; i < a.length; i++) n += (i + 1) * a[i]; return n; }"
+      },
+      {
+        "id": "rebuild",
+        "title": "Rebuild the working instructions",
+        "explanation": "Keep the supplied function and result list. Rebuild the part that fills the list using the example as a guide. Re-run whenever you want to check a change.",
+        "exampleCode": "function practice(readings, k) {\n  const a=readings; let out=[];\n  const remaining=[...a],queue=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return out;\n}\n",
+        "starterCode": "function practice(readings, k) {\n  const a=readings; let out=[];\n  // Rebuild the derived list here.\n  return out;\n}\n",
+        "task": "Fill the result list using this topic's rule.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "rebuild-0",
+            "input": [
+              [
+                7,
+                3,
+                7,
+                0,
+                12
+              ],
+              3
+            ],
+            "expected": [
+              22,
+              6,
+              23,
+              0,
+              29
+            ]
+          },
+          {
+            "id": "rebuild-1",
+            "input": [
+              [
+                4,
+                4,
+                2,
+                4
+              ],
+              2
+            ],
+            "expected": [
+              10,
+              12,
+              6,
+              14
+            ]
+          },
+          {
+            "id": "rebuild-2",
+            "input": [
+              [],
+              1
+            ],
+            "expected": []
+          }
+        ],
+        "hints": [
+          "Each number in readings is the work time needed by a job. All jobs are ready at time 0, in input order. The worker gives the first job up to k time units. If it still needs work, put it at the back of the line. Then serve the next job. Record when each job finishes, measured from time 0. Return these finish times in original job order. A job needing 0 time finishes at time 0 and uses no worker time.",
+          "Revisit the example and copy one instruction at a time, checking what it does.",
+          "That's totally normal, this trips up lots of people.\nfunction practice(readings, k) {\n  const a=readings; let out=[];\n  const remaining=[...a],queue=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ]
+      },
+      {
+        "id": "recall",
+        "title": "Ready for the proof strip",
+        "explanation": "Write the small function again with less help. The first challenge uses the same input and output rule. Use return to send the finished list back.",
+        "exampleCode": "function practice(readings, k) {\n  const a=readings; let out=[];\n  const remaining=[...a],queue=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return out;\n}\n",
+        "starterCode": "function practice(readings, k) {\n  // Build and return the result list.\n}",
+        "task": "Build the derived list for this topic, then return it.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "recall-0",
+            "input": [
+              [
+                7,
+                3,
+                7,
+                0,
+                12
+              ],
+              3
+            ],
+            "expected": [
+              22,
+              6,
+              23,
+              0,
+              29
+            ]
+          },
+          {
+            "id": "recall-1",
+            "input": [
+              [
+                4,
+                4,
+                2,
+                4
+              ],
+              2
+            ],
+            "expected": [
+              10,
+              12,
+              6,
+              14
+            ]
+          },
+          {
+            "id": "recall-2",
+            "input": [
+              [],
+              1
+            ],
+            "expected": []
+          }
+        ],
+        "hints": [
+          "Each number in readings is the work time needed by a job. All jobs are ready at time 0, in input order. The worker gives the first job up to k time units. If it still needs work, put it at the back of the line. Then serve the next job. Record when each job finishes, measured from time 0. Return these finish times in original job order. A job needing 0 time finishes at time 0 and uses no worker time.",
+          "Create the result list, process the input in order, and return the list.",
+          "That's totally normal, this trips up lots of people.\nfunction practice(readings, k) {\n  const a=readings; let out=[];\n  const remaining=[...a],queue=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ],
+        "recall": {
+          "prompt": "Without hints: which keyword sends a function's answer back?",
+          "answer": "return"
+        }
+      }
+    ]
+  },
+  "challenges": [
+    "path3-204",
+    "path3-205",
+    "path3-206",
+    "path3-207",
+    "path3-208",
+    "path3-209",
+    "path3-210",
+    "path3-211",
+    "path3-212"
+  ]
+}

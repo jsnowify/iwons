@@ -17,6 +17,21 @@ type Reference = {
 const references = JSON.parse(
   readFileSync("scripts/references.json", "utf8"),
 ) as Reference[];
+
+it("all foundation answer hints pass their checks in the dedicated runner", async () => {
+  const topics = JSON.parse(readFileSync("src/data/topic-foundations.json", "utf8")) as { id: string; stepIds: string[] }[];
+  for (const summary of topics) {
+    const topic = JSON.parse(readFileSync(`public/foundation-data/${summary.id}.json`, "utf8")) as import("@/lib/topic-foundations").FoundationTopic;
+    expect(topic.foundation.steps.length).toBeGreaterThanOrEqual(3);
+    expect(topic.foundation.steps.length).toBeLessThanOrEqual(6);
+    expect(topic.foundation.steps.at(-1)?.recall).toBeDefined();
+    for (const step of topic.foundation.steps) {
+      const answer = step.hints[2].slice(step.hints[2].indexOf("\n") + 1).split("\nFollow the example")[0].split("\nThe + sign")[0].split("\nMultiply first")[0];
+      const result = await run({ code: answer, functionName: step.functionName, mode: "function", cases: step.validate, timeLimitMs: 2000, inputKinds: step.inputKinds });
+      expect(result.verdict, `${topic.id}/${step.id}: ${JSON.stringify(result)}`).toBe("accepted");
+    }
+  }
+}, 60000);
 const dir = resolve("artifacts/test-workers");
 let sharedWorker: Worker | undefined;
 afterAll(async () => { await sharedWorker?.terminate(); });

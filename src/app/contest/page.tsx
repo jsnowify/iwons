@@ -7,5 +7,5 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contest/" },
 };
 export default function Page() {
-  return <ContestPage problems={problems.map(({id,slug,title,difficulty,level,topics})=>({id,slug,title,difficulty,level,topics}))} />;
+  return <ContestPage problems={problems.map(({id,slug,title,difficulty,level,topics,unit})=>({id,slug,title,difficulty,level,topics,unit}))} />;
 }

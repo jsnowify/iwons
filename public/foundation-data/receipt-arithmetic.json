@@ -1,0 +1,350 @@
+{
+  "id": "receipt-arithmetic",
+  "title": "Receipt arithmetic",
+  "concepts": [
+    "Variables and expressions",
+    "Lists and loops",
+    "Receipt rules"
+  ],
+  "foundation": {
+    "steps": [
+      {
+        "id": "sum",
+        "title": "Change one number",
+        "explanation": "JavaScript follows instructions you write. A function is a named group of instructions; return sends its answer back. The + sign adds two numbers.",
+        "exampleCode": "function practice() {\n  return 2 + 3;\n}",
+        "starterCode": "function practice() {\n  return 2 + ___;\n}",
+        "task": "Replace ___ with 4 to return 6.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "sum-0",
+            "input": [],
+            "expected": 6
+          }
+        ],
+        "hints": [
+          "Keep 2 and change the second number.",
+          "2 + 4 makes 6.",
+          "That's totally normal, this trips up lots of people.\nfunction practice() {\n  return 2 + 4;\n}\nThe + sign adds 2 and 4, giving 6."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ]
+      },
+      {
+        "id": "variable",
+        "title": "Give a number a name",
+        "explanation": "A variable is a name for a value. const gives a value a name; use that name later. The * sign multiplies, before + adds.",
+        "exampleCode": "function practice() {\n  const x = 4;\n  return 2 * x + 3;\n}",
+        "starterCode": "function practice() {\n  const x = 5;\n  return ___;\n}",
+        "task": "Use x to multiply the stored number by 2, then add 3.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "variable-0",
+            "input": [],
+            "expected": 13
+          }
+        ],
+        "hints": [
+          "Replace the blank with an expression using x.",
+          "Use 2 * x + 3.",
+          "That's totally normal, this trips up lots of people.\nfunction practice() {\n  const x = 5;\n  return 2 * x + 3;\n}\nMultiply first, then add: 10 + 3 gives 13."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ]
+      },
+      {
+        "id": "input",
+        "title": "Use a number someone gives you",
+        "explanation": "A parameter is a name for a value given to a function. Here x can change each time practice runs. Return the calculation rather than a fixed answer.",
+        "exampleCode": "function practice(x) {\n  return 2 * x + 3;\n}",
+        "starterCode": "function practice(x) {\n  // Write the return instruction.\n}",
+        "task": "Return twice x plus 3 for any given x.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "input-0",
+            "input": [
+              4
+            ],
+            "expected": 11
+          },
+          {
+            "id": "input-1",
+            "input": [
+              -2
+            ],
+            "expected": -1
+          },
+          {
+            "id": "input-2",
+            "input": [
+              0
+            ],
+            "expected": 3
+          }
+        ],
+        "hints": [
+          "Use the same calculation as the previous step.",
+          "Write return 2 * x + 3; inside the braces.",
+          "That's totally normal, this trips up lots of people.\nfunction practice(x) {\n  return 2 * x + 3;\n}\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ]
+      },
+      {
+        "id": "list",
+        "title": "Work through a list",
+        "explanation": "An array is a list, written with square brackets. A for...of loop repeats an instruction for each item. push adds an item at the end of a list.",
+        "exampleCode": "function practice(readings) {\n  const out = [];\n  for (const x of readings) {\n    out.push(2 * x + 3);\n  }\n  return out;\n}",
+        "starterCode": "function practice(readings) {\n  const out = [];\n  for (const x of readings) {\n    // Put the calculated value in out.\n  }\n  return out;\n}",
+        "task": "Add each transformed value to out in the loop.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "list-0",
+            "input": [
+              [
+                4,
+                -2,
+                0
+              ]
+            ],
+            "expected": [
+              11,
+              -1,
+              3
+            ]
+          },
+          {
+            "id": "list-1",
+            "input": [
+              []
+            ],
+            "expected": []
+          }
+        ],
+        "hints": [
+          "The calculation is still 2 * x + 3.",
+          "Use out.push(2 * x + 3);.",
+          "That's totally normal, this trips up lots of people.\nfunction practice(readings) {\n  const out = [];\n  for (const x of readings) {\n    out.push(2 * x + 3);\n  }\n  return out;\n}\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ]
+      },
+      {
+        "id": "receipt",
+        "title": "Make a receipt from a list",
+        "explanation": "A total adds the numbers in a list. Start at zero and add one number at a time; an empty list stays at zero. let gives a value a name that you can update, and += adds to that value.",
+        "exampleCode": "function practice(a) {\n  let n = 0;\n  for (const x of a) { n += x; }\n  return n;\n}",
+        "starterCode": "function practice(a) {\n  let n = 0;\n  for (const x of a) { /* add x to n */ }\n  return n;\n}",
+        "task": "Add x to n inside the loop to return the total.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "receipt-0",
+            "input": [
+              [
+                2,
+                3
+              ]
+            ],
+            "expected": 5
+          },
+          {
+            "id": "receipt-1",
+            "input": [
+              []
+            ],
+            "expected": 0
+          },
+          {
+            "id": "receipt-2",
+            "input": [
+              [
+                0,
+                -2,
+                4
+              ]
+            ],
+            "expected": 2
+          }
+        ],
+        "hints": [
+          "The loop visits each number once.",
+          "Inside the loop, write n += x; (this means add x to n).",
+          "That's totally normal, this trips up lots of people.\nfunction practice(a) {\n  let n = 0;\n  for (const x of a) { n += x; }\n  return n;\n}\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ],
+        "referenceCode": "// a is the list you just built; k is the requested cutoff.\nfunction total(a) { let n = 0; for (const x of a) n += x; return n; }\nfunction countAtLeast(a, k) { let n = 0; for (const x of a) if (x >= k) n++; return n; }\nfunction firstAtLeast(a, k) { for (const x of a) if (x >= k) return x; return -1; }\nfunction peak(a) { if (!a.length) return 0; let n = a[0]; for (const x of a) if (x > n) n = x; return n; }\nfunction floor(a) { if (!a.length) return 0; let n = a[0]; for (const x of a) if (x < n) n = x; return n; }\nfunction countEven(a) { let n = 0; for (const x of a) if (x % 2 === 0) n++; return n; }\nfunction positiveTotal(a) { let n = 0; for (const x of a) if (x > 0) n += x; return n; }\nfunction positives(a) { const out = []; for (const x of a) if (x > 0) out.push(x); return out; }\nfunction weighted(a) { let n = 0; for (let i = 0; i < a.length; i++) n += (i + 1) * a[i]; return n; }"
+      },
+      {
+        "id": "recall",
+        "title": "Build your first proof strip",
+        "explanation": "Bring together the list, loop, and calculation you practised. Your first challenge asks for the same kind of list. Write a few lines, then answer the small recall question.",
+        "exampleCode": "function practice(readings) {\n  const out = [];\n  for (const x of readings) {\n    out.push(2 * x + 3);\n  }\n  return out;\n}",
+        "starterCode": "function practice(readings) {\n  // Build and return the transformed list.\n}",
+        "task": "Return a list containing twice each reading plus 3.",
+        "functionName": "practice",
+        "validate": [
+          {
+            "id": "recall-0",
+            "input": [
+              [
+                4,
+                -2,
+                0
+              ]
+            ],
+            "expected": [
+              11,
+              -1,
+              3
+            ]
+          },
+          {
+            "id": "recall-1",
+            "input": [
+              [
+                1
+              ]
+            ],
+            "expected": [
+              5
+            ]
+          },
+          {
+            "id": "recall-2",
+            "input": [
+              []
+            ],
+            "expected": []
+          }
+        ],
+        "hints": [
+          "Create an empty out list first.",
+          "Loop through readings and push the calculation into out, then return out.",
+          "That's totally normal, this trips up lots of people.\nfunction practice(readings) {\n  const out = [];\n  for (const x of readings) {\n    out.push(2 * x + 3);\n  }\n  return out;\n}\nFollow the example one line at a time, then adapt it to the task."
+        ],
+        "successMessage": "Nice, you worked through the steps and got the expected result.",
+        "mistakeMessages": [
+          {
+            "pattern": "___",
+            "message": "Replace the ___ blank with your answer, then run again."
+          },
+          {
+            "pattern": "Unexpected token",
+            "message": "Almost! Check the brackets and parentheses around the part you changed."
+          },
+          {
+            "pattern": "not defined",
+            "message": "Check the spelling of your names. JavaScript treats upper and lower case as different letters."
+          },
+          {
+            "pattern": "return",
+            "message": "Use return inside the function's curly brackets to send back your answer."
+          }
+        ],
+        "recall": {
+          "prompt": "Without hints: what number does 2 + 4 give?",
+          "answer": "6"
+        }
+      }
+    ]
+  },
+  "challenges": [
+    "path3-001",
+    "path3-002",
+    "path3-003",
+    "path3-004",
+    "path3-005",
+    "path3-006"
+  ]
+}

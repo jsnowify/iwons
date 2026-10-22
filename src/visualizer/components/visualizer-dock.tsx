@@ -242,7 +242,7 @@ export function VisualizerDock({
 
         {/* Custom Input Form */}
         <form onSubmit={handleCustomSubmit} className="dock-custom-form">
-          <label htmlFor="custom-input-field" className="visually-hidden">
+          <label htmlFor="custom-input-field" className="dock-field-label">
             Custom input
           </label>
           <input
@@ -270,11 +270,13 @@ export function VisualizerDock({
         <label className="predict-toggle-label">
           <input
             type="checkbox"
+            role="switch"
+            aria-label="Predict step"
             checked={predictMode}
             onChange={e => onPredictToggle(e.target.checked)}
-            className="predict-checkbox"
           />
           <span>Predict step</span>
+          <span className="predict-state" aria-hidden="true">{predictMode ? 'On' : 'Off'}</span>
         </label>
       </div>
     </div>

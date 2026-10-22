@@ -45,7 +45,7 @@ export function Visualizer({title,frames,sound,onSoundChange}:{title:string;fram
       <button className="btn secondary" onClick={()=>moveTo(0)}>Reset</button>
       <label>Speed<select value={speed} onChange={event=>setSpeed(Number(event.target.value))}><option value={1400}>Slow</option><option value={800}>Normal</option><option value={350}>Fast</option></select></label>
     </div>
-    <div className="visual-prediction"><label className="interaction-option"><input type="checkbox" checked={predict} onChange={event=>{setPredict(event.target.checked);setPlaying(false);setFeedback("");}}/>Predict the next step</label>
+    <div className="visual-prediction"><label className="interaction-option"><input type="checkbox" role="switch" checked={predict} onChange={event=>{setPredict(event.target.checked);setPlaying(false);setFeedback("");}}/>Predict the next step</label>
     {predict&&!last?<form onSubmit={event=>{
       event.preventDefault();unlockAudio();const correct=guess.trim()===frames[index+1].state.trim();
       setFeedback(correct?"Prediction matched. Check the highlighted cards.":"Compare your prediction with the new state, then trace the changed cards.");

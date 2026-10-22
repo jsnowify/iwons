@@ -5,6 +5,8 @@
 
 /* Layout Container */
 .visualizer-page {
+  --border-dim: var(--border);
+  --paper: var(--bg);
   padding-bottom: clamp(24px, 4vw, 48px);
 }
 
@@ -174,6 +176,7 @@
   display: flex;
   align-items: baseline;
   gap: 14px;
+  flex-wrap: wrap;
 }
 
 .caption-badge {
@@ -190,6 +193,7 @@
 }
 
 .caption-text {
+  flex: 1 1 220px;
   margin: 0;
   font-size: clamp(14px, 1.8vw, 16px);
   font-weight: 700;
@@ -208,6 +212,21 @@
   padding: 12px;
 }
 
+.visualizer-engine-container {
+  width: 100%;
+  min-width: 0;
+}
+.engine-header-meta { margin-bottom: 12px; }
+.engine-counters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 24px;
+  font-size: 12px;
+}
+.counter-item { display: inline-flex; align-items: baseline; gap: 6px; }
+.graph-visited-strip, .strip-pills { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.graph-visited-strip { margin-top: 12px; }
 .engine-svg-stage {
   width: 100%;
   height: auto;
@@ -219,7 +238,7 @@
 .stage-completion-banner {
   position: absolute;
   inset: 0;
-  background: rgba(var(--surface-rgb, 245, 240, 230), 0.88);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
   backdrop-filter: blur(2px);
   display: flex;
   align-items: center;
@@ -326,6 +345,7 @@
    3. Control Dock
    -------------------------------------------------------------------------- */
 .visualizer-control-dock {
+  container-type: inline-size;
   border: 2px solid var(--ink);
   background: var(--surface);
   box-shadow: 2px 2px 0 var(--shadow-ink);
@@ -336,9 +356,9 @@
 }
 
 .dock-primary-row {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto minmax(100px, 1fr) 88px auto;
+  align-items: end;
   gap: 12px;
 }
 
@@ -353,7 +373,7 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
-  min-height: 40px;
+  min-height: 44px;
   padding: 6px 14px;
   border: 2px solid var(--ink);
   background: var(--surface);
@@ -390,6 +410,8 @@
 }
 
 .scrubber-group {
+  min-height: 44px;
+  min-width: 0;
   flex: 1 1 200px;
   display: flex;
   align-items: center;
@@ -397,6 +419,8 @@
 }
 
 .timeline-slider {
+  min-width: 0;
+  width: 100%;
   flex: 1;
   height: 8px;
   border: 1px solid var(--ink);
@@ -428,20 +452,25 @@
 }
 
 .dock-option-group {
+  min-width: 0;
   display: flex;
-  align-items: center;
-  gap: 6px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
   font-size: 12px;
   font-weight: 700;
 }
+.dock-option-group > label { font-size: 12px; font-weight: 700; }
 
 .dock-select {
+  max-width: 100%;
   border: 2px solid var(--ink);
   background: var(--surface);
   padding: 6px 10px;
   font-size: 12px;
   font-weight: 700;
-  min-height: 40px;
+  height: 44px;
+  min-height: 44px;
   cursor: pointer;
 }
 
@@ -451,12 +480,14 @@
 
 .mobile-input-toggle {
   display: none;
+  grid-column: 1 / -1;
+  justify-self: start;
 }
 
 /* Secondary Dock Input Row */
 .dock-input-row {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   flex-wrap: wrap;
   gap: 12px;
   padding-top: 10px;
@@ -464,15 +495,26 @@
 }
 
 .dock-custom-form {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 8px;
   flex: 1 1 240px;
 }
+.dock-field-label {
+  grid-column: 1 / -1;
+  font-size: 12px;
+  font-weight: 700;
+}
+.preset-group { flex: 1 1 180px; }
+.speed-group { width: 88px; }
 
 .dock-custom-input {
-  flex: 1;
-  min-height: 38px;
+  flex: 1 1 120px;
+  min-width: 0;
+  height: 44px;
+  min-height: 44px;
   padding: 6px 10px;
   border: 2px solid var(--ink);
   background: var(--paper);
@@ -482,20 +524,24 @@
 }
 
 .predict-toggle-label {
+  flex: 1 0 100%;
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
-  margin-left: auto;
+  margin-left: 0;
 }
 
-.predict-checkbox {
-  width: 16px;
-  height: 16px;
-  accent-color: var(--accent);
+@container (max-width: 580px) {
+  .dock-primary-row { grid-template-columns: minmax(0, 1fr) auto; }
+  .playback-group, .scrubber-group { grid-column: 1 / -1; }
+  .sound-btn { justify-self: end; }
 }
+
+.predict-state { color: var(--muted); min-width: 3ch; }
 
 /* --------------------------------------------------------------------------
    4. Side Panel (Desktop Stacked Cards & Mobile Tabs)
@@ -674,8 +720,8 @@
 
   .stage-canvas-card {
     min-height: 240px;
-    max-height: 48dvh;
   }
+  .engine-svg-stage { max-height: 48dvh; }
 
   .mobile-tabs-header {
     display: flex;
@@ -734,9 +780,13 @@
 /* --------------------------------------------------------------------------
    6. Accessibility & Reduced Motion
    -------------------------------------------------------------------------- */
-:root[data-motion="off"] *,
+:root[data-motion="off"] .visualizer-shell-layout *,
+:root[data-motion="off"] .visualizer-catalog-container * {
+  animation: none !important;
+  transition: none !important;
+}
 @media (prefers-reduced-motion: reduce) {
-  .visualizer-shell-layout * {
+  .visualizer-shell-layout *, .visualizer-catalog-container * {
     animation: none !important;
     transition: none !important;
   }
@@ -781,7 +831,7 @@
 
 .catalog-search-input {
   flex: 1;
-  min-width: 240px;
+  min-width: min(100%, 240px);
   height: 40px;
   padding: 0 14px;
   border: 1.5px solid var(--ink);
@@ -792,6 +842,7 @@
 }
 
 .catalog-select-engine {
+  max-width: 100%;
   height: 40px;
   padding: 0 12px;
   border: 1.5px solid var(--ink);
@@ -843,7 +894,7 @@
 
 .catalog-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
   gap: 20px;
 }
 

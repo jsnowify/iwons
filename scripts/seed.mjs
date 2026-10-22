@@ -43,6 +43,8 @@ fs.writeFileSync("src/data/problem-index.json",JSON.stringify(publicCatalog.map(
 fs.writeFileSync("src/data/level-problems.json",JSON.stringify(levels.map(level=>publicCatalog.filter(p=>p.level===level.id).map(p=>p.id))));
 fs.writeFileSync("src/data/curriculum-stats.json",JSON.stringify({problems:publicCatalog.length,units:units.length}));
 fs.writeFileSync("scripts/references.json",JSON.stringify(references));
+const { seedFoundations } = await import("./curriculum/foundations.mjs");
+seedFoundations();
 const intros=JSON.parse(fs.readFileSync("src/data/primers.json","utf8"));
 for(const level of levels){level.primer=intros[level.id].primer;level.example=intros[level.id].example;}
 fs.writeFileSync("src/data/levels.json",JSON.stringify(levels,null,2)+"\n");

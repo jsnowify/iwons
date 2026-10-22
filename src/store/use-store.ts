@@ -4,6 +4,7 @@ import { persist, type PersistStorage } from "zustand/middleware";
 import { retainSubmissions } from "@/lib/retain-submissions";
 import { emptyLearningState, type LearningState } from "@/lib/legacy-learning";
 import { storage, DATA_KEYS } from "@/lib/storage";
+import type { TopicFoundationProgress, FoundationStepProgress } from "@/lib/topic-foundations";
 import { emptyLearnProgress, type LearnProgress } from "@/lib/legacy-learning";
 import type {
   Profile,
@@ -30,6 +31,7 @@ export const DEFAULT_SETTINGS: Settings = {
   autoSubmit: false,
 };
 interface Data {
+  topicFoundations: TopicFoundationProgress;
   learning: LearningState;
   foundations: LearnProgress;
   archive: LegacyArchive | null;
@@ -46,6 +48,7 @@ interface Data {
   plans: Record<string, number>;
 }
 interface Store extends Data {
+  saveFoundationStep: (topic: string, step: string, value: FoundationStepProgress, stepIds: string[]) => void;
   hydrated: boolean;
   hydrate: () => void;
   updateProfile: (p: Partial<Profile>) => void;
@@ -60,6 +63,7 @@ interface Store extends Data {
   cleanup: () => void;
 }
 const defaults: Data = {
+  topicFoundations: {},
   learning: emptyLearningState(),
   foundations: emptyLearnProgress(),
   archive: null,
@@ -102,6 +106,12 @@ export const useStore = create<Store>()(
   persist(
     (set, get) => ({
       ...defaults,
+      saveFoundationStep: (topic, step, value, stepIds) => set(s => {
+        const steps = { ...s.topicFoundations[topic]?.steps, [step]: value };
+        return { topicFoundations: { ...s.topicFoundations, [topic]: {
+          steps, completed: stepIds.length > 0 && stepIds.every(id => steps[id]?.completed),
+        } } };
+      }),
       hydrated: false,
       hydrate: () => {
         if (storage.migrate()) set({ hydrated: true });

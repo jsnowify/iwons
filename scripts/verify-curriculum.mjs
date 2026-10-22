@@ -4,6 +4,8 @@ import assert from "node:assert/strict";
 const manifest=JSON.parse(fs.readFileSync("src/data/curriculum.json","utf8"));
 const digest=contents=>crypto.createHash("sha256").update(contents).digest("hex");
 const files=["src/data/curriculum.json","src/data/catalog.json","src/data/problem-index.json","src/data/level-problems.json","src/data/curriculum-stats.json","scripts/references.json"];
+files.push("src/data/topic-foundations.json");
+for (const topic of JSON.parse(fs.readFileSync("src/data/topic-foundations.json", "utf8"))) files.push(`public/foundation-data/${topic.id}.json`);
 for(const entry of manifest)files.push(`src/data/problems/level-${entry.level}/${entry.unit}/${entry.slug}.json`);
 for(const unit of new Set(manifest.map(p=>p.unit))) {
   const file=`docs/curriculum-reports/${unit}.json`,report=JSON.parse(fs.readFileSync(file,"utf8"));

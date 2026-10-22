@@ -40,6 +40,15 @@ export function DesignPage() {
           </button>
         ))}
       </div>
+      <section className="card stack" aria-label="Checkbox and switch specimens" style={{ marginBottom: 28 }}>
+        <h2>Checkboxes and switches</h2>
+        <label className="check-row"><input type="checkbox" />Unchecked example</label>
+        <label className="check-row"><input type="checkbox" defaultChecked />Checked example</label>
+        <label className="check-row"><input type="checkbox" disabled />Disabled example</label>
+        <label className="check-row"><input type="checkbox" disabled defaultChecked />Disabled checked example</label>
+        <label className="check-row"><input type="checkbox" ref={node => { if (node) node.indeterminate = true; }} />Mixed selection example</label>
+        <label className="row"><input type="checkbox" role="switch" />Switch example</label>
+      </section>
       <section className="card stack" style={{ marginBottom: 28 }}>
         <span className="eyebrow">PAPER & NIGHT / THE IWONS TYPE SPECIMEN</span>
         <p className="poster-specimen">

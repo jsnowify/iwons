@@ -116,7 +116,7 @@ export function SettingsPage() {
           </div>
           <label className="check-row">
             <input
-              type="checkbox"
+              type="checkbox" role="switch"
               checked={store.settings.readableText}
               onChange={(e) =>
                 store.updateSettings({ readableText: e.target.checked })
@@ -129,7 +129,7 @@ export function SettingsPage() {
           </label>
           <label className="check-row">
             <input
-              type="checkbox"
+              type="checkbox" role="switch"
               checked={store.settings.motion}
               onChange={(e) =>
                 store.updateSettings({ motion: e.target.checked })
@@ -145,7 +145,7 @@ export function SettingsPage() {
           </label>
           <label className="check-row">
             <input
-              type="checkbox"
+              type="checkbox" role="switch"
               checked={store.settings.sound}
               onChange={(e) =>
                 store.updateSettings({ sound: e.target.checked })
@@ -158,7 +158,7 @@ export function SettingsPage() {
           </label>
           <label className="check-row">
             <input
-              type="checkbox"
+              type="checkbox" role="switch"
               checked={store.settings.freeBrowse}
               onChange={(e) =>
                 store.updateSettings({ freeBrowse: e.target.checked })
@@ -266,7 +266,7 @@ export function SettingsPage() {
           </div>
           <label className="check-row">
             <input
-              type="checkbox"
+              type="checkbox" role="switch"
               checked={store.settings.autoSubmit}
               onChange={(e) =>
                 store.updateSettings({ autoSubmit: e.target.checked })

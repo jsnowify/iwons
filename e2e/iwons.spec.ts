@@ -1,6 +1,8 @@
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Problem, TestCase } from "../src/lib/types";
+import { completedFoundations } from "./foundation-fixture";
+test.beforeEach(async ({ page }) => { await completedFoundations(page); });
 const references: {slug:string; js:string; typescript:string; python:string; java:string; problem:Problem; cases:TestCase[]}[] = JSON.parse(readFileSync("scripts/references.json", "utf8"));
 const first = references[0];
 import { readFile } from "node:fs/promises";
