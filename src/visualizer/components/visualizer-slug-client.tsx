@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { AlgoDefinition } from '../core/types';
-import { loadAlgorithmDefinition, getAlgorithmMetadata } from '../registry';
-import { VisualizerShell } from './visualizer-shell';
-import { ArrowLeft, Loader2, AlertCircle } from 'lucide-react';
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import { AlgoDefinition } from "../core/types";
+import { loadAlgorithmDefinition, getAlgorithmMetadata } from "../registry";
+import { VisualizerShell } from "./visualizer-shell";
+import { ArrowLeft, Loader2, AlertCircle } from "lucide-react";
 
 interface VisualizerSlugClientProps {
   slug: string;
@@ -24,17 +24,23 @@ export function VisualizerSlugClient({ slug }: VisualizerSlugClientProps) {
     setError(null);
 
     loadAlgorithmDefinition(slug)
-      .then(algo => {
+      .then((algo) => {
         if (!isMounted) return;
         if (!algo) {
-          setError(`Algorithm "${slug}" could not be loaded or is not cataloged.`);
+          setError(
+            `Algorithm "${slug}" could not be loaded or is not cataloged.`,
+          );
         } else {
           setAlgorithm(algo);
         }
       })
-      .catch(err => {
+      .catch((err) => {
         if (!isMounted) return;
-        setError(err instanceof Error ? err.message : 'Failed to load algorithm definition.');
+        setError(
+          err instanceof Error
+            ? err.message
+            : "Failed to load algorithm definition.",
+        );
       })
       .finally(() => {
         if (isMounted) setLoading(false);
@@ -50,42 +56,77 @@ export function VisualizerSlugClient({ slug }: VisualizerSlugClientProps) {
       <div className="visualizer-shell visualizer-loading-shell">
         <header className="visualizer-top-bar" aria-label="Visualizer header">
           <div className="top-bar-left">
-            <Link href="/visualizer/" className="back-library-link" aria-label="Back to Algorithm Library">
+            <Link
+              href="/visualizer/"
+              className="back-library-link"
+              aria-label="Back to Algorithm Library"
+            >
               <ArrowLeft size={16} aria-hidden="true" />
               <span>Library</span>
             </Link>
-            <span className="top-bar-divider" aria-hidden="true">/</span>
+            <span className="top-bar-divider" aria-hidden="true">
+              /
+            </span>
             <h1 className="algorithm-heading">{meta?.name ?? slug}</h1>
             {meta && (
               <span className="category-chip" data-category={meta.category}>
-                {meta.category.replace(/-/g, ' ')}
+                {meta.category.replace(/-/g, " ")}
               </span>
             )}
           </div>
           {meta && (
             <div className="top-bar-right" aria-label="Algorithm complexity">
               <div className="complexity-chips">
-                <span className="complexity-chip best" title="Best-case time complexity">
+                <span
+                  className="complexity-chip best"
+                  title="Best-case time complexity"
+                >
                   <small>Best</small> <strong>{meta.complexity.best}</strong>
                 </span>
-                <span className="complexity-chip avg" title="Average time complexity">
+                <span
+                  className="complexity-chip avg"
+                  title="Average time complexity"
+                >
                   <small>Avg</small> <strong>{meta.complexity.average}</strong>
                 </span>
-                <span className="complexity-chip worst" title="Worst-case time complexity">
+                <span
+                  className="complexity-chip worst"
+                  title="Worst-case time complexity"
+                >
                   <small>Worst</small> <strong>{meta.complexity.worst}</strong>
                 </span>
-                <span className="complexity-chip space" title="Space complexity">
+                <span
+                  className="complexity-chip space"
+                  title="Space complexity"
+                >
                   <small>Space</small> <strong>{meta.complexity.space}</strong>
                 </span>
               </div>
             </div>
           )}
         </header>
-        <div className="visualizer-loading-state" style={{ padding: '60px 20px', textAlign: 'center' }}>
-          <Loader2 className="animate-spin" size={32} style={{ margin: '0 auto 16px', color: 'var(--accent)' }} />
-          <h2 style={{ fontSize: '18px', fontWeight: 800 }}>Preparing {meta?.name ?? slug}...</h2>
-          <p style={{ color: 'var(--muted)', fontSize: '13px', maxWidth: '600px', margin: '8px auto' }}>
-            {meta?.blurb ?? 'Precomputing steps and preparing interactive stage.'}
+        <div
+          className="visualizer-loading-state"
+          style={{ padding: "60px 20px", textAlign: "center" }}
+        >
+          <Loader2
+            className="animate-spin"
+            size={32}
+            style={{ margin: "0 auto 16px", color: "var(--accent)" }}
+          />
+          <h2 style={{ fontSize: "18px", fontWeight: 800 }}>
+            Preparing {meta?.name ?? slug}...
+          </h2>
+          <p
+            style={{
+              color: "var(--muted)",
+              fontSize: "13px",
+              maxWidth: "600px",
+              margin: "8px auto",
+            }}
+          >
+            {meta?.blurb ??
+              "Precomputing steps and preparing interactive stage."}
           </p>
         </div>
       </div>
@@ -94,13 +135,38 @@ export function VisualizerSlugClient({ slug }: VisualizerSlugClientProps) {
 
   if (error || !algorithm) {
     return (
-      <div className="visualizer-error-card" style={{ padding: '40px 24px', border: '2px solid var(--ink)', background: 'var(--surface)', margin: '20px auto', maxWidth: '600px', textAlign: 'center' }}>
-        <AlertCircle size={36} style={{ color: 'var(--accent)', margin: '0 auto 12px' }} />
-        <h2 style={{ fontSize: '20px', fontWeight: 800, margin: '0 0 8px 0' }}>Algorithm Unavailable</h2>
-        <p style={{ color: 'var(--muted)', fontSize: '14px', marginBottom: '20px' }}>
+      <div
+        className="visualizer-error-card"
+        style={{
+          padding: "40px 24px",
+          border: "2px solid var(--ink)",
+          background: "var(--surface)",
+          margin: "20px auto",
+          maxWidth: "600px",
+          textAlign: "center",
+        }}
+      >
+        <AlertCircle
+          size={36}
+          style={{ color: "var(--accent)", margin: "0 auto 12px" }}
+        />
+        <h2 style={{ fontSize: "20px", fontWeight: 800, margin: "0 0 8px 0" }}>
+          Algorithm Unavailable
+        </h2>
+        <p
+          style={{
+            color: "var(--muted)",
+            fontSize: "14px",
+            marginBottom: "20px",
+          }}
+        >
           {error ?? `Could not find an algorithm matching "${slug}".`}
         </p>
-        <Link href="/visualizer/" className="dock-btn primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+        <Link
+          href="/visualizer/"
+          className="dock-btn primary"
+          style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+        >
           <ArrowLeft size={14} />
           <span>Return to Algorithm Library</span>
         </Link>
@@ -112,4 +178,3 @@ export function VisualizerSlugClient({ slug }: VisualizerSlugClientProps) {
 }
 
 export default VisualizerSlugClient;
-

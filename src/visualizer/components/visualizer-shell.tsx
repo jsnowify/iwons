@@ -112,7 +112,7 @@ export function VisualizerShell({ algorithm }: VisualizerShellProps) {
     }
 
     const timer = setTimeout(() => {
-      dispatch({ type: 'STEP_FORWARD' });
+      dispatch({ type: 'TICK' });
     }, state.speedMs);
 
     return () => clearTimeout(timer);

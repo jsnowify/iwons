@@ -25,6 +25,7 @@ export type PlayerAction =
   | { type: 'PLAY' }
   | { type: 'PAUSE' }
   | { type: 'TOGGLE_PLAY' }
+  | { type: 'TICK' }
   | { type: 'STEP_FORWARD' }
   | { type: 'STEP_BACK' }
   | { type: 'JUMP_TO'; index: number }
@@ -118,7 +119,10 @@ export function playerReducer(state: PlayerState, action: PlayerAction): PlayerS
       };
     }
 
+    case 'TICK':
     case 'STEP_FORWARD': {
+      // Ignore timer callbacks after playback has been interrupted.
+      if (action.type === 'TICK' && state.status !== 'playing') return state;
       if (state.stepIndex >= maxIdx) {
         return { ...state, status: 'completed' };
       }
@@ -126,7 +130,7 @@ export function playerReducer(state: PlayerState, action: PlayerAction): PlayerS
       return {
         ...state,
         stepIndex: next,
-        status: next >= maxIdx ? 'completed' : 'paused',
+        status: next >= maxIdx ? 'completed' : action.type === 'TICK' ? 'playing' : 'paused',
       };
     }
 

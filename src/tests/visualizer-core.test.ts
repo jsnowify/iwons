@@ -91,6 +91,45 @@ describe('Visualizer Core: Player State Machine', () => {
     expect(state.status).toBe('playing');
   });
 
+  it('keeps autoplay running through consecutive ticks until the final frame', () => {
+    let state = playerReducer(createInitialPlayerState(dummySteps), { type: 'PLAY' });
+
+    for (let index = 1; index < dummySteps.length; index++) {
+      state = playerReducer(state, { type: 'TICK' });
+      expect(state.stepIndex).toBe(index);
+      expect(state.status).toBe(index === dummySteps.length - 1 ? 'completed' : 'playing');
+    }
+
+    expect(playerReducer(state, { type: 'TICK' })).toBe(state);
+    state = playerReducer(state, { type: 'PLAY' });
+    expect(state.stepIndex).toBe(0);
+    expect(playerReducer(state, { type: 'TICK' }).status).toBe('playing');
+  });
+
+  it('ignores ticks while idle or paused and resumes from the current frame', () => {
+    let state = createInitialPlayerState(dummySteps);
+    expect(playerReducer(state, { type: 'TICK' })).toBe(state);
+    state = playerReducer(state, { type: 'PLAY' });
+    state = playerReducer(state, { type: 'TICK' });
+    state = playerReducer(state, { type: 'PAUSE' });
+    expect(playerReducer(state, { type: 'TICK' })).toBe(state);
+    expect(state.stepIndex).toBe(1);
+
+    state = playerReducer(state, { type: 'PLAY' });
+    state = playerReducer(state, { type: 'TICK' });
+    expect(state.stepIndex).toBe(2);
+    expect(state.status).toBe('playing');
+  });
+
+  it.each(['STEP_FORWARD', 'STEP_BACK'] as const)('pauses autoplay on manual %s', type => {
+    let state = playerReducer(createInitialPlayerState(dummySteps), { type: 'PLAY' });
+    state = playerReducer(state, { type: 'TICK' });
+    state = playerReducer(state, { type });
+    expect(state.stepIndex).toBe(type === 'STEP_FORWARD' ? 2 : 0);
+    expect(state.status).toBe('paused');
+    expect(playerReducer(state, { type: 'TICK' })).toBe(state);
+  });
+
   it('scrubs to arbitrary index with JUMP_TO within safe bounds', () => {
     let state = createInitialPlayerState(dummySteps);
     state = playerReducer(state, { type: 'JUMP_TO', index: 2 });
