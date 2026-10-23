@@ -4,7 +4,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useAccount } from "./account-provider";
 import { AccountAvatar } from "./account-avatar";
-import { BookOpen, Workflow, LayoutDashboard, Route, Code2, FileClock, ChartNoAxesCombined, RotateCcw, Layers, CalendarDays, Trophy, Settings, PanelLeftClose, PanelLeftOpen, LockKeyhole, type LucideIcon } from "lucide-react";
+import { BookOpen, Workflow, LayoutDashboard, Route, Code2, FileClock, ChartNoAxesCombined, RotateCcw, Layers, CalendarDays, Trophy, Settings, PanelLeftClose, PanelLeftOpen, LockKeyhole, Users, type LucideIcon } from "lucide-react";
 
 export const navigation = [
   { href: "/dashboard/", label: "Your desk", icon: LayoutDashboard },
@@ -14,6 +14,7 @@ export const navigation = [
   { href: "/submissions/", label: "Submissions", icon: FileClock },
   { href: "/progress/", label: "Progress", icon: ChartNoAxesCombined },
   { href: "/leaderboard/", label: "Leaderboards", icon: Trophy },
+  { href: "/rooms/", label: "Rooms", icon: Users },
   { href: "/warm-up/", label: "Daily Warm-up", icon: BookOpen },
   { href: "/visualizer/", label: "Visualizer", icon: Workflow },
   { href: "/review/", label: "Review queue", icon: RotateCcw },

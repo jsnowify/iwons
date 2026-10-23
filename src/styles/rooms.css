@@ -1,0 +1,59 @@
+/* Private rooms. Built only from existing tokens and the shared card, tab, board and form patterns. */
+.room-note { display: flex; gap: 8px; align-items: flex-start; margin: 0; padding: 10px 14px; border: 1px dashed var(--ink); border-radius: var(--radius-sm); background: var(--accent-soft); font-size: 13px; line-height: 1.6; }
+.room-note svg { flex-shrink: 0; margin-top: 3px; color: var(--accent-text); }
+.room-panel { padding-top: 20px; display: grid; gap: 16px; min-width: 0; }
+.room-gate { max-width: 620px; margin-inline: auto; }
+.room-skeleton { display: grid; gap: 10px; min-height: 84px; }
+.room-skeleton .skeleton { height: 14px; border-radius: var(--radius-sm); }
+.room-skeleton .skeleton:first-child { width: 45%; }
+.room-count { gap: 6px; }
+.room-list, .room-problems, .room-members, .room-cases, .room-picker { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.room-card { display: grid; gap: 10px; padding: 18px 20px; min-height: 44px; color: inherit; text-decoration: none; transition: transform var(--fast), box-shadow var(--fast); }
+.room-card:hover, .room-card:focus-visible { transform: translate(-2px, -2px); box-shadow: var(--shadow); }
+.room-card-name { font-size: 18px; overflow-wrap: anywhere; }
+.room-card-meta { font-size: 12px; gap: 6px 16px; }
+.room-heading { align-items: flex-start; }
+.room-description { max-width: 70ch; overflow-wrap: anywhere; white-space: pre-line; }
+.room-dates { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 16px; }
+.room-form-card input[type="range"], .room-panel input[type="range"] { min-height: 44px; padding: 0; border: 0; background: transparent; accent-color: var(--accent); }
+.room-problem { display: flex; align-items: center; gap: 8px; padding: 0; overflow: hidden; }
+.room-problem-link { flex: 1; min-width: 0; display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px; padding: 14px 18px; min-height: 52px; color: inherit; text-decoration: none; }
+.room-problem-link:hover, .room-problem-link:focus-visible { background: var(--accent-soft); }
+.room-problem-title { flex: 1 1 220px; min-width: 0; overflow-wrap: anywhere; font-weight: 600; }
+.room-problem > .btn { margin-right: 10px; min-width: 44px; min-height: 44px; }
+.room-solved { color: var(--success-text); font-weight: 600; }
+.room-host-tools { gap: 14px; }
+.room-picker li { padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); gap: 10px; min-height: 52px; }
+.room-picker .badge { margin-left: 4px; }
+.room-search { gap: 8px; align-items: center; }
+.room-search input { flex: 1; }
+.room-who { display: grid; min-width: 0; }
+.room-who strong, .room-who small { overflow-wrap: anywhere; }
+.room-rules { margin: 0; font-size: 13px; }
+.room-you-sticky { position: sticky; bottom: 12px; z-index: 2; box-shadow: var(--shadow); }
+.room-you-sticky .board-row { margin: 0; }
+.room-members .card { padding: 12px 16px; min-height: 56px; }
+.room-link { gap: 8px; align-items: stretch; }
+.room-link input { flex: 1; min-width: 0; }
+.room-join { gap: 16px; }
+.room-editor { gap: 20px; }
+.room-starters, .room-editor fieldset { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; margin: 0; min-width: 0; display: grid; gap: 12px; }
+.room-starters legend, .room-editor legend { padding: 0 8px; font-size: 14px; }
+.room-case { padding: 12px 14px; display: grid; gap: 10px; }
+.room-case-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px; }
+.room-case textarea, .room-starters textarea, .room-editor textarea.mono { width: 100%; min-width: 0; font-family: var(--font-mono, monospace); font-size: 13px; }
+/* The auth form rule that makes inputs full width must not stretch checkboxes. */
+.room-case .check-row { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 13px; }
+.room-case .check-row input[type="checkbox"] { width: 18px; min-width: 18px; height: 18px; flex: 0 0 18px; }
+.room-case > .between { align-items: center; gap: 8px; }
+.room-case .btn { min-width: 44px; min-height: 44px; }
+.room-statement { white-space: pre-wrap; overflow-wrap: anywhere; max-width: 80ch; }
+.room-panel .tabs { overflow-x: auto; }
+@media (max-width: 600px) {
+  .room-card { padding: 16px; }
+  .room-problem { flex-wrap: wrap; }
+  .room-problem-link { padding: 12px 14px; }
+  .room-link { flex-direction: column; }
+  .room-you-sticky { bottom: 72px; }
+}
+@media (prefers-reduced-motion: reduce) { .room-card { transition: none; } .room-card:hover { transform: none; } }

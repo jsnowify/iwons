@@ -93,7 +93,10 @@ Set `NEXT_PUBLIC_SITE_URL` to your final canonical origin when publishing to a c
 `npm run og` checks content hashes and generates only changed social PNGs. Builds skip the generator when all source inputs and cached files are unchanged. Hashed images are immutable; the stable PNG aliases preserve old social links.
 
 Search Console submission and third-party structured-data validation require the final published domain. Lighthouse and browser test results are local checks, not a guarantee across every browser, device, or hosting environment.
+
 ## Optional accounts and server judging
+
+Signed-in users can also create **private rooms** at `/rooms/`: pick catalog or custom problems, invite people with a link, and follow a room leaderboard that is separate from the global one. See [docs/rooms.md](docs/rooms.md).
 
 The optional server judge implementation and setup are documented in
 [docs/server-judge.md](docs/server-judge.md). Use `.env.example`, `npm run
@@ -151,7 +154,6 @@ Import previews and server imports use `filterImportablePayload` with the same
 compact catalog IDs. Custom solves and drafts stay on the device and appear as
 skipped items. Leaderboards is available in both the sidebar and mobile More
 menu, without a rank or badge in navigation.
-
 
 ### Verify imported solves (optional)
 

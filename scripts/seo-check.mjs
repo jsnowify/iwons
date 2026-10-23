@@ -111,7 +111,7 @@ for (const file of htmlFiles) {
     continue;
   }
 
-  if (/^(login|signup|profile|reset-password)(\/index)?\.html$/.test(rel)) {
+  if (/^(login|signup|profile|reset-password|rooms(\/new)?)(\/index)?\.html$/.test(rel)) {
     report(/<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i.test(html), `Account page must remain unindexed: ${rel}`);
     continue;
   }
