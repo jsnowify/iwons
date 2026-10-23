@@ -98,6 +98,6 @@ describe("private recovery codes", { timeout: 20_000 }, () => {
     for (const origin of ["", "https://evil.test"]) expect((await run("reset", request("/", {}, { origin }))).status).toBe(403);
     for (let i = 0; i < 5; i++) expect((await run("reset", request("/", { username: details.username, code: "0".repeat(64), password: nextPassword, confirmPassword: nextPassword }, { "x-test-ip": `192.0.2.${i + 1}` }))).status).toBe(400);
     const blocked = await run("reset", request("/", { username: details.username.toUpperCase() }, { "x-test-ip": "192.0.2.99" }));
-    expect(blocked.status).toBe(429); expect(blocked.headers.get("retry-after")).toBe("60");
+    expect(blocked.status).toBe(429); expect(Number(blocked.headers.get("retry-after"))).toBeGreaterThan(0); expect(Number(blocked.headers.get("retry-after"))).toBeLessThanOrEqual(60);
   });
 });

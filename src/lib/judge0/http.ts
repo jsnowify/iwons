@@ -1,13 +1,15 @@
 import "server-only";
 import { createHmac } from "node:crypto";
-import { isIP } from "node:net";
 import { z } from "zod";
 import { JudgeError, safeError, unavailable } from "./errors";
 import { database } from "../db/client";
 import { judgeRepository } from "../db/judge-repository";
 import { judgeClient } from "./client";
 import { judgeService } from "./service";
+import { normalizeClientAddress } from "../client-address";
 import { recordJudged } from "../db/accounts";
+import { roomEffects } from "../db/room-stats";
+import { roomJudgeProblem } from "../db/room-problems";
 
 export function requesterHash(request: Request) {
   const secret = process.env.AUTH_SECRET;
@@ -15,8 +17,8 @@ export function requesterHash(request: Request) {
   // Never trust a client-provided forwarded header unless the deployment's
   // reverse proxy is explicitly configured to overwrite it.
   const header = process.env.VERCEL === "1" ? "x-vercel-forwarded-for" : process.env.TRUSTED_IP_HEADER;
-  const address = header ? request.headers.get(header)?.split(",")[0]?.trim() : undefined;
-  if (header && (!address || !isIP(address))) throw unavailable();
+  const address = header ? normalizeClientAddress(request.headers.get(header)) : undefined;
+  if (header && !address) throw unavailable();
   if (!header && process.env.NODE_ENV === "production") throw unavailable();
   return createHmac("sha256", secret).update(address ?? "local-development").digest("hex");
 }
@@ -54,6 +56,8 @@ export async function service() {
   const repo = judgeRepository(db);
   return judgeService(repo, judgeClient(), async (job, result) => {
     if (!job.userId) return;
+    // Room jobs update the room's own standings and nothing global.
+    if (job.roomId) return roomEffects(db, job, result);
     const problem = await repo.problem(job.problemId);
     if (!problem) throw new JudgeError(404, "This problem is no longer published.");
     const weights = z.object({ easy: z.number().int().positive(), medium: z.number().int().positive(), hard: z.number().int().positive() })
@@ -62,7 +66,8 @@ export async function service() {
       language: job.language, code: job.code, createdAt: job.finalizedAt ?? job.createdAt, verdict: result.verdict,
       passed: result.passed, total: result.total, runtimeMs: result.runtimeMs, memoryKb: result.memoryKb },
     weights[problem.difficulty]);
-  });
+  }, async input => (await roomJudgeProblem(db, { roomId: input.roomId, userId: input.userId, refKey: input.refKey, language: input.language, mode: input.mode,
+    ...(input.purpose ? { purpose: input.purpose } : {}), ...(input.maxCases ? { maxCases: input.maxCases } : {}) })).problem);
 }
 export function json(value: unknown, status = 200) {
   return Response.json(value, { status, headers: { "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff" } });
@@ -71,6 +76,6 @@ export function errorResponse(error: unknown, validationMessage = "Check the pro
   if (error instanceof z.ZodError) return json({ error: validationMessage }, 400);
   const safe = safeError(error);
   const response = json({ error: safe.message }, safe.status);
-  if (safe.status === 429) response.headers.set("Retry-After", "60");
+  if (safe.status === 429) response.headers.set("Retry-After", String(safe.retryAfter ?? 60));
   return response;
 }

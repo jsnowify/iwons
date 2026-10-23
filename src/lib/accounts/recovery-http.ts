@@ -54,6 +54,7 @@ export function recoveryHttp(deps: { database: () => Promise<Db>; config: () => 
       const username = body && typeof body === "object" && "username" in body && typeof body.username === "string" ? body.username.toLowerCase().slice(0, 128) : "";
       const key = createHmac("sha256", config.secret).update(username).digest("hex");
       await limit.rateLimit(`recovery:reset:username:${key}`, 5, now);
+      await limit.rateLimit(`recovery:reset:username:${key}`, 20, now, 1, 3_600_000);
       const value = resetPasswordSchema.parse(body), hash = digest(value.code);
       const users = db.collection<CredentialUserDoc>("users");
       const filter = { username: value.username, "passwordRecovery.version": 1, "passwordRecovery.hash": hash,

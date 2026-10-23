@@ -69,6 +69,6 @@ describe("optional profile photos", () => {
   it("limits profile writes per account even across handler instances", async () => {
     for (let i = 0; i < 5; i++) expect((await run(request("DELETE"))).status).toBe(200);
     const another = avatarHttp({ database: async () => db, config: () => config, now: () => now });
-    const blocked = await another(request("PUT", photo)); expect(blocked.status).toBe(429); expect(blocked.headers.get("retry-after")).toBe("60");
+    const blocked = await another(request("PUT", photo)); expect(blocked.status).toBe(429); expect(Number(blocked.headers.get("retry-after"))).toBeGreaterThan(0); expect(Number(blocked.headers.get("retry-after"))).toBeLessThanOrEqual(60);
   });
 });

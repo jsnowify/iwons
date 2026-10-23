@@ -5,11 +5,15 @@ import { accounts } from "@/lib/db/accounts";
 import { judgeRepository } from "@/lib/db/judge-repository";
 import { importableProblemIds } from "@/lib/accounts/catalog-ids";
 import { errorResponse, json, jsonBody, sameOrigin } from "@/lib/judge0/http";
+import { Timer, routeLabel } from "@/lib/server-timing";
 export const runtime = "nodejs";
 export const maxDuration = 60;
 export async function GET(request: Request) {
-  try { const user = await requireUser(request); return json(await accounts(await database()).progress(user._id)); }
-  catch (error) { return errorResponse(error, "Your sync data could not be validated. Check the backup format and size limits."); }
+  const timer = new Timer(routeLabel(request));
+  try {
+    const user = await timer.measure("auth", () => requireUser(request));
+    return timer.finish(json(await timer.measure("work", async () => accounts(await database()).progress(user._id))));
+  } catch (error) { return timer.finish(errorResponse(error, "Your sync data could not be validated. Check the backup format and size limits.")); }
 }
 export async function PUT(request: Request) {
   try {

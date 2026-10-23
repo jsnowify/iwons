@@ -69,7 +69,7 @@ describe("credential HTTP endpoints", { timeout: 20_000 }, () => {
     }
     const otherInstance = credentialHttp({ database: async () => db, config: () => config, now: () => fixedNow });
     const blocked = await otherInstance("signup", request("/api/auth/signup/", details));
-    expect(blocked.status).toBe(429); expect(blocked.headers.get("retry-after")).toBe("60");
+    expect(blocked.status).toBe(429); expect(Number(blocked.headers.get("retry-after"))).toBeGreaterThan(0); expect(Number(blocked.headers.get("retry-after"))).toBeLessThanOrEqual(60);
   });
   it("enforces independent login budgets per IP and normalized username", async () => {
     for (let i = 0; i < 5; i++) expect((await run("login", request("/api/auth/login/", { username: "budget_user", password: "wrong" }, { "x-test-ip": `192.0.2.${i + 1}` }))).status).toBe(401);

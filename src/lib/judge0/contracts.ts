@@ -7,6 +7,8 @@ export const judgeRequest = z.object({
   language: languageKey,
   code: z.string().max(20_000).refine(value => value.trim().length > 0, "Enter your code first."),
   mode: z.enum(["run", "submit"]),
+  // Set only for private-room judging; the server checks membership, room state and problem ownership.
+  roomId: z.string().regex(/^[A-Za-z0-9_-]{16,40}$/).optional(),
 }).strict();
 export type JudgeRequest = z.infer<typeof judgeRequest>;
 export const verdict = z.enum(["accepted", "wrong_answer", "compile_error", "runtime_error", "time_limit", "internal_error"]);
