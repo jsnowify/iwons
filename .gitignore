@@ -16,3 +16,23 @@ public/monaco/
 .vercel/
 
 public/runners/js/
+
+# Local agent instructions and working notes
+/AGENTS.md
+/CLAUDE.md
+/.claude/
+/.codex/
+
+# Internal audits and deployment notes stay local. Production curriculum
+# verification still needs the JSON reports.
+/docs/*
+!/docs/curriculum-reports/
+/docs/curriculum-reports/*
+!/docs/curriculum-reports/*.json
+
+# Local logs and credential files
+*.log
+*.pem
+*.key
+*.p12
+*.pfx
