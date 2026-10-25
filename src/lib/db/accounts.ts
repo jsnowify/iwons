@@ -14,7 +14,7 @@ import type { CurrentCredential } from "../accounts/current-credential";
 export interface UserDoc {
   _id: string; email: string; name: string; handle?: string; image: string;
   leaderboardOptIn: boolean; createdAt: Date; provider?: string; subject?: string;
-  username?: string; displayName?: string; avatarVersion?: string;
+  username?: string; displayName?: string; avatarVersion?: string; scopeKey?: string;
   lock?: { owner: string; expiresAt: Date };
 }
 interface ProgressDoc extends AccountProgress { _id: string; userId: string }
@@ -25,12 +25,12 @@ export interface StatsDoc { _id: string; userId: string; handle: string; avatar:
 export interface ServerSubmission { _id: string; userId: string; problemId: string; language: JudgeLanguage;
   verdict: PublicJudgeResult["verdict"]; passed: number; total: number; runtimeMs: number; memoryKb: number; code: string; createdAt: Date }
 const emptyProgress = (): AccountProgress => ({ drafts: {}, preferences: {}, foundationProgress: {}, unverifiedSolves: [], updatedAt: 0 });
-export const accountScopeId = (user: UserDoc) => user.username ? `credential-${Buffer.from(user.username).toString("hex")}` : user._id;
+export const accountScopeId = (user: UserDoc) => user.username ? `credential-${Buffer.from(user.scopeKey ?? user.username).toString("hex")}` : user._id;
 export function accountView(user: UserDoc | CredentialUserDoc | CurrentCredential): UserDoc {
   if (!("username" in user) || !user.username) return user as UserDoc;
   return { _id: user._id, username: user.username, displayName: user.displayName!, email: user.email,
     name: user.displayName!, handle: user.username, image: (Array.from(user.displayName!)[0] ?? "I").toUpperCase(),
-    leaderboardOptIn: false, createdAt: user.createdAt, avatarVersion: user.avatarVersion };
+    leaderboardOptIn: false, createdAt: user.createdAt, avatarVersion: user.avatarVersion, scopeKey: user.scopeKey };
 }
 export const publicUser = (user: UserDoc): AccountUser => ({ id: accountScopeId(user), name: user.name,
   handle: user.handle ?? null, avatar: user.image, leaderboardOptIn: user.leaderboardOptIn,

@@ -143,3 +143,52 @@ describe("non-destructive user index migration", () => {
     expect((await users.listIndexes().toArray()).map(index => index.name)).toEqual(["_id_", "users_username_unique_v1"]);
   });
 });
+
+describe("profile changes", () => {
+  async function account(username = "first_name", email = "first@example.org") {
+    await createCredentialUserIndexes(db);
+    const repo = credentialUsers(db);
+    await repo.create(details(username, email));
+    const doc = (await db.collection<CredentialUserDoc>("users").findOne({ username }))!;
+    return { repo, doc };
+  }
+  it("changes only the display name without touching the username", async () => {
+    const { repo, doc } = await account();
+    const saved = await repo.updateProfile(doc, { displayName: "  Ada  Lovelace " });
+    expect(saved).toMatchObject({ username: "first_name", displayName: "Ada Lovelace", scopeKey: "first_name" });
+    expect(await db.collection("retired_usernames").countDocuments()).toBe(0);
+  });
+  it("renames, keeps the old name reserved and keeps the local-data scope stable", async () => {
+    const { repo, doc } = await account();
+    const saved = await repo.updateProfile(doc, { username: "second_name" });
+    expect(saved.username).toBe("second_name");
+    expect(saved.scopeKey).toBe("first_name");
+    expect(await db.collection("users").countDocuments({ username: "first_name" })).toBe(0);
+    expect(await repo.available("first_name")).toEqual({ available: false, reason: "taken" });
+    await expect(repo.create(details("first_name", "other@example.org"))).rejects.toMatchObject({ code: "username_taken" });
+    const again = await repo.updateProfile({ ...doc, ...saved }, { username: "third_name" });
+    expect(again.scopeKey).toBe("first_name");
+  });
+  it("refuses a username that belongs to someone else, including a retired one", async () => {
+    const { repo, doc } = await account();
+    await repo.create(details("someone_else", "else@example.org"));
+    await expect(repo.updateProfile(doc, { username: "someone_else" })).rejects.toMatchObject({ code: "username_taken" });
+    expect(await db.collection("retired_usernames").countDocuments()).toBe(0);
+    const other = (await db.collection<CredentialUserDoc>("users").findOne({ username: "someone_else" }))!;
+    await repo.updateProfile(other, { username: "someone_new" });
+    await expect(repo.updateProfile(doc, { username: "someone_else" })).rejects.toMatchObject({ code: "username_taken" });
+  });
+  it("lets a person take back a name they retired", async () => {
+    const { repo, doc } = await account();
+    const moved = await repo.updateProfile(doc, { username: "second_name" });
+    const back = await repo.updateProfile({ ...doc, ...moved }, { username: "first_name" });
+    expect(back.username).toBe("first_name");
+    expect(await repo.available("second_name")).toEqual({ available: false, reason: "taken" });
+  });
+  it("rejects invalid or empty changes", async () => {
+    const { repo, doc } = await account();
+    await expect(repo.updateProfile(doc, {})).rejects.toThrow();
+    await expect(repo.updateProfile(doc, { username: "no" })).rejects.toThrow();
+    await expect(repo.updateProfile(doc, { username: "admin" })).rejects.toThrow();
+  });
+});

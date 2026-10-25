@@ -181,3 +181,80 @@ dialog.modal[open] { display: grid; place-items: center; }
   .sidebar-specimen .nav-label { flex: 1; }
   .palette-grid { grid-template-columns: minmax(0, 1fr); }
 }
+
+.cx-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.cx-chart { margin: 0; padding: 12px; border: 2px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+.cx-chart figcaption { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 6px; color: var(--muted); }
+.cx-chart figcaption strong { color: var(--text); }
+.cx-chart svg { display: block; width: 100%; height: auto; }
+.cx-axis { stroke: var(--muted); stroke-width: 1.5; }
+.cx-label { fill: var(--muted); font-size: 10px; }
+.cx-ghost { fill: none; stroke: var(--muted); stroke-width: 1; opacity: 0.3; }
+.cx-line { fill: none; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; animation: cx-draw 900ms ease-out; }
+.cx-dot { stroke: var(--ink); stroke-width: 1.5; }
+.cx-note { margin: 8px 0 0; font-size: 0.9em; color: var(--muted); }
+.cx-slider { display: flex; flex-direction: column; gap: 6px; margin-top: 16px; }
+.cx-slider input { width: 100%; accent-color: var(--accent); }
+@keyframes cx-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { .cx-line { animation: none; } }
+
+.level-badges { margin-top: 24px; padding: 24px; }
+.badge-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 16px; }
+.level-badge { position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 4px; text-align: center; color: var(--text); text-decoration: none; border-radius: var(--radius); }
+.level-badge svg { width: 84px; height: 84px; }
+.badge-hex { fill: var(--heat-empty); stroke: var(--muted); stroke-width: 3; stroke-linejoin: round; }
+.badge-inner { fill: none; stroke: var(--muted); stroke-width: 1.5; stroke-linejoin: round; opacity: 0.5; }
+.badge-ring { fill: none; stroke: var(--badge); stroke-width: 4; stroke-linecap: round; }
+.badge-emblem { fill: none; stroke: var(--muted); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; opacity: 0.8; }
+.badge-lock circle { fill: var(--surface); stroke: var(--muted); stroke-width: 2; }
+.badge-lock rect { fill: var(--muted); }
+.badge-lock path { fill: none; stroke: var(--muted); stroke-width: 1.8; stroke-linecap: round; }
+.level-badge.earned .badge-hex { fill: var(--badge); stroke: var(--ink); }
+.level-badge.earned .badge-inner { stroke: var(--ink); opacity: 0.45; }
+.level-badge.earned .badge-emblem { stroke: var(--ink); opacity: 1; stroke-width: 3; }
+.level-badge:hover, .level-badge:focus-visible { background: var(--accent-soft); }
+.level-badge:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: no-preference) { .level-badge { transition: background var(--fast); } }
+
+/* Profile page */
+.profile-content { max-width: 1120px; }
+.profile-title { margin: 0 0 24px; }
+.profile-grid { display: grid; grid-template-columns: minmax(280px, 340px) minmax(0, 1fr); gap: 24px; align-items: start; }
+.profile-side, .profile-main { display: grid; gap: 24px; min-width: 0; }
+.profile-main > .card, .profile-side > .card { padding: 24px; }
+.profile-identity { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.profile-identity .profile-avatar { width: 72px; height: 72px; font-size: 30px; flex: none; }
+.profile-names { display: grid; gap: 2px; min-width: 0; }
+.profile-names strong { font-family: var(--font-display); font-size: 22px; overflow-wrap: anywhere; }
+.profile-names span { overflow-wrap: anywhere; }
+.stat-block h2 { margin: 0 0 16px; font-size: 20px; }
+.solved-layout { display: grid; gap: 20px; justify-items: center; }
+.solved-ring { position: relative; width: 148px; height: 148px; }
+.solved-ring svg { width: 100%; height: 100%; display: block; }
+.ring-track { fill: none; stroke: var(--heat-empty); stroke-width: 9; }
+.ring-arc { fill: none; stroke-width: 9; }
+.ring-label { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; }
+.ring-label strong { font-family: var(--font-display); font-size: 34px; line-height: 1; }
+.diff-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; width: 100%; }
+.diff-list li { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; }
+.diff-name { font-weight: 700; }
+.diff-bar { grid-column: 1 / -1; height: 8px; border: 1.5px solid var(--border); border-radius: 4px; background: var(--heat-empty); overflow: hidden; }
+.diff-bar i { display: block; height: 100%; }
+.accept-top { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
+.accept-top div { display: grid; gap: 2px; align-content: start; }
+.accept-top strong { font-family: var(--font-display); font-size: 24px; line-height: 1.1; }
+.accept-top small { color: var(--muted); font-size: 11px; }
+.verdict-bar { display: flex; height: 12px; gap: 2px; border: 1.5px solid var(--border); border-radius: 6px; padding: 1.5px; background: var(--surface); }
+.verdict-bar i { display: block; min-width: 4px; border-radius: 3px; }
+.verdict-legend { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 6px; font-size: 13px; }
+.verdict-legend li { display: grid; grid-template-columns: 10px 1fr auto; align-items: center; gap: 8px; }
+.verdict-legend i { width: 10px; height: 10px; border-radius: 2px; border: 1px solid var(--border); }
+.profile-settings { margin-top: 32px; display: grid; gap: 16px; }
+.profile-settings > h2 { margin: 0; font-size: 24px; }
+.settings-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px; align-items: start; }
+.settings-cards > .card { padding: 24px; min-width: 0; }
+.settings-cards .profile-editor { display: grid; gap: 16px; }
+.settings-cards .profile-editor h2, .settings-cards .profile-editor p { margin: 0; }
+.settings-cards h2 { font-size: 20px; }
+.settings-cards .avatar-editor, .settings-cards .recovery-panel { border-top: 0; padding-top: 0; }
+@media (max-width: 860px) { .profile-grid { grid-template-columns: minmax(0, 1fr); } }

@@ -10,7 +10,7 @@ export async function currentCredential(request: Request, config: AuthConfig, da
   const session = await sessionIdentity(request, config, now);
   if (!session) return null;
   const user = await (await database()).collection<CredentialUserDoc>("users").findOne<CurrentCredential>({ username: session.username }, {
-    projection: { _id: 1, username: 1, displayName: 1, email: 1, createdAt: 1, updatedAt: 1, avatarVersion: 1, sessionVersion: 1 },
+    projection: { _id: 1, username: 1, displayName: 1, email: 1, createdAt: 1, updatedAt: 1, avatarVersion: 1, sessionVersion: 1, scopeKey: 1 },
     collation: CREDENTIAL_COLLATION,
   });
   return user && (user.sessionVersion ?? 0) === session.version ? user : null;

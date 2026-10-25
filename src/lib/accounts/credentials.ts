@@ -24,6 +24,8 @@ const displayNameSchema = z.string().max(200, "Use at most 30 characters.")
   .refine(value => characterCount(value) <= 30, "Use at most 30 characters.");
 // Count Unicode characters rather than UTF-8 bytes. Argon2 does not truncate
 // passwords at bcrypt's 72-byte boundary; whitespace is intentionally preserved.
+export const credentialProfileSchema = z.object({ username: credentialUsernameSchema.optional(), displayName: displayNameSchema.optional() }).strict()
+  .refine(value => value.username !== undefined || value.displayName !== undefined, "Change your username or display name.");
 export const credentialPasswordSchema = z.string().max(144, "Use 8 to 72 characters.")
   .refine(value => characterCount(value) >= 8 && characterCount(value) <= 72, "Use 8 to 72 characters.")
   .refine(value => !COMMON_PASSWORDS.includes(value.toLowerCase()), "Choose a less common password.");
