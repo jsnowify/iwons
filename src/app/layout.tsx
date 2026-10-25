@@ -69,6 +69,9 @@ export const metadata: Metadata = {
       ? { other: { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION } }
       : {}),
   },
+  authors: [{ name: "Joshua Cambronero", url: "https://snowi-cambronero.vercel.app/" }],
+  creator: "Joshua “Snowi” Cambronero",
+  publisher: "Joshua Cambronero",
   manifest: "/manifest.webmanifest",
   openGraph: {
     title: "Iwons — Type it. Test it. Own it.",
@@ -85,7 +88,16 @@ export const metadata: Metadata = {
     description: "Build the habit. Learn the patterns. Own every solve.",
     images: [`${siteUrl}${ogImage("home")}`],
   },
-  icons: { icon: "/icon.svg", apple: "/icons/192/" },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/icons/192/",
+  },
 };
 export const viewport: Viewport = {
   themeColor: palette.bg,

@@ -1,3 +1,4 @@
+import { creator } from "@/lib/creator";
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ALGORITHM_REGISTRY, getAlgorithmMetadata } from '@/visualizer/registry';
@@ -79,11 +80,7 @@ export default async function VisualizerSlugPage({
               keywords: `${meta.name}, ${meta.category}, algorithm visualizer, ${meta.engine} engine`,
               inLanguage: "en",
               isAccessibleForFree: true,
-              author: {
-                "@type": "Person",
-                name: "Snowi",
-                url: "https://snowi-cambronero.vercel.app/",
-              },
+              author: creator,
             },
             {
               "@context": "https://schema.org",

@@ -49,3 +49,6 @@ body { display: flex; flex-direction: column; }
   overflow: auto;
  }
 }
+.footer-credit { margin: 0; font-size: 12px; color: var(--muted); }
+.footer-credit a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+@media (min-width: 721px) { .footer-credit { margin-left: auto; } }

@@ -1,3 +1,4 @@
+import { creator } from "@/lib/creator";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ShieldCheck, Code2, HardDrive, ArrowRight, Compass } from "lucide-react";
@@ -33,12 +34,12 @@ const FAQ_ITEMS = [
   },
   {
     q: "Who created Iwons?",
-    a: "Iwons was created by Snowi, a web designer and developer (https://snowi-cambronero.vercel.app/).",
+    a: "Iwons was created by Joshua “Snowi” Cambronero, a web designer and developer (https://snowi-cambronero.vercel.app/).",
     renderVisible: () => (
       <span>
         Iwons was created by{" "}
         <a className="text-link" href="https://snowi-cambronero.vercel.app/">
-          Snowi
+          Joshua “Snowi” Cambronero
         </a>
         , a web designer and developer.
       </span>
@@ -60,11 +61,7 @@ export default function About() {
               description:
                 "A calm coding practice tool built around honest progress. Learn what Iwons Watch records, how guest mode and optional account sync work, and how runtimes execute.",
               url: `${siteUrl}/about/`,
-              author: {
-                "@type": "Person",
-                name: "Snowi",
-                url: "https://snowi-cambronero.vercel.app/",
-              },
+              author: creator,
             },
             {
               "@context": "https://schema.org",
@@ -197,9 +194,9 @@ export default function About() {
       <Link href="/problems/" className="btn">
         Find your next challenge <ArrowRight size={14} />
       </Link>
-      <section aria-label="Made by Snowi">
-        <h2>Made by Snowi</h2>
-        <p>Made by <a className="text-link" href="https://snowi-cambronero.vercel.app/">Snowi</a>, a creative web designer and developer.</p>
+      <section aria-label="Made by Joshua Cambronero">
+        <h2>Made by Joshua “Snowi” Cambronero</h2>
+        <p>Made by <a className="text-link" href="https://snowi-cambronero.vercel.app/" rel="author">Joshua “Snowi” Cambronero</a> (also known as Snowi Cambronero), a creative web designer and developer. Find more of their work on their <a className="text-link" href="https://snowi-cambronero.vercel.app/">portfolio</a> and on <a className="text-link" href="https://github.com/jsnowify">GitHub</a>.</p>
       </section>
     </div>
   );

@@ -1,4 +1,5 @@
 export const metadata = {alternates:{canonical:"/"}};
+import { creator } from "@/lib/creator";
 import { siteUrl } from "@/lib/site-url";
 import { Landing } from "@/components/landing";
 export default function Home() {
@@ -12,15 +13,13 @@ export default function Home() {
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "Iwons",
+              alternateName: ["Iwons Coding Practice", "Iwons Path"],
               url: `${siteUrl}/`,
               inLanguage: "en",
               description:
                 "An original coding adventure, one keystroke at a time. Practice 500 challenges in JavaScript, TypeScript, Python, and Java.",
-              publisher: {
-                "@type": "Person",
-                name: "Snowi",
-                url: "https://snowi-cambronero.vercel.app/",
-              },
+              publisher: creator,
+              author: creator,
             },
             {
               "@context": "https://schema.org",

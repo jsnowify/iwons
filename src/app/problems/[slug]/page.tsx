@@ -1,3 +1,4 @@
+import { creator } from "@/lib/creator";
 import { ogImage } from "@/lib/og";
 import { siteUrl } from "@/lib/site-url";
 import type { Metadata } from "next";
@@ -57,11 +58,7 @@ export default async function ProblemPage({
       teaches: [...p.topics, ...p.patterns].join(", "),
       inLanguage: "en",
       isAccessibleForFree: true,
-      author: {
-        "@type": "Person",
-        name: "Snowi",
-        url: "https://snowi-cambronero.vercel.app/",
-      },
+      author: creator,
       datePublished: "2026-10-16T00:00:00.000Z",
       dateModified: "2026-10-17T00:00:00.000Z",
     },

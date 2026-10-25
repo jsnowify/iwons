@@ -1,6 +1,6 @@
 # Iwons
 
-> An original coding adventure, one keystroke at a time. Practice 500 challenges across 9 chapters and 54 units in JavaScript, TypeScript, Python, and Java. Built by Snowi (https://snowi-cambronero.vercel.app/).
+> An original coding adventure, one keystroke at a time. Practice 500 challenges across 9 chapters and 54 units in JavaScript, TypeScript, Python, and Java. Built by Joshua “Snowi” Cambronero, also known as Snowi Cambronero (https://snowi-cambronero.vercel.app/, https://github.com/jsnowify).
 
 Iwons is a privacy-preserving coding practice platform with full account-free guest learning and optional free accounts for cross-device sync and leaderboards. Guest progress is stored locally in the browser.
 
