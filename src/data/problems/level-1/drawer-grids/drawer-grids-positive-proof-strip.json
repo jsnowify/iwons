@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-068"
   ],
-  "summary": "Nested array traversal. Return only numbers greater than 0 from the result list.",
+  "summary": "Nested array traversal. Keep the positive numbers.",
   "stage": "Sequence variation",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\ndrawers is a list of rows. Each row is a list of numbers and may be empty. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\ndrawers is a list of rows. Add the numbers in each row. Put one total per row in the result list, in row order. An empty row has a total of 0.\n\nStep 2: Return the answer\nReturn only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return [].\n\nWrite your function\nComplete drawerGridsPositiveProofStrip(drawers, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "drawers is a list of rows. Add the numbers in each row. Put one total per row in the result list, in row order. An empty row has a total of 0. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`drawers` is a list of rows. Each row is a list of numbers and may be empty.\n\nYour tasks\n1. Create a list `rowTotals`. `drawers` is a list of rows. Add the numbers in each row. Put one total per row in `rowTotals`, in row order. An empty row has a total of 0.\n2. Create a list `positiveValues` that keeps only the numbers in `rowTotals` that are greater than 0, in the same order.\n3. Complete `drawerGridsPositiveProofStrip` so it returns `positiveValues`. Return it, do not print it.\n\nExample\nIf `drawers` is [[6, 4], [], [6, 4], [2, 0]], then `rowTotals` is [10, 0, 10, 2] and `drawerGridsPositiveProofStrip` returns [10, 10, 2].\n\nRules\n- Keep repeated numbers.\n- If no number is greater than 0, return [].\n\nTest data\nTEST DATA 1: `drawers` is [[7, 5], [], [7, 5], [0, -2], [12, 10]].\nTEST DATA 2: `drawers` is [[4, 2], [], [-2, -4], [4, 2]].",
+  "unitIntro": "`drawers` is a list of rows. Add the numbers in each row. Put one total per row in `rowTotals`, in row order. An empty row has a total of 0. Each problem in this unit builds `rowTotals` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 16 per row.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
-    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
+    "Efficiency goal: time O(n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "drawers is a list of rows. Add the numbers in each row. Put one total per row in the result list, in row order. An empty row has a total of 0. Keep track of the numbers or places you have already checked.",
-    "Return only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return []. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `rowTotals` before you look for the answer.",
+    "`drawers` is a list of rows. Add the numbers in each row. Put one total per row in `rowTotals`, in row order. An empty row has a total of 0. Keep track of the numbers or places you have already checked.",
+    "Create a list `positiveValues` that keeps only the numbers in `rowTotals` that are greater than 0, in the same order. Keep repeated numbers."
   ],
   "functionName": "drawerGridsPositiveProofStrip",
   "mode": "function",
   "starterCode": {
-    "javascript": "function drawerGridsPositiveProofStrip(drawers, k) {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "typescript": "function drawerGridsPositiveProofStrip(drawers: number[][], k: number): number[] {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "python": "def drawerGridsPositiveProofStrip(drawers, k):\n    # Build the result list, then return the answer from Step 2.\n    return []\n",
-    "java": "class Solution {\n  public int[] drawerGridsPositiveProofStrip(int[][] drawers, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return new int[0];\n  }\n}\n"
+    "javascript": "function drawerGridsPositiveProofStrip(drawers) {\n  // Build rowTotals, then return the answer.\n  return [];\n}\n",
+    "typescript": "function drawerGridsPositiveProofStrip(drawers: number[][]): number[] {\n  // Build rowTotals, then return the answer.\n  return [];\n}\n",
+    "python": "def drawerGridsPositiveProofStrip(drawers):\n    # Build rowTotals, then return the answer.\n    return []\n",
+    "java": "class Solution {\n  public int[] drawerGridsPositiveProofStrip(int[][] drawers) {\n    // Build rowTotals, then return the answer.\n    return new int[0];\n  }\n}\n"
   },
   "cases": [
     {
@@ -62,8 +62,7 @@
             12,
             10
           ]
-        ],
-        3
+        ]
       ],
       "expected": [
         12,
@@ -71,7 +70,7 @@
         22
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [12,0,12,-2,22]. Keep only numbers greater than 0, without changing their order. Return [12,12,22]."
+      "explanation": "`rowTotals` is [12, 0, 12, -2, 22]. Keep only numbers greater than 0, without changing their order. Return [12, 12, 22]."
     },
     {
       "id": "path3-069-2",
@@ -90,37 +89,34 @@
             4,
             2
           ]
-        ],
-        2
+        ]
       ],
       "expected": [
         6,
         6
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [6,0,-6,6]. Keep only numbers greater than 0, without changing their order. Return [6,6]."
+      "explanation": "`rowTotals` is [6, 0, -6, 6]. Keep only numbers greater than 0, without changing their order. Return [6, 6]."
     },
     {
       "id": "path3-069-3",
       "input": [
-        [],
-        1
+        []
       ],
       "expected": [],
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. Keep only numbers greater than 0, without changing their order. Return []."
+      "explanation": "`rowTotals` is []. Keep only numbers greater than 0, without changing their order. Return []."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "int[][]",
-    "int"
+    "int[][]"
   ],
   "complexity": {
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `rowTotals` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 1,
     "unit": "drawer-grids",
@@ -150,8 +146,7 @@
             12,
             10
           ]
-        ],
-        3
+        ]
       ],
       "expected": [
         12,
@@ -159,7 +154,7 @@
         22
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [12,0,12,-2,22]. Keep only numbers greater than 0, without changing their order. Return [12,12,22]."
+      "explanation": "`rowTotals` is [12, 0, 12, -2, 22]. Keep only numbers greater than 0, without changing their order. Return [12, 12, 22]."
     },
     {
       "id": "path3-069-2",
@@ -178,22 +173,21 @@
             4,
             2
           ]
-        ],
-        2
+        ]
       ],
       "expected": [
         6,
         6
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [6,0,-6,6]. Keep only numbers greater than 0, without changing their order. Return [6,6]."
+      "explanation": "`rowTotals` is [6, 0, -6, 6]. Keep only numbers greater than 0, without changing their order. Return [6, 6]."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function drawerGridsPositiveProofStrip(drawers, k) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out.filter(x=>x>0);\n}\n",
-    "typescript": "function drawerGridsPositiveProofStrip(drawers: number[][], k: number): number[] {\n  const a=drawers; let out:number[]=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out.filter(x=>x>0);\n}\n",
-    "python": "def drawerGridsPositiveProofStrip(drawers, k):\n    a=drawers\n    out=[]\n    for row in a: out.append(sum(row))\n    return [x for x in out if x>0]\n",
-    "java": "class Solution {\n  public int[] drawerGridsPositiveProofStrip(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {for(int[]row:a){int s=0;for(int x:row)s+=x;out.add(s);}}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+    "javascript": "function drawerGridsPositiveProofStrip(drawers) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out.filter(x=>x>0);\n}\n",
+    "typescript": "function drawerGridsPositiveProofStrip(drawers: number[][]): number[] {\n  const a=drawers; let out:number[]=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out.filter(x=>x>0);\n}\n",
+    "python": "def drawerGridsPositiveProofStrip(drawers):\n    a=drawers\n    out=[]\n    for row in a: out.append(sum(row))\n    return [x for x in out if x>0]\n",
+    "java": "class Solution {\n  public int[] drawerGridsPositiveProofStrip(int[][] drawers) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {for(int[]row:a){int s=0;for(int x:row)s+=x;out.add(s);}}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -205,8 +199,7 @@
               9,
               7
             ]
-          ],
-          1
+          ]
         ],
         "expected": [
           16
@@ -230,8 +223,7 @@
               5,
               3
             ]
-          ],
-          4
+          ]
         ],
         "expected": [
           8,
@@ -253,8 +245,7 @@
               -7,
               -9
             ]
-          ],
-          8
+          ]
         ],
         "expected": [],
         "coverage": "lower-bound"
@@ -551,8 +542,7 @@
               2,
               3
             ]
-          ],
-          3
+          ]
         ],
         "expected": [
           5,
@@ -577,8 +567,7 @@
               0,
               -2
             ]
-          ],
-          5
+          ]
         ],
         "expected": [],
         "coverage": "zero-or-minimum"
@@ -604,8 +593,7 @@
               1,
               -1
             ]
-          ],
-          2
+          ]
         ],
         "expected": [
           14,
@@ -614,10 +602,9 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\ndrawers is a list of rows. Add the numbers in each row. Put one total per row in the result list, in row order. An empty row has a total of 0.\n\nReturn the answer\n\nReturn only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return [].\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction drawerGridsPositiveProofStrip(drawers, k) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out.filter(x=>x>0);\n}\n\n\ntypescript\nfunction drawerGridsPositiveProofStrip(drawers: number[][], k: number): number[] {\n  const a=drawers; let out:number[]=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out.filter(x=>x>0);\n}\n\n\npython\ndef drawerGridsPositiveProofStrip(drawers, k):\n    a=drawers\n    out=[]\n    for row in a: out.append(sum(row))\n    return [x for x in out if x>0]\n\n\njava\nclass Solution {\n  public int[] drawerGridsPositiveProofStrip(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {for(int[]row:a){int s=0;for(int x:row)s+=x;out.add(s);}}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+    "editorialMd": "Build rowTotals\n\n`drawers` is a list of rows. Add the numbers in each row. Put one total per row in `rowTotals`, in row order. An empty row has a total of 0.\n\nReturn the answer\n\nCreate a list `positiveValues` that keeps only the numbers in `rowTotals` that are greater than 0, in the same order. Complete `drawerGridsPositiveProofStrip` so it returns `positiveValues`. Return it, do not print it.\n\nWhy this works\n\nEach value in `rowTotals` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction drawerGridsPositiveProofStrip(drawers) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out.filter(x=>x>0);\n}\n\n\ntypescript\nfunction drawerGridsPositiveProofStrip(drawers: number[][]): number[] {\n  const a=drawers; let out:number[]=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out.filter(x=>x>0);\n}\n\n\npython\ndef drawerGridsPositiveProofStrip(drawers):\n    a=drawers\n    out=[]\n    for row in a: out.append(sum(row))\n    return [x for x in out if x>0]\n\n\njava\nclass Solution {\n  public int[] drawerGridsPositiveProofStrip(int[][] drawers) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {for(int[]row:a){int s=0;for(int x:row)s+=x;out.add(s);}}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
   },
   "parameterNames": [
-    "drawers",
-    "k"
+    "drawers"
   ]
 }

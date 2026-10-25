@@ -4,16 +4,22 @@ import {createHash} from 'node:crypto';
 const manifest=JSON.parse(fs.readFileSync('src/data/curriculum.json','utf8'));
 const baselinePath=process.argv[2];
 const baseline=baselinePath?JSON.parse(fs.readFileSync(baselinePath,'utf8')):null;
-const required=['Your task\n','Inputs\n','Step 1: Build the result list\n','Step 2: Return the answer\n','Write your function\n'];
+const required=['Inputs\n','Your tasks\n1. ','Example\nIf ','Test data\nTEST DATA 1: '];
 const rows=[];let examples=0,cases=0;
 for(const entry of manifest){
  const p=JSON.parse(fs.readFileSync(`src/data/problems/level-${entry.level}/${entry.unit}/${entry.slug}.json`,'utf8'));
  for(const heading of required)assert(p.descriptionMd.includes(heading),`${p.slug}: missing ${heading}`);
- assert.equal(p.parameterNames.length,2);assert.equal(p.parameterNames[1],'k');
+ assert([1,2].includes(p.parameterNames.length));if(p.parameterNames.length===2)assert.equal(p.parameterNames[1],'k');
+ assert.equal(p.parameterNames.length,p.javaParams.length,`${p.slug}: Java parameters do not match`);
+ assert.equal(p.parameterNames.length===2,/`k`/.test(p.descriptionMd),`${p.slug}: k is described only when it is a parameter`);
+ for(const c of [...p.cases,...p.privateData.hiddenCases])assert.equal(c.input.length,p.parameterNames.length,`${c.id}: argument count`);
+ // The task text must not work through a test input; only the Test data section names them.
+ const taskText=p.descriptionMd.slice(0,p.descriptionMd.indexOf('Test data\n'));
+ for(const c of p.cases.slice(0,2))assert(!taskText.includes(JSON.stringify(c.input[0]).replace(/,(?=\S)/g,', ')),`${p.slug}: task text uses a test input`);
  assert(p.starterCode.javascript.includes(`(${p.parameterNames.join(', ')})`),`${p.slug}: parameter labels do not match the function`);
  assert(!/derived sequence|inspection-card|scan invariant|qualifying slip|maximal consecutive/i.test([p.descriptionMd,...p.hints,...p.cases.map(c=>c.explanation)].join(' ')),`${p.slug}: old unexplained phrasing`);
  assert(p.constraints.some(c=>c.startsWith('Efficiency goal:')));
- for(const c of p.cases){assert(c.explanation.startsWith('Step 1 gives the result list '));assert(c.explanation.includes('return')||c.explanation.includes('Return'));examples++;}
+ for(const c of p.cases){assert(/^`\w+` is /.test(c.explanation),`${c.id}: explanation should start with the helper list`);assert(c.explanation.includes('return')||c.explanation.includes('Return'));examples++;}
  const {id,slug,functionName,mode,javaParams,inputKinds,timeLimitMs,complexity,referenceSolutions}=p;
  const testCases=[...p.cases,...p.privateData.hiddenCases].map(({id,input,expected,coverage})=>({id,input,expected,coverage}));cases+=testCases.length;
  const contractHash=createHash('sha256').update(JSON.stringify({id,slug,functionName,mode,javaParams,inputKinds,timeLimitMs,complexity,referenceSolutions,cases:testCases})).digest('hex');

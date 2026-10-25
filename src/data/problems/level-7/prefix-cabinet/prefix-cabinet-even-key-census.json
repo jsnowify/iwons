@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-396"
   ],
-  "summary": "Trie prefix counts. Count the even numbers in the result list.",
+  "summary": "Trie prefix counts. Count the even numbers.",
   "stage": "Counting variation",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nwords is a list of words. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nA prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in words, look at all its prefixes with at least one letter. Count how many input words start with each prefix, then add those counts. Count repeated input words separately, and include the word itself. Put one total per word in the result list, in input order.\n\nStep 2: Return the answer\nCount the even numbers in the result list. An even number divides by 2 with no remainder. Count 0 and negative even numbers too. Return the count. An empty list gives 0.\n\nWrite your function\nComplete prefixCabinetEvenKeyCensus(words, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in words, look at all its prefixes with at least one letter. Count how many input words start with each prefix, then add those counts. Count repeated input words separately, and include the word itself. Put one total per word in the result list, in input order. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`words` is a list of `words`.\n\nYour tasks\n1. Create a list `prefixTotals`. A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order.\n2. Count the even numbers in `prefixTotals`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder.\n3. Complete `prefixCabinetEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nExample\nIf `words` is [\"tap\", \"tape\", \"top\", \"tap\"], then `prefixTotals` is [10, 11, 6, 10] and `prefixCabinetEvenKeyCensus` returns 3.\n\nRules\n- If `prefixTotals` is empty, return 0.\n\nTest data\nTEST DATA 1: `words` is [\"ink\", \"inside\", \"inn\", \"paper\"].\nTEST DATA 2: `words` is [\"aa\", \"aa\", \"ab\"].",
+  "unitIntro": "A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order. Each problem in this unit builds `prefixTotals` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
     "There are at most 64 lowercase English words, each with 1 to 12 letters.",
-    "Efficiency goal: time O(total characters); extra memory, including the result list, O(n). n is the input length; total characters means all word lengths added together. These labels describe how work and memory grow with the input."
+    "Efficiency goal: time O(total characters); extra memory, including the helper list, O(n). n is the input length; total characters means all word lengths added together. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in words, look at all its prefixes with at least one letter. Count how many input words start with each prefix, then add those counts. Count repeated input words separately, and include the word itself. Put one total per word in the result list, in input order. Keep track of the numbers or places you have already checked.",
-    "Count the even numbers in the result list. An even number divides by 2 with no remainder. Count 0 and negative even numbers too. Return the count. An empty list gives 0. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `prefixTotals` before you look for the answer.",
+    "A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order. Keep track of the numbers or places you have already checked.",
+    "Count the even numbers in `prefixTotals`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder. If `prefixTotals` is empty, return 0."
   ],
   "functionName": "prefixCabinetEvenKeyCensus",
   "mode": "function",
   "starterCode": {
-    "javascript": "function prefixCabinetEvenKeyCensus(words, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "typescript": "function prefixCabinetEvenKeyCensus(words: string[], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "python": "def prefixCabinetEvenKeyCensus(words, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
-    "java": "class Solution {\n  public int prefixCabinetEvenKeyCensus(String[] words, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
+    "javascript": "function prefixCabinetEvenKeyCensus(words) {\n  // Build prefixTotals, then return the answer.\n  return 0;\n}\n",
+    "typescript": "function prefixCabinetEvenKeyCensus(words: string[]): number {\n  // Build prefixTotals, then return the answer.\n  return 0;\n}\n",
+    "python": "def prefixCabinetEvenKeyCensus(words):\n    # Build prefixTotals, then return the answer.\n    return 0\n",
+    "java": "class Solution {\n  public int prefixCabinetEvenKeyCensus(String[] words) {\n    // Build prefixTotals, then return the answer.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -49,12 +49,11 @@
           "inside",
           "inn",
           "paper"
-        ],
-        3
+        ]
       ],
       "expected": 1,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [7,10,7,5]. The even numbers are [10]. There are 1, so return 1."
+      "explanation": "`prefixTotals` is [7, 10, 7, 5]. The even numbers are [10]. There are 1, so return 1."
     },
     {
       "id": "path3-397-2",
@@ -63,34 +62,31 @@
           "aa",
           "aa",
           "ab"
-        ],
-        2
+        ]
       ],
       "expected": 1,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [5,5,4]. The even numbers are [4]. There are 1, so return 1."
+      "explanation": "`prefixTotals` is [5, 5, 4]. The even numbers are [4]. There are 1, so return 1."
     },
     {
       "id": "path3-397-3",
       "input": [
-        [],
-        1
+        []
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. The even numbers are []. There are 0, so return 0."
+      "explanation": "`prefixTotals` is []. The even numbers are []. There are 0, so return 0."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "String[]",
-    "int"
+    "String[]"
   ],
   "complexity": {
     "time": "O(total characters)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `prefixTotals` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 7,
     "unit": "prefix-cabinet",
@@ -107,12 +103,11 @@
           "inside",
           "inn",
           "paper"
-        ],
-        3
+        ]
       ],
       "expected": 1,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [7,10,7,5]. The even numbers are [10]. There are 1, so return 1."
+      "explanation": "`prefixTotals` is [7, 10, 7, 5]. The even numbers are [10]. There are 1, so return 1."
     },
     {
       "id": "path3-397-2",
@@ -121,19 +116,18 @@
           "aa",
           "aa",
           "ab"
-        ],
-        2
+        ]
       ],
       "expected": 1,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [5,5,4]. The even numbers are [4]. There are 1, so return 1."
+      "explanation": "`prefixTotals` is [5, 5, 4]. The even numbers are [4]. There are 1, so return 1."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function prefixCabinetEvenKeyCensus(words, k) {\n  const a=words; let out=[];\n  const next=[new Map()],counts=[0];for(const word of a){let node=0;for(const c of word){if(!next[node].has(c)){next[node].set(c,next.length);next.push(new Map());counts.push(0);}node=next[node].get(c);counts[node]++;}}for(const word of a){let node=0,s=0;for(const c of word){node=next[node].get(c);s+=counts[node];}out.push(s);}\n  return out.filter(x=>x%2===0).length;\n}\n",
-    "typescript": "function prefixCabinetEvenKeyCensus(words: string[], k: number): number {\n  const a=words; let out:number[]=[];\n  const next=[new Map()],counts=[0];for(const word of a){let node=0;for(const c of word){if(!next[node].has(c)){next[node].set(c,next.length);next.push(new Map());counts.push(0);}node=next[node].get(c);counts[node]++;}}for(const word of a){let node=0,s=0;for(const c of word){node=next[node].get(c);s+=counts[node];}out.push(s);}\n  return out.filter(x=>x%2===0).length;\n}\n",
-    "python": "def prefixCabinetEvenKeyCensus(words, k):\n    a=words\n    out=[]\n    next_nodes=[{}]\n    counts=[0]\n    for word in a:\n        node=0\n        for c in word:\n            if c not in next_nodes[node]:\n                next_nodes[node][c]=len(next_nodes)\n                next_nodes.append({})\n                counts.append(0)\n            node=next_nodes[node][c]\n            counts[node]+=1\n    for word in a:\n        node=0\n        s=0\n        for c in word:\n            node=next_nodes[node][c]\n            s+=counts[node]\n        out.append(s)\n    return sum(x%2==0 for x in out)\n",
-    "java": "class Solution {\n  public int prefixCabinetEvenKeyCensus(String[] words, int k) {\n    String[] a=words; List<Integer> out=new ArrayList<>();\n    {List<Map<Character,Integer>>next=new ArrayList<>();next.add(new HashMap<>());List<Integer>counts=new ArrayList<>();counts.add(0);for(String word:a){int node=0;for(char c:word.toCharArray()){if(!next.get(node).containsKey(c)){next.get(node).put(c,next.size());next.add(new HashMap<>());counts.add(0);}node=next.get(node).get(c);counts.set(node,counts.get(node)+1);}}for(String word:a){int node=0,s=0;for(char c:word.toCharArray()){node=next.get(node).get(c);s+=counts.get(node);}out.add(s);}}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
+    "javascript": "function prefixCabinetEvenKeyCensus(words) {\n  const a=words; let out=[];\n  const next=[new Map()],counts=[0];for(const word of a){let node=0;for(const c of word){if(!next[node].has(c)){next[node].set(c,next.length);next.push(new Map());counts.push(0);}node=next[node].get(c);counts[node]++;}}for(const word of a){let node=0,s=0;for(const c of word){node=next[node].get(c);s+=counts[node];}out.push(s);}\n  return out.filter(x=>x%2===0).length;\n}\n",
+    "typescript": "function prefixCabinetEvenKeyCensus(words: string[]): number {\n  const a=words; let out:number[]=[];\n  const next=[new Map()],counts=[0];for(const word of a){let node=0;for(const c of word){if(!next[node].has(c)){next[node].set(c,next.length);next.push(new Map());counts.push(0);}node=next[node].get(c);counts[node]++;}}for(const word of a){let node=0,s=0;for(const c of word){node=next[node].get(c);s+=counts[node];}out.push(s);}\n  return out.filter(x=>x%2===0).length;\n}\n",
+    "python": "def prefixCabinetEvenKeyCensus(words):\n    a=words\n    out=[]\n    next_nodes=[{}]\n    counts=[0]\n    for word in a:\n        node=0\n        for c in word:\n            if c not in next_nodes[node]:\n                next_nodes[node][c]=len(next_nodes)\n                next_nodes.append({})\n                counts.append(0)\n            node=next_nodes[node][c]\n            counts[node]+=1\n    for word in a:\n        node=0\n        s=0\n        for c in word:\n            node=next_nodes[node][c]\n            s+=counts[node]\n        out.append(s)\n    return sum(x%2==0 for x in out)\n",
+    "java": "class Solution {\n  public int prefixCabinetEvenKeyCensus(String[] words) {\n    String[] a=words; List<Integer> out=new ArrayList<>();\n    {List<Map<Character,Integer>>next=new ArrayList<>();next.add(new HashMap<>());List<Integer>counts=new ArrayList<>();counts.add(0);for(String word:a){int node=0;for(char c:word.toCharArray()){if(!next.get(node).containsKey(c)){next.get(node).put(c,next.size());next.add(new HashMap<>());counts.add(0);}node=next.get(node).get(c);counts.set(node,counts.get(node)+1);}}for(String word:a){int node=0,s=0;for(char c:word.toCharArray()){node=next.get(node).get(c);s+=counts.get(node);}out.add(s);}}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -142,8 +136,7 @@
         "input": [
           [
             "z"
-          ],
-          1
+          ]
         ],
         "expected": 0,
         "coverage": "singleton"
@@ -155,8 +148,7 @@
             "a",
             "a",
             "a"
-          ],
-          4
+          ]
         ],
         "expected": 0,
         "coverage": "duplicates-or-redundancy"
@@ -167,8 +159,7 @@
           [
             "a",
             "z"
-          ],
-          8
+          ]
         ],
         "expected": 0,
         "coverage": "lower-bound"
@@ -241,8 +232,7 @@
             "inkpaperdesk",
             "inkpaperpage",
             "inkpaperdesk"
-          ],
-          3
+          ]
         ],
         "expected": 64,
         "coverage": "maximum-size"
@@ -253,8 +243,7 @@
           [
             "a",
             "b"
-          ],
-          5
+          ]
         ],
         "expected": 0,
         "coverage": "zero-or-minimum"
@@ -266,17 +255,15 @@
             "paper",
             "pa",
             "p"
-          ],
-          2
+          ]
         ],
         "expected": 1,
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nA prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in words, look at all its prefixes with at least one letter. Count how many input words start with each prefix, then add those counts. Count repeated input words separately, and include the word itself. Put one total per word in the result list, in input order.\n\nReturn the answer\n\nCount the even numbers in the result list. An even number divides by 2 with no remainder. Count 0 and negative even numbers too. Return the count. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(total characters); extra memory, including the result list, O(n). n is the input length; total characters means all word lengths added together. These labels describe how work and memory grow with the input.\n\njavascript\nfunction prefixCabinetEvenKeyCensus(words, k) {\n  const a=words; let out=[];\n  const next=[new Map()],counts=[0];for(const word of a){let node=0;for(const c of word){if(!next[node].has(c)){next[node].set(c,next.length);next.push(new Map());counts.push(0);}node=next[node].get(c);counts[node]++;}}for(const word of a){let node=0,s=0;for(const c of word){node=next[node].get(c);s+=counts[node];}out.push(s);}\n  return out.filter(x=>x%2===0).length;\n}\n\n\ntypescript\nfunction prefixCabinetEvenKeyCensus(words: string[], k: number): number {\n  const a=words; let out:number[]=[];\n  const next=[new Map()],counts=[0];for(const word of a){let node=0;for(const c of word){if(!next[node].has(c)){next[node].set(c,next.length);next.push(new Map());counts.push(0);}node=next[node].get(c);counts[node]++;}}for(const word of a){let node=0,s=0;for(const c of word){node=next[node].get(c);s+=counts[node];}out.push(s);}\n  return out.filter(x=>x%2===0).length;\n}\n\n\npython\ndef prefixCabinetEvenKeyCensus(words, k):\n    a=words\n    out=[]\n    next_nodes=[{}]\n    counts=[0]\n    for word in a:\n        node=0\n        for c in word:\n            if c not in next_nodes[node]:\n                next_nodes[node][c]=len(next_nodes)\n                next_nodes.append({})\n                counts.append(0)\n            node=next_nodes[node][c]\n            counts[node]+=1\n    for word in a:\n        node=0\n        s=0\n        for c in word:\n            node=next_nodes[node][c]\n            s+=counts[node]\n        out.append(s)\n    return sum(x%2==0 for x in out)\n\n\njava\nclass Solution {\n  public int prefixCabinetEvenKeyCensus(String[] words, int k) {\n    String[] a=words; List<Integer> out=new ArrayList<>();\n    {List<Map<Character,Integer>>next=new ArrayList<>();next.add(new HashMap<>());List<Integer>counts=new ArrayList<>();counts.add(0);for(String word:a){int node=0;for(char c:word.toCharArray()){if(!next.get(node).containsKey(c)){next.get(node).put(c,next.size());next.add(new HashMap<>());counts.add(0);}node=next.get(node).get(c);counts.set(node,counts.get(node)+1);}}for(String word:a){int node=0,s=0;for(char c:word.toCharArray()){node=next.get(node).get(c);s+=counts.get(node);}out.add(s);}}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
+    "editorialMd": "Build prefixTotals\n\nA prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order.\n\nReturn the answer\n\nCount the even numbers in `prefixTotals`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder. Complete `prefixCabinetEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nWhy this works\n\nEach value in `prefixTotals` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(total characters); extra memory, including the helper list, O(n). n is the input length; total characters means all word lengths added together. These labels describe how work and memory grow with the input.\n\njavascript\nfunction prefixCabinetEvenKeyCensus(words) {\n  const a=words; let out=[];\n  const next=[new Map()],counts=[0];for(const word of a){let node=0;for(const c of word){if(!next[node].has(c)){next[node].set(c,next.length);next.push(new Map());counts.push(0);}node=next[node].get(c);counts[node]++;}}for(const word of a){let node=0,s=0;for(const c of word){node=next[node].get(c);s+=counts[node];}out.push(s);}\n  return out.filter(x=>x%2===0).length;\n}\n\n\ntypescript\nfunction prefixCabinetEvenKeyCensus(words: string[]): number {\n  const a=words; let out:number[]=[];\n  const next=[new Map()],counts=[0];for(const word of a){let node=0;for(const c of word){if(!next[node].has(c)){next[node].set(c,next.length);next.push(new Map());counts.push(0);}node=next[node].get(c);counts[node]++;}}for(const word of a){let node=0,s=0;for(const c of word){node=next[node].get(c);s+=counts[node];}out.push(s);}\n  return out.filter(x=>x%2===0).length;\n}\n\n\npython\ndef prefixCabinetEvenKeyCensus(words):\n    a=words\n    out=[]\n    next_nodes=[{}]\n    counts=[0]\n    for word in a:\n        node=0\n        for c in word:\n            if c not in next_nodes[node]:\n                next_nodes[node][c]=len(next_nodes)\n                next_nodes.append({})\n                counts.append(0)\n            node=next_nodes[node][c]\n            counts[node]+=1\n    for word in a:\n        node=0\n        s=0\n        for c in word:\n            node=next_nodes[node][c]\n            s+=counts[node]\n        out.append(s)\n    return sum(x%2==0 for x in out)\n\n\njava\nclass Solution {\n  public int prefixCabinetEvenKeyCensus(String[] words) {\n    String[] a=words; List<Integer> out=new ArrayList<>();\n    {List<Map<Character,Integer>>next=new ArrayList<>();next.add(new HashMap<>());List<Integer>counts=new ArrayList<>();counts.add(0);for(String word:a){int node=0;for(char c:word.toCharArray()){if(!next.get(node).containsKey(c)){next.get(node).put(c,next.size());next.add(new HashMap<>());counts.add(0);}node=next.get(node).get(c);counts.set(node,counts.get(node)+1);}}for(String word:a){int node=0,s=0;for(char c:word.toCharArray()){node=next.get(node).get(c);s+=counts.get(node);}out.add(s);}}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
   },
   "parameterNames": [
-    "words",
-    "k"
+    "words"
   ]
 }

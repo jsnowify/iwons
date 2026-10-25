@@ -68,7 +68,7 @@ export const plainTasks = [
  'Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.',
 ];
 
-const kKernels=new Set(['windowSum','shortWindow','prefixRanges','windowMax','roundRobin','bst','knapsack']);
+import { listNames, modeTasks, guidedRule, kNote } from './guided-tasks.mjs';
 export function inputHelp(kernel,name) {
  const family=kernel.family;
  const help={
@@ -89,17 +89,17 @@ export function inputHelp(kernel,name) {
   dimensions:`${name} is a list of positive whole numbers that describe matrix sizes.`,
   masks:`${name} is a list of permission masks, one per desk. A mask is a whole number whose binary digits show which clerks are allowed.`,
  };
- return help[family]??`${name} is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise.`;
+ return help[family]??`${name} is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.`;
 }
-const show=value=>JSON.stringify(value);
-export function explainResult(sequence,expected,mode,k) {
- const prefix=`Step 1 gives the result list ${show(sequence)}.`;
+const show=value=>JSON.stringify(value).replace(/,(?=\S)/g,", ");
+export function explainResult(sequence,expected,mode,k,list,fn) {
+ const L=`\`${list}\``,prefix=`${L} is ${show(sequence)}.`;
  const matches=sequence.filter(x=>x>=k),positive=sequence.filter(x=>x>0),even=sequence.filter(x=>x%2===0);
  const actions=[
-  `Step 2 asks for that whole list, so return ${show(expected)}.`,
+  `\`${fn}\` returns that whole list, so return ${show(expected)}.`,
   `Add its numbers to get ${expected}. Return ${expected}.`,
-  `Here k = ${k}. The numbers at least ${k} are ${show(matches)}. There are ${expected}, so return ${expected}.`,
-  matches.length?`Here k = ${k}. The first number at least ${k} is ${expected}. Return that value.`:`Here k = ${k}. No number is at least ${k}, so return -1.`,
+  `Here \`k\` is ${k}. The numbers at least ${k} are ${show(matches)}. There are ${expected}, so return ${expected}.`,
+  matches.length?`Here \`k\` is ${k}. The first number at least ${k} is ${expected}. Return that value.`:`Here \`k\` is ${k}. No number is at least ${k}, so return -1.`,
   sequence.length?`The largest number is ${expected}. Return ${expected}.`:'The list is empty, so return 0.',
   sequence.length?`The smallest number is ${expected}. Return ${expected}.`:'The list is empty, so return 0.',
   `The even numbers are ${show(even)}. There are ${expected}, so return ${expected}.`,
@@ -110,8 +110,9 @@ export function explainResult(sequence,expected,mode,k) {
  return `${prefix} ${actions[mode]}`;
 }
 function plainConstraint(text) {
- return text.replace(/Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules\./,'Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.')
+ return text.replace(/Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules\./,'Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.')
   .replace('1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.','k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.')
+  .replace(/^All arithmetic results fit a signed 32-bit integer\.$/,'Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.')
   .replace('The line contains ASCII characters; the only word separator is a space.','The text uses ASCII characters (a basic character set). Only an ordinary space separates words.')
   .replace('Readings are integers from','Input numbers are whole numbers from')
   .replace('Lists are acyclic. Trees use level-order JSON with null for missing children; [] is an empty root. The runner supplies nodes with val/next or val/left/right.','Linked lists do not loop back to an earlier node. Tree examples list nodes by level; null means a missing child. The runner builds the nodes shown in the examples.')
@@ -119,29 +120,37 @@ function plainConstraint(text) {
   .replace('There are at most 6 desks. Every mask is between 0 and (1 << n) - 1.','There are at most 6 desks. Each permission mask is from 0 to 2 to the power n, minus 1, where n is the number of desks. For n = 3, masks range from 0 to 7.')
   .replace('JSON null placeholders do not count as nodes.','null marks a missing child and does not count as a node.');
 }
-export function rewriteProblem(p,{unit,kernel,mode,input,sequences}) {
- const usesK=kKernels.has(unit.kernel)||mode===2||mode===3;
- const kHelp=usesK?'k is a whole number. Use it as described in the steps below.':'k is included in the function call, but this task does not use it. You can ignore it.';
- const glossary={n:'n is the input length',d:'d is the number of different values',q:'q is the number of queries',M:'M is the largest input number',V:'V is the number of graph points',E:'E is the number of graph links',h:'h is the longest root-to-leaf path in the tree; a leaf is a node with no children',r:'r is the number of tree values found',total:'total is all job work time added together'};
+// Describes one test input as a sentence, using the learner's parameter names.
+function testData(c,inputName,withK) {
+ const first=`\`${inputName}\` is ${show(c.input[0])}`;
+ return withK?`${first} and \`k\` is ${c.input[1]}.`:`${first}.`;
+}
+export function rewriteProblem(p,{unit,kernel,mode,input,sequences,kValues,withK,example,traits}) {
+ const glossary={n:'n is the input length',d:'d is the number of different values',q:'q is the number of queries',M:'M is the largest input number',V:'V is the number of graph points',E:'E is the number of graph links',h:'h is the longest root-to-leaf path in the tree; a leaf is a node with no children',r:'r is the number of tree values found',total:'total is all job work time added together'}
  if(kernel.family==='queries')glossary.n='n is the length of the sorted number list';
  if(kernel.family==='pair')glossary.n='n is the combined length of the two lists';
  if(['tree','bst','list'].includes(kernel.family))glossary.n='n is the number of nodes';
  if(unit.kernel==='trie')glossary.total='total characters means all word lengths added together';
  const symbols=Object.entries(glossary).filter(([symbol])=>new RegExp(`\\b${symbol}\\b`).test(`${unit.time} ${unit.space}`)).map(([,meaning])=>meaning);
- const efficiency=`Efficiency goal: time ${unit.time}; extra memory, including the result list, ${unit.space}. ${symbols.length?symbols.join('; ')+'. ':''}These labels describe how work and memory grow with the input.`;
- const intro=`${unit.definition} Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.`;
- return {...p,parameterNames:[input.name,'k'],summary:`${unit.idea}. ${plainTasks[mode].split('. ')[0].replace(/\.$/,'')}.`,descriptionMd:[
-  'Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.',
-  `Inputs\n${inputHelp(kernel,input.name)} ${kHelp}`,
-  `Step 1: Build the result list\n${unit.definition}`,
-  `Step 2: Return the answer\n${plainTasks[mode]}`,
-  `Write your function\nComplete ${p.functionName}(${input.name}, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.`,
- ].join('\n\n'),unitIntro:intro,constraints:[...p.constraints.filter(text=>!text.startsWith('Target time')).map(plainConstraint),efficiency],
- hints:[`Try a small example by hand. Follow Step 1 and write down its result list.`,`${unit.definition} Keep track of the numbers or places you have already checked.`,`${plainTasks[mode]} Check what to do if the result list is empty.`],
- overview:`The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.`,
- starterCode:Object.fromEntries(Object.entries(p.starterCode).map(([language,code])=>[language,code.replaceAll('Derive the sequence, then compute the requested receipt.','Build the result list, then return the answer from Step 2.')])),
- cases:p.cases.map((c,i)=>({...c,explanation:explainResult(sequences[i],c.expected,mode,c.input[1])})),
- workedExamples:p.workedExamples.map((c,i)=>({...c,explanation:explainResult(sequences[i],c.expected,mode,c.input[1])})),
- privateData:{...p.privateData,editorialMd:`Build the result list\n\n${unit.definition}\n\nReturn the answer\n\n${plainTasks[mode]}\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\n${efficiency}\n\n${Object.entries(p.referenceSolutions).map(([language,code])=>`${language}\n${code}`).join('\n\n')}`},
+ const efficiency=`Efficiency goal: time ${unit.time}; extra memory, including the helper list, ${unit.space}. ${symbols.length?symbols.join('; ')+'. ':''}These labels describe how work and memory grow with the input.`;
+ const list=listNames[unit.kernel],fn=p.functionName,name=input.name,task=modeTasks(mode,list,traits);
+ const rule=guidedRule(unit.definition,list,name);
+ const tasks=[`Create a list \`${list}\`. ${rule}`,...task.steps,`Complete \`${fn}\` so it returns \`${task.answer}\`. Return it, do not print it.`];
+ const rules=[...task.rules,...(withK?[kNote(unit.kernel,mode)]:[])];
+ const worked=`If ${testData(example,name,withK).replace(/\.$/,'')}, then \`${list}\` is ${show(example.sequence)} and \`${fn}\` returns ${show(example.expected)}.`;
+ const inputs=guidedRule(inputHelp(kernel,name),list,name);
+ return {...p,parameterNames:withK?[name,'k']:[name],summary:`${unit.idea}. ${task.summary}.`,descriptionMd:[
+  `Inputs\n${inputs}`,
+  `Your tasks\n${tasks.map((text,i)=>`${i+1}. ${text}`).join('\n')}`,
+  `Example\n${worked}`,
+  ...(rules.length?[`Rules\n${rules.map(text=>`- ${text}`).join('\n')}`]:[]),
+  `Test data\n${p.cases.slice(0,2).map((c,i)=>`TEST DATA ${i+1}: ${testData(c,name,withK)}`).join('\n')}`,
+ ].join('\n\n'),unitIntro:`${rule} Each problem in this unit builds \`${list}\` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.`,constraints:[...p.constraints.filter(text=>!text.startsWith('Target time')).map(plainConstraint),efficiency],
+  hints:[`Work through TEST DATA 1 by hand. Write down \`${list}\` before you look for the answer.`,`${rule} Keep track of the numbers or places you have already checked.`,`${task.steps.length?task.steps.join(' '):`Return \`${list}\` once it is complete.`} ${task.rules[0]??'Return the value; do not print it.'}`],
+  overview:`Build \`${list}\` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.`,
+  starterCode:Object.fromEntries(Object.entries(p.starterCode).map(([language,code])=>[language,code.replaceAll('Derive the sequence, then compute the requested receipt.',`Build ${list}, then return the answer.`)])),
+  cases:p.cases.map((c,i)=>({...c,explanation:explainResult(sequences[i],c.expected,mode,kValues[i],list,fn)})),
+  workedExamples:p.workedExamples.map((c,i)=>({...c,explanation:explainResult(sequences[i],c.expected,mode,kValues[i],list,fn)})),
+  privateData:{...p.privateData,editorialMd:`Build ${list}\n\n${rule}\n\nReturn the answer\n\n${tasks.slice(1).join(' ')}\n\nWhy this works\n\nEach value in \`${list}\` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\n${efficiency}\n\n${Object.entries(p.referenceSolutions).map(([language,code])=>`${language}\n${code}`).join('\n\n')}`},
  };
 }

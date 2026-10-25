@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-131"
   ],
-  "summary": "Read and write pointers. Return the whole result list in the order you built it.",
+  "summary": "Read and write pointers. Return the whole list.",
   "stage": "Warm-up",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nreadings is already sorted from smallest to largest. Keep only one copy of each number. Put these numbers in the result list in sorted order.\n\nStep 2: Return the answer\nReturn the whole result list in the order you built it. If it is empty, return [].\n\nWrite your function\nComplete duplicateCarriageProofStrip(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "readings is already sorted from smallest to largest. Keep only one copy of each number. Put these numbers in the result list in sorted order. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `distinctSorted`. `readings` is already sorted from smallest to largest. Keep only one copy of each number. Put these numbers in `distinctSorted` in sorted order.\n2. Complete `duplicateCarriageProofStrip` so it returns `distinctSorted`. Return it, do not print it.\n\nExample\nIf `readings` is [-1, 2, 6, 6], then `distinctSorted` is [-1, 2, 6] and `duplicateCarriageProofStrip` returns [-1, 2, 6].\n\nRules\n- If `distinctSorted` is empty, return [].\n\nTest data\nTEST DATA 1: `readings` is [-3, 0, 7, 7, 12].\nTEST DATA 2: `readings` is [-2, 4, 4, 4].",
+  "unitIntro": "`readings` is already sorted from smallest to largest. Keep only one copy of each number. Put these numbers in `distinctSorted` in sorted order. Each problem in this unit builds `distinctSorted` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
-    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
+    "Efficiency goal: time O(n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "readings is already sorted from smallest to largest. Keep only one copy of each number. Put these numbers in the result list in sorted order. Keep track of the numbers or places you have already checked.",
-    "Return the whole result list in the order you built it. If it is empty, return []. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `distinctSorted` before you look for the answer.",
+    "`readings` is already sorted from smallest to largest. Keep only one copy of each number. Put these numbers in `distinctSorted` in sorted order. Keep track of the numbers or places you have already checked.",
+    "Return `distinctSorted` once it is complete. If `distinctSorted` is empty, return []."
   ],
   "functionName": "duplicateCarriageProofStrip",
   "mode": "function",
   "starterCode": {
-    "javascript": "function duplicateCarriageProofStrip(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "typescript": "function duplicateCarriageProofStrip(readings: number[], k: number): number[] {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "python": "def duplicateCarriageProofStrip(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return []\n",
-    "java": "class Solution {\n  public int[] duplicateCarriageProofStrip(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return new int[0];\n  }\n}\n"
+    "javascript": "function duplicateCarriageProofStrip(readings) {\n  // Build distinctSorted, then return the answer.\n  return [];\n}\n",
+    "typescript": "function duplicateCarriageProofStrip(readings: number[]): number[] {\n  // Build distinctSorted, then return the answer.\n  return [];\n}\n",
+    "python": "def duplicateCarriageProofStrip(readings):\n    # Build distinctSorted, then return the answer.\n    return []\n",
+    "java": "class Solution {\n  public int[] duplicateCarriageProofStrip(int[] readings) {\n    // Build distinctSorted, then return the answer.\n    return new int[0];\n  }\n}\n"
   },
   "cases": [
     {
@@ -50,8 +50,7 @@
           7,
           7,
           12
-        ],
-        3
+        ]
       ],
       "expected": [
         -3,
@@ -60,7 +59,7 @@
         12
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-3,0,7,12]. Step 2 asks for that whole list, so return [-3,0,7,12]."
+      "explanation": "`distinctSorted` is [-3, 0, 7, 12]. `duplicateCarriageProofStrip` returns that whole list, so return [-3, 0, 7, 12]."
     },
     {
       "id": "path3-140-2",
@@ -70,37 +69,34 @@
           4,
           4,
           4
-        ],
-        2
+        ]
       ],
       "expected": [
         -2,
         4
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-2,4]. Step 2 asks for that whole list, so return [-2,4]."
+      "explanation": "`distinctSorted` is [-2, 4]. `duplicateCarriageProofStrip` returns that whole list, so return [-2, 4]."
     },
     {
       "id": "path3-140-3",
       "input": [
-        [],
-        1
+        []
       ],
       "expected": [],
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. Step 2 asks for that whole list, so return []."
+      "explanation": "`distinctSorted` is []. `duplicateCarriageProofStrip` returns that whole list, so return []."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "int[]",
-    "int"
+    "int[]"
   ],
   "complexity": {
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `distinctSorted` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 3,
     "unit": "duplicate-carriage",
@@ -118,8 +114,7 @@
           7,
           7,
           12
-        ],
-        3
+        ]
       ],
       "expected": [
         -3,
@@ -128,7 +123,7 @@
         12
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-3,0,7,12]. Step 2 asks for that whole list, so return [-3,0,7,12]."
+      "explanation": "`distinctSorted` is [-3, 0, 7, 12]. `duplicateCarriageProofStrip` returns that whole list, so return [-3, 0, 7, 12]."
     },
     {
       "id": "path3-140-2",
@@ -138,22 +133,21 @@
           4,
           4,
           4
-        ],
-        2
+        ]
       ],
       "expected": [
         -2,
         4
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-2,4]. Step 2 asks for that whole list, so return [-2,4]."
+      "explanation": "`distinctSorted` is [-2, 4]. `duplicateCarriageProofStrip` returns that whole list, so return [-2, 4]."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function duplicateCarriageProofStrip(readings, k) {\n  const a=readings; let out=[];\n  let write=0;for(let read=0;read<a.length;read++)if(write===0||a[read]!==a[write-1])a[write++]=a[read];out=a.slice(0,write);\n  return out;\n}\n",
-    "typescript": "function duplicateCarriageProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  let write=0;for(let read=0;read<a.length;read++)if(write===0||a[read]!==a[write-1])a[write++]=a[read];out=a.slice(0,write);\n  return out;\n}\n",
-    "python": "def duplicateCarriageProofStrip(readings, k):\n    a=readings\n    out=[]\n    write=0\n    for read in range(len(a)):\n        if write==0 or a[read]!=a[write-1]:\n            a[write]=a[read]\n            write+=1\n    out=a[:write]\n    return out\n",
-    "java": "class Solution {\n  public int[] duplicateCarriageProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int write=0;for(int read=0;read<a.length;read++)if(write==0||a[read]!=a[write-1])a[write++]=a[read];for(int i=0;i<write;i++)out.add(a[i]);}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+    "javascript": "function duplicateCarriageProofStrip(readings) {\n  const a=readings; let out=[];\n  let write=0;for(let read=0;read<a.length;read++)if(write===0||a[read]!==a[write-1])a[write++]=a[read];out=a.slice(0,write);\n  return out;\n}\n",
+    "typescript": "function duplicateCarriageProofStrip(readings: number[]): number[] {\n  const a=readings; let out:number[]=[];\n  let write=0;for(let read=0;read<a.length;read++)if(write===0||a[read]!==a[write-1])a[write++]=a[read];out=a.slice(0,write);\n  return out;\n}\n",
+    "python": "def duplicateCarriageProofStrip(readings):\n    a=readings\n    out=[]\n    write=0\n    for read in range(len(a)):\n        if write==0 or a[read]!=a[write-1]:\n            a[write]=a[read]\n            write+=1\n    out=a[:write]\n    return out\n",
+    "java": "class Solution {\n  public int[] duplicateCarriageProofStrip(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int write=0;for(int read=0;read<a.length;read++)if(write==0||a[read]!=a[write-1])a[write++]=a[read];for(int i=0;i<write;i++)out.add(a[i]);}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -162,8 +156,7 @@
         "input": [
           [
             9
-          ],
-          1
+          ]
         ],
         "expected": [
           9
@@ -178,8 +171,7 @@
             5,
             5,
             5
-          ],
-          4
+          ]
         ],
         "expected": [
           5
@@ -193,8 +185,7 @@
             -20,
             -7,
             -1
-          ],
-          8
+          ]
         ],
         "expected": [
           -20,
@@ -271,8 +262,7 @@
             19,
             20,
             20
-          ],
-          3
+          ]
         ],
         "expected": [
           -20,
@@ -326,8 +316,7 @@
             0,
             0,
             0
-          ],
-          5
+          ]
         ],
         "expected": [
           0
@@ -343,8 +332,7 @@
             3,
             8,
             8
-          ],
-          2
+          ]
         ],
         "expected": [
           -2,
@@ -355,10 +343,9 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nreadings is already sorted from smallest to largest. Keep only one copy of each number. Put these numbers in the result list in sorted order.\n\nReturn the answer\n\nReturn the whole result list in the order you built it. If it is empty, return [].\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction duplicateCarriageProofStrip(readings, k) {\n  const a=readings; let out=[];\n  let write=0;for(let read=0;read<a.length;read++)if(write===0||a[read]!==a[write-1])a[write++]=a[read];out=a.slice(0,write);\n  return out;\n}\n\n\ntypescript\nfunction duplicateCarriageProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  let write=0;for(let read=0;read<a.length;read++)if(write===0||a[read]!==a[write-1])a[write++]=a[read];out=a.slice(0,write);\n  return out;\n}\n\n\npython\ndef duplicateCarriageProofStrip(readings, k):\n    a=readings\n    out=[]\n    write=0\n    for read in range(len(a)):\n        if write==0 or a[read]!=a[write-1]:\n            a[write]=a[read]\n            write+=1\n    out=a[:write]\n    return out\n\n\njava\nclass Solution {\n  public int[] duplicateCarriageProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int write=0;for(int read=0;read<a.length;read++)if(write==0||a[read]!=a[write-1])a[write++]=a[read];for(int i=0;i<write;i++)out.add(a[i]);}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+    "editorialMd": "Build distinctSorted\n\n`readings` is already sorted from smallest to largest. Keep only one copy of each number. Put these numbers in `distinctSorted` in sorted order.\n\nReturn the answer\n\nComplete `duplicateCarriageProofStrip` so it returns `distinctSorted`. Return it, do not print it.\n\nWhy this works\n\nEach value in `distinctSorted` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction duplicateCarriageProofStrip(readings) {\n  const a=readings; let out=[];\n  let write=0;for(let read=0;read<a.length;read++)if(write===0||a[read]!==a[write-1])a[write++]=a[read];out=a.slice(0,write);\n  return out;\n}\n\n\ntypescript\nfunction duplicateCarriageProofStrip(readings: number[]): number[] {\n  const a=readings; let out:number[]=[];\n  let write=0;for(let read=0;read<a.length;read++)if(write===0||a[read]!==a[write-1])a[write++]=a[read];out=a.slice(0,write);\n  return out;\n}\n\n\npython\ndef duplicateCarriageProofStrip(readings):\n    a=readings\n    out=[]\n    write=0\n    for read in range(len(a)):\n        if write==0 or a[read]!=a[write-1]:\n            a[write]=a[read]\n            write+=1\n    out=a[:write]\n    return out\n\n\njava\nclass Solution {\n  public int[] duplicateCarriageProofStrip(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int write=0;for(int read=0;read<a.length;read++)if(write==0||a[read]!=a[write-1])a[write++]=a[read];for(int i=0;i<write;i++)out.add(a[i]);}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
   },
   "parameterNames": [
-    "readings",
-    "k"
+    "readings"
   ]
 }

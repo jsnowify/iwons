@@ -16,30 +16,30 @@
   "prerequisites": [
     "path3-023"
   ],
-  "summary": "State in a loop. Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on.",
+  "summary": "State in a loop. Return the position-weighted total.",
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Earlier foundation work; the first unit establishes the prerequisite",
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nStart a total at 0. Read readings from left to right. If the next number is 0, reset the total to 0. Otherwise, add that number to the total. Put the total in the result list after each number.\n\nStep 2: Return the answer\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWrite your function\nComplete resetTalliesBossReceipt(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "Start a total at 0. Read readings from left to right. If the next number is 0, reset the total to 0. Otherwise, add that number to the total. Put the total in the result list after each number. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `tallies`. Start a total at 0. Read `readings` from left to right. If the next number is 0, reset the total to 0. Otherwise, add that number to the total. Put the total in `tallies` after each number.\n2. Multiply each number in `tallies` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `resetTalliesBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `tallies` is [6, 5, 11, 13] and `resetTalliesBossReceipt` returns 101.\n\nRules\n- If `tallies` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "unitIntro": "Start a total at 0. Read `readings` from left to right. If the next number is 0, reset the total to 0. Otherwise, add that number to the total. Put the total in `tallies` after each number. Each problem in this unit builds `tallies` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
-    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
+    "Efficiency goal: time O(n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "Start a total at 0. Read readings from left to right. If the next number is 0, reset the total to 0. Otherwise, add that number to the total. Put the total in the result list after each number. Keep track of the numbers or places you have already checked.",
-    "Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `tallies` before you look for the answer.",
+    "Start a total at 0. Read `readings` from left to right. If the next number is 0, reset the total to 0. Otherwise, add that number to the total. Put the total in `tallies` after each number. Keep track of the numbers or places you have already checked.",
+    "Multiply each number in `tallies` by its position, counting from 1: the first number by 1, the second by 2, and so on. Add those products. Store the sum in `weightedTotal`. If `tallies` is empty, return 0."
   ],
   "functionName": "resetTalliesBossReceipt",
   "mode": "function",
   "starterCode": {
-    "javascript": "function resetTalliesBossReceipt(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "typescript": "function resetTalliesBossReceipt(readings: number[], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "python": "def resetTalliesBossReceipt(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
-    "java": "class Solution {\n  public int resetTalliesBossReceipt(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
+    "javascript": "function resetTalliesBossReceipt(readings) {\n  // Build tallies, then return the answer.\n  return 0;\n}\n",
+    "typescript": "function resetTalliesBossReceipt(readings: number[]): number {\n  // Build tallies, then return the answer.\n  return 0;\n}\n",
+    "python": "def resetTalliesBossReceipt(readings):\n    # Build tallies, then return the answer.\n    return 0\n",
+    "java": "class Solution {\n  public int resetTalliesBossReceipt(int[] readings) {\n    // Build tallies, then return the answer.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -51,12 +51,11 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": 108,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [7,4,11,0,12]. Multiply by positions that start at 1: 1 * (7) + 2 * (4) + 3 * (11) + 4 * (0) + 5 * (12) = 108. Return 108."
+      "explanation": "`tallies` is [7, 4, 11, 0, 12]. Multiply by positions that start at 1: 1 * (7) + 2 * (4) + 3 * (11) + 4 * (0) + 5 * (12) = 108. Return 108."
     },
     {
       "id": "path3-024-2",
@@ -66,34 +65,31 @@
           4,
           -2,
           4
-        ],
-        2
+        ]
       ],
       "expected": 78,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,8,6,10]. Multiply by positions that start at 1: 1 * (4) + 2 * (8) + 3 * (6) + 4 * (10) = 78. Return 78."
+      "explanation": "`tallies` is [4, 8, 6, 10]. Multiply by positions that start at 1: 1 * (4) + 2 * (8) + 3 * (6) + 4 * (10) = 78. Return 78."
     },
     {
       "id": "path3-024-3",
       "input": [
-        [],
-        1
+        []
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. There are no numbers to multiply or add, so return 0."
+      "explanation": "`tallies` is []. There are no numbers to multiply or add, so return 0."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "int[]",
-    "int"
+    "int[]"
   ],
   "complexity": {
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `tallies` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 0,
     "unit": "reset-tallies",
@@ -111,12 +107,11 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": 108,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [7,4,11,0,12]. Multiply by positions that start at 1: 1 * (7) + 2 * (4) + 3 * (11) + 4 * (0) + 5 * (12) = 108. Return 108."
+      "explanation": "`tallies` is [7, 4, 11, 0, 12]. Multiply by positions that start at 1: 1 * (7) + 2 * (4) + 3 * (11) + 4 * (0) + 5 * (12) = 108. Return 108."
     },
     {
       "id": "path3-024-2",
@@ -126,19 +121,18 @@
           4,
           -2,
           4
-        ],
-        2
+        ]
       ],
       "expected": 78,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,8,6,10]. Multiply by positions that start at 1: 1 * (4) + 2 * (8) + 3 * (6) + 4 * (10) = 78. Return 78."
+      "explanation": "`tallies` is [4, 8, 6, 10]. Multiply by positions that start at 1: 1 * (4) + 2 * (8) + 3 * (6) + 4 * (10) = 78. Return 78."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function resetTalliesBossReceipt(readings, k) {\n  const a=readings; let out=[];\n  let total=0;for(const x of a){total=x===0?0:total+x;out.push(total);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
-    "typescript": "function resetTalliesBossReceipt(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  let total=0;for(const x of a){total=x===0?0:total+x;out.push(total);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
-    "python": "def resetTalliesBossReceipt(readings, k):\n    a=readings\n    out=[]\n    total=0\n    for x in a:\n        total=0 if x==0 else total+x\n        out.append(total)\n    return sum((i+1)*x for i,x in enumerate(out))\n",
-    "java": "class Solution {\n  public int resetTalliesBossReceipt(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int total=0;for(int x:a){total=x==0?0:total+x;out.add(total);}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+    "javascript": "function resetTalliesBossReceipt(readings) {\n  const a=readings; let out=[];\n  let total=0;for(const x of a){total=x===0?0:total+x;out.push(total);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "typescript": "function resetTalliesBossReceipt(readings: number[]): number {\n  const a=readings; let out:number[]=[];\n  let total=0;for(const x of a){total=x===0?0:total+x;out.push(total);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "python": "def resetTalliesBossReceipt(readings):\n    a=readings\n    out=[]\n    total=0\n    for x in a:\n        total=0 if x==0 else total+x\n        out.append(total)\n    return sum((i+1)*x for i,x in enumerate(out))\n",
+    "java": "class Solution {\n  public int resetTalliesBossReceipt(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int total=0;for(int x:a){total=x==0?0:total+x;out.add(total);}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -147,8 +141,7 @@
         "input": [
           [
             9
-          ],
-          1
+          ]
         ],
         "expected": 9,
         "coverage": "singleton"
@@ -161,8 +154,7 @@
             5,
             5,
             5
-          ],
-          4
+          ]
         ],
         "expected": 150,
         "coverage": "duplicates-or-redundancy"
@@ -174,8 +166,7 @@
             -20,
             -1,
             -7
-          ],
-          8
+          ]
         ],
         "expected": -146,
         "coverage": "lower-bound"
@@ -248,8 +239,7 @@
             -6,
             7,
             20
-          ],
-          3
+          ]
         ],
         "expected": -8506,
         "coverage": "maximum-size"
@@ -261,8 +251,7 @@
             0,
             0,
             0
-          ],
-          5
+          ]
         ],
         "expected": 0,
         "coverage": "zero-or-minimum"
@@ -276,17 +265,15 @@
             -2,
             8,
             1
-          ],
-          2
+          ]
         ],
         "expected": 215,
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nStart a total at 0. Read readings from left to right. If the next number is 0, reset the total to 0. Otherwise, add that number to the total. Put the total in the result list after each number.\n\nReturn the answer\n\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction resetTalliesBossReceipt(readings, k) {\n  const a=readings; let out=[];\n  let total=0;for(const x of a){total=x===0?0:total+x;out.push(total);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction resetTalliesBossReceipt(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  let total=0;for(const x of a){total=x===0?0:total+x;out.push(total);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef resetTalliesBossReceipt(readings, k):\n    a=readings\n    out=[]\n    total=0\n    for x in a:\n        total=0 if x==0 else total+x\n        out.append(total)\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int resetTalliesBossReceipt(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int total=0;for(int x:a){total=x==0?0:total+x;out.add(total);}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+    "editorialMd": "Build tallies\n\nStart a total at 0. Read `readings` from left to right. If the next number is 0, reset the total to 0. Otherwise, add that number to the total. Put the total in `tallies` after each number.\n\nReturn the answer\n\nMultiply each number in `tallies` by its position, counting from 1: the first number by 1, the second by 2, and so on. Add those products. Store the sum in `weightedTotal`. Complete `resetTalliesBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nWhy this works\n\nEach value in `tallies` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction resetTalliesBossReceipt(readings) {\n  const a=readings; let out=[];\n  let total=0;for(const x of a){total=x===0?0:total+x;out.push(total);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction resetTalliesBossReceipt(readings: number[]): number {\n  const a=readings; let out:number[]=[];\n  let total=0;for(const x of a){total=x===0?0:total+x;out.push(total);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef resetTalliesBossReceipt(readings):\n    a=readings\n    out=[]\n    total=0\n    for x in a:\n        total=0 if x==0 else total+x\n        out.append(total)\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int resetTalliesBossReceipt(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int total=0;for(int x:a){total=x==0?0:total+x;out.add(total);}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
   },
   "parameterNames": [
-    "readings",
-    "k"
+    "readings"
   ]
 }

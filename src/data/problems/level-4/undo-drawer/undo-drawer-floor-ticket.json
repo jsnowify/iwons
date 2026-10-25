@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-226"
   ],
-  "summary": "Stack history. Return the smallest number in the result list.",
+  "summary": "Stack history. Return the smallest number.",
   "stage": "Boundary variation",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nUse a stack, which is a pile where you add and remove items only at the top. Read readings from left to right. A number of 0 or more adds that number to the top. A negative number tells you how many top items to remove: -3 means remove up to three items. Stop if the stack becomes empty. The result list is the final stack, from bottom to top.\n\nStep 2: Return the answer\nReturn the smallest number in the result list. If the list is empty, return 0.\n\nWrite your function\nComplete undoDrawerFloorTicket(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "Use a stack, which is a pile where you add and remove items only at the top. Read readings from left to right. A number of 0 or more adds that number to the top. A negative number tells you how many top items to remove: -3 means remove up to three items. Stop if the stack becomes empty. The result list is the final stack, from bottom to top. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `stack`. Use a stack, which is a pile where you add and remove items only at the top. Read `readings` from left to right. A number of 0 or more adds that number to the top. A negative number tells you how many top items to remove: -3 means remove up to three items. Stop if the stack becomes empty. `stack` is the final stack, from bottom to top.\n2. Find the smallest number in `stack`. Store it in `smallest`.\n3. Complete `undoDrawerFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `stack` is [6, 2] and `undoDrawerFloorTicket` returns 2.\n\nRules\n- If `stack` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "unitIntro": "Use a stack, which is a pile where you add and remove items only at the top. Read `readings` from left to right. A number of 0 or more adds that number to the top. A negative number tells you how many top items to remove: -3 means remove up to three items. Stop if the stack becomes empty. `stack` is the final stack, from bottom to top. Each problem in this unit builds `stack` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
-    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
+    "Efficiency goal: time O(n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "Use a stack, which is a pile where you add and remove items only at the top. Read readings from left to right. A number of 0 or more adds that number to the top. A negative number tells you how many top items to remove: -3 means remove up to three items. Stop if the stack becomes empty. The result list is the final stack, from bottom to top. Keep track of the numbers or places you have already checked.",
-    "Return the smallest number in the result list. If the list is empty, return 0. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `stack` before you look for the answer.",
+    "Use a stack, which is a pile where you add and remove items only at the top. Read `readings` from left to right. A number of 0 or more adds that number to the top. A negative number tells you how many top items to remove: -3 means remove up to three items. Stop if the stack becomes empty. `stack` is the final stack, from bottom to top. Keep track of the numbers or places you have already checked.",
+    "Find the smallest number in `stack`. Store it in `smallest`. If `stack` is empty, return 0."
   ],
   "functionName": "undoDrawerFloorTicket",
   "mode": "function",
   "starterCode": {
-    "javascript": "function undoDrawerFloorTicket(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "typescript": "function undoDrawerFloorTicket(readings: number[], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "python": "def undoDrawerFloorTicket(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
-    "java": "class Solution {\n  public int undoDrawerFloorTicket(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
+    "javascript": "function undoDrawerFloorTicket(readings) {\n  // Build stack, then return the answer.\n  return 0;\n}\n",
+    "typescript": "function undoDrawerFloorTicket(readings: number[]): number {\n  // Build stack, then return the answer.\n  return 0;\n}\n",
+    "python": "def undoDrawerFloorTicket(readings):\n    # Build stack, then return the answer.\n    return 0\n",
+    "java": "class Solution {\n  public int undoDrawerFloorTicket(int[] readings) {\n    // Build stack, then return the answer.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -50,12 +50,11 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [7,0,12]. The smallest number is 0. Return 0."
+      "explanation": "`stack` is [7, 0, 12]. The smallest number is 0. Return 0."
     },
     {
       "id": "path3-227-2",
@@ -65,34 +64,31 @@
           4,
           -2,
           4
-        ],
-        2
+        ]
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4]. The smallest number is 4. Return 4."
+      "explanation": "`stack` is [4]. The smallest number is 4. Return 4."
     },
     {
       "id": "path3-227-3",
       "input": [
-        [],
-        1
+        []
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. The list is empty, so return 0."
+      "explanation": "`stack` is []. The list is empty, so return 0."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "int[]",
-    "int"
+    "int[]"
   ],
   "complexity": {
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `stack` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 4,
     "unit": "undo-drawer",
@@ -110,12 +106,11 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [7,0,12]. The smallest number is 0. Return 0."
+      "explanation": "`stack` is [7, 0, 12]. The smallest number is 0. Return 0."
     },
     {
       "id": "path3-227-2",
@@ -125,19 +120,18 @@
           4,
           -2,
           4
-        ],
-        2
+        ]
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4]. The smallest number is 4. Return 4."
+      "explanation": "`stack` is [4]. The smallest number is 4. Return 4."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function undoDrawerFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  for(const x of a){if(x>=0)out.push(x);else for(let i=0;i<-x&&out.length;i++)out.pop();}\n  return out.length?Math.min(...out):0;\n}\n",
-    "typescript": "function undoDrawerFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  for(const x of a){if(x>=0)out.push(x);else for(let i=0;i<-x&&out.length;i++)out.pop();}\n  return out.length?Math.min(...out):0;\n}\n",
-    "python": "def undoDrawerFloorTicket(readings, k):\n    a=readings\n    out=[]\n    for x in a:\n        if x>=0: out.append(x)\n        else:\n            for _ in range(min(-x,len(out))): out.pop()\n    return min(out,default=0)\n",
-    "java": "class Solution {\n  public int undoDrawerFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){if(x>=0)out.add(x);else for(int i=0;i<-x&&!out.isEmpty();i++)out.remove(out.size()-1);}}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+    "javascript": "function undoDrawerFloorTicket(readings) {\n  const a=readings; let out=[];\n  for(const x of a){if(x>=0)out.push(x);else for(let i=0;i<-x&&out.length;i++)out.pop();}\n  return out.length?Math.min(...out):0;\n}\n",
+    "typescript": "function undoDrawerFloorTicket(readings: number[]): number {\n  const a=readings; let out:number[]=[];\n  for(const x of a){if(x>=0)out.push(x);else for(let i=0;i<-x&&out.length;i++)out.pop();}\n  return out.length?Math.min(...out):0;\n}\n",
+    "python": "def undoDrawerFloorTicket(readings):\n    a=readings\n    out=[]\n    for x in a:\n        if x>=0: out.append(x)\n        else:\n            for _ in range(min(-x,len(out))): out.pop()\n    return min(out,default=0)\n",
+    "java": "class Solution {\n  public int undoDrawerFloorTicket(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){if(x>=0)out.add(x);else for(int i=0;i<-x&&!out.isEmpty();i++)out.remove(out.size()-1);}}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -146,8 +140,7 @@
         "input": [
           [
             9
-          ],
-          1
+          ]
         ],
         "expected": 9,
         "coverage": "singleton"
@@ -160,8 +153,7 @@
             5,
             5,
             5
-          ],
-          4
+          ]
         ],
         "expected": 5,
         "coverage": "duplicates-or-redundancy"
@@ -173,8 +165,7 @@
             -20,
             -1,
             -7
-          ],
-          8
+          ]
         ],
         "expected": 0,
         "coverage": "lower-bound"
@@ -247,8 +238,7 @@
             -6,
             7,
             20
-          ],
-          3
+          ]
         ],
         "expected": 7,
         "coverage": "maximum-size"
@@ -260,8 +250,7 @@
             0,
             0,
             0
-          ],
-          5
+          ]
         ],
         "expected": 0,
         "coverage": "zero-or-minimum"
@@ -275,17 +264,15 @@
             -2,
             8,
             1
-          ],
-          2
+          ]
         ],
         "expected": 1,
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nUse a stack, which is a pile where you add and remove items only at the top. Read readings from left to right. A number of 0 or more adds that number to the top. A negative number tells you how many top items to remove: -3 means remove up to three items. Stop if the stack becomes empty. The result list is the final stack, from bottom to top.\n\nReturn the answer\n\nReturn the smallest number in the result list. If the list is empty, return 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction undoDrawerFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  for(const x of a){if(x>=0)out.push(x);else for(let i=0;i<-x&&out.length;i++)out.pop();}\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\nfunction undoDrawerFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  for(const x of a){if(x>=0)out.push(x);else for(let i=0;i<-x&&out.length;i++)out.pop();}\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef undoDrawerFloorTicket(readings, k):\n    a=readings\n    out=[]\n    for x in a:\n        if x>=0: out.append(x)\n        else:\n            for _ in range(min(-x,len(out))): out.pop()\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int undoDrawerFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){if(x>=0)out.add(x);else for(int i=0;i<-x&&!out.isEmpty();i++)out.remove(out.size()-1);}}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+    "editorialMd": "Build stack\n\nUse a stack, which is a pile where you add and remove items only at the top. Read `readings` from left to right. A number of 0 or more adds that number to the top. A negative number tells you how many top items to remove: -3 means remove up to three items. Stop if the stack becomes empty. `stack` is the final stack, from bottom to top.\n\nReturn the answer\n\nFind the smallest number in `stack`. Store it in `smallest`. Complete `undoDrawerFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nWhy this works\n\nEach value in `stack` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction undoDrawerFloorTicket(readings) {\n  const a=readings; let out=[];\n  for(const x of a){if(x>=0)out.push(x);else for(let i=0;i<-x&&out.length;i++)out.pop();}\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\nfunction undoDrawerFloorTicket(readings: number[]): number {\n  const a=readings; let out:number[]=[];\n  for(const x of a){if(x>=0)out.push(x);else for(let i=0;i<-x&&out.length;i++)out.pop();}\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef undoDrawerFloorTicket(readings):\n    a=readings\n    out=[]\n    for x in a:\n        if x>=0: out.append(x)\n        else:\n            for _ in range(min(-x,len(out))): out.pop()\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int undoDrawerFloorTicket(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){if(x>=0)out.add(x);else for(int i=0;i<-x&&!out.isEmpty();i++)out.remove(out.size()-1);}}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
   },
   "parameterNames": [
-    "readings",
-    "k"
+    "readings"
   ]
 }

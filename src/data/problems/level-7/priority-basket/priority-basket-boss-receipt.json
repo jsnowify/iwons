@@ -17,30 +17,30 @@
     "path3-379",
     "path3-013"
   ],
-  "summary": "Binary heaps. Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on.",
+  "summary": "Binary heaps. Return the position-weighted total.",
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Level 0: loop accumulators",
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nPut all numbers from readings into a min-heap. A min-heap is a tree-shaped collection that keeps its smallest number at the top. Remove the smallest number, record it, and repeat until the heap is empty. Keep repeated numbers. The result list is the removal order.\n\nStep 2: Return the answer\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWrite your function\nComplete priorityBasketBossReceipt(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "Put all numbers from readings into a min-heap. A min-heap is a tree-shaped collection that keeps its smallest number at the top. Remove the smallest number, record it, and repeat until the heap is empty. Keep repeated numbers. The result list is the removal order. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `removalOrder`. Put all numbers from `readings` into a min-heap. A min-heap is a tree-shaped collection that keeps its smallest number at the top. Remove the smallest number, record it, and repeat until the heap is empty. Keep repeated numbers. `removalOrder` is the removal order.\n2. Multiply each number in `removalOrder` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `priorityBasketBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `removalOrder` is [-1, 2, 6, 6] and `priorityBasketBossReceipt` returns 45.\n\nRules\n- If `removalOrder` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "unitIntro": "Put all numbers from `readings` into a min-heap. A min-heap is a tree-shaped collection that keeps its smallest number at the top. Remove the smallest number, record it, and repeat until the heap is empty. Keep repeated numbers. `removalOrder` is the removal order. Each problem in this unit builds `removalOrder` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
-    "Efficiency goal: time O(n log n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
+    "Efficiency goal: time O(n log n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "Put all numbers from readings into a min-heap. A min-heap is a tree-shaped collection that keeps its smallest number at the top. Remove the smallest number, record it, and repeat until the heap is empty. Keep repeated numbers. The result list is the removal order. Keep track of the numbers or places you have already checked.",
-    "Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `removalOrder` before you look for the answer.",
+    "Put all numbers from `readings` into a min-heap. A min-heap is a tree-shaped collection that keeps its smallest number at the top. Remove the smallest number, record it, and repeat until the heap is empty. Keep repeated numbers. `removalOrder` is the removal order. Keep track of the numbers or places you have already checked.",
+    "Multiply each number in `removalOrder` by its position, counting from 1: the first number by 1, the second by 2, and so on. Add those products. Store the sum in `weightedTotal`. If `removalOrder` is empty, return 0."
   ],
   "functionName": "priorityBasketBossReceipt",
   "mode": "function",
   "starterCode": {
-    "javascript": "function priorityBasketBossReceipt(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "typescript": "function priorityBasketBossReceipt(readings: number[], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "python": "def priorityBasketBossReceipt(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
-    "java": "class Solution {\n  public int priorityBasketBossReceipt(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
+    "javascript": "function priorityBasketBossReceipt(readings) {\n  // Build removalOrder, then return the answer.\n  return 0;\n}\n",
+    "typescript": "function priorityBasketBossReceipt(readings: number[]): number {\n  // Build removalOrder, then return the answer.\n  return 0;\n}\n",
+    "python": "def priorityBasketBossReceipt(readings):\n    # Build removalOrder, then return the answer.\n    return 0\n",
+    "java": "class Solution {\n  public int priorityBasketBossReceipt(int[] readings) {\n    // Build removalOrder, then return the answer.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -52,12 +52,11 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": 106,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-3,0,7,7,12]. Multiply by positions that start at 1: 1 * (-3) + 2 * (0) + 3 * (7) + 4 * (7) + 5 * (12) = 106. Return 106."
+      "explanation": "`removalOrder` is [-3, 0, 7, 7, 12]. Multiply by positions that start at 1: 1 * (-3) + 2 * (0) + 3 * (7) + 4 * (7) + 5 * (12) = 106. Return 106."
     },
     {
       "id": "path3-380-2",
@@ -67,34 +66,31 @@
           4,
           -2,
           4
-        ],
-        2
+        ]
       ],
       "expected": 34,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-2,4,4,4]. Multiply by positions that start at 1: 1 * (-2) + 2 * (4) + 3 * (4) + 4 * (4) = 34. Return 34."
+      "explanation": "`removalOrder` is [-2, 4, 4, 4]. Multiply by positions that start at 1: 1 * (-2) + 2 * (4) + 3 * (4) + 4 * (4) = 34. Return 34."
     },
     {
       "id": "path3-380-3",
       "input": [
-        [],
-        1
+        []
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. There are no numbers to multiply or add, so return 0."
+      "explanation": "`removalOrder` is []. There are no numbers to multiply or add, so return 0."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "int[]",
-    "int"
+    "int[]"
   ],
   "complexity": {
     "time": "O(n log n)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `removalOrder` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 7,
     "unit": "priority-basket",
@@ -112,12 +108,11 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": 106,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-3,0,7,7,12]. Multiply by positions that start at 1: 1 * (-3) + 2 * (0) + 3 * (7) + 4 * (7) + 5 * (12) = 106. Return 106."
+      "explanation": "`removalOrder` is [-3, 0, 7, 7, 12]. Multiply by positions that start at 1: 1 * (-3) + 2 * (0) + 3 * (7) + 4 * (7) + 5 * (12) = 106. Return 106."
     },
     {
       "id": "path3-380-2",
@@ -127,19 +122,18 @@
           4,
           -2,
           4
-        ],
-        2
+        ]
       ],
       "expected": 34,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-2,4,4,4]. Multiply by positions that start at 1: 1 * (-2) + 2 * (4) + 3 * (4) + 4 * (4) = 34. Return 34."
+      "explanation": "`removalOrder` is [-2, 4, 4, 4]. Multiply by positions that start at 1: 1 * (-2) + 2 * (4) + 3 * (4) + 4 * (4) = 34. Return 34."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function priorityBasketBossReceipt(readings, k) {\n  const a=readings; let out=[];\n  const heap=[];for(const x of a){heap.push(x);let i=heap.length-1;while(i){const p=(i-1)>>1;if(heap[p]<=heap[i])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}while(heap.length){out.push(heap[0]);const last=heap.pop();if(!heap.length)break;heap[0]=last;let i=0;while(true){let j=i,l=2*i+1,r=l+1;if(l<heap.length&&heap[l]<heap[j])j=l;if(r<heap.length&&heap[r]<heap[j])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
-    "typescript": "function priorityBasketBossReceipt(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const heap=[];for(const x of a){heap.push(x);let i=heap.length-1;while(i){const p=(i-1)>>1;if(heap[p]<=heap[i])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}while(heap.length){out.push(heap[0]);const last=heap.pop();if(!heap.length)break;heap[0]=last!;let i=0;while(true){let j=i,l=2*i+1,r=l+1;if(l<heap.length&&heap[l]<heap[j])j=l;if(r<heap.length&&heap[r]<heap[j])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
-    "python": "def priorityBasketBossReceipt(readings, k):\n    a=readings\n    out=[]\n    import heapq\n    heap=a[:]\n    heapq.heapify(heap)\n    while heap: out.append(heapq.heappop(heap))\n    return sum((i+1)*x for i,x in enumerate(out))\n",
-    "java": "class Solution {\n  public int priorityBasketBossReceipt(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {PriorityQueue<Integer>heap=new PriorityQueue<>();for(int x:a)heap.add(x);while(!heap.isEmpty())out.add(heap.remove());}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+    "javascript": "function priorityBasketBossReceipt(readings) {\n  const a=readings; let out=[];\n  const heap=[];for(const x of a){heap.push(x);let i=heap.length-1;while(i){const p=(i-1)>>1;if(heap[p]<=heap[i])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}while(heap.length){out.push(heap[0]);const last=heap.pop();if(!heap.length)break;heap[0]=last;let i=0;while(true){let j=i,l=2*i+1,r=l+1;if(l<heap.length&&heap[l]<heap[j])j=l;if(r<heap.length&&heap[r]<heap[j])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "typescript": "function priorityBasketBossReceipt(readings: number[]): number {\n  const a=readings; let out:number[]=[];\n  const heap=[];for(const x of a){heap.push(x);let i=heap.length-1;while(i){const p=(i-1)>>1;if(heap[p]<=heap[i])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}while(heap.length){out.push(heap[0]);const last=heap.pop();if(!heap.length)break;heap[0]=last!;let i=0;while(true){let j=i,l=2*i+1,r=l+1;if(l<heap.length&&heap[l]<heap[j])j=l;if(r<heap.length&&heap[r]<heap[j])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "python": "def priorityBasketBossReceipt(readings):\n    a=readings\n    out=[]\n    import heapq\n    heap=a[:]\n    heapq.heapify(heap)\n    while heap: out.append(heapq.heappop(heap))\n    return sum((i+1)*x for i,x in enumerate(out))\n",
+    "java": "class Solution {\n  public int priorityBasketBossReceipt(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {PriorityQueue<Integer>heap=new PriorityQueue<>();for(int x:a)heap.add(x);while(!heap.isEmpty())out.add(heap.remove());}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -148,8 +142,7 @@
         "input": [
           [
             9
-          ],
-          1
+          ]
         ],
         "expected": 9,
         "coverage": "singleton"
@@ -162,8 +155,7 @@
             5,
             5,
             5
-          ],
-          4
+          ]
         ],
         "expected": 50,
         "coverage": "duplicates-or-redundancy"
@@ -175,8 +167,7 @@
             -20,
             -1,
             -7
-          ],
-          8
+          ]
         ],
         "expected": -37,
         "coverage": "lower-bound"
@@ -249,8 +240,7 @@
             -6,
             7,
             20
-          ],
-          3
+          ]
         ],
         "expected": 14203,
         "coverage": "maximum-size"
@@ -262,8 +252,7 @@
             0,
             0,
             0
-          ],
-          5
+          ]
         ],
         "expected": 0,
         "coverage": "zero-or-minimum"
@@ -277,17 +266,15 @@
             -2,
             8,
             1
-          ],
-          2
+          ]
         ],
         "expected": 81,
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nPut all numbers from readings into a min-heap. A min-heap is a tree-shaped collection that keeps its smallest number at the top. Remove the smallest number, record it, and repeat until the heap is empty. Keep repeated numbers. The result list is the removal order.\n\nReturn the answer\n\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n log n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction priorityBasketBossReceipt(readings, k) {\n  const a=readings; let out=[];\n  const heap=[];for(const x of a){heap.push(x);let i=heap.length-1;while(i){const p=(i-1)>>1;if(heap[p]<=heap[i])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}while(heap.length){out.push(heap[0]);const last=heap.pop();if(!heap.length)break;heap[0]=last;let i=0;while(true){let j=i,l=2*i+1,r=l+1;if(l<heap.length&&heap[l]<heap[j])j=l;if(r<heap.length&&heap[r]<heap[j])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction priorityBasketBossReceipt(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const heap=[];for(const x of a){heap.push(x);let i=heap.length-1;while(i){const p=(i-1)>>1;if(heap[p]<=heap[i])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}while(heap.length){out.push(heap[0]);const last=heap.pop();if(!heap.length)break;heap[0]=last!;let i=0;while(true){let j=i,l=2*i+1,r=l+1;if(l<heap.length&&heap[l]<heap[j])j=l;if(r<heap.length&&heap[r]<heap[j])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef priorityBasketBossReceipt(readings, k):\n    a=readings\n    out=[]\n    import heapq\n    heap=a[:]\n    heapq.heapify(heap)\n    while heap: out.append(heapq.heappop(heap))\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int priorityBasketBossReceipt(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {PriorityQueue<Integer>heap=new PriorityQueue<>();for(int x:a)heap.add(x);while(!heap.isEmpty())out.add(heap.remove());}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+    "editorialMd": "Build removalOrder\n\nPut all numbers from `readings` into a min-heap. A min-heap is a tree-shaped collection that keeps its smallest number at the top. Remove the smallest number, record it, and repeat until the heap is empty. Keep repeated numbers. `removalOrder` is the removal order.\n\nReturn the answer\n\nMultiply each number in `removalOrder` by its position, counting from 1: the first number by 1, the second by 2, and so on. Add those products. Store the sum in `weightedTotal`. Complete `priorityBasketBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nWhy this works\n\nEach value in `removalOrder` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n log n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction priorityBasketBossReceipt(readings) {\n  const a=readings; let out=[];\n  const heap=[];for(const x of a){heap.push(x);let i=heap.length-1;while(i){const p=(i-1)>>1;if(heap[p]<=heap[i])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}while(heap.length){out.push(heap[0]);const last=heap.pop();if(!heap.length)break;heap[0]=last;let i=0;while(true){let j=i,l=2*i+1,r=l+1;if(l<heap.length&&heap[l]<heap[j])j=l;if(r<heap.length&&heap[r]<heap[j])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction priorityBasketBossReceipt(readings: number[]): number {\n  const a=readings; let out:number[]=[];\n  const heap=[];for(const x of a){heap.push(x);let i=heap.length-1;while(i){const p=(i-1)>>1;if(heap[p]<=heap[i])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}while(heap.length){out.push(heap[0]);const last=heap.pop();if(!heap.length)break;heap[0]=last!;let i=0;while(true){let j=i,l=2*i+1,r=l+1;if(l<heap.length&&heap[l]<heap[j])j=l;if(r<heap.length&&heap[r]<heap[j])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef priorityBasketBossReceipt(readings):\n    a=readings\n    out=[]\n    import heapq\n    heap=a[:]\n    heapq.heapify(heap)\n    while heap: out.append(heapq.heappop(heap))\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int priorityBasketBossReceipt(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {PriorityQueue<Integer>heap=new PriorityQueue<>();for(int x:a)heap.add(x);while(!heap.isEmpty())out.add(heap.remove());}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
   },
   "parameterNames": [
-    "readings",
-    "k"
+    "readings"
   ]
 }

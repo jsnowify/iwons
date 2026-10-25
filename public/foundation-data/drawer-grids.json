@@ -12,8 +12,8 @@
         "id": "read",
         "title": "Return the list you built",
         "explanation": "Nested array traversal is this topic's new tool. drawers is a list of rows. Add the numbers in each row",
-        "exampleCode": "function practice(drawers, k) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out;\n}\n",
-        "starterCode": "function practice(drawers, k) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return ___;\n}\n",
+        "exampleCode": "function practice(drawers) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out;\n}\n",
+        "starterCode": "function practice(drawers) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return ___;\n}\n",
         "task": "Replace ___ with out to send the result list back.",
         "functionName": "practice",
         "validate": [
@@ -38,8 +38,7 @@
                   12,
                   10
                 ]
-              ],
-              3
+              ]
             ],
             "expected": [
               12,
@@ -66,8 +65,7 @@
                   4,
                   2
                 ]
-              ],
-              2
+              ]
             ],
             "expected": [
               6,
@@ -79,8 +77,7 @@
           {
             "id": "read-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -88,7 +85,7 @@
         "hints": [
           "The list is named out.",
           "The final instruction is return out;.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(drawers, k) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(drawers) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [
@@ -114,8 +111,8 @@
         "id": "trace",
         "title": "Fill a smaller piece",
         "explanation": "push adds one value to the end of a list. Find that instruction in the example. Fill its name in the starter and inspect the returned values.",
-        "exampleCode": "function practice(drawers, k) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out;\n}\n",
-        "starterCode": "function practice(drawers, k) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.___(s);}\n  return out;\n}\n",
+        "exampleCode": "function practice(drawers) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out;\n}\n",
+        "starterCode": "function practice(drawers) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.___(s);}\n  return out;\n}\n",
         "task": "Replace ___ with push to add an item to out.",
         "functionName": "practice",
         "validate": [
@@ -140,8 +137,7 @@
                   12,
                   10
                 ]
-              ],
-              3
+              ]
             ],
             "expected": [
               12,
@@ -168,8 +164,7 @@
                   4,
                   2
                 ]
-              ],
-              2
+              ]
             ],
             "expected": [
               6,
@@ -181,8 +176,7 @@
           {
             "id": "trace-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -190,7 +184,7 @@
         "hints": [
           "Look for the instruction that adds an item.",
           "Write out.push where the starter says out.___.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(drawers, k) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(drawers) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [
@@ -280,8 +274,8 @@
         "id": "rebuild",
         "title": "Rebuild the working instructions",
         "explanation": "Keep the supplied function and result list. Rebuild the part that fills the list using the example as a guide. Re-run whenever you want to check a change.",
-        "exampleCode": "function practice(drawers, k) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out;\n}\n",
-        "starterCode": "function practice(drawers, k) {\n  const a=drawers; let out=[];\n  // Rebuild the derived list here.\n  return out;\n}\n",
+        "exampleCode": "function practice(drawers) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out;\n}\n",
+        "starterCode": "function practice(drawers) {\n  const a=drawers; let out=[];\n  // Rebuild the derived list here.\n  return out;\n}\n",
         "task": "Fill the result list using this topic's rule.",
         "functionName": "practice",
         "validate": [
@@ -306,8 +300,7 @@
                   12,
                   10
                 ]
-              ],
-              3
+              ]
             ],
             "expected": [
               12,
@@ -334,8 +327,7 @@
                   4,
                   2
                 ]
-              ],
-              2
+              ]
             ],
             "expected": [
               6,
@@ -347,8 +339,7 @@
           {
             "id": "rebuild-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -356,7 +347,7 @@
         "hints": [
           "drawers is a list of rows. Add the numbers in each row. Put one total per row in the result list, in row order. An empty row has a total of 0.",
           "Revisit the example and copy one instruction at a time, checking what it does.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(drawers, k) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(drawers) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [
@@ -382,8 +373,8 @@
         "id": "recall",
         "title": "Ready for the proof strip",
         "explanation": "Write the small function again with less help. The first challenge uses the same input and output rule. Use return to send the finished list back.",
-        "exampleCode": "function practice(drawers, k) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out;\n}\n",
-        "starterCode": "function practice(drawers, k) {\n  // Build and return the result list.\n}",
+        "exampleCode": "function practice(drawers) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out;\n}\n",
+        "starterCode": "function practice(drawers) {\n  // Build and return the result list.\n}",
         "task": "Build the derived list for this topic, then return it.",
         "functionName": "practice",
         "validate": [
@@ -408,8 +399,7 @@
                   12,
                   10
                 ]
-              ],
-              3
+              ]
             ],
             "expected": [
               12,
@@ -436,8 +426,7 @@
                   4,
                   2
                 ]
-              ],
-              2
+              ]
             ],
             "expected": [
               6,
@@ -449,8 +438,7 @@
           {
             "id": "recall-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -458,7 +446,7 @@
         "hints": [
           "drawers is a list of rows. Add the numbers in each row. Put one total per row in the result list, in row order. An empty row has a total of 0.",
           "Create the result list, process the input in order, and return the list.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(drawers, k) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(drawers) {\n  const a=drawers; let out=[];\n  for(const row of a){let s=0;for(const x of row)s+=x;out.push(s);}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [

@@ -16,30 +16,30 @@
   "prerequisites": [
     "path3-181"
   ],
-  "summary": "Two sorted streams. Count the even numbers in the result list.",
+  "summary": "Two sorted streams. Count the even numbers.",
   "stage": "Counting variation",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\ndrawers contains exactly two lists of numbers. The first list is drawers[0]; the second is drawers[1]. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\ndrawers contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted result list. Keep all repeated numbers, including copies from both input lists.\n\nStep 2: Return the answer\nCount the even numbers in the result list. An even number divides by 2 with no remainder. Count 0 and negative even numbers too. Return the count. An empty list gives 0.\n\nWrite your function\nComplete pairedDrawersEvenKeyCensus(drawers, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "drawers contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted result list. Keep all repeated numbers, including copies from both input lists. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`drawers` contains exactly two lists of numbers. The first list is `drawers[0]`; the second is `drawers[1]`.\n\nYour tasks\n1. Create a list `merged`. `drawers` contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted `merged`. Keep all repeated numbers, including copies from both input lists.\n2. Count the even numbers in `merged`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder.\n3. Complete `pairedDrawersEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nExample\nIf `drawers` is [[-1, 2, 6, 6], [-1, 2, 6, 6]], then `merged` is [-1, -1, 2, 2, 6, 6, 6, 6] and `pairedDrawersEvenKeyCensus` returns 6.\n\nRules\n- 0 and negative even numbers count too.\n- If `merged` is empty, return 0.\n\nTest data\nTEST DATA 1: `drawers` is [[-3, 0, 7, 7, 12], []].\nTEST DATA 2: `drawers` is [[-2, 4, 4, 4], [9]].",
+  "unitIntro": "`drawers` contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted `merged`. Keep all repeated numbers, including copies from both input lists. Each problem in this unit builds `merged` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64 per row.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
     "The input has exactly two rows, each containing at most 64 integers.",
-    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the combined length of the two lists. These labels describe how work and memory grow with the input."
+    "Efficiency goal: time O(n); extra memory, including the helper list, O(n). n is the combined length of the two lists. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "drawers contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted result list. Keep all repeated numbers, including copies from both input lists. Keep track of the numbers or places you have already checked.",
-    "Count the even numbers in the result list. An even number divides by 2 with no remainder. Count 0 and negative even numbers too. Return the count. An empty list gives 0. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `merged` before you look for the answer.",
+    "`drawers` contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted `merged`. Keep all repeated numbers, including copies from both input lists. Keep track of the numbers or places you have already checked.",
+    "Count the even numbers in `merged`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder. 0 and negative even numbers count too."
   ],
   "functionName": "pairedDrawersEvenKeyCensus",
   "mode": "function",
   "starterCode": {
-    "javascript": "function pairedDrawersEvenKeyCensus(drawers, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "typescript": "function pairedDrawersEvenKeyCensus(drawers: number[][], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "python": "def pairedDrawersEvenKeyCensus(drawers, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
-    "java": "class Solution {\n  public int pairedDrawersEvenKeyCensus(int[][] drawers, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
+    "javascript": "function pairedDrawersEvenKeyCensus(drawers) {\n  // Build merged, then return the answer.\n  return 0;\n}\n",
+    "typescript": "function pairedDrawersEvenKeyCensus(drawers: number[][]): number {\n  // Build merged, then return the answer.\n  return 0;\n}\n",
+    "python": "def pairedDrawersEvenKeyCensus(drawers):\n    # Build merged, then return the answer.\n    return 0\n",
+    "java": "class Solution {\n  public int pairedDrawersEvenKeyCensus(int[][] drawers) {\n    // Build merged, then return the answer.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -54,12 +54,11 @@
             12
           ],
           []
-        ],
-        3
+        ]
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-3,0,7,7,12]. The even numbers are [0,12]. There are 2, so return 2."
+      "explanation": "`merged` is [-3, 0, 7, 7, 12]. The even numbers are [0, 12]. There are 2, so return 2."
     },
     {
       "id": "path3-182-2",
@@ -74,12 +73,11 @@
           [
             9
           ]
-        ],
-        2
+        ]
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-2,4,4,4,9]. The even numbers are [-2,4,4,4]. There are 4, so return 4."
+      "explanation": "`merged` is [-2, 4, 4, 4, 9]. The even numbers are [-2, 4, 4, 4]. There are 4, so return 4."
     },
     {
       "id": "path3-182-3",
@@ -87,24 +85,22 @@
         [
           [],
           []
-        ],
-        1
+        ]
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. The even numbers are []. There are 0, so return 0."
+      "explanation": "`merged` is []. The even numbers are []. There are 0, so return 0."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "int[][]",
-    "int"
+    "int[][]"
   ],
   "complexity": {
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `merged` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 3,
     "unit": "paired-drawers",
@@ -125,12 +121,11 @@
             12
           ],
           []
-        ],
-        3
+        ]
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-3,0,7,7,12]. The even numbers are [0,12]. There are 2, so return 2."
+      "explanation": "`merged` is [-3, 0, 7, 7, 12]. The even numbers are [0, 12]. There are 2, so return 2."
     },
     {
       "id": "path3-182-2",
@@ -145,19 +140,18 @@
           [
             9
           ]
-        ],
-        2
+        ]
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-2,4,4,4,9]. The even numbers are [-2,4,4,4]. There are 4, so return 4."
+      "explanation": "`merged` is [-2, 4, 4, 4, 9]. The even numbers are [-2, 4, 4, 4]. There are 4, so return 4."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function pairedDrawersEvenKeyCensus(drawers, k) {\n  const a=drawers; let out=[];\n  let i=0,j=0;while(i<a[0].length||j<a[1].length){if(j===a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.push(a[0][i++]);else out.push(a[1][j++]);}\n  return out.filter(x=>x%2===0).length;\n}\n",
-    "typescript": "function pairedDrawersEvenKeyCensus(drawers: number[][], k: number): number {\n  const a=drawers; let out:number[]=[];\n  let i=0,j=0;while(i<a[0].length||j<a[1].length){if(j===a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.push(a[0][i++]);else out.push(a[1][j++]);}\n  return out.filter(x=>x%2===0).length;\n}\n",
-    "python": "def pairedDrawersEvenKeyCensus(drawers, k):\n    a=drawers\n    out=[]\n    i=j=0\n    while i<len(a[0]) or j<len(a[1]):\n        if j==len(a[1]) or (i<len(a[0]) and a[0][i]<=a[1][j]):\n            out.append(a[0][i])\n            i+=1\n        else:\n            out.append(a[1][j])\n            j+=1\n    return sum(x%2==0 for x in out)\n",
-    "java": "class Solution {\n  public int pairedDrawersEvenKeyCensus(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int i=0,j=0;while(i<a[0].length||j<a[1].length){if(j==a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.add(a[0][i++]);else out.add(a[1][j++]);}}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
+    "javascript": "function pairedDrawersEvenKeyCensus(drawers) {\n  const a=drawers; let out=[];\n  let i=0,j=0;while(i<a[0].length||j<a[1].length){if(j===a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.push(a[0][i++]);else out.push(a[1][j++]);}\n  return out.filter(x=>x%2===0).length;\n}\n",
+    "typescript": "function pairedDrawersEvenKeyCensus(drawers: number[][]): number {\n  const a=drawers; let out:number[]=[];\n  let i=0,j=0;while(i<a[0].length||j<a[1].length){if(j===a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.push(a[0][i++]);else out.push(a[1][j++]);}\n  return out.filter(x=>x%2===0).length;\n}\n",
+    "python": "def pairedDrawersEvenKeyCensus(drawers):\n    a=drawers\n    out=[]\n    i=j=0\n    while i<len(a[0]) or j<len(a[1]):\n        if j==len(a[1]) or (i<len(a[0]) and a[0][i]<=a[1][j]):\n            out.append(a[0][i])\n            i+=1\n        else:\n            out.append(a[1][j])\n            j+=1\n    return sum(x%2==0 for x in out)\n",
+    "java": "class Solution {\n  public int pairedDrawersEvenKeyCensus(int[][] drawers) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int i=0,j=0;while(i<a[0].length||j<a[1].length){if(j==a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.add(a[0][i++]);else out.add(a[1][j++]);}}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -173,8 +167,7 @@
               -7,
               -1
             ]
-          ],
-          1
+          ]
         ],
         "expected": 1,
         "coverage": "singleton"
@@ -255,8 +248,7 @@
               20,
               20
             ]
-          ],
-          4
+          ]
         ],
         "expected": 30,
         "coverage": "duplicates-or-redundancy"
@@ -275,8 +267,7 @@
               0,
               0
             ]
-          ],
-          8
+          ]
         ],
         "expected": 4,
         "coverage": "lower-bound"
@@ -417,8 +408,7 @@
               15,
               15
             ]
-          ],
-          3
+          ]
         ],
         "expected": 62,
         "coverage": "maximum-size"
@@ -439,8 +429,7 @@
               7,
               12
             ]
-          ],
-          5
+          ]
         ],
         "expected": 5,
         "coverage": "zero-or-minimum"
@@ -462,17 +451,15 @@
               4,
               4
             ]
-          ],
-          2
+          ]
         ],
         "expected": 7,
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\ndrawers contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted result list. Keep all repeated numbers, including copies from both input lists.\n\nReturn the answer\n\nCount the even numbers in the result list. An even number divides by 2 with no remainder. Count 0 and negative even numbers too. Return the count. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the combined length of the two lists. These labels describe how work and memory grow with the input.\n\njavascript\nfunction pairedDrawersEvenKeyCensus(drawers, k) {\n  const a=drawers; let out=[];\n  let i=0,j=0;while(i<a[0].length||j<a[1].length){if(j===a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.push(a[0][i++]);else out.push(a[1][j++]);}\n  return out.filter(x=>x%2===0).length;\n}\n\n\ntypescript\nfunction pairedDrawersEvenKeyCensus(drawers: number[][], k: number): number {\n  const a=drawers; let out:number[]=[];\n  let i=0,j=0;while(i<a[0].length||j<a[1].length){if(j===a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.push(a[0][i++]);else out.push(a[1][j++]);}\n  return out.filter(x=>x%2===0).length;\n}\n\n\npython\ndef pairedDrawersEvenKeyCensus(drawers, k):\n    a=drawers\n    out=[]\n    i=j=0\n    while i<len(a[0]) or j<len(a[1]):\n        if j==len(a[1]) or (i<len(a[0]) and a[0][i]<=a[1][j]):\n            out.append(a[0][i])\n            i+=1\n        else:\n            out.append(a[1][j])\n            j+=1\n    return sum(x%2==0 for x in out)\n\n\njava\nclass Solution {\n  public int pairedDrawersEvenKeyCensus(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int i=0,j=0;while(i<a[0].length||j<a[1].length){if(j==a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.add(a[0][i++]);else out.add(a[1][j++]);}}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
+    "editorialMd": "Build merged\n\n`drawers` contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted `merged`. Keep all repeated numbers, including copies from both input lists.\n\nReturn the answer\n\nCount the even numbers in `merged`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder. Complete `pairedDrawersEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nWhy this works\n\nEach value in `merged` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the helper list, O(n). n is the combined length of the two lists. These labels describe how work and memory grow with the input.\n\njavascript\nfunction pairedDrawersEvenKeyCensus(drawers) {\n  const a=drawers; let out=[];\n  let i=0,j=0;while(i<a[0].length||j<a[1].length){if(j===a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.push(a[0][i++]);else out.push(a[1][j++]);}\n  return out.filter(x=>x%2===0).length;\n}\n\n\ntypescript\nfunction pairedDrawersEvenKeyCensus(drawers: number[][]): number {\n  const a=drawers; let out:number[]=[];\n  let i=0,j=0;while(i<a[0].length||j<a[1].length){if(j===a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.push(a[0][i++]);else out.push(a[1][j++]);}\n  return out.filter(x=>x%2===0).length;\n}\n\n\npython\ndef pairedDrawersEvenKeyCensus(drawers):\n    a=drawers\n    out=[]\n    i=j=0\n    while i<len(a[0]) or j<len(a[1]):\n        if j==len(a[1]) or (i<len(a[0]) and a[0][i]<=a[1][j]):\n            out.append(a[0][i])\n            i+=1\n        else:\n            out.append(a[1][j])\n            j+=1\n    return sum(x%2==0 for x in out)\n\n\njava\nclass Solution {\n  public int pairedDrawersEvenKeyCensus(int[][] drawers) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int i=0,j=0;while(i<a[0].length||j<a[1].length){if(j==a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.add(a[0][i++]);else out.add(a[1][j++]);}}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
   },
   "parameterNames": [
-    "drawers",
-    "k"
+    "drawers"
   ]
 }

@@ -12,8 +12,8 @@
         "id": "read",
         "title": "Return the list you built",
         "explanation": "Priority-queue shortest paths is this topic's new tool. Each point in this graph is a place, and each one-way path has a travel cost. Start at point 0",
-        "exampleCode": "function practice(links, k) {\n  const a=links; let out=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out;\n}\n",
-        "starterCode": "function practice(links, k) {\n  const a=links; let out=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return ___;\n}\n",
+        "exampleCode": "function practice(links) {\n  const a=links; let out=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out;\n}\n",
+        "starterCode": "function practice(links) {\n  const a=links; let out=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return ___;\n}\n",
         "task": "Replace ___ with out to send the result list back.",
         "functionName": "practice",
         "validate": [
@@ -69,8 +69,7 @@
                   7,
                   0
                 ]
-              ],
-              3
+              ]
             ],
             "expected": [
               0,
@@ -120,8 +119,7 @@
                   0,
                   4
                 ]
-              ],
-              2
+              ]
             ],
             "expected": [
               0,
@@ -134,8 +132,7 @@
           {
             "id": "read-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -143,7 +140,7 @@
         "hints": [
           "The list is named out.",
           "The final instruction is return out;.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(links, k) {\n  const a=links; let out=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(links) {\n  const a=links; let out=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [
@@ -169,8 +166,8 @@
         "id": "trace",
         "title": "Fill a smaller piece",
         "explanation": "An empty list is written as []. The working instructions fill that list. Supply the empty list before running the example.",
-        "exampleCode": "function practice(links, k) {\n  const a=links; let out=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out;\n}\n",
-        "starterCode": "function practice(links, k) {\n  const a=links; let out=___;\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out;\n}\n",
+        "exampleCode": "function practice(links) {\n  const a=links; let out=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out;\n}\n",
+        "starterCode": "function practice(links) {\n  const a=links; let out=___;\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out;\n}\n",
         "task": "Replace ___ with [] to begin with an empty list.",
         "functionName": "practice",
         "validate": [
@@ -226,8 +223,7 @@
                   7,
                   0
                 ]
-              ],
-              3
+              ]
             ],
             "expected": [
               0,
@@ -277,8 +273,7 @@
                   0,
                   4
                 ]
-              ],
-              2
+              ]
             ],
             "expected": [
               0,
@@ -291,8 +286,7 @@
           {
             "id": "trace-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -300,7 +294,7 @@
         "hints": [
           "Use square brackets with nothing inside.",
           "Write let out=[] where the list is created.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(links, k) {\n  const a=links; let out=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(links) {\n  const a=links; let out=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [
@@ -390,8 +384,8 @@
         "id": "rebuild",
         "title": "Rebuild the working instructions",
         "explanation": "Keep the supplied function and result list. Rebuild the part that fills the list using the example as a guide. Re-run whenever you want to check a change.",
-        "exampleCode": "function practice(links, k) {\n  const a=links; let out=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out;\n}\n",
-        "starterCode": "function practice(links, k) {\n  const a=links; let out=[];\n  // Rebuild the derived list here.\n  return out;\n}\n",
+        "exampleCode": "function practice(links) {\n  const a=links; let out=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out;\n}\n",
+        "starterCode": "function practice(links) {\n  const a=links; let out=[];\n  // Rebuild the derived list here.\n  return out;\n}\n",
         "task": "Fill the result list using this topic's rule.",
         "functionName": "practice",
         "validate": [
@@ -447,8 +441,7 @@
                   7,
                   0
                 ]
-              ],
-              3
+              ]
             ],
             "expected": [
               0,
@@ -498,8 +491,7 @@
                   0,
                   4
                 ]
-              ],
-              2
+              ]
             ],
             "expected": [
               0,
@@ -512,8 +504,7 @@
           {
             "id": "rebuild-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -521,7 +512,7 @@
         "hints": [
           "Each point in this graph is a place, and each one-way path has a travel cost. Start at point 0. Find the lowest total travel cost to each point. Put these costs in point order. The cost to point 0 is 0. Record -1 for any point you cannot reach. A graph with no points gives an empty result list.",
           "Revisit the example and copy one instruction at a time, checking what it does.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(links, k) {\n  const a=links; let out=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(links) {\n  const a=links; let out=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [
@@ -547,8 +538,8 @@
         "id": "recall",
         "title": "Ready for the proof strip",
         "explanation": "Write the small function again with less help. The first challenge uses the same input and output rule. Use return to send the finished list back.",
-        "exampleCode": "function practice(links, k) {\n  const a=links; let out=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out;\n}\n",
-        "starterCode": "function practice(links, k) {\n  // Build and return the result list.\n}",
+        "exampleCode": "function practice(links) {\n  const a=links; let out=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out;\n}\n",
+        "starterCode": "function practice(links) {\n  // Build and return the result list.\n}",
         "task": "Build the derived list for this topic, then return it.",
         "functionName": "practice",
         "validate": [
@@ -604,8 +595,7 @@
                   7,
                   0
                 ]
-              ],
-              3
+              ]
             ],
             "expected": [
               0,
@@ -655,8 +645,7 @@
                   0,
                   4
                 ]
-              ],
-              2
+              ]
             ],
             "expected": [
               0,
@@ -669,8 +658,7 @@
           {
             "id": "recall-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -678,7 +666,7 @@
         "hints": [
           "Each point in this graph is a place, and each one-way path has a travel cost. Start at point 0. Find the lowest total travel cost to each point. Put these costs in point order. The cost to point 0 is 0. Record -1 for any point you cannot reach. A graph with no points gives an empty result list.",
           "Create the result list, process the input in order, and return the list.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(links, k) {\n  const a=links; let out=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(links) {\n  const a=links; let out=[];\n  const n=a.length,dist=Array(n).fill(Infinity),heap=[];if(n){dist[0]=0;heap.push([0,0]);}while(heap.length){const [cost,u]=heap[0],last=heap.pop();if(heap.length){heap[0]=last;let i=0;while(true){let j=i,l=i*2+1,r=l+1;if(l<heap.length&&heap[l][0]<heap[j][0])j=l;if(r<heap.length&&heap[r][0]<heap[j][0])j=r;if(j===i)break;[heap[i],heap[j]]=[heap[j],heap[i]];i=j;}}if(cost!==dist[u])continue;for(let v=0;v<n;v++)if(a[u][v]>0&&cost+a[u][v]<dist[v]){dist[v]=cost+a[u][v];heap.push([dist[v],v]);let i=heap.length-1;while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}}}out=dist.map(x=>Number.isFinite(x)?x:-1);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [

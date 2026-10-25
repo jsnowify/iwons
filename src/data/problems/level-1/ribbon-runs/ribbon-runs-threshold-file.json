@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-042"
   ],
-  "summary": "String runs. Count the numbers in the result list that are at least k (greater than or equal to k).",
+  "summary": "String runs. Count the numbers at least k.",
   "stage": "Edge-case trap",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nline is text. A character is one letter, digit, space, or punctuation mark. k is a whole number. Use it as described in the steps below.\n\nStep 1: Build the result list\nA run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", the result list is [2, 1, 2].\n\nStep 2: Return the answer\nCount the numbers in the result list that are at least k (greater than or equal to k). Return that count. An empty list gives 0.\n\nWrite your function\nComplete ribbonRunsThresholdFile(line, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "A run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", the result list is [2, 1, 2]. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`line` is text. A character is one letter, digit, space, or punctuation mark.\n\nYour tasks\n1. Create a list `runLengths`. A run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", `runLengths` is [2, 1, 2].\n2. Count the numbers in `runLengths` that are at least `k` (greater than or equal to `k`). Store the count in `atLeastK`.\n3. Complete `ribbonRunsThresholdFile` so it returns `atLeastK`. Return it, do not print it.\n\nExample\nIf `line` is \"ok  zoo\" and `k` is 4, then `runLengths` is [1, 1, 2, 1, 2] and `ribbonRunsThresholdFile` returns 0.\n\nRules\n- If `runLengths` is empty, the count is 0.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `line` is \"inkk paaaper\" and `k` is 3.\nTEST DATA 2: `line` is \"QQ qQQ\" and `k` is 2.",
+  "unitIntro": "A run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", `runLengths` is [2, 1, 2]. Each problem in this unit builds `runLengths` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
     "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
     "The text uses ASCII characters (a basic character set). Only an ordinary space separates words.",
-    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
+    "Efficiency goal: time O(n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "A run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", the result list is [2, 1, 2]. Keep track of the numbers or places you have already checked.",
-    "Count the numbers in the result list that are at least k (greater than or equal to k). Return that count. An empty list gives 0. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `runLengths` before you look for the answer.",
+    "A run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", `runLengths` is [2, 1, 2]. Keep track of the numbers or places you have already checked.",
+    "Count the numbers in `runLengths` that are at least `k` (greater than or equal to `k`). Store the count in `atLeastK`. If `runLengths` is empty, the count is 0."
   ],
   "functionName": "ribbonRunsThresholdFile",
   "mode": "function",
   "starterCode": {
-    "javascript": "function ribbonRunsThresholdFile(line, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "typescript": "function ribbonRunsThresholdFile(line: string, k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "python": "def ribbonRunsThresholdFile(line, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
-    "java": "class Solution {\n  public int ribbonRunsThresholdFile(String line, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
+    "javascript": "function ribbonRunsThresholdFile(line, k) {\n  // Build runLengths, then return the answer.\n  return 0;\n}\n",
+    "typescript": "function ribbonRunsThresholdFile(line: string, k: number): number {\n  // Build runLengths, then return the answer.\n  return 0;\n}\n",
+    "python": "def ribbonRunsThresholdFile(line, k):\n    # Build runLengths, then return the answer.\n    return 0\n",
+    "java": "class Solution {\n  public int ribbonRunsThresholdFile(String line, int k) {\n    // Build runLengths, then return the answer.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -49,7 +49,7 @@
       ],
       "expected": 1,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [1,1,2,1,1,3,1,1,1]. Here k = 3. The numbers at least 3 are [3]. There are 1, so return 1."
+      "explanation": "`runLengths` is [1, 1, 2, 1, 1, 3, 1, 1, 1]. Here `k` is 3. The numbers at least 3 are [3]. There are 1, so return 1."
     },
     {
       "id": "path3-043-2",
@@ -59,7 +59,7 @@
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [2,1,1,2]. Here k = 2. The numbers at least 2 are [2,2]. There are 2, so return 2."
+      "explanation": "`runLengths` is [2, 1, 1, 2]. Here `k` is 2. The numbers at least 2 are [2, 2]. There are 2, so return 2."
     },
     {
       "id": "path3-043-3",
@@ -69,7 +69,7 @@
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. Here k = 1. The numbers at least 1 are []. There are 0, so return 0."
+      "explanation": "`runLengths` is []. Here `k` is 1. The numbers at least 1 are []. There are 0, so return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -81,7 +81,7 @@
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `runLengths` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 1,
     "unit": "ribbon-runs",
@@ -98,7 +98,7 @@
       ],
       "expected": 1,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [1,1,2,1,1,3,1,1,1]. Here k = 3. The numbers at least 3 are [3]. There are 1, so return 1."
+      "explanation": "`runLengths` is [1, 1, 2, 1, 1, 3, 1, 1, 1]. Here `k` is 3. The numbers at least 3 are [3]. There are 1, so return 1."
     },
     {
       "id": "path3-043-2",
@@ -108,7 +108,7 @@
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [2,1,1,2]. Here k = 2. The numbers at least 2 are [2,2]. There are 2, so return 2."
+      "explanation": "`runLengths` is [2, 1, 1, 2]. Here `k` is 2. The numbers at least 2 are [2, 2]. There are 2, so return 2."
     }
   ],
   "referenceSolutions": {
@@ -174,7 +174,7 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nA run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", the result list is [2, 1, 2].\n\nReturn the answer\n\nCount the numbers in the result list that are at least k (greater than or equal to k). Return that count. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction ribbonRunsThresholdFile(line, k) {\n  const a=line; let out=[];\n  for(let i=0;i<a.length;){let j=i+1;while(j<a.length&&a[j]===a[i])j++;out.push(j-i);i=j;}\n  return out.filter(x=>x>=k).length;\n}\n\n\ntypescript\nfunction ribbonRunsThresholdFile(line: string, k: number): number {\n  const a=line; let out:number[]=[];\n  for(let i=0;i<a.length;){let j=i+1;while(j<a.length&&a[j]===a[i])j++;out.push(j-i);i=j;}\n  return out.filter(x=>x>=k).length;\n}\n\n\npython\ndef ribbonRunsThresholdFile(line, k):\n    a=line\n    out=[]\n    i=0\n    while i<len(a):\n        j=i+1\n        while j<len(a) and a[j]==a[i]: j+=1\n        out.append(j-i)\n        i=j\n    return sum(x>=k for x in out)\n\n\njava\nclass Solution {\n  public int ribbonRunsThresholdFile(String line, int k) {\n    String a=line; List<Integer> out=new ArrayList<>();\n    {for(int i=0;i<a.length();){int j=i+1;while(j<a.length()&&a.charAt(j)==a.charAt(i))j++;out.add(j-i);i=j;}}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
+    "editorialMd": "Build runLengths\n\nA run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", `runLengths` is [2, 1, 2].\n\nReturn the answer\n\nCount the numbers in `runLengths` that are at least `k` (greater than or equal to `k`). Store the count in `atLeastK`. Complete `ribbonRunsThresholdFile` so it returns `atLeastK`. Return it, do not print it.\n\nWhy this works\n\nEach value in `runLengths` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction ribbonRunsThresholdFile(line, k) {\n  const a=line; let out=[];\n  for(let i=0;i<a.length;){let j=i+1;while(j<a.length&&a[j]===a[i])j++;out.push(j-i);i=j;}\n  return out.filter(x=>x>=k).length;\n}\n\n\ntypescript\nfunction ribbonRunsThresholdFile(line: string, k: number): number {\n  const a=line; let out:number[]=[];\n  for(let i=0;i<a.length;){let j=i+1;while(j<a.length&&a[j]===a[i])j++;out.push(j-i);i=j;}\n  return out.filter(x=>x>=k).length;\n}\n\n\npython\ndef ribbonRunsThresholdFile(line, k):\n    a=line\n    out=[]\n    i=0\n    while i<len(a):\n        j=i+1\n        while j<len(a) and a[j]==a[i]: j+=1\n        out.append(j-i)\n        i=j\n    return sum(x>=k for x in out)\n\n\njava\nclass Solution {\n  public int ribbonRunsThresholdFile(String line, int k) {\n    String a=line; List<Integer> out=new ArrayList<>();\n    {for(int i=0;i<a.length();){int j=i+1;while(j<a.length()&&a.charAt(j)==a.charAt(i))j++;out.add(j-i);i=j;}}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
   },
   "parameterNames": [
     "line",

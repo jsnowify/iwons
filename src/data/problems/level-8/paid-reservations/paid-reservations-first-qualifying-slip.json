@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-493"
   ],
-  "summary": "Scheduling DP and binary search. Read the result list from left to right.",
+  "summary": "Scheduling DP and binary search. Find the first number at least k.",
   "stage": "Combine",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\ndrawers is a list of bookings. Each row is [start, end, reward]. k is a whole number. Use it as described in the steps below.\n\nStep 1: Build the result list\nEach row of drawers is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, the result list is empty.\n\nStep 2: Return the answer\nRead the result list from left to right. Return the first number that is at least k (greater than or equal to k). Return the number, not its position. If none matches, return -1.\n\nWrite your function\nComplete paidReservationsFirstQualifyingSlip(drawers, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "Each row of drawers is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, the result list is empty. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`drawers` is a list of bookings. Each row is [start, end, reward].\n\nYour tasks\n1. Create a list `bestRewards`. Each row of `drawers` is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, `bestRewards` is empty.\n2. Read `bestRewards` from left to right. Find the first number that is at least `k` and store that number, not its position, in `firstMatch`.\n3. Complete `paidReservationsFirstQualifyingSlip` so it returns `firstMatch`. Return it, do not print it.\n\nExample\nIf `drawers` is [[6, 13, 6], [0, 2, 2], [8, 15, 8], [5, 8, 5]] and `k` is 4, then `bestRewards` is [2, 7, 8, 15] and `paidReservationsFirstQualifyingSlip` returns 7.\n\nRules\n- If no number is at least `k`, return -1.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `drawers` is [[7, 8, 7], [-2, 2, 4], [9, 10, 9], [3, 4, 3], [16, 22, 16]] and `k` is 3.\nTEST DATA 2: `drawers` is [[4, 9, 4], [5, 10, 5], [0, 3, 4], [7, 12, 7]] and `k` is 2.",
+  "unitIntro": "Each row of `drawers` is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, `bestRewards` is empty. Each problem in this unit builds `bestRewards` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
     "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
-    "Efficiency goal: time O(n log n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
+    "Efficiency goal: time O(n log n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "Each row of drawers is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, the result list is empty. Keep track of the numbers or places you have already checked.",
-    "Read the result list from left to right. Return the first number that is at least k (greater than or equal to k). Return the number, not its position. If none matches, return -1. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `bestRewards` before you look for the answer.",
+    "Each row of `drawers` is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, `bestRewards` is empty. Keep track of the numbers or places you have already checked.",
+    "Read `bestRewards` from left to right. Find the first number that is at least `k` and store that number, not its position, in `firstMatch`. If no number is at least `k`, return -1."
   ],
   "functionName": "paidReservationsFirstQualifyingSlip",
   "mode": "function",
   "starterCode": {
-    "javascript": "function paidReservationsFirstQualifyingSlip(drawers, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "typescript": "function paidReservationsFirstQualifyingSlip(drawers: number[][], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "python": "def paidReservationsFirstQualifyingSlip(drawers, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
-    "java": "class Solution {\n  public int paidReservationsFirstQualifyingSlip(int[][] drawers, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
+    "javascript": "function paidReservationsFirstQualifyingSlip(drawers, k) {\n  // Build bestRewards, then return the answer.\n  return 0;\n}\n",
+    "typescript": "function paidReservationsFirstQualifyingSlip(drawers: number[][], k: number): number {\n  // Build bestRewards, then return the answer.\n  return 0;\n}\n",
+    "python": "def paidReservationsFirstQualifyingSlip(drawers, k):\n    # Build bestRewards, then return the answer.\n    return 0\n",
+    "java": "class Solution {\n  public int paidReservationsFirstQualifyingSlip(int[][] drawers, int k) {\n    // Build bestRewards, then return the answer.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -75,7 +75,7 @@
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,7,14,23,39]. Here k = 3. The first number at least 3 is 4. Return that value."
+      "explanation": "`bestRewards` is [4, 7, 14, 23, 39]. Here `k` is 3. The first number at least 3 is 4. Return that value."
     },
     {
       "id": "path3-494-2",
@@ -106,7 +106,7 @@
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,8,9,11]. Here k = 2. The first number at least 2 is 4. Return that value."
+      "explanation": "`bestRewards` is [4, 8, 9, 11]. Here `k` is 2. The first number at least 2 is 4. Return that value."
     },
     {
       "id": "path3-494-3",
@@ -116,7 +116,7 @@
       ],
       "expected": -1,
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. Here k = 1. No number is at least 1, so return -1."
+      "explanation": "`bestRewards` is []. Here `k` is 1. No number is at least 1, so return -1."
     }
   ],
   "timeLimitMs": 2000,
@@ -128,7 +128,7 @@
     "time": "O(n log n)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `bestRewards` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 8,
     "unit": "paid-reservations",
@@ -171,7 +171,7 @@
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,7,14,23,39]. Here k = 3. The first number at least 3 is 4. Return that value."
+      "explanation": "`bestRewards` is [4, 7, 14, 23, 39]. Here `k` is 3. The first number at least 3 is 4. Return that value."
     },
     {
       "id": "path3-494-2",
@@ -202,7 +202,7 @@
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,8,9,11]. Here k = 2. The first number at least 2 is 4. Return that value."
+      "explanation": "`bestRewards` is [4, 8, 9, 11]. Here `k` is 2. The first number at least 2 is 4. Return that value."
     }
   ],
   "referenceSolutions": {
@@ -674,7 +674,7 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nEach row of drawers is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, the result list is empty.\n\nReturn the answer\n\nRead the result list from left to right. Return the first number that is at least k (greater than or equal to k). Return the number, not its position. If none matches, return -1.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n log n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction paidReservationsFirstQualifyingSlip(drawers, k) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out.find(x=>x>=k)??-1;\n}\n\n\ntypescript\nfunction paidReservationsFirstQualifyingSlip(drawers: number[][], k: number): number {\n  const a=drawers; let out:number[]=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out.find(x=>x>=k)??-1;\n}\n\n\npython\ndef paidReservationsFirstQualifyingSlip(drawers, k):\n    a=drawers\n    out=[]\n    rows=sorted(a,key=lambda r:(r[1],r[0],r[2]))\n    dp=[0]\n    for i,(start,end,reward) in enumerate(rows):\n        left,right=0,i\n        while left<right:\n            mid=(left+right)//2\n            if rows[mid][1]<=start: left=mid+1\n            else: right=mid\n        dp.append(max(dp[i],dp[left]+reward))\n    out=dp[1:]\n    return next((x for x in out if x>=k),-1)\n\n\njava\nclass Solution {\n  public int paidReservationsFirstQualifyingSlip(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int[][]rows=a.clone();Arrays.sort(rows,Comparator.comparingInt((int[]r)->r[1]).thenComparingInt(r->r[0]).thenComparingInt(r->r[2]));int[]dp=new int[rows.length+1];for(int i=0;i<rows.length;i++){int l=0,r=i;while(l<r){int m=(l+r)/2;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp[i+1]=Math.max(dp[i],dp[l]+rows[i][2]);out.add(dp[i+1]);}}\n    for(int x:out)if(x>=k)return x;return -1;\n  }\n}\n"
+    "editorialMd": "Build bestRewards\n\nEach row of `drawers` is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, `bestRewards` is empty.\n\nReturn the answer\n\nRead `bestRewards` from left to right. Find the first number that is at least `k` and store that number, not its position, in `firstMatch`. Complete `paidReservationsFirstQualifyingSlip` so it returns `firstMatch`. Return it, do not print it.\n\nWhy this works\n\nEach value in `bestRewards` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n log n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction paidReservationsFirstQualifyingSlip(drawers, k) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out.find(x=>x>=k)??-1;\n}\n\n\ntypescript\nfunction paidReservationsFirstQualifyingSlip(drawers: number[][], k: number): number {\n  const a=drawers; let out:number[]=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out.find(x=>x>=k)??-1;\n}\n\n\npython\ndef paidReservationsFirstQualifyingSlip(drawers, k):\n    a=drawers\n    out=[]\n    rows=sorted(a,key=lambda r:(r[1],r[0],r[2]))\n    dp=[0]\n    for i,(start,end,reward) in enumerate(rows):\n        left,right=0,i\n        while left<right:\n            mid=(left+right)//2\n            if rows[mid][1]<=start: left=mid+1\n            else: right=mid\n        dp.append(max(dp[i],dp[left]+reward))\n    out=dp[1:]\n    return next((x for x in out if x>=k),-1)\n\n\njava\nclass Solution {\n  public int paidReservationsFirstQualifyingSlip(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int[][]rows=a.clone();Arrays.sort(rows,Comparator.comparingInt((int[]r)->r[1]).thenComparingInt(r->r[0]).thenComparingInt(r->r[2]));int[]dp=new int[rows.length+1];for(int i=0;i<rows.length;i++){int l=0,r=i;while(l<r){int m=(l+r)/2;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp[i+1]=Math.max(dp[i],dp[l]+rows[i][2]);out.add(dp[i+1]);}}\n    for(int x:out)if(x>=k)return x;return -1;\n  }\n}\n"
   },
   "parameterNames": [
     "drawers",

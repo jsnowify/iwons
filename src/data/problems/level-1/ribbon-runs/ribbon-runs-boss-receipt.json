@@ -16,73 +16,69 @@
   "prerequisites": [
     "path3-049"
   ],
-  "summary": "String runs. Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on.",
+  "summary": "String runs. Return the position-weighted total.",
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Earlier foundation work; the first unit establishes the prerequisite",
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nline is text. A character is one letter, digit, space, or punctuation mark. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nA run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", the result list is [2, 1, 2].\n\nStep 2: Return the answer\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWrite your function\nComplete ribbonRunsBossReceipt(line, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "A run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", the result list is [2, 1, 2]. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`line` is text. A character is one letter, digit, space, or punctuation mark.\n\nYour tasks\n1. Create a list `runLengths`. A run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", `runLengths` is [2, 1, 2].\n2. Multiply each number in `runLengths` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `ribbonRunsBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `line` is \"ok  zoo\", then `runLengths` is [1, 1, 2, 1, 2] and `ribbonRunsBossReceipt` returns 23.\n\nRules\n- If `runLengths` is empty, return 0.\n\nTest data\nTEST DATA 1: `line` is \"inkk paaaper\".\nTEST DATA 2: `line` is \"QQ qQQ\".",
+  "unitIntro": "A run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", `runLengths` is [2, 1, 2]. Each problem in this unit builds `runLengths` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
     "The text uses ASCII characters (a basic character set). Only an ordinary space separates words.",
-    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
+    "Efficiency goal: time O(n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "A run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", the result list is [2, 1, 2]. Keep track of the numbers or places you have already checked.",
-    "Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `runLengths` before you look for the answer.",
+    "A run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", `runLengths` is [2, 1, 2]. Keep track of the numbers or places you have already checked.",
+    "Multiply each number in `runLengths` by its position, counting from 1: the first number by 1, the second by 2, and so on. Add those products. Store the sum in `weightedTotal`. If `runLengths` is empty, return 0."
   ],
   "functionName": "ribbonRunsBossReceipt",
   "mode": "function",
   "starterCode": {
-    "javascript": "function ribbonRunsBossReceipt(line, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "typescript": "function ribbonRunsBossReceipt(line: string, k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "python": "def ribbonRunsBossReceipt(line, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
-    "java": "class Solution {\n  public int ribbonRunsBossReceipt(String line, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
+    "javascript": "function ribbonRunsBossReceipt(line) {\n  // Build runLengths, then return the answer.\n  return 0;\n}\n",
+    "typescript": "function ribbonRunsBossReceipt(line: string): number {\n  // Build runLengths, then return the answer.\n  return 0;\n}\n",
+    "python": "def ribbonRunsBossReceipt(line):\n    # Build runLengths, then return the answer.\n    return 0\n",
+    "java": "class Solution {\n  public int ribbonRunsBossReceipt(String line) {\n    // Build runLengths, then return the answer.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
       "id": "path3-050-1",
       "input": [
-        "inkk paaaper",
-        3
+        "inkk paaaper"
       ],
       "expected": 60,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [1,1,2,1,1,3,1,1,1]. Multiply by positions that start at 1: 1 * (1) + 2 * (1) + 3 * (2) + 4 * (1) + 5 * (1) + 6 * (3) + 7 * (1) + 8 * (1) + 9 * (1) = 60. Return 60."
+      "explanation": "`runLengths` is [1, 1, 2, 1, 1, 3, 1, 1, 1]. Multiply by positions that start at 1: 1 * (1) + 2 * (1) + 3 * (2) + 4 * (1) + 5 * (1) + 6 * (3) + 7 * (1) + 8 * (1) + 9 * (1) = 60. Return 60."
     },
     {
       "id": "path3-050-2",
       "input": [
-        "QQ qQQ",
-        2
+        "QQ qQQ"
       ],
       "expected": 15,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [2,1,1,2]. Multiply by positions that start at 1: 1 * (2) + 2 * (1) + 3 * (1) + 4 * (2) = 15. Return 15."
+      "explanation": "`runLengths` is [2, 1, 1, 2]. Multiply by positions that start at 1: 1 * (2) + 2 * (1) + 3 * (1) + 4 * (2) = 15. Return 15."
     },
     {
       "id": "path3-050-3",
       "input": [
-        "",
-        1
+        ""
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. There are no numbers to multiply or add, so return 0."
+      "explanation": "`runLengths` is []. There are no numbers to multiply or add, so return 0."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "String",
-    "int"
+    "String"
   ],
   "complexity": {
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `runLengths` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 1,
     "unit": "ribbon-runs",
@@ -94,37 +90,34 @@
     {
       "id": "path3-050-1",
       "input": [
-        "inkk paaaper",
-        3
+        "inkk paaaper"
       ],
       "expected": 60,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [1,1,2,1,1,3,1,1,1]. Multiply by positions that start at 1: 1 * (1) + 2 * (1) + 3 * (2) + 4 * (1) + 5 * (1) + 6 * (3) + 7 * (1) + 8 * (1) + 9 * (1) = 60. Return 60."
+      "explanation": "`runLengths` is [1, 1, 2, 1, 1, 3, 1, 1, 1]. Multiply by positions that start at 1: 1 * (1) + 2 * (1) + 3 * (2) + 4 * (1) + 5 * (1) + 6 * (3) + 7 * (1) + 8 * (1) + 9 * (1) = 60. Return 60."
     },
     {
       "id": "path3-050-2",
       "input": [
-        "QQ qQQ",
-        2
+        "QQ qQQ"
       ],
       "expected": 15,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [2,1,1,2]. Multiply by positions that start at 1: 1 * (2) + 2 * (1) + 3 * (1) + 4 * (2) = 15. Return 15."
+      "explanation": "`runLengths` is [2, 1, 1, 2]. Multiply by positions that start at 1: 1 * (2) + 2 * (1) + 3 * (1) + 4 * (2) = 15. Return 15."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function ribbonRunsBossReceipt(line, k) {\n  const a=line; let out=[];\n  for(let i=0;i<a.length;){let j=i+1;while(j<a.length&&a[j]===a[i])j++;out.push(j-i);i=j;}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
-    "typescript": "function ribbonRunsBossReceipt(line: string, k: number): number {\n  const a=line; let out:number[]=[];\n  for(let i=0;i<a.length;){let j=i+1;while(j<a.length&&a[j]===a[i])j++;out.push(j-i);i=j;}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
-    "python": "def ribbonRunsBossReceipt(line, k):\n    a=line\n    out=[]\n    i=0\n    while i<len(a):\n        j=i+1\n        while j<len(a) and a[j]==a[i]: j+=1\n        out.append(j-i)\n        i=j\n    return sum((i+1)*x for i,x in enumerate(out))\n",
-    "java": "class Solution {\n  public int ribbonRunsBossReceipt(String line, int k) {\n    String a=line; List<Integer> out=new ArrayList<>();\n    {for(int i=0;i<a.length();){int j=i+1;while(j<a.length()&&a.charAt(j)==a.charAt(i))j++;out.add(j-i);i=j;}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+    "javascript": "function ribbonRunsBossReceipt(line) {\n  const a=line; let out=[];\n  for(let i=0;i<a.length;){let j=i+1;while(j<a.length&&a[j]===a[i])j++;out.push(j-i);i=j;}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "typescript": "function ribbonRunsBossReceipt(line: string): number {\n  const a=line; let out:number[]=[];\n  for(let i=0;i<a.length;){let j=i+1;while(j<a.length&&a[j]===a[i])j++;out.push(j-i);i=j;}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "python": "def ribbonRunsBossReceipt(line):\n    a=line\n    out=[]\n    i=0\n    while i<len(a):\n        j=i+1\n        while j<len(a) and a[j]==a[i]: j+=1\n        out.append(j-i)\n        i=j\n    return sum((i+1)*x for i,x in enumerate(out))\n",
+    "java": "class Solution {\n  public int ribbonRunsBossReceipt(String line) {\n    String a=line; List<Integer> out=new ArrayList<>();\n    {for(int i=0;i<a.length();){int j=i+1;while(j<a.length()&&a.charAt(j)==a.charAt(i))j++;out.add(j-i);i=j;}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
       {
         "id": "path3-050-4",
         "input": [
-          " ",
-          1
+          " "
         ],
         "expected": 1,
         "coverage": "singleton"
@@ -132,8 +125,7 @@
       {
         "id": "path3-050-5",
         "input": [
-          "aaaaa",
-          4
+          "aaaaa"
         ],
         "expected": 5,
         "coverage": "duplicates-or-redundancy"
@@ -141,8 +133,7 @@
       {
         "id": "path3-050-6",
         "input": [
-          " -!? ",
-          8
+          " -!? "
         ],
         "expected": 15,
         "coverage": "lower-bound"
@@ -150,8 +141,7 @@
       {
         "id": "path3-050-7",
         "input": [
-          "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",
-          3
+          "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
         ],
         "expected": 64,
         "coverage": "maximum-size"
@@ -159,8 +149,7 @@
       {
         "id": "path3-050-8",
         "input": [
-          "   ",
-          5
+          "   "
         ],
         "expected": 3,
         "coverage": "zero-or-minimum"
@@ -168,17 +157,15 @@
       {
         "id": "path3-050-9",
         "input": [
-          "a bb   ccc",
-          2
+          "a bb   ccc"
         ],
         "expected": 36,
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nA run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", the result list is [2, 1, 2].\n\nReturn the answer\n\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction ribbonRunsBossReceipt(line, k) {\n  const a=line; let out=[];\n  for(let i=0;i<a.length;){let j=i+1;while(j<a.length&&a[j]===a[i])j++;out.push(j-i);i=j;}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction ribbonRunsBossReceipt(line: string, k: number): number {\n  const a=line; let out:number[]=[];\n  for(let i=0;i<a.length;){let j=i+1;while(j<a.length&&a[j]===a[i])j++;out.push(j-i);i=j;}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef ribbonRunsBossReceipt(line, k):\n    a=line\n    out=[]\n    i=0\n    while i<len(a):\n        j=i+1\n        while j<len(a) and a[j]==a[i]: j+=1\n        out.append(j-i)\n        i=j\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int ribbonRunsBossReceipt(String line, int k) {\n    String a=line; List<Integer> out=new ArrayList<>();\n    {for(int i=0;i<a.length();){int j=i+1;while(j<a.length()&&a.charAt(j)==a.charAt(i))j++;out.add(j-i);i=j;}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+    "editorialMd": "Build runLengths\n\nA run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", `runLengths` is [2, 1, 2].\n\nReturn the answer\n\nMultiply each number in `runLengths` by its position, counting from 1: the first number by 1, the second by 2, and so on. Add those products. Store the sum in `weightedTotal`. Complete `ribbonRunsBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nWhy this works\n\nEach value in `runLengths` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction ribbonRunsBossReceipt(line) {\n  const a=line; let out=[];\n  for(let i=0;i<a.length;){let j=i+1;while(j<a.length&&a[j]===a[i])j++;out.push(j-i);i=j;}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction ribbonRunsBossReceipt(line: string): number {\n  const a=line; let out:number[]=[];\n  for(let i=0;i<a.length;){let j=i+1;while(j<a.length&&a[j]===a[i])j++;out.push(j-i);i=j;}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef ribbonRunsBossReceipt(line):\n    a=line\n    out=[]\n    i=0\n    while i<len(a):\n        j=i+1\n        while j<len(a) and a[j]==a[i]: j+=1\n        out.append(j-i)\n        i=j\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int ribbonRunsBossReceipt(String line) {\n    String a=line; List<Integer> out=new ArrayList<>();\n    {for(int i=0;i<a.length();){int j=i+1;while(j<a.length()&&a.charAt(j)==a.charAt(i))j++;out.add(j-i);i=j;}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
   },
   "parameterNames": [
-    "line",
-    "k"
+    "line"
   ]
 }

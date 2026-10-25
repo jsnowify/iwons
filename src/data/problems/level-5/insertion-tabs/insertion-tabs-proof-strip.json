@@ -16,30 +16,30 @@
   "prerequisites": [
     "path3-240"
   ],
-  "summary": "Binary search boundaries. Return the whole result list in the order you built it.",
+  "summary": "Binary search boundaries. Return the whole list.",
   "stage": "Warm-up",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\ndrawers contains exactly two lists: the sorted numbers in drawers[0], then the query numbers in drawers[1]. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\ndrawers contains two rows: a sorted number list, then a list of queries. Each query is a number to look up. For each query, find the first position in the sorted list whose number is at least the query. Positions, also called indexes, start at 0. If no number is large enough, record the length of the sorted list. Put the answers in query order.\n\nStep 2: Return the answer\nReturn the whole result list in the order you built it. If it is empty, return [].\n\nWrite your function\nComplete insertionTabsProofStrip(drawers, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "drawers contains two rows: a sorted number list, then a list of queries. Each query is a number to look up. For each query, find the first position in the sorted list whose number is at least the query. Positions, also called indexes, start at 0. If no number is large enough, record the length of the sorted list. Put the answers in query order. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`drawers` contains exactly two lists: the sorted numbers in `drawers[0]`, then the query numbers in `drawers[1]`.\n\nYour tasks\n1. Create a list `positions`. `drawers` contains two rows: a sorted number list, then a list of queries. Each query is a number to look up. For each query, find the first position in the sorted list whose number is at least the query. Positions, also called indexes, start at 0. If no number is large enough, record the length of the sorted list. Put the answers in query order.\n2. Complete `insertionTabsProofStrip` so it returns `positions`. Return it, do not print it.\n\nExample\nIf `drawers` is [[-1, 2, 6, 6], [6, -1, 6, 2]], then `positions` is [2, 0, 2, 1] and `insertionTabsProofStrip` returns [2, 0, 2, 1].\n\nRules\n- If `positions` is empty, return [].\n\nTest data\nTEST DATA 1: `drawers` is [[-3, 0, 7, 7, 12], []].\nTEST DATA 2: `drawers` is [[-2, 4, 4, 4], [9]].",
+  "unitIntro": "`drawers` contains two rows: a sorted number list, then a list of queries. Each query is a number to look up. For each query, find the first position in the sorted list whose number is at least the query. Positions, also called indexes, start at 0. If no number is large enough, record the length of the sorted list. Put the answers in query order. Each problem in this unit builds `positions` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64 per row.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
     "The input has exactly two rows, each containing at most 64 integers.",
-    "Efficiency goal: time O(q log(n+1)); extra memory, including the result list, O(n). n is the length of the sorted number list; q is the number of queries. These labels describe how work and memory grow with the input."
+    "Efficiency goal: time O(q log(n+1)); extra memory, including the helper list, O(n). n is the length of the sorted number list; q is the number of queries. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "drawers contains two rows: a sorted number list, then a list of queries. Each query is a number to look up. For each query, find the first position in the sorted list whose number is at least the query. Positions, also called indexes, start at 0. If no number is large enough, record the length of the sorted list. Put the answers in query order. Keep track of the numbers or places you have already checked.",
-    "Return the whole result list in the order you built it. If it is empty, return []. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `positions` before you look for the answer.",
+    "`drawers` contains two rows: a sorted number list, then a list of queries. Each query is a number to look up. For each query, find the first position in the sorted list whose number is at least the query. Positions, also called indexes, start at 0. If no number is large enough, record the length of the sorted list. Put the answers in query order. Keep track of the numbers or places you have already checked.",
+    "Return `positions` once it is complete. If `positions` is empty, return []."
   ],
   "functionName": "insertionTabsProofStrip",
   "mode": "function",
   "starterCode": {
-    "javascript": "function insertionTabsProofStrip(drawers, k) {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "typescript": "function insertionTabsProofStrip(drawers: number[][], k: number): number[] {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "python": "def insertionTabsProofStrip(drawers, k):\n    # Build the result list, then return the answer from Step 2.\n    return []\n",
-    "java": "class Solution {\n  public int[] insertionTabsProofStrip(int[][] drawers, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return new int[0];\n  }\n}\n"
+    "javascript": "function insertionTabsProofStrip(drawers) {\n  // Build positions, then return the answer.\n  return [];\n}\n",
+    "typescript": "function insertionTabsProofStrip(drawers: number[][]): number[] {\n  // Build positions, then return the answer.\n  return [];\n}\n",
+    "python": "def insertionTabsProofStrip(drawers):\n    # Build positions, then return the answer.\n    return []\n",
+    "java": "class Solution {\n  public int[] insertionTabsProofStrip(int[][] drawers) {\n    // Build positions, then return the answer.\n    return new int[0];\n  }\n}\n"
   },
   "cases": [
     {
@@ -54,12 +54,11 @@
             12
           ],
           []
-        ],
-        3
+        ]
       ],
       "expected": [],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list []. Step 2 asks for that whole list, so return []."
+      "explanation": "`positions` is []. `insertionTabsProofStrip` returns that whole list, so return []."
     },
     {
       "id": "path3-249-2",
@@ -74,14 +73,13 @@
           [
             9
           ]
-        ],
-        2
+        ]
       ],
       "expected": [
         4
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4]. Step 2 asks for that whole list, so return [4]."
+      "explanation": "`positions` is [4]. `insertionTabsProofStrip` returns that whole list, so return [4]."
     },
     {
       "id": "path3-249-3",
@@ -89,24 +87,22 @@
         [
           [],
           []
-        ],
-        1
+        ]
       ],
       "expected": [],
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. Step 2 asks for that whole list, so return []."
+      "explanation": "`positions` is []. `insertionTabsProofStrip` returns that whole list, so return []."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "int[][]",
-    "int"
+    "int[][]"
   ],
   "complexity": {
     "time": "O(q log(n+1))",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `positions` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 5,
     "unit": "insertion-tabs",
@@ -127,12 +123,11 @@
             12
           ],
           []
-        ],
-        3
+        ]
       ],
       "expected": [],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list []. Step 2 asks for that whole list, so return []."
+      "explanation": "`positions` is []. `insertionTabsProofStrip` returns that whole list, so return []."
     },
     {
       "id": "path3-249-2",
@@ -147,21 +142,20 @@
           [
             9
           ]
-        ],
-        2
+        ]
       ],
       "expected": [
         4
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4]. Step 2 asks for that whole list, so return [4]."
+      "explanation": "`positions` is [4]. `insertionTabsProofStrip` returns that whole list, so return [4]."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function insertionTabsProofStrip(drawers, k) {\n  const a=drawers; let out=[];\n  for(const x of a[1]){let l=0,r=a[0].length;while(l<r){const m=Math.floor((l+r)/2);if(a[0][m]<x)l=m+1;else r=m;}out.push(l);}\n  return out;\n}\n",
-    "typescript": "function insertionTabsProofStrip(drawers: number[][], k: number): number[] {\n  const a=drawers; let out:number[]=[];\n  for(const x of a[1]){let l=0,r=a[0].length;while(l<r){const m=Math.floor((l+r)/2);if(a[0][m]<x)l=m+1;else r=m;}out.push(l);}\n  return out;\n}\n",
-    "python": "def insertionTabsProofStrip(drawers, k):\n    a=drawers\n    out=[]\n    for x in a[1]:\n        left,right=0,len(a[0])\n        while left<right:\n            mid=(left+right)//2\n            if a[0][mid]<x: left=mid+1\n            else: right=mid\n        out.append(left)\n    return out\n",
-    "java": "class Solution {\n  public int[] insertionTabsProofStrip(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {for(int x:a[1]){int l=0,r=a[0].length;while(l<r){int m=(l+r)/2;if(a[0][m]<x)l=m+1;else r=m;}out.add(l);}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+    "javascript": "function insertionTabsProofStrip(drawers) {\n  const a=drawers; let out=[];\n  for(const x of a[1]){let l=0,r=a[0].length;while(l<r){const m=Math.floor((l+r)/2);if(a[0][m]<x)l=m+1;else r=m;}out.push(l);}\n  return out;\n}\n",
+    "typescript": "function insertionTabsProofStrip(drawers: number[][]): number[] {\n  const a=drawers; let out:number[]=[];\n  for(const x of a[1]){let l=0,r=a[0].length;while(l<r){const m=Math.floor((l+r)/2);if(a[0][m]<x)l=m+1;else r=m;}out.push(l);}\n  return out;\n}\n",
+    "python": "def insertionTabsProofStrip(drawers):\n    a=drawers\n    out=[]\n    for x in a[1]:\n        left,right=0,len(a[0])\n        while left<right:\n            mid=(left+right)//2\n            if a[0][mid]<x: left=mid+1\n            else: right=mid\n        out.append(left)\n    return out\n",
+    "java": "class Solution {\n  public int[] insertionTabsProofStrip(int[][] drawers) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {for(int x:a[1]){int l=0,r=a[0].length;while(l<r){int m=(l+r)/2;if(a[0][m]<x)l=m+1;else r=m;}out.add(l);}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -177,8 +171,7 @@
               -1,
               -7
             ]
-          ],
-          1
+          ]
         ],
         "expected": [
           0,
@@ -263,8 +256,7 @@
               7,
               20
             ]
-          ],
-          4
+          ]
         ],
         "expected": [
           0,
@@ -348,8 +340,7 @@
               0,
               0
             ]
-          ],
-          8
+          ]
         ],
         "expected": [
           3,
@@ -494,8 +485,7 @@
               -15,
               -8
             ]
-          ],
-          3
+          ]
         ],
         "expected": [
           44,
@@ -581,8 +571,7 @@
               0,
               12
             ]
-          ],
-          5
+          ]
         ],
         "expected": [
           3,
@@ -610,8 +599,7 @@
               -2,
               4
             ]
-          ],
-          2
+          ]
         ],
         "expected": [
           3,
@@ -622,10 +610,9 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\ndrawers contains two rows: a sorted number list, then a list of queries. Each query is a number to look up. For each query, find the first position in the sorted list whose number is at least the query. Positions, also called indexes, start at 0. If no number is large enough, record the length of the sorted list. Put the answers in query order.\n\nReturn the answer\n\nReturn the whole result list in the order you built it. If it is empty, return [].\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(q log(n+1)); extra memory, including the result list, O(n). n is the length of the sorted number list; q is the number of queries. These labels describe how work and memory grow with the input.\n\njavascript\nfunction insertionTabsProofStrip(drawers, k) {\n  const a=drawers; let out=[];\n  for(const x of a[1]){let l=0,r=a[0].length;while(l<r){const m=Math.floor((l+r)/2);if(a[0][m]<x)l=m+1;else r=m;}out.push(l);}\n  return out;\n}\n\n\ntypescript\nfunction insertionTabsProofStrip(drawers: number[][], k: number): number[] {\n  const a=drawers; let out:number[]=[];\n  for(const x of a[1]){let l=0,r=a[0].length;while(l<r){const m=Math.floor((l+r)/2);if(a[0][m]<x)l=m+1;else r=m;}out.push(l);}\n  return out;\n}\n\n\npython\ndef insertionTabsProofStrip(drawers, k):\n    a=drawers\n    out=[]\n    for x in a[1]:\n        left,right=0,len(a[0])\n        while left<right:\n            mid=(left+right)//2\n            if a[0][mid]<x: left=mid+1\n            else: right=mid\n        out.append(left)\n    return out\n\n\njava\nclass Solution {\n  public int[] insertionTabsProofStrip(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {for(int x:a[1]){int l=0,r=a[0].length;while(l<r){int m=(l+r)/2;if(a[0][m]<x)l=m+1;else r=m;}out.add(l);}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+    "editorialMd": "Build positions\n\n`drawers` contains two rows: a sorted number list, then a list of queries. Each query is a number to look up. For each query, find the first position in the sorted list whose number is at least the query. Positions, also called indexes, start at 0. If no number is large enough, record the length of the sorted list. Put the answers in query order.\n\nReturn the answer\n\nComplete `insertionTabsProofStrip` so it returns `positions`. Return it, do not print it.\n\nWhy this works\n\nEach value in `positions` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(q log(n+1)); extra memory, including the helper list, O(n). n is the length of the sorted number list; q is the number of queries. These labels describe how work and memory grow with the input.\n\njavascript\nfunction insertionTabsProofStrip(drawers) {\n  const a=drawers; let out=[];\n  for(const x of a[1]){let l=0,r=a[0].length;while(l<r){const m=Math.floor((l+r)/2);if(a[0][m]<x)l=m+1;else r=m;}out.push(l);}\n  return out;\n}\n\n\ntypescript\nfunction insertionTabsProofStrip(drawers: number[][]): number[] {\n  const a=drawers; let out:number[]=[];\n  for(const x of a[1]){let l=0,r=a[0].length;while(l<r){const m=Math.floor((l+r)/2);if(a[0][m]<x)l=m+1;else r=m;}out.push(l);}\n  return out;\n}\n\n\npython\ndef insertionTabsProofStrip(drawers):\n    a=drawers\n    out=[]\n    for x in a[1]:\n        left,right=0,len(a[0])\n        while left<right:\n            mid=(left+right)//2\n            if a[0][mid]<x: left=mid+1\n            else: right=mid\n        out.append(left)\n    return out\n\n\njava\nclass Solution {\n  public int[] insertionTabsProofStrip(int[][] drawers) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {for(int x:a[1]){int l=0,r=a[0].length;while(l<r){int m=(l+r)/2;if(a[0][m]<x)l=m+1;else r=m;}out.add(l);}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
   },
   "parameterNames": [
-    "drawers",
-    "k"
+    "drawers"
   ]
 }

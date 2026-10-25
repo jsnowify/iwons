@@ -16,30 +16,30 @@
   "prerequisites": [
     "path3-183"
   ],
-  "summary": "Two sorted streams. Return only numbers greater than 0 from the result list.",
+  "summary": "Two sorted streams. Keep the positive numbers.",
   "stage": "Sequence variation",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\ndrawers contains exactly two lists of numbers. The first list is drawers[0]; the second is drawers[1]. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\ndrawers contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted result list. Keep all repeated numbers, including copies from both input lists.\n\nStep 2: Return the answer\nReturn only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return [].\n\nWrite your function\nComplete pairedDrawersPositiveProofStrip(drawers, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "drawers contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted result list. Keep all repeated numbers, including copies from both input lists. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`drawers` contains exactly two lists of numbers. The first list is `drawers[0]`; the second is `drawers[1]`.\n\nYour tasks\n1. Create a list `merged`. `drawers` contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted `merged`. Keep all repeated numbers, including copies from both input lists.\n2. Create a list `positiveValues` that keeps only the numbers in `merged` that are greater than 0, in the same order.\n3. Complete `pairedDrawersPositiveProofStrip` so it returns `positiveValues`. Return it, do not print it.\n\nExample\nIf `drawers` is [[-1, 2, 6, 6], [-1, 2, 6, 6]], then `merged` is [-1, -1, 2, 2, 6, 6, 6, 6] and `pairedDrawersPositiveProofStrip` returns [2, 2, 6, 6, 6, 6].\n\nRules\n- Keep repeated numbers.\n- If no number is greater than 0, return [].\n\nTest data\nTEST DATA 1: `drawers` is [[-3, 0, 7, 7, 12], []].\nTEST DATA 2: `drawers` is [[-2, 4, 4, 4], [9]].",
+  "unitIntro": "`drawers` contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted `merged`. Keep all repeated numbers, including copies from both input lists. Each problem in this unit builds `merged` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64 per row.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
     "The input has exactly two rows, each containing at most 64 integers.",
-    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the combined length of the two lists. These labels describe how work and memory grow with the input."
+    "Efficiency goal: time O(n); extra memory, including the helper list, O(n). n is the combined length of the two lists. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "drawers contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted result list. Keep all repeated numbers, including copies from both input lists. Keep track of the numbers or places you have already checked.",
-    "Return only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return []. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `merged` before you look for the answer.",
+    "`drawers` contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted `merged`. Keep all repeated numbers, including copies from both input lists. Keep track of the numbers or places you have already checked.",
+    "Create a list `positiveValues` that keeps only the numbers in `merged` that are greater than 0, in the same order. Keep repeated numbers."
   ],
   "functionName": "pairedDrawersPositiveProofStrip",
   "mode": "function",
   "starterCode": {
-    "javascript": "function pairedDrawersPositiveProofStrip(drawers, k) {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "typescript": "function pairedDrawersPositiveProofStrip(drawers: number[][], k: number): number[] {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "python": "def pairedDrawersPositiveProofStrip(drawers, k):\n    # Build the result list, then return the answer from Step 2.\n    return []\n",
-    "java": "class Solution {\n  public int[] pairedDrawersPositiveProofStrip(int[][] drawers, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return new int[0];\n  }\n}\n"
+    "javascript": "function pairedDrawersPositiveProofStrip(drawers) {\n  // Build merged, then return the answer.\n  return [];\n}\n",
+    "typescript": "function pairedDrawersPositiveProofStrip(drawers: number[][]): number[] {\n  // Build merged, then return the answer.\n  return [];\n}\n",
+    "python": "def pairedDrawersPositiveProofStrip(drawers):\n    # Build merged, then return the answer.\n    return []\n",
+    "java": "class Solution {\n  public int[] pairedDrawersPositiveProofStrip(int[][] drawers) {\n    // Build merged, then return the answer.\n    return new int[0];\n  }\n}\n"
   },
   "cases": [
     {
@@ -54,8 +54,7 @@
             12
           ],
           []
-        ],
-        3
+        ]
       ],
       "expected": [
         7,
@@ -63,7 +62,7 @@
         12
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-3,0,7,7,12]. Keep only numbers greater than 0, without changing their order. Return [7,7,12]."
+      "explanation": "`merged` is [-3, 0, 7, 7, 12]. Keep only numbers greater than 0, without changing their order. Return [7, 7, 12]."
     },
     {
       "id": "path3-184-2",
@@ -78,8 +77,7 @@
           [
             9
           ]
-        ],
-        2
+        ]
       ],
       "expected": [
         4,
@@ -88,7 +86,7 @@
         9
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-2,4,4,4,9]. Keep only numbers greater than 0, without changing their order. Return [4,4,4,9]."
+      "explanation": "`merged` is [-2, 4, 4, 4, 9]. Keep only numbers greater than 0, without changing their order. Return [4, 4, 4, 9]."
     },
     {
       "id": "path3-184-3",
@@ -96,24 +94,22 @@
         [
           [],
           []
-        ],
-        1
+        ]
       ],
       "expected": [],
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. Keep only numbers greater than 0, without changing their order. Return []."
+      "explanation": "`merged` is []. Keep only numbers greater than 0, without changing their order. Return []."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "int[][]",
-    "int"
+    "int[][]"
   ],
   "complexity": {
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `merged` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 3,
     "unit": "paired-drawers",
@@ -134,8 +130,7 @@
             12
           ],
           []
-        ],
-        3
+        ]
       ],
       "expected": [
         7,
@@ -143,7 +138,7 @@
         12
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-3,0,7,7,12]. Keep only numbers greater than 0, without changing their order. Return [7,7,12]."
+      "explanation": "`merged` is [-3, 0, 7, 7, 12]. Keep only numbers greater than 0, without changing their order. Return [7, 7, 12]."
     },
     {
       "id": "path3-184-2",
@@ -158,8 +153,7 @@
           [
             9
           ]
-        ],
-        2
+        ]
       ],
       "expected": [
         4,
@@ -168,14 +162,14 @@
         9
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-2,4,4,4,9]. Keep only numbers greater than 0, without changing their order. Return [4,4,4,9]."
+      "explanation": "`merged` is [-2, 4, 4, 4, 9]. Keep only numbers greater than 0, without changing their order. Return [4, 4, 4, 9]."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function pairedDrawersPositiveProofStrip(drawers, k) {\n  const a=drawers; let out=[];\n  let i=0,j=0;while(i<a[0].length||j<a[1].length){if(j===a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.push(a[0][i++]);else out.push(a[1][j++]);}\n  return out.filter(x=>x>0);\n}\n",
-    "typescript": "function pairedDrawersPositiveProofStrip(drawers: number[][], k: number): number[] {\n  const a=drawers; let out:number[]=[];\n  let i=0,j=0;while(i<a[0].length||j<a[1].length){if(j===a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.push(a[0][i++]);else out.push(a[1][j++]);}\n  return out.filter(x=>x>0);\n}\n",
-    "python": "def pairedDrawersPositiveProofStrip(drawers, k):\n    a=drawers\n    out=[]\n    i=j=0\n    while i<len(a[0]) or j<len(a[1]):\n        if j==len(a[1]) or (i<len(a[0]) and a[0][i]<=a[1][j]):\n            out.append(a[0][i])\n            i+=1\n        else:\n            out.append(a[1][j])\n            j+=1\n    return [x for x in out if x>0]\n",
-    "java": "class Solution {\n  public int[] pairedDrawersPositiveProofStrip(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int i=0,j=0;while(i<a[0].length||j<a[1].length){if(j==a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.add(a[0][i++]);else out.add(a[1][j++]);}}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+    "javascript": "function pairedDrawersPositiveProofStrip(drawers) {\n  const a=drawers; let out=[];\n  let i=0,j=0;while(i<a[0].length||j<a[1].length){if(j===a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.push(a[0][i++]);else out.push(a[1][j++]);}\n  return out.filter(x=>x>0);\n}\n",
+    "typescript": "function pairedDrawersPositiveProofStrip(drawers: number[][]): number[] {\n  const a=drawers; let out:number[]=[];\n  let i=0,j=0;while(i<a[0].length||j<a[1].length){if(j===a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.push(a[0][i++]);else out.push(a[1][j++]);}\n  return out.filter(x=>x>0);\n}\n",
+    "python": "def pairedDrawersPositiveProofStrip(drawers):\n    a=drawers\n    out=[]\n    i=j=0\n    while i<len(a[0]) or j<len(a[1]):\n        if j==len(a[1]) or (i<len(a[0]) and a[0][i]<=a[1][j]):\n            out.append(a[0][i])\n            i+=1\n        else:\n            out.append(a[1][j])\n            j+=1\n    return [x for x in out if x>0]\n",
+    "java": "class Solution {\n  public int[] pairedDrawersPositiveProofStrip(int[][] drawers) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int i=0,j=0;while(i<a[0].length||j<a[1].length){if(j==a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.add(a[0][i++]);else out.add(a[1][j++]);}}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -191,8 +185,7 @@
               -7,
               -1
             ]
-          ],
-          1
+          ]
         ],
         "expected": [
           9
@@ -275,8 +268,7 @@
               20,
               20
             ]
-          ],
-          4
+          ]
         ],
         "expected": [
           1,
@@ -331,8 +323,7 @@
               0,
               0
             ]
-          ],
-          8
+          ]
         ],
         "expected": [],
         "coverage": "lower-bound"
@@ -473,8 +464,7 @@
               15,
               15
             ]
-          ],
-          3
+          ]
         ],
         "expected": [
           1,
@@ -559,8 +549,7 @@
               7,
               12
             ]
-          ],
-          5
+          ]
         ],
         "expected": [
           7,
@@ -586,8 +575,7 @@
               4,
               4
             ]
-          ],
-          2
+          ]
         ],
         "expected": [
           1,
@@ -601,10 +589,9 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\ndrawers contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted result list. Keep all repeated numbers, including copies from both input lists.\n\nReturn the answer\n\nReturn only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return [].\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the combined length of the two lists. These labels describe how work and memory grow with the input.\n\njavascript\nfunction pairedDrawersPositiveProofStrip(drawers, k) {\n  const a=drawers; let out=[];\n  let i=0,j=0;while(i<a[0].length||j<a[1].length){if(j===a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.push(a[0][i++]);else out.push(a[1][j++]);}\n  return out.filter(x=>x>0);\n}\n\n\ntypescript\nfunction pairedDrawersPositiveProofStrip(drawers: number[][], k: number): number[] {\n  const a=drawers; let out:number[]=[];\n  let i=0,j=0;while(i<a[0].length||j<a[1].length){if(j===a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.push(a[0][i++]);else out.push(a[1][j++]);}\n  return out.filter(x=>x>0);\n}\n\n\npython\ndef pairedDrawersPositiveProofStrip(drawers, k):\n    a=drawers\n    out=[]\n    i=j=0\n    while i<len(a[0]) or j<len(a[1]):\n        if j==len(a[1]) or (i<len(a[0]) and a[0][i]<=a[1][j]):\n            out.append(a[0][i])\n            i+=1\n        else:\n            out.append(a[1][j])\n            j+=1\n    return [x for x in out if x>0]\n\n\njava\nclass Solution {\n  public int[] pairedDrawersPositiveProofStrip(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int i=0,j=0;while(i<a[0].length||j<a[1].length){if(j==a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.add(a[0][i++]);else out.add(a[1][j++]);}}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+    "editorialMd": "Build merged\n\n`drawers` contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted `merged`. Keep all repeated numbers, including copies from both input lists.\n\nReturn the answer\n\nCreate a list `positiveValues` that keeps only the numbers in `merged` that are greater than 0, in the same order. Complete `pairedDrawersPositiveProofStrip` so it returns `positiveValues`. Return it, do not print it.\n\nWhy this works\n\nEach value in `merged` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the helper list, O(n). n is the combined length of the two lists. These labels describe how work and memory grow with the input.\n\njavascript\nfunction pairedDrawersPositiveProofStrip(drawers) {\n  const a=drawers; let out=[];\n  let i=0,j=0;while(i<a[0].length||j<a[1].length){if(j===a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.push(a[0][i++]);else out.push(a[1][j++]);}\n  return out.filter(x=>x>0);\n}\n\n\ntypescript\nfunction pairedDrawersPositiveProofStrip(drawers: number[][]): number[] {\n  const a=drawers; let out:number[]=[];\n  let i=0,j=0;while(i<a[0].length||j<a[1].length){if(j===a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.push(a[0][i++]);else out.push(a[1][j++]);}\n  return out.filter(x=>x>0);\n}\n\n\npython\ndef pairedDrawersPositiveProofStrip(drawers):\n    a=drawers\n    out=[]\n    i=j=0\n    while i<len(a[0]) or j<len(a[1]):\n        if j==len(a[1]) or (i<len(a[0]) and a[0][i]<=a[1][j]):\n            out.append(a[0][i])\n            i+=1\n        else:\n            out.append(a[1][j])\n            j+=1\n    return [x for x in out if x>0]\n\n\njava\nclass Solution {\n  public int[] pairedDrawersPositiveProofStrip(int[][] drawers) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int i=0,j=0;while(i<a[0].length||j<a[1].length){if(j==a[1].length||(i<a[0].length&&a[0][i]<=a[1][j]))out.add(a[0][i++]);else out.add(a[1][j++]);}}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
   },
   "parameterNames": [
-    "drawers",
-    "k"
+    "drawers"
   ]
 }

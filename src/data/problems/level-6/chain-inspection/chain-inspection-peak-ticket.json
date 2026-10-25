@@ -16,30 +16,30 @@
   "prerequisites": [
     "path3-289"
   ],
-  "summary": "Linked traversal. Return the largest number in the result list.",
+  "summary": "Linked traversal. Return the largest number.",
   "stage": "Optimize",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nhead is the first node of a linked list. In examples, [4, 7] means nodes 4 then 7, linked in that order. [] means no nodes. The runner builds the nodes for you. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nhead is the first node of a linked list. A node holds a number in val and a link to the next node in next. Follow next until there are no more nodes. Record each val in order. The list has no loops. An empty list gives an empty result list.\n\nStep 2: Return the answer\nReturn the largest number in the result list. If the list is empty, return 0. If all numbers are negative, return the largest negative number; do not replace it with 0.\n\nWrite your function\nComplete chainInspectionPeakTicket(head, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "head is the first node of a linked list. A node holds a number in val and a link to the next node in next. Follow next until there are no more nodes. Record each val in order. The list has no loops. An empty list gives an empty result list. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`head` is the first node of a linked list. In examples, [4, 7] means nodes 4 then 7, linked in that order. [] means no nodes. The runner builds the nodes for you.\n\nYour tasks\n1. Create a list `values`. `head` is the first node of a linked list. A node holds a number in val and a link to the next node in next. Follow next until there are no more nodes. Record each val in order. The list has no loops. An empty list gives an empty `values`.\n2. Find the largest number in `values`. Store it in `largest`.\n3. Complete `chainInspectionPeakTicket` so it returns `largest`. Return it, do not print it.\n\nExample\nIf `head` is [6, -1, 6, 2], then `values` is [6, -1, 6, 2] and `chainInspectionPeakTicket` returns 6.\n\nRules\n- If `values` is empty, return 0.\n- If every number is negative, return the largest negative number. Do not replace it with 0.\n\nTest data\nTEST DATA 1: `head` is [7, -3, 7, 0, 12].\nTEST DATA 2: `head` is [4, 4, -2, 4].",
+  "unitIntro": "`head` is the first node of a linked list. A node holds a number in val and a link to the next node in next. Follow next until there are no more nodes. Record each val in order. The list has no loops. An empty list gives an empty `values`. Each problem in this unit builds `values` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 50000.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
     "Linked lists do not loop back to an earlier node. Tree examples list nodes by level; null means a missing child. The runner builds the nodes shown in the examples.",
-    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the number of nodes. These labels describe how work and memory grow with the input."
+    "Efficiency goal: time O(n); extra memory, including the helper list, O(n). n is the number of nodes. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "head is the first node of a linked list. A node holds a number in val and a link to the next node in next. Follow next until there are no more nodes. Record each val in order. The list has no loops. An empty list gives an empty result list. Keep track of the numbers or places you have already checked.",
-    "Return the largest number in the result list. If the list is empty, return 0. If all numbers are negative, return the largest negative number; do not replace it with 0. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `values` before you look for the answer.",
+    "`head` is the first node of a linked list. A node holds a number in val and a link to the next node in next. Follow next until there are no more nodes. Record each val in order. The list has no loops. An empty list gives an empty `values`. Keep track of the numbers or places you have already checked.",
+    "Find the largest number in `values`. Store it in `largest`. If `values` is empty, return 0."
   ],
   "functionName": "chainInspectionPeakTicket",
   "mode": "function",
   "starterCode": {
-    "javascript": "function chainInspectionPeakTicket(head, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "typescript": "type ListNode = { val: number; next: ListNode | null };\nfunction chainInspectionPeakTicket(head: ListNode | null, k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "python": "def chainInspectionPeakTicket(head, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
-    "java": "class Solution {\n  public int chainInspectionPeakTicket(ListNode head, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
+    "javascript": "function chainInspectionPeakTicket(head) {\n  // Build values, then return the answer.\n  return 0;\n}\n",
+    "typescript": "type ListNode = { val: number; next: ListNode | null };\nfunction chainInspectionPeakTicket(head: ListNode | null): number {\n  // Build values, then return the answer.\n  return 0;\n}\n",
+    "python": "def chainInspectionPeakTicket(head):\n    # Build values, then return the answer.\n    return 0\n",
+    "java": "class Solution {\n  public int chainInspectionPeakTicket(ListNode head) {\n    // Build values, then return the answer.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -51,12 +51,11 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": 12,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [7,-3,7,0,12]. The largest number is 12. Return 12."
+      "explanation": "`values` is [7, -3, 7, 0, 12]. The largest number is 12. Return 12."
     },
     {
       "id": "path3-290-2",
@@ -66,28 +65,25 @@
           4,
           -2,
           4
-        ],
-        2
+        ]
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,4,-2,4]. The largest number is 4. Return 4."
+      "explanation": "`values` is [4, 4, -2, 4]. The largest number is 4. Return 4."
     },
     {
       "id": "path3-290-3",
       "input": [
-        [],
-        1
+        []
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. The list is empty, so return 0."
+      "explanation": "`values` is []. The list is empty, so return 0."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "ListNode",
-    "int"
+    "ListNode"
   ],
   "inputKinds": {
     "0": "list"
@@ -96,7 +92,7 @@
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `values` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 6,
     "unit": "chain-inspection",
@@ -114,12 +110,11 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": 12,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [7,-3,7,0,12]. The largest number is 12. Return 12."
+      "explanation": "`values` is [7, -3, 7, 0, 12]. The largest number is 12. Return 12."
     },
     {
       "id": "path3-290-2",
@@ -129,19 +124,18 @@
           4,
           -2,
           4
-        ],
-        2
+        ]
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,4,-2,4]. The largest number is 4. Return 4."
+      "explanation": "`values` is [4, 4, -2, 4]. The largest number is 4. Return 4."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function chainInspectionPeakTicket(head, k) {\n  const a=head; let out=[];\n  for(let node=a;node;node=node.next)out.push(node.val);\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n",
-    "typescript": "type ListNode = { val: number; next: ListNode | null };\nfunction chainInspectionPeakTicket(head: ListNode | null, k: number): number {\n  const a=head; let out:number[]=[];\n  for(let node=a;node;node=node.next)out.push(node.val);\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n",
-    "python": "def chainInspectionPeakTicket(head, k):\n    a=head\n    out=[]\n    node=a\n    while node:\n        out.append(node.val)\n        node=node.next\n    return max(out,default=0)\n",
-    "java": "class Solution {\n  public int chainInspectionPeakTicket(ListNode head, int k) {\n    ListNode a=head; List<Integer> out=new ArrayList<>();\n    {for(ListNode node=a;node!=null;node=node.next)out.add(node.val);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.max(answer,x);return answer;\n  }\n}\n"
+    "javascript": "function chainInspectionPeakTicket(head) {\n  const a=head; let out=[];\n  for(let node=a;node;node=node.next)out.push(node.val);\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n",
+    "typescript": "type ListNode = { val: number; next: ListNode | null };\nfunction chainInspectionPeakTicket(head: ListNode | null): number {\n  const a=head; let out:number[]=[];\n  for(let node=a;node;node=node.next)out.push(node.val);\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n",
+    "python": "def chainInspectionPeakTicket(head):\n    a=head\n    out=[]\n    node=a\n    while node:\n        out.append(node.val)\n        node=node.next\n    return max(out,default=0)\n",
+    "java": "class Solution {\n  public int chainInspectionPeakTicket(ListNode head) {\n    ListNode a=head; List<Integer> out=new ArrayList<>();\n    {for(ListNode node=a;node!=null;node=node.next)out.add(node.val);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.max(answer,x);return answer;\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -150,8 +144,7 @@
         "input": [
           [
             9
-          ],
-          1
+          ]
         ],
         "expected": 9,
         "coverage": "singleton"
@@ -164,8 +157,7 @@
             5,
             5,
             5
-          ],
-          4
+          ]
         ],
         "expected": 5,
         "coverage": "duplicates-or-redundancy"
@@ -177,8 +169,7 @@
             -20,
             -1,
             -7
-          ],
-          8
+          ]
         ],
         "expected": -1,
         "coverage": "lower-bound"
@@ -50187,8 +50178,7 @@
             9,
             -19,
             -6
-          ],
-          3
+          ]
         ],
         "expected": 20,
         "coverage": "maximum-size"
@@ -50200,8 +50190,7 @@
             0,
             0,
             0
-          ],
-          5
+          ]
         ],
         "expected": 0,
         "coverage": "zero-or-minimum"
@@ -50215,17 +50204,15 @@
             -2,
             8,
             1
-          ],
-          2
+          ]
         ],
         "expected": 8,
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nhead is the first node of a linked list. A node holds a number in val and a link to the next node in next. Follow next until there are no more nodes. Record each val in order. The list has no loops. An empty list gives an empty result list.\n\nReturn the answer\n\nReturn the largest number in the result list. If the list is empty, return 0. If all numbers are negative, return the largest negative number; do not replace it with 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the number of nodes. These labels describe how work and memory grow with the input.\n\njavascript\nfunction chainInspectionPeakTicket(head, k) {\n  const a=head; let out=[];\n  for(let node=a;node;node=node.next)out.push(node.val);\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n\n\ntypescript\ntype ListNode = { val: number; next: ListNode | null };\nfunction chainInspectionPeakTicket(head: ListNode | null, k: number): number {\n  const a=head; let out:number[]=[];\n  for(let node=a;node;node=node.next)out.push(node.val);\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n\n\npython\ndef chainInspectionPeakTicket(head, k):\n    a=head\n    out=[]\n    node=a\n    while node:\n        out.append(node.val)\n        node=node.next\n    return max(out,default=0)\n\n\njava\nclass Solution {\n  public int chainInspectionPeakTicket(ListNode head, int k) {\n    ListNode a=head; List<Integer> out=new ArrayList<>();\n    {for(ListNode node=a;node!=null;node=node.next)out.add(node.val);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.max(answer,x);return answer;\n  }\n}\n"
+    "editorialMd": "Build values\n\n`head` is the first node of a linked list. A node holds a number in val and a link to the next node in next. Follow next until there are no more nodes. Record each val in order. The list has no loops. An empty list gives an empty `values`.\n\nReturn the answer\n\nFind the largest number in `values`. Store it in `largest`. Complete `chainInspectionPeakTicket` so it returns `largest`. Return it, do not print it.\n\nWhy this works\n\nEach value in `values` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the helper list, O(n). n is the number of nodes. These labels describe how work and memory grow with the input.\n\njavascript\nfunction chainInspectionPeakTicket(head) {\n  const a=head; let out=[];\n  for(let node=a;node;node=node.next)out.push(node.val);\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n\n\ntypescript\ntype ListNode = { val: number; next: ListNode | null };\nfunction chainInspectionPeakTicket(head: ListNode | null): number {\n  const a=head; let out:number[]=[];\n  for(let node=a;node;node=node.next)out.push(node.val);\n  let answer=out.length?out[0]:0;for(const x of out)if(x>answer)answer=x;return answer;\n}\n\n\npython\ndef chainInspectionPeakTicket(head):\n    a=head\n    out=[]\n    node=a\n    while node:\n        out.append(node.val)\n        node=node.next\n    return max(out,default=0)\n\n\njava\nclass Solution {\n  public int chainInspectionPeakTicket(ListNode head) {\n    ListNode a=head; List<Integer> out=new ArrayList<>();\n    {for(ListNode node=a;node!=null;node=node.next)out.add(node.val);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.max(answer,x);return answer;\n  }\n}\n"
   },
   "parameterNames": [
-    "head",
-    "k"
+    "head"
   ]
 }

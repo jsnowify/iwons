@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-258"
   ],
-  "summary": "Bit counting. Return the whole result list in the order you built it.",
+  "summary": "Bit counting. Return the whole list.",
   "stage": "Warm-up",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nWrite each number in readings in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order.\n\nStep 2: Return the answer\nReturn the whole result list in the order you built it. If it is empty, return [].\n\nWrite your function\nComplete bitRibbonsProofStrip(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "Write each number in readings in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `oneCounts`. Write each number in `readings` in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order.\n2. Complete `bitRibbonsProofStrip` so it returns `oneCounts`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 1, 6, 2], then `oneCounts` is [2, 1, 2, 1] and `bitRibbonsProofStrip` returns [2, 1, 2, 1].\n\nRules\n- If `oneCounts` is empty, return [].\n\nTest data\nTEST DATA 1: `readings` is [7, 3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, 2, 4].",
+  "unitIntro": "Write each number in `readings` in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order. Each problem in this unit builds `oneCounts` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
     "Input numbers are whole numbers from 0 through 1000000.",
-    "Efficiency goal: time O(n log M); extra memory, including the result list, O(n). n is the input length; M is the largest input number. These labels describe how work and memory grow with the input."
+    "Efficiency goal: time O(n log M); extra memory, including the helper list, O(n). n is the input length; M is the largest input number. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "Write each number in readings in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order. Keep track of the numbers or places you have already checked.",
-    "Return the whole result list in the order you built it. If it is empty, return []. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `oneCounts` before you look for the answer.",
+    "Write each number in `readings` in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order. Keep track of the numbers or places you have already checked.",
+    "Return `oneCounts` once it is complete. If `oneCounts` is empty, return []."
   ],
   "functionName": "bitRibbonsProofStrip",
   "mode": "function",
   "starterCode": {
-    "javascript": "function bitRibbonsProofStrip(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "typescript": "function bitRibbonsProofStrip(readings: number[], k: number): number[] {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "python": "def bitRibbonsProofStrip(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return []\n",
-    "java": "class Solution {\n  public int[] bitRibbonsProofStrip(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return new int[0];\n  }\n}\n"
+    "javascript": "function bitRibbonsProofStrip(readings) {\n  // Build oneCounts, then return the answer.\n  return [];\n}\n",
+    "typescript": "function bitRibbonsProofStrip(readings: number[]): number[] {\n  // Build oneCounts, then return the answer.\n  return [];\n}\n",
+    "python": "def bitRibbonsProofStrip(readings):\n    # Build oneCounts, then return the answer.\n    return []\n",
+    "java": "class Solution {\n  public int[] bitRibbonsProofStrip(int[] readings) {\n    // Build oneCounts, then return the answer.\n    return new int[0];\n  }\n}\n"
   },
   "cases": [
     {
@@ -50,8 +50,7 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": [
         3,
@@ -61,7 +60,7 @@
         2
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [3,2,3,0,2]. Step 2 asks for that whole list, so return [3,2,3,0,2]."
+      "explanation": "`oneCounts` is [3, 2, 3, 0, 2]. `bitRibbonsProofStrip` returns that whole list, so return [3, 2, 3, 0, 2]."
     },
     {
       "id": "path3-267-2",
@@ -71,8 +70,7 @@
           4,
           2,
           4
-        ],
-        2
+        ]
       ],
       "expected": [
         1,
@@ -81,29 +79,27 @@
         1
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [1,1,1,1]. Step 2 asks for that whole list, so return [1,1,1,1]."
+      "explanation": "`oneCounts` is [1, 1, 1, 1]. `bitRibbonsProofStrip` returns that whole list, so return [1, 1, 1, 1]."
     },
     {
       "id": "path3-267-3",
       "input": [
-        [],
-        1
+        []
       ],
       "expected": [],
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. Step 2 asks for that whole list, so return []."
+      "explanation": "`oneCounts` is []. `bitRibbonsProofStrip` returns that whole list, so return []."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "int[]",
-    "int"
+    "int[]"
   ],
   "complexity": {
     "time": "O(n log M)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `oneCounts` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 5,
     "unit": "bit-ribbons",
@@ -121,8 +117,7 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": [
         3,
@@ -132,7 +127,7 @@
         2
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [3,2,3,0,2]. Step 2 asks for that whole list, so return [3,2,3,0,2]."
+      "explanation": "`oneCounts` is [3, 2, 3, 0, 2]. `bitRibbonsProofStrip` returns that whole list, so return [3, 2, 3, 0, 2]."
     },
     {
       "id": "path3-267-2",
@@ -142,8 +137,7 @@
           4,
           2,
           4
-        ],
-        2
+        ]
       ],
       "expected": [
         1,
@@ -152,14 +146,14 @@
         1
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [1,1,1,1]. Step 2 asks for that whole list, so return [1,1,1,1]."
+      "explanation": "`oneCounts` is [1, 1, 1, 1]. `bitRibbonsProofStrip` returns that whole list, so return [1, 1, 1, 1]."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function bitRibbonsProofStrip(readings, k) {\n  const a=readings; let out=[];\n  for(let x of a){let count=0;while(x){x&=x-1;count++;}out.push(count);}\n  return out;\n}\n",
-    "typescript": "function bitRibbonsProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  for(let x of a){let count=0;while(x){x&=x-1;count++;}out.push(count);}\n  return out;\n}\n",
-    "python": "def bitRibbonsProofStrip(readings, k):\n    a=readings\n    out=[]\n    for x in a:\n        count=0\n        while x:\n            x&=x-1\n            count+=1\n        out.append(count)\n    return out\n",
-    "java": "class Solution {\n  public int[] bitRibbonsProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){int count=0;while(x!=0){x&=x-1;count++;}out.add(count);}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+    "javascript": "function bitRibbonsProofStrip(readings) {\n  const a=readings; let out=[];\n  for(let x of a){let count=0;while(x){x&=x-1;count++;}out.push(count);}\n  return out;\n}\n",
+    "typescript": "function bitRibbonsProofStrip(readings: number[]): number[] {\n  const a=readings; let out:number[]=[];\n  for(let x of a){let count=0;while(x){x&=x-1;count++;}out.push(count);}\n  return out;\n}\n",
+    "python": "def bitRibbonsProofStrip(readings):\n    a=readings\n    out=[]\n    for x in a:\n        count=0\n        while x:\n            x&=x-1\n            count+=1\n        out.append(count)\n    return out\n",
+    "java": "class Solution {\n  public int[] bitRibbonsProofStrip(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){int count=0;while(x!=0){x&=x-1;count++;}out.add(count);}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -168,8 +162,7 @@
         "input": [
           [
             9
-          ],
-          1
+          ]
         ],
         "expected": [
           2
@@ -184,8 +177,7 @@
             5,
             5,
             5
-          ],
-          4
+          ]
         ],
         "expected": [
           2,
@@ -202,8 +194,7 @@
             20,
             1,
             7
-          ],
-          8
+          ]
         ],
         "expected": [
           2,
@@ -280,8 +271,7 @@
             1000000,
             0,
             1000000
-          ],
-          3
+          ]
         ],
         "expected": [
           0,
@@ -358,8 +348,7 @@
             0,
             0,
             0
-          ],
-          5
+          ]
         ],
         "expected": [
           0,
@@ -377,8 +366,7 @@
             2,
             8,
             1
-          ],
-          2
+          ]
         ],
         "expected": [
           1,
@@ -390,10 +378,9 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nWrite each number in readings in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order.\n\nReturn the answer\n\nReturn the whole result list in the order you built it. If it is empty, return [].\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n log M); extra memory, including the result list, O(n). n is the input length; M is the largest input number. These labels describe how work and memory grow with the input.\n\njavascript\nfunction bitRibbonsProofStrip(readings, k) {\n  const a=readings; let out=[];\n  for(let x of a){let count=0;while(x){x&=x-1;count++;}out.push(count);}\n  return out;\n}\n\n\ntypescript\nfunction bitRibbonsProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  for(let x of a){let count=0;while(x){x&=x-1;count++;}out.push(count);}\n  return out;\n}\n\n\npython\ndef bitRibbonsProofStrip(readings, k):\n    a=readings\n    out=[]\n    for x in a:\n        count=0\n        while x:\n            x&=x-1\n            count+=1\n        out.append(count)\n    return out\n\n\njava\nclass Solution {\n  public int[] bitRibbonsProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){int count=0;while(x!=0){x&=x-1;count++;}out.add(count);}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+    "editorialMd": "Build oneCounts\n\nWrite each number in `readings` in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order.\n\nReturn the answer\n\nComplete `bitRibbonsProofStrip` so it returns `oneCounts`. Return it, do not print it.\n\nWhy this works\n\nEach value in `oneCounts` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n log M); extra memory, including the helper list, O(n). n is the input length; M is the largest input number. These labels describe how work and memory grow with the input.\n\njavascript\nfunction bitRibbonsProofStrip(readings) {\n  const a=readings; let out=[];\n  for(let x of a){let count=0;while(x){x&=x-1;count++;}out.push(count);}\n  return out;\n}\n\n\ntypescript\nfunction bitRibbonsProofStrip(readings: number[]): number[] {\n  const a=readings; let out:number[]=[];\n  for(let x of a){let count=0;while(x){x&=x-1;count++;}out.push(count);}\n  return out;\n}\n\n\npython\ndef bitRibbonsProofStrip(readings):\n    a=readings\n    out=[]\n    for x in a:\n        count=0\n        while x:\n            x&=x-1\n            count+=1\n        out.append(count)\n    return out\n\n\njava\nclass Solution {\n  public int[] bitRibbonsProofStrip(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){int count=0;while(x!=0){x&=x-1;count++;}out.add(count);}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
   },
   "parameterNames": [
-    "readings",
-    "k"
+    "readings"
   ]
 }

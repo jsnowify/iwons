@@ -12,8 +12,8 @@
         "id": "read",
         "title": "Return the list you built",
         "explanation": "Interval dynamic programming is this topic's new tool. readings lists matrix sizes. A matrix is a table of numbers with rows and columns",
-        "exampleCode": "function practice(readings, k) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  return out;\n}\n",
-        "starterCode": "function practice(readings, k) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  return ___;\n}\n",
+        "exampleCode": "function practice(readings) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  return out;\n}\n",
+        "starterCode": "function practice(readings) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  return ___;\n}\n",
         "task": "Replace ___ with out to send the result list back.",
         "functionName": "practice",
         "validate": [
@@ -26,8 +26,7 @@
                 8,
                 1,
                 3
-              ],
-              3
+              ]
             ],
             "expected": [
               0,
@@ -44,8 +43,7 @@
                 5,
                 3,
                 5
-              ],
-              2
+              ]
             ],
             "expected": [
               0,
@@ -56,8 +54,7 @@
           {
             "id": "read-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -65,7 +62,7 @@
         "hints": [
           "The list is named out.",
           "The final instruction is return out;.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(readings, k) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(readings) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [
@@ -91,8 +88,8 @@
         "id": "trace",
         "title": "Fill a smaller piece",
         "explanation": "push adds one value to the end of a list. Find that instruction in the example. Fill its name in the starter and inspect the returned values.",
-        "exampleCode": "function practice(readings, k) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  return out;\n}\n",
-        "starterCode": "function practice(readings, k) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.___(dp[0][r]);\n  return out;\n}\n",
+        "exampleCode": "function practice(readings) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  return out;\n}\n",
+        "starterCode": "function practice(readings) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.___(dp[0][r]);\n  return out;\n}\n",
         "task": "Replace ___ with push to add an item to out.",
         "functionName": "practice",
         "validate": [
@@ -105,8 +102,7 @@
                 8,
                 1,
                 3
-              ],
-              3
+              ]
             ],
             "expected": [
               0,
@@ -123,8 +119,7 @@
                 5,
                 3,
                 5
-              ],
-              2
+              ]
             ],
             "expected": [
               0,
@@ -135,8 +130,7 @@
           {
             "id": "trace-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -144,7 +138,7 @@
         "hints": [
           "Look for the instruction that adds an item.",
           "Write out.push where the starter says out.___.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(readings, k) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(readings) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [
@@ -234,8 +228,8 @@
         "id": "rebuild",
         "title": "Rebuild the working instructions",
         "explanation": "Keep the supplied function and result list. Rebuild the part that fills the list using the example as a guide. Re-run whenever you want to check a change.",
-        "exampleCode": "function practice(readings, k) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  return out;\n}\n",
-        "starterCode": "function practice(readings, k) {\n  const a=readings; let out=[];\n  // Rebuild the derived list here.\n  return out;\n}\n",
+        "exampleCode": "function practice(readings) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  return out;\n}\n",
+        "starterCode": "function practice(readings) {\n  const a=readings; let out=[];\n  // Rebuild the derived list here.\n  return out;\n}\n",
         "task": "Fill the result list using this topic's rule.",
         "functionName": "practice",
         "validate": [
@@ -248,8 +242,7 @@
                 8,
                 1,
                 3
-              ],
-              3
+              ]
             ],
             "expected": [
               0,
@@ -266,8 +259,7 @@
                 5,
                 3,
                 5
-              ],
-              2
+              ]
             ],
             "expected": [
               0,
@@ -278,8 +270,7 @@
           {
             "id": "rebuild-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -287,7 +278,7 @@
         "hints": [
           "readings lists matrix sizes. A matrix is a table of numbers with rows and columns. Matrix 0 has readings[0] rows and readings[1] columns. Matrix 1 has readings[1] rows and readings[2] columns, and so on. Multiplying an a-by-b matrix by a b-by-c matrix costs a * b * c number multiplications. You may group the matrices with brackets, but must keep their order. Different groups can have different costs. For the first matrix alone, record 0. Then record the least total cost for the first two matrices, the first three, and so on. Fewer than two size numbers means there are no matrices, so the result list is empty.",
           "Revisit the example and copy one instruction at a time, checking what it does.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(readings, k) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(readings) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [
@@ -313,8 +304,8 @@
         "id": "recall",
         "title": "Ready for the proof strip",
         "explanation": "Write the small function again with less help. The first challenge uses the same input and output rule. Use return to send the finished list back.",
-        "exampleCode": "function practice(readings, k) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  return out;\n}\n",
-        "starterCode": "function practice(readings, k) {\n  // Build and return the result list.\n}",
+        "exampleCode": "function practice(readings) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  return out;\n}\n",
+        "starterCode": "function practice(readings) {\n  // Build and return the result list.\n}",
         "task": "Build the derived list for this topic, then return it.",
         "functionName": "practice",
         "validate": [
@@ -327,8 +318,7 @@
                 8,
                 1,
                 3
-              ],
-              3
+              ]
             ],
             "expected": [
               0,
@@ -345,8 +335,7 @@
                 5,
                 3,
                 5
-              ],
-              2
+              ]
             ],
             "expected": [
               0,
@@ -357,8 +346,7 @@
           {
             "id": "recall-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -366,7 +354,7 @@
         "hints": [
           "readings lists matrix sizes. A matrix is a table of numbers with rows and columns. Matrix 0 has readings[0] rows and readings[1] columns. Matrix 1 has readings[1] rows and readings[2] columns, and so on. Multiplying an a-by-b matrix by a b-by-c matrix costs a * b * c number multiplications. You may group the matrices with brackets, but must keep their order. Different groups can have different costs. For the first matrix alone, record 0. Then record the least total cost for the first two matrices, the first three, and so on. Fewer than two size numbers means there are no matrices, so the result list is empty.",
           "Create the result list, process the input in order, and return the list.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(readings, k) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(readings) {\n  const a=readings; let out=[];\n  const n=Math.max(0,a.length-1),dp=Array.from({length:n},()=>Array(n).fill(0));for(let length=2;length<=n;length++)for(let l=0;l+length<=n;l++){const r=l+length-1;dp[l][r]=Infinity;for(let m=l;m<r;m++)dp[l][r]=Math.min(dp[l][r],dp[l][m]+dp[m+1][r]+a[l]*a[m+1]*a[r+1]);}for(let r=0;r<n;r++)out.push(dp[0][r]);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [

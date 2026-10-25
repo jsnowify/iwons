@@ -1,15 +1,16 @@
-export function casesFor(kernel) {
+// sample builds one extra input, shaped like the tests, for a worked example that is not a test.
+export function casesFor(kernel, sample) {
   const max = kernel.max;
-  const raw = [[7,-3,7,0,12],[4,4,-2,4],[],[9],[5,5,5,5],[-20,-1,-7],Array.from({length:max},(_,i)=>(i*13)%41-20),[0,0,0],[8,3,-2,8,1]];
-  const kValues = [3,2,1,1,4,8,3,5,2];
+  const raw = sample ? [sample.values] : [[7,-3,7,0,12],[4,4,-2,4],[],[9],[5,5,5,5],[-20,-1,-7],Array.from({length:max},(_,i)=>(i*13)%41-20),[0,0,0],[8,3,-2,8,1]];
+  const kValues = sample ? [sample.k] : [3,2,1,1,4,8,3,5,2];
   return raw.map((values,i) => {
     const normalize = a => a.map(x => kernel.positive ? Math.abs(x) : x);
     let a = normalize(values);
     if (kernel.positive && i===6 && kernel.bound) a=a.map((_,j)=> j%2 ? kernel.bound : 0);
     if (kernel.sorted) a.sort((x,y)=>x-y);
     const {family} = kernel;
-    if (family==="text") a=["inkk paaaper","QQ qQQ",""," ","aaaaa"," -!? ","i".repeat(max),"   ","a bb   ccc"][i];
-    if (family==="words") a=[["ink","inside","inn","paper"],["aa","aa","ab"],[],["z"],["a","a","a"],["a","z"],Array.from({length:max},(_,j)=>j%2?"inkpaperdesk":"inkpaperpage"),["a","b"],["paper","pa","p"]][i];
+    if (family==="text") a=sample?sample.text:["inkk paaaper","QQ qQQ",""," ","aaaaa"," -!? ","i".repeat(max),"   ","a bb   ccc"][i];
+    if (family==="words") a=sample?sample.words:[["ink","inside","inn","paper"],["aa","aa","ab"],[],["z"],["a","a","a"],["a","z"],Array.from({length:max},(_,j)=>j%2?"inkpaperdesk":"inkpaperpage"),["a","b"],["paper","pa","p"]][i];
     if (family==="pair" || family==="queries") {
       const left=normalize(values),right=normalize(raw[(i+2)%raw.length]);
       if (i===2) { left.length=0;right.length=0; }
@@ -43,7 +44,7 @@ export function casesFor(kernel) {
       for(let j=0;j<queue.length;j++){const node=queue[j];a.push(node?node.val:null);if(node)queue.push(node.left,node.right);}
       while(a.at(-1)===null)a.pop();
     }
-    return { input:[a,kValues[i]], coverage: ["worked","worked","empty","singleton","duplicates-or-redundancy","lower-bound","maximum-size","zero-or-minimum","order-and-ties"][i] };
+    return { input:[a,kValues[i]], coverage: sample ? "example" : ["worked","worked","empty","singleton","duplicates-or-redundancy","lower-bound","maximum-size","zero-or-minimum","order-and-ties"][i] };
   });
 }
 export function inputSpec(kernel) {
@@ -54,3 +55,5 @@ export function inputSpec(kernel) {
   if(["pair","queries","matrix","graph","weightedGraph","undirected","intervals","items","reservations"].includes(f))return {name:["graph","weightedGraph","undirected"].includes(f)?"links":"drawers",java:"int[][]",ts:"number[][]"};
   return {name:"readings",java:"int[]",ts:"number[]"};
 }
+// Worked example for the description. Its input never matches a test case.
+export const exampleCase = kernel => casesFor(kernel, { values: [6, -1, 6, 2], k: 4, text: "ok  zoo", words: ["tap", "tape", "top", "tap"] })[0];

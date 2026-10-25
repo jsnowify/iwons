@@ -12,16 +12,15 @@
         "id": "read",
         "title": "Return the list you built",
         "explanation": "String scanning is this topic's new tool. Read line from left to right. Here, a word is a group of characters with no spaces inside it",
-        "exampleCode": "function practice(line, k) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out;\n}\n",
-        "starterCode": "function practice(line, k) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return ___;\n}\n",
+        "exampleCode": "function practice(line) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out;\n}\n",
+        "starterCode": "function practice(line) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return ___;\n}\n",
         "task": "Replace ___ with out to send the result list back.",
         "functionName": "practice",
         "validate": [
           {
             "id": "read-0",
             "input": [
-              "inkk paaaper",
-              3
+              "inkk paaaper"
             ],
             "expected": [
               4,
@@ -31,8 +30,7 @@
           {
             "id": "read-1",
             "input": [
-              "QQ qQQ",
-              2
+              "QQ qQQ"
             ],
             "expected": [
               2,
@@ -42,8 +40,7 @@
           {
             "id": "read-2",
             "input": [
-              "",
-              1
+              ""
             ],
             "expected": []
           }
@@ -51,7 +48,7 @@
         "hints": [
           "The list is named out.",
           "The final instruction is return out;.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(line, k) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(line) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [
@@ -77,16 +74,15 @@
         "id": "trace",
         "title": "Fill a smaller piece",
         "explanation": "push adds one value to the end of a list. Find that instruction in the example. Fill its name in the starter and inspect the returned values.",
-        "exampleCode": "function practice(line, k) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out;\n}\n",
-        "starterCode": "function practice(line, k) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.___(length);length=0;}else length++;}\n  return out;\n}\n",
+        "exampleCode": "function practice(line) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out;\n}\n",
+        "starterCode": "function practice(line) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.___(length);length=0;}else length++;}\n  return out;\n}\n",
         "task": "Replace ___ with push to add an item to out.",
         "functionName": "practice",
         "validate": [
           {
             "id": "trace-0",
             "input": [
-              "inkk paaaper",
-              3
+              "inkk paaaper"
             ],
             "expected": [
               4,
@@ -96,8 +92,7 @@
           {
             "id": "trace-1",
             "input": [
-              "QQ qQQ",
-              2
+              "QQ qQQ"
             ],
             "expected": [
               2,
@@ -107,8 +102,7 @@
           {
             "id": "trace-2",
             "input": [
-              "",
-              1
+              ""
             ],
             "expected": []
           }
@@ -116,7 +110,7 @@
         "hints": [
           "Look for the instruction that adds an item.",
           "Write out.push where the starter says out.___.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(line, k) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(line) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [
@@ -206,16 +200,15 @@
         "id": "rebuild",
         "title": "Rebuild the working instructions",
         "explanation": "Keep the supplied function and result list. Rebuild the part that fills the list using the example as a guide. Re-run whenever you want to check a change.",
-        "exampleCode": "function practice(line, k) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out;\n}\n",
-        "starterCode": "function practice(line, k) {\n  const a=line; let out=[];\n  // Rebuild the derived list here.\n  return out;\n}\n",
+        "exampleCode": "function practice(line) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out;\n}\n",
+        "starterCode": "function practice(line) {\n  const a=line; let out=[];\n  // Rebuild the derived list here.\n  return out;\n}\n",
         "task": "Fill the result list using this topic's rule.",
         "functionName": "practice",
         "validate": [
           {
             "id": "rebuild-0",
             "input": [
-              "inkk paaaper",
-              3
+              "inkk paaaper"
             ],
             "expected": [
               4,
@@ -225,8 +218,7 @@
           {
             "id": "rebuild-1",
             "input": [
-              "QQ qQQ",
-              2
+              "QQ qQQ"
             ],
             "expected": [
               2,
@@ -236,8 +228,7 @@
           {
             "id": "rebuild-2",
             "input": [
-              "",
-              1
+              ""
             ],
             "expected": []
           }
@@ -245,7 +236,7 @@
         "hints": [
           "Read line from left to right. Here, a word is a group of characters with no spaces inside it. Record the length of each word. Ignore extra spaces before, after, or between words. For \"a  cat\", the result list is [1, 3].",
           "Revisit the example and copy one instruction at a time, checking what it does.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(line, k) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(line) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [
@@ -271,16 +262,15 @@
         "id": "recall",
         "title": "Ready for the proof strip",
         "explanation": "Write the small function again with less help. The first challenge uses the same input and output rule. Use return to send the finished list back.",
-        "exampleCode": "function practice(line, k) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out;\n}\n",
-        "starterCode": "function practice(line, k) {\n  // Build and return the result list.\n}",
+        "exampleCode": "function practice(line) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out;\n}\n",
+        "starterCode": "function practice(line) {\n  // Build and return the result list.\n}",
         "task": "Build the derived list for this topic, then return it.",
         "functionName": "practice",
         "validate": [
           {
             "id": "recall-0",
             "input": [
-              "inkk paaaper",
-              3
+              "inkk paaaper"
             ],
             "expected": [
               4,
@@ -290,8 +280,7 @@
           {
             "id": "recall-1",
             "input": [
-              "QQ qQQ",
-              2
+              "QQ qQQ"
             ],
             "expected": [
               2,
@@ -301,8 +290,7 @@
           {
             "id": "recall-2",
             "input": [
-              "",
-              1
+              ""
             ],
             "expected": []
           }
@@ -310,7 +298,7 @@
         "hints": [
           "Read line from left to right. Here, a word is a group of characters with no spaces inside it. Record the length of each word. Ignore extra spaces before, after, or between words. For \"a  cat\", the result list is [1, 3].",
           "Create the result list, process the input in order, and return the list.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(line, k) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(line) {\n  const a=line; let out=[];\n  let length=0;for(let i=0;i<=a.length;i++){if(i===a.length||a[i]===' '){if(length)out.push(length);length=0;}else length++;}\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [

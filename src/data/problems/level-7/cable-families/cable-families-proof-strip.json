@@ -16,30 +16,30 @@
   "prerequisites": [
     "path3-371"
   ],
-  "summary": "Union-find components. Return the whole result list in the order you built it.",
+  "summary": "Union-find components. Return the whole list.",
   "stage": "Warm-up",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nlinks is a square table of 0s and 1s. Points are numbered from 0. A 1 at links[a][b] joins points a and b in both directions. A 0 means no link. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nThis graph has two-way links between points. Points belong to the same group if you can travel between them, even through other points. Use union-find: start with one group per point, then join groups when a link connects them. For each point, count all points in its group, including itself. Record these counts in point order. A link from a point to itself does not make a larger group. A graph with no points gives an empty result list.\n\nStep 2: Return the answer\nReturn the whole result list in the order you built it. If it is empty, return [].\n\nWrite your function\nComplete cableFamiliesProofStrip(links, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "This graph has two-way links between points. Points belong to the same group if you can travel between them, even through other points. Use union-find: start with one group per point, then join groups when a link connects them. For each point, count all points in its group, including itself. Record these counts in point order. A link from a point to itself does not make a larger group. A graph with no points gives an empty result list. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`links` is a square table of 0s and 1s. Points are numbered from 0. A 1 at `links`[a][b] joins points a and b in both directions. A 0 means no link.\n\nYour tasks\n1. Create a list `groupSizes`. This graph has two-way `links` between points. Points belong to the same group if you can travel between them, even through other points. Use union-find: start with one group per point, then join groups when a link connects them. For each point, count all points in its group, including itself. Record these counts in point order. A link from a point to itself does not make a larger group. A graph with no points gives an empty `groupSizes`.\n2. Complete `cableFamiliesProofStrip` so it returns `groupSizes`. Return it, do not print it.\n\nExample\nIf `links` is [[1, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 1, 0, 0, 1], [1, 0, 0, 1, 0], [0, 0, 1, 0, 0]], then `groupSizes` is [2, 3, 3, 2, 3] and `cableFamiliesProofStrip` returns [2, 3, 3, 2, 3].\n\nRules\n- If `groupSizes` is empty, return [].\n\nTest data\nTEST DATA 1: `links` is [[1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0], [1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0]].\nTEST DATA 2: `links` is [[0, 0, 1, 0, 0], [0, 1, 0, 0, 1], [1, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 1, 0, 0, 1]].",
+  "unitIntro": "This graph has two-way `links` between points. Points belong to the same group if you can travel between them, even through other points. Use union-find: start with one group per point, then join groups when a link connects them. For each point, count all points in its group, including itself. Record these counts in point order. A link from a point to itself does not make a larger group. A graph with no points gives an empty `groupSizes`. Each problem in this unit builds `groupSizes` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 16.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
     "The graph has at most 16 points. Its table has the same number of rows and columns. Link entries are 0 or 1; cost entries are 0 through 13.",
-    "Efficiency goal: time O(V^2 alpha(V)); extra memory, including the result list, O(n). n is the input length; V is the number of graph points. These labels describe how work and memory grow with the input."
+    "Efficiency goal: time O(V^2 alpha(V)); extra memory, including the helper list, O(n). n is the input length; V is the number of graph points. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "This graph has two-way links between points. Points belong to the same group if you can travel between them, even through other points. Use union-find: start with one group per point, then join groups when a link connects them. For each point, count all points in its group, including itself. Record these counts in point order. A link from a point to itself does not make a larger group. A graph with no points gives an empty result list. Keep track of the numbers or places you have already checked.",
-    "Return the whole result list in the order you built it. If it is empty, return []. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `groupSizes` before you look for the answer.",
+    "This graph has two-way `links` between points. Points belong to the same group if you can travel between them, even through other points. Use union-find: start with one group per point, then join groups when a link connects them. For each point, count all points in its group, including itself. Record these counts in point order. A link from a point to itself does not make a larger group. A graph with no points gives an empty `groupSizes`. Keep track of the numbers or places you have already checked.",
+    "Return `groupSizes` once it is complete. If `groupSizes` is empty, return []."
   ],
   "functionName": "cableFamiliesProofStrip",
   "mode": "function",
   "starterCode": {
-    "javascript": "function cableFamiliesProofStrip(links, k) {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "typescript": "function cableFamiliesProofStrip(links: number[][], k: number): number[] {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "python": "def cableFamiliesProofStrip(links, k):\n    # Build the result list, then return the answer from Step 2.\n    return []\n",
-    "java": "class Solution {\n  public int[] cableFamiliesProofStrip(int[][] links, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return new int[0];\n  }\n}\n"
+    "javascript": "function cableFamiliesProofStrip(links) {\n  // Build groupSizes, then return the answer.\n  return [];\n}\n",
+    "typescript": "function cableFamiliesProofStrip(links: number[][]): number[] {\n  // Build groupSizes, then return the answer.\n  return [];\n}\n",
+    "python": "def cableFamiliesProofStrip(links):\n    # Build groupSizes, then return the answer.\n    return []\n",
+    "java": "class Solution {\n  public int[] cableFamiliesProofStrip(int[][] links) {\n    // Build groupSizes, then return the answer.\n    return new int[0];\n  }\n}\n"
   },
   "cases": [
     {
@@ -94,8 +94,7 @@
             1,
             0
           ]
-        ],
-        3
+        ]
       ],
       "expected": [
         2,
@@ -106,7 +105,7 @@
         4
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [2,4,4,2,4,4]. Step 2 asks for that whole list, so return [2,4,4,2,4,4]."
+      "explanation": "`groupSizes` is [2, 4, 4, 2, 4, 4]. `cableFamiliesProofStrip` returns that whole list, so return [2, 4, 4, 2, 4, 4]."
     },
     {
       "id": "path3-381-2",
@@ -147,8 +146,7 @@
             0,
             1
           ]
-        ],
-        2
+        ]
       ],
       "expected": [
         3,
@@ -158,29 +156,27 @@
         2
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [3,2,3,3,2]. Step 2 asks for that whole list, so return [3,2,3,3,2]."
+      "explanation": "`groupSizes` is [3, 2, 3, 3, 2]. `cableFamiliesProofStrip` returns that whole list, so return [3, 2, 3, 3, 2]."
     },
     {
       "id": "path3-381-3",
       "input": [
-        [],
-        1
+        []
       ],
       "expected": [],
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. Step 2 asks for that whole list, so return []."
+      "explanation": "`groupSizes` is []. `cableFamiliesProofStrip` returns that whole list, so return []."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "int[][]",
-    "int"
+    "int[][]"
   ],
   "complexity": {
     "time": "O(V^2 alpha(V))",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `groupSizes` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 7,
     "unit": "cable-families",
@@ -241,8 +237,7 @@
             1,
             0
           ]
-        ],
-        3
+        ]
       ],
       "expected": [
         2,
@@ -253,7 +248,7 @@
         4
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [2,4,4,2,4,4]. Step 2 asks for that whole list, so return [2,4,4,2,4,4]."
+      "explanation": "`groupSizes` is [2, 4, 4, 2, 4, 4]. `cableFamiliesProofStrip` returns that whole list, so return [2, 4, 4, 2, 4, 4]."
     },
     {
       "id": "path3-381-2",
@@ -294,8 +289,7 @@
             0,
             1
           ]
-        ],
-        2
+        ]
       ],
       "expected": [
         3,
@@ -305,14 +299,14 @@
         2
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [3,2,3,3,2]. Step 2 asks for that whole list, so return [3,2,3,3,2]."
+      "explanation": "`groupSizes` is [3, 2, 3, 3, 2]. `cableFamiliesProofStrip` returns that whole list, so return [3, 2, 3, 3, 2]."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function cableFamiliesProofStrip(links, k) {\n  const a=links; let out=[];\n  const n=a.length,parent=Array.from({length:n},(_,i)=>i),size=Array(n).fill(1);function find(x){while(parent[x]!==x){parent[x]=parent[parent[x]];x=parent[x];}return x;}for(let u=0;u<n;u++)for(let v=u+1;v<n;v++)if(a[u][v]){let x=find(u),y=find(v);if(x!==y){if(size[x]<size[y])[x,y]=[y,x];parent[y]=x;size[x]+=size[y];}}out=parent.map((_,v)=>size[find(v)]);\n  return out;\n}\n",
-    "typescript": "function cableFamiliesProofStrip(links: number[][], k: number): number[] {\n  const a=links; let out:number[]=[];\n  const n=a.length,parent=Array.from({length:n},(_,i)=>i),size=Array(n).fill(1);function find(x:number):number{while(parent[x]!==x){parent[x]=parent[parent[x]];x=parent[x];}return x;}for(let u=0;u<n;u++)for(let v=u+1;v<n;v++)if(a[u][v]){let x=find(u),y=find(v);if(x!==y){if(size[x]<size[y])[x,y]=[y,x];parent[y]=x;size[x]+=size[y];}}out=parent.map((_,v)=>size[find(v)]);\n  return out;\n}\n",
-    "python": "def cableFamiliesProofStrip(links, k):\n    a=links\n    out=[]\n    n=len(a)\n    parent=list(range(n))\n    size=[1]*n\n    def find(x):\n        while parent[x]!=x:\n            parent[x]=parent[parent[x]]\n            x=parent[x]\n        return x\n    for u in range(n):\n        for v in range(u+1,n):\n            if a[u][v]:\n                x,y=find(u),find(v)\n                if x!=y:\n                    if size[x]<size[y]: x,y=y,x\n                    parent[y]=x\n                    size[x]+=size[y]\n    out=[size[find(v)] for v in range(n)]\n    return out\n",
-    "java": "class Solution {\n  public int[] cableFamiliesProofStrip(int[][] links, int k) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;int[]parent=new int[n],size=new int[n];for(int v=0;v<n;v++){parent[v]=v;size[v]=1;}class DSU {int find(int x){while(parent[x]!=x){parent[x]=parent[parent[x]];x=parent[x];}return x;}}DSU d=new DSU();for(int u=0;u<n;u++)for(int v=u+1;v<n;v++)if(a[u][v]!=0){int x=d.find(u),y=d.find(v);if(x!=y){if(size[x]<size[y]){int t=x;x=y;y=t;}parent[y]=x;size[x]+=size[y];}}for(int v=0;v<n;v++)out.add(size[d.find(v)]);}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+    "javascript": "function cableFamiliesProofStrip(links) {\n  const a=links; let out=[];\n  const n=a.length,parent=Array.from({length:n},(_,i)=>i),size=Array(n).fill(1);function find(x){while(parent[x]!==x){parent[x]=parent[parent[x]];x=parent[x];}return x;}for(let u=0;u<n;u++)for(let v=u+1;v<n;v++)if(a[u][v]){let x=find(u),y=find(v);if(x!==y){if(size[x]<size[y])[x,y]=[y,x];parent[y]=x;size[x]+=size[y];}}out=parent.map((_,v)=>size[find(v)]);\n  return out;\n}\n",
+    "typescript": "function cableFamiliesProofStrip(links: number[][]): number[] {\n  const a=links; let out:number[]=[];\n  const n=a.length,parent=Array.from({length:n},(_,i)=>i),size=Array(n).fill(1);function find(x:number):number{while(parent[x]!==x){parent[x]=parent[parent[x]];x=parent[x];}return x;}for(let u=0;u<n;u++)for(let v=u+1;v<n;v++)if(a[u][v]){let x=find(u),y=find(v);if(x!==y){if(size[x]<size[y])[x,y]=[y,x];parent[y]=x;size[x]+=size[y];}}out=parent.map((_,v)=>size[find(v)]);\n  return out;\n}\n",
+    "python": "def cableFamiliesProofStrip(links):\n    a=links\n    out=[]\n    n=len(a)\n    parent=list(range(n))\n    size=[1]*n\n    def find(x):\n        while parent[x]!=x:\n            parent[x]=parent[parent[x]]\n            x=parent[x]\n        return x\n    for u in range(n):\n        for v in range(u+1,n):\n            if a[u][v]:\n                x,y=find(u),find(v)\n                if x!=y:\n                    if size[x]<size[y]: x,y=y,x\n                    parent[y]=x\n                    size[x]+=size[y]\n    out=[size[find(v)] for v in range(n)]\n    return out\n",
+    "java": "class Solution {\n  public int[] cableFamiliesProofStrip(int[][] links) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;int[]parent=new int[n],size=new int[n];for(int v=0;v<n;v++){parent[v]=v;size[v]=1;}class DSU {int find(int x){while(parent[x]!=x){parent[x]=parent[parent[x]];x=parent[x];}return x;}}DSU d=new DSU();for(int u=0;u<n;u++)for(int v=u+1;v<n;v++)if(a[u][v]!=0){int x=d.find(u),y=d.find(v);if(x!=y){if(size[x]<size[y]){int t=x;x=y;y=t;}parent[y]=x;size[x]+=size[y];}}for(int v=0;v<n;v++)out.add(size[d.find(v)]);}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -323,8 +317,7 @@
             [
               1
             ]
-          ],
-          1
+          ]
         ],
         "expected": [
           1
@@ -370,8 +363,7 @@
               0,
               1
             ]
-          ],
-          4
+          ]
         ],
         "expected": [
           1,
@@ -410,8 +402,7 @@
               0,
               0
             ]
-          ],
-          8
+          ]
         ],
         "expected": [
           1,
@@ -713,8 +704,7 @@
               1,
               0
             ]
-          ],
-          3
+          ]
         ],
         "expected": [
           16,
@@ -764,8 +754,7 @@
               0,
               0
             ]
-          ],
-          5
+          ]
         ],
         "expected": [
           1,
@@ -827,8 +816,7 @@
               0,
               1
             ]
-          ],
-          2
+          ]
         ],
         "expected": [
           4,
@@ -841,10 +829,9 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nThis graph has two-way links between points. Points belong to the same group if you can travel between them, even through other points. Use union-find: start with one group per point, then join groups when a link connects them. For each point, count all points in its group, including itself. Record these counts in point order. A link from a point to itself does not make a larger group. A graph with no points gives an empty result list.\n\nReturn the answer\n\nReturn the whole result list in the order you built it. If it is empty, return [].\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(V^2 alpha(V)); extra memory, including the result list, O(n). n is the input length; V is the number of graph points. These labels describe how work and memory grow with the input.\n\njavascript\nfunction cableFamiliesProofStrip(links, k) {\n  const a=links; let out=[];\n  const n=a.length,parent=Array.from({length:n},(_,i)=>i),size=Array(n).fill(1);function find(x){while(parent[x]!==x){parent[x]=parent[parent[x]];x=parent[x];}return x;}for(let u=0;u<n;u++)for(let v=u+1;v<n;v++)if(a[u][v]){let x=find(u),y=find(v);if(x!==y){if(size[x]<size[y])[x,y]=[y,x];parent[y]=x;size[x]+=size[y];}}out=parent.map((_,v)=>size[find(v)]);\n  return out;\n}\n\n\ntypescript\nfunction cableFamiliesProofStrip(links: number[][], k: number): number[] {\n  const a=links; let out:number[]=[];\n  const n=a.length,parent=Array.from({length:n},(_,i)=>i),size=Array(n).fill(1);function find(x:number):number{while(parent[x]!==x){parent[x]=parent[parent[x]];x=parent[x];}return x;}for(let u=0;u<n;u++)for(let v=u+1;v<n;v++)if(a[u][v]){let x=find(u),y=find(v);if(x!==y){if(size[x]<size[y])[x,y]=[y,x];parent[y]=x;size[x]+=size[y];}}out=parent.map((_,v)=>size[find(v)]);\n  return out;\n}\n\n\npython\ndef cableFamiliesProofStrip(links, k):\n    a=links\n    out=[]\n    n=len(a)\n    parent=list(range(n))\n    size=[1]*n\n    def find(x):\n        while parent[x]!=x:\n            parent[x]=parent[parent[x]]\n            x=parent[x]\n        return x\n    for u in range(n):\n        for v in range(u+1,n):\n            if a[u][v]:\n                x,y=find(u),find(v)\n                if x!=y:\n                    if size[x]<size[y]: x,y=y,x\n                    parent[y]=x\n                    size[x]+=size[y]\n    out=[size[find(v)] for v in range(n)]\n    return out\n\n\njava\nclass Solution {\n  public int[] cableFamiliesProofStrip(int[][] links, int k) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;int[]parent=new int[n],size=new int[n];for(int v=0;v<n;v++){parent[v]=v;size[v]=1;}class DSU {int find(int x){while(parent[x]!=x){parent[x]=parent[parent[x]];x=parent[x];}return x;}}DSU d=new DSU();for(int u=0;u<n;u++)for(int v=u+1;v<n;v++)if(a[u][v]!=0){int x=d.find(u),y=d.find(v);if(x!=y){if(size[x]<size[y]){int t=x;x=y;y=t;}parent[y]=x;size[x]+=size[y];}}for(int v=0;v<n;v++)out.add(size[d.find(v)]);}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+    "editorialMd": "Build groupSizes\n\nThis graph has two-way `links` between points. Points belong to the same group if you can travel between them, even through other points. Use union-find: start with one group per point, then join groups when a link connects them. For each point, count all points in its group, including itself. Record these counts in point order. A link from a point to itself does not make a larger group. A graph with no points gives an empty `groupSizes`.\n\nReturn the answer\n\nComplete `cableFamiliesProofStrip` so it returns `groupSizes`. Return it, do not print it.\n\nWhy this works\n\nEach value in `groupSizes` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(V^2 alpha(V)); extra memory, including the helper list, O(n). n is the input length; V is the number of graph points. These labels describe how work and memory grow with the input.\n\njavascript\nfunction cableFamiliesProofStrip(links) {\n  const a=links; let out=[];\n  const n=a.length,parent=Array.from({length:n},(_,i)=>i),size=Array(n).fill(1);function find(x){while(parent[x]!==x){parent[x]=parent[parent[x]];x=parent[x];}return x;}for(let u=0;u<n;u++)for(let v=u+1;v<n;v++)if(a[u][v]){let x=find(u),y=find(v);if(x!==y){if(size[x]<size[y])[x,y]=[y,x];parent[y]=x;size[x]+=size[y];}}out=parent.map((_,v)=>size[find(v)]);\n  return out;\n}\n\n\ntypescript\nfunction cableFamiliesProofStrip(links: number[][]): number[] {\n  const a=links; let out:number[]=[];\n  const n=a.length,parent=Array.from({length:n},(_,i)=>i),size=Array(n).fill(1);function find(x:number):number{while(parent[x]!==x){parent[x]=parent[parent[x]];x=parent[x];}return x;}for(let u=0;u<n;u++)for(let v=u+1;v<n;v++)if(a[u][v]){let x=find(u),y=find(v);if(x!==y){if(size[x]<size[y])[x,y]=[y,x];parent[y]=x;size[x]+=size[y];}}out=parent.map((_,v)=>size[find(v)]);\n  return out;\n}\n\n\npython\ndef cableFamiliesProofStrip(links):\n    a=links\n    out=[]\n    n=len(a)\n    parent=list(range(n))\n    size=[1]*n\n    def find(x):\n        while parent[x]!=x:\n            parent[x]=parent[parent[x]]\n            x=parent[x]\n        return x\n    for u in range(n):\n        for v in range(u+1,n):\n            if a[u][v]:\n                x,y=find(u),find(v)\n                if x!=y:\n                    if size[x]<size[y]: x,y=y,x\n                    parent[y]=x\n                    size[x]+=size[y]\n    out=[size[find(v)] for v in range(n)]\n    return out\n\n\njava\nclass Solution {\n  public int[] cableFamiliesProofStrip(int[][] links) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;int[]parent=new int[n],size=new int[n];for(int v=0;v<n;v++){parent[v]=v;size[v]=1;}class DSU {int find(int x){while(parent[x]!=x){parent[x]=parent[parent[x]];x=parent[x];}return x;}}DSU d=new DSU();for(int u=0;u<n;u++)for(int v=u+1;v<n;v++)if(a[u][v]!=0){int x=d.find(u),y=d.find(v);if(x!=y){if(size[x]<size[y]){int t=x;x=y;y=t;}parent[y]=x;size[x]+=size[y];}}for(int v=0;v<n;v++)out.add(size[d.find(v)]);}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
   },
   "parameterNames": [
-    "links",
-    "k"
+    "links"
   ]
 }

@@ -12,8 +12,8 @@
         "id": "read",
         "title": "Return the list you built",
         "explanation": "Comparator sorting is this topic's new tool. Sort readings by distance from 0, from nearest to farthest. This distance is called absolute value: both -4 and 4 have distance 4",
-        "exampleCode": "function practice(readings, k) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out;\n}\n",
-        "starterCode": "function practice(readings, k) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return ___;\n}\n",
+        "exampleCode": "function practice(readings) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out;\n}\n",
+        "starterCode": "function practice(readings) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return ___;\n}\n",
         "task": "Replace ___ with out to send the result list back.",
         "functionName": "practice",
         "validate": [
@@ -26,8 +26,7 @@
                 7,
                 0,
                 12
-              ],
-              3
+              ]
             ],
             "expected": [
               0,
@@ -45,8 +44,7 @@
                 4,
                 -2,
                 4
-              ],
-              2
+              ]
             ],
             "expected": [
               -2,
@@ -58,8 +56,7 @@
           {
             "id": "read-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -67,7 +64,7 @@
         "hints": [
           "The list is named out.",
           "The final instruction is return out;.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(readings, k) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(readings) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [
@@ -93,8 +90,8 @@
         "id": "trace",
         "title": "Fill a smaller piece",
         "explanation": "An empty list is written as []. The working instructions fill that list. Supply the empty list before running the example.",
-        "exampleCode": "function practice(readings, k) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out;\n}\n",
-        "starterCode": "function practice(readings, k) {\n  const a=readings; let out=___;\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out;\n}\n",
+        "exampleCode": "function practice(readings) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out;\n}\n",
+        "starterCode": "function practice(readings) {\n  const a=readings; let out=___;\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out;\n}\n",
         "task": "Replace ___ with [] to begin with an empty list.",
         "functionName": "practice",
         "validate": [
@@ -107,8 +104,7 @@
                 7,
                 0,
                 12
-              ],
-              3
+              ]
             ],
             "expected": [
               0,
@@ -126,8 +122,7 @@
                 4,
                 -2,
                 4
-              ],
-              2
+              ]
             ],
             "expected": [
               -2,
@@ -139,8 +134,7 @@
           {
             "id": "trace-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -148,7 +142,7 @@
         "hints": [
           "Use square brackets with nothing inside.",
           "Write let out=[] where the list is created.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(readings, k) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(readings) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [
@@ -238,8 +232,8 @@
         "id": "rebuild",
         "title": "Rebuild the working instructions",
         "explanation": "Keep the supplied function and result list. Rebuild the part that fills the list using the example as a guide. Re-run whenever you want to check a change.",
-        "exampleCode": "function practice(readings, k) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out;\n}\n",
-        "starterCode": "function practice(readings, k) {\n  const a=readings; let out=[];\n  // Rebuild the derived list here.\n  return out;\n}\n",
+        "exampleCode": "function practice(readings) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out;\n}\n",
+        "starterCode": "function practice(readings) {\n  const a=readings; let out=[];\n  // Rebuild the derived list here.\n  return out;\n}\n",
         "task": "Fill the result list using this topic's rule.",
         "functionName": "practice",
         "validate": [
@@ -252,8 +246,7 @@
                 7,
                 0,
                 12
-              ],
-              3
+              ]
             ],
             "expected": [
               0,
@@ -271,8 +264,7 @@
                 4,
                 -2,
                 4
-              ],
-              2
+              ]
             ],
             "expected": [
               -2,
@@ -284,8 +276,7 @@
           {
             "id": "rebuild-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -293,7 +284,7 @@
         "hints": [
           "Sort readings by distance from 0, from nearest to farthest. This distance is called absolute value: both -4 and 4 have distance 4. When two numbers have the same distance, put the smaller number first. Keep all repeated numbers. For [3, -2, 2, -3], the result list is [-2, 2, -3, 3].",
           "Revisit the example and copy one instruction at a time, checking what it does.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(readings, k) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(readings) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [
@@ -319,8 +310,8 @@
         "id": "recall",
         "title": "Ready for the proof strip",
         "explanation": "Write the small function again with less help. The first challenge uses the same input and output rule. Use return to send the finished list back.",
-        "exampleCode": "function practice(readings, k) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out;\n}\n",
-        "starterCode": "function practice(readings, k) {\n  // Build and return the result list.\n}",
+        "exampleCode": "function practice(readings) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out;\n}\n",
+        "starterCode": "function practice(readings) {\n  // Build and return the result list.\n}",
         "task": "Build the derived list for this topic, then return it.",
         "functionName": "practice",
         "validate": [
@@ -333,8 +324,7 @@
                 7,
                 0,
                 12
-              ],
-              3
+              ]
             ],
             "expected": [
               0,
@@ -352,8 +342,7 @@
                 4,
                 -2,
                 4
-              ],
-              2
+              ]
             ],
             "expected": [
               -2,
@@ -365,8 +354,7 @@
           {
             "id": "recall-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -374,7 +362,7 @@
         "hints": [
           "Sort readings by distance from 0, from nearest to farthest. This distance is called absolute value: both -4 and 4 have distance 4. When two numbers have the same distance, put the smaller number first. Keep all repeated numbers. For [3, -2, 2, -3], the result list is [-2, 2, -3, 3].",
           "Create the result list, process the input in order, and return the list.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(readings, k) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(readings) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [

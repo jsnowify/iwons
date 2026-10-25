@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-496"
   ],
-  "summary": "Scheduling DP and binary search. Count the even numbers in the result list.",
+  "summary": "Scheduling DP and binary search. Count the even numbers.",
   "stage": "Counting variation",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\ndrawers is a list of bookings. Each row is [start, end, reward]. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nEach row of drawers is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, the result list is empty.\n\nStep 2: Return the answer\nCount the even numbers in the result list. An even number divides by 2 with no remainder. Count 0 and negative even numbers too. Return the count. An empty list gives 0.\n\nWrite your function\nComplete paidReservationsEvenKeyCensus(drawers, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "Each row of drawers is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, the result list is empty. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`drawers` is a list of bookings. Each row is [start, end, reward].\n\nYour tasks\n1. Create a list `bestRewards`. Each row of `drawers` is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, `bestRewards` is empty.\n2. Count the even numbers in `bestRewards`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder.\n3. Complete `paidReservationsEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nExample\nIf `drawers` is [[6, 13, 6], [0, 2, 2], [8, 15, 8], [5, 8, 5]], then `bestRewards` is [2, 7, 8, 15] and `paidReservationsEvenKeyCensus` returns 2.\n\nRules\n- 0 counts as an even number.\n- If `bestRewards` is empty, return 0.\n\nTest data\nTEST DATA 1: `drawers` is [[7, 8, 7], [-2, 2, 4], [9, 10, 9], [3, 4, 3], [16, 22, 16]].\nTEST DATA 2: `drawers` is [[4, 9, 4], [5, 10, 5], [0, 3, 4], [7, 12, 7]].",
+  "unitIntro": "Each row of `drawers` is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, `bestRewards` is empty. Each problem in this unit builds `bestRewards` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
-    "Efficiency goal: time O(n log n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
+    "Efficiency goal: time O(n log n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "Each row of drawers is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, the result list is empty. Keep track of the numbers or places you have already checked.",
-    "Count the even numbers in the result list. An even number divides by 2 with no remainder. Count 0 and negative even numbers too. Return the count. An empty list gives 0. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `bestRewards` before you look for the answer.",
+    "Each row of `drawers` is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, `bestRewards` is empty. Keep track of the numbers or places you have already checked.",
+    "Count the even numbers in `bestRewards`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder. 0 counts as an even number."
   ],
   "functionName": "paidReservationsEvenKeyCensus",
   "mode": "function",
   "starterCode": {
-    "javascript": "function paidReservationsEvenKeyCensus(drawers, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "typescript": "function paidReservationsEvenKeyCensus(drawers: number[][], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "python": "def paidReservationsEvenKeyCensus(drawers, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
-    "java": "class Solution {\n  public int paidReservationsEvenKeyCensus(int[][] drawers, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
+    "javascript": "function paidReservationsEvenKeyCensus(drawers) {\n  // Build bestRewards, then return the answer.\n  return 0;\n}\n",
+    "typescript": "function paidReservationsEvenKeyCensus(drawers: number[][]): number {\n  // Build bestRewards, then return the answer.\n  return 0;\n}\n",
+    "python": "def paidReservationsEvenKeyCensus(drawers):\n    # Build bestRewards, then return the answer.\n    return 0\n",
+    "java": "class Solution {\n  public int paidReservationsEvenKeyCensus(int[][] drawers) {\n    // Build bestRewards, then return the answer.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -70,12 +70,11 @@
             22,
             16
           ]
-        ],
-        3
+        ]
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,7,14,23,39]. The even numbers are [4,14]. There are 2, so return 2."
+      "explanation": "`bestRewards` is [4, 7, 14, 23, 39]. The even numbers are [4, 14]. There are 2, so return 2."
     },
     {
       "id": "path3-497-2",
@@ -101,34 +100,31 @@
             12,
             7
           ]
-        ],
-        2
+        ]
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,8,9,11]. The even numbers are [4,8]. There are 2, so return 2."
+      "explanation": "`bestRewards` is [4, 8, 9, 11]. The even numbers are [4, 8]. There are 2, so return 2."
     },
     {
       "id": "path3-497-3",
       "input": [
-        [],
-        1
+        []
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. The even numbers are []. There are 0, so return 0."
+      "explanation": "`bestRewards` is []. The even numbers are []. There are 0, so return 0."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "int[][]",
-    "int"
+    "int[][]"
   ],
   "complexity": {
     "time": "O(n log n)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `bestRewards` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 8,
     "unit": "paid-reservations",
@@ -166,12 +162,11 @@
             22,
             16
           ]
-        ],
-        3
+        ]
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,7,14,23,39]. The even numbers are [4,14]. There are 2, so return 2."
+      "explanation": "`bestRewards` is [4, 7, 14, 23, 39]. The even numbers are [4, 14]. There are 2, so return 2."
     },
     {
       "id": "path3-497-2",
@@ -197,19 +192,18 @@
             12,
             7
           ]
-        ],
-        2
+        ]
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,8,9,11]. The even numbers are [4,8]. There are 2, so return 2."
+      "explanation": "`bestRewards` is [4, 8, 9, 11]. The even numbers are [4, 8]. There are 2, so return 2."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function paidReservationsEvenKeyCensus(drawers, k) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out.filter(x=>x%2===0).length;\n}\n",
-    "typescript": "function paidReservationsEvenKeyCensus(drawers: number[][], k: number): number {\n  const a=drawers; let out:number[]=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out.filter(x=>x%2===0).length;\n}\n",
-    "python": "def paidReservationsEvenKeyCensus(drawers, k):\n    a=drawers\n    out=[]\n    rows=sorted(a,key=lambda r:(r[1],r[0],r[2]))\n    dp=[0]\n    for i,(start,end,reward) in enumerate(rows):\n        left,right=0,i\n        while left<right:\n            mid=(left+right)//2\n            if rows[mid][1]<=start: left=mid+1\n            else: right=mid\n        dp.append(max(dp[i],dp[left]+reward))\n    out=dp[1:]\n    return sum(x%2==0 for x in out)\n",
-    "java": "class Solution {\n  public int paidReservationsEvenKeyCensus(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int[][]rows=a.clone();Arrays.sort(rows,Comparator.comparingInt((int[]r)->r[1]).thenComparingInt(r->r[0]).thenComparingInt(r->r[2]));int[]dp=new int[rows.length+1];for(int i=0;i<rows.length;i++){int l=0,r=i;while(l<r){int m=(l+r)/2;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp[i+1]=Math.max(dp[i],dp[l]+rows[i][2]);out.add(dp[i+1]);}}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
+    "javascript": "function paidReservationsEvenKeyCensus(drawers) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out.filter(x=>x%2===0).length;\n}\n",
+    "typescript": "function paidReservationsEvenKeyCensus(drawers: number[][]): number {\n  const a=drawers; let out:number[]=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out.filter(x=>x%2===0).length;\n}\n",
+    "python": "def paidReservationsEvenKeyCensus(drawers):\n    a=drawers\n    out=[]\n    rows=sorted(a,key=lambda r:(r[1],r[0],r[2]))\n    dp=[0]\n    for i,(start,end,reward) in enumerate(rows):\n        left,right=0,i\n        while left<right:\n            mid=(left+right)//2\n            if rows[mid][1]<=start: left=mid+1\n            else: right=mid\n        dp.append(max(dp[i],dp[left]+reward))\n    out=dp[1:]\n    return sum(x%2==0 for x in out)\n",
+    "java": "class Solution {\n  public int paidReservationsEvenKeyCensus(int[][] drawers) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int[][]rows=a.clone();Arrays.sort(rows,Comparator.comparingInt((int[]r)->r[1]).thenComparingInt(r->r[0]).thenComparingInt(r->r[2]));int[]dp=new int[rows.length+1];for(int i=0;i<rows.length;i++){int l=0,r=i;while(l<r){int m=(l+r)/2;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp[i+1]=Math.max(dp[i],dp[l]+rows[i][2]);out.add(dp[i+1]);}}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -222,8 +216,7 @@
               12,
               9
             ]
-          ],
-          1
+          ]
         ],
         "expected": 0,
         "coverage": "singleton"
@@ -252,8 +245,7 @@
               14,
               8
             ]
-          ],
-          4
+          ]
         ],
         "expected": 2,
         "coverage": "duplicates-or-redundancy"
@@ -277,8 +269,7 @@
               -4,
               9
             ]
-          ],
-          8
+          ]
         ],
         "expected": 1,
         "coverage": "lower-bound"
@@ -607,8 +598,7 @@
               90,
               83
             ]
-          ],
-          3
+          ]
         ],
         "expected": 30,
         "coverage": "maximum-size"
@@ -632,8 +622,7 @@
               3,
               2
             ]
-          ],
-          5
+          ]
         ],
         "expected": 1,
         "coverage": "zero-or-minimum"
@@ -667,17 +656,15 @@
               7,
               5
             ]
-          ],
-          2
+          ]
         ],
         "expected": 2,
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nEach row of drawers is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, the result list is empty.\n\nReturn the answer\n\nCount the even numbers in the result list. An even number divides by 2 with no remainder. Count 0 and negative even numbers too. Return the count. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n log n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction paidReservationsEvenKeyCensus(drawers, k) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out.filter(x=>x%2===0).length;\n}\n\n\ntypescript\nfunction paidReservationsEvenKeyCensus(drawers: number[][], k: number): number {\n  const a=drawers; let out:number[]=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out.filter(x=>x%2===0).length;\n}\n\n\npython\ndef paidReservationsEvenKeyCensus(drawers, k):\n    a=drawers\n    out=[]\n    rows=sorted(a,key=lambda r:(r[1],r[0],r[2]))\n    dp=[0]\n    for i,(start,end,reward) in enumerate(rows):\n        left,right=0,i\n        while left<right:\n            mid=(left+right)//2\n            if rows[mid][1]<=start: left=mid+1\n            else: right=mid\n        dp.append(max(dp[i],dp[left]+reward))\n    out=dp[1:]\n    return sum(x%2==0 for x in out)\n\n\njava\nclass Solution {\n  public int paidReservationsEvenKeyCensus(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int[][]rows=a.clone();Arrays.sort(rows,Comparator.comparingInt((int[]r)->r[1]).thenComparingInt(r->r[0]).thenComparingInt(r->r[2]));int[]dp=new int[rows.length+1];for(int i=0;i<rows.length;i++){int l=0,r=i;while(l<r){int m=(l+r)/2;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp[i+1]=Math.max(dp[i],dp[l]+rows[i][2]);out.add(dp[i+1]);}}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
+    "editorialMd": "Build bestRewards\n\nEach row of `drawers` is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, `bestRewards` is empty.\n\nReturn the answer\n\nCount the even numbers in `bestRewards`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder. Complete `paidReservationsEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nWhy this works\n\nEach value in `bestRewards` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n log n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction paidReservationsEvenKeyCensus(drawers) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out.filter(x=>x%2===0).length;\n}\n\n\ntypescript\nfunction paidReservationsEvenKeyCensus(drawers: number[][]): number {\n  const a=drawers; let out:number[]=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out.filter(x=>x%2===0).length;\n}\n\n\npython\ndef paidReservationsEvenKeyCensus(drawers):\n    a=drawers\n    out=[]\n    rows=sorted(a,key=lambda r:(r[1],r[0],r[2]))\n    dp=[0]\n    for i,(start,end,reward) in enumerate(rows):\n        left,right=0,i\n        while left<right:\n            mid=(left+right)//2\n            if rows[mid][1]<=start: left=mid+1\n            else: right=mid\n        dp.append(max(dp[i],dp[left]+reward))\n    out=dp[1:]\n    return sum(x%2==0 for x in out)\n\n\njava\nclass Solution {\n  public int paidReservationsEvenKeyCensus(int[][] drawers) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int[][]rows=a.clone();Arrays.sort(rows,Comparator.comparingInt((int[]r)->r[1]).thenComparingInt(r->r[0]).thenComparingInt(r->r[2]));int[]dp=new int[rows.length+1];for(int i=0;i<rows.length;i++){int l=0,r=i;while(l<r){int m=(l+r)/2;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp[i+1]=Math.max(dp[i],dp[l]+rows[i][2]);out.add(dp[i+1]);}}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
   },
   "parameterNames": [
-    "drawers",
-    "k"
+    "drawers"
   ]
 }

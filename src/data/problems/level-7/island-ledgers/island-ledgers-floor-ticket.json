@@ -16,30 +16,30 @@
   "prerequisites": [
     "path3-405"
   ],
-  "summary": "Graph depth-first components. Return the smallest number in the result list.",
+  "summary": "Graph depth-first components. Return the smallest number.",
   "stage": "Boundary variation",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nlinks is a square table of 0s and 1s. Points are numbered from 0. A 1 at links[a][b] joins points a and b in both directions. A 0 means no link. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nThis graph has two-way links between points. A group, also called a connected component, contains all points that can reach one another. Start at point 0, then check the other points in number order. Whenever a point has not been visited, explore its whole group depth first: follow a path as far as you can before going back. Record how many points are in that group. The result list follows the order in which you first find the groups. A graph with no points gives an empty result list.\n\nStep 2: Return the answer\nReturn the smallest number in the result list. If the list is empty, return 0.\n\nWrite your function\nComplete islandLedgersFloorTicket(links, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "This graph has two-way links between points. A group, also called a connected component, contains all points that can reach one another. Start at point 0, then check the other points in number order. Whenever a point has not been visited, explore its whole group depth first: follow a path as far as you can before going back. Record how many points are in that group. The result list follows the order in which you first find the groups. A graph with no points gives an empty result list. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`links` is a square table of 0s and 1s. Points are numbered from 0. A 1 at `links`[a][b] joins points a and b in both directions. A 0 means no link.\n\nYour tasks\n1. Create a list `componentSizes`. This graph has two-way `links` between points. A group, also called a connected component, contains all points that can reach one another. Start at point 0, then check the other points in number order. Whenever a point has not been visited, explore its whole group depth first: follow a path as far as you can before going back. Record how many points are in that group. `componentSizes` follows the order in which you first find the groups. A graph with no points gives an empty `componentSizes`.\n2. Find the smallest number in `componentSizes`. Store it in `smallest`.\n3. Complete `islandLedgersFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `links` is [[1, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 1, 0, 0, 1], [1, 0, 0, 1, 0], [0, 0, 1, 0, 0]], then `componentSizes` is [2, 3] and `islandLedgersFloorTicket` returns 2.\n\nRules\n- If `componentSizes` is empty, return 0.\n\nTest data\nTEST DATA 1: `links` is [[1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0], [1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0]].\nTEST DATA 2: `links` is [[0, 0, 1, 0, 0], [0, 1, 0, 0, 1], [1, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 1, 0, 0, 1]].",
+  "unitIntro": "This graph has two-way `links` between points. A group, also called a connected component, contains all points that can reach one another. Start at point 0, then check the other points in number order. Whenever a point has not been visited, explore its whole group depth first: follow a path as far as you can before going back. Record how many points are in that group. `componentSizes` follows the order in which you first find the groups. A graph with no points gives an empty `componentSizes`. Each problem in this unit builds `componentSizes` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 16.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
     "The graph has at most 16 points. Its table has the same number of rows and columns. Link entries are 0 or 1; cost entries are 0 through 13.",
-    "Efficiency goal: time O(V^2); extra memory, including the result list, O(n). n is the input length; V is the number of graph points. These labels describe how work and memory grow with the input."
+    "Efficiency goal: time O(V^2); extra memory, including the helper list, O(n). n is the input length; V is the number of graph points. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "This graph has two-way links between points. A group, also called a connected component, contains all points that can reach one another. Start at point 0, then check the other points in number order. Whenever a point has not been visited, explore its whole group depth first: follow a path as far as you can before going back. Record how many points are in that group. The result list follows the order in which you first find the groups. A graph with no points gives an empty result list. Keep track of the numbers or places you have already checked.",
-    "Return the smallest number in the result list. If the list is empty, return 0. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `componentSizes` before you look for the answer.",
+    "This graph has two-way `links` between points. A group, also called a connected component, contains all points that can reach one another. Start at point 0, then check the other points in number order. Whenever a point has not been visited, explore its whole group depth first: follow a path as far as you can before going back. Record how many points are in that group. `componentSizes` follows the order in which you first find the groups. A graph with no points gives an empty `componentSizes`. Keep track of the numbers or places you have already checked.",
+    "Find the smallest number in `componentSizes`. Store it in `smallest`. If `componentSizes` is empty, return 0."
   ],
   "functionName": "islandLedgersFloorTicket",
   "mode": "function",
   "starterCode": {
-    "javascript": "function islandLedgersFloorTicket(links, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "typescript": "function islandLedgersFloorTicket(links: number[][], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "python": "def islandLedgersFloorTicket(links, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
-    "java": "class Solution {\n  public int islandLedgersFloorTicket(int[][] links, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
+    "javascript": "function islandLedgersFloorTicket(links) {\n  // Build componentSizes, then return the answer.\n  return 0;\n}\n",
+    "typescript": "function islandLedgersFloorTicket(links: number[][]): number {\n  // Build componentSizes, then return the answer.\n  return 0;\n}\n",
+    "python": "def islandLedgersFloorTicket(links):\n    # Build componentSizes, then return the answer.\n    return 0\n",
+    "java": "class Solution {\n  public int islandLedgersFloorTicket(int[][] links) {\n    // Build componentSizes, then return the answer.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -94,12 +94,11 @@
             1,
             0
           ]
-        ],
-        3
+        ]
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [2,4]. The smallest number is 2. Return 2."
+      "explanation": "`componentSizes` is [2, 4]. The smallest number is 2. Return 2."
     },
     {
       "id": "path3-406-2",
@@ -140,34 +139,31 @@
             0,
             1
           ]
-        ],
-        2
+        ]
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [3,2]. The smallest number is 2. Return 2."
+      "explanation": "`componentSizes` is [3, 2]. The smallest number is 2. Return 2."
     },
     {
       "id": "path3-406-3",
       "input": [
-        [],
-        1
+        []
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. The list is empty, so return 0."
+      "explanation": "`componentSizes` is []. The list is empty, so return 0."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "int[][]",
-    "int"
+    "int[][]"
   ],
   "complexity": {
     "time": "O(V^2)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `componentSizes` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 7,
     "unit": "island-ledgers",
@@ -228,12 +224,11 @@
             1,
             0
           ]
-        ],
-        3
+        ]
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [2,4]. The smallest number is 2. Return 2."
+      "explanation": "`componentSizes` is [2, 4]. The smallest number is 2. Return 2."
     },
     {
       "id": "path3-406-2",
@@ -274,19 +269,18 @@
             0,
             1
           ]
-        ],
-        2
+        ]
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [3,2]. The smallest number is 2. Return 2."
+      "explanation": "`componentSizes` is [3, 2]. The smallest number is 2. Return 2."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function islandLedgersFloorTicket(links, k) {\n  const a=links; let out=[];\n  const n=a.length,seen=Array(n).fill(false);for(let start=0;start<n;start++){if(seen[start])continue;const stack=[start];seen[start]=true;let count=0;while(stack.length){const u=stack.pop();count++;for(let v=0;v<n;v++)if(a[u][v]&&!seen[v]){seen[v]=true;stack.push(v);}}out.push(count);}\n  return out.length?Math.min(...out):0;\n}\n",
-    "typescript": "function islandLedgersFloorTicket(links: number[][], k: number): number {\n  const a=links; let out:number[]=[];\n  const n=a.length,seen=Array(n).fill(false);for(let start=0;start<n;start++){if(seen[start])continue;const stack=[start];seen[start]=true;let count=0;while(stack.length){const u=stack.pop()!;count++;for(let v=0;v<n;v++)if(a[u][v]&&!seen[v]){seen[v]=true;stack.push(v);}}out.push(count);}\n  return out.length?Math.min(...out):0;\n}\n",
-    "python": "def islandLedgersFloorTicket(links, k):\n    a=links\n    out=[]\n    n=len(a)\n    seen=[False]*n\n    for start in range(n):\n        if seen[start]: continue\n        stack=[start]\n        seen[start]=True\n        count=0\n        while stack:\n            u=stack.pop()\n            count+=1\n            for v in range(n):\n                if a[u][v] and not seen[v]:\n                    seen[v]=True\n                    stack.append(v)\n        out.append(count)\n    return min(out,default=0)\n",
-    "java": "class Solution {\n  public int islandLedgersFloorTicket(int[][] links, int k) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;boolean[]seen=new boolean[n];for(int start=0;start<n;start++){if(seen[start])continue;Deque<Integer>stack=new ArrayDeque<>();stack.push(start);seen[start]=true;int count=0;while(!stack.isEmpty()){int u=stack.pop();count++;for(int v=0;v<n;v++)if(a[u][v]!=0&&!seen[v]){seen[v]=true;stack.push(v);}}out.add(count);}}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+    "javascript": "function islandLedgersFloorTicket(links) {\n  const a=links; let out=[];\n  const n=a.length,seen=Array(n).fill(false);for(let start=0;start<n;start++){if(seen[start])continue;const stack=[start];seen[start]=true;let count=0;while(stack.length){const u=stack.pop();count++;for(let v=0;v<n;v++)if(a[u][v]&&!seen[v]){seen[v]=true;stack.push(v);}}out.push(count);}\n  return out.length?Math.min(...out):0;\n}\n",
+    "typescript": "function islandLedgersFloorTicket(links: number[][]): number {\n  const a=links; let out:number[]=[];\n  const n=a.length,seen=Array(n).fill(false);for(let start=0;start<n;start++){if(seen[start])continue;const stack=[start];seen[start]=true;let count=0;while(stack.length){const u=stack.pop()!;count++;for(let v=0;v<n;v++)if(a[u][v]&&!seen[v]){seen[v]=true;stack.push(v);}}out.push(count);}\n  return out.length?Math.min(...out):0;\n}\n",
+    "python": "def islandLedgersFloorTicket(links):\n    a=links\n    out=[]\n    n=len(a)\n    seen=[False]*n\n    for start in range(n):\n        if seen[start]: continue\n        stack=[start]\n        seen[start]=True\n        count=0\n        while stack:\n            u=stack.pop()\n            count+=1\n            for v in range(n):\n                if a[u][v] and not seen[v]:\n                    seen[v]=True\n                    stack.append(v)\n        out.append(count)\n    return min(out,default=0)\n",
+    "java": "class Solution {\n  public int islandLedgersFloorTicket(int[][] links) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;boolean[]seen=new boolean[n];for(int start=0;start<n;start++){if(seen[start])continue;Deque<Integer>stack=new ArrayDeque<>();stack.push(start);seen[start]=true;int count=0;while(!stack.isEmpty()){int u=stack.pop();count++;for(int v=0;v<n;v++)if(a[u][v]!=0&&!seen[v]){seen[v]=true;stack.push(v);}}out.add(count);}}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -297,8 +291,7 @@
             [
               1
             ]
-          ],
-          1
+          ]
         ],
         "expected": 1,
         "coverage": "singleton"
@@ -342,8 +335,7 @@
               0,
               1
             ]
-          ],
-          4
+          ]
         ],
         "expected": 1,
         "coverage": "duplicates-or-redundancy"
@@ -376,8 +368,7 @@
               0,
               0
             ]
-          ],
-          8
+          ]
         ],
         "expected": 1,
         "coverage": "lower-bound"
@@ -674,8 +665,7 @@
               1,
               0
             ]
-          ],
-          3
+          ]
         ],
         "expected": 16,
         "coverage": "maximum-size"
@@ -708,8 +698,7 @@
               0,
               0
             ]
-          ],
-          5
+          ]
         ],
         "expected": 1,
         "coverage": "zero-or-minimum"
@@ -766,17 +755,15 @@
               0,
               1
             ]
-          ],
-          2
+          ]
         ],
         "expected": 2,
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nThis graph has two-way links between points. A group, also called a connected component, contains all points that can reach one another. Start at point 0, then check the other points in number order. Whenever a point has not been visited, explore its whole group depth first: follow a path as far as you can before going back. Record how many points are in that group. The result list follows the order in which you first find the groups. A graph with no points gives an empty result list.\n\nReturn the answer\n\nReturn the smallest number in the result list. If the list is empty, return 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(V^2); extra memory, including the result list, O(n). n is the input length; V is the number of graph points. These labels describe how work and memory grow with the input.\n\njavascript\nfunction islandLedgersFloorTicket(links, k) {\n  const a=links; let out=[];\n  const n=a.length,seen=Array(n).fill(false);for(let start=0;start<n;start++){if(seen[start])continue;const stack=[start];seen[start]=true;let count=0;while(stack.length){const u=stack.pop();count++;for(let v=0;v<n;v++)if(a[u][v]&&!seen[v]){seen[v]=true;stack.push(v);}}out.push(count);}\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\nfunction islandLedgersFloorTicket(links: number[][], k: number): number {\n  const a=links; let out:number[]=[];\n  const n=a.length,seen=Array(n).fill(false);for(let start=0;start<n;start++){if(seen[start])continue;const stack=[start];seen[start]=true;let count=0;while(stack.length){const u=stack.pop()!;count++;for(let v=0;v<n;v++)if(a[u][v]&&!seen[v]){seen[v]=true;stack.push(v);}}out.push(count);}\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef islandLedgersFloorTicket(links, k):\n    a=links\n    out=[]\n    n=len(a)\n    seen=[False]*n\n    for start in range(n):\n        if seen[start]: continue\n        stack=[start]\n        seen[start]=True\n        count=0\n        while stack:\n            u=stack.pop()\n            count+=1\n            for v in range(n):\n                if a[u][v] and not seen[v]:\n                    seen[v]=True\n                    stack.append(v)\n        out.append(count)\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int islandLedgersFloorTicket(int[][] links, int k) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;boolean[]seen=new boolean[n];for(int start=0;start<n;start++){if(seen[start])continue;Deque<Integer>stack=new ArrayDeque<>();stack.push(start);seen[start]=true;int count=0;while(!stack.isEmpty()){int u=stack.pop();count++;for(int v=0;v<n;v++)if(a[u][v]!=0&&!seen[v]){seen[v]=true;stack.push(v);}}out.add(count);}}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+    "editorialMd": "Build componentSizes\n\nThis graph has two-way `links` between points. A group, also called a connected component, contains all points that can reach one another. Start at point 0, then check the other points in number order. Whenever a point has not been visited, explore its whole group depth first: follow a path as far as you can before going back. Record how many points are in that group. `componentSizes` follows the order in which you first find the groups. A graph with no points gives an empty `componentSizes`.\n\nReturn the answer\n\nFind the smallest number in `componentSizes`. Store it in `smallest`. Complete `islandLedgersFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nWhy this works\n\nEach value in `componentSizes` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(V^2); extra memory, including the helper list, O(n). n is the input length; V is the number of graph points. These labels describe how work and memory grow with the input.\n\njavascript\nfunction islandLedgersFloorTicket(links) {\n  const a=links; let out=[];\n  const n=a.length,seen=Array(n).fill(false);for(let start=0;start<n;start++){if(seen[start])continue;const stack=[start];seen[start]=true;let count=0;while(stack.length){const u=stack.pop();count++;for(let v=0;v<n;v++)if(a[u][v]&&!seen[v]){seen[v]=true;stack.push(v);}}out.push(count);}\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\nfunction islandLedgersFloorTicket(links: number[][]): number {\n  const a=links; let out:number[]=[];\n  const n=a.length,seen=Array(n).fill(false);for(let start=0;start<n;start++){if(seen[start])continue;const stack=[start];seen[start]=true;let count=0;while(stack.length){const u=stack.pop()!;count++;for(let v=0;v<n;v++)if(a[u][v]&&!seen[v]){seen[v]=true;stack.push(v);}}out.push(count);}\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef islandLedgersFloorTicket(links):\n    a=links\n    out=[]\n    n=len(a)\n    seen=[False]*n\n    for start in range(n):\n        if seen[start]: continue\n        stack=[start]\n        seen[start]=True\n        count=0\n        while stack:\n            u=stack.pop()\n            count+=1\n            for v in range(n):\n                if a[u][v] and not seen[v]:\n                    seen[v]=True\n                    stack.append(v)\n        out.append(count)\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int islandLedgersFloorTicket(int[][] links) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;boolean[]seen=new boolean[n];for(int start=0;start<n;start++){if(seen[start])continue;Deque<Integer>stack=new ArrayDeque<>();stack.push(start);seen[start]=true;int count=0;while(!stack.isEmpty()){int u=stack.pop();count++;for(int v=0;v<n;v++)if(a[u][v]!=0&&!seen[v]){seen[v]=true;stack.push(v);}}out.add(count);}}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
   },
   "parameterNames": [
-    "links",
-    "k"
+    "links"
   ]
 }

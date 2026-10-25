@@ -12,8 +12,8 @@
         "id": "read",
         "title": "Return the list you built",
         "explanation": "Scheduling DP and binary search is this topic's new tool. Each row of drawers is a booking: [start, end, reward]. It uses time from start up to, but not including, end",
-        "exampleCode": "function practice(drawers, k) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out;\n}\n",
-        "starterCode": "function practice(drawers, k) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return ___;\n}\n",
+        "exampleCode": "function practice(drawers) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out;\n}\n",
+        "starterCode": "function practice(drawers) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return ___;\n}\n",
         "task": "Replace ___ with out to send the result list back.",
         "functionName": "practice",
         "validate": [
@@ -46,8 +46,7 @@
                   22,
                   16
                 ]
-              ],
-              3
+              ]
             ],
             "expected": [
               4,
@@ -81,8 +80,7 @@
                   12,
                   7
                 ]
-              ],
-              2
+              ]
             ],
             "expected": [
               4,
@@ -94,8 +92,7 @@
           {
             "id": "read-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -103,7 +100,7 @@
         "hints": [
           "The list is named out.",
           "The final instruction is return out;.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(drawers, k) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(drawers) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [
@@ -129,8 +126,8 @@
         "id": "trace",
         "title": "Fill a smaller piece",
         "explanation": "An empty list is written as []. The working instructions fill that list. Supply the empty list before running the example.",
-        "exampleCode": "function practice(drawers, k) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out;\n}\n",
-        "starterCode": "function practice(drawers, k) {\n  const a=drawers; let out=___;\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out;\n}\n",
+        "exampleCode": "function practice(drawers) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out;\n}\n",
+        "starterCode": "function practice(drawers) {\n  const a=drawers; let out=___;\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out;\n}\n",
         "task": "Replace ___ with [] to begin with an empty list.",
         "functionName": "practice",
         "validate": [
@@ -163,8 +160,7 @@
                   22,
                   16
                 ]
-              ],
-              3
+              ]
             ],
             "expected": [
               4,
@@ -198,8 +194,7 @@
                   12,
                   7
                 ]
-              ],
-              2
+              ]
             ],
             "expected": [
               4,
@@ -211,8 +206,7 @@
           {
             "id": "trace-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -220,7 +214,7 @@
         "hints": [
           "Use square brackets with nothing inside.",
           "Write let out=[] where the list is created.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(drawers, k) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(drawers) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [
@@ -310,8 +304,8 @@
         "id": "rebuild",
         "title": "Rebuild the working instructions",
         "explanation": "Keep the supplied function and result list. Rebuild the part that fills the list using the example as a guide. Re-run whenever you want to check a change.",
-        "exampleCode": "function practice(drawers, k) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out;\n}\n",
-        "starterCode": "function practice(drawers, k) {\n  const a=drawers; let out=[];\n  // Rebuild the derived list here.\n  return out;\n}\n",
+        "exampleCode": "function practice(drawers) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out;\n}\n",
+        "starterCode": "function practice(drawers) {\n  const a=drawers; let out=[];\n  // Rebuild the derived list here.\n  return out;\n}\n",
         "task": "Fill the result list using this topic's rule.",
         "functionName": "practice",
         "validate": [
@@ -344,8 +338,7 @@
                   22,
                   16
                 ]
-              ],
-              3
+              ]
             ],
             "expected": [
               4,
@@ -379,8 +372,7 @@
                   12,
                   7
                 ]
-              ],
-              2
+              ]
             ],
             "expected": [
               4,
@@ -392,8 +384,7 @@
           {
             "id": "rebuild-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -401,7 +392,7 @@
         "hints": [
           "Each row of drawers is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, the result list is empty.",
           "Revisit the example and copy one instruction at a time, checking what it does.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(drawers, k) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(drawers) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [
@@ -427,8 +418,8 @@
         "id": "recall",
         "title": "Ready for the proof strip",
         "explanation": "Write the small function again with less help. The first challenge uses the same input and output rule. Use return to send the finished list back.",
-        "exampleCode": "function practice(drawers, k) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out;\n}\n",
-        "starterCode": "function practice(drawers, k) {\n  // Build and return the result list.\n}",
+        "exampleCode": "function practice(drawers) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out;\n}\n",
+        "starterCode": "function practice(drawers) {\n  // Build and return the result list.\n}",
         "task": "Build the derived list for this topic, then return it.",
         "functionName": "practice",
         "validate": [
@@ -461,8 +452,7 @@
                   22,
                   16
                 ]
-              ],
-              3
+              ]
             ],
             "expected": [
               4,
@@ -496,8 +486,7 @@
                   12,
                   7
                 ]
-              ],
-              2
+              ]
             ],
             "expected": [
               4,
@@ -509,8 +498,7 @@
           {
             "id": "recall-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -518,7 +506,7 @@
         "hints": [
           "Each row of drawers is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, the result list is empty.",
           "Create the result list, process the input in order, and return the list.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(drawers, k) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(drawers) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]||x[2]-y[2]),dp=[0];for(let i=0;i<rows.length;i++){let l=0,r=i;while(l<r){const m=(l+r)>>1;if(rows[m][1]<=rows[i][0])l=m+1;else r=m;}dp.push(Math.max(dp[i],dp[l]+rows[i][2]));}out=dp.slice(1);\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [

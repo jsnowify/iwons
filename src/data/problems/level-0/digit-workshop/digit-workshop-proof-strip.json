@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-019"
   ],
-  "summary": "Helper functions. Return the whole result list in the order you built it.",
+  "summary": "Helper functions. Return the whole list.",
   "stage": "Warm-up",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nFind the digit sum of each number in readings. Ignore a minus sign, then add the digits. For example, -305 gives 3 + 0 + 5 = 8. The digit sum of 0 is 0. Keep the answers in input order.\n\nStep 2: Return the answer\nReturn the whole result list in the order you built it. If it is empty, return [].\n\nWrite your function\nComplete digitWorkshopProofStrip(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "Find the digit sum of each number in readings. Ignore a minus sign, then add the digits. For example, -305 gives 3 + 0 + 5 = 8. The digit sum of 0 is 0. Keep the answers in input order. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `digitSums`. Find the digit sum of each number in `readings`. Ignore a minus sign, then add the digits. For example, -305 gives 3 + 0 + 5 = 8. The digit sum of 0 is 0. Keep the answers in input order.\n2. Complete `digitWorkshopProofStrip` so it returns `digitSums`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `digitSums` is [6, 1, 6, 2] and `digitWorkshopProofStrip` returns [6, 1, 6, 2].\n\nRules\n- If `digitSums` is empty, return [].\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "unitIntro": "Find the digit sum of each number in `readings`. Ignore a minus sign, then add the digits. For example, -305 gives 3 + 0 + 5 = 8. The digit sum of 0 is 0. Keep the answers in input order. Each problem in this unit builds `digitSums` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
-    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
+    "Efficiency goal: time O(n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "Find the digit sum of each number in readings. Ignore a minus sign, then add the digits. For example, -305 gives 3 + 0 + 5 = 8. The digit sum of 0 is 0. Keep the answers in input order. Keep track of the numbers or places you have already checked.",
-    "Return the whole result list in the order you built it. If it is empty, return []. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `digitSums` before you look for the answer.",
+    "Find the digit sum of each number in `readings`. Ignore a minus sign, then add the digits. For example, -305 gives 3 + 0 + 5 = 8. The digit sum of 0 is 0. Keep the answers in input order. Keep track of the numbers or places you have already checked.",
+    "Return `digitSums` once it is complete. If `digitSums` is empty, return []."
   ],
   "functionName": "digitWorkshopProofStrip",
   "mode": "function",
   "starterCode": {
-    "javascript": "function digitWorkshopProofStrip(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "typescript": "function digitWorkshopProofStrip(readings: number[], k: number): number[] {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "python": "def digitWorkshopProofStrip(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return []\n",
-    "java": "class Solution {\n  public int[] digitWorkshopProofStrip(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return new int[0];\n  }\n}\n"
+    "javascript": "function digitWorkshopProofStrip(readings) {\n  // Build digitSums, then return the answer.\n  return [];\n}\n",
+    "typescript": "function digitWorkshopProofStrip(readings: number[]): number[] {\n  // Build digitSums, then return the answer.\n  return [];\n}\n",
+    "python": "def digitWorkshopProofStrip(readings):\n    # Build digitSums, then return the answer.\n    return []\n",
+    "java": "class Solution {\n  public int[] digitWorkshopProofStrip(int[] readings) {\n    // Build digitSums, then return the answer.\n    return new int[0];\n  }\n}\n"
   },
   "cases": [
     {
@@ -50,8 +50,7 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": [
         7,
@@ -61,7 +60,7 @@
         3
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [7,3,7,0,3]. Step 2 asks for that whole list, so return [7,3,7,0,3]."
+      "explanation": "`digitSums` is [7, 3, 7, 0, 3]. `digitWorkshopProofStrip` returns that whole list, so return [7, 3, 7, 0, 3]."
     },
     {
       "id": "path3-025-2",
@@ -71,8 +70,7 @@
           4,
           -2,
           4
-        ],
-        2
+        ]
       ],
       "expected": [
         4,
@@ -81,29 +79,27 @@
         4
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,4,2,4]. Step 2 asks for that whole list, so return [4,4,2,4]."
+      "explanation": "`digitSums` is [4, 4, 2, 4]. `digitWorkshopProofStrip` returns that whole list, so return [4, 4, 2, 4]."
     },
     {
       "id": "path3-025-3",
       "input": [
-        [],
-        1
+        []
       ],
       "expected": [],
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. Step 2 asks for that whole list, so return []."
+      "explanation": "`digitSums` is []. `digitWorkshopProofStrip` returns that whole list, so return []."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "int[]",
-    "int"
+    "int[]"
   ],
   "complexity": {
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `digitSums` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 0,
     "unit": "digit-workshop",
@@ -121,8 +117,7 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": [
         7,
@@ -132,7 +127,7 @@
         3
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [7,3,7,0,3]. Step 2 asks for that whole list, so return [7,3,7,0,3]."
+      "explanation": "`digitSums` is [7, 3, 7, 0, 3]. `digitWorkshopProofStrip` returns that whole list, so return [7, 3, 7, 0, 3]."
     },
     {
       "id": "path3-025-2",
@@ -142,8 +137,7 @@
           4,
           -2,
           4
-        ],
-        2
+        ]
       ],
       "expected": [
         4,
@@ -152,14 +146,14 @@
         4
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,4,2,4]. Step 2 asks for that whole list, so return [4,4,2,4]."
+      "explanation": "`digitSums` is [4, 4, 2, 4]. `digitWorkshopProofStrip` returns that whole list, so return [4, 4, 2, 4]."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function digitWorkshopProofStrip(readings, k) {\n  const a=readings; let out=[];\n  for(let x of a){x=Math.abs(x);let s=0;while(x){s+=x%10;x=Math.floor(x/10);}out.push(s);}\n  return out;\n}\n",
-    "typescript": "function digitWorkshopProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  for(let x of a){x=Math.abs(x);let s=0;while(x){s+=x%10;x=Math.floor(x/10);}out.push(s);}\n  return out;\n}\n",
-    "python": "def digitWorkshopProofStrip(readings, k):\n    a=readings\n    out=[]\n    for x in a:\n        x=abs(x)\n        s=0\n        while x:\n            s+=x%10\n            x//=10\n        out.append(s)\n    return out\n",
-    "java": "class Solution {\n  public int[] digitWorkshopProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){x=Math.abs(x);int s=0;while(x>0){s+=x%10;x/=10;}out.add(s);}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+    "javascript": "function digitWorkshopProofStrip(readings) {\n  const a=readings; let out=[];\n  for(let x of a){x=Math.abs(x);let s=0;while(x){s+=x%10;x=Math.floor(x/10);}out.push(s);}\n  return out;\n}\n",
+    "typescript": "function digitWorkshopProofStrip(readings: number[]): number[] {\n  const a=readings; let out:number[]=[];\n  for(let x of a){x=Math.abs(x);let s=0;while(x){s+=x%10;x=Math.floor(x/10);}out.push(s);}\n  return out;\n}\n",
+    "python": "def digitWorkshopProofStrip(readings):\n    a=readings\n    out=[]\n    for x in a:\n        x=abs(x)\n        s=0\n        while x:\n            s+=x%10\n            x//=10\n        out.append(s)\n    return out\n",
+    "java": "class Solution {\n  public int[] digitWorkshopProofStrip(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){x=Math.abs(x);int s=0;while(x>0){s+=x%10;x/=10;}out.add(s);}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -168,8 +162,7 @@
         "input": [
           [
             9
-          ],
-          1
+          ]
         ],
         "expected": [
           9
@@ -184,8 +177,7 @@
             5,
             5,
             5
-          ],
-          4
+          ]
         ],
         "expected": [
           5,
@@ -202,8 +194,7 @@
             -20,
             -1,
             -7
-          ],
-          8
+          ]
         ],
         "expected": [
           2,
@@ -280,8 +271,7 @@
             -6,
             7,
             20
-          ],
-          3
+          ]
         ],
         "expected": [
           2,
@@ -358,8 +348,7 @@
             0,
             0,
             0
-          ],
-          5
+          ]
         ],
         "expected": [
           0,
@@ -377,8 +366,7 @@
             -2,
             8,
             1
-          ],
-          2
+          ]
         ],
         "expected": [
           8,
@@ -390,10 +378,9 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nFind the digit sum of each number in readings. Ignore a minus sign, then add the digits. For example, -305 gives 3 + 0 + 5 = 8. The digit sum of 0 is 0. Keep the answers in input order.\n\nReturn the answer\n\nReturn the whole result list in the order you built it. If it is empty, return [].\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction digitWorkshopProofStrip(readings, k) {\n  const a=readings; let out=[];\n  for(let x of a){x=Math.abs(x);let s=0;while(x){s+=x%10;x=Math.floor(x/10);}out.push(s);}\n  return out;\n}\n\n\ntypescript\nfunction digitWorkshopProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  for(let x of a){x=Math.abs(x);let s=0;while(x){s+=x%10;x=Math.floor(x/10);}out.push(s);}\n  return out;\n}\n\n\npython\ndef digitWorkshopProofStrip(readings, k):\n    a=readings\n    out=[]\n    for x in a:\n        x=abs(x)\n        s=0\n        while x:\n            s+=x%10\n            x//=10\n        out.append(s)\n    return out\n\n\njava\nclass Solution {\n  public int[] digitWorkshopProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){x=Math.abs(x);int s=0;while(x>0){s+=x%10;x/=10;}out.add(s);}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+    "editorialMd": "Build digitSums\n\nFind the digit sum of each number in `readings`. Ignore a minus sign, then add the digits. For example, -305 gives 3 + 0 + 5 = 8. The digit sum of 0 is 0. Keep the answers in input order.\n\nReturn the answer\n\nComplete `digitWorkshopProofStrip` so it returns `digitSums`. Return it, do not print it.\n\nWhy this works\n\nEach value in `digitSums` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction digitWorkshopProofStrip(readings) {\n  const a=readings; let out=[];\n  for(let x of a){x=Math.abs(x);let s=0;while(x){s+=x%10;x=Math.floor(x/10);}out.push(s);}\n  return out;\n}\n\n\ntypescript\nfunction digitWorkshopProofStrip(readings: number[]): number[] {\n  const a=readings; let out:number[]=[];\n  for(let x of a){x=Math.abs(x);let s=0;while(x){s+=x%10;x=Math.floor(x/10);}out.push(s);}\n  return out;\n}\n\n\npython\ndef digitWorkshopProofStrip(readings):\n    a=readings\n    out=[]\n    for x in a:\n        x=abs(x)\n        s=0\n        while x:\n            s+=x%10\n            x//=10\n        out.append(s)\n    return out\n\n\njava\nclass Solution {\n  public int[] digitWorkshopProofStrip(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {for(int x:a){x=Math.abs(x);int s=0;while(x>0){s+=x%10;x/=10;}out.add(s);}}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
   },
   "parameterNames": [
-    "readings",
-    "k"
+    "readings"
   ]
 }

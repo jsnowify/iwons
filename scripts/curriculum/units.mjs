@@ -72,3 +72,6 @@ export const projections = [
   { name: "Boss receipt", task: "Return the weighted sum of the derived sequence: multiply its first value by 1, its second by 2, and so on, then add the products. Return 0 for an empty sequence.", type: "int" },
 ];
 export function modesFor(unit) { return [...Array(unit.count - 1).keys(), 9]; }
+// Units whose rule reads k, and the two second steps that compare against k. Every other problem has no k parameter.
+export const kKernels = new Set(["windowSum","shortWindow","prefixRanges","windowMax","roundRobin","bst","knapsack"]);
+export const usesK = (kernelName, mode) => kKernels.has(kernelName) || mode === 2 || mode === 3;

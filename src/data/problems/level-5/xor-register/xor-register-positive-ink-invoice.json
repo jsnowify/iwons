@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-282"
   ],
-  "summary": "Prefix bit state. Add only numbers greater than 0 from the result list.",
+  "summary": "Prefix bit state. Add the positive numbers.",
   "stage": "Filtered variation",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nStart a stored number at 0. Read readings from left to right. Combine the stored number and the next number with bitwise XOR. XOR compares their binary digits: matching digits give 0, and different digits give 1. Use leading zeros when needed. For example, 3 XOR 5 is 6 because 011 XOR 101 gives 110. Record the stored number after each update.\n\nStep 2: Return the answer\nAdd only numbers greater than 0 from the result list. Do not add 0 or negative numbers. Return the total, or 0 if no numbers match.\n\nWrite your function\nComplete xorRegisterPositiveInkInvoice(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "Start a stored number at 0. Read readings from left to right. Combine the stored number and the next number with bitwise XOR. XOR compares their binary digits: matching digits give 0, and different digits give 1. Use leading zeros when needed. For example, 3 XOR 5 is 6 because 011 XOR 101 gives 110. Record the stored number after each update. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `xorValues`. Start a stored number at 0. Read `readings` from left to right. Combine the stored number and the next number with bitwise XOR. XOR compares their binary digits: matching digits give 0, and different digits give 1. Use leading zeros when needed. For example, 3 XOR 5 is 6 because 011 XOR 101 gives 110. Record the stored number after each update.\n2. Add only the numbers in `xorValues` that are greater than 0. Store the sum in `positiveTotal`.\n3. Complete `xorRegisterPositiveInkInvoice` so it returns `positiveTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 1, 6, 2], then `xorValues` is [6, 7, 1, 3] and `xorRegisterPositiveInkInvoice` returns 17.\n\nRules\n- Skip zeros.\n- If no number is greater than 0, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, 3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, 2, 4].",
+  "unitIntro": "Start a stored number at 0. Read `readings` from left to right. Combine the stored number and the next number with bitwise XOR. XOR compares their binary digits: matching digits give 0, and different digits give 1. Use leading zeros when needed. For example, 3 XOR 5 is 6 because 011 XOR 101 gives 110. Record the stored number after each update. Each problem in this unit builds `xorValues` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
     "Input numbers are whole numbers from 0 through 20.",
-    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
+    "Efficiency goal: time O(n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "Start a stored number at 0. Read readings from left to right. Combine the stored number and the next number with bitwise XOR. XOR compares their binary digits: matching digits give 0, and different digits give 1. Use leading zeros when needed. For example, 3 XOR 5 is 6 because 011 XOR 101 gives 110. Record the stored number after each update. Keep track of the numbers or places you have already checked.",
-    "Add only numbers greater than 0 from the result list. Do not add 0 or negative numbers. Return the total, or 0 if no numbers match. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `xorValues` before you look for the answer.",
+    "Start a stored number at 0. Read `readings` from left to right. Combine the stored number and the next number with bitwise XOR. XOR compares their binary digits: matching digits give 0, and different digits give 1. Use leading zeros when needed. For example, 3 XOR 5 is 6 because 011 XOR 101 gives 110. Record the stored number after each update. Keep track of the numbers or places you have already checked.",
+    "Add only the numbers in `xorValues` that are greater than 0. Store the sum in `positiveTotal`. Skip zeros."
   ],
   "functionName": "xorRegisterPositiveInkInvoice",
   "mode": "function",
   "starterCode": {
-    "javascript": "function xorRegisterPositiveInkInvoice(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "typescript": "function xorRegisterPositiveInkInvoice(readings: number[], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "python": "def xorRegisterPositiveInkInvoice(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
-    "java": "class Solution {\n  public int xorRegisterPositiveInkInvoice(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
+    "javascript": "function xorRegisterPositiveInkInvoice(readings) {\n  // Build xorValues, then return the answer.\n  return 0;\n}\n",
+    "typescript": "function xorRegisterPositiveInkInvoice(readings: number[]): number {\n  // Build xorValues, then return the answer.\n  return 0;\n}\n",
+    "python": "def xorRegisterPositiveInkInvoice(readings):\n    # Build xorValues, then return the answer.\n    return 0\n",
+    "java": "class Solution {\n  public int xorRegisterPositiveInkInvoice(int[] readings) {\n    // Build xorValues, then return the answer.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -50,12 +50,11 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": 32,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [7,4,3,3,15]. Keep [7,4,3,3,15] and add those numbers. Return 32."
+      "explanation": "`xorValues` is [7, 4, 3, 3, 15]. Keep [7, 4, 3, 3, 15] and add those numbers. Return 32."
     },
     {
       "id": "path3-283-2",
@@ -65,34 +64,31 @@
           4,
           2,
           4
-        ],
-        2
+        ]
       ],
       "expected": 12,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,0,2,6]. Keep [4,2,6] and add those numbers. Return 12."
+      "explanation": "`xorValues` is [4, 0, 2, 6]. Keep [4, 2, 6] and add those numbers. Return 12."
     },
     {
       "id": "path3-283-3",
       "input": [
-        [],
-        1
+        []
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. Keep [] and add those numbers. Return 0."
+      "explanation": "`xorValues` is []. Keep [] and add those numbers. Return 0."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "int[]",
-    "int"
+    "int[]"
   ],
   "complexity": {
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `xorValues` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 5,
     "unit": "xor-register",
@@ -110,12 +106,11 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": 32,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [7,4,3,3,15]. Keep [7,4,3,3,15] and add those numbers. Return 32."
+      "explanation": "`xorValues` is [7, 4, 3, 3, 15]. Keep [7, 4, 3, 3, 15] and add those numbers. Return 32."
     },
     {
       "id": "path3-283-2",
@@ -125,19 +120,18 @@
           4,
           2,
           4
-        ],
-        2
+        ]
       ],
       "expected": 12,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,0,2,6]. Keep [4,2,6] and add those numbers. Return 12."
+      "explanation": "`xorValues` is [4, 0, 2, 6]. Keep [4, 2, 6] and add those numbers. Return 12."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function xorRegisterPositiveInkInvoice(readings, k) {\n  const a=readings; let out=[];\n  let state=0;for(const x of a){state^=x;out.push(state);}\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n",
-    "typescript": "function xorRegisterPositiveInkInvoice(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  let state=0;for(const x of a){state^=x;out.push(state);}\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n",
-    "python": "def xorRegisterPositiveInkInvoice(readings, k):\n    a=readings\n    out=[]\n    state=0\n    for x in a:\n        state^=x\n        out.append(state)\n    return sum(x for x in out if x>0)\n",
-    "java": "class Solution {\n  public int xorRegisterPositiveInkInvoice(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int state=0;for(int x:a){state^=x;out.add(state);}}\n    int answer=0;for(int x:out)if(x>0)answer+=x;return answer;\n  }\n}\n"
+    "javascript": "function xorRegisterPositiveInkInvoice(readings) {\n  const a=readings; let out=[];\n  let state=0;for(const x of a){state^=x;out.push(state);}\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n",
+    "typescript": "function xorRegisterPositiveInkInvoice(readings: number[]): number {\n  const a=readings; let out:number[]=[];\n  let state=0;for(const x of a){state^=x;out.push(state);}\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n",
+    "python": "def xorRegisterPositiveInkInvoice(readings):\n    a=readings\n    out=[]\n    state=0\n    for x in a:\n        state^=x\n        out.append(state)\n    return sum(x for x in out if x>0)\n",
+    "java": "class Solution {\n  public int xorRegisterPositiveInkInvoice(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int state=0;for(int x:a){state^=x;out.add(state);}}\n    int answer=0;for(int x:out)if(x>0)answer+=x;return answer;\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -146,8 +140,7 @@
         "input": [
           [
             9
-          ],
-          1
+          ]
         ],
         "expected": 9,
         "coverage": "singleton"
@@ -160,8 +153,7 @@
             5,
             5,
             5
-          ],
-          4
+          ]
         ],
         "expected": 10,
         "coverage": "duplicates-or-redundancy"
@@ -173,8 +165,7 @@
             20,
             1,
             7
-          ],
-          8
+          ]
         ],
         "expected": 59,
         "coverage": "lower-bound"
@@ -247,8 +238,7 @@
             6,
             7,
             20
-          ],
-          3
+          ]
         ],
         "expected": 1045,
         "coverage": "maximum-size"
@@ -260,8 +250,7 @@
             0,
             0,
             0
-          ],
-          5
+          ]
         ],
         "expected": 0,
         "coverage": "zero-or-minimum"
@@ -275,17 +264,15 @@
             2,
             8,
             1
-          ],
-          2
+          ]
         ],
         "expected": 29,
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nStart a stored number at 0. Read readings from left to right. Combine the stored number and the next number with bitwise XOR. XOR compares their binary digits: matching digits give 0, and different digits give 1. Use leading zeros when needed. For example, 3 XOR 5 is 6 because 011 XOR 101 gives 110. Record the stored number after each update.\n\nReturn the answer\n\nAdd only numbers greater than 0 from the result list. Do not add 0 or negative numbers. Return the total, or 0 if no numbers match.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction xorRegisterPositiveInkInvoice(readings, k) {\n  const a=readings; let out=[];\n  let state=0;for(const x of a){state^=x;out.push(state);}\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n\n\ntypescript\nfunction xorRegisterPositiveInkInvoice(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  let state=0;for(const x of a){state^=x;out.push(state);}\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n\n\npython\ndef xorRegisterPositiveInkInvoice(readings, k):\n    a=readings\n    out=[]\n    state=0\n    for x in a:\n        state^=x\n        out.append(state)\n    return sum(x for x in out if x>0)\n\n\njava\nclass Solution {\n  public int xorRegisterPositiveInkInvoice(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int state=0;for(int x:a){state^=x;out.add(state);}}\n    int answer=0;for(int x:out)if(x>0)answer+=x;return answer;\n  }\n}\n"
+    "editorialMd": "Build xorValues\n\nStart a stored number at 0. Read `readings` from left to right. Combine the stored number and the next number with bitwise XOR. XOR compares their binary digits: matching digits give 0, and different digits give 1. Use leading zeros when needed. For example, 3 XOR 5 is 6 because 011 XOR 101 gives 110. Record the stored number after each update.\n\nReturn the answer\n\nAdd only the numbers in `xorValues` that are greater than 0. Store the sum in `positiveTotal`. Complete `xorRegisterPositiveInkInvoice` so it returns `positiveTotal`. Return it, do not print it.\n\nWhy this works\n\nEach value in `xorValues` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction xorRegisterPositiveInkInvoice(readings) {\n  const a=readings; let out=[];\n  let state=0;for(const x of a){state^=x;out.push(state);}\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n\n\ntypescript\nfunction xorRegisterPositiveInkInvoice(readings: number[]): number {\n  const a=readings; let out:number[]=[];\n  let state=0;for(const x of a){state^=x;out.push(state);}\n  return out.reduce((s,x)=>s+Math.max(0,x),0);\n}\n\n\npython\ndef xorRegisterPositiveInkInvoice(readings):\n    a=readings\n    out=[]\n    state=0\n    for x in a:\n        state^=x\n        out.append(state)\n    return sum(x for x in out if x>0)\n\n\njava\nclass Solution {\n  public int xorRegisterPositiveInkInvoice(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int state=0;for(int x:a){state^=x;out.add(state);}}\n    int answer=0;for(int x:out)if(x>0)answer+=x;return answer;\n  }\n}\n"
   },
   "parameterNames": [
-    "readings",
-    "k"
+    "readings"
   ]
 }

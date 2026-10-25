@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-428"
   ],
-  "summary": "Counting dynamic programming. Return only numbers greater than 0 from the result list.",
+  "summary": "Counting dynamic programming. Keep the positive numbers.",
   "stage": "Sequence variation",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nEach number x in readings is the width of a one-row strip. Fill it exactly using pieces of width 1 or 3. Count the different orders of pieces that work. For width 4, the orders are [1,1,1,1], [1,3], and [3,1], so the count is 3. Width 0 has one way: use no pieces. Record one count per input width, in order.\n\nStep 2: Return the answer\nReturn only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return [].\n\nWrite your function\nComplete tilingRibbonPositiveProofStrip(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "Each number x in readings is the width of a one-row strip. Fill it exactly using pieces of width 1 or 3. Count the different orders of pieces that work. For width 4, the orders are [1,1,1,1], [1,3], and [3,1], so the count is 3. Width 0 has one way: use no pieces. Record one count per input width, in order. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `tilingCounts`. Each number x in `readings` is the width of a one-row strip. Fill it exactly using pieces of width 1 or 3. Count the different orders of pieces that work. For width 4, the orders are [1,1,1,1], [1,3], and [3,1], so the count is 3. Width 0 has one way: use no pieces. Record one count per input width, in order.\n2. Create a list `positiveValues` that keeps only the numbers in `tilingCounts` that are greater than 0, in the same order.\n3. Complete `tilingRibbonPositiveProofStrip` so it returns `positiveValues`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 1, 6, 2], then `tilingCounts` is [6, 1, 6, 1] and `tilingRibbonPositiveProofStrip` returns [6, 1, 6, 1].\n\nRules\n- Keep repeated numbers.\n- If `tilingCounts` is empty, return [].\n\nTest data\nTEST DATA 1: `readings` is [7, 3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, 2, 4].",
+  "unitIntro": "Each number x in `readings` is the width of a one-row strip. Fill it exactly using pieces of width 1 or 3. Count the different orders of pieces that work. For width 4, the orders are [1,1,1,1], [1,3], and [3,1], so the count is 3. Width 0 has one way: use no pieces. Record one count per input width, in order. Each problem in this unit builds `tilingCounts` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
     "Input numbers are whole numbers from 0 through 20.",
-    "Efficiency goal: time O(n + M); extra memory, including the result list, O(n). n is the input length; M is the largest input number. These labels describe how work and memory grow with the input."
+    "Efficiency goal: time O(n + M); extra memory, including the helper list, O(n). n is the input length; M is the largest input number. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "Each number x in readings is the width of a one-row strip. Fill it exactly using pieces of width 1 or 3. Count the different orders of pieces that work. For width 4, the orders are [1,1,1,1], [1,3], and [3,1], so the count is 3. Width 0 has one way: use no pieces. Record one count per input width, in order. Keep track of the numbers or places you have already checked.",
-    "Return only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return []. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `tilingCounts` before you look for the answer.",
+    "Each number x in `readings` is the width of a one-row strip. Fill it exactly using pieces of width 1 or 3. Count the different orders of pieces that work. For width 4, the orders are [1,1,1,1], [1,3], and [3,1], so the count is 3. Width 0 has one way: use no pieces. Record one count per input width, in order. Keep track of the numbers or places you have already checked.",
+    "Create a list `positiveValues` that keeps only the numbers in `tilingCounts` that are greater than 0, in the same order. Keep repeated numbers."
   ],
   "functionName": "tilingRibbonPositiveProofStrip",
   "mode": "function",
   "starterCode": {
-    "javascript": "function tilingRibbonPositiveProofStrip(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "typescript": "function tilingRibbonPositiveProofStrip(readings: number[], k: number): number[] {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "python": "def tilingRibbonPositiveProofStrip(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return []\n",
-    "java": "class Solution {\n  public int[] tilingRibbonPositiveProofStrip(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return new int[0];\n  }\n}\n"
+    "javascript": "function tilingRibbonPositiveProofStrip(readings) {\n  // Build tilingCounts, then return the answer.\n  return [];\n}\n",
+    "typescript": "function tilingRibbonPositiveProofStrip(readings: number[]): number[] {\n  // Build tilingCounts, then return the answer.\n  return [];\n}\n",
+    "python": "def tilingRibbonPositiveProofStrip(readings):\n    # Build tilingCounts, then return the answer.\n    return []\n",
+    "java": "class Solution {\n  public int[] tilingRibbonPositiveProofStrip(int[] readings) {\n    // Build tilingCounts, then return the answer.\n    return new int[0];\n  }\n}\n"
   },
   "cases": [
     {
@@ -50,8 +50,7 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": [
         9,
@@ -61,7 +60,7 @@
         60
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [9,2,9,1,60]. Keep only numbers greater than 0, without changing their order. Return [9,2,9,1,60]."
+      "explanation": "`tilingCounts` is [9, 2, 9, 1, 60]. Keep only numbers greater than 0, without changing their order. Return [9, 2, 9, 1, 60]."
     },
     {
       "id": "path3-429-2",
@@ -71,8 +70,7 @@
           4,
           2,
           4
-        ],
-        2
+        ]
       ],
       "expected": [
         3,
@@ -81,29 +79,27 @@
         3
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [3,3,1,3]. Keep only numbers greater than 0, without changing their order. Return [3,3,1,3]."
+      "explanation": "`tilingCounts` is [3, 3, 1, 3]. Keep only numbers greater than 0, without changing their order. Return [3, 3, 1, 3]."
     },
     {
       "id": "path3-429-3",
       "input": [
-        [],
-        1
+        []
       ],
       "expected": [],
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. Keep only numbers greater than 0, without changing their order. Return []."
+      "explanation": "`tilingCounts` is []. Keep only numbers greater than 0, without changing their order. Return []."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "int[]",
-    "int"
+    "int[]"
   ],
   "complexity": {
     "time": "O(n + M)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `tilingCounts` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 8,
     "unit": "tiling-ribbon",
@@ -121,8 +117,7 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": [
         9,
@@ -132,7 +127,7 @@
         60
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [9,2,9,1,60]. Keep only numbers greater than 0, without changing their order. Return [9,2,9,1,60]."
+      "explanation": "`tilingCounts` is [9, 2, 9, 1, 60]. Keep only numbers greater than 0, without changing their order. Return [9, 2, 9, 1, 60]."
     },
     {
       "id": "path3-429-2",
@@ -142,8 +137,7 @@
           4,
           2,
           4
-        ],
-        2
+        ]
       ],
       "expected": [
         3,
@@ -152,14 +146,14 @@
         3
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [3,3,1,3]. Keep only numbers greater than 0, without changing their order. Return [3,3,1,3]."
+      "explanation": "`tilingCounts` is [3, 3, 1, 3]. Keep only numbers greater than 0, without changing their order. Return [3, 3, 1, 3]."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function tilingRibbonPositiveProofStrip(readings, k) {\n  const a=readings; let out=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(0);dp[0]=1;for(let i=1;i<=m;i++)dp[i]=dp[i-1]+(i>=3?dp[i-3]:0);out=a.map(x=>dp[x]);\n  return out.filter(x=>x>0);\n}\n",
-    "typescript": "function tilingRibbonPositiveProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(0);dp[0]=1;for(let i=1;i<=m;i++)dp[i]=dp[i-1]+(i>=3?dp[i-3]:0);out=a.map(x=>dp[x]);\n  return out.filter(x=>x>0);\n}\n",
-    "python": "def tilingRibbonPositiveProofStrip(readings, k):\n    a=readings\n    out=[]\n    m=max(a,default=0)\n    dp=[0]*(m+1)\n    dp[0]=1\n    for i in range(1,m+1): dp[i]=dp[i-1]+(dp[i-3] if i>=3 else 0)\n    out=[dp[x] for x in a]\n    return [x for x in out if x>0]\n",
-    "java": "class Solution {\n  public int[] tilingRibbonPositiveProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int m=0;for(int x:a)m=Math.max(m,x);int[]dp=new int[m+1];dp[0]=1;for(int i=1;i<=m;i++)dp[i]=dp[i-1]+(i>=3?dp[i-3]:0);for(int x:a)out.add(dp[x]);}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+    "javascript": "function tilingRibbonPositiveProofStrip(readings) {\n  const a=readings; let out=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(0);dp[0]=1;for(let i=1;i<=m;i++)dp[i]=dp[i-1]+(i>=3?dp[i-3]:0);out=a.map(x=>dp[x]);\n  return out.filter(x=>x>0);\n}\n",
+    "typescript": "function tilingRibbonPositiveProofStrip(readings: number[]): number[] {\n  const a=readings; let out:number[]=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(0);dp[0]=1;for(let i=1;i<=m;i++)dp[i]=dp[i-1]+(i>=3?dp[i-3]:0);out=a.map(x=>dp[x]);\n  return out.filter(x=>x>0);\n}\n",
+    "python": "def tilingRibbonPositiveProofStrip(readings):\n    a=readings\n    out=[]\n    m=max(a,default=0)\n    dp=[0]*(m+1)\n    dp[0]=1\n    for i in range(1,m+1): dp[i]=dp[i-1]+(dp[i-3] if i>=3 else 0)\n    out=[dp[x] for x in a]\n    return [x for x in out if x>0]\n",
+    "java": "class Solution {\n  public int[] tilingRibbonPositiveProofStrip(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int m=0;for(int x:a)m=Math.max(m,x);int[]dp=new int[m+1];dp[0]=1;for(int i=1;i<=m;i++)dp[i]=dp[i-1]+(i>=3?dp[i-3]:0);for(int x:a)out.add(dp[x]);}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -168,8 +162,7 @@
         "input": [
           [
             9
-          ],
-          1
+          ]
         ],
         "expected": [
           19
@@ -184,8 +177,7 @@
             5,
             5,
             5
-          ],
-          4
+          ]
         ],
         "expected": [
           4,
@@ -202,8 +194,7 @@
             20,
             1,
             7
-          ],
-          8
+          ]
         ],
         "expected": [
           1278,
@@ -280,8 +271,7 @@
             20,
             0,
             20
-          ],
-          3
+          ]
         ],
         "expected": [
           1,
@@ -358,8 +348,7 @@
             0,
             0,
             0
-          ],
-          5
+          ]
         ],
         "expected": [
           1,
@@ -377,8 +366,7 @@
             2,
             8,
             1
-          ],
-          2
+          ]
         ],
         "expected": [
           13,
@@ -390,10 +378,9 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nEach number x in readings is the width of a one-row strip. Fill it exactly using pieces of width 1 or 3. Count the different orders of pieces that work. For width 4, the orders are [1,1,1,1], [1,3], and [3,1], so the count is 3. Width 0 has one way: use no pieces. Record one count per input width, in order.\n\nReturn the answer\n\nReturn only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return [].\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n + M); extra memory, including the result list, O(n). n is the input length; M is the largest input number. These labels describe how work and memory grow with the input.\n\njavascript\nfunction tilingRibbonPositiveProofStrip(readings, k) {\n  const a=readings; let out=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(0);dp[0]=1;for(let i=1;i<=m;i++)dp[i]=dp[i-1]+(i>=3?dp[i-3]:0);out=a.map(x=>dp[x]);\n  return out.filter(x=>x>0);\n}\n\n\ntypescript\nfunction tilingRibbonPositiveProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(0);dp[0]=1;for(let i=1;i<=m;i++)dp[i]=dp[i-1]+(i>=3?dp[i-3]:0);out=a.map(x=>dp[x]);\n  return out.filter(x=>x>0);\n}\n\n\npython\ndef tilingRibbonPositiveProofStrip(readings, k):\n    a=readings\n    out=[]\n    m=max(a,default=0)\n    dp=[0]*(m+1)\n    dp[0]=1\n    for i in range(1,m+1): dp[i]=dp[i-1]+(dp[i-3] if i>=3 else 0)\n    out=[dp[x] for x in a]\n    return [x for x in out if x>0]\n\n\njava\nclass Solution {\n  public int[] tilingRibbonPositiveProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int m=0;for(int x:a)m=Math.max(m,x);int[]dp=new int[m+1];dp[0]=1;for(int i=1;i<=m;i++)dp[i]=dp[i-1]+(i>=3?dp[i-3]:0);for(int x:a)out.add(dp[x]);}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+    "editorialMd": "Build tilingCounts\n\nEach number x in `readings` is the width of a one-row strip. Fill it exactly using pieces of width 1 or 3. Count the different orders of pieces that work. For width 4, the orders are [1,1,1,1], [1,3], and [3,1], so the count is 3. Width 0 has one way: use no pieces. Record one count per input width, in order.\n\nReturn the answer\n\nCreate a list `positiveValues` that keeps only the numbers in `tilingCounts` that are greater than 0, in the same order. Complete `tilingRibbonPositiveProofStrip` so it returns `positiveValues`. Return it, do not print it.\n\nWhy this works\n\nEach value in `tilingCounts` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n + M); extra memory, including the helper list, O(n). n is the input length; M is the largest input number. These labels describe how work and memory grow with the input.\n\njavascript\nfunction tilingRibbonPositiveProofStrip(readings) {\n  const a=readings; let out=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(0);dp[0]=1;for(let i=1;i<=m;i++)dp[i]=dp[i-1]+(i>=3?dp[i-3]:0);out=a.map(x=>dp[x]);\n  return out.filter(x=>x>0);\n}\n\n\ntypescript\nfunction tilingRibbonPositiveProofStrip(readings: number[]): number[] {\n  const a=readings; let out:number[]=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(0);dp[0]=1;for(let i=1;i<=m;i++)dp[i]=dp[i-1]+(i>=3?dp[i-3]:0);out=a.map(x=>dp[x]);\n  return out.filter(x=>x>0);\n}\n\n\npython\ndef tilingRibbonPositiveProofStrip(readings):\n    a=readings\n    out=[]\n    m=max(a,default=0)\n    dp=[0]*(m+1)\n    dp[0]=1\n    for i in range(1,m+1): dp[i]=dp[i-1]+(dp[i-3] if i>=3 else 0)\n    out=[dp[x] for x in a]\n    return [x for x in out if x>0]\n\n\njava\nclass Solution {\n  public int[] tilingRibbonPositiveProofStrip(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int m=0;for(int x:a)m=Math.max(m,x);int[]dp=new int[m+1];dp[0]=1;for(int i=1;i<=m;i++)dp[i]=dp[i-1]+(i>=3?dp[i-3]:0);for(int x:a)out.add(dp[x]);}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
   },
   "parameterNames": [
-    "readings",
-    "k"
+    "readings"
   ]
 }

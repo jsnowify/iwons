@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-208"
   ],
-  "summary": "Queue simulation. Return the smallest number in the result list.",
+  "summary": "Queue simulation. Return the smallest number.",
   "stage": "Boundary variation",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is a whole number. Use it as described in the steps below.\n\nStep 1: Build the result list\nEach number in readings is the work time needed by a job. All jobs are ready at time 0, in input order. The worker gives the first job up to k time units. If it still needs work, put it at the back of the line. Then serve the next job. Record when each job finishes, measured from time 0. Return these finish times in original job order. A job needing 0 time finishes at time 0 and uses no worker time.\n\nStep 2: Return the answer\nReturn the smallest number in the result list. If the list is empty, return 0.\n\nWrite your function\nComplete roundDeskFloorTicket(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "Each number in readings is the work time needed by a job. All jobs are ready at time 0, in input order. The worker gives the first job up to k time units. If it still needs work, put it at the back of the line. Then serve the next job. Record when each job finishes, measured from time 0. Return these finish times in original job order. A job needing 0 time finishes at time 0 and uses no worker time. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `finishTimes`. Each number in `readings` is the work time needed by a job. All jobs are ready at time 0, in input order. The worker gives the first job up to `k` time units. If it still needs work, put it at the back of the line. Then serve the next job. Record when each job finishes, measured from time 0. Record these finish times in original job order. A job needing 0 time finishes at time 0 and uses no worker time.\n2. Find the smallest number in `finishTimes`. Store it in `smallest`.\n3. Complete `roundDeskFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 1, 6, 2] and `k` is 4, then `finishTimes` is [13, 5, 15, 11] and `roundDeskFloorTicket` returns 5.\n\nRules\n- If `finishTimes` is empty, return 0.\n- `k` (a whole number from 1 to 8) is the most time units a job gets in one turn.\n\nTest data\nTEST DATA 1: `readings` is [7, 3, 7, 0, 12] and `k` is 3.\nTEST DATA 2: `readings` is [4, 4, 2, 4] and `k` is 2.",
+  "unitIntro": "Each number in `readings` is the work time needed by a job. All jobs are ready at time 0, in input order. The worker gives the first job up to `k` time units. If it still needs work, put it at the back of the line. Then serve the next job. Record when each job finishes, measured from time 0. Record these finish times in original job order. A job needing 0 time finishes at time 0 and uses no worker time. Each problem in this unit builds `finishTimes` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
     "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
     "Input numbers are whole numbers from 0 through 20.",
-    "Efficiency goal: time O(n + total/k); extra memory, including the result list, O(n). n is the input length; total is all job work time added together. These labels describe how work and memory grow with the input."
+    "Efficiency goal: time O(n + total/k); extra memory, including the helper list, O(n). n is the input length; total is all job work time added together. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "Each number in readings is the work time needed by a job. All jobs are ready at time 0, in input order. The worker gives the first job up to k time units. If it still needs work, put it at the back of the line. Then serve the next job. Record when each job finishes, measured from time 0. Return these finish times in original job order. A job needing 0 time finishes at time 0 and uses no worker time. Keep track of the numbers or places you have already checked.",
-    "Return the smallest number in the result list. If the list is empty, return 0. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `finishTimes` before you look for the answer.",
+    "Each number in `readings` is the work time needed by a job. All jobs are ready at time 0, in input order. The worker gives the first job up to `k` time units. If it still needs work, put it at the back of the line. Then serve the next job. Record when each job finishes, measured from time 0. Record these finish times in original job order. A job needing 0 time finishes at time 0 and uses no worker time. Keep track of the numbers or places you have already checked.",
+    "Find the smallest number in `finishTimes`. Store it in `smallest`. If `finishTimes` is empty, return 0."
   ],
   "functionName": "roundDeskFloorTicket",
   "mode": "function",
   "starterCode": {
-    "javascript": "function roundDeskFloorTicket(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "typescript": "function roundDeskFloorTicket(readings: number[], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "python": "def roundDeskFloorTicket(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
-    "java": "class Solution {\n  public int roundDeskFloorTicket(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
+    "javascript": "function roundDeskFloorTicket(readings, k) {\n  // Build finishTimes, then return the answer.\n  return 0;\n}\n",
+    "typescript": "function roundDeskFloorTicket(readings: number[], k: number): number {\n  // Build finishTimes, then return the answer.\n  return 0;\n}\n",
+    "python": "def roundDeskFloorTicket(readings, k):\n    # Build finishTimes, then return the answer.\n    return 0\n",
+    "java": "class Solution {\n  public int roundDeskFloorTicket(int[] readings, int k) {\n    // Build finishTimes, then return the answer.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -55,7 +55,7 @@
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [22,6,23,0,29]. The smallest number is 0. Return 0."
+      "explanation": "`finishTimes` is [22, 6, 23, 0, 29]. The smallest number is 0. Return 0."
     },
     {
       "id": "path3-209-2",
@@ -70,7 +70,7 @@
       ],
       "expected": 6,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [10,12,6,14]. The smallest number is 6. Return 6."
+      "explanation": "`finishTimes` is [10, 12, 6, 14]. The smallest number is 6. Return 6."
     },
     {
       "id": "path3-209-3",
@@ -80,7 +80,7 @@
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. The list is empty, so return 0."
+      "explanation": "`finishTimes` is []. The list is empty, so return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -92,7 +92,7 @@
     "time": "O(n + total/k)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `finishTimes` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 4,
     "unit": "round-desk",
@@ -115,7 +115,7 @@
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [22,6,23,0,29]. The smallest number is 0. Return 0."
+      "explanation": "`finishTimes` is [22, 6, 23, 0, 29]. The smallest number is 0. Return 0."
     },
     {
       "id": "path3-209-2",
@@ -130,7 +130,7 @@
       ],
       "expected": 6,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [10,12,6,14]. The smallest number is 6. Return 6."
+      "explanation": "`finishTimes` is [10, 12, 6, 14]. The smallest number is 6. Return 6."
     }
   ],
   "referenceSolutions": {
@@ -282,7 +282,7 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nEach number in readings is the work time needed by a job. All jobs are ready at time 0, in input order. The worker gives the first job up to k time units. If it still needs work, put it at the back of the line. Then serve the next job. Record when each job finishes, measured from time 0. Return these finish times in original job order. A job needing 0 time finishes at time 0 and uses no worker time.\n\nReturn the answer\n\nReturn the smallest number in the result list. If the list is empty, return 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n + total/k); extra memory, including the result list, O(n). n is the input length; total is all job work time added together. These labels describe how work and memory grow with the input.\n\njavascript\nfunction roundDeskFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  const remaining=[...a],queue=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\nfunction roundDeskFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const remaining=[...a],queue:number[]=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef roundDeskFloorTicket(readings, k):\n    a=readings\n    out=[]\n    from collections import deque\n    remaining=a[:]\n    queue=deque(i for i,x in enumerate(a) if x>0)\n    out=[0]*len(a)\n    time=0\n    while queue:\n        i=queue.popleft()\n        served=min(k,remaining[i])\n        remaining[i]-=served\n        time+=served\n        if remaining[i]: queue.append(i)\n        else: out[i]=time\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int roundDeskFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int[]remaining=a.clone(),done=new int[a.length];Deque<Integer>queue=new ArrayDeque<>();for(int i=0;i<a.length;i++)if(a[i]>0)queue.add(i);int time=0;while(!queue.isEmpty()){int i=queue.remove(),served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i]>0)queue.add(i);else done[i]=time;}for(int x:done)out.add(x);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+    "editorialMd": "Build finishTimes\n\nEach number in `readings` is the work time needed by a job. All jobs are ready at time 0, in input order. The worker gives the first job up to `k` time units. If it still needs work, put it at the back of the line. Then serve the next job. Record when each job finishes, measured from time 0. Record these finish times in original job order. A job needing 0 time finishes at time 0 and uses no worker time.\n\nReturn the answer\n\nFind the smallest number in `finishTimes`. Store it in `smallest`. Complete `roundDeskFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nWhy this works\n\nEach value in `finishTimes` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n + total/k); extra memory, including the helper list, O(n). n is the input length; total is all job work time added together. These labels describe how work and memory grow with the input.\n\njavascript\nfunction roundDeskFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  const remaining=[...a],queue=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\nfunction roundDeskFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const remaining=[...a],queue:number[]=[];out=Array(a.length).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)queue.push(i);let time=0;for(let head=0,tail=queue.length;head<tail;head++){const i=queue[head%a.length],served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i])queue[tail++%a.length]=i;else out[i]=time;}\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef roundDeskFloorTicket(readings, k):\n    a=readings\n    out=[]\n    from collections import deque\n    remaining=a[:]\n    queue=deque(i for i,x in enumerate(a) if x>0)\n    out=[0]*len(a)\n    time=0\n    while queue:\n        i=queue.popleft()\n        served=min(k,remaining[i])\n        remaining[i]-=served\n        time+=served\n        if remaining[i]: queue.append(i)\n        else: out[i]=time\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int roundDeskFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int[]remaining=a.clone(),done=new int[a.length];Deque<Integer>queue=new ArrayDeque<>();for(int i=0;i<a.length;i++)if(a[i]>0)queue.add(i);int time=0;while(!queue.isEmpty()){int i=queue.remove(),served=Math.min(k,remaining[i]);remaining[i]-=served;time+=served;if(remaining[i]>0)queue.add(i);else done[i]=time;}for(int x:done)out.add(x);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
   },
   "parameterNames": [
     "readings",

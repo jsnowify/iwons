@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-126"
   ],
-  "summary": "Comparator sorting. Count the even numbers in the result list.",
+  "summary": "Comparator sorting. Count the even numbers.",
   "stage": "Counting variation",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nSort readings by distance from 0, from nearest to farthest. This distance is called absolute value: both -4 and 4 have distance 4. When two numbers have the same distance, put the smaller number first. Keep all repeated numbers. For [3, -2, 2, -3], the result list is [-2, 2, -3, 3].\n\nStep 2: Return the answer\nCount the even numbers in the result list. An even number divides by 2 with no remainder. Count 0 and negative even numbers too. Return the count. An empty list gives 0.\n\nWrite your function\nComplete magnitudeOrderEvenKeyCensus(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "Sort readings by distance from 0, from nearest to farthest. This distance is called absolute value: both -4 and 4 have distance 4. When two numbers have the same distance, put the smaller number first. Keep all repeated numbers. For [3, -2, 2, -3], the result list is [-2, 2, -3, 3]. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `byDistance`. Sort `readings` by distance from 0, from nearest to farthest. This distance is called absolute value: both -4 and 4 have distance 4. When two numbers have the same distance, put the smaller number first. Keep all repeated numbers. For [3, -2, 2, -3], `byDistance` is [-2, 2, -3, 3].\n2. Count the even numbers in `byDistance`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder.\n3. Complete `magnitudeOrderEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `byDistance` is [-1, 2, 6, 6] and `magnitudeOrderEvenKeyCensus` returns 3.\n\nRules\n- 0 and negative even numbers count too.\n- If `byDistance` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "unitIntro": "Sort `readings` by distance from 0, from nearest to farthest. This distance is called absolute value: both -4 and 4 have distance 4. When two numbers have the same distance, put the smaller number first. Keep all repeated numbers. For [3, -2, 2, -3], `byDistance` is [-2, 2, -3, 3]. Each problem in this unit builds `byDistance` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
-    "Efficiency goal: time O(n log n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
+    "Efficiency goal: time O(n log n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "Sort readings by distance from 0, from nearest to farthest. This distance is called absolute value: both -4 and 4 have distance 4. When two numbers have the same distance, put the smaller number first. Keep all repeated numbers. For [3, -2, 2, -3], the result list is [-2, 2, -3, 3]. Keep track of the numbers or places you have already checked.",
-    "Count the even numbers in the result list. An even number divides by 2 with no remainder. Count 0 and negative even numbers too. Return the count. An empty list gives 0. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `byDistance` before you look for the answer.",
+    "Sort `readings` by distance from 0, from nearest to farthest. This distance is called absolute value: both -4 and 4 have distance 4. When two numbers have the same distance, put the smaller number first. Keep all repeated numbers. For [3, -2, 2, -3], `byDistance` is [-2, 2, -3, 3]. Keep track of the numbers or places you have already checked.",
+    "Count the even numbers in `byDistance`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder. 0 and negative even numbers count too."
   ],
   "functionName": "magnitudeOrderEvenKeyCensus",
   "mode": "function",
   "starterCode": {
-    "javascript": "function magnitudeOrderEvenKeyCensus(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "typescript": "function magnitudeOrderEvenKeyCensus(readings: number[], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "python": "def magnitudeOrderEvenKeyCensus(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
-    "java": "class Solution {\n  public int magnitudeOrderEvenKeyCensus(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
+    "javascript": "function magnitudeOrderEvenKeyCensus(readings) {\n  // Build byDistance, then return the answer.\n  return 0;\n}\n",
+    "typescript": "function magnitudeOrderEvenKeyCensus(readings: number[]): number {\n  // Build byDistance, then return the answer.\n  return 0;\n}\n",
+    "python": "def magnitudeOrderEvenKeyCensus(readings):\n    # Build byDistance, then return the answer.\n    return 0\n",
+    "java": "class Solution {\n  public int magnitudeOrderEvenKeyCensus(int[] readings) {\n    // Build byDistance, then return the answer.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -50,12 +50,11 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [0,-3,7,7,12]. The even numbers are [0,12]. There are 2, so return 2."
+      "explanation": "`byDistance` is [0, -3, 7, 7, 12]. The even numbers are [0, 12]. There are 2, so return 2."
     },
     {
       "id": "path3-127-2",
@@ -65,34 +64,31 @@
           4,
           -2,
           4
-        ],
-        2
+        ]
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-2,4,4,4]. The even numbers are [-2,4,4,4]. There are 4, so return 4."
+      "explanation": "`byDistance` is [-2, 4, 4, 4]. The even numbers are [-2, 4, 4, 4]. There are 4, so return 4."
     },
     {
       "id": "path3-127-3",
       "input": [
-        [],
-        1
+        []
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. The even numbers are []. There are 0, so return 0."
+      "explanation": "`byDistance` is []. The even numbers are []. There are 0, so return 0."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "int[]",
-    "int"
+    "int[]"
   ],
   "complexity": {
     "time": "O(n log n)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `byDistance` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 2,
     "unit": "magnitude-order",
@@ -110,12 +106,11 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [0,-3,7,7,12]. The even numbers are [0,12]. There are 2, so return 2."
+      "explanation": "`byDistance` is [0, -3, 7, 7, 12]. The even numbers are [0, 12]. There are 2, so return 2."
     },
     {
       "id": "path3-127-2",
@@ -125,19 +120,18 @@
           4,
           -2,
           4
-        ],
-        2
+        ]
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-2,4,4,4]. The even numbers are [-2,4,4,4]. There are 4, so return 4."
+      "explanation": "`byDistance` is [-2, 4, 4, 4]. The even numbers are [-2, 4, 4, 4]. There are 4, so return 4."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function magnitudeOrderEvenKeyCensus(readings, k) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out.filter(x=>x%2===0).length;\n}\n",
-    "typescript": "function magnitudeOrderEvenKeyCensus(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out.filter(x=>x%2===0).length;\n}\n",
-    "python": "def magnitudeOrderEvenKeyCensus(readings, k):\n    a=readings\n    out=[]\n    out=sorted(a,key=lambda x:(abs(x),x))\n    return sum(x%2==0 for x in out)\n",
-    "java": "class Solution {\n  public int magnitudeOrderEvenKeyCensus(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Integer[]copy=Arrays.stream(a).boxed().toArray(Integer[]::new);Arrays.sort(copy,Comparator.comparingInt((Integer x)->Math.abs(x)).thenComparingInt(x->x));out.addAll(Arrays.asList(copy));}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
+    "javascript": "function magnitudeOrderEvenKeyCensus(readings) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out.filter(x=>x%2===0).length;\n}\n",
+    "typescript": "function magnitudeOrderEvenKeyCensus(readings: number[]): number {\n  const a=readings; let out:number[]=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out.filter(x=>x%2===0).length;\n}\n",
+    "python": "def magnitudeOrderEvenKeyCensus(readings):\n    a=readings\n    out=[]\n    out=sorted(a,key=lambda x:(abs(x),x))\n    return sum(x%2==0 for x in out)\n",
+    "java": "class Solution {\n  public int magnitudeOrderEvenKeyCensus(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Integer[]copy=Arrays.stream(a).boxed().toArray(Integer[]::new);Arrays.sort(copy,Comparator.comparingInt((Integer x)->Math.abs(x)).thenComparingInt(x->x));out.addAll(Arrays.asList(copy));}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -146,8 +140,7 @@
         "input": [
           [
             9
-          ],
-          1
+          ]
         ],
         "expected": 0,
         "coverage": "singleton"
@@ -160,8 +153,7 @@
             5,
             5,
             5
-          ],
-          4
+          ]
         ],
         "expected": 0,
         "coverage": "duplicates-or-redundancy"
@@ -173,8 +165,7 @@
             -20,
             -1,
             -7
-          ],
-          8
+          ]
         ],
         "expected": 1,
         "coverage": "lower-bound"
@@ -247,8 +238,7 @@
             -6,
             7,
             20
-          ],
-          3
+          ]
         ],
         "expected": 30,
         "coverage": "maximum-size"
@@ -260,8 +250,7 @@
             0,
             0,
             0
-          ],
-          5
+          ]
         ],
         "expected": 3,
         "coverage": "zero-or-minimum"
@@ -275,17 +264,15 @@
             -2,
             8,
             1
-          ],
-          2
+          ]
         ],
         "expected": 3,
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nSort readings by distance from 0, from nearest to farthest. This distance is called absolute value: both -4 and 4 have distance 4. When two numbers have the same distance, put the smaller number first. Keep all repeated numbers. For [3, -2, 2, -3], the result list is [-2, 2, -3, 3].\n\nReturn the answer\n\nCount the even numbers in the result list. An even number divides by 2 with no remainder. Count 0 and negative even numbers too. Return the count. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n log n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction magnitudeOrderEvenKeyCensus(readings, k) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out.filter(x=>x%2===0).length;\n}\n\n\ntypescript\nfunction magnitudeOrderEvenKeyCensus(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out.filter(x=>x%2===0).length;\n}\n\n\npython\ndef magnitudeOrderEvenKeyCensus(readings, k):\n    a=readings\n    out=[]\n    out=sorted(a,key=lambda x:(abs(x),x))\n    return sum(x%2==0 for x in out)\n\n\njava\nclass Solution {\n  public int magnitudeOrderEvenKeyCensus(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Integer[]copy=Arrays.stream(a).boxed().toArray(Integer[]::new);Arrays.sort(copy,Comparator.comparingInt((Integer x)->Math.abs(x)).thenComparingInt(x->x));out.addAll(Arrays.asList(copy));}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
+    "editorialMd": "Build byDistance\n\nSort `readings` by distance from 0, from nearest to farthest. This distance is called absolute value: both -4 and 4 have distance 4. When two numbers have the same distance, put the smaller number first. Keep all repeated numbers. For [3, -2, 2, -3], `byDistance` is [-2, 2, -3, 3].\n\nReturn the answer\n\nCount the even numbers in `byDistance`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder. Complete `magnitudeOrderEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nWhy this works\n\nEach value in `byDistance` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n log n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction magnitudeOrderEvenKeyCensus(readings) {\n  const a=readings; let out=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out.filter(x=>x%2===0).length;\n}\n\n\ntypescript\nfunction magnitudeOrderEvenKeyCensus(readings: number[]): number {\n  const a=readings; let out:number[]=[];\n  out=[...a].sort((x,y)=>Math.abs(x)-Math.abs(y)||x-y);\n  return out.filter(x=>x%2===0).length;\n}\n\n\npython\ndef magnitudeOrderEvenKeyCensus(readings):\n    a=readings\n    out=[]\n    out=sorted(a,key=lambda x:(abs(x),x))\n    return sum(x%2==0 for x in out)\n\n\njava\nclass Solution {\n  public int magnitudeOrderEvenKeyCensus(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Integer[]copy=Arrays.stream(a).boxed().toArray(Integer[]::new);Arrays.sort(copy,Comparator.comparingInt((Integer x)->Math.abs(x)).thenComparingInt(x->x));out.addAll(Arrays.asList(copy));}\n    int answer=0;for(int x:out)if(x%2==0)answer++;return answer;\n  }\n}\n"
   },
   "parameterNames": [
-    "readings",
-    "k"
+    "readings"
   ]
 }

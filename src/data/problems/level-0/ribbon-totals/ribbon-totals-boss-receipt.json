@@ -16,30 +16,30 @@
   "prerequisites": [
     "path3-017"
   ],
-  "summary": "Loop accumulators. Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on.",
+  "summary": "Loop accumulators. Return the position-weighted total.",
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Earlier foundation work; the first unit establishes the prerequisite",
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nStart a total at 0. Read readings from left to right. Add each number to the total, then put the new total in the result list. For [2, 3, -1], the result list is [2, 5, 4].\n\nStep 2: Return the answer\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWrite your function\nComplete ribbonTotalsBossReceipt(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "Start a total at 0. Read readings from left to right. Add each number to the total, then put the new total in the result list. For [2, 3, -1], the result list is [2, 5, 4]. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `runningTotals`. Start a total at 0. Read `readings` from left to right. Add each number to the total, then put the new total in `runningTotals`. For [2, 3, -1], `runningTotals` is [2, 5, 4].\n2. Multiply each number in `runningTotals` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `ribbonTotalsBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `runningTotals` is [6, 5, 11, 13] and `ribbonTotalsBossReceipt` returns 101.\n\nRules\n- If `runningTotals` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "unitIntro": "Start a total at 0. Read `readings` from left to right. Add each number to the total, then put the new total in `runningTotals`. For [2, 3, -1], `runningTotals` is [2, 5, 4]. Each problem in this unit builds `runningTotals` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
-    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
+    "Efficiency goal: time O(n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "Start a total at 0. Read readings from left to right. Add each number to the total, then put the new total in the result list. For [2, 3, -1], the result list is [2, 5, 4]. Keep track of the numbers or places you have already checked.",
-    "Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `runningTotals` before you look for the answer.",
+    "Start a total at 0. Read `readings` from left to right. Add each number to the total, then put the new total in `runningTotals`. For [2, 3, -1], `runningTotals` is [2, 5, 4]. Keep track of the numbers or places you have already checked.",
+    "Multiply each number in `runningTotals` by its position, counting from 1: the first number by 1, the second by 2, and so on. Add those products. Store the sum in `weightedTotal`. If `runningTotals` is empty, return 0."
   ],
   "functionName": "ribbonTotalsBossReceipt",
   "mode": "function",
   "starterCode": {
-    "javascript": "function ribbonTotalsBossReceipt(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "typescript": "function ribbonTotalsBossReceipt(readings: number[], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "python": "def ribbonTotalsBossReceipt(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
-    "java": "class Solution {\n  public int ribbonTotalsBossReceipt(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
+    "javascript": "function ribbonTotalsBossReceipt(readings) {\n  // Build runningTotals, then return the answer.\n  return 0;\n}\n",
+    "typescript": "function ribbonTotalsBossReceipt(readings: number[]): number {\n  // Build runningTotals, then return the answer.\n  return 0;\n}\n",
+    "python": "def ribbonTotalsBossReceipt(readings):\n    # Build runningTotals, then return the answer.\n    return 0\n",
+    "java": "class Solution {\n  public int ribbonTotalsBossReceipt(int[] readings) {\n    // Build runningTotals, then return the answer.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -51,12 +51,11 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": 207,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [7,4,11,11,23]. Multiply by positions that start at 1: 1 * (7) + 2 * (4) + 3 * (11) + 4 * (11) + 5 * (23) = 207. Return 207."
+      "explanation": "`runningTotals` is [7, 4, 11, 11, 23]. Multiply by positions that start at 1: 1 * (7) + 2 * (4) + 3 * (11) + 4 * (11) + 5 * (23) = 207. Return 207."
     },
     {
       "id": "path3-018-2",
@@ -66,34 +65,31 @@
           4,
           -2,
           4
-        ],
-        2
+        ]
       ],
       "expected": 78,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,8,6,10]. Multiply by positions that start at 1: 1 * (4) + 2 * (8) + 3 * (6) + 4 * (10) = 78. Return 78."
+      "explanation": "`runningTotals` is [4, 8, 6, 10]. Multiply by positions that start at 1: 1 * (4) + 2 * (8) + 3 * (6) + 4 * (10) = 78. Return 78."
     },
     {
       "id": "path3-018-3",
       "input": [
-        [],
-        1
+        []
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. There are no numbers to multiply or add, so return 0."
+      "explanation": "`runningTotals` is []. There are no numbers to multiply or add, so return 0."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "int[]",
-    "int"
+    "int[]"
   ],
   "complexity": {
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `runningTotals` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 0,
     "unit": "ribbon-totals",
@@ -111,12 +107,11 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": 207,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [7,4,11,11,23]. Multiply by positions that start at 1: 1 * (7) + 2 * (4) + 3 * (11) + 4 * (11) + 5 * (23) = 207. Return 207."
+      "explanation": "`runningTotals` is [7, 4, 11, 11, 23]. Multiply by positions that start at 1: 1 * (7) + 2 * (4) + 3 * (11) + 4 * (11) + 5 * (23) = 207. Return 207."
     },
     {
       "id": "path3-018-2",
@@ -126,19 +121,18 @@
           4,
           -2,
           4
-        ],
-        2
+        ]
       ],
       "expected": 78,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,8,6,10]. Multiply by positions that start at 1: 1 * (4) + 2 * (8) + 3 * (6) + 4 * (10) = 78. Return 78."
+      "explanation": "`runningTotals` is [4, 8, 6, 10]. Multiply by positions that start at 1: 1 * (4) + 2 * (8) + 3 * (6) + 4 * (10) = 78. Return 78."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function ribbonTotalsBossReceipt(readings, k) {\n  const a=readings; let out=[];\n  let total=0;for(const x of a){total+=x;out.push(total);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
-    "typescript": "function ribbonTotalsBossReceipt(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  let total=0;for(const x of a){total+=x;out.push(total);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
-    "python": "def ribbonTotalsBossReceipt(readings, k):\n    a=readings\n    out=[]\n    total=0\n    for x in a:\n        total+=x\n        out.append(total)\n    return sum((i+1)*x for i,x in enumerate(out))\n",
-    "java": "class Solution {\n  public int ribbonTotalsBossReceipt(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int total=0;for(int x:a){total+=x;out.add(total);}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+    "javascript": "function ribbonTotalsBossReceipt(readings) {\n  const a=readings; let out=[];\n  let total=0;for(const x of a){total+=x;out.push(total);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "typescript": "function ribbonTotalsBossReceipt(readings: number[]): number {\n  const a=readings; let out:number[]=[];\n  let total=0;for(const x of a){total+=x;out.push(total);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "python": "def ribbonTotalsBossReceipt(readings):\n    a=readings\n    out=[]\n    total=0\n    for x in a:\n        total+=x\n        out.append(total)\n    return sum((i+1)*x for i,x in enumerate(out))\n",
+    "java": "class Solution {\n  public int ribbonTotalsBossReceipt(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int total=0;for(int x:a){total+=x;out.add(total);}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -147,8 +141,7 @@
         "input": [
           [
             9
-          ],
-          1
+          ]
         ],
         "expected": 9,
         "coverage": "singleton"
@@ -161,8 +154,7 @@
             5,
             5,
             5
-          ],
-          4
+          ]
         ],
         "expected": 150,
         "coverage": "duplicates-or-redundancy"
@@ -174,8 +166,7 @@
             -20,
             -1,
             -7
-          ],
-          8
+          ]
         ],
         "expected": -146,
         "coverage": "lower-bound"
@@ -248,8 +239,7 @@
             -6,
             7,
             20
-          ],
-          3
+          ]
         ],
         "expected": -2464,
         "coverage": "maximum-size"
@@ -261,8 +251,7 @@
             0,
             0,
             0
-          ],
-          5
+          ]
         ],
         "expected": 0,
         "coverage": "zero-or-minimum"
@@ -276,17 +265,15 @@
             -2,
             8,
             1
-          ],
-          2
+          ]
         ],
         "expected": 215,
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nStart a total at 0. Read readings from left to right. Add each number to the total, then put the new total in the result list. For [2, 3, -1], the result list is [2, 5, 4].\n\nReturn the answer\n\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction ribbonTotalsBossReceipt(readings, k) {\n  const a=readings; let out=[];\n  let total=0;for(const x of a){total+=x;out.push(total);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction ribbonTotalsBossReceipt(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  let total=0;for(const x of a){total+=x;out.push(total);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef ribbonTotalsBossReceipt(readings, k):\n    a=readings\n    out=[]\n    total=0\n    for x in a:\n        total+=x\n        out.append(total)\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int ribbonTotalsBossReceipt(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int total=0;for(int x:a){total+=x;out.add(total);}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+    "editorialMd": "Build runningTotals\n\nStart a total at 0. Read `readings` from left to right. Add each number to the total, then put the new total in `runningTotals`. For [2, 3, -1], `runningTotals` is [2, 5, 4].\n\nReturn the answer\n\nMultiply each number in `runningTotals` by its position, counting from 1: the first number by 1, the second by 2, and so on. Add those products. Store the sum in `weightedTotal`. Complete `ribbonTotalsBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nWhy this works\n\nEach value in `runningTotals` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction ribbonTotalsBossReceipt(readings) {\n  const a=readings; let out=[];\n  let total=0;for(const x of a){total+=x;out.push(total);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\nfunction ribbonTotalsBossReceipt(readings: number[]): number {\n  const a=readings; let out:number[]=[];\n  let total=0;for(const x of a){total+=x;out.push(total);}\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef ribbonTotalsBossReceipt(readings):\n    a=readings\n    out=[]\n    total=0\n    for x in a:\n        total+=x\n        out.append(total)\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int ribbonTotalsBossReceipt(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int total=0;for(int x:a){total+=x;out.add(total);}}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
   },
   "parameterNames": [
-    "readings",
-    "k"
+    "readings"
   ]
 }

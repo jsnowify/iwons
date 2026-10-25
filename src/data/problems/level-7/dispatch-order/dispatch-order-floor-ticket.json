@@ -16,30 +16,30 @@
   "prerequisites": [
     "path3-355"
   ],
-  "summary": "Topological queues. Return the smallest number in the result list.",
+  "summary": "Topological queues. Return the smallest number.",
   "stage": "Boundary variation",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nlinks is a square table of 0s and 1s. Points are numbered from 0. A 1 at links[a][b] means a one-way path goes from point a to point b. A 0 means no path. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nEach point in this graph is a task. A path from task a to task b means a must happen before b. Put all tasks with no paths coming into them in a queue, in number order. A queue serves the task at its front first. Remove that task, record its number, and remove its outgoing paths. Check its next tasks in number order. Add a task to the back of the queue as soon as it has no paths left coming in. If you cannot record every task, the rules contain a loop: use an empty result list instead.\n\nStep 2: Return the answer\nReturn the smallest number in the result list. If the list is empty, return 0.\n\nWrite your function\nComplete dispatchOrderFloorTicket(links, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "Each point in this graph is a task. A path from task a to task b means a must happen before b. Put all tasks with no paths coming into them in a queue, in number order. A queue serves the task at its front first. Remove that task, record its number, and remove its outgoing paths. Check its next tasks in number order. Add a task to the back of the queue as soon as it has no paths left coming in. If you cannot record every task, the rules contain a loop: use an empty result list instead. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`links` is a square table of 0s and 1s. Points are numbered from 0. A 1 at `links`[a][b] means a one-way path goes from point a to point b. A 0 means no path.\n\nYour tasks\n1. Create a list `taskOrder`. Each point in this graph is a task. A path from task a to task b means a must happen before b. Put all tasks with no paths coming into them in a queue, in number order. A queue serves the task at its front first. Remove that task, record its number, and remove its outgoing paths. Check its next tasks in number order. Add a task to the back of the queue as soon as it has no paths left coming in. If you cannot record every task, the rules contain a loop: use an empty `taskOrder` instead.\n2. Find the smallest number in `taskOrder`. Store it in `smallest`.\n3. Complete `dispatchOrderFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `links` is [[1, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 1, 0, 0, 1], [1, 0, 0, 1, 0], [0, 0, 1, 0, 0]], then `taskOrder` is [] and `dispatchOrderFloorTicket` returns 0.\n\nRules\n- If `taskOrder` is empty, return 0.\n\nTest data\nTEST DATA 1: `links` is [[1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0], [1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0]].\nTEST DATA 2: `links` is [[0, 0, 1, 0, 0], [0, 1, 0, 0, 1], [1, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 1, 0, 0, 1]].",
+  "unitIntro": "Each point in this graph is a task. A path from task a to task b means a must happen before b. Put all tasks with no paths coming into them in a queue, in number order. A queue serves the task at its front first. Remove that task, record its number, and remove its outgoing paths. Check its next tasks in number order. Add a task to the back of the queue as soon as it has no paths left coming in. If you cannot record every task, the rules contain a loop: use an empty `taskOrder` instead. Each problem in this unit builds `taskOrder` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 16.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
     "The graph has at most 16 points. Its table has the same number of rows and columns. Link entries are 0 or 1; cost entries are 0 through 13.",
-    "Efficiency goal: time O(V^2); extra memory, including the result list, O(n). n is the input length; V is the number of graph points. These labels describe how work and memory grow with the input."
+    "Efficiency goal: time O(V^2); extra memory, including the helper list, O(n). n is the input length; V is the number of graph points. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "Each point in this graph is a task. A path from task a to task b means a must happen before b. Put all tasks with no paths coming into them in a queue, in number order. A queue serves the task at its front first. Remove that task, record its number, and remove its outgoing paths. Check its next tasks in number order. Add a task to the back of the queue as soon as it has no paths left coming in. If you cannot record every task, the rules contain a loop: use an empty result list instead. Keep track of the numbers or places you have already checked.",
-    "Return the smallest number in the result list. If the list is empty, return 0. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `taskOrder` before you look for the answer.",
+    "Each point in this graph is a task. A path from task a to task b means a must happen before b. Put all tasks with no paths coming into them in a queue, in number order. A queue serves the task at its front first. Remove that task, record its number, and remove its outgoing paths. Check its next tasks in number order. Add a task to the back of the queue as soon as it has no paths left coming in. If you cannot record every task, the rules contain a loop: use an empty `taskOrder` instead. Keep track of the numbers or places you have already checked.",
+    "Find the smallest number in `taskOrder`. Store it in `smallest`. If `taskOrder` is empty, return 0."
   ],
   "functionName": "dispatchOrderFloorTicket",
   "mode": "function",
   "starterCode": {
-    "javascript": "function dispatchOrderFloorTicket(links, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "typescript": "function dispatchOrderFloorTicket(links: number[][], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "python": "def dispatchOrderFloorTicket(links, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
-    "java": "class Solution {\n  public int dispatchOrderFloorTicket(int[][] links, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
+    "javascript": "function dispatchOrderFloorTicket(links) {\n  // Build taskOrder, then return the answer.\n  return 0;\n}\n",
+    "typescript": "function dispatchOrderFloorTicket(links: number[][]): number {\n  // Build taskOrder, then return the answer.\n  return 0;\n}\n",
+    "python": "def dispatchOrderFloorTicket(links):\n    # Build taskOrder, then return the answer.\n    return 0\n",
+    "java": "class Solution {\n  public int dispatchOrderFloorTicket(int[][] links) {\n    // Build taskOrder, then return the answer.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -94,12 +94,11 @@
             1,
             0
           ]
-        ],
-        3
+        ]
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list []. The list is empty, so return 0."
+      "explanation": "`taskOrder` is []. The list is empty, so return 0."
     },
     {
       "id": "path3-356-2",
@@ -140,34 +139,31 @@
             0,
             1
           ]
-        ],
-        2
+        ]
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list []. The list is empty, so return 0."
+      "explanation": "`taskOrder` is []. The list is empty, so return 0."
     },
     {
       "id": "path3-356-3",
       "input": [
-        [],
-        1
+        []
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. The list is empty, so return 0."
+      "explanation": "`taskOrder` is []. The list is empty, so return 0."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "int[][]",
-    "int"
+    "int[][]"
   ],
   "complexity": {
     "time": "O(V^2)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `taskOrder` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 7,
     "unit": "dispatch-order",
@@ -228,12 +224,11 @@
             1,
             0
           ]
-        ],
-        3
+        ]
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list []. The list is empty, so return 0."
+      "explanation": "`taskOrder` is []. The list is empty, so return 0."
     },
     {
       "id": "path3-356-2",
@@ -274,19 +269,18 @@
             0,
             1
           ]
-        ],
-        2
+        ]
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list []. The list is empty, so return 0."
+      "explanation": "`taskOrder` is []. The list is empty, so return 0."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function dispatchOrderFloorTicket(links, k) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out.length?Math.min(...out):0;\n}\n",
-    "typescript": "function dispatchOrderFloorTicket(links: number[][], k: number): number {\n  const a=links; let out:number[]=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out.length?Math.min(...out):0;\n}\n",
-    "python": "def dispatchOrderFloorTicket(links, k):\n    a=links\n    out=[]\n    from collections import deque\n    n=len(a)\n    degree=[sum(row[v] for row in a) for v in range(n)]\n    queue=deque(v for v in range(n) if degree[v]==0)\n    while queue:\n        u=queue.popleft()\n        out.append(u)\n        for v in range(n):\n            if a[u][v]:\n                degree[v]-=1\n                if degree[v]==0: queue.append(v)\n    if len(out)!=n: out=[]\n    return min(out,default=0)\n",
-    "java": "class Solution {\n  public int dispatchOrderFloorTicket(int[][] links, int k) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;int[]degree=new int[n];for(int[]row:a)for(int v=0;v<n;v++)degree[v]+=row[v];Deque<Integer>queue=new ArrayDeque<>();for(int v=0;v<n;v++)if(degree[v]==0)queue.add(v);while(!queue.isEmpty()){int u=queue.remove();out.add(u);for(int v=0;v<n;v++)if(a[u][v]!=0&&--degree[v]==0)queue.add(v);}if(out.size()!=n)out.clear();}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+    "javascript": "function dispatchOrderFloorTicket(links) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out.length?Math.min(...out):0;\n}\n",
+    "typescript": "function dispatchOrderFloorTicket(links: number[][]): number {\n  const a=links; let out:number[]=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out.length?Math.min(...out):0;\n}\n",
+    "python": "def dispatchOrderFloorTicket(links):\n    a=links\n    out=[]\n    from collections import deque\n    n=len(a)\n    degree=[sum(row[v] for row in a) for v in range(n)]\n    queue=deque(v for v in range(n) if degree[v]==0)\n    while queue:\n        u=queue.popleft()\n        out.append(u)\n        for v in range(n):\n            if a[u][v]:\n                degree[v]-=1\n                if degree[v]==0: queue.append(v)\n    if len(out)!=n: out=[]\n    return min(out,default=0)\n",
+    "java": "class Solution {\n  public int dispatchOrderFloorTicket(int[][] links) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;int[]degree=new int[n];for(int[]row:a)for(int v=0;v<n;v++)degree[v]+=row[v];Deque<Integer>queue=new ArrayDeque<>();for(int v=0;v<n;v++)if(degree[v]==0)queue.add(v);while(!queue.isEmpty()){int u=queue.remove();out.add(u);for(int v=0;v<n;v++)if(a[u][v]!=0&&--degree[v]==0)queue.add(v);}if(out.size()!=n)out.clear();}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -297,8 +291,7 @@
             [
               1
             ]
-          ],
-          1
+          ]
         ],
         "expected": 0,
         "coverage": "singleton"
@@ -342,8 +335,7 @@
               0,
               1
             ]
-          ],
-          4
+          ]
         ],
         "expected": 0,
         "coverage": "duplicates-or-redundancy"
@@ -376,8 +368,7 @@
               0,
               0
             ]
-          ],
-          8
+          ]
         ],
         "expected": 0,
         "coverage": "lower-bound"
@@ -674,8 +665,7 @@
               0,
               0
             ]
-          ],
-          3
+          ]
         ],
         "expected": 0,
         "coverage": "maximum-size"
@@ -708,8 +698,7 @@
               0,
               0
             ]
-          ],
-          5
+          ]
         ],
         "expected": 0,
         "coverage": "zero-or-minimum"
@@ -766,17 +755,15 @@
               0,
               1
             ]
-          ],
-          2
+          ]
         ],
         "expected": 0,
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nEach point in this graph is a task. A path from task a to task b means a must happen before b. Put all tasks with no paths coming into them in a queue, in number order. A queue serves the task at its front first. Remove that task, record its number, and remove its outgoing paths. Check its next tasks in number order. Add a task to the back of the queue as soon as it has no paths left coming in. If you cannot record every task, the rules contain a loop: use an empty result list instead.\n\nReturn the answer\n\nReturn the smallest number in the result list. If the list is empty, return 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(V^2); extra memory, including the result list, O(n). n is the input length; V is the number of graph points. These labels describe how work and memory grow with the input.\n\njavascript\nfunction dispatchOrderFloorTicket(links, k) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\nfunction dispatchOrderFloorTicket(links: number[][], k: number): number {\n  const a=links; let out:number[]=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef dispatchOrderFloorTicket(links, k):\n    a=links\n    out=[]\n    from collections import deque\n    n=len(a)\n    degree=[sum(row[v] for row in a) for v in range(n)]\n    queue=deque(v for v in range(n) if degree[v]==0)\n    while queue:\n        u=queue.popleft()\n        out.append(u)\n        for v in range(n):\n            if a[u][v]:\n                degree[v]-=1\n                if degree[v]==0: queue.append(v)\n    if len(out)!=n: out=[]\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int dispatchOrderFloorTicket(int[][] links, int k) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;int[]degree=new int[n];for(int[]row:a)for(int v=0;v<n;v++)degree[v]+=row[v];Deque<Integer>queue=new ArrayDeque<>();for(int v=0;v<n;v++)if(degree[v]==0)queue.add(v);while(!queue.isEmpty()){int u=queue.remove();out.add(u);for(int v=0;v<n;v++)if(a[u][v]!=0&&--degree[v]==0)queue.add(v);}if(out.size()!=n)out.clear();}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+    "editorialMd": "Build taskOrder\n\nEach point in this graph is a task. A path from task a to task b means a must happen before b. Put all tasks with no paths coming into them in a queue, in number order. A queue serves the task at its front first. Remove that task, record its number, and remove its outgoing paths. Check its next tasks in number order. Add a task to the back of the queue as soon as it has no paths left coming in. If you cannot record every task, the rules contain a loop: use an empty `taskOrder` instead.\n\nReturn the answer\n\nFind the smallest number in `taskOrder`. Store it in `smallest`. Complete `dispatchOrderFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nWhy this works\n\nEach value in `taskOrder` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(V^2); extra memory, including the helper list, O(n). n is the input length; V is the number of graph points. These labels describe how work and memory grow with the input.\n\njavascript\nfunction dispatchOrderFloorTicket(links) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\nfunction dispatchOrderFloorTicket(links: number[][]): number {\n  const a=links; let out:number[]=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef dispatchOrderFloorTicket(links):\n    a=links\n    out=[]\n    from collections import deque\n    n=len(a)\n    degree=[sum(row[v] for row in a) for v in range(n)]\n    queue=deque(v for v in range(n) if degree[v]==0)\n    while queue:\n        u=queue.popleft()\n        out.append(u)\n        for v in range(n):\n            if a[u][v]:\n                degree[v]-=1\n                if degree[v]==0: queue.append(v)\n    if len(out)!=n: out=[]\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int dispatchOrderFloorTicket(int[][] links) {\n    int[][] a=links; List<Integer> out=new ArrayList<>();\n    {int n=a.length;int[]degree=new int[n];for(int[]row:a)for(int v=0;v<n;v++)degree[v]+=row[v];Deque<Integer>queue=new ArrayDeque<>();for(int v=0;v<n;v++)if(degree[v]==0)queue.add(v);while(!queue.isEmpty()){int u=queue.remove();out.add(u);for(int v=0;v<n;v++)if(a[u][v]!=0&&--degree[v]==0)queue.add(v);}if(out.size()!=n)out.clear();}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
   },
   "parameterNames": [
-    "links",
-    "k"
+    "links"
   ]
 }

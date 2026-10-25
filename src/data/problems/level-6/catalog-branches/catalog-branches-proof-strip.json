@@ -16,30 +16,30 @@
   "prerequisites": [
     "path3-322"
   ],
-  "summary": "BST range pruning. Return the whole result list in the order you built it.",
+  "summary": "BST range pruning. Return the whole list.",
   "stage": "Warm-up",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nroot is the top node of a binary search tree. Examples list nodes one level at a time, from left to right. null marks a missing child; [] means no tree. Each node stores its number in val. Its left and right links point to children. The runner builds the nodes for you. k is a whole number. Use it as described in the steps below.\n\nStep 1: Build the result list\nroot is a binary search tree with no repeated values. In this tree, all values in a left branch are smaller than its parent, and all values in a right branch are larger. Find values from k through k + 12, including both ends. Put them in the result list from smallest to largest. Skip branches whose values cannot be in this range. An empty tree gives an empty result list.\n\nStep 2: Return the answer\nReturn the whole result list in the order you built it. If it is empty, return [].\n\nWrite your function\nComplete catalogBranchesProofStrip(root, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "root is a binary search tree with no repeated values. In this tree, all values in a left branch are smaller than its parent, and all values in a right branch are larger. Find values from k through k + 12, including both ends. Put them in the result list from smallest to largest. Skip branches whose values cannot be in this range. An empty tree gives an empty result list. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`root` is the top node of a binary search tree. Examples list nodes one level at a time, from left to right. null marks a missing child; [] means no tree. Each node stores its number in val. Its left and right links point to children. The runner builds the nodes for you.\n\nYour tasks\n1. Create a list `foundValues`. `root` is a binary search tree with no repeated values. In this tree, all values in a left branch are smaller than its parent, and all values in a right branch are larger. Find values from `k` through `k` + 12, including both ends. Put them in `foundValues` from smallest to largest. Skip branches whose values cannot be in this range. An empty tree gives an empty `foundValues`.\n2. Complete `catalogBranchesProofStrip` so it returns `foundValues`. Return it, do not print it.\n\nExample\nIf `root` is [2, -1, 6] and `k` is 4, then `foundValues` is [6] and `catalogBranchesProofStrip` returns [6].\n\nRules\n- If `foundValues` is empty, return [].\n- `k` (a whole number from 1 to 8) is the lowest value to find in task 1; the range ends at `k` + 12.\n\nTest data\nTEST DATA 1: `root` is [7, 0, 12, -3] and `k` is 3.\nTEST DATA 2: `root` is [4, -2] and `k` is 2.",
+  "unitIntro": "`root` is a binary search tree with no repeated values. In this tree, all values in a left branch are smaller than its parent, and all values in a right branch are larger. Find values from `k` through `k` + 12, including both ends. Put them in `foundValues` from smallest to largest. Skip branches whose values cannot be in this range. An empty tree gives an empty `foundValues`. Each problem in this unit builds `foundValues` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= node count <= 31; null marks a missing child and does not count as a node.",
     "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
     "Linked lists do not loop back to an earlier node. Tree examples list nodes by level; null means a missing child. The runner builds the nodes shown in the examples.",
-    "Efficiency goal: time O(h + r); extra memory, including the result list, O(n). n is the number of nodes; h is the longest root-to-leaf path in the tree; a leaf is a node with no children; r is the number of tree values found. These labels describe how work and memory grow with the input."
+    "Efficiency goal: time O(h + r); extra memory, including the helper list, O(n). n is the number of nodes; h is the longest root-to-leaf path in the tree; a leaf is a node with no children; r is the number of tree values found. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "root is a binary search tree with no repeated values. In this tree, all values in a left branch are smaller than its parent, and all values in a right branch are larger. Find values from k through k + 12, including both ends. Put them in the result list from smallest to largest. Skip branches whose values cannot be in this range. An empty tree gives an empty result list. Keep track of the numbers or places you have already checked.",
-    "Return the whole result list in the order you built it. If it is empty, return []. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `foundValues` before you look for the answer.",
+    "`root` is a binary search tree with no repeated values. In this tree, all values in a left branch are smaller than its parent, and all values in a right branch are larger. Find values from `k` through `k` + 12, including both ends. Put them in `foundValues` from smallest to largest. Skip branches whose values cannot be in this range. An empty tree gives an empty `foundValues`. Keep track of the numbers or places you have already checked.",
+    "Return `foundValues` once it is complete. If `foundValues` is empty, return []."
   ],
   "functionName": "catalogBranchesProofStrip",
   "mode": "function",
   "starterCode": {
-    "javascript": "function catalogBranchesProofStrip(root, k) {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "typescript": "type TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction catalogBranchesProofStrip(root: TreeNode | null, k: number): number[] {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "python": "def catalogBranchesProofStrip(root, k):\n    # Build the result list, then return the answer from Step 2.\n    return []\n",
-    "java": "class Solution {\n  public int[] catalogBranchesProofStrip(TreeNode root, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return new int[0];\n  }\n}\n"
+    "javascript": "function catalogBranchesProofStrip(root, k) {\n  // Build foundValues, then return the answer.\n  return [];\n}\n",
+    "typescript": "type TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction catalogBranchesProofStrip(root: TreeNode | null, k: number): number[] {\n  // Build foundValues, then return the answer.\n  return [];\n}\n",
+    "python": "def catalogBranchesProofStrip(root, k):\n    # Build foundValues, then return the answer.\n    return []\n",
+    "java": "class Solution {\n  public int[] catalogBranchesProofStrip(TreeNode root, int k) {\n    // Build foundValues, then return the answer.\n    return new int[0];\n  }\n}\n"
   },
   "cases": [
     {
@@ -58,7 +58,7 @@
         12
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [7,12]. Step 2 asks for that whole list, so return [7,12]."
+      "explanation": "`foundValues` is [7, 12]. `catalogBranchesProofStrip` returns that whole list, so return [7, 12]."
     },
     {
       "id": "path3-331-2",
@@ -73,7 +73,7 @@
         4
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4]. Step 2 asks for that whole list, so return [4]."
+      "explanation": "`foundValues` is [4]. `catalogBranchesProofStrip` returns that whole list, so return [4]."
     },
     {
       "id": "path3-331-3",
@@ -83,7 +83,7 @@
       ],
       "expected": [],
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. Step 2 asks for that whole list, so return []."
+      "explanation": "`foundValues` is []. `catalogBranchesProofStrip` returns that whole list, so return []."
     }
   ],
   "timeLimitMs": 2000,
@@ -98,7 +98,7 @@
     "time": "O(h + r)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `foundValues` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 6,
     "unit": "catalog-branches",
@@ -123,7 +123,7 @@
         12
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [7,12]. Step 2 asks for that whole list, so return [7,12]."
+      "explanation": "`foundValues` is [7, 12]. `catalogBranchesProofStrip` returns that whole list, so return [7, 12]."
     },
     {
       "id": "path3-331-2",
@@ -138,7 +138,7 @@
         4
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4]. Step 2 asks for that whole list, so return [4]."
+      "explanation": "`foundValues` is [4]. `catalogBranchesProofStrip` returns that whole list, so return [4]."
     }
   ],
   "referenceSolutions": {
@@ -272,7 +272,7 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nroot is a binary search tree with no repeated values. In this tree, all values in a left branch are smaller than its parent, and all values in a right branch are larger. Find values from k through k + 12, including both ends. Put them in the result list from smallest to largest. Skip branches whose values cannot be in this range. An empty tree gives an empty result list.\n\nReturn the answer\n\nReturn the whole result list in the order you built it. If it is empty, return [].\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(h + r); extra memory, including the result list, O(n). n is the number of nodes; h is the longest root-to-leaf path in the tree; a leaf is a node with no children; r is the number of tree values found. These labels describe how work and memory grow with the input.\n\njavascript\nfunction catalogBranchesProofStrip(root, k) {\n  const a=root; let out=[];\n  function visit(node){if(!node)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.push(node.val);if(node.val<k+12)visit(node.right);}visit(a);\n  return out;\n}\n\n\ntypescript\ntype TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction catalogBranchesProofStrip(root: TreeNode | null, k: number): number[] {\n  const a=root; let out:number[]=[];\n  function visit(node:TreeNode|null):void{if(!node)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.push(node.val);if(node.val<k+12)visit(node.right);}visit(a);\n  return out;\n}\n\n\npython\ndef catalogBranchesProofStrip(root, k):\n    a=root\n    out=[]\n    def visit(node):\n        if not node: return\n        if node.val>k: visit(node.left)\n        if k<=node.val<=k+12: out.append(node.val)\n        if node.val<k+12: visit(node.right)\n    visit(a)\n    return out\n\n\njava\nclass Solution {\n  public int[] catalogBranchesProofStrip(TreeNode root, int k) {\n    TreeNode a=root; List<Integer> out=new ArrayList<>();\n    {class Walk {void visit(TreeNode node){if(node==null)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.add(node.val);if(node.val<k+12)visit(node.right);}}new Walk().visit(a);}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+    "editorialMd": "Build foundValues\n\n`root` is a binary search tree with no repeated values. In this tree, all values in a left branch are smaller than its parent, and all values in a right branch are larger. Find values from `k` through `k` + 12, including both ends. Put them in `foundValues` from smallest to largest. Skip branches whose values cannot be in this range. An empty tree gives an empty `foundValues`.\n\nReturn the answer\n\nComplete `catalogBranchesProofStrip` so it returns `foundValues`. Return it, do not print it.\n\nWhy this works\n\nEach value in `foundValues` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(h + r); extra memory, including the helper list, O(n). n is the number of nodes; h is the longest root-to-leaf path in the tree; a leaf is a node with no children; r is the number of tree values found. These labels describe how work and memory grow with the input.\n\njavascript\nfunction catalogBranchesProofStrip(root, k) {\n  const a=root; let out=[];\n  function visit(node){if(!node)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.push(node.val);if(node.val<k+12)visit(node.right);}visit(a);\n  return out;\n}\n\n\ntypescript\ntype TreeNode = { val: number; left: TreeNode | null; right: TreeNode | null };\nfunction catalogBranchesProofStrip(root: TreeNode | null, k: number): number[] {\n  const a=root; let out:number[]=[];\n  function visit(node:TreeNode|null):void{if(!node)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.push(node.val);if(node.val<k+12)visit(node.right);}visit(a);\n  return out;\n}\n\n\npython\ndef catalogBranchesProofStrip(root, k):\n    a=root\n    out=[]\n    def visit(node):\n        if not node: return\n        if node.val>k: visit(node.left)\n        if k<=node.val<=k+12: out.append(node.val)\n        if node.val<k+12: visit(node.right)\n    visit(a)\n    return out\n\n\njava\nclass Solution {\n  public int[] catalogBranchesProofStrip(TreeNode root, int k) {\n    TreeNode a=root; List<Integer> out=new ArrayList<>();\n    {class Walk {void visit(TreeNode node){if(node==null)return;if(node.val>k)visit(node.left);if(node.val>=k&&node.val<=k+12)out.add(node.val);if(node.val<k+12)visit(node.right);}}new Walk().visit(a);}\n    return out.stream().mapToInt(Integer::intValue).toArray();\n  }\n}\n"
   },
   "parameterNames": [
     "root",

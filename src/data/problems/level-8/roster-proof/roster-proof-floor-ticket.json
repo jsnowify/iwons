@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-485"
   ],
-  "summary": "Backtracking with occupancy. Return the smallest number in the result list.",
+  "summary": "Backtracking with occupancy. Return the smallest number.",
   "stage": "Boundary variation",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of permission masks, one per desk. A mask is a whole number whose binary digits show which clerks are allowed. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nThere are n desks and n clerks, both numbered from 0. Here, n is the length of readings. Each number in readings is a permission mask for one desk. A mask uses binary digits. Each digit is called a bit: a 1 in bit c allows clerk c to use that desk. Bit 0 is the rightmost digit. Assign exactly one clerk to each desk, with no clerk used twice. Follow every permission mask. For each clerk c, count the complete assignments where clerk c gets desk 0. Put those counts in clerk order. A forbidden first choice has count 0. With no desks, the result list is empty.\n\nStep 2: Return the answer\nReturn the smallest number in the result list. If the list is empty, return 0.\n\nWrite your function\nComplete rosterProofFloorTicket(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "There are n desks and n clerks, both numbered from 0. Here, n is the length of readings. Each number in readings is a permission mask for one desk. A mask uses binary digits. Each digit is called a bit: a 1 in bit c allows clerk c to use that desk. Bit 0 is the rightmost digit. Assign exactly one clerk to each desk, with no clerk used twice. Follow every permission mask. For each clerk c, count the complete assignments where clerk c gets desk 0. Put those counts in clerk order. A forbidden first choice has count 0. With no desks, the result list is empty. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`readings` is a list of permission masks, one per desk. A mask is a whole number whose binary digits show which clerks are allowed.\n\nYour tasks\n1. Create a list `clerkCounts`. There are n desks and n clerks, both numbered from 0. Here, n is the length of `readings`. Each number in `readings` is a permission mask for one desk. A mask uses binary digits. Each digit is called a bit: a 1 in bit c allows clerk c to use that desk. Bit 0 is the rightmost digit. Assign exactly one clerk to each desk, with no clerk used twice. Follow every permission mask. For each clerk c, count the complete assignments where clerk c gets desk 0. Put those counts in clerk order. A forbidden first choice has count 0. With no desks, `clerkCounts` is empty.\n2. Find the smallest number in `clerkCounts`. Store it in `smallest`.\n3. Complete `rosterProofFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 1, 6, 2], then `clerkCounts` is [0, 0, 0, 0] and `rosterProofFloorTicket` returns 0.\n\nRules\n- If `clerkCounts` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, 3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, 2, 4].",
+  "unitIntro": "There are n desks and n clerks, both numbered from 0. Here, n is the length of `readings`. Each number in `readings` is a permission mask for one desk. A mask uses binary digits. Each digit is called a bit: a 1 in bit c allows clerk c to use that desk. Bit 0 is the rightmost digit. Assign exactly one clerk to each desk, with no clerk used twice. Follow every permission mask. For each clerk c, count the complete assignments where clerk c gets desk 0. Put those counts in clerk order. A forbidden first choice has count 0. With no desks, `clerkCounts` is empty. Each problem in this unit builds `clerkCounts` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 6.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
     "There are at most 6 desks. Each permission mask is from 0 to 2 to the power n, minus 1, where n is the number of desks. For n = 3, masks range from 0 to 7.",
-    "Efficiency goal: time O(n*n!); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
+    "Efficiency goal: time O(n*n!); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "There are n desks and n clerks, both numbered from 0. Here, n is the length of readings. Each number in readings is a permission mask for one desk. A mask uses binary digits. Each digit is called a bit: a 1 in bit c allows clerk c to use that desk. Bit 0 is the rightmost digit. Assign exactly one clerk to each desk, with no clerk used twice. Follow every permission mask. For each clerk c, count the complete assignments where clerk c gets desk 0. Put those counts in clerk order. A forbidden first choice has count 0. With no desks, the result list is empty. Keep track of the numbers or places you have already checked.",
-    "Return the smallest number in the result list. If the list is empty, return 0. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `clerkCounts` before you look for the answer.",
+    "There are n desks and n clerks, both numbered from 0. Here, n is the length of `readings`. Each number in `readings` is a permission mask for one desk. A mask uses binary digits. Each digit is called a bit: a 1 in bit c allows clerk c to use that desk. Bit 0 is the rightmost digit. Assign exactly one clerk to each desk, with no clerk used twice. Follow every permission mask. For each clerk c, count the complete assignments where clerk c gets desk 0. Put those counts in clerk order. A forbidden first choice has count 0. With no desks, `clerkCounts` is empty. Keep track of the numbers or places you have already checked.",
+    "Find the smallest number in `clerkCounts`. Store it in `smallest`. If `clerkCounts` is empty, return 0."
   ],
   "functionName": "rosterProofFloorTicket",
   "mode": "function",
   "starterCode": {
-    "javascript": "function rosterProofFloorTicket(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "typescript": "function rosterProofFloorTicket(readings: number[], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "python": "def rosterProofFloorTicket(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
-    "java": "class Solution {\n  public int rosterProofFloorTicket(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
+    "javascript": "function rosterProofFloorTicket(readings) {\n  // Build clerkCounts, then return the answer.\n  return 0;\n}\n",
+    "typescript": "function rosterProofFloorTicket(readings: number[]): number {\n  // Build clerkCounts, then return the answer.\n  return 0;\n}\n",
+    "python": "def rosterProofFloorTicket(readings):\n    # Build clerkCounts, then return the answer.\n    return 0\n",
+    "java": "class Solution {\n  public int rosterProofFloorTicket(int[] readings) {\n    // Build clerkCounts, then return the answer.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -50,12 +50,11 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [0,0,0,0,0]. The smallest number is 0. Return 0."
+      "explanation": "`clerkCounts` is [0, 0, 0, 0, 0]. The smallest number is 0. Return 0."
     },
     {
       "id": "path3-486-2",
@@ -65,34 +64,31 @@
           4,
           2,
           4
-        ],
-        2
+        ]
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [0,0,0,0]. The smallest number is 0. Return 0."
+      "explanation": "`clerkCounts` is [0, 0, 0, 0]. The smallest number is 0. Return 0."
     },
     {
       "id": "path3-486-3",
       "input": [
-        [],
-        1
+        []
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. The list is empty, so return 0."
+      "explanation": "`clerkCounts` is []. The list is empty, so return 0."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "int[]",
-    "int"
+    "int[]"
   ],
   "complexity": {
     "time": "O(n*n!)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `clerkCounts` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 8,
     "unit": "roster-proof",
@@ -110,12 +106,11 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [0,0,0,0,0]. The smallest number is 0. Return 0."
+      "explanation": "`clerkCounts` is [0, 0, 0, 0, 0]. The smallest number is 0. Return 0."
     },
     {
       "id": "path3-486-2",
@@ -125,19 +120,18 @@
           4,
           2,
           4
-        ],
-        2
+        ]
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [0,0,0,0]. The smallest number is 0. Return 0."
+      "explanation": "`clerkCounts` is [0, 0, 0, 0]. The smallest number is 0. Return 0."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function rosterProofFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  const n=a.length;function count(row,used){if(row===n)return 1;let ways=0;for(let c=0;c<n;c++)if((a[row]&(1<<c))&&!(used&(1<<c)))ways+=count(row+1,used|(1<<c));return ways;}for(let c=0;c<n;c++)out.push(a[0]&(1<<c)?count(1,1<<c):0);\n  return out.length?Math.min(...out):0;\n}\n",
-    "typescript": "function rosterProofFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const n=a.length;function count(row:number,used:number):number{if(row===n)return 1;let ways=0;for(let c=0;c<n;c++)if((a[row]&(1<<c))&&!(used&(1<<c)))ways+=count(row+1,used|(1<<c));return ways;}for(let c=0;c<n;c++)out.push(a[0]&(1<<c)?count(1,1<<c):0);\n  return out.length?Math.min(...out):0;\n}\n",
-    "python": "def rosterProofFloorTicket(readings, k):\n    a=readings\n    out=[]\n    n=len(a)\n    def count(row,used):\n        if row==n: return 1\n        ways=0\n        for c in range(n):\n            if (a[row] & (1<<c)) and not (used & (1<<c)): ways+=count(row+1,used | (1<<c))\n        return ways\n    for c in range(n): out.append(count(1,1<<c) if a[0] & (1<<c) else 0)\n    return min(out,default=0)\n",
-    "java": "class Solution {\n  public int rosterProofFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int n=a.length;class Walk {int count(int row,int used){if(row==n)return 1;int ways=0;for(int c=0;c<n;c++)if((a[row]&(1<<c))!=0&&(used&(1<<c))==0)ways+=count(row+1,used|(1<<c));return ways;}}Walk w=new Walk();for(int c=0;c<n;c++)out.add((a[0]&(1<<c))!=0?w.count(1,1<<c):0);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+    "javascript": "function rosterProofFloorTicket(readings) {\n  const a=readings; let out=[];\n  const n=a.length;function count(row,used){if(row===n)return 1;let ways=0;for(let c=0;c<n;c++)if((a[row]&(1<<c))&&!(used&(1<<c)))ways+=count(row+1,used|(1<<c));return ways;}for(let c=0;c<n;c++)out.push(a[0]&(1<<c)?count(1,1<<c):0);\n  return out.length?Math.min(...out):0;\n}\n",
+    "typescript": "function rosterProofFloorTicket(readings: number[]): number {\n  const a=readings; let out:number[]=[];\n  const n=a.length;function count(row:number,used:number):number{if(row===n)return 1;let ways=0;for(let c=0;c<n;c++)if((a[row]&(1<<c))&&!(used&(1<<c)))ways+=count(row+1,used|(1<<c));return ways;}for(let c=0;c<n;c++)out.push(a[0]&(1<<c)?count(1,1<<c):0);\n  return out.length?Math.min(...out):0;\n}\n",
+    "python": "def rosterProofFloorTicket(readings):\n    a=readings\n    out=[]\n    n=len(a)\n    def count(row,used):\n        if row==n: return 1\n        ways=0\n        for c in range(n):\n            if (a[row] & (1<<c)) and not (used & (1<<c)): ways+=count(row+1,used | (1<<c))\n        return ways\n    for c in range(n): out.append(count(1,1<<c) if a[0] & (1<<c) else 0)\n    return min(out,default=0)\n",
+    "java": "class Solution {\n  public int rosterProofFloorTicket(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int n=a.length;class Walk {int count(int row,int used){if(row==n)return 1;int ways=0;for(int c=0;c<n;c++)if((a[row]&(1<<c))!=0&&(used&(1<<c))==0)ways+=count(row+1,used|(1<<c));return ways;}}Walk w=new Walk();for(int c=0;c<n;c++)out.add((a[0]&(1<<c))!=0?w.count(1,1<<c):0);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -146,8 +140,7 @@
         "input": [
           [
             1
-          ],
-          1
+          ]
         ],
         "expected": 1,
         "coverage": "singleton"
@@ -160,8 +153,7 @@
             5,
             5,
             5
-          ],
-          4
+          ]
         ],
         "expected": 0,
         "coverage": "duplicates-or-redundancy"
@@ -173,8 +165,7 @@
             4,
             1,
             7
-          ],
-          8
+          ]
         ],
         "expected": 0,
         "coverage": "lower-bound"
@@ -189,8 +180,7 @@
             63,
             63,
             63
-          ],
-          3
+          ]
         ],
         "expected": 120,
         "coverage": "maximum-size"
@@ -202,8 +192,7 @@
             0,
             0,
             0
-          ],
-          5
+          ]
         ],
         "expected": 0,
         "coverage": "zero-or-minimum"
@@ -217,17 +206,15 @@
             2,
             8,
             1
-          ],
-          2
+          ]
         ],
         "expected": 0,
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nThere are n desks and n clerks, both numbered from 0. Here, n is the length of readings. Each number in readings is a permission mask for one desk. A mask uses binary digits. Each digit is called a bit: a 1 in bit c allows clerk c to use that desk. Bit 0 is the rightmost digit. Assign exactly one clerk to each desk, with no clerk used twice. Follow every permission mask. For each clerk c, count the complete assignments where clerk c gets desk 0. Put those counts in clerk order. A forbidden first choice has count 0. With no desks, the result list is empty.\n\nReturn the answer\n\nReturn the smallest number in the result list. If the list is empty, return 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n*n!); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction rosterProofFloorTicket(readings, k) {\n  const a=readings; let out=[];\n  const n=a.length;function count(row,used){if(row===n)return 1;let ways=0;for(let c=0;c<n;c++)if((a[row]&(1<<c))&&!(used&(1<<c)))ways+=count(row+1,used|(1<<c));return ways;}for(let c=0;c<n;c++)out.push(a[0]&(1<<c)?count(1,1<<c):0);\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\nfunction rosterProofFloorTicket(readings: number[], k: number): number {\n  const a=readings; let out:number[]=[];\n  const n=a.length;function count(row:number,used:number):number{if(row===n)return 1;let ways=0;for(let c=0;c<n;c++)if((a[row]&(1<<c))&&!(used&(1<<c)))ways+=count(row+1,used|(1<<c));return ways;}for(let c=0;c<n;c++)out.push(a[0]&(1<<c)?count(1,1<<c):0);\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef rosterProofFloorTicket(readings, k):\n    a=readings\n    out=[]\n    n=len(a)\n    def count(row,used):\n        if row==n: return 1\n        ways=0\n        for c in range(n):\n            if (a[row] & (1<<c)) and not (used & (1<<c)): ways+=count(row+1,used | (1<<c))\n        return ways\n    for c in range(n): out.append(count(1,1<<c) if a[0] & (1<<c) else 0)\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int rosterProofFloorTicket(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int n=a.length;class Walk {int count(int row,int used){if(row==n)return 1;int ways=0;for(int c=0;c<n;c++)if((a[row]&(1<<c))!=0&&(used&(1<<c))==0)ways+=count(row+1,used|(1<<c));return ways;}}Walk w=new Walk();for(int c=0;c<n;c++)out.add((a[0]&(1<<c))!=0?w.count(1,1<<c):0);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
+    "editorialMd": "Build clerkCounts\n\nThere are n desks and n clerks, both numbered from 0. Here, n is the length of `readings`. Each number in `readings` is a permission mask for one desk. A mask uses binary digits. Each digit is called a bit: a 1 in bit c allows clerk c to use that desk. Bit 0 is the rightmost digit. Assign exactly one clerk to each desk, with no clerk used twice. Follow every permission mask. For each clerk c, count the complete assignments where clerk c gets desk 0. Put those counts in clerk order. A forbidden first choice has count 0. With no desks, `clerkCounts` is empty.\n\nReturn the answer\n\nFind the smallest number in `clerkCounts`. Store it in `smallest`. Complete `rosterProofFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nWhy this works\n\nEach value in `clerkCounts` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n*n!); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction rosterProofFloorTicket(readings) {\n  const a=readings; let out=[];\n  const n=a.length;function count(row,used){if(row===n)return 1;let ways=0;for(let c=0;c<n;c++)if((a[row]&(1<<c))&&!(used&(1<<c)))ways+=count(row+1,used|(1<<c));return ways;}for(let c=0;c<n;c++)out.push(a[0]&(1<<c)?count(1,1<<c):0);\n  return out.length?Math.min(...out):0;\n}\n\n\ntypescript\nfunction rosterProofFloorTicket(readings: number[]): number {\n  const a=readings; let out:number[]=[];\n  const n=a.length;function count(row:number,used:number):number{if(row===n)return 1;let ways=0;for(let c=0;c<n;c++)if((a[row]&(1<<c))&&!(used&(1<<c)))ways+=count(row+1,used|(1<<c));return ways;}for(let c=0;c<n;c++)out.push(a[0]&(1<<c)?count(1,1<<c):0);\n  return out.length?Math.min(...out):0;\n}\n\n\npython\ndef rosterProofFloorTicket(readings):\n    a=readings\n    out=[]\n    n=len(a)\n    def count(row,used):\n        if row==n: return 1\n        ways=0\n        for c in range(n):\n            if (a[row] & (1<<c)) and not (used & (1<<c)): ways+=count(row+1,used | (1<<c))\n        return ways\n    for c in range(n): out.append(count(1,1<<c) if a[0] & (1<<c) else 0)\n    return min(out,default=0)\n\n\njava\nclass Solution {\n  public int rosterProofFloorTicket(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int n=a.length;class Walk {int count(int row,int used){if(row==n)return 1;int ways=0;for(int c=0;c<n;c++)if((a[row]&(1<<c))!=0&&(used&(1<<c))==0)ways+=count(row+1,used|(1<<c));return ways;}}Walk w=new Walk();for(int c=0;c<n;c++)out.add((a[0]&(1<<c))!=0?w.count(1,1<<c):0);}\n    int answer=out.isEmpty()?0:out.get(0);for(int x:out)answer=Math.min(answer,x);return answer;\n  }\n}\n"
   },
   "parameterNames": [
-    "readings",
-    "k"
+    "readings"
   ]
 }

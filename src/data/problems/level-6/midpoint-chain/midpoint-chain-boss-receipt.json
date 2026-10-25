@@ -17,31 +17,31 @@
     "path3-311",
     "path3-013"
   ],
-  "summary": "Fast and slow pointers. Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on.",
+  "summary": "Fast and slow pointers. Return the position-weighted total.",
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Level 0: loop accumulators",
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nhead is the first node of a linked list. In examples, [4, 7] means nodes 4 then 7, linked in that order. [] means no nodes. The runner builds the nodes for you. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nFind the middle node of the linked list given by head. Each node stores a number in val and a link in next. Use two pointers: one moves one link at a time, and the other moves two. If there are two middle nodes, choose the second one. Record the values from that middle node to the end. An empty list gives an empty result list.\n\nStep 2: Return the answer\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWrite your function\nComplete midpointChainBossReceipt(head, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "Find the middle node of the linked list given by head. Each node stores a number in val and a link in next. Use two pointers: one moves one link at a time, and the other moves two. If there are two middle nodes, choose the second one. Record the values from that middle node to the end. An empty list gives an empty result list. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`head` is the first node of a linked list. In examples, [4, 7] means nodes 4 then 7, linked in that order. [] means no nodes. The runner builds the nodes for you.\n\nYour tasks\n1. Create a list `middleValues`. Find the middle node of the linked list given by `head`. Each node stores a number in val and a link in next. Use two pointers: one moves one link at a time, and the other moves two. If there are two middle nodes, choose the second one. Record the values from that middle node to the end. An empty list gives an empty `middleValues`.\n2. Multiply each number in `middleValues` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `midpointChainBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `head` is [6, -1, 6, 2], then `middleValues` is [6, 2] and `midpointChainBossReceipt` returns 10.\n\nRules\n- If `middleValues` is empty, return 0.\n\nTest data\nTEST DATA 1: `head` is [7, -3, 7, 0, 12].\nTEST DATA 2: `head` is [4, 4, -2, 4].",
+  "unitIntro": "Find the middle node of the linked list given by `head`. Each node stores a number in val and a link in next. Use two pointers: one moves one link at a time, and the other moves two. If there are two middle nodes, choose the second one. Record the values from that middle node to the end. An empty list gives an empty `middleValues`. Each problem in this unit builds `middleValues` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
     "Linked lists do not loop back to an earlier node. Tree examples list nodes by level; null means a missing child. The runner builds the nodes shown in the examples.",
-    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the number of nodes. These labels describe how work and memory grow with the input."
+    "Efficiency goal: time O(n); extra memory, including the helper list, O(n). n is the number of nodes. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "Find the middle node of the linked list given by head. Each node stores a number in val and a link in next. Use two pointers: one moves one link at a time, and the other moves two. If there are two middle nodes, choose the second one. Record the values from that middle node to the end. An empty list gives an empty result list. Keep track of the numbers or places you have already checked.",
-    "Multiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `middleValues` before you look for the answer.",
+    "Find the middle node of the linked list given by `head`. Each node stores a number in val and a link in next. Use two pointers: one moves one link at a time, and the other moves two. If there are two middle nodes, choose the second one. Record the values from that middle node to the end. An empty list gives an empty `middleValues`. Keep track of the numbers or places you have already checked.",
+    "Multiply each number in `middleValues` by its position, counting from 1: the first number by 1, the second by 2, and so on. Add those products. Store the sum in `weightedTotal`. If `middleValues` is empty, return 0."
   ],
   "functionName": "midpointChainBossReceipt",
   "mode": "function",
   "starterCode": {
-    "javascript": "function midpointChainBossReceipt(head, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "typescript": "type ListNode = { val: number; next: ListNode | null };\nfunction midpointChainBossReceipt(head: ListNode | null, k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "python": "def midpointChainBossReceipt(head, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
-    "java": "class Solution {\n  public int midpointChainBossReceipt(ListNode head, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
+    "javascript": "function midpointChainBossReceipt(head) {\n  // Build middleValues, then return the answer.\n  return 0;\n}\n",
+    "typescript": "type ListNode = { val: number; next: ListNode | null };\nfunction midpointChainBossReceipt(head: ListNode | null): number {\n  // Build middleValues, then return the answer.\n  return 0;\n}\n",
+    "python": "def midpointChainBossReceipt(head):\n    # Build middleValues, then return the answer.\n    return 0\n",
+    "java": "class Solution {\n  public int midpointChainBossReceipt(ListNode head) {\n    // Build middleValues, then return the answer.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -53,12 +53,11 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": 43,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [7,0,12]. Multiply by positions that start at 1: 1 * (7) + 2 * (0) + 3 * (12) = 43. Return 43."
+      "explanation": "`middleValues` is [7, 0, 12]. Multiply by positions that start at 1: 1 * (7) + 2 * (0) + 3 * (12) = 43. Return 43."
     },
     {
       "id": "path3-312-2",
@@ -68,28 +67,25 @@
           4,
           -2,
           4
-        ],
-        2
+        ]
       ],
       "expected": 6,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-2,4]. Multiply by positions that start at 1: 1 * (-2) + 2 * (4) = 6. Return 6."
+      "explanation": "`middleValues` is [-2, 4]. Multiply by positions that start at 1: 1 * (-2) + 2 * (4) = 6. Return 6."
     },
     {
       "id": "path3-312-3",
       "input": [
-        [],
-        1
+        []
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. There are no numbers to multiply or add, so return 0."
+      "explanation": "`middleValues` is []. There are no numbers to multiply or add, so return 0."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "ListNode",
-    "int"
+    "ListNode"
   ],
   "inputKinds": {
     "0": "list"
@@ -98,7 +94,7 @@
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `middleValues` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 6,
     "unit": "midpoint-chain",
@@ -116,12 +112,11 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": 43,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [7,0,12]. Multiply by positions that start at 1: 1 * (7) + 2 * (0) + 3 * (12) = 43. Return 43."
+      "explanation": "`middleValues` is [7, 0, 12]. Multiply by positions that start at 1: 1 * (7) + 2 * (0) + 3 * (12) = 43. Return 43."
     },
     {
       "id": "path3-312-2",
@@ -131,19 +126,18 @@
           4,
           -2,
           4
-        ],
-        2
+        ]
       ],
       "expected": 6,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-2,4]. Multiply by positions that start at 1: 1 * (-2) + 2 * (4) = 6. Return 6."
+      "explanation": "`middleValues` is [-2, 4]. Multiply by positions that start at 1: 1 * (-2) + 2 * (4) = 6. Return 6."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function midpointChainBossReceipt(head, k) {\n  const a=head; let out=[];\n  let slow=a,fast=a;while(fast&&fast.next){slow=slow.next;fast=fast.next.next;}for(let node=slow;node;node=node.next)out.push(node.val);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
-    "typescript": "type ListNode = { val: number; next: ListNode | null };\nfunction midpointChainBossReceipt(head: ListNode | null, k: number): number {\n  const a=head; let out:number[]=[];\n  let slow=a,fast=a;while(fast&&fast.next){slow=slow!.next;fast=fast.next.next;}for(let node=slow;node;node=node.next)out.push(node.val);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
-    "python": "def midpointChainBossReceipt(head, k):\n    a=head\n    out=[]\n    slow=fast=a\n    while fast and fast.next:\n        slow=slow.next\n        fast=fast.next.next\n    node=slow\n    while node:\n        out.append(node.val)\n        node=node.next\n    return sum((i+1)*x for i,x in enumerate(out))\n",
-    "java": "class Solution {\n  public int midpointChainBossReceipt(ListNode head, int k) {\n    ListNode a=head; List<Integer> out=new ArrayList<>();\n    {ListNode slow=a,fast=a;while(fast!=null&&fast.next!=null){slow=slow.next;fast=fast.next.next;}for(ListNode node=slow;node!=null;node=node.next)out.add(node.val);}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+    "javascript": "function midpointChainBossReceipt(head) {\n  const a=head; let out=[];\n  let slow=a,fast=a;while(fast&&fast.next){slow=slow.next;fast=fast.next.next;}for(let node=slow;node;node=node.next)out.push(node.val);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "typescript": "type ListNode = { val: number; next: ListNode | null };\nfunction midpointChainBossReceipt(head: ListNode | null): number {\n  const a=head; let out:number[]=[];\n  let slow=a,fast=a;while(fast&&fast.next){slow=slow!.next;fast=fast.next.next;}for(let node=slow;node;node=node.next)out.push(node.val);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n",
+    "python": "def midpointChainBossReceipt(head):\n    a=head\n    out=[]\n    slow=fast=a\n    while fast and fast.next:\n        slow=slow.next\n        fast=fast.next.next\n    node=slow\n    while node:\n        out.append(node.val)\n        node=node.next\n    return sum((i+1)*x for i,x in enumerate(out))\n",
+    "java": "class Solution {\n  public int midpointChainBossReceipt(ListNode head) {\n    ListNode a=head; List<Integer> out=new ArrayList<>();\n    {ListNode slow=a,fast=a;while(fast!=null&&fast.next!=null){slow=slow.next;fast=fast.next.next;}for(ListNode node=slow;node!=null;node=node.next)out.add(node.val);}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -152,8 +146,7 @@
         "input": [
           [
             9
-          ],
-          1
+          ]
         ],
         "expected": 9,
         "coverage": "singleton"
@@ -166,8 +159,7 @@
             5,
             5,
             5
-          ],
-          4
+          ]
         ],
         "expected": 15,
         "coverage": "duplicates-or-redundancy"
@@ -179,8 +171,7 @@
             -20,
             -1,
             -7
-          ],
-          8
+          ]
         ],
         "expected": -15,
         "coverage": "lower-bound"
@@ -253,8 +244,7 @@
             -6,
             7,
             20
-          ],
-          3
+          ]
         ],
         "expected": 25,
         "coverage": "maximum-size"
@@ -266,8 +256,7 @@
             0,
             0,
             0
-          ],
-          5
+          ]
         ],
         "expected": 0,
         "coverage": "zero-or-minimum"
@@ -281,17 +270,15 @@
             -2,
             8,
             1
-          ],
-          2
+          ]
         ],
         "expected": 17,
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nFind the middle node of the linked list given by head. Each node stores a number in val and a link in next. Use two pointers: one moves one link at a time, and the other moves two. If there are two middle nodes, choose the second one. Record the values from that middle node to the end. An empty list gives an empty result list.\n\nReturn the answer\n\nMultiply the first number in the result list by 1, the second by 2, the third by 3, and so on. Add these products and return the total. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the number of nodes. These labels describe how work and memory grow with the input.\n\njavascript\nfunction midpointChainBossReceipt(head, k) {\n  const a=head; let out=[];\n  let slow=a,fast=a;while(fast&&fast.next){slow=slow.next;fast=fast.next.next;}for(let node=slow;node;node=node.next)out.push(node.val);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\ntype ListNode = { val: number; next: ListNode | null };\nfunction midpointChainBossReceipt(head: ListNode | null, k: number): number {\n  const a=head; let out:number[]=[];\n  let slow=a,fast=a;while(fast&&fast.next){slow=slow!.next;fast=fast.next.next;}for(let node=slow;node;node=node.next)out.push(node.val);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef midpointChainBossReceipt(head, k):\n    a=head\n    out=[]\n    slow=fast=a\n    while fast and fast.next:\n        slow=slow.next\n        fast=fast.next.next\n    node=slow\n    while node:\n        out.append(node.val)\n        node=node.next\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int midpointChainBossReceipt(ListNode head, int k) {\n    ListNode a=head; List<Integer> out=new ArrayList<>();\n    {ListNode slow=a,fast=a;while(fast!=null&&fast.next!=null){slow=slow.next;fast=fast.next.next;}for(ListNode node=slow;node!=null;node=node.next)out.add(node.val);}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
+    "editorialMd": "Build middleValues\n\nFind the middle node of the linked list given by `head`. Each node stores a number in val and a link in next. Use two pointers: one moves one link at a time, and the other moves two. If there are two middle nodes, choose the second one. Record the values from that middle node to the end. An empty list gives an empty `middleValues`.\n\nReturn the answer\n\nMultiply each number in `middleValues` by its position, counting from 1: the first number by 1, the second by 2, and so on. Add those products. Store the sum in `weightedTotal`. Complete `midpointChainBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nWhy this works\n\nEach value in `middleValues` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the helper list, O(n). n is the number of nodes. These labels describe how work and memory grow with the input.\n\njavascript\nfunction midpointChainBossReceipt(head) {\n  const a=head; let out=[];\n  let slow=a,fast=a;while(fast&&fast.next){slow=slow.next;fast=fast.next.next;}for(let node=slow;node;node=node.next)out.push(node.val);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\ntypescript\ntype ListNode = { val: number; next: ListNode | null };\nfunction midpointChainBossReceipt(head: ListNode | null): number {\n  const a=head; let out:number[]=[];\n  let slow=a,fast=a;while(fast&&fast.next){slow=slow!.next;fast=fast.next.next;}for(let node=slow;node;node=node.next)out.push(node.val);\n  return out.reduce((s,x,i)=>s+(i+1)*x,0);\n}\n\n\npython\ndef midpointChainBossReceipt(head):\n    a=head\n    out=[]\n    slow=fast=a\n    while fast and fast.next:\n        slow=slow.next\n        fast=fast.next.next\n    node=slow\n    while node:\n        out.append(node.val)\n        node=node.next\n    return sum((i+1)*x for i,x in enumerate(out))\n\n\njava\nclass Solution {\n  public int midpointChainBossReceipt(ListNode head) {\n    ListNode a=head; List<Integer> out=new ArrayList<>();\n    {ListNode slow=a,fast=a;while(fast!=null&&fast.next!=null){slow=slow.next;fast=fast.next.next;}for(ListNode node=slow;node!=null;node=node.next)out.add(node.val);}\n    int answer=0;for(int i=0;i<out.size();i++)answer+=(i+1)*out.get(i);return answer;\n  }\n}\n"
   },
   "parameterNames": [
-    "head",
-    "k"
+    "head"
   ]
 }

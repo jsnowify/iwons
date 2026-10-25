@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-438"
   ],
-  "summary": "Unbounded dynamic programming. Return only numbers greater than 0 from the result list.",
+  "summary": "Unbounded dynamic programming. Keep the positive numbers.",
   "stage": "Sequence variation",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nEach number in readings is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order.\n\nStep 2: Return the answer\nReturn only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return [].\n\nWrite your function\nComplete postageDrawerPositiveProofStrip(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "Each number in readings is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `fewestStamps`. Each number in `readings` is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order.\n2. Create a list `positiveValues` that keeps only the numbers in `fewestStamps` that are greater than 0, in the same order.\n3. Complete `postageDrawerPositiveProofStrip` so it returns `positiveValues`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 1, 6, 2], then `fewestStamps` is [3, 1, 3, 2] and `postageDrawerPositiveProofStrip` returns [3, 1, 3, 2].\n\nRules\n- Keep repeated numbers.\n- If no number is greater than 0, return [].\n\nTest data\nTEST DATA 1: `readings` is [7, 3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, 2, 4].",
+  "unitIntro": "Each number in `readings` is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order. Each problem in this unit builds `fewestStamps` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
     "Input numbers are whole numbers from 0 through 40.",
-    "Efficiency goal: time O(n + M); extra memory, including the result list, O(n). n is the input length; M is the largest input number. These labels describe how work and memory grow with the input."
+    "Efficiency goal: time O(n + M); extra memory, including the helper list, O(n). n is the input length; M is the largest input number. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "Each number in readings is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order. Keep track of the numbers or places you have already checked.",
-    "Return only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return []. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `fewestStamps` before you look for the answer.",
+    "Each number in `readings` is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order. Keep track of the numbers or places you have already checked.",
+    "Create a list `positiveValues` that keeps only the numbers in `fewestStamps` that are greater than 0, in the same order. Keep repeated numbers."
   ],
   "functionName": "postageDrawerPositiveProofStrip",
   "mode": "function",
   "starterCode": {
-    "javascript": "function postageDrawerPositiveProofStrip(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "typescript": "function postageDrawerPositiveProofStrip(readings: number[], k: number): number[] {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "python": "def postageDrawerPositiveProofStrip(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return []\n",
-    "java": "class Solution {\n  public int[] postageDrawerPositiveProofStrip(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return new int[0];\n  }\n}\n"
+    "javascript": "function postageDrawerPositiveProofStrip(readings) {\n  // Build fewestStamps, then return the answer.\n  return [];\n}\n",
+    "typescript": "function postageDrawerPositiveProofStrip(readings: number[]): number[] {\n  // Build fewestStamps, then return the answer.\n  return [];\n}\n",
+    "python": "def postageDrawerPositiveProofStrip(readings):\n    # Build fewestStamps, then return the answer.\n    return []\n",
+    "java": "class Solution {\n  public int[] postageDrawerPositiveProofStrip(int[] readings) {\n    // Build fewestStamps, then return the answer.\n    return new int[0];\n  }\n}\n"
   },
   "cases": [
     {
@@ -50,8 +50,7 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": [
         4,
@@ -60,7 +59,7 @@
         3
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,3,4,0,3]. Keep only numbers greater than 0, without changing their order. Return [4,3,4,3]."
+      "explanation": "`fewestStamps` is [4, 3, 4, 0, 3]. Keep only numbers greater than 0, without changing their order. Return [4, 3, 4, 3]."
     },
     {
       "id": "path3-439-2",
@@ -70,8 +69,7 @@
           4,
           2,
           4
-        ],
-        2
+        ]
       ],
       "expected": [
         1,
@@ -80,29 +78,27 @@
         1
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [1,1,2,1]. Keep only numbers greater than 0, without changing their order. Return [1,1,2,1]."
+      "explanation": "`fewestStamps` is [1, 1, 2, 1]. Keep only numbers greater than 0, without changing their order. Return [1, 1, 2, 1]."
     },
     {
       "id": "path3-439-3",
       "input": [
-        [],
-        1
+        []
       ],
       "expected": [],
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. Keep only numbers greater than 0, without changing their order. Return []."
+      "explanation": "`fewestStamps` is []. Keep only numbers greater than 0, without changing their order. Return []."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "int[]",
-    "int"
+    "int[]"
   ],
   "complexity": {
     "time": "O(n + M)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `fewestStamps` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 8,
     "unit": "postage-drawer",
@@ -120,8 +116,7 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": [
         4,
@@ -130,7 +125,7 @@
         3
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,3,4,0,3]. Keep only numbers greater than 0, without changing their order. Return [4,3,4,3]."
+      "explanation": "`fewestStamps` is [4, 3, 4, 0, 3]. Keep only numbers greater than 0, without changing their order. Return [4, 3, 4, 3]."
     },
     {
       "id": "path3-439-2",
@@ -140,8 +135,7 @@
           4,
           2,
           4
-        ],
-        2
+        ]
       ],
       "expected": [
         1,
@@ -150,14 +144,14 @@
         1
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [1,1,2,1]. Keep only numbers greater than 0, without changing their order. Return [1,1,2,1]."
+      "explanation": "`fewestStamps` is [1, 1, 2, 1]. Keep only numbers greater than 0, without changing their order. Return [1, 1, 2, 1]."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function postageDrawerPositiveProofStrip(readings, k) {\n  const a=readings; let out=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(m+1);dp[0]=0;for(let x=1;x<=m;x++)for(const coin of [1,4,9])if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);out=a.map(x=>dp[x]);\n  return out.filter(x=>x>0);\n}\n",
-    "typescript": "function postageDrawerPositiveProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(m+1);dp[0]=0;for(let x=1;x<=m;x++)for(const coin of [1,4,9])if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);out=a.map(x=>dp[x]);\n  return out.filter(x=>x>0);\n}\n",
-    "python": "def postageDrawerPositiveProofStrip(readings, k):\n    a=readings\n    out=[]\n    m=max(a,default=0)\n    dp=[m+1]*(m+1)\n    dp[0]=0\n    for x in range(1,m+1):\n        for coin in (1,4,9):\n            if coin<=x: dp[x]=min(dp[x],dp[x-coin]+1)\n    out=[dp[x] for x in a]\n    return [x for x in out if x>0]\n",
-    "java": "class Solution {\n  public int[] postageDrawerPositiveProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int m=0;for(int x:a)m=Math.max(m,x);int[]dp=new int[m+1];Arrays.fill(dp,m+1);dp[0]=0;for(int x=1;x<=m;x++)for(int coin:new int[]{1,4,9})if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);for(int x:a)out.add(dp[x]);}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+    "javascript": "function postageDrawerPositiveProofStrip(readings) {\n  const a=readings; let out=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(m+1);dp[0]=0;for(let x=1;x<=m;x++)for(const coin of [1,4,9])if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);out=a.map(x=>dp[x]);\n  return out.filter(x=>x>0);\n}\n",
+    "typescript": "function postageDrawerPositiveProofStrip(readings: number[]): number[] {\n  const a=readings; let out:number[]=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(m+1);dp[0]=0;for(let x=1;x<=m;x++)for(const coin of [1,4,9])if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);out=a.map(x=>dp[x]);\n  return out.filter(x=>x>0);\n}\n",
+    "python": "def postageDrawerPositiveProofStrip(readings):\n    a=readings\n    out=[]\n    m=max(a,default=0)\n    dp=[m+1]*(m+1)\n    dp[0]=0\n    for x in range(1,m+1):\n        for coin in (1,4,9):\n            if coin<=x: dp[x]=min(dp[x],dp[x-coin]+1)\n    out=[dp[x] for x in a]\n    return [x for x in out if x>0]\n",
+    "java": "class Solution {\n  public int[] postageDrawerPositiveProofStrip(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int m=0;for(int x:a)m=Math.max(m,x);int[]dp=new int[m+1];Arrays.fill(dp,m+1);dp[0]=0;for(int x=1;x<=m;x++)for(int coin:new int[]{1,4,9})if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);for(int x:a)out.add(dp[x]);}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -166,8 +160,7 @@
         "input": [
           [
             9
-          ],
-          1
+          ]
         ],
         "expected": [
           1
@@ -182,8 +175,7 @@
             5,
             5,
             5
-          ],
-          4
+          ]
         ],
         "expected": [
           2,
@@ -200,8 +192,7 @@
             20,
             1,
             7
-          ],
-          8
+          ]
         ],
         "expected": [
           4,
@@ -278,8 +269,7 @@
             40,
             0,
             40
-          ],
-          3
+          ]
         ],
         "expected": [
           5,
@@ -324,8 +314,7 @@
             0,
             0,
             0
-          ],
-          5
+          ]
         ],
         "expected": [],
         "coverage": "zero-or-minimum"
@@ -339,8 +328,7 @@
             2,
             8,
             1
-          ],
-          2
+          ]
         ],
         "expected": [
           2,
@@ -352,10 +340,9 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nEach number in readings is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order.\n\nReturn the answer\n\nReturn only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return [].\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n + M); extra memory, including the result list, O(n). n is the input length; M is the largest input number. These labels describe how work and memory grow with the input.\n\njavascript\nfunction postageDrawerPositiveProofStrip(readings, k) {\n  const a=readings; let out=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(m+1);dp[0]=0;for(let x=1;x<=m;x++)for(const coin of [1,4,9])if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);out=a.map(x=>dp[x]);\n  return out.filter(x=>x>0);\n}\n\n\ntypescript\nfunction postageDrawerPositiveProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(m+1);dp[0]=0;for(let x=1;x<=m;x++)for(const coin of [1,4,9])if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);out=a.map(x=>dp[x]);\n  return out.filter(x=>x>0);\n}\n\n\npython\ndef postageDrawerPositiveProofStrip(readings, k):\n    a=readings\n    out=[]\n    m=max(a,default=0)\n    dp=[m+1]*(m+1)\n    dp[0]=0\n    for x in range(1,m+1):\n        for coin in (1,4,9):\n            if coin<=x: dp[x]=min(dp[x],dp[x-coin]+1)\n    out=[dp[x] for x in a]\n    return [x for x in out if x>0]\n\n\njava\nclass Solution {\n  public int[] postageDrawerPositiveProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int m=0;for(int x:a)m=Math.max(m,x);int[]dp=new int[m+1];Arrays.fill(dp,m+1);dp[0]=0;for(int x=1;x<=m;x++)for(int coin:new int[]{1,4,9})if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);for(int x:a)out.add(dp[x]);}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+    "editorialMd": "Build fewestStamps\n\nEach number in `readings` is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order.\n\nReturn the answer\n\nCreate a list `positiveValues` that keeps only the numbers in `fewestStamps` that are greater than 0, in the same order. Complete `postageDrawerPositiveProofStrip` so it returns `positiveValues`. Return it, do not print it.\n\nWhy this works\n\nEach value in `fewestStamps` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n + M); extra memory, including the helper list, O(n). n is the input length; M is the largest input number. These labels describe how work and memory grow with the input.\n\njavascript\nfunction postageDrawerPositiveProofStrip(readings) {\n  const a=readings; let out=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(m+1);dp[0]=0;for(let x=1;x<=m;x++)for(const coin of [1,4,9])if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);out=a.map(x=>dp[x]);\n  return out.filter(x=>x>0);\n}\n\n\ntypescript\nfunction postageDrawerPositiveProofStrip(readings: number[]): number[] {\n  const a=readings; let out:number[]=[];\n  const m=Math.max(0,...a),dp=Array(m+1).fill(m+1);dp[0]=0;for(let x=1;x<=m;x++)for(const coin of [1,4,9])if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);out=a.map(x=>dp[x]);\n  return out.filter(x=>x>0);\n}\n\n\npython\ndef postageDrawerPositiveProofStrip(readings):\n    a=readings\n    out=[]\n    m=max(a,default=0)\n    dp=[m+1]*(m+1)\n    dp[0]=0\n    for x in range(1,m+1):\n        for coin in (1,4,9):\n            if coin<=x: dp[x]=min(dp[x],dp[x-coin]+1)\n    out=[dp[x] for x in a]\n    return [x for x in out if x>0]\n\n\njava\nclass Solution {\n  public int[] postageDrawerPositiveProofStrip(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {int m=0;for(int x:a)m=Math.max(m,x);int[]dp=new int[m+1];Arrays.fill(dp,m+1);dp[0]=0;for(int x=1;x<=m;x++)for(int coin:new int[]{1,4,9})if(coin<=x)dp[x]=Math.min(dp[x],dp[x-coin]+1);for(int x:a)out.add(dp[x]);}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
   },
   "parameterNames": [
-    "readings",
-    "k"
+    "readings"
   ]
 }

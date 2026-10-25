@@ -1,8 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { kernels } from "./kernels.mjs";
-import { units, projections, modesFor } from "./units.mjs";
-import { casesFor, inputSpec } from "./cases.mjs";
+import { units, projections, modesFor, usesK } from "./units.mjs";
+import { casesFor, exampleCase, inputSpec } from "./cases.mjs";
 import { referenceFor } from "./references.mjs";
 import { scenes } from "./scenes.mjs";
 const manifest=JSON.parse(fs.readFileSync("src/data/curriculum.json","utf8"));
@@ -38,19 +38,27 @@ export function authorUnit(slug, rewrite = problem => problem) {
   const members=manifest.filter(p=>p.unit===slug),modes=modesFor(unit);
   const folder=path.join("src/data/problems",`level-${unit.level}`,slug);fs.mkdirSync(folder,{recursive:true});
   for(const [index,entry]of members.entries()) {
-    const mode=modes[index],projection=projections[mode],ref=referenceFor(entry,kernel,mode);
+    const mode=modes[index],projection=projections[mode],withK=usesK(unit.kernel,mode),ref=referenceFor(entry,kernel,mode,withK);
     const large = mode===4 && ["array","text","list","tree","bst","pair","queries"].includes(kernel.family) && !["recursive","subsets","matrixChain"].includes(unit.kernel);
     const caseKernel = large ? { ...kernel, max: 50000 } : kernel;
     const rawCases = casesFor(caseKernel);
-    const sequences=[];
+    const sequences=[],kValues=rawCases.map(c=>c.input[1]);
     const cases=rawCases.map((c,i)=>{
       const args=structuredClone(c.input);args[0]=nodes(args[0],kernel.family);
       const sequence=candidateFunction(...args),expected=receipts[mode](sequence,c.input[1]);
       sequences.push(sequence);
-      return {id:`${entry.id}-${i+1}`,input:c.input,expected,coverage:c.coverage,...(i<3?{explanation:`The derived sequence is ${JSON.stringify(sequence)}. ${mode===9?`Its weighted products are ${JSON.stringify(sequence.map((x,j)=>(j+1)*x))}. `:""}${projection.task} This gives ${JSON.stringify(expected)}.`}:{})};
+      return {id:`${entry.id}-${i+1}`,input:withK?c.input:[c.input[0]],expected,coverage:c.coverage,...(i<3?{explanation:`The derived sequence is ${JSON.stringify(sequence)}. ${mode===9?`Its weighted products are ${JSON.stringify(sequence.map((x,j)=>(j+1)*x))}. `:""}${projection.task} This gives ${JSON.stringify(expected)}.`}:{})};
     });
+    // The description's worked example uses its own input, so no test answer is printed in the task text.
+    const sample=exampleCase(kernel),sampleArgs=structuredClone(sample.input);sampleArgs[0]=nodes(sampleArgs[0],kernel.family);
+    if(rawCases.some(c=>JSON.stringify(c.input[0])===JSON.stringify(sample.input[0])))throw new Error(`${entry.slug}: example input matches a test case`);
+    const sampleSequence=candidateFunction(...sampleArgs);
+    const example={input:withK?sample.input:[sample.input[0]],sequence:sampleSequence,expected:receipts[mode](sampleSequence,sample.input[1])};
+    // What the helper list can hold decides which edge-case rules are worth stating.
+    const seen=[...sequences,sampleSequence];
+    const traits={canEmpty:seen.some(xs=>!xs.length),canNegative:seen.some(xs=>xs.some(x=>x<0)),canZero:seen.some(xs=>xs.includes(0)),canRepeat:seen.some(xs=>new Set(xs).size<xs.length),canAllNegative:seen.some(xs=>xs.length&&xs.every(x=>x<0)),canNegativeEven:seen.some(xs=>xs.some(x=>x<0&&x%2===0))};
     const names=["Mina","Sol","Ivo","Neri","Alma","Rafi","Pia","Tomas","Luz","Ada"];
-    const constraints=[["tree","bst"].includes(kernel.family)?`0 <= node count <= ${caseKernel.max}; JSON null placeholders do not count as nodes.`:`0 <= input size <= ${caseKernel.max}${["pair","queries","matrix"].includes(kernel.family)?" per row":""}.`,"1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.",
+    const constraints=[["tree","bst"].includes(kernel.family)?`0 <= node count <= ${caseKernel.max}; JSON null placeholders do not count as nodes.`:`0 <= input size <= ${caseKernel.max}${["pair","queries","matrix"].includes(kernel.family)?" per row":""}.`,withK?"1 <= k <= 8. All arithmetic results fit a signed 32-bit integer.":"All arithmetic results fit a signed 32-bit integer.",
       kernel.family==="text"?"The line contains ASCII characters; the only word separator is a space.":kernel.family==="words"?"There are at most 64 lowercase English words, each with 1 to 12 letters.":kernel.family==="masks"?"There are at most 6 desks. Every mask is between 0 and (1 << n) - 1.":kernel.family==="dimensions"?"Every dimension is an integer from 1 through 10; there are at most 16 dimensions.":kernel.positive?`Readings are integers from 0 through ${kernel.bound??20}.`:"Numeric readings lie between -1,000,000 and 1,000,000, subject to the task's shape and ordering rules.",
       ...(ref.inputKinds?["Lists are acyclic. Trees use level-order JSON with null for missing children; [] is an empty root. The runner supplies nodes with val/next or val/left/right."]:[]),
       ...(kernel.family==="pair"||kernel.family==="queries"?[`The input has exactly two rows, each containing at most ${caseKernel.max} integers.`]:[]),
@@ -61,7 +69,7 @@ export function authorUnit(slug, rewrite = problem => problem) {
     const p={...entry,descriptionMd:`${scenes[slug]} ${stories[mode](names[(index+unit.level)%names.length])}\n\n${unit.definition}\n\n${projection.task}\n\nImplement ${ref.fn}(${input.name}, k). ${[2,3].includes(mode)||["windowSum","shortWindow","prefixRanges","windowMax","roundRobin","bst","knapsack"].includes(unit.kernel)?"Use k exactly where specified above.":"k is part of the common inspection-card signature and does not affect this task's result."}`,
       unitIntro:intro,constraints,hints,functionName:ref.fn,mode:"function",starterCode:ref.starterCode,cases:cases.slice(0,3),timeLimitMs:2000,javaParams:ref.javaParams,...(ref.inputKinds?{inputKinds:ref.inputKinds}:{}),complexity:{time:unit.time,space:unit.space},overview:`${entry.stage}: ${unit.idea}. ${entry.revisit??"Build the sequence once, then report exactly what the inspection card requests."}`,tags:{level:unit.level,unit:slug,topic:unit.idea,pattern:unit.idea,bigO:unit.time},workedExamples:cases.slice(0,2),referenceSolutions:ref.solutions,
       privateData:{hiddenCases:cases.slice(3),editorialMd:`The working idea\n\n${unit.definition}\n\n${projection.task}\n\nWhy this works\n\nEach derived value follows the unit's stated order and includes exactly the items allowed by its definition. The receipt then folds or filters those values without changing their meaning. Check the empty, singleton, repeated and maximum-size inputs before trusting the final total.\n\nTarget time ${unit.time}; space ${unit.space}.\n\n${Object.entries(ref.solutions).map(([language,code])=>`${language}\n${code}`).join("\n\n")}`}};
-    fs.writeFileSync(path.join(folder,`${entry.slug}.json`),JSON.stringify(rewrite(p,{unit,kernel,mode,input,sequences}),null,2)+"\n");
+    fs.writeFileSync(path.join(folder,`${entry.slug}.json`),JSON.stringify(rewrite(p,{unit,kernel,mode,input,sequences,kValues,withK,example,traits}),null,2)+"\n");
   }
   return members;
 }

@@ -12,8 +12,8 @@
         "id": "read",
         "title": "Return the list you built",
         "explanation": "Topological queues is this topic's new tool. Each point in this graph is a task. A path from task a to task b means a must happen before b",
-        "exampleCode": "function practice(links, k) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out;\n}\n",
-        "starterCode": "function practice(links, k) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return ___;\n}\n",
+        "exampleCode": "function practice(links) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out;\n}\n",
+        "starterCode": "function practice(links) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return ___;\n}\n",
         "task": "Replace ___ with out to send the result list back.",
         "functionName": "practice",
         "validate": [
@@ -69,8 +69,7 @@
                   1,
                   0
                 ]
-              ],
-              3
+              ]
             ],
             "expected": []
           },
@@ -113,16 +112,14 @@
                   0,
                   1
                 ]
-              ],
-              2
+              ]
             ],
             "expected": []
           },
           {
             "id": "read-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -130,7 +127,7 @@
         "hints": [
           "The list is named out.",
           "The final instruction is return out;.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(links, k) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(links) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [
@@ -156,8 +153,8 @@
         "id": "trace",
         "title": "Fill a smaller piece",
         "explanation": "push adds one value to the end of a list. Find that instruction in the example. Fill its name in the starter and inspect the returned values.",
-        "exampleCode": "function practice(links, k) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out;\n}\n",
-        "starterCode": "function practice(links, k) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.___(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out;\n}\n",
+        "exampleCode": "function practice(links) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out;\n}\n",
+        "starterCode": "function practice(links) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.___(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out;\n}\n",
         "task": "Replace ___ with push to add an item to out.",
         "functionName": "practice",
         "validate": [
@@ -213,8 +210,7 @@
                   1,
                   0
                 ]
-              ],
-              3
+              ]
             ],
             "expected": []
           },
@@ -257,16 +253,14 @@
                   0,
                   1
                 ]
-              ],
-              2
+              ]
             ],
             "expected": []
           },
           {
             "id": "trace-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -274,7 +268,7 @@
         "hints": [
           "Look for the instruction that adds an item.",
           "Write out.push where the starter says out.___.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(links, k) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(links) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [
@@ -364,8 +358,8 @@
         "id": "rebuild",
         "title": "Rebuild the working instructions",
         "explanation": "Keep the supplied function and result list. Rebuild the part that fills the list using the example as a guide. Re-run whenever you want to check a change.",
-        "exampleCode": "function practice(links, k) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out;\n}\n",
-        "starterCode": "function practice(links, k) {\n  const a=links; let out=[];\n  // Rebuild the derived list here.\n  return out;\n}\n",
+        "exampleCode": "function practice(links) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out;\n}\n",
+        "starterCode": "function practice(links) {\n  const a=links; let out=[];\n  // Rebuild the derived list here.\n  return out;\n}\n",
         "task": "Fill the result list using this topic's rule.",
         "functionName": "practice",
         "validate": [
@@ -421,8 +415,7 @@
                   1,
                   0
                 ]
-              ],
-              3
+              ]
             ],
             "expected": []
           },
@@ -465,16 +458,14 @@
                   0,
                   1
                 ]
-              ],
-              2
+              ]
             ],
             "expected": []
           },
           {
             "id": "rebuild-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -482,7 +473,7 @@
         "hints": [
           "Each point in this graph is a task. A path from task a to task b means a must happen before b. Put all tasks with no paths coming into them in a queue, in number order. A queue serves the task at its front first. Remove that task, record its number, and remove its outgoing paths. Check its next tasks in number order. Add a task to the back of the queue as soon as it has no paths left coming in. If you cannot record every task, the rules contain a loop: use an empty result list instead.",
           "Revisit the example and copy one instruction at a time, checking what it does.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(links, k) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(links) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [
@@ -508,8 +499,8 @@
         "id": "recall",
         "title": "Ready for the proof strip",
         "explanation": "Write the small function again with less help. The first challenge uses the same input and output rule. Use return to send the finished list back.",
-        "exampleCode": "function practice(links, k) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out;\n}\n",
-        "starterCode": "function practice(links, k) {\n  // Build and return the result list.\n}",
+        "exampleCode": "function practice(links) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out;\n}\n",
+        "starterCode": "function practice(links) {\n  // Build and return the result list.\n}",
         "task": "Build the derived list for this topic, then return it.",
         "functionName": "practice",
         "validate": [
@@ -565,8 +556,7 @@
                   1,
                   0
                 ]
-              ],
-              3
+              ]
             ],
             "expected": []
           },
@@ -609,16 +599,14 @@
                   0,
                   1
                 ]
-              ],
-              2
+              ]
             ],
             "expected": []
           },
           {
             "id": "recall-2",
             "input": [
-              [],
-              1
+              []
             ],
             "expected": []
           }
@@ -626,7 +614,7 @@
         "hints": [
           "Each point in this graph is a task. A path from task a to task b means a must happen before b. Put all tasks with no paths coming into them in a queue, in number order. A queue serves the task at its front first. Remove that task, record its number, and remove its outgoing paths. Check its next tasks in number order. Add a task to the back of the queue as soon as it has no paths left coming in. If you cannot record every task, the rules contain a loop: use an empty result list instead.",
           "Create the result list, process the input in order, and return the list.",
-          "That's totally normal, this trips up lots of people.\nfunction practice(links, k) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
+          "That's totally normal, this trips up lots of people.\nfunction practice(links) {\n  const a=links; let out=[];\n  const n=a.length,degree=Array(n).fill(0),queue=[];for(const row of a)for(let v=0;v<n;v++)degree[v]+=row[v];for(let v=0;v<n;v++)if(degree[v]===0)queue.push(v);for(let h=0;h<queue.length;h++){const u=queue[h];out.push(u);for(let v=0;v<n;v++)if(a[u][v]&&--degree[v]===0)queue.push(v);}if(out.length!==n)out=[];\n  return out;\n}\n\nFollow the example one line at a time, then adapt it to the task."
         ],
         "successMessage": "Nice, you worked through the steps and got the expected result.",
         "mistakeMessages": [

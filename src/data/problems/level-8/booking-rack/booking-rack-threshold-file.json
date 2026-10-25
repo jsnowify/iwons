@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-412"
   ],
-  "summary": "Greedy interval selection. Count the numbers in the result list that are at least k (greater than or equal to k).",
+  "summary": "Greedy interval selection. Count the numbers at least k.",
   "stage": "Edge-case trap",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\ndrawers is a list of bookings. Each row is [start, end]. k is a whole number. Use it as described in the steps below.\n\nStep 1: Build the result list\nEach booking is [start, end]. It uses time from start up to, but not including, end. Sort bookings by end time, from earliest to latest. For matching end times, put the earlier start first. Accept the first booking. Then accept a booking only if it starts at or after the end of the last one accepted. Record the length, end - start, of each accepted booking. Keep acceptance order. Negative times are allowed. With no bookings, the result list is empty.\n\nStep 2: Return the answer\nCount the numbers in the result list that are at least k (greater than or equal to k). Return that count. An empty list gives 0.\n\nWrite your function\nComplete bookingRackThresholdFile(drawers, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "Each booking is [start, end]. It uses time from start up to, but not including, end. Sort bookings by end time, from earliest to latest. For matching end times, put the earlier start first. Accept the first booking. Then accept a booking only if it starts at or after the end of the last one accepted. Record the length, end - start, of each accepted booking. Keep acceptance order. Negative times are allowed. With no bookings, the result list is empty. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`drawers` is a list of bookings. Each row is [start, end].\n\nYour tasks\n1. Create a list `acceptedLengths`. Each booking is [start, end]. It uses time from start up to, but not including, end. Sort bookings by end time, from earliest to latest. For matching end times, put the earlier start first. Accept the first booking. Then accept a booking only if it starts at or after the end of the last one accepted. Record the length, end - start, of each accepted booking. Keep acceptance order. Negative times are allowed. With no bookings, `acceptedLengths` is empty.\n2. Count the numbers in `acceptedLengths` that are at least `k` (greater than or equal to `k`). Store the count in `atLeastK`.\n3. Complete `bookingRackThresholdFile` so it returns `atLeastK`. Return it, do not print it.\n\nExample\nIf `drawers` is [[6, 13], [0, 2], [8, 15], [5, 8]] and `k` is 4, then `acceptedLengths` is [2, 3, 7] and `bookingRackThresholdFile` returns 1.\n\nRules\n- If `acceptedLengths` is empty, the count is 0.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `drawers` is [[7, 8], [-2, 2], [9, 10], [3, 4], [16, 22]] and `k` is 3.\nTEST DATA 2: `drawers` is [[4, 9], [5, 10], [0, 3], [7, 12]] and `k` is 2.",
+  "unitIntro": "Each booking is [start, end]. It uses time from start up to, but not including, end. Sort bookings by end time, from earliest to latest. For matching end times, put the earlier start first. Accept the first booking. Then accept a booking only if it starts at or after the end of the last one accepted. Record the length, end - start, of each accepted booking. Keep acceptance order. Negative times are allowed. With no bookings, `acceptedLengths` is empty. Each problem in this unit builds `acceptedLengths` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
     "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
-    "Efficiency goal: time O(n log n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input."
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
+    "Efficiency goal: time O(n log n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "Each booking is [start, end]. It uses time from start up to, but not including, end. Sort bookings by end time, from earliest to latest. For matching end times, put the earlier start first. Accept the first booking. Then accept a booking only if it starts at or after the end of the last one accepted. Record the length, end - start, of each accepted booking. Keep acceptance order. Negative times are allowed. With no bookings, the result list is empty. Keep track of the numbers or places you have already checked.",
-    "Count the numbers in the result list that are at least k (greater than or equal to k). Return that count. An empty list gives 0. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `acceptedLengths` before you look for the answer.",
+    "Each booking is [start, end]. It uses time from start up to, but not including, end. Sort bookings by end time, from earliest to latest. For matching end times, put the earlier start first. Accept the first booking. Then accept a booking only if it starts at or after the end of the last one accepted. Record the length, end - start, of each accepted booking. Keep acceptance order. Negative times are allowed. With no bookings, `acceptedLengths` is empty. Keep track of the numbers or places you have already checked.",
+    "Count the numbers in `acceptedLengths` that are at least `k` (greater than or equal to `k`). Store the count in `atLeastK`. If `acceptedLengths` is empty, the count is 0."
   ],
   "functionName": "bookingRackThresholdFile",
   "mode": "function",
   "starterCode": {
-    "javascript": "function bookingRackThresholdFile(drawers, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "typescript": "function bookingRackThresholdFile(drawers: number[][], k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "python": "def bookingRackThresholdFile(drawers, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
-    "java": "class Solution {\n  public int bookingRackThresholdFile(int[][] drawers, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
+    "javascript": "function bookingRackThresholdFile(drawers, k) {\n  // Build acceptedLengths, then return the answer.\n  return 0;\n}\n",
+    "typescript": "function bookingRackThresholdFile(drawers: number[][], k: number): number {\n  // Build acceptedLengths, then return the answer.\n  return 0;\n}\n",
+    "python": "def bookingRackThresholdFile(drawers, k):\n    # Build acceptedLengths, then return the answer.\n    return 0\n",
+    "java": "class Solution {\n  public int bookingRackThresholdFile(int[][] drawers, int k) {\n    // Build acceptedLengths, then return the answer.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -70,7 +70,7 @@
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,1,1,1,6]. Here k = 3. The numbers at least 3 are [4,6]. There are 2, so return 2."
+      "explanation": "`acceptedLengths` is [4, 1, 1, 1, 6]. Here `k` is 3. The numbers at least 3 are [4, 6]. There are 2, so return 2."
     },
     {
       "id": "path3-413-2",
@@ -97,7 +97,7 @@
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [3,5]. Here k = 2. The numbers at least 2 are [3,5]. There are 2, so return 2."
+      "explanation": "`acceptedLengths` is [3, 5]. Here `k` is 2. The numbers at least 2 are [3, 5]. There are 2, so return 2."
     },
     {
       "id": "path3-413-3",
@@ -107,7 +107,7 @@
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. Here k = 1. The numbers at least 1 are []. There are 0, so return 0."
+      "explanation": "`acceptedLengths` is []. Here `k` is 1. The numbers at least 1 are []. There are 0, so return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -119,7 +119,7 @@
     "time": "O(n log n)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `acceptedLengths` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 8,
     "unit": "booking-rack",
@@ -157,7 +157,7 @@
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,1,1,1,6]. Here k = 3. The numbers at least 3 are [4,6]. There are 2, so return 2."
+      "explanation": "`acceptedLengths` is [4, 1, 1, 1, 6]. Here `k` is 3. The numbers at least 3 are [4, 6]. There are 2, so return 2."
     },
     {
       "id": "path3-413-2",
@@ -184,7 +184,7 @@
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [3,5]. Here k = 2. The numbers at least 2 are [3,5]. There are 2, so return 2."
+      "explanation": "`acceptedLengths` is [3, 5]. Here `k` is 2. The numbers at least 2 are [3, 5]. There are 2, so return 2."
     }
   ],
   "referenceSolutions": {
@@ -576,7 +576,7 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nEach booking is [start, end]. It uses time from start up to, but not including, end. Sort bookings by end time, from earliest to latest. For matching end times, put the earlier start first. Accept the first booking. Then accept a booking only if it starts at or after the end of the last one accepted. Record the length, end - start, of each accepted booking. Keep acceptance order. Negative times are allowed. With no bookings, the result list is empty.\n\nReturn the answer\n\nCount the numbers in the result list that are at least k (greater than or equal to k). Return that count. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n log n); extra memory, including the result list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction bookingRackThresholdFile(drawers, k) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]);let end=-Infinity;for(const [s,e]of rows)if(s>=end){out.push(e-s);end=e;}\n  return out.filter(x=>x>=k).length;\n}\n\n\ntypescript\nfunction bookingRackThresholdFile(drawers: number[][], k: number): number {\n  const a=drawers; let out:number[]=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]);let end=-Infinity;for(const [s,e]of rows)if(s>=end){out.push(e-s);end=e;}\n  return out.filter(x=>x>=k).length;\n}\n\n\npython\ndef bookingRackThresholdFile(drawers, k):\n    a=drawers\n    out=[]\n    end=float('-inf')\n    for s,e in sorted(a,key=lambda r:(r[1],r[0])):\n        if s>=end:\n            out.append(e-s)\n            end=e\n    return sum(x>=k for x in out)\n\n\njava\nclass Solution {\n  public int bookingRackThresholdFile(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int[][]rows=a.clone();Arrays.sort(rows,Comparator.comparingInt((int[]r)->r[1]).thenComparingInt(r->r[0]));int end=Integer.MIN_VALUE;for(int[]r:rows)if(r[0]>=end){out.add(r[1]-r[0]);end=r[1];}}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
+    "editorialMd": "Build acceptedLengths\n\nEach booking is [start, end]. It uses time from start up to, but not including, end. Sort bookings by end time, from earliest to latest. For matching end times, put the earlier start first. Accept the first booking. Then accept a booking only if it starts at or after the end of the last one accepted. Record the length, end - start, of each accepted booking. Keep acceptance order. Negative times are allowed. With no bookings, `acceptedLengths` is empty.\n\nReturn the answer\n\nCount the numbers in `acceptedLengths` that are at least `k` (greater than or equal to `k`). Store the count in `atLeastK`. Complete `bookingRackThresholdFile` so it returns `atLeastK`. Return it, do not print it.\n\nWhy this works\n\nEach value in `acceptedLengths` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n log n); extra memory, including the helper list, O(n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction bookingRackThresholdFile(drawers, k) {\n  const a=drawers; let out=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]);let end=-Infinity;for(const [s,e]of rows)if(s>=end){out.push(e-s);end=e;}\n  return out.filter(x=>x>=k).length;\n}\n\n\ntypescript\nfunction bookingRackThresholdFile(drawers: number[][], k: number): number {\n  const a=drawers; let out:number[]=[];\n  const rows=a.map(r=>[...r]).sort((x,y)=>x[1]-y[1]||x[0]-y[0]);let end=-Infinity;for(const [s,e]of rows)if(s>=end){out.push(e-s);end=e;}\n  return out.filter(x=>x>=k).length;\n}\n\n\npython\ndef bookingRackThresholdFile(drawers, k):\n    a=drawers\n    out=[]\n    end=float('-inf')\n    for s,e in sorted(a,key=lambda r:(r[1],r[0])):\n        if s>=end:\n            out.append(e-s)\n            end=e\n    return sum(x>=k for x in out)\n\n\njava\nclass Solution {\n  public int bookingRackThresholdFile(int[][] drawers, int k) {\n    int[][] a=drawers; List<Integer> out=new ArrayList<>();\n    {int[][]rows=a.clone();Arrays.sort(rows,Comparator.comparingInt((int[]r)->r[1]).thenComparingInt(r->r[0]));int end=Integer.MIN_VALUE;for(int[]r:rows)if(r[0]>=end){out.add(r[1]-r[0]);end=r[1];}}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
   },
   "parameterNames": [
     "drawers",

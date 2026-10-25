@@ -16,30 +16,30 @@
   "prerequisites": [
     "path3-287"
   ],
-  "summary": "Linked traversal. Count the numbers in the result list that are at least k (greater than or equal to k).",
+  "summary": "Linked traversal. Count the numbers at least k.",
   "stage": "Edge-case trap",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nhead is the first node of a linked list. In examples, [4, 7] means nodes 4 then 7, linked in that order. [] means no nodes. The runner builds the nodes for you. k is a whole number. Use it as described in the steps below.\n\nStep 1: Build the result list\nhead is the first node of a linked list. A node holds a number in val and a link to the next node in next. Follow next until there are no more nodes. Record each val in order. The list has no loops. An empty list gives an empty result list.\n\nStep 2: Return the answer\nCount the numbers in the result list that are at least k (greater than or equal to k). Return that count. An empty list gives 0.\n\nWrite your function\nComplete chainInspectionThresholdFile(head, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "head is the first node of a linked list. A node holds a number in val and a link to the next node in next. Follow next until there are no more nodes. Record each val in order. The list has no loops. An empty list gives an empty result list. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`head` is the first node of a linked list. In examples, [4, 7] means nodes 4 then 7, linked in that order. [] means no nodes. The runner builds the nodes for you.\n\nYour tasks\n1. Create a list `values`. `head` is the first node of a linked list. A node holds a number in val and a link to the next node in next. Follow next until there are no more nodes. Record each val in order. The list has no loops. An empty list gives an empty `values`.\n2. Count the numbers in `values` that are at least `k` (greater than or equal to `k`). Store the count in `atLeastK`.\n3. Complete `chainInspectionThresholdFile` so it returns `atLeastK`. Return it, do not print it.\n\nExample\nIf `head` is [6, -1, 6, 2] and `k` is 4, then `values` is [6, -1, 6, 2] and `chainInspectionThresholdFile` returns 2.\n\nRules\n- If `values` is empty, the count is 0.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `head` is [7, -3, 7, 0, 12] and `k` is 3.\nTEST DATA 2: `head` is [4, 4, -2, 4] and `k` is 2.",
+  "unitIntro": "`head` is the first node of a linked list. A node holds a number in val and a link to the next node in next. Follow next until there are no more nodes. Record each val in order. The list has no loops. An empty list gives an empty `values`. Each problem in this unit builds `values` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
     "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
     "Linked lists do not loop back to an earlier node. Tree examples list nodes by level; null means a missing child. The runner builds the nodes shown in the examples.",
-    "Efficiency goal: time O(n); extra memory, including the result list, O(n). n is the number of nodes. These labels describe how work and memory grow with the input."
+    "Efficiency goal: time O(n); extra memory, including the helper list, O(n). n is the number of nodes. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "head is the first node of a linked list. A node holds a number in val and a link to the next node in next. Follow next until there are no more nodes. Record each val in order. The list has no loops. An empty list gives an empty result list. Keep track of the numbers or places you have already checked.",
-    "Count the numbers in the result list that are at least k (greater than or equal to k). Return that count. An empty list gives 0. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `values` before you look for the answer.",
+    "`head` is the first node of a linked list. A node holds a number in val and a link to the next node in next. Follow next until there are no more nodes. Record each val in order. The list has no loops. An empty list gives an empty `values`. Keep track of the numbers or places you have already checked.",
+    "Count the numbers in `values` that are at least `k` (greater than or equal to `k`). Store the count in `atLeastK`. If `values` is empty, the count is 0."
   ],
   "functionName": "chainInspectionThresholdFile",
   "mode": "function",
   "starterCode": {
-    "javascript": "function chainInspectionThresholdFile(head, k) {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "typescript": "type ListNode = { val: number; next: ListNode | null };\nfunction chainInspectionThresholdFile(head: ListNode | null, k: number): number {\n  // Build the result list, then return the answer from Step 2.\n  return 0;\n}\n",
-    "python": "def chainInspectionThresholdFile(head, k):\n    # Build the result list, then return the answer from Step 2.\n    return 0\n",
-    "java": "class Solution {\n  public int chainInspectionThresholdFile(ListNode head, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return 0;\n  }\n}\n"
+    "javascript": "function chainInspectionThresholdFile(head, k) {\n  // Build values, then return the answer.\n  return 0;\n}\n",
+    "typescript": "type ListNode = { val: number; next: ListNode | null };\nfunction chainInspectionThresholdFile(head: ListNode | null, k: number): number {\n  // Build values, then return the answer.\n  return 0;\n}\n",
+    "python": "def chainInspectionThresholdFile(head, k):\n    # Build values, then return the answer.\n    return 0\n",
+    "java": "class Solution {\n  public int chainInspectionThresholdFile(ListNode head, int k) {\n    // Build values, then return the answer.\n    return 0;\n  }\n}\n"
   },
   "cases": [
     {
@@ -56,7 +56,7 @@
       ],
       "expected": 3,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [7,-3,7,0,12]. Here k = 3. The numbers at least 3 are [7,7,12]. There are 3, so return 3."
+      "explanation": "`values` is [7, -3, 7, 0, 12]. Here `k` is 3. The numbers at least 3 are [7, 7, 12]. There are 3, so return 3."
     },
     {
       "id": "path3-288-2",
@@ -71,7 +71,7 @@
       ],
       "expected": 3,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,4,-2,4]. Here k = 2. The numbers at least 2 are [4,4,4]. There are 3, so return 3."
+      "explanation": "`values` is [4, 4, -2, 4]. Here `k` is 2. The numbers at least 2 are [4, 4, 4]. There are 3, so return 3."
     },
     {
       "id": "path3-288-3",
@@ -81,7 +81,7 @@
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list []. Here k = 1. The numbers at least 1 are []. There are 0, so return 0."
+      "explanation": "`values` is []. Here `k` is 1. The numbers at least 1 are []. There are 0, so return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -96,7 +96,7 @@
     "time": "O(n)",
     "space": "O(n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `values` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 6,
     "unit": "chain-inspection",
@@ -119,7 +119,7 @@
       ],
       "expected": 3,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [7,-3,7,0,12]. Here k = 3. The numbers at least 3 are [7,7,12]. There are 3, so return 3."
+      "explanation": "`values` is [7, -3, 7, 0, 12]. Here `k` is 3. The numbers at least 3 are [7, 7, 12]. There are 3, so return 3."
     },
     {
       "id": "path3-288-2",
@@ -134,7 +134,7 @@
       ],
       "expected": 3,
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [4,4,-2,4]. Here k = 2. The numbers at least 2 are [4,4,4]. There are 3, so return 3."
+      "explanation": "`values` is [4, 4, -2, 4]. Here `k` is 2. The numbers at least 2 are [4, 4, 4]. There are 3, so return 3."
     }
   ],
   "referenceSolutions": {
@@ -286,7 +286,7 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nhead is the first node of a linked list. A node holds a number in val and a link to the next node in next. Follow next until there are no more nodes. Record each val in order. The list has no loops. An empty list gives an empty result list.\n\nReturn the answer\n\nCount the numbers in the result list that are at least k (greater than or equal to k). Return that count. An empty list gives 0.\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the result list, O(n). n is the number of nodes. These labels describe how work and memory grow with the input.\n\njavascript\nfunction chainInspectionThresholdFile(head, k) {\n  const a=head; let out=[];\n  for(let node=a;node;node=node.next)out.push(node.val);\n  return out.filter(x=>x>=k).length;\n}\n\n\ntypescript\ntype ListNode = { val: number; next: ListNode | null };\nfunction chainInspectionThresholdFile(head: ListNode | null, k: number): number {\n  const a=head; let out:number[]=[];\n  for(let node=a;node;node=node.next)out.push(node.val);\n  return out.filter(x=>x>=k).length;\n}\n\n\npython\ndef chainInspectionThresholdFile(head, k):\n    a=head\n    out=[]\n    node=a\n    while node:\n        out.append(node.val)\n        node=node.next\n    return sum(x>=k for x in out)\n\n\njava\nclass Solution {\n  public int chainInspectionThresholdFile(ListNode head, int k) {\n    ListNode a=head; List<Integer> out=new ArrayList<>();\n    {for(ListNode node=a;node!=null;node=node.next)out.add(node.val);}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
+    "editorialMd": "Build values\n\n`head` is the first node of a linked list. A node holds a number in val and a link to the next node in next. Follow next until there are no more nodes. Record each val in order. The list has no loops. An empty list gives an empty `values`.\n\nReturn the answer\n\nCount the numbers in `values` that are at least `k` (greater than or equal to `k`). Store the count in `atLeastK`. Complete `chainInspectionThresholdFile` so it returns `atLeastK`. Return it, do not print it.\n\nWhy this works\n\nEach value in `values` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n); extra memory, including the helper list, O(n). n is the number of nodes. These labels describe how work and memory grow with the input.\n\njavascript\nfunction chainInspectionThresholdFile(head, k) {\n  const a=head; let out=[];\n  for(let node=a;node;node=node.next)out.push(node.val);\n  return out.filter(x=>x>=k).length;\n}\n\n\ntypescript\ntype ListNode = { val: number; next: ListNode | null };\nfunction chainInspectionThresholdFile(head: ListNode | null, k: number): number {\n  const a=head; let out:number[]=[];\n  for(let node=a;node;node=node.next)out.push(node.val);\n  return out.filter(x=>x>=k).length;\n}\n\n\npython\ndef chainInspectionThresholdFile(head, k):\n    a=head\n    out=[]\n    node=a\n    while node:\n        out.append(node.val)\n        node=node.next\n    return sum(x>=k for x in out)\n\n\njava\nclass Solution {\n  public int chainInspectionThresholdFile(ListNode head, int k) {\n    ListNode a=head; List<Integer> out=new ArrayList<>();\n    {for(ListNode node=a;node!=null;node=node.next)out.add(node.val);}\n    int answer=0;for(int x:out)if(x>=k)answer++;return answer;\n  }\n}\n"
   },
   "parameterNames": [
     "head",

@@ -16,29 +16,29 @@
   "prerequisites": [
     "path3-478"
   ],
-  "summary": "Backtracking choices. Return only numbers greater than 0 from the result list.",
+  "summary": "Backtracking choices. Keep the positive numbers.",
   "stage": "Sequence variation",
   "boss": false,
-  "descriptionMd": "Your task\nBuild a result list using Step 1. Then use that list to find the answer in Step 2.\n\nInputs\nreadings is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless Step 1 says otherwise. k is included in the function call, but this task does not use it. You can ignore it.\n\nStep 1: Build the result list\nChoose any positions from readings, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in the result list.\n\nStep 2: Return the answer\nReturn only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return [].\n\nWrite your function\nComplete selectionProofPositiveProofStrip(readings, k). Return the answer from Step 2. Do not print it or read keyboard input. In examples, positions (indexes) start at 0 unless a rule says otherwise.",
-  "unitIntro": "Choose any positions from readings, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in the result list. Each card first builds this result list, then asks for a different answer. Start with the first card. The last card also uses position numbers that start at 1.",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `subsetTotals`. Choose any positions from `readings`, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in `subsetTotals`.\n2. Create a list `positiveValues` that keeps only the numbers in `subsetTotals` that are greater than 0, in the same order.\n3. Complete `selectionProofPositiveProofStrip` so it returns `positiveValues`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `subsetTotals` is [-1, 0, 1, 2, 5, 6, 7, 8, 11, 12, 13, 14] and `selectionProofPositiveProofStrip` returns [1, 2, 5, 6, 7, 8, 11, 12, 13, 14].\n\nRules\n- If no number is greater than 0, return [].\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "unitIntro": "Choose any positions from `readings`, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in `subsetTotals`. Each problem in this unit builds `subsetTotals` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 10.",
-    "k is a whole number from 1 to 8. Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
-    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in Step 1.",
-    "Efficiency goal: time O(n*2^n); extra memory, including the result list, O(2^n). n is the input length. These labels describe how work and memory grow with the input."
+    "Answers fit in a signed 32-bit integer: -2,147,483,648 through 2,147,483,647.",
+    "Input numbers have no decimal part. They range from -1,000,000 to 1,000,000. Follow any extra input rules in task 1.",
+    "Efficiency goal: time O(n*2^n); extra memory, including the helper list, O(2^n). n is the input length. These labels describe how work and memory grow with the input."
   ],
   "hints": [
-    "Try a small example by hand. Follow Step 1 and write down its result list.",
-    "Choose any positions from readings, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in the result list. Keep track of the numbers or places you have already checked.",
-    "Return only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return []. Check what to do if the result list is empty."
+    "Work through TEST DATA 1 by hand. Write down `subsetTotals` before you look for the answer.",
+    "Choose any positions from `readings`, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in `subsetTotals`. Keep track of the numbers or places you have already checked.",
+    "Create a list `positiveValues` that keeps only the numbers in `subsetTotals` that are greater than 0, in the same order. If no number is greater than 0, return []."
   ],
   "functionName": "selectionProofPositiveProofStrip",
   "mode": "function",
   "starterCode": {
-    "javascript": "function selectionProofPositiveProofStrip(readings, k) {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "typescript": "function selectionProofPositiveProofStrip(readings: number[], k: number): number[] {\n  // Build the result list, then return the answer from Step 2.\n  return [];\n}\n",
-    "python": "def selectionProofPositiveProofStrip(readings, k):\n    # Build the result list, then return the answer from Step 2.\n    return []\n",
-    "java": "class Solution {\n  public int[] selectionProofPositiveProofStrip(int[] readings, int k) {\n    // Build the result list, then return the answer from Step 2.\n    return new int[0];\n  }\n}\n"
+    "javascript": "function selectionProofPositiveProofStrip(readings) {\n  // Build subsetTotals, then return the answer.\n  return [];\n}\n",
+    "typescript": "function selectionProofPositiveProofStrip(readings: number[]): number[] {\n  // Build subsetTotals, then return the answer.\n  return [];\n}\n",
+    "python": "def selectionProofPositiveProofStrip(readings):\n    # Build subsetTotals, then return the answer.\n    return []\n",
+    "java": "class Solution {\n  public int[] selectionProofPositiveProofStrip(int[] readings) {\n    // Build subsetTotals, then return the answer.\n    return new int[0];\n  }\n}\n"
   },
   "cases": [
     {
@@ -50,8 +50,7 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": [
         4,
@@ -66,7 +65,7 @@
         26
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-3,0,4,7,9,11,12,14,16,19,23,26]. Keep only numbers greater than 0, without changing their order. Return [4,7,9,11,12,14,16,19,23,26]."
+      "explanation": "`subsetTotals` is [-3, 0, 4, 7, 9, 11, 12, 14, 16, 19, 23, 26]. Keep only numbers greater than 0, without changing their order. Return [4, 7, 9, 11, 12, 14, 16, 19, 23, 26]."
     },
     {
       "id": "path3-479-2",
@@ -76,8 +75,7 @@
           4,
           -2,
           4
-        ],
-        2
+        ]
       ],
       "expected": [
         2,
@@ -88,29 +86,27 @@
         12
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-2,0,2,4,6,8,10,12]. Keep only numbers greater than 0, without changing their order. Return [2,4,6,8,10,12]."
+      "explanation": "`subsetTotals` is [-2, 0, 2, 4, 6, 8, 10, 12]. Keep only numbers greater than 0, without changing their order. Return [2, 4, 6, 8, 10, 12]."
     },
     {
       "id": "path3-479-3",
       "input": [
-        [],
-        1
+        []
       ],
       "expected": [],
       "coverage": "empty",
-      "explanation": "Step 1 gives the result list [0]. Keep only numbers greater than 0, without changing their order. Return []."
+      "explanation": "`subsetTotals` is [0]. Keep only numbers greater than 0, without changing their order. Return []."
     }
   ],
   "timeLimitMs": 2000,
   "javaParams": [
-    "int[]",
-    "int"
+    "int[]"
   ],
   "complexity": {
     "time": "O(n*2^n)",
     "space": "O(2^n)"
   },
-  "overview": "The two steps ask different things: first build a list, then return the answer requested. Follow the order, keep repeated values when required, and check the empty case.",
+  "overview": "Build `subsetTotals` first, then return exactly what the tasks ask for. Follow the order, keep repeated values when the rule says so, and check the empty case.",
   "tags": {
     "level": 8,
     "unit": "selection-proof",
@@ -128,8 +124,7 @@
           7,
           0,
           12
-        ],
-        3
+        ]
       ],
       "expected": [
         4,
@@ -144,7 +139,7 @@
         26
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-3,0,4,7,9,11,12,14,16,19,23,26]. Keep only numbers greater than 0, without changing their order. Return [4,7,9,11,12,14,16,19,23,26]."
+      "explanation": "`subsetTotals` is [-3, 0, 4, 7, 9, 11, 12, 14, 16, 19, 23, 26]. Keep only numbers greater than 0, without changing their order. Return [4, 7, 9, 11, 12, 14, 16, 19, 23, 26]."
     },
     {
       "id": "path3-479-2",
@@ -154,8 +149,7 @@
           4,
           -2,
           4
-        ],
-        2
+        ]
       ],
       "expected": [
         2,
@@ -166,14 +160,14 @@
         12
       ],
       "coverage": "worked",
-      "explanation": "Step 1 gives the result list [-2,0,2,4,6,8,10,12]. Keep only numbers greater than 0, without changing their order. Return [2,4,6,8,10,12]."
+      "explanation": "`subsetTotals` is [-2, 0, 2, 4, 6, 8, 10, 12]. Keep only numbers greater than 0, without changing their order. Return [2, 4, 6, 8, 10, 12]."
     }
   ],
   "referenceSolutions": {
-    "javascript": "function selectionProofPositiveProofStrip(readings, k) {\n  const a=readings; let out=[];\n  const sums=new Set();function visit(i,s){if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  return out.filter(x=>x>0);\n}\n",
-    "typescript": "function selectionProofPositiveProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  const sums=new Set<number>();function visit(i:number,s:number):void{if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  return out.filter(x=>x>0);\n}\n",
-    "python": "def selectionProofPositiveProofStrip(readings, k):\n    a=readings\n    out=[]\n    sums=set()\n    def visit(i,s):\n        if i==len(a):\n            sums.add(s)\n            return\n        visit(i+1,s)\n        visit(i+1,s+a[i])\n    visit(0,0)\n    out=sorted(sums)\n    return [x for x in out if x>0]\n",
-    "java": "class Solution {\n  public int[] selectionProofPositiveProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Set<Integer>sums=new TreeSet<>();class Walk {void visit(int i,int s){if(i==a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}}new Walk().visit(0,0);out.addAll(sums);}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+    "javascript": "function selectionProofPositiveProofStrip(readings) {\n  const a=readings; let out=[];\n  const sums=new Set();function visit(i,s){if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  return out.filter(x=>x>0);\n}\n",
+    "typescript": "function selectionProofPositiveProofStrip(readings: number[]): number[] {\n  const a=readings; let out:number[]=[];\n  const sums=new Set<number>();function visit(i:number,s:number):void{if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  return out.filter(x=>x>0);\n}\n",
+    "python": "def selectionProofPositiveProofStrip(readings):\n    a=readings\n    out=[]\n    sums=set()\n    def visit(i,s):\n        if i==len(a):\n            sums.add(s)\n            return\n        visit(i+1,s)\n        visit(i+1,s+a[i])\n    visit(0,0)\n    out=sorted(sums)\n    return [x for x in out if x>0]\n",
+    "java": "class Solution {\n  public int[] selectionProofPositiveProofStrip(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Set<Integer>sums=new TreeSet<>();class Walk {void visit(int i,int s){if(i==a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}}new Walk().visit(0,0);out.addAll(sums);}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
   },
   "privateData": {
     "hiddenCases": [
@@ -182,8 +176,7 @@
         "input": [
           [
             9
-          ],
-          1
+          ]
         ],
         "expected": [
           9
@@ -198,8 +191,7 @@
             5,
             5,
             5
-          ],
-          4
+          ]
         ],
         "expected": [
           5,
@@ -216,8 +208,7 @@
             -20,
             -1,
             -7
-          ],
-          8
+          ]
         ],
         "expected": [],
         "coverage": "lower-bound"
@@ -236,8 +227,7 @@
             -11,
             2,
             15
-          ],
-          3
+          ]
         ],
         "expected": [
           1,
@@ -309,8 +299,7 @@
             0,
             0,
             0
-          ],
-          5
+          ]
         ],
         "expected": [],
         "coverage": "zero-or-minimum"
@@ -324,8 +313,7 @@
             -2,
             8,
             1
-          ],
-          2
+          ]
         ],
         "expected": [
           1,
@@ -350,10 +338,9 @@
         "coverage": "order-and-ties"
       }
     ],
-    "editorialMd": "Build the result list\n\nChoose any positions from readings, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in the result list.\n\nReturn the answer\n\nReturn only numbers greater than 0 from the result list. Keep their order and any repeated numbers. If none matches, return [].\n\nWhy this works\n\nEach value in the result list follows Step 1. Step 2 uses only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n*2^n); extra memory, including the result list, O(2^n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction selectionProofPositiveProofStrip(readings, k) {\n  const a=readings; let out=[];\n  const sums=new Set();function visit(i,s){if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  return out.filter(x=>x>0);\n}\n\n\ntypescript\nfunction selectionProofPositiveProofStrip(readings: number[], k: number): number[] {\n  const a=readings; let out:number[]=[];\n  const sums=new Set<number>();function visit(i:number,s:number):void{if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  return out.filter(x=>x>0);\n}\n\n\npython\ndef selectionProofPositiveProofStrip(readings, k):\n    a=readings\n    out=[]\n    sums=set()\n    def visit(i,s):\n        if i==len(a):\n            sums.add(s)\n            return\n        visit(i+1,s)\n        visit(i+1,s+a[i])\n    visit(0,0)\n    out=sorted(sums)\n    return [x for x in out if x>0]\n\n\njava\nclass Solution {\n  public int[] selectionProofPositiveProofStrip(int[] readings, int k) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Set<Integer>sums=new TreeSet<>();class Walk {void visit(int i,int s){if(i==a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}}new Walk().visit(0,0);out.addAll(sums);}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
+    "editorialMd": "Build subsetTotals\n\nChoose any positions from `readings`, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in `subsetTotals`.\n\nReturn the answer\n\nCreate a list `positiveValues` that keeps only the numbers in `subsetTotals` that are greater than 0, in the same order. Complete `selectionProofPositiveProofStrip` so it returns `positiveValues`. Return it, do not print it.\n\nWhy this works\n\nEach value in `subsetTotals` follows task 1. The later tasks use only those values. Keeping these steps separate helps avoid returning the list when the question asks for one number. Check empty input, one item, repeated values, and the largest allowed input.\n\nEfficiency goal: time O(n*2^n); extra memory, including the helper list, O(2^n). n is the input length. These labels describe how work and memory grow with the input.\n\njavascript\nfunction selectionProofPositiveProofStrip(readings) {\n  const a=readings; let out=[];\n  const sums=new Set();function visit(i,s){if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  return out.filter(x=>x>0);\n}\n\n\ntypescript\nfunction selectionProofPositiveProofStrip(readings: number[]): number[] {\n  const a=readings; let out:number[]=[];\n  const sums=new Set<number>();function visit(i:number,s:number):void{if(i===a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}visit(0,0);out=[...sums].sort((x,y)=>x-y);\n  return out.filter(x=>x>0);\n}\n\n\npython\ndef selectionProofPositiveProofStrip(readings):\n    a=readings\n    out=[]\n    sums=set()\n    def visit(i,s):\n        if i==len(a):\n            sums.add(s)\n            return\n        visit(i+1,s)\n        visit(i+1,s+a[i])\n    visit(0,0)\n    out=sorted(sums)\n    return [x for x in out if x>0]\n\n\njava\nclass Solution {\n  public int[] selectionProofPositiveProofStrip(int[] readings) {\n    int[] a=readings; List<Integer> out=new ArrayList<>();\n    {Set<Integer>sums=new TreeSet<>();class Walk {void visit(int i,int s){if(i==a.length){sums.add(s);return;}visit(i+1,s);visit(i+1,s+a[i]);}}new Walk().visit(0,0);out.addAll(sums);}\n    return out.stream().filter(x->x>0).mapToInt(Integer::intValue).toArray();\n  }\n}\n"
   },
   "parameterNames": [
-    "readings",
-    "k"
+    "readings"
   ]
 }
