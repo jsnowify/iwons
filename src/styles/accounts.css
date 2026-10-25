@@ -707,3 +707,28 @@
     display: none;
   }
 }
+
+/* Cookie notice: a paper slip with an ink stamp, in the same typewriter voice as the rest of Iwons */
+.cookie-notice {
+  position: fixed; z-index: 60;
+  left: max(16px, env(safe-area-inset-left, 0px)); bottom: max(16px, env(safe-area-inset-bottom, 0px));
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 6px 16px;
+  width: min(460px, calc(100vw - 32px)); padding: 22px 18px 16px;
+  border: 2px solid var(--ink); border-radius: 2px; background: var(--surface); color: var(--text);
+  box-shadow: var(--shadow);
+  background-image: var(--paper-grain);
+}
+.cookie-stamp {
+  position: absolute; top: -13px; left: 14px;
+  padding: 3px 10px; border: 3px double var(--ink); background: var(--accent-2); color: var(--on-accent);
+  font: 400 11px/1.4 var(--font-stamp); letter-spacing: 1.4px; text-transform: uppercase; transform: rotate(-3deg);
+}
+.cookie-copy { grid-column: 1; display: grid; gap: 4px; min-width: 0; }
+.cookie-copy strong { font: 700 17px/1.25 var(--font-display); }
+.cookie-copy p { margin: 0; font-size: 12px; line-height: 1.7; color: var(--muted); }
+.cookie-notice .btn { grid-column: 2; grid-row: 1; align-self: end; white-space: nowrap; }
+@media (max-width: 520px) {
+  .cookie-notice { grid-template-columns: minmax(0, 1fr); right: max(16px, env(safe-area-inset-right, 0px)); width: auto; }
+  .cookie-notice .btn { grid-column: 1; grid-row: auto; justify-self: stretch; }
+}
+@media (prefers-reduced-motion: reduce) { .cookie-notice { animation: none; } }

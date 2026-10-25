@@ -39,6 +39,7 @@ import { ToastProvider, Modal, Button } from "./ui";
 import { AccountProvider } from "./account-provider";
 import { AccountNotice } from "./account-panel";
 import { AccountMenu } from "./account-menu";
+import { CookieNotice } from "./cookie-notice";
 import { Sidebar, NavigationItem, navigation as nav } from "./sidebar";
 export function Shell({ children, footer }: { children: ReactNode; footer: ReactNode }) {
   return (
@@ -222,6 +223,7 @@ function ShellContent({ children, footer }: { children: ReactNode; footer: React
         </header>
         <main id="main"><AccountNotice />{children}</main>
         {footer}
+        <CookieNotice />
       </div>
       {!landing ? (
         <nav className="mobile-nav" aria-label="Mobile navigation">

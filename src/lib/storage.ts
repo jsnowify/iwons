@@ -279,6 +279,11 @@ export const storage = {
     if (value !== undefined && available()) setRaw(key, value);
     return available() ? readRaw<boolean>(key, false) : false;
   },
+  cookieNoticeDismissed(value?: boolean) {
+    const key = META_PREFIX + "cookie-notice-dismissed";
+    if (value !== undefined && available()) setRaw(key, value);
+    return available() ? readRaw<boolean>(key, false) : false;
+  },
   foundationDiscoveryDismissed(value?: boolean) {
     const key = META_PREFIX + "foundation-discovery:v1";
     if (value !== undefined && available()) {
