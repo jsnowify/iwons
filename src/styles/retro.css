@@ -451,7 +451,7 @@ select:focus-visible,
 .table-header {
   border: 0;
   background: transparent;
-  padding-left: 20px;
+  padding-left: 14px;
   padding-right: 20px;
   letter-spacing: 1px;
   font-size: 10px;
@@ -464,11 +464,13 @@ select:focus-visible,
   border-radius: 3px;
   min-height: 84px;
   position: relative;
+  padding-left: 14px;
 }
 .problem-row:before {
   content: "";
   position: absolute;
-  left: 46px;
+  /* The status icon is centred between the row's left edge and this divider: 14px padding + half of the 36px column = 32px, plus the 2px border, so the divider sits at 66px */
+  left: 66px;
   top: 0;
   bottom: 0;
   border-left: 1px dashed var(--ink);
@@ -1476,7 +1478,7 @@ select:focus-visible,
     padding-left: 10px;
   }
   .problem-row:before {
-    left: 42px;
+    left: 50px;
   }
   .problem-row .badge {
     font-size: 10px;
