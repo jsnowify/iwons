@@ -40,6 +40,7 @@ import { storage } from "@/lib/storage";
 import { useStore } from "@/store/use-store";
 import { playBell } from "@/lib/sound";
 import { useWatch } from "@/lib/watch/use-watch";
+import { ComplexityPanel } from "./complexity-panel";
 import { Button, Modal, EditorSkeleton, useToast, Badge } from "./ui";
 import { Onboarding } from "./onboarding";
 import { useAccount } from "./account-provider";
@@ -81,9 +82,6 @@ export function Workspace({
     [error, setError] = useState(""),
     [elapsed, setElapsed] = useState(0),
     [complexity, setComplexity] = useState(false),
-    [timeChoice, setTimeChoice] = useState(""),
-    [spaceChoice, setSpaceChoice] = useState(""),
-    [checked, setChecked] = useState(false),
     [reset, setReset] = useState(false),
     [onboard, setOnboard] = useState(false);
   const start = useRef(Date.now()),
@@ -282,7 +280,6 @@ export function Workspace({
           playBell(store.settings.sound);
           toast("Ding! Carriage return. That one is yours.");
           setComplexity(true);
-          setChecked(false);
         } else toast(`${verdictNames[outcome.verdict]} — take another look.`);
       } else
         toast(
@@ -825,63 +822,11 @@ export function Workspace({
       <Modal
         open={complexity}
         onClose={() => setComplexity(false)}
-        title="It works. Now, how well?"
+        title="Accepted — how your solution scales"
       >
-        <p>
-          Think about your approach before checking the reference complexity.
-          Other valid approaches may use different tradeoffs.
-        </p>
-        <div className="field-grid">
-          <label>
-            Time complexity
-            <select
-              value={timeChoice}
-              onChange={(e) => setTimeChoice(e.target.value)}
-            >
-              <option value="">Pick one…</option>
-              {[
-                "O(1)",
-                "O(log n)",
-                "O(n)",
-                "O(n log n)",
-                "O(n²)",
-                "O(2ⁿ)",
-                "Other",
-              ].map((v) => (
-                <option key={v}>{v}</option>
-              ))}
-            </select>
-          </label>
-          <label>
-            Extra space
-            <select
-              value={spaceChoice}
-              onChange={(e) => setSpaceChoice(e.target.value)}
-            >
-              <option value="">Pick one…</option>
-              {["O(1)", "O(log n)", "O(n)", "O(n²)", "Other"].map((v) => (
-                <option key={v}>{v}</option>
-              ))}
-            </select>
-          </label>
-        </div>
-        {checked ? (
-          <div className="screen-note" style={{ marginTop: 20 }}>
-            Reference approach: <strong>Time {p.complexity.time}</strong> ·{" "}
-            <strong>Space {p.complexity.space}</strong>. Compare this with the
-            data structures in your solution.
-          </div>
-        ) : null}
+        <ComplexityPanel time={p.complexity.time} space={p.complexity.space} />
         <div className="modal-actions">
-          <Button
-            disabled={!timeChoice || !spaceChoice}
-            onClick={() => setChecked(true)}
-          >
-            Check approach
-          </Button>
-          <Button variant="ghost" onClick={() => setComplexity(false)}>
-            Keep practicing
-          </Button>
+          <Button onClick={() => setComplexity(false)}>Keep practicing</Button>
         </div>
       </Modal>
       <Onboarding open={onboard} onClose={() => setOnboard(false)} />
