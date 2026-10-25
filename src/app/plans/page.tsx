@@ -1,14 +1,15 @@
 import { problems } from "@/lib/catalog";
+import { withSocial } from "@/lib/social-meta";
 import type { Metadata } from "next";
 import { PlansPage } from "@/components/plans";
 import { siteUrl } from "@/lib/site-url";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Study plans",
   description:
     "Curated coding practice schedules and structured study plans for mastering data structures and algorithms.",
   alternates: { canonical: "/plans/" },
-};
+});
 export default function Page() {
   return (
     <>

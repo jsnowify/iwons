@@ -1,15 +1,16 @@
 import { creator } from "@/lib/creator";
+import { withSocial } from "@/lib/social-meta";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ShieldCheck, Code2, HardDrive, ArrowRight, Compass } from "lucide-react";
 import { siteUrl } from "@/lib/site-url";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "About Iwons",
   description:
     "A calm coding practice tool built around honest progress. Learn what Iwons Watch records, how guest mode and optional account sync work, and how runtimes execute.",
   alternates: { canonical: "/about/" },
-};
+});
 
 const FAQ_ITEMS = [
   {

@@ -1,14 +1,15 @@
 import { problems } from "@/lib/catalog";
+import { withSocial } from "@/lib/social-meta";
 import type { Metadata } from "next";
 import { ProblemList } from "@/components/problem-list";
 import { siteUrl } from "@/lib/site-url";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Coding problems",
   description:
     "Explore 500 original JavaScript, TypeScript, Python, and Java coding challenges. Practice foundations, arrays, strings, trees, graphs and dynamic programming on the Iwons Path.",
   alternates: { canonical: "/problems/" },
-};
+});
 export default function Problems() {
   return (
     <>

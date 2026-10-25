@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/social-meta";
 import { getLevels } from "@/lib/problems";
 import { PathMap } from "@/components/path-map";
 import { siteUrl } from "@/lib/site-url";
 import { FoundationDiscovery } from "@/components/foundation-discovery";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "The Iwons Path",
   description:
     "A nine-chapter coding adventure from your first loop to your first graph. Explore 500 original exercises in 54 units across nine chapters.",
   alternates: { canonical: "/path/" },
-};
+});
 export default function Page() {
   const levels = getLevels();
   return (

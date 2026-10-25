@@ -1,15 +1,16 @@
 import type { Metadata } from 'next';
+import { withSocial } from "@/lib/social-meta";
 import { VisualizerCatalogView } from '@/visualizer/components/visualizer-catalog-view';
 
 import { siteUrl } from '@/lib/site-url';
 import { ALGORITHM_REGISTRY } from '@/visualizer/registry';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: 'Algorithm Visualizer',
   description:
     'Interactive algorithm workbench powered by 6 unified SVG engines. Step through 67 search, sort, graph, tree, and dynamic programming algorithms.',
   alternates: { canonical: '/visualizer/' },
-};
+});
 
 export default function VisualizerPage() {
   return (
