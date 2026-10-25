@@ -21,7 +21,7 @@
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Level 0: loop accumulators",
-  "descriptionMd": "Inputs\n`links` is a square table of 0s and 1s. Points are numbered from 0. A 1 at `links`[a][b] means a one-way path goes from point a to point b. A 0 means no path.\n\nYour tasks\n1. Create a list `distances`. A graph is a set of points joined by paths. Here, paths go in one direction. Start at point 0. For each point, find the fewest paths you must follow to reach it. Record these distances in point order: 0, 1, 2, and so on. The distance to point 0 is 0. Record -1 for a point you cannot reach. A graph with no points gives an empty `distances`.\n2. Multiply each number in `distances` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `switchboardRingsBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `links` is [[1, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 1, 0, 0, 1], [1, 0, 0, 1, 0], [0, 0, 1, 0, 0]], then `distances` is [0, -1, -1, 1, -1] and `switchboardRingsBossReceipt` returns -6.\n\nRules\n- If `distances` is empty, return 0.\n\nTest data\nTEST DATA 1: `links` is [[1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0], [1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0]].\nTEST DATA 2: `links` is [[0, 0, 1, 0, 0], [0, 1, 0, 0, 1], [1, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 1, 0, 0, 1]].",
+  "descriptionMd": "Inputs\n`links` is a square table of 0s and 1s. Points are numbered from 0. A 1 at `links`[a][b] means a one-way path goes from point a to point b. A 0 means no path.\n\nYour tasks\n1. Create a list `distances`. A graph is a set of points joined by paths. Here, paths go in one direction. Start at point 0. For each point, find the fewest paths you must follow to reach it. Record these distances in point order: 0, 1, 2, and so on. The distance to point 0 is 0. Record -1 for a point you cannot reach. A graph with no points gives an empty `distances`.\n2. Multiply each number in `distances` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `switchboardRingsBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `links` is [[0, 1, 1, 1, 0, 1], [0, 0, 0, 1, 0, 0], [0, 1, 1, 0, 0, 1], [1, 1, 0, 1, 1, 1], [0, 0, 1, 0, 0, 0], [0, 0, 1, 1, 0, 1]], then `distances` is [0, 1, 1, 1, 2, 1] and `switchboardRingsBossReceipt` returns 25.\n\nRules\n- If `distances` is empty, return 0.\n\nTest data\nTEST DATA 1: `links` is [[0, 0, 1, 0, 0, 0], [0, 1, 1, 1, 0, 0], [0, 1, 0, 0, 1, 0], [0, 0, 0, 0, 0, 1], [1, 0, 0, 1, 0, 1], [0, 1, 0, 0, 0, 1]].\nTEST DATA 2: `links` is [[0, 0, 1, 0, 0], [0, 0, 0, 0, 0], [0, 1, 0, 0, 0], [0, 0, 1, 1, 1], [0, 0, 1, 1, 0]].",
   "unitIntro": "A graph is a set of points joined by paths. Here, paths go in one direction. Start at point 0. For each point, find the fewest paths you must follow to reach it. Record these distances in point order: 0, 1, 2, and so on. The distance to point 0 is 0. Record -1 for a point you cannot reach. A graph with no points gives an empty `distances`. Each problem in this unit builds `distances` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 16.",
@@ -49,18 +49,42 @@
       "input": [
         [
           [
+            0,
+            0,
             1,
             0,
             0,
+            0
+          ],
+          [
+            0,
+            1,
+            1,
             1,
             0,
             0
           ],
           [
             0,
-            0,
             1,
             0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
             0,
             1
           ],
@@ -69,38 +93,14 @@
             1,
             0,
             0,
-            1,
-            0
-          ],
-          [
-            1,
-            0,
-            0,
-            1,
-            0,
-            0
-          ],
-          [
-            0,
-            0,
-            1,
-            0,
             0,
             1
-          ],
-          [
-            0,
-            1,
-            0,
-            0,
-            1,
-            0
           ]
         ]
       ],
-      "expected": -12,
+      "expected": 47,
       "coverage": "worked",
-      "explanation": "`distances` is [0, -1, -1, 1, -1, -1]. Multiply by positions that start at 1: 1 * (0) + 2 * (-1) + 3 * (-1) + 4 * (1) + 5 * (-1) + 6 * (-1) = -12. Return -12."
+      "explanation": "`distances` is [0, 2, 1, 3, 2, 3]. Multiply by positions that start at 1: 1 * (0) + 2 * (2) + 3 * (1) + 4 * (3) + 5 * (2) + 6 * (3) = 47. Return 47."
     },
     {
       "id": "path3-350-2",
@@ -115,22 +115,8 @@
           ],
           [
             0,
-            1,
             0,
             0,
-            1
-          ],
-          [
-            1,
-            0,
-            0,
-            1,
-            0
-          ],
-          [
-            0,
-            0,
-            1,
             0,
             0
           ],
@@ -139,13 +125,27 @@
             1,
             0,
             0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            1,
             1
+          ],
+          [
+            0,
+            0,
+            1,
+            1,
+            0
           ]
         ]
       ],
-      "expected": 4,
+      "expected": -2,
       "coverage": "worked",
-      "explanation": "`distances` is [0, -1, 1, 2, -1]. Multiply by positions that start at 1: 1 * (0) + 2 * (-1) + 3 * (1) + 4 * (2) + 5 * (-1) = 4. Return 4."
+      "explanation": "`distances` is [0, 2, 1, -1, -1]. Multiply by positions that start at 1: 1 * (0) + 2 * (2) + 3 * (1) + 4 * (-1) + 5 * (-1) = -2. Return -2."
     },
     {
       "id": "path3-350-3",
@@ -179,18 +179,42 @@
       "input": [
         [
           [
+            0,
+            0,
             1,
             0,
             0,
+            0
+          ],
+          [
+            0,
+            1,
+            1,
             1,
             0,
             0
           ],
           [
             0,
-            0,
             1,
             0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
             0,
             1
           ],
@@ -199,38 +223,14 @@
             1,
             0,
             0,
-            1,
-            0
-          ],
-          [
-            1,
-            0,
-            0,
-            1,
-            0,
-            0
-          ],
-          [
-            0,
-            0,
-            1,
-            0,
             0,
             1
-          ],
-          [
-            0,
-            1,
-            0,
-            0,
-            1,
-            0
           ]
         ]
       ],
-      "expected": -12,
+      "expected": 47,
       "coverage": "worked",
-      "explanation": "`distances` is [0, -1, -1, 1, -1, -1]. Multiply by positions that start at 1: 1 * (0) + 2 * (-1) + 3 * (-1) + 4 * (1) + 5 * (-1) + 6 * (-1) = -12. Return -12."
+      "explanation": "`distances` is [0, 2, 1, 3, 2, 3]. Multiply by positions that start at 1: 1 * (0) + 2 * (2) + 3 * (1) + 4 * (3) + 5 * (2) + 6 * (3) = 47. Return 47."
     },
     {
       "id": "path3-350-2",
@@ -245,22 +245,8 @@
           ],
           [
             0,
-            1,
             0,
             0,
-            1
-          ],
-          [
-            1,
-            0,
-            0,
-            1,
-            0
-          ],
-          [
-            0,
-            0,
-            1,
             0,
             0
           ],
@@ -269,13 +255,27 @@
             1,
             0,
             0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            1,
             1
+          ],
+          [
+            0,
+            0,
+            1,
+            1,
+            0
           ]
         ]
       ],
-      "expected": 4,
+      "expected": -2,
       "coverage": "worked",
-      "explanation": "`distances` is [0, -1, 1, 2, -1]. Multiply by positions that start at 1: 1 * (0) + 2 * (-1) + 3 * (1) + 4 * (2) + 5 * (-1) = 4. Return 4."
+      "explanation": "`distances` is [0, 2, 1, -1, -1]. Multiply by positions that start at 1: 1 * (0) + 2 * (2) + 3 * (1) + 4 * (-1) + 5 * (-1) = -2. Return -2."
     }
   ],
   "referenceSolutions": {
@@ -711,22 +711,38 @@
           [
             [
               0,
+              0,
+              0,
               1,
+              1,
+              1
+            ],
+            [
               0,
               0,
+              1,
+              1,
               1,
               0
             ],
             [
+              0,
               1,
-              0,
-              0,
+              1,
               1,
               0,
               0
             ],
             [
               0,
+              0,
+              0,
+              0,
+              1,
+              1
+            ],
+            [
+              1,
               0,
               1,
               0,
@@ -735,31 +751,15 @@
             ],
             [
               0,
-              1,
               0,
               0,
               1,
-              0
-            ],
-            [
               1,
-              0,
-              0,
-              1,
-              0,
-              0
-            ],
-            [
-              0,
-              0,
-              1,
-              0,
-              0,
               1
             ]
           ]
         ],
-        "expected": 6,
+        "expected": 27,
         "coverage": "order-and-ties"
       }
     ],

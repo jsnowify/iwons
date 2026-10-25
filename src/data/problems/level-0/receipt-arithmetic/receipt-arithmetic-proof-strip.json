@@ -17,7 +17,7 @@
   "summary": "Variables and expressions. Return the whole list.",
   "stage": "Warm-up",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `adjusted`. For each number x in `readings`, multiply x by 2, then add 3. Put each answer in `adjusted`. Keep the original order. For example, 4 becomes 11, and -2 becomes -1.\n2. Complete `receiptArithmeticProofStrip` so it returns `adjusted`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `adjusted` is [15, 1, 15, 7] and `receiptArithmeticProofStrip` returns [15, 1, 15, 7].\n\nRules\n- If `adjusted` is empty, return [].\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `adjusted`. For each number x in `readings`, multiply x by 2, then add 3. Put each answer in `adjusted`. Keep the original order. For example, 4 becomes 11, and -2 becomes -1.\n2. Complete `receiptArithmeticProofStrip` so it returns `adjusted`. Return it, do not print it.\n\nExample\nIf `readings` is [8, 8, 8, -8, 8], then `adjusted` is [19, 19, 19, -13, 19] and `receiptArithmeticProofStrip` returns [19, 19, 19, -13, 19].\n\nRules\n- If `adjusted` is empty, return [].\n\nTest data\nTEST DATA 1: `readings` is [0, -8, 14, 2, 14].\nTEST DATA 2: `readings` is [9, -8, 9, 9].",
   "unitIntro": "For each number x in `readings`, multiply x by 2, then add 3. Put each answer in `adjusted`. Keep the original order. For example, 4 becomes 11, and -2 becomes -1. Each problem in this unit builds `adjusted` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -43,41 +43,41 @@
       "id": "path3-001-1",
       "input": [
         [
-          7,
-          -3,
-          7,
           0,
-          12
+          -8,
+          14,
+          2,
+          14
         ]
       ],
       "expected": [
-        17,
-        -3,
-        17,
         3,
-        27
+        -13,
+        31,
+        7,
+        31
       ],
       "coverage": "worked",
-      "explanation": "`adjusted` is [17, -3, 17, 3, 27]. `receiptArithmeticProofStrip` returns that whole list, so return [17, -3, 17, 3, 27]."
+      "explanation": "`adjusted` is [3, -13, 31, 7, 31]. `receiptArithmeticProofStrip` returns that whole list, so return [3, -13, 31, 7, 31]."
     },
     {
       "id": "path3-001-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          9,
+          -8,
+          9,
+          9
         ]
       ],
       "expected": [
-        11,
-        11,
-        -1,
-        11
+        21,
+        -13,
+        21,
+        21
       ],
       "coverage": "worked",
-      "explanation": "`adjusted` is [11, 11, -1, 11]. `receiptArithmeticProofStrip` returns that whole list, so return [11, 11, -1, 11]."
+      "explanation": "`adjusted` is [21, -13, 21, 21]. `receiptArithmeticProofStrip` returns that whole list, so return [21, -13, 21, 21]."
     },
     {
       "id": "path3-001-3",
@@ -110,41 +110,41 @@
       "id": "path3-001-1",
       "input": [
         [
-          7,
-          -3,
-          7,
           0,
-          12
+          -8,
+          14,
+          2,
+          14
         ]
       ],
       "expected": [
-        17,
-        -3,
-        17,
         3,
-        27
+        -13,
+        31,
+        7,
+        31
       ],
       "coverage": "worked",
-      "explanation": "`adjusted` is [17, -3, 17, 3, 27]. `receiptArithmeticProofStrip` returns that whole list, so return [17, -3, 17, 3, 27]."
+      "explanation": "`adjusted` is [3, -13, 31, 7, 31]. `receiptArithmeticProofStrip` returns that whole list, so return [3, -13, 31, 7, 31]."
     },
     {
       "id": "path3-001-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          9,
+          -8,
+          9,
+          9
         ]
       ],
       "expected": [
-        11,
-        11,
-        -1,
-        11
+        21,
+        -13,
+        21,
+        21
       ],
       "coverage": "worked",
-      "explanation": "`adjusted` is [11, 11, -1, 11]. `receiptArithmeticProofStrip` returns that whole list, so return [11, 11, -1, 11]."
+      "explanation": "`adjusted` is [21, -13, 21, 21]. `receiptArithmeticProofStrip` returns that whole list, so return [21, -13, 21, 21]."
     }
   ],
   "referenceSolutions": {
@@ -159,11 +159,11 @@
         "id": "path3-001-4",
         "input": [
           [
-            9
+            13
           ]
         ],
         "expected": [
-          21
+          29
         ],
         "coverage": "singleton"
       },
@@ -189,15 +189,15 @@
         "id": "path3-001-6",
         "input": [
           [
-            -20,
-            -1,
-            -7
+            -10,
+            -5,
+            -11
           ]
         ],
         "expected": [
-          -37,
-          1,
-          -11
+          -17,
+          -7,
+          -19
         ],
         "coverage": "lower-bound"
       },
@@ -359,19 +359,19 @@
         "id": "path3-001-9",
         "input": [
           [
-            8,
-            3,
-            -2,
-            8,
-            1
+            13,
+            13,
+            14,
+            7,
+            -8
           ]
         ],
         "expected": [
-          19,
-          9,
-          -1,
-          19,
-          5
+          29,
+          29,
+          31,
+          17,
+          -13
         ],
         "coverage": "order-and-ties"
       }

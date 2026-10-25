@@ -19,7 +19,7 @@
   "summary": "Linked pointer reversal. Return the total.",
   "stage": "Variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`head` is the first node of a linked list. In examples, [4, 7] means nodes 4 then 7, linked in that order. [] means no nodes. The runner builds the nodes for you.\n\nYour tasks\n1. Create a list `reversedValues`. Reverse the links in the linked list given by `head`. Each node has a number in val and a link in next. After the links are reversed, follow the new list from start to end. Record its values in that order. An empty list gives an empty `reversedValues`.\n2. Add up every number in `reversedValues`. Store the sum in `total`.\n3. Complete `chainTurntableTotalReceipt` so it returns `total`. Return it, do not print it.\n\nExample\nIf `head` is [6, -1, 6, 2], then `reversedValues` is [2, 6, -1, 6] and `chainTurntableTotalReceipt` returns 13.\n\nRules\n- If `reversedValues` is empty, `total` is 0.\n\nTest data\nTEST DATA 1: `head` is [7, -3, 7, 0, 12].\nTEST DATA 2: `head` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`head` is the first node of a linked list. In examples, [4, 7] means nodes 4 then 7, linked in that order. [] means no nodes. The runner builds the nodes for you.\n\nYour tasks\n1. Create a list `reversedValues`. Reverse the links in the linked list given by `head`. Each node has a number in val and a link in next. After the links are reversed, follow the new list from start to end. Record its values in that order. An empty list gives an empty `reversedValues`.\n2. Add up every number in `reversedValues`. Store the sum in `total`.\n3. Complete `chainTurntableTotalReceipt` so it returns `total`. Return it, do not print it.\n\nExample\nIf `head` is [9, 9, -5, 3, 0], then `reversedValues` is [0, 3, -5, 9, 9] and `chainTurntableTotalReceipt` returns 16.\n\nRules\n- If `reversedValues` is empty, `total` is 0.\n\nTest data\nTEST DATA 1: `head` is [0, 9, -6, 9, 3].\nTEST DATA 2: `head` is [6, -6, 6, 6].",
   "unitIntro": "Reverse the links in the linked list given by `head`. Each node has a number in val and a link in next. After the links are reversed, follow the new list from start to end. Record its values in that order. An empty list gives an empty `reversedValues`. Each problem in this unit builds `reversedValues` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -46,30 +46,30 @@
       "id": "path3-296-1",
       "input": [
         [
-          7,
-          -3,
-          7,
           0,
-          12
+          9,
+          -6,
+          9,
+          3
         ]
       ],
-      "expected": 23,
+      "expected": 15,
       "coverage": "worked",
-      "explanation": "`reversedValues` is [12, 0, 7, -3, 7]. Add its numbers to get 23. Return 23."
+      "explanation": "`reversedValues` is [3, 9, -6, 9, 0]. Add its numbers to get 15. Return 15."
     },
     {
       "id": "path3-296-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          6,
+          -6,
+          6,
+          6
         ]
       ],
-      "expected": 10,
+      "expected": 12,
       "coverage": "worked",
-      "explanation": "`reversedValues` is [4, -2, 4, 4]. Add its numbers to get 10. Return 10."
+      "explanation": "`reversedValues` is [6, 6, -6, 6]. Add its numbers to get 12. Return 12."
     },
     {
       "id": "path3-296-3",
@@ -105,30 +105,30 @@
       "id": "path3-296-1",
       "input": [
         [
-          7,
-          -3,
-          7,
           0,
-          12
+          9,
+          -6,
+          9,
+          3
         ]
       ],
-      "expected": 23,
+      "expected": 15,
       "coverage": "worked",
-      "explanation": "`reversedValues` is [12, 0, 7, -3, 7]. Add its numbers to get 23. Return 23."
+      "explanation": "`reversedValues` is [3, 9, -6, 9, 0]. Add its numbers to get 15. Return 15."
     },
     {
       "id": "path3-296-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          6,
+          -6,
+          6,
+          6
         ]
       ],
-      "expected": 10,
+      "expected": 12,
       "coverage": "worked",
-      "explanation": "`reversedValues` is [4, -2, 4, 4]. Add its numbers to get 10. Return 10."
+      "explanation": "`reversedValues` is [6, 6, -6, 6]. Add its numbers to get 12. Return 12."
     }
   ],
   "referenceSolutions": {
@@ -143,35 +143,35 @@
         "id": "path3-296-4",
         "input": [
           [
-            9
+            20
           ]
         ],
-        "expected": 9,
+        "expected": 20,
         "coverage": "singleton"
       },
       {
         "id": "path3-296-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            6,
+            6,
+            6,
+            6
           ]
         ],
-        "expected": 20,
+        "expected": 24,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-296-6",
         "input": [
           [
-            -20,
             -1,
-            -7
+            -4,
+            -2
           ]
         ],
-        "expected": -28,
+        "expected": -7,
         "coverage": "lower-bound"
       },
       {
@@ -263,14 +263,14 @@
         "id": "path3-296-9",
         "input": [
           [
-            8,
-            3,
-            -2,
-            8,
-            1
+            9,
+            7,
+            11,
+            -1,
+            7
           ]
         ],
-        "expected": 18,
+        "expected": 33,
         "coverage": "order-and-ties"
       }
     ],

@@ -19,7 +19,7 @@
   "summary": "Binary search on answers. Return the smallest number.",
   "stage": "Boundary variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `roots`. For each number x in `readings`, find the largest whole number r whose square is at most x. A square means a number multiplied by itself. For example, x = 10 gives 3, because 3 * 3 = 9 but 4 * 4 = 16. Use whole-number comparisons, not rounded decimal square roots. Keep the answers in input order.\n2. Find the smallest number in `roots`. Store it in `smallest`.\n3. Complete `squareGaugesFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 1, 6, 2], then `roots` is [2, 1, 2, 1] and `squareGaugesFloorTicket` returns 1.\n\nRules\n- If `roots` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, 3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, 2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `roots`. For each number x in `readings`, find the largest whole number r whose square is at most x. A square means a number multiplied by itself. For example, x = 10 gives 3, because 3 * 3 = 9 but 4 * 4 = 16. Use whole-number comparisons, not rounded decimal square roots. Keep the answers in input order.\n2. Find the smallest number in `roots`. Store it in `smallest`.\n3. Complete `squareGaugesFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 4, 4, 12, 4], then `roots` is [2, 2, 2, 3, 2] and `squareGaugesFloorTicket` returns 2.\n\nRules\n- If `roots` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [10, 0, 2, 7, 2].\nTEST DATA 2: `readings` is [5, 5, 5, 4].",
   "unitIntro": "For each number x in `readings`, find the largest whole number r whose square is at most x. A square means a number multiplied by itself. For example, x = 10 gives 3, because 3 * 3 = 9 but 4 * 4 = 16. Use whole-number comparisons, not rounded decimal square roots. Keep the answers in input order. Each problem in this unit builds `roots` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,30 +45,30 @@
       "id": "path3-263-1",
       "input": [
         [
-          7,
-          3,
-          7,
+          10,
           0,
-          12
+          2,
+          7,
+          2
         ]
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "`roots` is [2, 1, 2, 0, 3]. The smallest number is 0. Return 0."
+      "explanation": "`roots` is [3, 0, 1, 2, 1]. The smallest number is 0. Return 0."
     },
     {
       "id": "path3-263-2",
       "input": [
         [
-          4,
-          4,
-          2,
+          5,
+          5,
+          5,
           4
         ]
       ],
-      "expected": 1,
+      "expected": 2,
       "coverage": "worked",
-      "explanation": "`roots` is [2, 2, 1, 2]. The smallest number is 1. Return 1."
+      "explanation": "`roots` is [2, 2, 2, 2]. The smallest number is 2. Return 2."
     },
     {
       "id": "path3-263-3",
@@ -101,30 +101,30 @@
       "id": "path3-263-1",
       "input": [
         [
-          7,
-          3,
-          7,
+          10,
           0,
-          12
+          2,
+          7,
+          2
         ]
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "`roots` is [2, 1, 2, 0, 3]. The smallest number is 0. Return 0."
+      "explanation": "`roots` is [3, 0, 1, 2, 1]. The smallest number is 0. Return 0."
     },
     {
       "id": "path3-263-2",
       "input": [
         [
-          4,
-          4,
-          2,
+          5,
+          5,
+          5,
           4
         ]
       ],
-      "expected": 1,
+      "expected": 2,
       "coverage": "worked",
-      "explanation": "`roots` is [2, 2, 1, 2]. The smallest number is 1. Return 1."
+      "explanation": "`roots` is [2, 2, 2, 2]. The smallest number is 2. Return 2."
     }
   ],
   "referenceSolutions": {
@@ -149,10 +149,10 @@
         "id": "path3-263-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            8,
+            8,
+            8,
+            8
           ]
         ],
         "expected": 2,
@@ -162,9 +162,9 @@
         "id": "path3-263-6",
         "input": [
           [
-            20,
-            1,
-            7
+            19,
+            5,
+            2
           ]
         ],
         "expected": 1,
@@ -259,14 +259,14 @@
         "id": "path3-263-9",
         "input": [
           [
-            8,
-            3,
-            2,
-            8,
-            1
+            7,
+            11,
+            13,
+            11,
+            8
           ]
         ],
-        "expected": 1,
+        "expected": 2,
         "coverage": "order-and-ties"
       }
     ],

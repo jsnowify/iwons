@@ -20,7 +20,7 @@
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Earlier foundation work; the first unit establishes the prerequisite",
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `tallies`. Start a total at 0. Read `readings` from left to right. If the next number is 0, reset the total to 0. Otherwise, add that number to the total. Put the total in `tallies` after each number.\n2. Multiply each number in `tallies` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `resetTalliesBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `tallies` is [6, 5, 11, 13] and `resetTalliesBossReceipt` returns 101.\n\nRules\n- If `tallies` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `tallies`. Start a total at 0. Read `readings` from left to right. If the next number is 0, reset the total to 0. Otherwise, add that number to the total. Put the total in `tallies` after each number.\n2. Multiply each number in `tallies` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `resetTalliesBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [-9, 9, 5, 4, 9], then `tallies` is [-9, 0, 5, 9, 18] and `resetTalliesBossReceipt` returns 132.\n\nRules\n- If `tallies` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [19, 0, 14, 19, -9].\nTEST DATA 2: `readings` is [5, 5, -3, 5].",
   "unitIntro": "Start a total at 0. Read `readings` from left to right. If the next number is 0, reset the total to 0. Otherwise, add that number to the total. Put the total in `tallies` after each number. Each problem in this unit builds `tallies` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -46,30 +46,30 @@
       "id": "path3-024-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          19,
           0,
-          12
+          14,
+          19,
+          -9
         ]
       ],
-      "expected": 108,
+      "expected": 313,
       "coverage": "worked",
-      "explanation": "`tallies` is [7, 4, 11, 0, 12]. Multiply by positions that start at 1: 1 * (7) + 2 * (4) + 3 * (11) + 4 * (0) + 5 * (12) = 108. Return 108."
+      "explanation": "`tallies` is [19, 0, 14, 33, 24]. Multiply by positions that start at 1: 1 * (19) + 2 * (0) + 3 * (14) + 4 * (33) + 5 * (24) = 313. Return 313."
     },
     {
       "id": "path3-024-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          5,
+          5,
+          -3,
+          5
         ]
       ],
-      "expected": 78,
+      "expected": 94,
       "coverage": "worked",
-      "explanation": "`tallies` is [4, 8, 6, 10]. Multiply by positions that start at 1: 1 * (4) + 2 * (8) + 3 * (6) + 4 * (10) = 78. Return 78."
+      "explanation": "`tallies` is [5, 10, 7, 12]. Multiply by positions that start at 1: 1 * (5) + 2 * (10) + 3 * (7) + 4 * (12) = 94. Return 94."
     },
     {
       "id": "path3-024-3",
@@ -102,30 +102,30 @@
       "id": "path3-024-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          19,
           0,
-          12
+          14,
+          19,
+          -9
         ]
       ],
-      "expected": 108,
+      "expected": 313,
       "coverage": "worked",
-      "explanation": "`tallies` is [7, 4, 11, 0, 12]. Multiply by positions that start at 1: 1 * (7) + 2 * (4) + 3 * (11) + 4 * (0) + 5 * (12) = 108. Return 108."
+      "explanation": "`tallies` is [19, 0, 14, 33, 24]. Multiply by positions that start at 1: 1 * (19) + 2 * (0) + 3 * (14) + 4 * (33) + 5 * (24) = 313. Return 313."
     },
     {
       "id": "path3-024-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          5,
+          5,
+          -3,
+          5
         ]
       ],
-      "expected": 78,
+      "expected": 94,
       "coverage": "worked",
-      "explanation": "`tallies` is [4, 8, 6, 10]. Multiply by positions that start at 1: 1 * (4) + 2 * (8) + 3 * (6) + 4 * (10) = 78. Return 78."
+      "explanation": "`tallies` is [5, 10, 7, 12]. Multiply by positions that start at 1: 1 * (5) + 2 * (10) + 3 * (7) + 4 * (12) = 94. Return 94."
     }
   ],
   "referenceSolutions": {
@@ -140,35 +140,35 @@
         "id": "path3-024-4",
         "input": [
           [
-            9
+            20
           ]
         ],
-        "expected": 9,
+        "expected": 20,
         "coverage": "singleton"
       },
       {
         "id": "path3-024-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            8,
+            8,
+            8,
+            8
           ]
         ],
-        "expected": 150,
+        "expected": 240,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-024-6",
         "input": [
           [
-            -20,
-            -1,
-            -7
+            -10,
+            -5,
+            -2
           ]
         ],
-        "expected": -146,
+        "expected": -91,
         "coverage": "lower-bound"
       },
       {
@@ -176,72 +176,72 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
             -9,
-            4,
-            17,
-            -11,
             2,
-            15,
-            -13,
-            0,
             13,
-            -15,
-            -2,
-            11,
             -17,
-            -4,
-            9,
-            -19,
             -6,
-            7,
-            20,
-            -8,
             5,
-            18,
-            -10,
-            3,
             16,
-            -12,
-            1,
-            14,
             -14,
-            -1,
-            12,
-            -16,
             -3,
-            10,
-            -18,
-            -5,
             8,
-            -20,
-            -7,
-            6,
             19,
-            -9,
-            4,
-            17,
             -11,
-            2,
-            15,
-            -13,
             0,
-            13,
-            -15,
-            -2,
             11,
-            -17,
-            -4,
-            9,
             -19,
-            -6,
+            -8,
+            3,
+            14,
+            -16,
+            -5,
+            6,
+            17,
+            -13,
+            -2,
+            9,
+            20,
+            -10,
+            1,
+            12,
+            -18,
+            -7,
+            4,
+            15,
+            -15,
+            -4,
             7,
-            20
+            18,
+            -12,
+            -1,
+            10,
+            -20,
+            -9,
+            2,
+            13,
+            -17,
+            -6,
+            5,
+            16,
+            -14,
+            -3,
+            8,
+            19,
+            -11,
+            0,
+            11,
+            -19,
+            -8,
+            3,
+            14,
+            -16,
+            -5,
+            6,
+            17
           ]
         ],
-        "expected": -8506,
+        "expected": -9220,
         "coverage": "maximum-size"
       },
       {
@@ -260,14 +260,14 @@
         "id": "path3-024-9",
         "input": [
           [
-            8,
-            3,
+            13,
             -2,
-            8,
-            1
+            5,
+            10,
+            10
           ]
         ],
-        "expected": 215,
+        "expected": 367,
         "coverage": "order-and-ties"
       }
     ],

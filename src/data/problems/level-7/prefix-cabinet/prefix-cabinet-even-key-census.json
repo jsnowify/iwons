@@ -19,7 +19,7 @@
   "summary": "Trie prefix counts. Count the even numbers.",
   "stage": "Counting variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`words` is a list of `words`.\n\nYour tasks\n1. Create a list `prefixTotals`. A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order.\n2. Count the even numbers in `prefixTotals`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder.\n3. Complete `prefixCabinetEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nExample\nIf `words` is [\"tap\", \"tape\", \"top\", \"tap\"], then `prefixTotals` is [10, 11, 6, 10] and `prefixCabinetEvenKeyCensus` returns 3.\n\nRules\n- If `prefixTotals` is empty, return 0.\n\nTest data\nTEST DATA 1: `words` is [\"ink\", \"inside\", \"inn\", \"paper\"].\nTEST DATA 2: `words` is [\"aa\", \"aa\", \"ab\"].",
+  "descriptionMd": "Inputs\n`words` is a list of `words`.\n\nYour tasks\n1. Create a list `prefixTotals`. A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order.\n2. Count the even numbers in `prefixTotals`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder.\n3. Complete `prefixCabinetEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nExample\nIf `words` is [\"slip\", \"slip\", \"sle\", \"key\"], then `prefixTotals` is [10, 10, 7, 3] and `prefixCabinetEvenKeyCensus` returns 2.\n\nRules\n- If `prefixTotals` is empty, return 0.\n\nTest data\nTEST DATA 1: `words` is [\"binder\", \"bined\", \"bipr\", \"stamp\"].\nTEST DATA 2: `words` is [\"margin\", \"margin\", \"margil\"].",
   "unitIntro": "A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order. Each problem in this unit builds `prefixTotals` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,28 +45,28 @@
       "id": "path3-397-1",
       "input": [
         [
-          "ink",
-          "inside",
-          "inn",
-          "paper"
+          "binder",
+          "bined",
+          "bipr",
+          "stamp"
         ]
       ],
-      "expected": 1,
+      "expected": 2,
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [7, 10, 7, 5]. The even numbers are [10]. There are 1, so return 1."
+      "explanation": "`prefixTotals` is [11, 10, 8, 5]. The even numbers are [10, 8]. There are 2, so return 2."
     },
     {
       "id": "path3-397-2",
       "input": [
         [
-          "aa",
-          "aa",
-          "ab"
+          "margin",
+          "margin",
+          "margil"
         ]
       ],
       "expected": 1,
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [5, 5, 4]. The even numbers are [4]. There are 1, so return 1."
+      "explanation": "`prefixTotals` is [17, 17, 16]. The even numbers are [16]. There are 1, so return 1."
     },
     {
       "id": "path3-397-3",
@@ -99,28 +99,28 @@
       "id": "path3-397-1",
       "input": [
         [
-          "ink",
-          "inside",
-          "inn",
-          "paper"
+          "binder",
+          "bined",
+          "bipr",
+          "stamp"
         ]
       ],
-      "expected": 1,
+      "expected": 2,
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [7, 10, 7, 5]. The even numbers are [10]. There are 1, so return 1."
+      "explanation": "`prefixTotals` is [11, 10, 8, 5]. The even numbers are [10, 8]. There are 2, so return 2."
     },
     {
       "id": "path3-397-2",
       "input": [
         [
-          "aa",
-          "aa",
-          "ab"
+          "margin",
+          "margin",
+          "margil"
         ]
       ],
       "expected": 1,
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [5, 5, 4]. The even numbers are [4]. There are 1, so return 1."
+      "explanation": "`prefixTotals` is [17, 17, 16]. The even numbers are [16]. There are 1, so return 1."
     }
   ],
   "referenceSolutions": {
@@ -135,7 +135,7 @@
         "id": "path3-397-4",
         "input": [
           [
-            "z"
+            "ink"
           ]
         ],
         "expected": 0,
@@ -145,12 +145,12 @@
         "id": "path3-397-5",
         "input": [
           [
-            "a",
-            "a",
-            "a"
+            "me",
+            "me",
+            "me"
           ]
         ],
-        "expected": 0,
+        "expected": 3,
         "coverage": "duplicates-or-redundancy"
       },
       {
@@ -158,7 +158,7 @@
         "input": [
           [
             "a",
-            "z"
+            "y"
           ]
         ],
         "expected": 0,
@@ -168,70 +168,70 @@
         "id": "path3-397-7",
         "input": [
           [
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk"
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx",
+            "bindestampm",
+            "bindestampx"
           ]
         ],
         "expected": 64,
@@ -242,7 +242,7 @@
         "input": [
           [
             "a",
-            "b"
+            "f"
           ]
         ],
         "expected": 0,
@@ -252,12 +252,12 @@
         "id": "path3-397-9",
         "input": [
           [
-            "paper",
-            "pa",
-            "p"
+            "stamp",
+            "ty",
+            "s"
           ]
         ],
-        "expected": 1,
+        "expected": 3,
         "coverage": "order-and-ties"
       }
     ],

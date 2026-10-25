@@ -21,7 +21,7 @@
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Level 0: loop accumulators",
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `byDistance`. Sort `readings` by distance from 0, from nearest to farthest. This distance is called absolute value: both -4 and 4 have distance 4. When two numbers have the same distance, put the smaller number first. Keep all repeated numbers. For [3, -2, 2, -3], `byDistance` is [-2, 2, -3, 3].\n2. Multiply each number in `byDistance` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `magnitudeOrderBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `byDistance` is [-1, 2, 6, 6] and `magnitudeOrderBossReceipt` returns 45.\n\nRules\n- If `byDistance` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `byDistance`. Sort `readings` by distance from 0, from nearest to farthest. This distance is called absolute value: both -4 and 4 have distance 4. When two numbers have the same distance, put the smaller number first. Keep all repeated numbers. For [3, -2, 2, -3], `byDistance` is [-2, 2, -3, 3].\n2. Multiply each number in `byDistance` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `magnitudeOrderBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [-8, 9, 8, 3, 9], then `byDistance` is [3, -8, 8, 9, 9] and `magnitudeOrderBossReceipt` returns 92.\n\nRules\n- If `byDistance` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [12, 3, 12, -2, 0].\nTEST DATA 2: `readings` is [-7, 9, 9, 9].",
   "unitIntro": "Sort `readings` by distance from 0, from nearest to farthest. This distance is called absolute value: both -4 and 4 have distance 4. When two numbers have the same distance, put the smaller number first. Keep all repeated numbers. For [3, -2, 2, -3], `byDistance` is [-2, 2, -3, 3]. Each problem in this unit builds `byDistance` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -47,30 +47,30 @@
       "id": "path3-130-1",
       "input": [
         [
-          7,
-          -3,
-          7,
-          0,
-          12
+          12,
+          3,
+          12,
+          -2,
+          0
         ]
       ],
-      "expected": 103,
+      "expected": 113,
       "coverage": "worked",
-      "explanation": "`byDistance` is [0, -3, 7, 7, 12]. Multiply by positions that start at 1: 1 * (0) + 2 * (-3) + 3 * (7) + 4 * (7) + 5 * (12) = 103. Return 103."
+      "explanation": "`byDistance` is [0, -2, 3, 12, 12]. Multiply by positions that start at 1: 1 * (0) + 2 * (-2) + 3 * (3) + 4 * (12) + 5 * (12) = 113. Return 113."
     },
     {
       "id": "path3-130-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          -7,
+          9,
+          9,
+          9
         ]
       ],
-      "expected": 34,
+      "expected": 74,
       "coverage": "worked",
-      "explanation": "`byDistance` is [-2, 4, 4, 4]. Multiply by positions that start at 1: 1 * (-2) + 2 * (4) + 3 * (4) + 4 * (4) = 34. Return 34."
+      "explanation": "`byDistance` is [-7, 9, 9, 9]. Multiply by positions that start at 1: 1 * (-7) + 2 * (9) + 3 * (9) + 4 * (9) = 74. Return 74."
     },
     {
       "id": "path3-130-3",
@@ -103,30 +103,30 @@
       "id": "path3-130-1",
       "input": [
         [
-          7,
-          -3,
-          7,
-          0,
-          12
+          12,
+          3,
+          12,
+          -2,
+          0
         ]
       ],
-      "expected": 103,
+      "expected": 113,
       "coverage": "worked",
-      "explanation": "`byDistance` is [0, -3, 7, 7, 12]. Multiply by positions that start at 1: 1 * (0) + 2 * (-3) + 3 * (7) + 4 * (7) + 5 * (12) = 103. Return 103."
+      "explanation": "`byDistance` is [0, -2, 3, 12, 12]. Multiply by positions that start at 1: 1 * (0) + 2 * (-2) + 3 * (3) + 4 * (12) + 5 * (12) = 113. Return 113."
     },
     {
       "id": "path3-130-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          -7,
+          9,
+          9,
+          9
         ]
       ],
-      "expected": 34,
+      "expected": 74,
       "coverage": "worked",
-      "explanation": "`byDistance` is [-2, 4, 4, 4]. Multiply by positions that start at 1: 1 * (-2) + 2 * (4) + 3 * (4) + 4 * (4) = 34. Return 34."
+      "explanation": "`byDistance` is [-7, 9, 9, 9]. Multiply by positions that start at 1: 1 * (-7) + 2 * (9) + 3 * (9) + 4 * (9) = 74. Return 74."
     }
   ],
   "referenceSolutions": {
@@ -141,35 +141,35 @@
         "id": "path3-130-4",
         "input": [
           [
-            9
+            8
           ]
         ],
-        "expected": 9,
+        "expected": 8,
         "coverage": "singleton"
       },
       {
         "id": "path3-130-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            2,
+            2,
+            2,
+            2
           ]
         ],
-        "expected": 50,
+        "expected": 20,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-130-6",
         "input": [
           [
-            -20,
-            -1,
-            -7
+            -7,
+            -4,
+            -20
           ]
         ],
-        "expected": -75,
+        "expected": -78,
         "coverage": "lower-bound"
       },
       {
@@ -177,72 +177,72 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
-            -4,
-            9,
-            -19,
-            -6,
-            7,
-            20,
-            -8,
-            5,
-            18,
-            -10,
             3,
-            16,
-            -12,
-            1,
-            14,
-            -14,
-            -1,
-            12,
-            -16,
-            -3,
-            10,
-            -18,
-            -5,
-            8,
-            -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
             -15,
-            -2,
-            11,
-            -17,
-            -4,
-            9,
-            -19,
-            -6,
+            8,
+            -10,
+            13,
+            -5,
+            18,
+            0,
+            -18,
+            5,
+            -13,
+            10,
+            -8,
+            15,
+            -3,
+            20,
+            2,
+            -16,
             7,
-            20
+            -11,
+            12,
+            -6,
+            17,
+            -1,
+            -19,
+            4,
+            -14,
+            9,
+            -9,
+            14,
+            -4,
+            19,
+            1,
+            -17,
+            6,
+            -12,
+            11,
+            -7,
+            16,
+            -2,
+            -20,
+            3,
+            -15,
+            8,
+            -10,
+            13,
+            -5,
+            18,
+            0,
+            -18,
+            5,
+            -13,
+            10,
+            -8,
+            15,
+            -3,
+            20,
+            2,
+            -16,
+            7,
+            -11,
+            12,
+            -6
           ]
         ],
-        "expected": 579,
+        "expected": -153,
         "coverage": "maximum-size"
       },
       {
@@ -261,14 +261,14 @@
         "id": "path3-130-9",
         "input": [
           [
-            8,
-            3,
-            -2,
-            8,
-            1
+            4,
+            10,
+            4,
+            -7,
+            8
           ]
         ],
-        "expected": 78,
+        "expected": 73,
         "coverage": "order-and-ties"
       }
     ],

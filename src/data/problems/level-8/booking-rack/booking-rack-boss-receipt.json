@@ -21,7 +21,7 @@
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Level 0: loop accumulators",
-  "descriptionMd": "Inputs\n`drawers` is a list of bookings. Each row is [start, end].\n\nYour tasks\n1. Create a list `acceptedLengths`. Each booking is [start, end]. It uses time from start up to, but not including, end. Sort bookings by end time, from earliest to latest. For matching end times, put the earlier start first. Accept the first booking. Then accept a booking only if it starts at or after the end of the last one accepted. Record the length, end - start, of each accepted booking. Keep acceptance order. Negative times are allowed. With no bookings, `acceptedLengths` is empty.\n2. Multiply each number in `acceptedLengths` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `bookingRackBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `drawers` is [[6, 13], [0, 2], [8, 15], [5, 8]], then `acceptedLengths` is [2, 3, 7] and `bookingRackBossReceipt` returns 29.\n\nRules\n- If `acceptedLengths` is empty, return 0.\n\nTest data\nTEST DATA 1: `drawers` is [[7, 8], [-2, 2], [9, 10], [3, 4], [16, 22]].\nTEST DATA 2: `drawers` is [[4, 9], [5, 10], [0, 3], [7, 12]].",
+  "descriptionMd": "Inputs\n`drawers` is a list of bookings. Each row is [start, end].\n\nYour tasks\n1. Create a list `acceptedLengths`. Each booking is [start, end]. It uses time from start up to, but not including, end. Sort bookings by end time, from earliest to latest. For matching end times, put the earlier start first. Accept the first booking. Then accept a booking only if it starts at or after the end of the last one accepted. Record the length, end - start, of each accepted booking. Keep acceptance order. Negative times are allowed. With no bookings, `acceptedLengths` is empty.\n2. Multiply each number in `acceptedLengths` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `bookingRackBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `drawers` is [[5, 11], [9, 11], [9, 10], [8, 14], [-3, -2]], then `acceptedLengths` is [1, 1] and `bookingRackBossReceipt` returns 3.\n\nRules\n- If `acceptedLengths` is empty, return 0.\n\nTest data\nTEST DATA 1: `drawers` is [[15, 17], [1, 2], [19, 23], [-4, -3], [21, 25]].\nTEST DATA 2: `drawers` is [[9, 12], [10, 13], [-5, -4], [12, 15]].",
   "unitIntro": "Each booking is [start, end]. It uses time from start up to, but not including, end. Sort bookings by end time, from earliest to latest. For matching end times, put the earlier start first. Accept the first booking. Then accept a booking only if it starts at or after the end of the last one accepted. Record the length, end - start, of each accepted booking. Keep acceptance order. Negative times are allowed. With no bookings, `acceptedLengths` is empty. Each problem in this unit builds `acceptedLengths` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -48,56 +48,56 @@
       "input": [
         [
           [
-            7,
-            8
+            15,
+            17
           ],
           [
-            -2,
+            1,
             2
           ],
           [
-            9,
-            10
+            19,
+            23
           ],
           [
-            3,
-            4
+            -4,
+            -3
           ],
           [
-            16,
-            22
+            21,
+            25
           ]
         ]
       ],
-      "expected": 43,
+      "expected": 25,
       "coverage": "worked",
-      "explanation": "`acceptedLengths` is [4, 1, 1, 1, 6]. Multiply by positions that start at 1: 1 * (4) + 2 * (1) + 3 * (1) + 4 * (1) + 5 * (6) = 43. Return 43."
+      "explanation": "`acceptedLengths` is [1, 1, 2, 4]. Multiply by positions that start at 1: 1 * (1) + 2 * (1) + 3 * (2) + 4 * (4) = 25. Return 25."
     },
     {
       "id": "path3-420-2",
       "input": [
         [
           [
-            4,
-            9
-          ],
-          [
-            5,
-            10
-          ],
-          [
-            0,
-            3
-          ],
-          [
-            7,
+            9,
             12
+          ],
+          [
+            10,
+            13
+          ],
+          [
+            -5,
+            -4
+          ],
+          [
+            12,
+            15
           ]
         ]
       ],
-      "expected": 13,
+      "expected": 16,
       "coverage": "worked",
-      "explanation": "`acceptedLengths` is [3, 5]. Multiply by positions that start at 1: 1 * (3) + 2 * (5) = 13. Return 13."
+      "explanation": "`acceptedLengths` is [1, 3, 3]. Multiply by positions that start at 1: 1 * (1) + 2 * (3) + 3 * (3) = 16. Return 16."
     },
     {
       "id": "path3-420-3",
@@ -131,56 +131,56 @@
       "input": [
         [
           [
-            7,
-            8
+            15,
+            17
           ],
           [
-            -2,
+            1,
             2
           ],
           [
-            9,
-            10
+            19,
+            23
           ],
           [
-            3,
-            4
+            -4,
+            -3
           ],
           [
-            16,
-            22
+            21,
+            25
           ]
         ]
       ],
-      "expected": 43,
+      "expected": 25,
       "coverage": "worked",
-      "explanation": "`acceptedLengths` is [4, 1, 1, 1, 6]. Multiply by positions that start at 1: 1 * (4) + 2 * (1) + 3 * (1) + 4 * (1) + 5 * (6) = 43. Return 43."
+      "explanation": "`acceptedLengths` is [1, 1, 2, 4]. Multiply by positions that start at 1: 1 * (1) + 2 * (1) + 3 * (2) + 4 * (4) = 25. Return 25."
     },
     {
       "id": "path3-420-2",
       "input": [
         [
           [
-            4,
-            9
-          ],
-          [
-            5,
-            10
-          ],
-          [
-            0,
-            3
-          ],
-          [
-            7,
+            9,
             12
+          ],
+          [
+            10,
+            13
+          ],
+          [
+            -5,
+            -4
+          ],
+          [
+            12,
+            15
           ]
         ]
       ],
-      "expected": 13,
+      "expected": 16,
       "coverage": "worked",
-      "explanation": "`acceptedLengths` is [3, 5]. Multiply by positions that start at 1: 1 * (3) + 2 * (5) = 13. Return 13."
+      "explanation": "`acceptedLengths` is [1, 3, 3]. Multiply by positions that start at 1: 1 * (1) + 2 * (3) + 3 * (3) = 16. Return 16."
     }
   ],
   "referenceSolutions": {
@@ -196,12 +196,12 @@
         "input": [
           [
             [
-              9,
-              12
+              3,
+              7
             ]
           ]
         ],
-        "expected": 3,
+        "expected": 4,
         "coverage": "singleton"
       },
       {
@@ -209,24 +209,24 @@
         "input": [
           [
             [
-              5,
-              11
-            ],
-            [
-              6,
+              9,
               12
             ],
             [
-              7,
+              10,
               13
             ],
             [
-              8,
+              11,
               14
+            ],
+            [
+              12,
+              15
             ]
           ]
         ],
-        "expected": 6,
+        "expected": 9,
         "coverage": "duplicates-or-redundancy"
       },
       {
@@ -234,20 +234,20 @@
         "input": [
           [
             [
-              -20,
+              -17,
               -13
             ],
             [
-              0,
-              2
+              -10,
+              -5
             ],
             [
-              -5,
-              -4
+              -16,
+              -11
             ]
           ]
         ],
-        "expected": 15,
+        "expected": 14,
         "coverage": "lower-bound"
       },
       {
@@ -259,260 +259,260 @@
               -13
             ],
             [
+              -8,
+              -5
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              16,
+              23
+            ],
+            [
+              -13,
+              -9
+            ],
+            [
+              -1,
+              6
+            ],
+            [
+              11,
+              17
+            ],
+            [
+              23,
+              26
+            ],
+            [
               -6,
               -5
             ],
             [
-              8,
-              15
+              6,
+              10
             ],
             [
-              22,
-              28
-            ],
-            [
-              -5,
-              -2
-            ],
-            [
-              9,
-              14
-            ],
-            [
-              23,
-              27
-            ],
-            [
-              -4,
-              1
-            ],
-            [
-              10,
-              13
-            ],
-            [
-              24,
-              26
-            ],
-            [
-              -3,
-              4
-            ],
-            [
-              11,
-              12
-            ],
-            [
-              25,
-              32
-            ],
-            [
-              -2,
-              0
-            ],
-            [
-              12,
-              15
-            ],
-            [
-              26,
-              31
-            ],
-            [
-              -1,
-              3
-            ],
-            [
-              13,
-              18
-            ],
-            [
-              27,
-              30
-            ],
-            [
-              0,
-              6
-            ],
-            [
-              14,
-              21
-            ],
-            [
-              28,
-              29
-            ],
-            [
-              42,
-              49
-            ],
-            [
-              15,
-              17
-            ],
-            [
-              29,
-              35
-            ],
-            [
-              43,
-              48
-            ],
-            [
-              16,
+              18,
               20
             ],
             [
               30,
-              34
+              36
             ],
             [
-              44,
-              47
+              1,
+              6
             ],
             [
-              17,
-              23
+              13,
+              14
             ],
             [
-              31,
-              33
+              25,
+              30
             ],
             [
-              45,
-              46
+              -4,
+              2
             ],
             [
-              18,
-              19
-            ],
-            [
-              32,
-              34
-            ],
-            [
-              46,
-              52
-            ],
-            [
-              19,
-              22
-            ],
-            [
-              33,
-              37
-            ],
-            [
-              47,
-              51
+              8,
+              10
             ],
             [
               20,
+              24
+            ],
+            [
+              32,
+              33
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              15,
+              21
+            ],
+            [
+              27,
+              34
+            ],
+            [
+              39,
+              43
+            ],
+            [
+              10,
+              17
+            ],
+            [
+              22,
               25
             ],
             [
               34,
-              40
+              37
             ],
             [
-              48,
-              50
-            ],
-            [
-              21,
-              28
-            ],
-            [
-              35,
-              36
-            ],
-            [
-              49,
-              56
-            ],
-            [
-              63,
-              69
-            ],
-            [
-              36,
-              39
-            ],
-            [
-              50,
-              55
-            ],
-            [
-              64,
-              68
-            ],
-            [
-              37,
-              42
-            ],
-            [
-              51,
-              54
-            ],
-            [
-              65,
-              67
-            ],
-            [
-              38,
-              45
-            ],
-            [
-              52,
+              46,
               53
             ],
             [
-              66,
-              73
+              17,
+              21
             ],
             [
-              39,
-              41
-            ],
-            [
-              53,
-              56
-            ],
-            [
-              67,
-              72
-            ],
-            [
-              40,
-              44
-            ],
-            [
-              54,
-              59
-            ],
-            [
-              68,
-              71
+              29,
+              31
             ],
             [
               41,
               47
             ],
             [
+              12,
+              17
+            ],
+            [
+              24,
+              25
+            ],
+            [
+              36,
+              41
+            ],
+            [
+              48,
+              50
+            ],
+            [
+              19,
+              21
+            ],
+            [
+              31,
+              36
+            ],
+            [
+              43,
+              44
+            ],
+            [
               55,
+              60
+            ],
+            [
+              26,
+              32
+            ],
+            [
+              38,
+              40
+            ],
+            [
+              50,
+              54
+            ],
+            [
+              21,
+              28
+            ],
+            [
+              33,
+              36
+            ],
+            [
+              45,
+              48
+            ],
+            [
+              57,
+              64
+            ],
+            [
+              28,
+              32
+            ],
+            [
+              40,
+              47
+            ],
+            [
+              52,
+              58
+            ],
+            [
+              64,
+              67
+            ],
+            [
+              35,
+              36
+            ],
+            [
+              47,
+              51
+            ],
+            [
+              59,
+              61
+            ],
+            [
+              71,
+              77
+            ],
+            [
+              42,
+              47
+            ],
+            [
+              54,
+              55
+            ],
+            [
+              66,
+              71
+            ],
+            [
+              37,
+              43
+            ],
+            [
+              49,
+              51
+            ],
+            [
+              61,
+              65
+            ],
+            [
+              73,
+              74
+            ],
+            [
+              44,
+              47
+            ],
+            [
+              56,
               62
             ],
             [
-              69,
-              70
+              68,
+              75
             ],
             [
-              83,
-              90
+              80,
+              84
             ]
           ]
         ],
-        "expected": 646,
+        "expected": 891,
         "coverage": "maximum-size"
       },
       {
@@ -541,28 +541,28 @@
         "input": [
           [
             [
-              8,
-              10
-            ],
-            [
-              4,
+              7,
               8
             ],
             [
-              0,
-              3
+              -2,
+              2
             ],
             [
-              11,
-              13
+              8,
+              15
             ],
             [
-              5,
-              7
+              9,
+              16
+            ],
+            [
+              13,
+              16
             ]
           ]
         ],
-        "expected": 21,
+        "expected": 27,
         "coverage": "order-and-ties"
       }
     ],

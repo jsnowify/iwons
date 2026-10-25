@@ -19,7 +19,7 @@
   "summary": "Trie prefix counts. Return the smallest number.",
   "stage": "Boundary variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`words` is a list of `words`.\n\nYour tasks\n1. Create a list `prefixTotals`. A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order.\n2. Find the smallest number in `prefixTotals`. Store it in `smallest`.\n3. Complete `prefixCabinetFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `words` is [\"tap\", \"tape\", \"top\", \"tap\"], then `prefixTotals` is [10, 11, 6, 10] and `prefixCabinetFloorTicket` returns 6.\n\nRules\n- If `prefixTotals` is empty, return 0.\n\nTest data\nTEST DATA 1: `words` is [\"ink\", \"inside\", \"inn\", \"paper\"].\nTEST DATA 2: `words` is [\"aa\", \"aa\", \"ab\"].",
+  "descriptionMd": "Inputs\n`words` is a list of `words`.\n\nYour tasks\n1. Create a list `prefixTotals`. A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order.\n2. Find the smallest number in `prefixTotals`. Store it in `smallest`.\n3. Complete `prefixCabinetFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `words` is [\"ledger\", \"ledger\", \"lev\", \"stamp\"], then `prefixTotals` is [14, 14, 7, 5] and `prefixCabinetFloorTicket` returns 5.\n\nRules\n- If `prefixTotals` is empty, return 0.\n\nTest data\nTEST DATA 1: `words` is [\"ink\", \"inker\", \"inrv\", \"margin\"].\nTEST DATA 2: `words` is [\"folio\", \"folio\", \"foliw\"].",
   "unitIntro": "A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order. Each problem in this unit builds `prefixTotals` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -46,27 +46,27 @@
       "input": [
         [
           "ink",
-          "inside",
-          "inn",
-          "paper"
+          "inker",
+          "inrv",
+          "margin"
         ]
       ],
-      "expected": 5,
+      "expected": 6,
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [7, 10, 7, 5]. The smallest number is 5. Return 5."
+      "explanation": "`prefixTotals` is [8, 10, 8, 6]. The smallest number is 6. Return 6."
     },
     {
       "id": "path3-396-2",
       "input": [
         [
-          "aa",
-          "aa",
-          "ab"
+          "folio",
+          "folio",
+          "foliw"
         ]
       ],
-      "expected": 4,
+      "expected": 13,
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [5, 5, 4]. The smallest number is 4. Return 4."
+      "explanation": "`prefixTotals` is [14, 14, 13]. The smallest number is 13. Return 13."
     },
     {
       "id": "path3-396-3",
@@ -100,27 +100,27 @@
       "input": [
         [
           "ink",
-          "inside",
-          "inn",
-          "paper"
+          "inker",
+          "inrv",
+          "margin"
         ]
       ],
-      "expected": 5,
+      "expected": 6,
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [7, 10, 7, 5]. The smallest number is 5. Return 5."
+      "explanation": "`prefixTotals` is [8, 10, 8, 6]. The smallest number is 6. Return 6."
     },
     {
       "id": "path3-396-2",
       "input": [
         [
-          "aa",
-          "aa",
-          "ab"
+          "folio",
+          "folio",
+          "foliw"
         ]
       ],
-      "expected": 4,
+      "expected": 13,
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [5, 5, 4]. The smallest number is 4. Return 4."
+      "explanation": "`prefixTotals` is [14, 14, 13]. The smallest number is 13. Return 13."
     }
   ],
   "referenceSolutions": {
@@ -135,22 +135,22 @@
         "id": "path3-396-4",
         "input": [
           [
-            "z"
+            "stamp"
           ]
         ],
-        "expected": 1,
+        "expected": 5,
         "coverage": "singleton"
       },
       {
         "id": "path3-396-5",
         "input": [
           [
-            "a",
-            "a",
-            "a"
+            "me",
+            "me",
+            "me"
           ]
         ],
-        "expected": 3,
+        "expected": 6,
         "coverage": "duplicates-or-redundancy"
       },
       {
@@ -158,7 +158,7 @@
         "input": [
           [
             "a",
-            "z"
+            "x"
           ]
         ],
         "expected": 1,
@@ -168,81 +168,81 @@
         "id": "path3-396-7",
         "input": [
           [
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk"
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix",
+            "inkmargii",
+            "inkmargix"
           ]
         ],
-        "expected": 640,
+        "expected": 544,
         "coverage": "maximum-size"
       },
       {
         "id": "path3-396-8",
         "input": [
           [
-            "a",
-            "b"
+            "b",
+            "f"
           ]
         ],
         "expected": 1,
@@ -252,12 +252,12 @@
         "id": "path3-396-9",
         "input": [
           [
-            "paper",
-            "pa",
-            "p"
+            "ledger",
+            "tr",
+            "f"
           ]
         ],
-        "expected": 3,
+        "expected": 1,
         "coverage": "order-and-ties"
       }
     ],

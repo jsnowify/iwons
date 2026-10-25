@@ -21,7 +21,7 @@
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Level 0: loop accumulators",
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `subsetTotals`. Choose any positions from `readings`, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in `subsetTotals`.\n2. Multiply each number in `subsetTotals` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `selectionProofBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `subsetTotals` is [-1, 0, 1, 2, 5, 6, 7, 8, 11, 12, 13, 14] and `selectionProofBossReceipt` returns 714.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `subsetTotals`. Choose any positions from `readings`, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in `subsetTotals`.\n2. Multiply each number in `subsetTotals` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `selectionProofBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [0, 5, -1, 5, 9], then `subsetTotals` is [-1, 0, 4, 5, 8, 9, 10, 13, 14, 18, 19] and `selectionProofBossReceipt` returns 814.\n\nTest data\nTEST DATA 1: `readings` is [16, 19, 0, -11, 19].\nTEST DATA 2: `readings` is [4, 4, -4, 4].",
   "unitIntro": "Choose any positions from `readings`, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in `subsetTotals`. Each problem in this unit builds `subsetTotals` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 10.",
@@ -47,16 +47,16 @@
       "id": "path3-480-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          16,
+          19,
           0,
-          12
+          -11,
+          19
         ]
       ],
-      "expected": 1243,
+      "expected": 2430,
       "coverage": "worked",
-      "explanation": "`subsetTotals` is [-3, 0, 4, 7, 9, 11, 12, 14, 16, 19, 23, 26]. Multiply by positions that start at 1: 1 * (-3) + 2 * (0) + 3 * (4) + 4 * (7) + 5 * (9) + 6 * (11) + 7 * (12) + 8 * (14) + 9 * (16) + 10 * (19) + 11 * (23) + 12 * (26) = 1243. Return 1243."
+      "explanation": "`subsetTotals` is [-11, 0, 5, 8, 16, 19, 24, 27, 35, 38, 43, 54]. Multiply by positions that start at 1: 1 * (-11) + 2 * (0) + 3 * (5) + 4 * (8) + 5 * (16) + 6 * (19) + 7 * (24) + 8 * (27) + 9 * (35) + 10 * (38) + 11 * (43) + 12 * (54) = 2430. Return 2430."
     },
     {
       "id": "path3-480-2",
@@ -64,13 +64,13 @@
         [
           4,
           4,
-          -2,
+          -4,
           4
         ]
       ],
-      "expected": 264,
+      "expected": 100,
       "coverage": "worked",
-      "explanation": "`subsetTotals` is [-2, 0, 2, 4, 6, 8, 10, 12]. Multiply by positions that start at 1: 1 * (-2) + 2 * (0) + 3 * (2) + 4 * (4) + 5 * (6) + 6 * (8) + 7 * (10) + 8 * (12) = 264. Return 264."
+      "explanation": "`subsetTotals` is [-4, 0, 4, 8, 12]. Multiply by positions that start at 1: 1 * (-4) + 2 * (0) + 3 * (4) + 4 * (8) + 5 * (12) = 100. Return 100."
     },
     {
       "id": "path3-480-3",
@@ -103,16 +103,16 @@
       "id": "path3-480-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          16,
+          19,
           0,
-          12
+          -11,
+          19
         ]
       ],
-      "expected": 1243,
+      "expected": 2430,
       "coverage": "worked",
-      "explanation": "`subsetTotals` is [-3, 0, 4, 7, 9, 11, 12, 14, 16, 19, 23, 26]. Multiply by positions that start at 1: 1 * (-3) + 2 * (0) + 3 * (4) + 4 * (7) + 5 * (9) + 6 * (11) + 7 * (12) + 8 * (14) + 9 * (16) + 10 * (19) + 11 * (23) + 12 * (26) = 1243. Return 1243."
+      "explanation": "`subsetTotals` is [-11, 0, 5, 8, 16, 19, 24, 27, 35, 38, 43, 54]. Multiply by positions that start at 1: 1 * (-11) + 2 * (0) + 3 * (5) + 4 * (8) + 5 * (16) + 6 * (19) + 7 * (24) + 8 * (27) + 9 * (35) + 10 * (38) + 11 * (43) + 12 * (54) = 2430. Return 2430."
     },
     {
       "id": "path3-480-2",
@@ -120,13 +120,13 @@
         [
           4,
           4,
-          -2,
+          -4,
           4
         ]
       ],
-      "expected": 264,
+      "expected": 100,
       "coverage": "worked",
-      "explanation": "`subsetTotals` is [-2, 0, 2, 4, 6, 8, 10, 12]. Multiply by positions that start at 1: 1 * (-2) + 2 * (0) + 3 * (2) + 4 * (4) + 5 * (6) + 6 * (8) + 7 * (10) + 8 * (12) = 264. Return 264."
+      "explanation": "`subsetTotals` is [-4, 0, 4, 8, 12]. Multiply by positions that start at 1: 1 * (-4) + 2 * (0) + 3 * (4) + 4 * (8) + 5 * (12) = 100. Return 100."
     }
   ],
   "referenceSolutions": {
@@ -141,35 +141,35 @@
         "id": "path3-480-4",
         "input": [
           [
-            9
+            7
           ]
         ],
-        "expected": 18,
+        "expected": 14,
         "coverage": "singleton"
       },
       {
         "id": "path3-480-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            2,
+            2,
+            2,
+            2
           ]
         ],
-        "expected": 200,
+        "expected": 80,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-480-6",
         "input": [
           [
-            -20,
-            -1,
-            -7
+            -16,
+            -4,
+            -14
           ]
         ],
-        "expected": -314,
+        "expected": -418,
         "coverage": "lower-bound"
       },
       {
@@ -177,18 +177,18 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15
+            -13,
+            -6,
+            1,
+            8,
+            15,
+            -19,
+            -12,
+            -5,
+            2
           ]
         ],
-        "expected": 135516,
+        "expected": -40016,
         "coverage": "maximum-size"
       },
       {
@@ -207,14 +207,14 @@
         "id": "path3-480-9",
         "input": [
           [
-            8,
-            3,
-            -2,
-            8,
-            1
+            4,
+            11,
+            2,
+            -7,
+            4
           ]
         ],
-        "expected": 2947,
+        "expected": 2390,
         "coverage": "order-and-ties"
       }
     ],

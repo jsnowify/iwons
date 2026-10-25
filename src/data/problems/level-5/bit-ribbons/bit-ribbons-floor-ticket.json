@@ -19,7 +19,7 @@
   "summary": "Bit counting. Return the smallest number.",
   "stage": "Boundary variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `oneCounts`. Write each number in `readings` in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order.\n2. Find the smallest number in `oneCounts`. Store it in `smallest`.\n3. Complete `bitRibbonsFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 1, 6, 2], then `oneCounts` is [2, 1, 2, 1] and `bitRibbonsFloorTicket` returns 1.\n\nRules\n- If `oneCounts` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, 3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, 2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `oneCounts`. Write each number in `readings` in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order.\n2. Find the smallest number in `oneCounts`. Store it in `smallest`.\n3. Complete `bitRibbonsFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `readings` is [12, 4, 7, 5, 5], then `oneCounts` is [2, 1, 3, 2, 2] and `bitRibbonsFloorTicket` returns 1.\n\nRules\n- If `oneCounts` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [15, 6, 6, 0, 4].\nTEST DATA 2: `readings` is [4, 6, 4, 4].",
   "unitIntro": "Write each number in `readings` in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order. Each problem in this unit builds `oneCounts` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,30 +45,30 @@
       "id": "path3-272-1",
       "input": [
         [
-          7,
-          3,
-          7,
+          15,
+          6,
+          6,
           0,
-          12
+          4
         ]
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "`oneCounts` is [3, 2, 3, 0, 2]. The smallest number is 0. Return 0."
+      "explanation": "`oneCounts` is [4, 2, 2, 0, 1]. The smallest number is 0. Return 0."
     },
     {
       "id": "path3-272-2",
       "input": [
         [
           4,
+          6,
           4,
-          2,
           4
         ]
       ],
       "expected": 1,
       "coverage": "worked",
-      "explanation": "`oneCounts` is [1, 1, 1, 1]. The smallest number is 1. Return 1."
+      "explanation": "`oneCounts` is [1, 2, 1, 1]. The smallest number is 1. Return 1."
     },
     {
       "id": "path3-272-3",
@@ -101,30 +101,30 @@
       "id": "path3-272-1",
       "input": [
         [
-          7,
-          3,
-          7,
+          15,
+          6,
+          6,
           0,
-          12
+          4
         ]
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "`oneCounts` is [3, 2, 3, 0, 2]. The smallest number is 0. Return 0."
+      "explanation": "`oneCounts` is [4, 2, 2, 0, 1]. The smallest number is 0. Return 0."
     },
     {
       "id": "path3-272-2",
       "input": [
         [
           4,
+          6,
           4,
-          2,
           4
         ]
       ],
       "expected": 1,
       "coverage": "worked",
-      "explanation": "`oneCounts` is [1, 1, 1, 1]. The smallest number is 1. Return 1."
+      "explanation": "`oneCounts` is [1, 2, 1, 1]. The smallest number is 1. Return 1."
     }
   ],
   "referenceSolutions": {
@@ -139,35 +139,35 @@
         "id": "path3-272-4",
         "input": [
           [
-            9
+            8
           ]
         ],
-        "expected": 2,
+        "expected": 1,
         "coverage": "singleton"
       },
       {
         "id": "path3-272-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            8,
+            8,
+            8,
+            8
           ]
         ],
-        "expected": 2,
+        "expected": 1,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-272-6",
         "input": [
           [
-            20,
-            1,
-            7
+            11,
+            5,
+            17
           ]
         ],
-        "expected": 1,
+        "expected": 2,
         "coverage": "lower-bound"
       },
       {
@@ -259,11 +259,11 @@
         "id": "path3-272-9",
         "input": [
           [
-            8,
-            3,
-            2,
-            8,
-            1
+            5,
+            4,
+            7,
+            5,
+            11
           ]
         ],
         "expected": 1,

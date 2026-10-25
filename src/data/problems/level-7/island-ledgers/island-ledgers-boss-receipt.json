@@ -21,7 +21,7 @@
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Level 0: loop accumulators",
-  "descriptionMd": "Inputs\n`links` is a square table of 0s and 1s. Points are numbered from 0. A 1 at `links`[a][b] joins points a and b in both directions. A 0 means no link.\n\nYour tasks\n1. Create a list `componentSizes`. This graph has two-way `links` between points. A group, also called a connected component, contains all points that can reach one another. Start at point 0, then check the other points in number order. Whenever a point has not been visited, explore its whole group depth first: follow a path as far as you can before going back. Record how many points are in that group. `componentSizes` follows the order in which you first find the groups. A graph with no points gives an empty `componentSizes`.\n2. Multiply each number in `componentSizes` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `islandLedgersBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `links` is [[1, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 1, 0, 0, 1], [1, 0, 0, 1, 0], [0, 0, 1, 0, 0]], then `componentSizes` is [2, 3] and `islandLedgersBossReceipt` returns 8.\n\nRules\n- If `componentSizes` is empty, return 0.\n\nTest data\nTEST DATA 1: `links` is [[1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0], [1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0]].\nTEST DATA 2: `links` is [[0, 0, 1, 0, 0], [0, 1, 0, 0, 1], [1, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 1, 0, 0, 1]].",
+  "descriptionMd": "Inputs\n`links` is a square table of 0s and 1s. Points are numbered from 0. A 1 at `links`[a][b] joins points a and b in both directions. A 0 means no link.\n\nYour tasks\n1. Create a list `componentSizes`. This graph has two-way `links` between points. A group, also called a connected component, contains all points that can reach one another. Start at point 0, then check the other points in number order. Whenever a point has not been visited, explore its whole group depth first: follow a path as far as you can before going back. Record how many points are in that group. `componentSizes` follows the order in which you first find the groups. A graph with no points gives an empty `componentSizes`.\n2. Multiply each number in `componentSizes` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `islandLedgersBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `links` is [[1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 1, 1], [0, 1, 0, 1, 1, 0], [1, 0, 1, 0, 0, 0], [0, 1, 1, 0, 1, 0], [0, 1, 0, 0, 0, 1]], then `componentSizes` is [6] and `islandLedgersBossReceipt` returns 6.\n\nRules\n- If `componentSizes` is empty, return 0.\n\nTest data\nTEST DATA 1: `links` is [[1, 0, 1, 1, 0, 0], [0, 1, 1, 0, 1, 1], [1, 1, 0, 0, 0, 1], [1, 0, 0, 0, 1, 0], [0, 1, 0, 1, 1, 0], [0, 1, 1, 0, 0, 0]].\nTEST DATA 2: `links` is [[1, 0, 0, 0, 1], [0, 0, 1, 0, 1], [0, 1, 0, 1, 0], [0, 0, 1, 0, 1], [1, 1, 0, 1, 0]].",
   "unitIntro": "This graph has two-way `links` between points. A group, also called a connected component, contains all points that can reach one another. Start at point 0, then check the other points in number order. Whenever a point has not been visited, explore its whole group depth first: follow a path as far as you can before going back. Record how many points are in that group. `componentSizes` follows the order in which you first find the groups. A graph with no points gives an empty `componentSizes`. Each problem in this unit builds `componentSizes` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 16.",
@@ -51,101 +51,101 @@
           [
             1,
             0,
-            0,
+            1,
             1,
             0,
             0
           ],
           [
             0,
+            1,
+            1,
             0,
             1,
+            1
+          ],
+          [
+            1,
+            1,
+            0,
             0,
             0,
             1
           ],
           [
-            0,
             1,
+            0,
             0,
             0,
             1,
             0
           ],
           [
-            1,
-            0,
             0,
             1,
             0,
+            1,
+            1,
             0
           ],
           [
             0,
-            0,
+            1,
             1,
             0,
             0,
-            1
-          ],
-          [
-            0,
-            1,
-            0,
-            0,
-            1,
             0
           ]
         ]
       ],
-      "expected": 10,
+      "expected": 6,
       "coverage": "worked",
-      "explanation": "`componentSizes` is [2, 4]. Multiply by positions that start at 1: 1 * (2) + 2 * (4) = 10. Return 10."
+      "explanation": "`componentSizes` is [6]. Multiply by positions that start at 1: 1 * (6) = 6. Return 6."
     },
     {
       "id": "path3-410-2",
       "input": [
         [
           [
-            0,
-            0,
             1,
             0,
-            0
-          ],
-          [
-            0,
-            1,
             0,
             0,
             1
           ],
           [
-            1,
             0,
             0,
             1,
-            0
-          ],
-          [
-            0,
-            0,
-            1,
-            0,
-            0
-          ],
-          [
-            0,
-            1,
-            0,
             0,
             1
+          ],
+          [
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0,
+            1,
+            0
           ]
         ]
       ],
-      "expected": 7,
+      "expected": 5,
       "coverage": "worked",
-      "explanation": "`componentSizes` is [3, 2]. Multiply by positions that start at 1: 1 * (3) + 2 * (2) = 7. Return 7."
+      "explanation": "`componentSizes` is [5]. Multiply by positions that start at 1: 1 * (5) = 5. Return 5."
     },
     {
       "id": "path3-410-3",
@@ -181,101 +181,101 @@
           [
             1,
             0,
-            0,
+            1,
             1,
             0,
             0
           ],
           [
             0,
+            1,
+            1,
             0,
             1,
+            1
+          ],
+          [
+            1,
+            1,
+            0,
             0,
             0,
             1
           ],
           [
-            0,
             1,
+            0,
             0,
             0,
             1,
             0
           ],
           [
-            1,
-            0,
             0,
             1,
             0,
+            1,
+            1,
             0
           ],
           [
             0,
-            0,
+            1,
             1,
             0,
             0,
-            1
-          ],
-          [
-            0,
-            1,
-            0,
-            0,
-            1,
             0
           ]
         ]
       ],
-      "expected": 10,
+      "expected": 6,
       "coverage": "worked",
-      "explanation": "`componentSizes` is [2, 4]. Multiply by positions that start at 1: 1 * (2) + 2 * (4) = 10. Return 10."
+      "explanation": "`componentSizes` is [6]. Multiply by positions that start at 1: 1 * (6) = 6. Return 6."
     },
     {
       "id": "path3-410-2",
       "input": [
         [
           [
-            0,
-            0,
             1,
             0,
-            0
-          ],
-          [
-            0,
-            1,
             0,
             0,
             1
           ],
           [
-            1,
             0,
             0,
             1,
-            0
-          ],
-          [
-            0,
-            0,
-            1,
-            0,
-            0
-          ],
-          [
-            0,
-            1,
-            0,
             0,
             1
+          ],
+          [
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0,
+            1,
+            0
           ]
         ]
       ],
-      "expected": 7,
+      "expected": 5,
       "coverage": "worked",
-      "explanation": "`componentSizes` is [3, 2]. Multiply by positions that start at 1: 1 * (3) + 2 * (2) = 7. Return 7."
+      "explanation": "`componentSizes` is [5]. Multiply by positions that start at 1: 1 * (5) = 5. Return 5."
     }
   ],
   "referenceSolutions": {
@@ -710,10 +710,10 @@
         "input": [
           [
             [
-              0,
+              1,
               1,
               0,
-              0,
+              1,
               1,
               0
             ],
@@ -722,30 +722,30 @@
               0,
               0,
               1,
-              0,
+              1,
               0
             ],
             [
               0,
               0,
-              1,
               0,
+              1,
               0,
               1
             ],
             [
-              0,
+              1,
+              1,
               1,
               0,
               0,
-              1,
               0
             ],
             [
               1,
-              0,
-              0,
               1,
+              0,
+              0,
               0,
               0
             ],
@@ -759,7 +759,7 @@
             ]
           ]
         ],
-        "expected": 8,
+        "expected": 6,
         "coverage": "order-and-ties"
       }
     ],

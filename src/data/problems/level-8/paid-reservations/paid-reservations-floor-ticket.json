@@ -19,7 +19,7 @@
   "summary": "Scheduling DP and binary search. Return the smallest number.",
   "stage": "Boundary variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`drawers` is a list of bookings. Each row is [start, end, reward].\n\nYour tasks\n1. Create a list `bestRewards`. Each row of `drawers` is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, `bestRewards` is empty.\n2. Find the smallest number in `bestRewards`. Store it in `smallest`.\n3. Complete `paidReservationsFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `drawers` is [[6, 13, 6], [0, 2, 2], [8, 15, 8], [5, 8, 5]], then `bestRewards` is [2, 7, 8, 15] and `paidReservationsFloorTicket` returns 2.\n\nRules\n- If `bestRewards` is empty, return 0.\n\nTest data\nTEST DATA 1: `drawers` is [[7, 8, 7], [-2, 2, 4], [9, 10, 9], [3, 4, 3], [16, 22, 16]].\nTEST DATA 2: `drawers` is [[4, 9, 4], [5, 10, 5], [0, 3, 4], [7, 12, 7]].",
+  "descriptionMd": "Inputs\n`drawers` is a list of bookings. Each row is [start, end, reward].\n\nYour tasks\n1. Create a list `bestRewards`. Each row of `drawers` is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, `bestRewards` is empty.\n2. Find the smallest number in `bestRewards`. Store it in `smallest`.\n3. Complete `paidReservationsFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `drawers` is [[10, 14, 10], [-2, 2, 4], [11, 14, 11], [6, 10, 6], [13, 16, 13]], then `bestRewards` is [4, 10, 20, 21, 23] and `paidReservationsFloorTicket` returns 4.\n\nRules\n- If `bestRewards` is empty, return 0.\n\nTest data\nTEST DATA 1: `drawers` is [[6, 13, 6], [-4, 2, 6], [4, 7, 4], [9, 16, 9], [4, 5, 4]].\nTEST DATA 2: `drawers` is [[2, 5, 2], [-3, 2, 5], [4, 7, 4], [5, 8, 5]].",
   "unitIntro": "Each row of `drawers` is a booking: [start, end, reward]. It uses time from start up to, but not including, end. A booking may start exactly when another one ends. Sort the bookings by end time, then start time, then reward, all from smallest to largest. Look at the first booking, then the first two bookings, and so on. For each of these groups, choose bookings that do not overlap and give the largest total reward. Record that reward. You may choose no bookings for a reward of 0. With no bookings, `bestRewards` is empty. Each problem in this unit builds `bestRewards` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -46,65 +46,65 @@
       "input": [
         [
           [
-            7,
-            8,
-            7
+            6,
+            13,
+            6
           ],
           [
-            -2,
+            -4,
             2,
+            6
+          ],
+          [
+            4,
+            7,
             4
           ],
           [
             9,
-            10,
+            16,
             9
           ],
           [
-            3,
             4,
-            3
-          ],
-          [
-            16,
-            22,
-            16
+            5,
+            4
           ]
         ]
       ],
-      "expected": 4,
+      "expected": 6,
       "coverage": "worked",
-      "explanation": "`bestRewards` is [4, 7, 14, 23, 39]. The smallest number is 4. Return 4."
+      "explanation": "`bestRewards` is [6, 10, 10, 16, 19]. The smallest number is 6. Return 6."
     },
     {
       "id": "path3-496-2",
       "input": [
         [
           [
+            2,
+            5,
+            2
+          ],
+          [
+            -3,
+            2,
+            5
+          ],
+          [
             4,
-            9,
+            7,
             4
           ],
           [
             5,
-            10,
+            8,
             5
-          ],
-          [
-            0,
-            3,
-            4
-          ],
-          [
-            7,
-            12,
-            7
           ]
         ]
       ],
-      "expected": 4,
+      "expected": 5,
       "coverage": "worked",
-      "explanation": "`bestRewards` is [4, 8, 9, 11]. The smallest number is 4. Return 4."
+      "explanation": "`bestRewards` is [5, 7, 9, 12]. The smallest number is 5. Return 5."
     },
     {
       "id": "path3-496-3",
@@ -138,65 +138,65 @@
       "input": [
         [
           [
-            7,
-            8,
-            7
+            6,
+            13,
+            6
           ],
           [
-            -2,
+            -4,
             2,
+            6
+          ],
+          [
+            4,
+            7,
             4
           ],
           [
             9,
-            10,
+            16,
             9
           ],
           [
-            3,
             4,
-            3
-          ],
-          [
-            16,
-            22,
-            16
+            5,
+            4
           ]
         ]
       ],
-      "expected": 4,
+      "expected": 6,
       "coverage": "worked",
-      "explanation": "`bestRewards` is [4, 7, 14, 23, 39]. The smallest number is 4. Return 4."
+      "explanation": "`bestRewards` is [6, 10, 10, 16, 19]. The smallest number is 6. Return 6."
     },
     {
       "id": "path3-496-2",
       "input": [
         [
           [
+            2,
+            5,
+            2
+          ],
+          [
+            -3,
+            2,
+            5
+          ],
+          [
             4,
-            9,
+            7,
             4
           ],
           [
             5,
-            10,
+            8,
             5
-          ],
-          [
-            0,
-            3,
-            4
-          ],
-          [
-            7,
-            12,
-            7
           ]
         ]
       ],
-      "expected": 4,
+      "expected": 5,
       "coverage": "worked",
-      "explanation": "`bestRewards` is [4, 8, 9, 11]. The smallest number is 4. Return 4."
+      "explanation": "`bestRewards` is [5, 7, 9, 12]. The smallest number is 5. Return 5."
     }
   ],
   "referenceSolutions": {
@@ -212,13 +212,13 @@
         "input": [
           [
             [
-              9,
-              12,
-              9
+              8,
+              10,
+              8
             ]
           ]
         ],
-        "expected": 9,
+        "expected": 8,
         "coverage": "singleton"
       },
       {
@@ -226,28 +226,28 @@
         "input": [
           [
             [
+              3,
+              7,
+              3
+            ],
+            [
+              4,
+              8,
+              4
+            ],
+            [
               5,
-              11,
+              9,
               5
             ],
             [
               6,
-              12,
+              10,
               6
-            ],
-            [
-              7,
-              13,
-              7
-            ],
-            [
-              8,
-              14,
-              8
             ]
           ]
         ],
-        "expected": 5,
+        "expected": 3,
         "coverage": "duplicates-or-redundancy"
       },
       {
@@ -255,23 +255,23 @@
         "input": [
           [
             [
-              -20,
+              -16,
               -13,
-              20
+              16
             ],
             [
-              0,
-              2,
-              2
-            ],
-            [
+              -10,
               -5,
+              12
+            ],
+            [
+              -10,
               -4,
-              9
+              14
             ]
           ]
         ],
-        "expected": 20,
+        "expected": 16,
         "coverage": "lower-bound"
       },
       {
@@ -284,124 +284,194 @@
               20
             ],
             [
-              -6,
-              -5,
-              8
-            ],
-            [
-              8,
-              15,
-              8
-            ],
-            [
-              22,
-              28,
-              22
-            ],
-            [
-              -5,
-              -2,
-              13
-            ],
-            [
-              9,
-              14,
-              9
-            ],
-            [
-              23,
-              27,
-              23
-            ],
-            [
-              -4,
-              1,
-              18
-            ],
-            [
               10,
               13,
               10
             ],
             [
-              24,
-              26,
-              24
+              -1,
+              3,
+              5
             ],
             [
-              -3,
-              4,
-              23
+              -12,
+              -10,
+              18
             ],
             [
-              11,
-              12,
-              11
+              18,
+              19,
+              18
             ],
             [
-              25,
-              32,
-              25
+              7,
+              10,
+              7
             ],
             [
-              -2,
+              -4,
               0,
-              28
-            ],
-            [
-              12,
-              15,
               16
             ],
             [
               26,
-              31,
+              32,
               26
-            ],
-            [
-              -1,
-              3,
-              33
-            ],
-            [
-              13,
-              18,
-              21
-            ],
-            [
-              27,
-              30,
-              27
-            ],
-            [
-              0,
-              6,
-              38
-            ],
-            [
-              14,
-              21,
-              26
-            ],
-            [
-              28,
-              29,
-              28
-            ],
-            [
-              42,
-              49,
-              42
             ],
             [
               15,
-              17,
+              16,
+              15
+            ],
+            [
+              4,
+              10,
+              14
+            ],
+            [
+              -7,
+              -3,
+              27
+            ],
+            [
+              23,
+              29,
+              23
+            ],
+            [
+              12,
+              13,
+              12
+            ],
+            [
+              1,
+              7,
+              25
+            ],
+            [
+              31,
+              35,
               31
             ],
             [
+              20,
+              26,
+              20
+            ],
+            [
+              9,
+              10,
+              23
+            ],
+            [
+              -2,
+              4,
+              36
+            ],
+            [
+              28,
+              32,
+              28
+            ],
+            [
+              17,
+              20,
+              21
+            ],
+            [
+              6,
+              7,
+              34
+            ],
+            [
+              36,
+              38,
+              36
+            ],
+            [
+              25,
               29,
+              25
+            ],
+            [
+              14,
+              17,
+              32
+            ],
+            [
+              44,
+              51,
+              44
+            ],
+            [
+              33,
               35,
-              29
+              33
+            ],
+            [
+              22,
+              27,
+              30
+            ],
+            [
+              11,
+              14,
+              43
+            ],
+            [
+              41,
+              48,
+              41
+            ],
+            [
+              30,
+              32,
+              30
+            ],
+            [
+              19,
+              24,
+              41
+            ],
+            [
+              49,
+              54,
+              49
+            ],
+            [
+              38,
+              45,
+              38
+            ],
+            [
+              27,
+              34,
+              39
+            ],
+            [
+              16,
+              21,
+              52
+            ],
+            [
+              46,
+              51,
+              46
+            ],
+            [
+              35,
+              37,
+              37
+            ],
+            [
+              24,
+              31,
+              50
+            ],
+            [
+              54,
+              57,
+              54
             ],
             [
               43,
@@ -409,78 +479,8 @@
               43
             ],
             [
-              16,
-              20,
-              36
-            ],
-            [
-              30,
-              34,
-              30
-            ],
-            [
-              44,
-              47,
-              44
-            ],
-            [
-              17,
-              23,
-              41
-            ],
-            [
-              31,
-              33,
-              31
-            ],
-            [
-              45,
-              46,
-              45
-            ],
-            [
-              18,
-              19,
-              46
-            ],
-            [
               32,
               34,
-              34
-            ],
-            [
-              46,
-              52,
-              46
-            ],
-            [
-              19,
-              22,
-              51
-            ],
-            [
-              33,
-              37,
-              39
-            ],
-            [
-              47,
-              51,
-              47
-            ],
-            [
-              20,
-              25,
-              56
-            ],
-            [
-              34,
-              40,
-              44
-            ],
-            [
-              48,
-              50,
               48
             ],
             [
@@ -489,114 +489,114 @@
               61
             ],
             [
-              35,
-              36,
-              49
-            ],
-            [
-              49,
-              56,
-              49
-            ],
-            [
-              63,
-              69,
-              63
-            ],
-            [
-              36,
-              39,
-              54
-            ],
-            [
-              50,
-              55,
-              50
-            ],
-            [
-              64,
-              68,
-              64
-            ],
-            [
-              37,
-              42,
-              59
-            ],
-            [
               51,
               54,
               51
             ],
             [
-              65,
-              67,
-              65
+              40,
+              44,
+              46
             ],
             [
-              38,
-              45,
-              64
+              29,
+              31,
+              59
             ],
             [
-              52,
-              53,
-              52
+              59,
+              60,
+              59
             ],
             [
-              66,
-              73,
-              66
+              48,
+              51,
+              48
             ],
             [
-              39,
+              37,
               41,
-              69
-            ],
-            [
-              53,
-              56,
               57
             ],
             [
               67,
-              72,
+              73,
               67
             ],
             [
-              40,
-              44,
-              74
+              56,
+              57,
+              56
             ],
             [
-              54,
-              59,
-              62
+              45,
+              51,
+              55
             ],
             [
-              68,
-              71,
+              34,
+              38,
               68
             ],
             [
-              41,
-              47,
-              79
+              64,
+              70,
+              64
             ],
             [
-              55,
-              62,
-              67
+              53,
+              54,
+              53
+            ],
+            [
+              42,
+              48,
+              66
+            ],
+            [
+              72,
+              76,
+              72
+            ],
+            [
+              61,
+              67,
+              61
+            ],
+            [
+              50,
+              51,
+              64
+            ],
+            [
+              39,
+              45,
+              77
             ],
             [
               69,
-              70,
+              73,
               69
             ],
             [
-              83,
-              90,
-              83
+              58,
+              61,
+              62
+            ],
+            [
+              47,
+              48,
+              75
+            ],
+            [
+              77,
+              79,
+              77
+            ],
+            [
+              66,
+              70,
+              66
             ]
           ]
         ],
@@ -632,33 +632,33 @@
         "input": [
           [
             [
-              8,
-              10,
-              8
+              -1,
+              1,
+              1
             ],
             [
-              4,
-              8,
-              4
-            ],
-            [
-              0,
-              3,
-              4
-            ],
-            [
-              11,
-              13,
-              11
-            ],
-            [
-              5,
               7,
-              5
+              14,
+              7
+            ],
+            [
+              14,
+              20,
+              14
+            ],
+            [
+              7,
+              12,
+              7
+            ],
+            [
+              16,
+              22,
+              16
             ]
           ]
         ],
-        "expected": 4,
+        "expected": 1,
         "coverage": "order-and-ties"
       }
     ],

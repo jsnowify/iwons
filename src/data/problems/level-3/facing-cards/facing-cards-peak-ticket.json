@@ -19,7 +19,7 @@
   "summary": "Opposite-end pointers. Return the largest number.",
   "stage": "Optimize",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `pairSums`. `readings` is already sorted from smallest to largest. Pair its first and last numbers, then its second and second-last numbers. Keep moving toward the middle. Add the two numbers in each pair and record that sum. If one middle number is left, record it by itself. Keep this pair order in `pairSums`.\n2. Find the largest number in `pairSums`. Store it in `largest`.\n3. Complete `facingCardsPeakTicket` so it returns `largest`. Return it, do not print it.\n\nExample\nIf `readings` is [-1, 2, 6, 6], then `pairSums` is [5, 8] and `facingCardsPeakTicket` returns 8.\n\nRules\n- If `pairSums` is empty, return 0.\n- If every number is negative, return the largest negative number. Do not replace it with 0.\n\nTest data\nTEST DATA 1: `readings` is [-3, 0, 7, 7, 12].\nTEST DATA 2: `readings` is [-2, 4, 4, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `pairSums`. `readings` is already sorted from smallest to largest. Pair its first and last numbers, then its second and second-last numbers. Keep moving toward the middle. Add the two numbers in each pair and record that sum. If one middle number is left, record it by itself. Keep this pair order in `pairSums`.\n2. Find the largest number in `pairSums`. Store it in `largest`.\n3. Complete `facingCardsPeakTicket` so it returns `largest`. Return it, do not print it.\n\nExample\nIf `readings` is [-6, 2, 2, 4, 9], then `pairSums` is [3, 6, 2] and `facingCardsPeakTicket` returns 6.\n\nRules\n- If `pairSums` is empty, return 0.\n- If every number is negative, return the largest negative number. Do not replace it with 0.\n\nTest data\nTEST DATA 1: `readings` is [-10, 0, 7, 9, 9].\nTEST DATA 2: `readings` is [-9, 2, 2, 2].",
   "unitIntro": "`readings` is already sorted from smallest to largest. Pair its first and last numbers, then its second and second-last numbers. Keep moving toward the middle. Add the two numbers in each pair and record that sum. If one middle number is left, record it by itself. Keep this pair order in `pairSums`. Each problem in this unit builds `pairSums` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 50000.",
@@ -45,30 +45,30 @@
       "id": "path3-135-1",
       "input": [
         [
-          -3,
+          -10,
           0,
           7,
-          7,
-          12
+          9,
+          9
         ]
       ],
       "expected": 9,
       "coverage": "worked",
-      "explanation": "`pairSums` is [9, 7, 7]. The largest number is 9. Return 9."
+      "explanation": "`pairSums` is [-1, 9, 7]. The largest number is 9. Return 9."
     },
     {
       "id": "path3-135-2",
       "input": [
         [
-          -2,
-          4,
-          4,
-          4
+          -9,
+          2,
+          2,
+          2
         ]
       ],
-      "expected": 8,
+      "expected": 4,
       "coverage": "worked",
-      "explanation": "`pairSums` is [2, 8]. The largest number is 8. Return 8."
+      "explanation": "`pairSums` is [-7, 4]. The largest number is 4. Return 4."
     },
     {
       "id": "path3-135-3",
@@ -101,30 +101,30 @@
       "id": "path3-135-1",
       "input": [
         [
-          -3,
+          -10,
           0,
           7,
-          7,
-          12
+          9,
+          9
         ]
       ],
       "expected": 9,
       "coverage": "worked",
-      "explanation": "`pairSums` is [9, 7, 7]. The largest number is 9. Return 9."
+      "explanation": "`pairSums` is [-1, 9, 7]. The largest number is 9. Return 9."
     },
     {
       "id": "path3-135-2",
       "input": [
         [
-          -2,
-          4,
-          4,
-          4
+          -9,
+          2,
+          2,
+          2
         ]
       ],
-      "expected": 8,
+      "expected": 4,
       "coverage": "worked",
-      "explanation": "`pairSums` is [2, 8]. The largest number is 8. Return 8."
+      "explanation": "`pairSums` is [-7, 4]. The largest number is 4. Return 4."
     }
   ],
   "referenceSolutions": {
@@ -139,35 +139,35 @@
         "id": "path3-135-4",
         "input": [
           [
-            9
+            15
           ]
         ],
-        "expected": 9,
+        "expected": 15,
         "coverage": "singleton"
       },
       {
         "id": "path3-135-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            7,
+            7,
+            7,
+            7
           ]
         ],
-        "expected": 10,
+        "expected": 14,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-135-6",
         "input": [
           [
-            -20,
             -7,
-            -1
+            -6,
+            -2
           ]
         ],
-        "expected": -7,
+        "expected": -6,
         "coverage": "lower-bound"
       },
       {
@@ -2613,7 +2613,6 @@
             -19,
             -19,
             -19,
-            -19,
             -18,
             -18,
             -18,
@@ -6272,7 +6271,7 @@
             -16,
             -16,
             -16,
-            -15,
+            -16,
             -15,
             -15,
             -15,
@@ -11150,6 +11149,7 @@
             -12,
             -12,
             -12,
+            -12,
             -11,
             -11,
             -11,
@@ -13589,7 +13589,6 @@
             -10,
             -10,
             -10,
-            -9,
             -9,
             -9,
             -9,
@@ -16028,6 +16027,7 @@
             -8,
             -8,
             -8,
+            -8,
             -7,
             -7,
             -7,
@@ -17248,7 +17248,6 @@
             -7,
             -7,
             -7,
-            -6,
             -6,
             -6,
             -6,
@@ -22126,6 +22125,7 @@
             -3,
             -3,
             -3,
+            -3,
             -2,
             -2,
             -2,
@@ -24565,7 +24565,6 @@
             -1,
             -1,
             -1,
-            0,
             0,
             0,
             0,
@@ -27004,6 +27003,7 @@
             1,
             1,
             1,
+            1,
             2,
             2,
             2,
@@ -29443,7 +29443,6 @@
             3,
             3,
             3,
-            4,
             4,
             4,
             4,
@@ -34321,6 +34320,7 @@
             7,
             7,
             7,
+            7,
             8,
             8,
             8,
@@ -35540,7 +35540,6 @@
             8,
             8,
             8,
-            9,
             9,
             9,
             9,
@@ -37979,6 +37978,7 @@
             10,
             10,
             10,
+            10,
             11,
             11,
             11,
@@ -40418,7 +40418,6 @@
             12,
             12,
             12,
-            13,
             13,
             13,
             13,
@@ -45296,7 +45295,7 @@
             16,
             16,
             16,
-            17,
+            16,
             17,
             17,
             17,
@@ -48955,6 +48954,7 @@
             19,
             19,
             19,
+            20,
             20,
             20,
             20,
@@ -50176,7 +50176,7 @@
             20
           ]
         ],
-        "expected": 0,
+        "expected": 1,
         "coverage": "maximum-size"
       },
       {
@@ -50195,11 +50195,11 @@
         "id": "path3-135-9",
         "input": [
           [
-            -2,
-            1,
-            3,
-            8,
-            8
+            -3,
+            4,
+            4,
+            5,
+            9
           ]
         ],
         "expected": 9,

@@ -19,7 +19,7 @@
   "summary": "Backtracking with occupancy. Keep the positive numbers.",
   "stage": "Sequence variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of permission masks, one per desk. A mask is a whole number whose binary digits show which clerks are allowed.\n\nYour tasks\n1. Create a list `clerkCounts`. There are n desks and n clerks, both numbered from 0. Here, n is the length of `readings`. Each number in `readings` is a permission mask for one desk. A mask uses binary digits. Each digit is called a bit: a 1 in bit c allows clerk c to use that desk. Bit 0 is the rightmost digit. Assign exactly one clerk to each desk, with no clerk used twice. Follow every permission mask. For each clerk c, count the complete assignments where clerk c gets desk 0. Put those counts in clerk order. A forbidden first choice has count 0. With no desks, `clerkCounts` is empty.\n2. Create a list `positiveValues` that keeps only the numbers in `clerkCounts` that are greater than 0, in the same order.\n3. Complete `rosterProofPositiveProofStrip` so it returns `positiveValues`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 1, 6, 2], then `clerkCounts` is [0, 0, 0, 0] and `rosterProofPositiveProofStrip` returns [].\n\nRules\n- Keep repeated numbers.\n- If no number is greater than 0, return [].\n\nTest data\nTEST DATA 1: `readings` is [7, 3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, 2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of permission masks, one per desk. A mask is a whole number whose binary digits show which clerks are allowed.\n\nYour tasks\n1. Create a list `clerkCounts`. There are n desks and n clerks, both numbered from 0. Here, n is the length of `readings`. Each number in `readings` is a permission mask for one desk. A mask uses binary digits. Each digit is called a bit: a 1 in bit c allows clerk c to use that desk. Bit 0 is the rightmost digit. Assign exactly one clerk to each desk, with no clerk used twice. Follow every permission mask. For each clerk c, count the complete assignments where clerk c gets desk 0. Put those counts in clerk order. A forbidden first choice has count 0. With no desks, `clerkCounts` is empty.\n2. Create a list `positiveValues` that keeps only the numbers in `clerkCounts` that are greater than 0, in the same order.\n3. Complete `rosterProofPositiveProofStrip` so it returns `positiveValues`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 6, 6, 4, 1], then `clerkCounts` is [0, 0, 0, 0, 0] and `rosterProofPositiveProofStrip` returns [].\n\nRules\n- Keep repeated numbers.\n- If no number is greater than 0, return [].\n\nTest data\nTEST DATA 1: `readings` is [0, 9, 6, 6, 1].\nTEST DATA 2: `readings` is [4, 4, 4, 7].",
   "unitIntro": "There are n desks and n clerks, both numbered from 0. Here, n is the length of `readings`. Each number in `readings` is a permission mask for one desk. A mask uses binary digits. Each digit is called a bit: a 1 in bit c allows clerk c to use that desk. Bit 0 is the rightmost digit. Assign exactly one clerk to each desk, with no clerk used twice. Follow every permission mask. For each clerk c, count the complete assignments where clerk c gets desk 0. Put those counts in clerk order. A forbidden first choice has count 0. With no desks, `clerkCounts` is empty. Each problem in this unit builds `clerkCounts` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 6.",
@@ -45,11 +45,11 @@
       "id": "path3-489-1",
       "input": [
         [
-          7,
-          3,
-          7,
           0,
-          12
+          9,
+          6,
+          6,
+          1
         ]
       ],
       "expected": [],
@@ -62,8 +62,8 @@
         [
           4,
           4,
-          2,
-          4
+          4,
+          7
         ]
       ],
       "expected": [],
@@ -101,11 +101,11 @@
       "id": "path3-489-1",
       "input": [
         [
-          7,
-          3,
-          7,
           0,
-          12
+          9,
+          6,
+          6,
+          1
         ]
       ],
       "expected": [],
@@ -118,8 +118,8 @@
         [
           4,
           4,
-          2,
-          4
+          4,
+          7
         ]
       ],
       "expected": [],
@@ -139,22 +139,20 @@
         "id": "path3-489-4",
         "input": [
           [
-            1
+            0
           ]
         ],
-        "expected": [
-          1
-        ],
+        "expected": [],
         "coverage": "singleton"
       },
       {
         "id": "path3-489-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            2,
+            2,
+            2,
+            2
           ]
         ],
         "expected": [],
@@ -164,14 +162,12 @@
         "id": "path3-489-6",
         "input": [
           [
+            0,
             4,
-            1,
-            7
+            3
           ]
         ],
-        "expected": [
-          1
-        ],
+        "expected": [],
         "coverage": "lower-bound"
       },
       {
@@ -212,11 +208,11 @@
         "id": "path3-489-9",
         "input": [
           [
-            8,
             3,
+            6,
             2,
-            8,
-            1
+            13,
+            3
           ]
         ],
         "expected": [],

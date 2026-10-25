@@ -19,7 +19,7 @@
   "summary": "String runs. Add the positive numbers.",
   "stage": "Filtered variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`line` is text. A character is one letter, digit, space, or punctuation mark.\n\nYour tasks\n1. Create a list `runLengths`. A run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", `runLengths` is [2, 1, 2].\n2. Add only the numbers in `runLengths` that are greater than 0. Store the sum in `positiveTotal`.\n3. Complete `ribbonRunsPositiveInkInvoice` so it returns `positiveTotal`. Return it, do not print it.\n\nExample\nIf `line` is \"ok  zoo\", then `runLengths` is [1, 1, 2, 1, 2] and `ribbonRunsPositiveInkInvoice` returns 7.\n\nRules\n- If `runLengths` is empty, return 0.\n\nTest data\nTEST DATA 1: `line` is \"inkk paaaper\".\nTEST DATA 2: `line` is \"QQ qQQ\".",
+  "descriptionMd": "Inputs\n`line` is text. A character is one letter, digit, space, or punctuation mark.\n\nYour tasks\n1. Create a list `runLengths`. A run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", `runLengths` is [2, 1, 2].\n2. Add only the numbers in `runLengths` that are greater than 0. Store the sum in `positiveTotal`.\n3. Complete `ribbonRunsPositiveInkInvoice` so it returns `positiveTotal`. Return it, do not print it.\n\nExample\nIf `line` is \"du  dvs\", then `runLengths` is [1, 1, 2, 1, 1, 1] and `ribbonRunsPositiveInkInvoice` returns 7.\n\nRules\n- If `runLengths` is empty, return 0.\n\nTest data\nTEST DATA 1: `line` is \"pbbkd kmmmc\".\nTEST DATA 2: `line` is \"BB bBB\".",
   "unitIntro": "A run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", `runLengths` is [2, 1, 2]. Each problem in this unit builds `runLengths` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -44,16 +44,16 @@
     {
       "id": "path3-048-1",
       "input": [
-        "inkk paaaper"
+        "pbbkd kmmmc"
       ],
-      "expected": 12,
+      "expected": 11,
       "coverage": "worked",
-      "explanation": "`runLengths` is [1, 1, 2, 1, 1, 3, 1, 1, 1]. Keep [1, 1, 2, 1, 1, 3, 1, 1, 1] and add those numbers. Return 12."
+      "explanation": "`runLengths` is [1, 2, 1, 1, 1, 1, 3, 1]. Keep [1, 2, 1, 1, 1, 1, 3, 1] and add those numbers. Return 11."
     },
     {
       "id": "path3-048-2",
       "input": [
-        "QQ qQQ"
+        "BB bBB"
       ],
       "expected": 6,
       "coverage": "worked",
@@ -89,16 +89,16 @@
     {
       "id": "path3-048-1",
       "input": [
-        "inkk paaaper"
+        "pbbkd kmmmc"
       ],
-      "expected": 12,
+      "expected": 11,
       "coverage": "worked",
-      "explanation": "`runLengths` is [1, 1, 2, 1, 1, 3, 1, 1, 1]. Keep [1, 1, 2, 1, 1, 3, 1, 1, 1] and add those numbers. Return 12."
+      "explanation": "`runLengths` is [1, 2, 1, 1, 1, 1, 3, 1]. Keep [1, 2, 1, 1, 1, 1, 3, 1] and add those numbers. Return 11."
     },
     {
       "id": "path3-048-2",
       "input": [
-        "QQ qQQ"
+        "BB bBB"
       ],
       "expected": 6,
       "coverage": "worked",
@@ -124,7 +124,7 @@
       {
         "id": "path3-048-5",
         "input": [
-          "aaaaa"
+          "bbbbb"
         ],
         "expected": 5,
         "coverage": "duplicates-or-redundancy"
@@ -132,7 +132,7 @@
       {
         "id": "path3-048-6",
         "input": [
-          " -!? "
+          " ,-? "
         ],
         "expected": 5,
         "coverage": "lower-bound"
@@ -140,7 +140,7 @@
       {
         "id": "path3-048-7",
         "input": [
-          "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
+          "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
         ],
         "expected": 64,
         "coverage": "maximum-size"
@@ -156,7 +156,7 @@
       {
         "id": "path3-048-9",
         "input": [
-          "a bb   ccc"
+          "b mm   bbb"
         ],
         "expected": 10,
         "coverage": "order-and-ties"

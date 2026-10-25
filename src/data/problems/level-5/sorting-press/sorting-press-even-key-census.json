@@ -19,7 +19,7 @@
   "summary": "Merge sort. Count the even numbers.",
   "stage": "Counting variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `sorted`. Sort `readings` from smallest to largest using merge sort. To use merge sort, split the list into smaller parts, sort those parts, then join the sorted parts in order. Keep all repeated numbers. `sorted` is the sorted list.\n2. Count the even numbers in `sorted`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder.\n3. Complete `sortingPressEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `sorted` is [-1, 2, 6, 6] and `sortingPressEvenKeyCensus` returns 3.\n\nRules\n- 0 and negative even numbers count too.\n- If `sorted` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `sorted`. Sort `readings` from smallest to largest using merge sort. To use merge sort, split the list into smaller parts, sort those parts, then join the sorted parts in order. Keep all repeated numbers. `sorted` is the sorted list.\n2. Count the even numbers in `sorted`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder.\n3. Complete `sortingPressEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nExample\nIf `readings` is [3, 4, -1, 7, 4], then `sorted` is [-1, 3, 4, 4, 7] and `sortingPressEvenKeyCensus` returns 2.\n\nRules\n- 0 and negative even numbers count too.\n- If `sorted` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [11, 11, 0, 7, -3].\nTEST DATA 2: `readings` is [8, 8, 8, -3].",
   "unitIntro": "Sort `readings` from smallest to largest using merge sort. To use merge sort, split the list into smaller parts, sort those parts, then join the sorted parts in order. Keep all repeated numbers. `sorted` is the sorted list. Each problem in this unit builds `sorted` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,30 +45,30 @@
       "id": "path3-246-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          11,
+          11,
           0,
-          12
+          7,
+          -3
         ]
       ],
-      "expected": 2,
+      "expected": 1,
       "coverage": "worked",
-      "explanation": "`sorted` is [-3, 0, 7, 7, 12]. The even numbers are [0, 12]. There are 2, so return 2."
+      "explanation": "`sorted` is [-3, 0, 7, 11, 11]. The even numbers are [0]. There are 1, so return 1."
     },
     {
       "id": "path3-246-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          8,
+          8,
+          8,
+          -3
         ]
       ],
-      "expected": 4,
+      "expected": 3,
       "coverage": "worked",
-      "explanation": "`sorted` is [-2, 4, 4, 4]. The even numbers are [-2, 4, 4, 4]. There are 4, so return 4."
+      "explanation": "`sorted` is [-3, 8, 8, 8]. The even numbers are [8, 8, 8]. There are 3, so return 3."
     },
     {
       "id": "path3-246-3",
@@ -101,30 +101,30 @@
       "id": "path3-246-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          11,
+          11,
           0,
-          12
+          7,
+          -3
         ]
       ],
-      "expected": 2,
+      "expected": 1,
       "coverage": "worked",
-      "explanation": "`sorted` is [-3, 0, 7, 7, 12]. The even numbers are [0, 12]. There are 2, so return 2."
+      "explanation": "`sorted` is [-3, 0, 7, 11, 11]. The even numbers are [0]. There are 1, so return 1."
     },
     {
       "id": "path3-246-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          8,
+          8,
+          8,
+          -3
         ]
       ],
-      "expected": 4,
+      "expected": 3,
       "coverage": "worked",
-      "explanation": "`sorted` is [-2, 4, 4, 4]. The even numbers are [-2, 4, 4, 4]. There are 4, so return 4."
+      "explanation": "`sorted` is [-3, 8, 8, 8]. The even numbers are [8, 8, 8]. There are 3, so return 3."
     }
   ],
   "referenceSolutions": {
@@ -139,7 +139,7 @@
         "id": "path3-246-4",
         "input": [
           [
-            9
+            11
           ]
         ],
         "expected": 0,
@@ -149,25 +149,25 @@
         "id": "path3-246-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            4,
+            4,
+            4,
+            4
           ]
         ],
-        "expected": 0,
+        "expected": 4,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-246-6",
         "input": [
           [
-            -20,
-            -1,
-            -7
+            -19,
+            -9,
+            -15
           ]
         ],
-        "expected": 1,
+        "expected": 0,
         "coverage": "lower-bound"
       },
       {
@@ -175,72 +175,72 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
             -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
             -2,
-            11,
-            -17,
-            -4,
-            9,
-            -19,
-            -6,
             7,
-            20,
-            -8,
-            5,
-            18,
-            -10,
-            3,
             16,
-            -12,
-            1,
-            14,
-            -14,
-            -1,
-            12,
             -16,
-            -3,
-            10,
-            -18,
-            -5,
-            8,
-            -20,
             -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
             2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
             11,
+            20,
+            -12,
+            -3,
+            6,
+            15,
             -17,
+            -8,
+            1,
+            10,
+            19,
+            -13,
             -4,
+            5,
+            14,
+            -18,
+            -9,
+            0,
             9,
+            18,
+            -14,
+            -5,
+            4,
+            13,
             -19,
+            -10,
+            -1,
+            8,
+            17,
+            -15,
             -6,
+            3,
+            12,
+            -20,
+            -11,
+            -2,
             7,
-            20
+            16,
+            -16,
+            -7,
+            2,
+            11,
+            20,
+            -12,
+            -3,
+            6,
+            15,
+            -17,
+            -8,
+            1,
+            10,
+            19,
+            -13,
+            -4,
+            5,
+            14
           ]
         ],
-        "expected": 30,
+        "expected": 33,
         "coverage": "maximum-size"
       },
       {
@@ -259,14 +259,14 @@
         "id": "path3-246-9",
         "input": [
           [
-            8,
-            3,
+            12,
+            2,
+            12,
             -2,
-            8,
-            1
+            11
           ]
         ],
-        "expected": 3,
+        "expected": 4,
         "coverage": "order-and-ties"
       }
     ],

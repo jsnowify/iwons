@@ -19,7 +19,7 @@
   "summary": "Counting dynamic programming. Find the first number at least k.",
   "stage": "Combine",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `tilingCounts`. Each number x in `readings` is the width of a one-row strip. Fill it exactly using pieces of width 1 or 3. Count the different orders of pieces that work. For width 4, the orders are [1,1,1,1], [1,3], and [3,1], so the count is 3. Width 0 has one way: use no pieces. Record one count per input width, in order.\n2. Read `tilingCounts` from left to right. Find the first number that is at least `k` and store that number, not its position, in `firstMatch`.\n3. Complete `tilingRibbonFirstQualifyingSlip` so it returns `firstMatch`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 1, 6, 2] and `k` is 4, then `tilingCounts` is [6, 1, 6, 1] and `tilingRibbonFirstQualifyingSlip` returns 6.\n\nRules\n- If no number is at least `k`, return -1.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `readings` is [7, 3, 7, 0, 12] and `k` is 3.\nTEST DATA 2: `readings` is [4, 4, 2, 4] and `k` is 2.",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `tilingCounts`. Each number x in `readings` is the width of a one-row strip. Fill it exactly using pieces of width 1 or 3. Count the different orders of pieces that work. For width 4, the orders are [1,1,1,1], [1,3], and [3,1], so the count is 3. Width 0 has one way: use no pieces. Record one count per input width, in order.\n2. Read `tilingCounts` from left to right. Find the first number that is at least `k` and store that number, not its position, in `firstMatch`.\n3. Complete `tilingRibbonFirstQualifyingSlip` so it returns `firstMatch`. Return it, do not print it.\n\nExample\nIf `readings` is [9, 9, 2, 0, 2] and `k` is 4, then `tilingCounts` is [19, 19, 1, 1, 1] and `tilingRibbonFirstQualifyingSlip` returns 19.\n\nRules\n- If no number is at least `k`, return -1.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `readings` is [4, 0, 9, 17, 17] and `k` is 3.\nTEST DATA 2: `readings` is [3, 5, 3, 3] and `k` is 3.",
   "unitIntro": "Each number x in `readings` is the width of a one-row strip. Fill it exactly using pieces of width 1 or 3. Count the different orders of pieces that work. For width 4, the orders are [1,1,1,1], [1,3], and [3,1], so the count is 3. Width 0 has one way: use no pieces. Record one count per input width, in order. Each problem in this unit builds `tilingCounts` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,42 +45,42 @@
       "id": "path3-424-1",
       "input": [
         [
-          7,
-          3,
-          7,
+          4,
           0,
-          12
+          9,
+          17,
+          17
         ],
         3
       ],
-      "expected": 9,
+      "expected": 3,
       "coverage": "worked",
-      "explanation": "`tilingCounts` is [9, 2, 9, 1, 60]. Here `k` is 3. The first number at least 3 is 9. Return that value."
+      "explanation": "`tilingCounts` is [3, 1, 19, 406, 406]. Here `k` is 3. The first number at least 3 is 3. Return that value."
     },
     {
       "id": "path3-424-2",
       "input": [
         [
-          4,
-          4,
-          2,
-          4
+          3,
+          5,
+          3,
+          3
         ],
-        2
+        3
       ],
-      "expected": 3,
+      "expected": 4,
       "coverage": "worked",
-      "explanation": "`tilingCounts` is [3, 3, 1, 3]. Here `k` is 2. The first number at least 2 is 3. Return that value."
+      "explanation": "`tilingCounts` is [2, 4, 2, 2]. Here `k` is 3. The first number at least 3 is 4. Return that value."
     },
     {
       "id": "path3-424-3",
       "input": [
         [],
-        1
+        7
       ],
       "expected": -1,
       "coverage": "empty",
-      "explanation": "`tilingCounts` is []. Here `k` is 1. No number is at least 1, so return -1."
+      "explanation": "`tilingCounts` is []. Here `k` is 7. No number is at least 7, so return -1."
     }
   ],
   "timeLimitMs": 2000,
@@ -105,32 +105,32 @@
       "id": "path3-424-1",
       "input": [
         [
-          7,
-          3,
-          7,
+          4,
           0,
-          12
+          9,
+          17,
+          17
         ],
         3
       ],
-      "expected": 9,
+      "expected": 3,
       "coverage": "worked",
-      "explanation": "`tilingCounts` is [9, 2, 9, 1, 60]. Here `k` is 3. The first number at least 3 is 9. Return that value."
+      "explanation": "`tilingCounts` is [3, 1, 19, 406, 406]. Here `k` is 3. The first number at least 3 is 3. Return that value."
     },
     {
       "id": "path3-424-2",
       "input": [
         [
-          4,
-          4,
-          2,
-          4
+          3,
+          5,
+          3,
+          3
         ],
-        2
+        3
       ],
-      "expected": 3,
+      "expected": 4,
       "coverage": "worked",
-      "explanation": "`tilingCounts` is [3, 3, 1, 3]. Here `k` is 2. The first number at least 2 is 3. Return that value."
+      "explanation": "`tilingCounts` is [2, 4, 2, 2]. Here `k` is 3. The first number at least 3 is 4. Return that value."
     }
   ],
   "referenceSolutions": {
@@ -145,38 +145,38 @@
         "id": "path3-424-4",
         "input": [
           [
-            9
+            7
           ],
           1
         ],
-        "expected": 19,
+        "expected": 9,
         "coverage": "singleton"
       },
       {
         "id": "path3-424-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            7,
+            7,
+            7,
+            7
           ],
           4
         ],
-        "expected": 4,
+        "expected": 9,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-424-6",
         "input": [
           [
-            20,
-            1,
-            7
+            14,
+            18,
+            12
           ],
-          8
+          3
         ],
-        "expected": 1278,
+        "expected": 129,
         "coverage": "lower-bound"
       },
       {
@@ -248,7 +248,7 @@
             0,
             20
           ],
-          3
+          8
         ],
         "expected": 1278,
         "coverage": "maximum-size"
@@ -261,24 +261,24 @@
             0,
             0
           ],
-          5
+          1
         ],
-        "expected": -1,
+        "expected": 1,
         "coverage": "zero-or-minimum"
       },
       {
         "id": "path3-424-9",
         "input": [
           [
-            8,
-            3,
-            2,
-            8,
-            1
+            14,
+            7,
+            5,
+            7,
+            13
           ],
-          2
+          6
         ],
-        "expected": 13,
+        "expected": 129,
         "coverage": "order-and-ties"
       }
     ],

@@ -19,7 +19,7 @@
   "summary": "Opposite-end pointers. Add the positive numbers.",
   "stage": "Filtered variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `pairSums`. `readings` is already sorted from smallest to largest. Pair its first and last numbers, then its second and second-last numbers. Keep moving toward the middle. Add the two numbers in each pair and record that sum. If one middle number is left, record it by itself. Keep this pair order in `pairSums`.\n2. Add only the numbers in `pairSums` that are greater than 0. Store the sum in `positiveTotal`.\n3. Complete `facingCardsPositiveInkInvoice` so it returns `positiveTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [-1, 2, 6, 6], then `pairSums` is [5, 8] and `facingCardsPositiveInkInvoice` returns 13.\n\nRules\n- Skip 0 and negative numbers.\n- If no number is greater than 0, return 0.\n\nTest data\nTEST DATA 1: `readings` is [-3, 0, 7, 7, 12].\nTEST DATA 2: `readings` is [-2, 4, 4, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `pairSums`. `readings` is already sorted from smallest to largest. Pair its first and last numbers, then its second and second-last numbers. Keep moving toward the middle. Add the two numbers in each pair and record that sum. If one middle number is left, record it by itself. Keep this pair order in `pairSums`.\n2. Add only the numbers in `pairSums` that are greater than 0. Store the sum in `positiveTotal`.\n3. Complete `facingCardsPositiveInkInvoice` so it returns `positiveTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [-9, 3, 7, 9, 9], then `pairSums` is [0, 12, 7] and `facingCardsPositiveInkInvoice` returns 19.\n\nRules\n- Skip 0 and negative numbers.\n- If no number is greater than 0, return 0.\n\nTest data\nTEST DATA 1: `readings` is [-4, 0, 3, 3, 9].\nTEST DATA 2: `readings` is [-2, 6, 6, 6].",
   "unitIntro": "`readings` is already sorted from smallest to largest. Pair its first and last numbers, then its second and second-last numbers. Keep moving toward the middle. Add the two numbers in each pair and record that sum. If one middle number is left, record it by itself. Keep this pair order in `pairSums`. Each problem in this unit builds `pairSums` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,30 +45,30 @@
       "id": "path3-138-1",
       "input": [
         [
-          -3,
+          -4,
           0,
-          7,
-          7,
-          12
+          3,
+          3,
+          9
         ]
       ],
-      "expected": 23,
+      "expected": 11,
       "coverage": "worked",
-      "explanation": "`pairSums` is [9, 7, 7]. Keep [9, 7, 7] and add those numbers. Return 23."
+      "explanation": "`pairSums` is [5, 3, 3]. Keep [5, 3, 3] and add those numbers. Return 11."
     },
     {
       "id": "path3-138-2",
       "input": [
         [
           -2,
-          4,
-          4,
-          4
+          6,
+          6,
+          6
         ]
       ],
-      "expected": 10,
+      "expected": 16,
       "coverage": "worked",
-      "explanation": "`pairSums` is [2, 8]. Keep [2, 8] and add those numbers. Return 10."
+      "explanation": "`pairSums` is [4, 12]. Keep [4, 12] and add those numbers. Return 16."
     },
     {
       "id": "path3-138-3",
@@ -101,30 +101,30 @@
       "id": "path3-138-1",
       "input": [
         [
-          -3,
+          -4,
           0,
-          7,
-          7,
-          12
+          3,
+          3,
+          9
         ]
       ],
-      "expected": 23,
+      "expected": 11,
       "coverage": "worked",
-      "explanation": "`pairSums` is [9, 7, 7]. Keep [9, 7, 7] and add those numbers. Return 23."
+      "explanation": "`pairSums` is [5, 3, 3]. Keep [5, 3, 3] and add those numbers. Return 11."
     },
     {
       "id": "path3-138-2",
       "input": [
         [
           -2,
-          4,
-          4,
-          4
+          6,
+          6,
+          6
         ]
       ],
-      "expected": 10,
+      "expected": 16,
       "coverage": "worked",
-      "explanation": "`pairSums` is [2, 8]. Keep [2, 8] and add those numbers. Return 10."
+      "explanation": "`pairSums` is [4, 12]. Keep [4, 12] and add those numbers. Return 16."
     }
   ],
   "referenceSolutions": {
@@ -139,32 +139,32 @@
         "id": "path3-138-4",
         "input": [
           [
-            9
+            12
           ]
         ],
-        "expected": 9,
+        "expected": 12,
         "coverage": "singleton"
       },
       {
         "id": "path3-138-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            7,
+            7,
+            7,
+            7
           ]
         ],
-        "expected": 20,
+        "expected": 28,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-138-6",
         "input": [
           [
-            -20,
-            -7,
-            -1
+            -17,
+            -15,
+            -6
           ]
         ],
         "expected": 0,
@@ -177,10 +177,10 @@
             -20,
             -20,
             -19,
-            -19,
+            -18,
             -18,
             -17,
-            -17,
+            -16,
             -16,
             -15,
             -15,
@@ -191,18 +191,18 @@
             -11,
             -11,
             -10,
-            -9,
+            -10,
             -9,
             -8,
-            -7,
+            -8,
             -7,
             -6,
             -6,
             -5,
-            -4,
+            -5,
             -4,
             -3,
-            -2,
+            -3,
             -2,
             -1,
             0,
@@ -211,19 +211,20 @@
             2,
             2,
             3,
-            4,
+            3,
             4,
             5,
-            6,
+            5,
             6,
             7,
             7,
             8,
-            9,
+            8,
             9,
             10,
+            10,
             11,
-            11,
+            12,
             12,
             13,
             13,
@@ -232,9 +233,8 @@
             15,
             16,
             17,
-            17,
             18,
-            19,
+            18,
             19,
             20,
             20
@@ -259,14 +259,14 @@
         "id": "path3-138-9",
         "input": [
           [
-            -2,
-            1,
-            3,
-            8,
-            8
+            -5,
+            12,
+            12,
+            13,
+            14
           ]
         ],
-        "expected": 18,
+        "expected": 46,
         "coverage": "order-and-ties"
       }
     ],

@@ -19,7 +19,7 @@
   "summary": "Stable array filtering. Return the whole list.",
   "stage": "Warm-up",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `kept`. Keep only numbers greater than 0 from `readings`. Put them in `kept` in their original order. Keep repeated numbers. Leave out 0 and negative numbers.\n2. Complete `positiveTraysProofStrip` so it returns `kept`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `kept` is [6, 6, 2] and `positiveTraysProofStrip` returns [6, 6, 2].\n\nRules\n- If `kept` is empty, return [].\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `kept`. Keep only numbers greater than 0 from `readings`. Put them in `kept` in their original order. Keep repeated numbers. Leave out 0 and negative numbers.\n2. Complete `positiveTraysProofStrip` so it returns `kept`. Return it, do not print it.\n\nExample\nIf `readings` is [3, 8, 3, 4, -4], then `kept` is [3, 8, 3, 4] and `positiveTraysProofStrip` returns [3, 8, 3, 4].\n\nRules\n- If `kept` is empty, return [].\n\nTest data\nTEST DATA 1: `readings` is [2, 0, -6, 11, 11].\nTEST DATA 2: `readings` is [-1, 7, 7, 7].",
   "unitIntro": "Keep only numbers greater than 0 from `readings`. Put them in `kept` in their original order. Keep repeated numbers. Leave out 0 and negative numbers. Each problem in this unit builds `kept` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,38 +45,38 @@
       "id": "path3-051-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          2,
           0,
-          12
+          -6,
+          11,
+          11
         ]
       ],
       "expected": [
-        7,
-        7,
-        12
+        2,
+        11,
+        11
       ],
       "coverage": "worked",
-      "explanation": "`kept` is [7, 7, 12]. `positiveTraysProofStrip` returns that whole list, so return [7, 7, 12]."
+      "explanation": "`kept` is [2, 11, 11]. `positiveTraysProofStrip` returns that whole list, so return [2, 11, 11]."
     },
     {
       "id": "path3-051-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          -1,
+          7,
+          7,
+          7
         ]
       ],
       "expected": [
-        4,
-        4,
-        4
+        7,
+        7,
+        7
       ],
       "coverage": "worked",
-      "explanation": "`kept` is [4, 4, 4]. `positiveTraysProofStrip` returns that whole list, so return [4, 4, 4]."
+      "explanation": "`kept` is [7, 7, 7]. `positiveTraysProofStrip` returns that whole list, so return [7, 7, 7]."
     },
     {
       "id": "path3-051-3",
@@ -109,38 +109,38 @@
       "id": "path3-051-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          2,
           0,
-          12
+          -6,
+          11,
+          11
         ]
       ],
       "expected": [
-        7,
-        7,
-        12
+        2,
+        11,
+        11
       ],
       "coverage": "worked",
-      "explanation": "`kept` is [7, 7, 12]. `positiveTraysProofStrip` returns that whole list, so return [7, 7, 12]."
+      "explanation": "`kept` is [2, 11, 11]. `positiveTraysProofStrip` returns that whole list, so return [2, 11, 11]."
     },
     {
       "id": "path3-051-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          -1,
+          7,
+          7,
+          7
         ]
       ],
       "expected": [
-        4,
-        4,
-        4
+        7,
+        7,
+        7
       ],
       "coverage": "worked",
-      "explanation": "`kept` is [4, 4, 4]. `positiveTraysProofStrip` returns that whole list, so return [4, 4, 4]."
+      "explanation": "`kept` is [7, 7, 7]. `positiveTraysProofStrip` returns that whole list, so return [7, 7, 7]."
     }
   ],
   "referenceSolutions": {
@@ -155,11 +155,11 @@
         "id": "path3-051-4",
         "input": [
           [
-            9
+            7
           ]
         ],
         "expected": [
-          9
+          7
         ],
         "coverage": "singleton"
       },
@@ -167,17 +167,17 @@
         "id": "path3-051-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            8,
+            8,
+            8,
+            8
           ]
         ],
         "expected": [
-          5,
-          5,
-          5,
-          5
+          8,
+          8,
+          8,
+          8
         ],
         "coverage": "duplicates-or-redundancy"
       },
@@ -185,9 +185,9 @@
         "id": "path3-051-6",
         "input": [
           [
-            -20,
             -1,
-            -7
+            -2,
+            -15
           ]
         ],
         "expected": [],
@@ -198,103 +198,103 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
             -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
-            -4,
-            9,
-            -19,
             -6,
-            7,
-            20,
-            -8,
-            5,
-            18,
-            -10,
-            3,
-            16,
-            -12,
             1,
-            14,
-            -14,
-            -1,
-            12,
-            -16,
-            -3,
-            10,
-            -18,
-            -5,
             8,
-            -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
             15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
-            -4,
-            9,
             -19,
-            -6,
+            -12,
+            -5,
+            2,
+            9,
+            16,
+            -18,
+            -11,
+            -4,
+            3,
+            10,
+            17,
+            -17,
+            -10,
+            -3,
+            4,
+            11,
+            18,
+            -16,
+            -9,
+            -2,
+            5,
+            12,
+            19,
+            -15,
+            -8,
+            -1,
+            6,
+            13,
+            20,
+            -14,
+            -7,
+            0,
             7,
-            20
+            14,
+            -20,
+            -13,
+            -6,
+            1,
+            8,
+            15,
+            -19,
+            -12,
+            -5,
+            2,
+            9,
+            16,
+            -18,
+            -11,
+            -4,
+            3,
+            10,
+            17,
+            -17,
+            -10,
+            -3,
+            4,
+            11
           ]
         ],
         "expected": [
-          6,
-          19,
-          4,
-          17,
-          2,
-          15,
-          13,
-          11,
-          9,
-          7,
-          20,
-          5,
-          18,
-          3,
-          16,
           1,
-          14,
-          12,
-          10,
           8,
-          6,
-          19,
-          4,
-          17,
-          2,
           15,
-          13,
-          11,
+          2,
           9,
+          16,
+          3,
+          10,
+          17,
+          4,
+          11,
+          18,
+          5,
+          12,
+          19,
+          6,
+          13,
+          20,
           7,
-          20
+          14,
+          1,
+          8,
+          15,
+          2,
+          9,
+          16,
+          3,
+          10,
+          17,
+          4,
+          11
         ],
         "coverage": "maximum-size"
       },
@@ -314,18 +314,18 @@
         "id": "path3-051-9",
         "input": [
           [
-            8,
-            3,
-            -2,
-            8,
-            1
+            6,
+            12,
+            -8,
+            12,
+            7
           ]
         ],
         "expected": [
-          8,
-          3,
-          8,
-          1
+          6,
+          12,
+          12,
+          7
         ],
         "coverage": "order-and-ties"
       }

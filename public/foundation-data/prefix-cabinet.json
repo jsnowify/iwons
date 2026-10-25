@@ -21,32 +21,32 @@
             "id": "read-0",
             "input": [
               [
-                "ink",
-                "inside",
-                "inn",
-                "paper"
+                "lever",
+                "lever",
+                "leyk",
+                "carriage"
               ]
             ],
             "expected": [
-              7,
-              10,
-              7,
-              5
+              12,
+              12,
+              8,
+              8
             ]
           },
           {
             "id": "read-1",
             "input": [
               [
-                "aa",
-                "aa",
-                "ab"
+                "lever",
+                "lever",
+                "levef"
               ]
             ],
             "expected": [
-              5,
-              5,
-              4
+              14,
+              14,
+              13
             ]
           },
           {
@@ -95,32 +95,32 @@
             "id": "trace-0",
             "input": [
               [
-                "ink",
-                "inside",
-                "inn",
-                "paper"
+                "lever",
+                "lever",
+                "leyk",
+                "carriage"
               ]
             ],
             "expected": [
-              7,
-              10,
-              7,
-              5
+              12,
+              12,
+              8,
+              8
             ]
           },
           {
             "id": "trace-1",
             "input": [
               [
-                "aa",
-                "aa",
-                "ab"
+                "lever",
+                "lever",
+                "levef"
               ]
             ],
             "expected": [
-              5,
-              5,
-              4
+              14,
+              14,
+              13
             ]
           },
           {
@@ -233,32 +233,32 @@
             "id": "rebuild-0",
             "input": [
               [
-                "ink",
-                "inside",
-                "inn",
-                "paper"
+                "lever",
+                "lever",
+                "leyk",
+                "carriage"
               ]
             ],
             "expected": [
-              7,
-              10,
-              7,
-              5
+              12,
+              12,
+              8,
+              8
             ]
           },
           {
             "id": "rebuild-1",
             "input": [
               [
-                "aa",
-                "aa",
-                "ab"
+                "lever",
+                "lever",
+                "levef"
               ]
             ],
             "expected": [
-              5,
-              5,
-              4
+              14,
+              14,
+              13
             ]
           },
           {
@@ -307,32 +307,32 @@
             "id": "recall-0",
             "input": [
               [
-                "ink",
-                "inside",
-                "inn",
-                "paper"
+                "lever",
+                "lever",
+                "leyk",
+                "carriage"
               ]
             ],
             "expected": [
-              7,
-              10,
-              7,
-              5
+              12,
+              12,
+              8,
+              8
             ]
           },
           {
             "id": "recall-1",
             "input": [
               [
-                "aa",
-                "aa",
-                "ab"
+                "lever",
+                "lever",
+                "levef"
               ]
             ],
             "expected": [
-              5,
-              5,
-              4
+              14,
+              14,
+              13
             ]
           },
           {

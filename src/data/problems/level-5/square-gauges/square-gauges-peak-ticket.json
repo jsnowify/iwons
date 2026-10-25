@@ -19,7 +19,7 @@
   "summary": "Binary search on answers. Return the largest number.",
   "stage": "Optimize",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `roots`. For each number x in `readings`, find the largest whole number r whose square is at most x. A square means a number multiplied by itself. For example, x = 10 gives 3, because 3 * 3 = 9 but 4 * 4 = 16. Use whole-number comparisons, not rounded decimal square roots. Keep the answers in input order.\n2. Find the largest number in `roots`. Store it in `largest`.\n3. Complete `squareGaugesPeakTicket` so it returns `largest`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 1, 6, 2], then `roots` is [2, 1, 2, 1] and `squareGaugesPeakTicket` returns 2.\n\nRules\n- If `roots` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, 3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, 2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `roots`. For each number x in `readings`, find the largest whole number r whose square is at most x. A square means a number multiplied by itself. For example, x = 10 gives 3, because 3 * 3 = 9 but 4 * 4 = 16. Use whole-number comparisons, not rounded decimal square roots. Keep the answers in input order.\n2. Find the largest number in `roots`. Store it in `largest`.\n3. Complete `squareGaugesPeakTicket` so it returns `largest`. Return it, do not print it.\n\nExample\nIf `readings` is [7, 3, 6, 7, 7], then `roots` is [2, 1, 2, 2, 2] and `squareGaugesPeakTicket` returns 2.\n\nRules\n- If `roots` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [4, 18, 18, 4, 0].\nTEST DATA 2: `readings` is [9, 3, 9, 9].",
   "unitIntro": "For each number x in `readings`, find the largest whole number r whose square is at most x. A square means a number multiplied by itself. For example, x = 10 gives 3, because 3 * 3 = 9 but 4 * 4 = 16. Use whole-number comparisons, not rounded decimal square roots. Keep the answers in input order. Each problem in this unit builds `roots` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 50000.",
@@ -45,30 +45,30 @@
       "id": "path3-262-1",
       "input": [
         [
-          7,
-          3,
-          7,
-          0,
-          12
+          4,
+          18,
+          18,
+          4,
+          0
         ]
       ],
-      "expected": 3,
+      "expected": 4,
       "coverage": "worked",
-      "explanation": "`roots` is [2, 1, 2, 0, 3]. The largest number is 3. Return 3."
+      "explanation": "`roots` is [2, 4, 4, 2, 0]. The largest number is 4. Return 4."
     },
     {
       "id": "path3-262-2",
       "input": [
         [
-          4,
-          4,
-          2,
-          4
+          9,
+          3,
+          9,
+          9
         ]
       ],
-      "expected": 2,
+      "expected": 3,
       "coverage": "worked",
-      "explanation": "`roots` is [2, 2, 1, 2]. The largest number is 2. Return 2."
+      "explanation": "`roots` is [3, 1, 3, 3]. The largest number is 3. Return 3."
     },
     {
       "id": "path3-262-3",
@@ -101,30 +101,30 @@
       "id": "path3-262-1",
       "input": [
         [
-          7,
-          3,
-          7,
-          0,
-          12
+          4,
+          18,
+          18,
+          4,
+          0
         ]
       ],
-      "expected": 3,
+      "expected": 4,
       "coverage": "worked",
-      "explanation": "`roots` is [2, 1, 2, 0, 3]. The largest number is 3. Return 3."
+      "explanation": "`roots` is [2, 4, 4, 2, 0]. The largest number is 4. Return 4."
     },
     {
       "id": "path3-262-2",
       "input": [
         [
-          4,
-          4,
-          2,
-          4
+          9,
+          3,
+          9,
+          9
         ]
       ],
-      "expected": 2,
+      "expected": 3,
       "coverage": "worked",
-      "explanation": "`roots` is [2, 2, 1, 2]. The largest number is 2. Return 2."
+      "explanation": "`roots` is [3, 1, 3, 3]. The largest number is 3. Return 3."
     }
   ],
   "referenceSolutions": {
@@ -139,35 +139,35 @@
         "id": "path3-262-4",
         "input": [
           [
-            9
+            19
           ]
         ],
-        "expected": 3,
+        "expected": 4,
         "coverage": "singleton"
       },
       {
         "id": "path3-262-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            2,
+            2,
+            2,
+            2
           ]
         ],
-        "expected": 2,
+        "expected": 1,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-262-6",
         "input": [
           [
-            20,
-            1,
-            7
+            5,
+            6,
+            14
           ]
         ],
-        "expected": 4,
+        "expected": 3,
         "coverage": "lower-bound"
       },
       {
@@ -50197,12 +50197,12 @@
           [
             8,
             3,
-            2,
-            8,
-            1
+            12,
+            12,
+            7
           ]
         ],
-        "expected": 2,
+        "expected": 3,
         "coverage": "order-and-ties"
       }
     ],

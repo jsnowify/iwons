@@ -19,7 +19,7 @@
   "summary": "Adjacent array positions. Count the even numbers.",
   "stage": "Counting variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `differences`. Start at the second number in `readings`. Subtract the number just before it from the current number. Repeat for each later number. Put the answers in order. For [5, 8, 2], `differences` is [3, -6]. A list with fewer than two numbers gives an empty `differences`.\n2. Count the even numbers in `differences`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder.\n3. Complete `neighborNotesEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `differences` is [-7, 7, -4] and `neighborNotesEvenKeyCensus` returns 1.\n\nRules\n- 0 and negative even numbers count too.\n- If `differences` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `differences`. Start at the second number in `readings`. Subtract the number just before it from the current number. Repeat for each later number. Put the answers in order. For [5, 8, 2], `differences` is [3, -6]. A list with fewer than two numbers gives an empty `differences`.\n2. Count the even numbers in `differences`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder.\n3. Complete `neighborNotesEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nExample\nIf `readings` is [3, 7, 8, 3, -5], then `differences` is [4, 1, -5, -8] and `neighborNotesEvenKeyCensus` returns 2.\n\nRules\n- 0 and negative even numbers count too.\n- If `differences` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [-5, 0, 17, 17, 6].\nTEST DATA 2: `readings` is [2, 2, 2, -5].",
   "unitIntro": "Start at the second number in `readings`. Subtract the number just before it from the current number. Repeat for each later number. Put the answers in order. For [5, 8, 2], `differences` is [3, -6]. A list with fewer than two numbers gives an empty `differences`. Each problem in this unit builds `differences` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,30 +45,30 @@
       "id": "path3-037-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          -5,
           0,
-          12
+          17,
+          17,
+          6
         ]
       ],
-      "expected": 3,
+      "expected": 1,
       "coverage": "worked",
-      "explanation": "`differences` is [-10, 10, -7, 12]. The even numbers are [-10, 10, 12]. There are 3, so return 3."
+      "explanation": "`differences` is [5, 17, 0, -11]. The even numbers are [0]. There are 1, so return 1."
     },
     {
       "id": "path3-037-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          2,
+          2,
+          2,
+          -5
         ]
       ],
-      "expected": 3,
+      "expected": 2,
       "coverage": "worked",
-      "explanation": "`differences` is [0, -6, 6]. The even numbers are [0, -6, 6]. There are 3, so return 3."
+      "explanation": "`differences` is [0, 0, -7]. The even numbers are [0, 0]. There are 2, so return 2."
     },
     {
       "id": "path3-037-3",
@@ -101,30 +101,30 @@
       "id": "path3-037-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          -5,
           0,
-          12
+          17,
+          17,
+          6
         ]
       ],
-      "expected": 3,
+      "expected": 1,
       "coverage": "worked",
-      "explanation": "`differences` is [-10, 10, -7, 12]. The even numbers are [-10, 10, 12]. There are 3, so return 3."
+      "explanation": "`differences` is [5, 17, 0, -11]. The even numbers are [0]. There are 1, so return 1."
     },
     {
       "id": "path3-037-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          2,
+          2,
+          2,
+          -5
         ]
       ],
-      "expected": 3,
+      "expected": 2,
       "coverage": "worked",
-      "explanation": "`differences` is [0, -6, 6]. The even numbers are [0, -6, 6]. There are 3, so return 3."
+      "explanation": "`differences` is [0, 0, -7]. The even numbers are [0, 0]. There are 2, so return 2."
     }
   ],
   "referenceSolutions": {
@@ -139,7 +139,7 @@
         "id": "path3-037-4",
         "input": [
           [
-            9
+            14
           ]
         ],
         "expected": 0,
@@ -149,10 +149,10 @@
         "id": "path3-037-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            2,
+            2,
+            2,
+            2
           ]
         ],
         "expected": 3,
@@ -162,12 +162,12 @@
         "id": "path3-037-6",
         "input": [
           [
+            -15,
             -20,
-            -1,
-            -7
+            -3
           ]
         ],
-        "expected": 1,
+        "expected": 0,
         "coverage": "lower-bound"
       },
       {
@@ -175,72 +175,72 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
-            -4,
-            9,
-            -19,
-            -6,
-            7,
-            20,
-            -8,
-            5,
-            18,
-            -10,
-            3,
-            16,
-            -12,
-            1,
-            14,
-            -14,
             -1,
-            12,
-            -16,
-            -3,
-            10,
-            -18,
-            -5,
-            8,
-            -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
+            18,
             -4,
+            15,
+            -7,
+            12,
+            -10,
             9,
+            -13,
+            6,
+            -16,
+            3,
             -19,
+            0,
+            19,
+            -3,
+            16,
             -6,
+            13,
+            -9,
+            10,
+            -12,
             7,
-            20
+            -15,
+            4,
+            -18,
+            1,
+            20,
+            -2,
+            17,
+            -5,
+            14,
+            -8,
+            11,
+            -11,
+            8,
+            -14,
+            5,
+            -17,
+            2,
+            -20,
+            -1,
+            18,
+            -4,
+            15,
+            -7,
+            12,
+            -10,
+            9,
+            -13,
+            6,
+            -16,
+            3,
+            -19,
+            0,
+            19,
+            -3,
+            16,
+            -6,
+            13,
+            -9,
+            10,
+            -12
           ]
         ],
-        "expected": 19,
+        "expected": 29,
         "coverage": "maximum-size"
       },
       {
@@ -259,11 +259,11 @@
         "id": "path3-037-9",
         "input": [
           [
+            5,
+            2,
+            -7,
             8,
-            3,
-            -2,
-            8,
-            1
+            2
           ]
         ],
         "expected": 1,

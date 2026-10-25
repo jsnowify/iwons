@@ -19,7 +19,7 @@
   "summary": "Opposite-end pointers. Count the even numbers.",
   "stage": "Counting variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `pairSums`. `readings` is already sorted from smallest to largest. Pair its first and last numbers, then its second and second-last numbers. Keep moving toward the middle. Add the two numbers in each pair and record that sum. If one middle number is left, record it by itself. Keep this pair order in `pairSums`.\n2. Count the even numbers in `pairSums`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder.\n3. Complete `facingCardsEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nExample\nIf `readings` is [-1, 2, 6, 6], then `pairSums` is [5, 8] and `facingCardsEvenKeyCensus` returns 1.\n\nRules\n- 0 counts as an even number.\n- If `pairSums` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [-3, 0, 7, 7, 12].\nTEST DATA 2: `readings` is [-2, 4, 4, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `pairSums`. `readings` is already sorted from smallest to largest. Pair its first and last numbers, then its second and second-last numbers. Keep moving toward the middle. Add the two numbers in each pair and record that sum. If one middle number is left, record it by itself. Keep this pair order in `pairSums`.\n2. Count the even numbers in `pairSums`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder.\n3. Complete `facingCardsEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nExample\nIf `readings` is [-1, 0, 2, 5, 5], then `pairSums` is [4, 5, 2] and `facingCardsEvenKeyCensus` returns 2.\n\nRules\n- 0 and negative even numbers count too.\n- If `pairSums` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [-10, 0, 4, 10, 10].\nTEST DATA 2: `readings` is [-6, 5, 5, 5].",
   "unitIntro": "`readings` is already sorted from smallest to largest. Pair its first and last numbers, then its second and second-last numbers. Keep moving toward the middle. Add the two numbers in each pair and record that sum. If one middle number is left, record it by itself. Keep this pair order in `pairSums`. Each problem in this unit builds `pairSums` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -30,7 +30,7 @@
   "hints": [
     "Work through TEST DATA 1 by hand. Write down `pairSums` before you look for the answer.",
     "`readings` is already sorted from smallest to largest. Pair its first and last numbers, then its second and second-last numbers. Keep moving toward the middle. Add the two numbers in each pair and record that sum. If one middle number is left, record it by itself. Keep this pair order in `pairSums`. Keep track of the numbers or places you have already checked.",
-    "Count the even numbers in `pairSums`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder. 0 counts as an even number."
+    "Count the even numbers in `pairSums`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder. 0 and negative even numbers count too."
   ],
   "functionName": "facingCardsEvenKeyCensus",
   "mode": "function",
@@ -45,30 +45,30 @@
       "id": "path3-137-1",
       "input": [
         [
-          -3,
+          -10,
           0,
-          7,
-          7,
-          12
+          4,
+          10,
+          10
         ]
       ],
-      "expected": 0,
+      "expected": 3,
       "coverage": "worked",
-      "explanation": "`pairSums` is [9, 7, 7]. The even numbers are []. There are 0, so return 0."
+      "explanation": "`pairSums` is [0, 10, 4]. The even numbers are [0, 10, 4]. There are 3, so return 3."
     },
     {
       "id": "path3-137-2",
       "input": [
         [
-          -2,
-          4,
-          4,
-          4
+          -6,
+          5,
+          5,
+          5
         ]
       ],
-      "expected": 2,
+      "expected": 1,
       "coverage": "worked",
-      "explanation": "`pairSums` is [2, 8]. The even numbers are [2, 8]. There are 2, so return 2."
+      "explanation": "`pairSums` is [-1, 10]. The even numbers are [10]. There are 1, so return 1."
     },
     {
       "id": "path3-137-3",
@@ -101,30 +101,30 @@
       "id": "path3-137-1",
       "input": [
         [
-          -3,
+          -10,
           0,
-          7,
-          7,
-          12
+          4,
+          10,
+          10
         ]
       ],
-      "expected": 0,
+      "expected": 3,
       "coverage": "worked",
-      "explanation": "`pairSums` is [9, 7, 7]. The even numbers are []. There are 0, so return 0."
+      "explanation": "`pairSums` is [0, 10, 4]. The even numbers are [0, 10, 4]. There are 3, so return 3."
     },
     {
       "id": "path3-137-2",
       "input": [
         [
-          -2,
-          4,
-          4,
-          4
+          -6,
+          5,
+          5,
+          5
         ]
       ],
-      "expected": 2,
+      "expected": 1,
       "coverage": "worked",
-      "explanation": "`pairSums` is [2, 8]. The even numbers are [2, 8]. There are 2, so return 2."
+      "explanation": "`pairSums` is [-1, 10]. The even numbers are [10]. There are 1, so return 1."
     }
   ],
   "referenceSolutions": {
@@ -139,20 +139,20 @@
         "id": "path3-137-4",
         "input": [
           [
-            9
+            16
           ]
         ],
-        "expected": 0,
+        "expected": 1,
         "coverage": "singleton"
       },
       {
         "id": "path3-137-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            3,
+            3,
+            3,
+            3
           ]
         ],
         "expected": 2,
@@ -162,12 +162,12 @@
         "id": "path3-137-6",
         "input": [
           [
-            -20,
+            -15,
             -7,
-            -1
+            -5
           ]
         ],
-        "expected": 0,
+        "expected": 1,
         "coverage": "lower-bound"
       },
       {
@@ -177,10 +177,10 @@
             -20,
             -20,
             -19,
-            -19,
+            -18,
             -18,
             -17,
-            -17,
+            -16,
             -16,
             -15,
             -15,
@@ -191,18 +191,18 @@
             -11,
             -11,
             -10,
-            -9,
+            -10,
             -9,
             -8,
-            -7,
+            -8,
             -7,
             -6,
             -6,
             -5,
-            -4,
+            -5,
             -4,
             -3,
-            -2,
+            -3,
             -2,
             -1,
             0,
@@ -211,19 +211,20 @@
             2,
             2,
             3,
-            4,
+            3,
             4,
             5,
-            6,
+            5,
             6,
             7,
             7,
             8,
-            9,
+            8,
             9,
             10,
+            10,
             11,
-            11,
+            12,
             12,
             13,
             13,
@@ -232,15 +233,14 @@
             15,
             16,
             17,
-            17,
             18,
-            19,
+            18,
             19,
             20,
             20
           ]
         ],
-        "expected": 32,
+        "expected": 20,
         "coverage": "maximum-size"
       },
       {
@@ -260,13 +260,13 @@
         "input": [
           [
             -2,
-            1,
-            3,
-            8,
-            8
+            4,
+            4,
+            6,
+            14
           ]
         ],
-        "expected": 1,
+        "expected": 3,
         "coverage": "order-and-ties"
       }
     ],

@@ -19,7 +19,7 @@
   "summary": "Map grouping. Add the positive numbers.",
   "stage": "Filtered variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `boxCounts`. There are five boxes, numbered 0 to 4. For each number x in `readings`, find its box with ((x % 5) + 5) % 5. The % symbol means remainder. This formula also gives a box for negative numbers: -1 goes in box 4. Count the numbers in each box. `boxCounts` must contain five counts, in box order 0, 1, 2, 3, 4.\n2. Add only the numbers in `boxCounts` that are greater than 0. Store the sum in `positiveTotal`.\n3. Complete `remainderBoxesPositiveInkInvoice` so it returns `positiveTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `boxCounts` is [0, 2, 1, 0, 1] and `remainderBoxesPositiveInkInvoice` returns 4.\n\nRules\n- Skip zeros.\n- If no number is greater than 0, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `boxCounts`. There are five boxes, numbered 0 to 4. For each number x in `readings`, find its box with ((x % 5) + 5) % 5. The % symbol means remainder. This formula also gives a box for negative numbers: -1 goes in box 4. Count the numbers in each box. `boxCounts` must contain five counts, in box order 0, 1, 2, 3, 4.\n2. Add only the numbers in `boxCounts` that are greater than 0. Store the sum in `positiveTotal`.\n3. Complete `remainderBoxesPositiveInkInvoice` so it returns `positiveTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [9, 4, 12, 9, -6], then `boxCounts` is [0, 0, 1, 0, 4] and `remainderBoxesPositiveInkInvoice` returns 5.\n\nRules\n- Skip zeros.\n- If no number is greater than 0, return 0.\n\nTest data\nTEST DATA 1: `readings` is [-8, 0, 4, 4, 20].\nTEST DATA 2: `readings` is [4, 4, -5, 4].",
   "unitIntro": "There are five boxes, numbered 0 to 4. For each number x in `readings`, find its box with ((x % 5) + 5) % 5. The % symbol means remainder. This formula also gives a box for negative numbers: -1 goes in box 4. Count the numbers in each box. `boxCounts` must contain five counts, in box order 0, 1, 2, 3, 4. Each problem in this unit builds `boxCounts` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,16 +45,16 @@
       "id": "path3-118-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          -8,
           0,
-          12
+          4,
+          4,
+          20
         ]
       ],
       "expected": 5,
       "coverage": "worked",
-      "explanation": "`boxCounts` is [1, 0, 4, 0, 0]. Keep [1, 4] and add those numbers. Return 5."
+      "explanation": "`boxCounts` is [2, 0, 1, 0, 2]. Keep [2, 1, 2] and add those numbers. Return 5."
     },
     {
       "id": "path3-118-2",
@@ -62,13 +62,13 @@
         [
           4,
           4,
-          -2,
+          -5,
           4
         ]
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "`boxCounts` is [0, 0, 0, 1, 3]. Keep [1, 3] and add those numbers. Return 4."
+      "explanation": "`boxCounts` is [1, 0, 0, 0, 3]. Keep [1, 3] and add those numbers. Return 4."
     },
     {
       "id": "path3-118-3",
@@ -101,16 +101,16 @@
       "id": "path3-118-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          -8,
           0,
-          12
+          4,
+          4,
+          20
         ]
       ],
       "expected": 5,
       "coverage": "worked",
-      "explanation": "`boxCounts` is [1, 0, 4, 0, 0]. Keep [1, 4] and add those numbers. Return 5."
+      "explanation": "`boxCounts` is [2, 0, 1, 0, 2]. Keep [2, 1, 2] and add those numbers. Return 5."
     },
     {
       "id": "path3-118-2",
@@ -118,13 +118,13 @@
         [
           4,
           4,
-          -2,
+          -5,
           4
         ]
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "`boxCounts` is [0, 0, 0, 1, 3]. Keep [1, 3] and add those numbers. Return 4."
+      "explanation": "`boxCounts` is [1, 0, 0, 0, 3]. Keep [1, 3] and add those numbers. Return 4."
     }
   ],
   "referenceSolutions": {
@@ -139,7 +139,7 @@
         "id": "path3-118-4",
         "input": [
           [
-            9
+            18
           ]
         ],
         "expected": 1,
@@ -149,10 +149,10 @@
         "id": "path3-118-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            3,
+            3,
+            3,
+            3
           ]
         ],
         "expected": 4,
@@ -162,8 +162,8 @@
         "id": "path3-118-6",
         "input": [
           [
-            -20,
-            -1,
+            -10,
+            -16,
             -7
           ]
         ],
@@ -175,69 +175,69 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
             -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
             -2,
-            11,
-            -17,
-            -4,
-            9,
-            -19,
-            -6,
             7,
-            20,
-            -8,
-            5,
-            18,
-            -10,
-            3,
             16,
-            -12,
-            1,
-            14,
-            -14,
-            -1,
-            12,
             -16,
-            -3,
-            10,
-            -18,
-            -5,
-            8,
-            -20,
             -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
             2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
             11,
+            20,
+            -12,
+            -3,
+            6,
+            15,
             -17,
+            -8,
+            1,
+            10,
+            19,
+            -13,
             -4,
+            5,
+            14,
+            -18,
+            -9,
+            0,
             9,
+            18,
+            -14,
+            -5,
+            4,
+            13,
             -19,
+            -10,
+            -1,
+            8,
+            17,
+            -15,
             -6,
+            3,
+            12,
+            -20,
+            -11,
+            -2,
             7,
-            20
+            16,
+            -16,
+            -7,
+            2,
+            11,
+            20,
+            -12,
+            -3,
+            6,
+            15,
+            -17,
+            -8,
+            1,
+            10,
+            19,
+            -13,
+            -4,
+            5,
+            14
           ]
         ],
         "expected": 64,
@@ -259,11 +259,11 @@
         "id": "path3-118-9",
         "input": [
           [
-            8,
+            9,
+            9,
+            13,
             3,
-            -2,
-            8,
-            1
+            -4
           ]
         ],
         "expected": 5,

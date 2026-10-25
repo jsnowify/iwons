@@ -19,7 +19,7 @@
   "summary": "Linked pointer reversal. Return the smallest number.",
   "stage": "Boundary variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`head` is the first node of a linked list. In examples, [4, 7] means nodes 4 then 7, linked in that order. [] means no nodes. The runner builds the nodes for you.\n\nYour tasks\n1. Create a list `reversedValues`. Reverse the links in the linked list given by `head`. Each node has a number in val and a link in next. After the links are reversed, follow the new list from start to end. Record its values in that order. An empty list gives an empty `reversedValues`.\n2. Find the smallest number in `reversedValues`. Store it in `smallest`.\n3. Complete `chainTurntableFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `head` is [6, -1, 6, 2], then `reversedValues` is [2, 6, -1, 6] and `chainTurntableFloorTicket` returns -1.\n\nRules\n- If `reversedValues` is empty, return 0.\n\nTest data\nTEST DATA 1: `head` is [7, -3, 7, 0, 12].\nTEST DATA 2: `head` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`head` is the first node of a linked list. In examples, [4, 7] means nodes 4 then 7, linked in that order. [] means no nodes. The runner builds the nodes for you.\n\nYour tasks\n1. Create a list `reversedValues`. Reverse the links in the linked list given by `head`. Each node has a number in val and a link in next. After the links are reversed, follow the new list from start to end. Record its values in that order. An empty list gives an empty `reversedValues`.\n2. Find the smallest number in `reversedValues`. Store it in `smallest`.\n3. Complete `chainTurntableFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `head` is [5, 5, 6, 7, -2], then `reversedValues` is [-2, 7, 6, 5, 5] and `chainTurntableFloorTicket` returns -2.\n\nRules\n- If `reversedValues` is empty, return 0.\n\nTest data\nTEST DATA 1: `head` is [20, 5, -2, 0, 5].\nTEST DATA 2: `head` is [4, 4, -8, 4].",
   "unitIntro": "Reverse the links in the linked list given by `head`. Each node has a number in val and a link in next. After the links are reversed, follow the new list from start to end. Record its values in that order. An empty list gives an empty `reversedValues`. Each problem in this unit builds `reversedValues` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -46,16 +46,16 @@
       "id": "path3-300-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          20,
+          5,
+          -2,
           0,
-          12
+          5
         ]
       ],
-      "expected": -3,
+      "expected": -2,
       "coverage": "worked",
-      "explanation": "`reversedValues` is [12, 0, 7, -3, 7]. The smallest number is -3. Return -3."
+      "explanation": "`reversedValues` is [5, 0, -2, 5, 20]. The smallest number is -2. Return -2."
     },
     {
       "id": "path3-300-2",
@@ -63,13 +63,13 @@
         [
           4,
           4,
-          -2,
+          -8,
           4
         ]
       ],
-      "expected": -2,
+      "expected": -8,
       "coverage": "worked",
-      "explanation": "`reversedValues` is [4, -2, 4, 4]. The smallest number is -2. Return -2."
+      "explanation": "`reversedValues` is [4, -8, 4, 4]. The smallest number is -8. Return -8."
     },
     {
       "id": "path3-300-3",
@@ -105,16 +105,16 @@
       "id": "path3-300-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          20,
+          5,
+          -2,
           0,
-          12
+          5
         ]
       ],
-      "expected": -3,
+      "expected": -2,
       "coverage": "worked",
-      "explanation": "`reversedValues` is [12, 0, 7, -3, 7]. The smallest number is -3. Return -3."
+      "explanation": "`reversedValues` is [5, 0, -2, 5, 20]. The smallest number is -2. Return -2."
     },
     {
       "id": "path3-300-2",
@@ -122,13 +122,13 @@
         [
           4,
           4,
-          -2,
+          -8,
           4
         ]
       ],
-      "expected": -2,
+      "expected": -8,
       "coverage": "worked",
-      "explanation": "`reversedValues` is [4, -2, 4, 4]. The smallest number is -2. Return -2."
+      "explanation": "`reversedValues` is [4, -8, 4, 4]. The smallest number is -8. Return -8."
     }
   ],
   "referenceSolutions": {
@@ -143,10 +143,10 @@
         "id": "path3-300-4",
         "input": [
           [
-            9
+            11
           ]
         ],
-        "expected": 9,
+        "expected": 11,
         "coverage": "singleton"
       },
       {
@@ -166,12 +166,12 @@
         "id": "path3-300-6",
         "input": [
           [
-            -20,
-            -1,
-            -7
+            -19,
+            -7,
+            -18
           ]
         ],
-        "expected": -20,
+        "expected": -19,
         "coverage": "lower-bound"
       },
       {
@@ -179,69 +179,69 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
             -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
-            -4,
-            9,
-            -19,
             -6,
-            7,
-            20,
-            -8,
-            5,
-            18,
-            -10,
-            3,
-            16,
-            -12,
             1,
-            14,
-            -14,
-            -1,
-            12,
-            -16,
-            -3,
-            10,
-            -18,
-            -5,
             8,
-            -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
             15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
-            -4,
-            9,
             -19,
-            -6,
+            -12,
+            -5,
+            2,
+            9,
+            16,
+            -18,
+            -11,
+            -4,
+            3,
+            10,
+            17,
+            -17,
+            -10,
+            -3,
+            4,
+            11,
+            18,
+            -16,
+            -9,
+            -2,
+            5,
+            12,
+            19,
+            -15,
+            -8,
+            -1,
+            6,
+            13,
+            20,
+            -14,
+            -7,
+            0,
             7,
-            20
+            14,
+            -20,
+            -13,
+            -6,
+            1,
+            8,
+            15,
+            -19,
+            -12,
+            -5,
+            2,
+            9,
+            16,
+            -18,
+            -11,
+            -4,
+            3,
+            10,
+            17,
+            -17,
+            -10,
+            -3,
+            4,
+            11
           ]
         ],
         "expected": -20,
@@ -263,14 +263,14 @@
         "id": "path3-300-9",
         "input": [
           [
-            8,
+            -4,
+            5,
             3,
-            -2,
-            8,
-            1
+            14,
+            3
           ]
         ],
-        "expected": -2,
+        "expected": -4,
         "coverage": "order-and-ties"
       }
     ],

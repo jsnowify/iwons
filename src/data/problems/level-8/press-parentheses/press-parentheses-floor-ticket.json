@@ -19,7 +19,7 @@
   "summary": "Interval dynamic programming. Return the smallest number.",
   "stage": "Boundary variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of positive whole numbers that describe matrix sizes.\n\nYour tasks\n1. Create a list `leastCosts`. `readings` lists matrix sizes. A matrix is a table of numbers with rows and columns. Matrix 0 has `readings[0]` rows and `readings[1]` columns. Matrix 1 has `readings[1]` rows and `readings[2]` columns, and so on. Multiplying an a-by-b matrix by a b-by-c matrix costs a * b * c number multiplications. You may group the matrices with brackets, but must keep their order. Different groups can have different costs. For the first matrix alone, record 0. Then record the least total cost for the first two matrices, the first three, and so on. Fewer than two size numbers means there are no matrices, so `leastCosts` is empty.\n2. Find the smallest number in `leastCosts`. Store it in `smallest`.\n3. Complete `pressParenthesesFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `readings` is [7, 2, 7, 3], then `leastCosts` is [0, 98, 84] and `pressParenthesesFloorTicket` returns 0.\n\nRules\n- If `leastCosts` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [8, 4, 8, 1, 3].\nTEST DATA 2: `readings` is [5, 5, 3, 5].",
+  "descriptionMd": "Inputs\n`readings` is a list of positive whole numbers that describe matrix sizes.\n\nYour tasks\n1. Create a list `leastCosts`. `readings` lists matrix sizes. A matrix is a table of numbers with rows and columns. Matrix 0 has `readings[0]` rows and `readings[1]` columns. Matrix 1 has `readings[1]` rows and `readings[2]` columns, and so on. Multiplying an a-by-b matrix by a b-by-c matrix costs a * b * c number multiplications. You may group the matrices with brackets, but must keep their order. Different groups can have different costs. For the first matrix alone, record 0. Then record the least total cost for the first two matrices, the first three, and so on. Fewer than two size numbers means there are no matrices, so `leastCosts` is empty.\n2. Find the smallest number in `leastCosts`. Store it in `smallest`.\n3. Complete `pressParenthesesFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `readings` is [1, 10, 10, 6, 10], then `leastCosts` is [0, 100, 160, 220] and `pressParenthesesFloorTicket` returns 0.\n\nRules\n- If `leastCosts` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [3, 9, 7, 1, 9].\nTEST DATA 2: `readings` is [4, 7, 7, 7].",
   "unitIntro": "`readings` lists matrix sizes. A matrix is a table of numbers with rows and columns. Matrix 0 has `readings[0]` rows and `readings[1]` columns. Matrix 1 has `readings[1]` rows and `readings[2]` columns, and so on. Multiplying an a-by-b matrix by a b-by-c matrix costs a * b * c number multiplications. You may group the matrices with brackets, but must keep their order. Different groups can have different costs. For the first matrix alone, record 0. Then record the least total cost for the first two matrices, the first three, and so on. Fewer than two size numbers means there are no matrices, so `leastCosts` is empty. Each problem in this unit builds `leastCosts` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 16.",
@@ -45,30 +45,30 @@
       "id": "path3-466-1",
       "input": [
         [
-          8,
-          4,
-          8,
+          3,
+          9,
+          7,
           1,
-          3
+          9
         ]
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "`leastCosts` is [0, 256, 64, 88]. The smallest number is 0. Return 0."
+      "explanation": "`leastCosts` is [0, 189, 90, 117]. The smallest number is 0. Return 0."
     },
     {
       "id": "path3-466-2",
       "input": [
         [
-          5,
-          5,
-          3,
-          5
+          4,
+          7,
+          7,
+          7
         ]
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "`leastCosts` is [0, 75, 150]. The smallest number is 0. Return 0."
+      "explanation": "`leastCosts` is [0, 196, 392]. The smallest number is 0. Return 0."
     },
     {
       "id": "path3-466-3",
@@ -101,30 +101,30 @@
       "id": "path3-466-1",
       "input": [
         [
-          8,
-          4,
-          8,
+          3,
+          9,
+          7,
           1,
-          3
+          9
         ]
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "`leastCosts` is [0, 256, 64, 88]. The smallest number is 0. Return 0."
+      "explanation": "`leastCosts` is [0, 189, 90, 117]. The smallest number is 0. Return 0."
     },
     {
       "id": "path3-466-2",
       "input": [
         [
-          5,
-          5,
-          3,
-          5
+          4,
+          7,
+          7,
+          7
         ]
       ],
       "expected": 0,
       "coverage": "worked",
-      "explanation": "`leastCosts` is [0, 75, 150]. The smallest number is 0. Return 0."
+      "explanation": "`leastCosts` is [0, 196, 392]. The smallest number is 0. Return 0."
     }
   ],
   "referenceSolutions": {
@@ -139,7 +139,7 @@
         "id": "path3-466-4",
         "input": [
           [
-            10
+            1
           ]
         ],
         "expected": 0,
@@ -149,10 +149,10 @@
         "id": "path3-466-5",
         "input": [
           [
-            6,
-            6,
-            6,
-            6
+            10,
+            10,
+            10,
+            10
           ]
         ],
         "expected": 0,
@@ -162,9 +162,9 @@
         "id": "path3-466-6",
         "input": [
           [
-            1,
-            2,
-            8
+            6,
+            7,
+            9
           ]
         ],
         "expected": 0,
@@ -175,21 +175,21 @@
         "input": [
           [
             1,
-            8,
-            7,
             10,
-            10,
+            4,
+            6,
             5,
-            8,
-            2,
             3,
-            6,
-            4,
             1,
-            4,
+            10,
+            8,
             6,
+            8,
             3,
-            2
+            1,
+            3,
+            8,
+            6
           ]
         ],
         "expected": 0,
@@ -211,11 +211,11 @@
         "id": "path3-466-9",
         "input": [
           [
-            9,
+            4,
             4,
             3,
-            9,
-            2
+            1,
+            3
           ]
         ],
         "expected": 0,

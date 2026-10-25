@@ -19,7 +19,7 @@
   "summary": "Two sorted streams. Find the first number at least k.",
   "stage": "Combine",
   "boss": false,
-  "descriptionMd": "Inputs\n`drawers` contains exactly two lists of numbers. The first list is `drawers[0]`; the second is `drawers[1]`.\n\nYour tasks\n1. Create a list `merged`. `drawers` contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted `merged`. Keep all repeated numbers, including copies from both input lists.\n2. Read `merged` from left to right. Find the first number that is at least `k` and store that number, not its position, in `firstMatch`.\n3. Complete `pairedDrawersFirstQualifyingSlip` so it returns `firstMatch`. Return it, do not print it.\n\nExample\nIf `drawers` is [[-1, 2, 6, 6], [-1, 2, 6, 6]] and `k` is 4, then `merged` is [-1, -1, 2, 2, 6, 6, 6, 6] and `pairedDrawersFirstQualifyingSlip` returns 6.\n\nRules\n- If no number is at least `k`, return -1.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `drawers` is [[-3, 0, 7, 7, 12], []] and `k` is 3.\nTEST DATA 2: `drawers` is [[-2, 4, 4, 4], [9]] and `k` is 2.",
+  "descriptionMd": "Inputs\n`drawers` contains exactly two lists of numbers. The first list is `drawers[0]`; the second is `drawers[1]`.\n\nYour tasks\n1. Create a list `merged`. `drawers` contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted `merged`. Keep all repeated numbers, including copies from both input lists.\n2. Read `merged` from left to right. Find the first number that is at least `k` and store that number, not its position, in `firstMatch`.\n3. Complete `pairedDrawersFirstQualifyingSlip` so it returns `firstMatch`. Return it, do not print it.\n\nExample\nIf `drawers` is [[-3, 3, 4, 4, 4], [-3, 3, 4, 4, 4]] and `k` is 6, then `merged` is [-3, -3, 3, 3, 4, 4, 4, 4, 4, 4] and `pairedDrawersFirstQualifyingSlip` returns -1.\n\nRules\n- If no number is at least `k`, return -1.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `drawers` is [[-3, 0, 10, 15, 15], []] and `k` is 3.\nTEST DATA 2: `drawers` is [[-5, 7, 7, 7], [17]] and `k` is 1.",
   "unitIntro": "`drawers` contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted `merged`. Keep all repeated numbers, including copies from both input lists. Each problem in this unit builds `merged` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64 per row.",
@@ -49,37 +49,37 @@
           [
             -3,
             0,
-            7,
-            7,
-            12
+            10,
+            15,
+            15
           ],
           []
         ],
         3
       ],
-      "expected": 7,
+      "expected": 10,
       "coverage": "worked",
-      "explanation": "`merged` is [-3, 0, 7, 7, 12]. Here `k` is 3. The first number at least 3 is 7. Return that value."
+      "explanation": "`merged` is [-3, 0, 10, 15, 15]. Here `k` is 3. The first number at least 3 is 10. Return that value."
     },
     {
       "id": "path3-179-2",
       "input": [
         [
           [
-            -2,
-            4,
-            4,
-            4
+            -5,
+            7,
+            7,
+            7
           ],
           [
-            9
+            17
           ]
         ],
-        2
+        1
       ],
-      "expected": 4,
+      "expected": 7,
       "coverage": "worked",
-      "explanation": "`merged` is [-2, 4, 4, 4, 9]. Here `k` is 2. The first number at least 2 is 4. Return that value."
+      "explanation": "`merged` is [-5, 7, 7, 7, 17]. Here `k` is 1. The first number at least 1 is 7. Return that value."
     },
     {
       "id": "path3-179-3",
@@ -88,11 +88,11 @@
           [],
           []
         ],
-        1
+        2
       ],
       "expected": -1,
       "coverage": "empty",
-      "explanation": "`merged` is []. Here `k` is 1. No number is at least 1, so return -1."
+      "explanation": "`merged` is []. Here `k` is 2. No number is at least 2, so return -1."
     }
   ],
   "timeLimitMs": 2000,
@@ -120,37 +120,37 @@
           [
             -3,
             0,
-            7,
-            7,
-            12
+            10,
+            15,
+            15
           ],
           []
         ],
         3
       ],
-      "expected": 7,
+      "expected": 10,
       "coverage": "worked",
-      "explanation": "`merged` is [-3, 0, 7, 7, 12]. Here `k` is 3. The first number at least 3 is 7. Return that value."
+      "explanation": "`merged` is [-3, 0, 10, 15, 15]. Here `k` is 3. The first number at least 3 is 10. Return that value."
     },
     {
       "id": "path3-179-2",
       "input": [
         [
           [
-            -2,
-            4,
-            4,
-            4
+            -5,
+            7,
+            7,
+            7
           ],
           [
-            9
+            17
           ]
         ],
-        2
+        1
       ],
-      "expected": 4,
+      "expected": 7,
       "coverage": "worked",
-      "explanation": "`merged` is [-2, 4, 4, 4, 9]. Here `k` is 2. The first number at least 2 is 4. Return that value."
+      "explanation": "`merged` is [-5, 7, 7, 7, 17]. Here `k` is 1. The first number at least 1 is 7. Return that value."
     }
   ],
   "referenceSolutions": {
@@ -166,17 +166,17 @@
         "input": [
           [
             [
-              9
+              17
             ],
             [
-              -20,
-              -7,
-              -1
+              -14,
+              -9,
+              -5
             ]
           ],
-          1
+          7
         ],
-        "expected": 9,
+        "expected": 17,
         "coverage": "singleton"
       },
       {
@@ -193,42 +193,42 @@
               -20,
               -20,
               -19,
-              -19,
               -18,
               -17,
               -17,
               -16,
-              -15,
+              -16,
               -15,
               -14,
               -13,
               -13,
               -12,
+              -12,
               -11,
               -11,
               -10,
               -9,
-              -9,
+              -8,
               -8,
               -7,
               -7,
-              -6,
               -6,
               -5,
               -4,
               -4,
               -3,
+              -3,
               -2,
               -2,
               -1,
               0,
-              0,
+              1,
               1,
               2,
               2,
               3,
               4,
-              4,
+              5,
               5,
               6,
               6,
@@ -236,18 +236,18 @@
               7,
               8,
               9,
-              9,
+              10,
               10,
               11,
               11,
               12,
               13,
-              13,
+              14,
               14,
               15,
               15,
               16,
-              17,
+              16,
               17,
               18,
               19,
@@ -256,9 +256,9 @@
               20
             ]
           ],
-          4
+          3
         ],
-        "expected": 4,
+        "expected": 3,
         "coverage": "duplicates-or-redundancy"
       },
       {
@@ -266,9 +266,9 @@
         "input": [
           [
             [
-              -20,
-              -7,
-              -1
+              -14,
+              -9,
+              -5
             ],
             [
               0,
@@ -289,42 +289,42 @@
               -20,
               -20,
               -19,
-              -19,
               -18,
               -17,
               -17,
               -16,
-              -15,
+              -16,
               -15,
               -14,
               -13,
               -13,
               -12,
+              -12,
               -11,
               -11,
               -10,
               -9,
-              -9,
+              -8,
               -8,
               -7,
               -7,
-              -6,
               -6,
               -5,
               -4,
               -4,
               -3,
+              -3,
               -2,
               -2,
               -1,
               0,
-              0,
+              1,
               1,
               2,
               2,
               3,
               4,
-              4,
+              5,
               5,
               6,
               6,
@@ -332,18 +332,18 @@
               7,
               8,
               9,
-              9,
+              10,
               10,
               11,
               11,
               12,
               13,
-              13,
+              14,
               14,
               15,
               15,
               16,
-              17,
+              16,
               17,
               18,
               19,
@@ -357,7 +357,6 @@
               -14,
               -14,
               -13,
-              -13,
               -12,
               -12,
               -11,
@@ -376,20 +375,18 @@
               -5,
               -4,
               -4,
+              -4,
               -3,
               -3,
               -2,
-              -2,
-              -2,
+              -1,
               -1,
               0,
               0,
               1,
               1,
-              1,
               2,
               2,
-              3,
               3,
               3,
               4,
@@ -397,9 +394,8 @@
               5,
               5,
               6,
+              6,
               7,
-              7,
-              8,
               8,
               8,
               8,
@@ -407,10 +403,14 @@
               9,
               10,
               10,
+              10,
+              11,
+              11,
               11,
               11,
               12,
               12,
+              13,
               13,
               14,
               14,
@@ -418,9 +418,9 @@
               15
             ]
           ],
-          3
+          8
         ],
-        "expected": 3,
+        "expected": 8,
         "coverage": "maximum-size"
       },
       {
@@ -435,14 +435,14 @@
             [
               -3,
               0,
-              7,
-              7,
-              12
+              10,
+              15,
+              15
             ]
           ],
           5
         ],
-        "expected": 7,
+        "expected": 10,
         "coverage": "zero-or-minimum"
       },
       {
@@ -450,22 +450,22 @@
         "input": [
           [
             [
-              -2,
-              1,
-              3,
+              -4,
               8,
-              8
+              10,
+              11,
+              11
             ],
             [
-              -2,
-              4,
-              4,
-              4
+              -5,
+              7,
+              7,
+              7
             ]
           ],
-          2
+          6
         ],
-        "expected": 3,
+        "expected": 7,
         "coverage": "order-and-ties"
       }
     ],

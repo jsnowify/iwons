@@ -19,7 +19,7 @@
   "summary": "Prefix bit state. Find the first number at least k.",
   "stage": "Combine",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `xorValues`. Start a stored number at 0. Read `readings` from left to right. Combine the stored number and the next number with bitwise XOR. XOR compares their binary digits: matching digits give 0, and different digits give 1. Use leading zeros when needed. For example, 3 XOR 5 is 6 because 011 XOR 101 gives 110. Record the stored number after each update.\n2. Read `xorValues` from left to right. Find the first number that is at least `k` and store that number, not its position, in `firstMatch`.\n3. Complete `xorRegisterFirstQualifyingSlip` so it returns `firstMatch`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 1, 6, 2] and `k` is 4, then `xorValues` is [6, 7, 1, 3] and `xorRegisterFirstQualifyingSlip` returns 6.\n\nRules\n- If no number is at least `k`, return -1.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `readings` is [7, 3, 7, 0, 12] and `k` is 3.\nTEST DATA 2: `readings` is [4, 4, 2, 4] and `k` is 2.",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `xorValues`. Start a stored number at 0. Read `readings` from left to right. Combine the stored number and the next number with bitwise XOR. XOR compares their binary digits: matching digits give 0, and different digits give 1. Use leading zeros when needed. For example, 3 XOR 5 is 6 because 011 XOR 101 gives 110. Record the stored number after each update.\n2. Read `xorValues` from left to right. Find the first number that is at least `k` and store that number, not its position, in `firstMatch`.\n3. Complete `xorRegisterFirstQualifyingSlip` so it returns `firstMatch`. Return it, do not print it.\n\nExample\nIf `readings` is [4, 4, 5, 5, 3] and `k` is 3, then `xorValues` is [4, 0, 5, 0, 3] and `xorRegisterFirstQualifyingSlip` returns 4.\n\nRules\n- If no number is at least `k`, return -1.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `readings` is [0, 7, 3, 3, 9] and `k` is 3.\nTEST DATA 2: `readings` is [4, 9, 9, 9] and `k` is 2.",
   "unitIntro": "Start a stored number at 0. Read `readings` from left to right. Combine the stored number and the next number with bitwise XOR. XOR compares their binary digits: matching digits give 0, and different digits give 1. Use leading zeros when needed. For example, 3 XOR 5 is 6 because 011 XOR 101 gives 110. Record the stored number after each update. Each problem in this unit builds `xorValues` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,42 +45,42 @@
       "id": "path3-279-1",
       "input": [
         [
+          0,
           7,
           3,
-          7,
-          0,
-          12
+          3,
+          9
         ],
         3
       ],
       "expected": 7,
       "coverage": "worked",
-      "explanation": "`xorValues` is [7, 4, 3, 3, 15]. Here `k` is 3. The first number at least 3 is 7. Return that value."
+      "explanation": "`xorValues` is [0, 7, 4, 7, 14]. Here `k` is 3. The first number at least 3 is 7. Return that value."
     },
     {
       "id": "path3-279-2",
       "input": [
         [
           4,
-          4,
-          2,
-          4
+          9,
+          9,
+          9
         ],
         2
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "`xorValues` is [4, 0, 2, 6]. Here `k` is 2. The first number at least 2 is 4. Return that value."
+      "explanation": "`xorValues` is [4, 13, 4, 13]. Here `k` is 2. The first number at least 2 is 4. Return that value."
     },
     {
       "id": "path3-279-3",
       "input": [
         [],
-        1
+        8
       ],
       "expected": -1,
       "coverage": "empty",
-      "explanation": "`xorValues` is []. Here `k` is 1. No number is at least 1, so return -1."
+      "explanation": "`xorValues` is []. Here `k` is 8. No number is at least 8, so return -1."
     }
   ],
   "timeLimitMs": 2000,
@@ -105,32 +105,32 @@
       "id": "path3-279-1",
       "input": [
         [
+          0,
           7,
           3,
-          7,
-          0,
-          12
+          3,
+          9
         ],
         3
       ],
       "expected": 7,
       "coverage": "worked",
-      "explanation": "`xorValues` is [7, 4, 3, 3, 15]. Here `k` is 3. The first number at least 3 is 7. Return that value."
+      "explanation": "`xorValues` is [0, 7, 4, 7, 14]. Here `k` is 3. The first number at least 3 is 7. Return that value."
     },
     {
       "id": "path3-279-2",
       "input": [
         [
           4,
-          4,
-          2,
-          4
+          9,
+          9,
+          9
         ],
         2
       ],
       "expected": 4,
       "coverage": "worked",
-      "explanation": "`xorValues` is [4, 0, 2, 6]. Here `k` is 2. The first number at least 2 is 4. Return that value."
+      "explanation": "`xorValues` is [4, 13, 4, 13]. Here `k` is 2. The first number at least 2 is 4. Return that value."
     }
   ],
   "referenceSolutions": {
@@ -145,38 +145,38 @@
         "id": "path3-279-4",
         "input": [
           [
-            9
+            13
           ],
-          1
+          8
         ],
-        "expected": 9,
+        "expected": 13,
         "coverage": "singleton"
       },
       {
         "id": "path3-279-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            2,
+            2,
+            2,
+            2
           ],
-          4
+          1
         ],
-        "expected": 5,
+        "expected": 2,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-279-6",
         "input": [
           [
-            20,
-            1,
-            7
+            8,
+            3,
+            1
           ],
-          8
+          3
         ],
-        "expected": 20,
+        "expected": 8,
         "coverage": "lower-bound"
       },
       {
@@ -184,71 +184,71 @@
         "input": [
           [
             20,
-            7,
-            6,
-            19,
-            9,
-            4,
-            17,
             11,
             2,
-            15,
-            13,
-            0,
-            13,
-            15,
-            2,
-            11,
-            17,
-            4,
-            9,
-            19,
-            6,
             7,
-            20,
-            8,
-            5,
-            18,
-            10,
-            3,
             16,
-            12,
-            1,
-            14,
-            14,
-            1,
-            12,
             16,
-            3,
-            10,
-            18,
-            5,
-            8,
+            7,
+            2,
+            11,
             20,
-            7,
+            12,
+            3,
             6,
-            19,
-            9,
-            4,
-            17,
-            11,
-            2,
             15,
+            17,
+            8,
+            1,
+            10,
+            19,
             13,
+            4,
+            5,
+            14,
+            18,
+            9,
             0,
+            9,
+            18,
+            14,
+            5,
+            4,
             13,
+            19,
+            10,
+            1,
+            8,
+            17,
             15,
+            6,
+            3,
+            12,
+            20,
+            11,
+            2,
+            7,
+            16,
+            16,
+            7,
             2,
             11,
-            17,
-            4,
-            9,
-            19,
+            20,
+            12,
+            3,
             6,
-            7,
-            20
+            15,
+            17,
+            8,
+            1,
+            10,
+            19,
+            13,
+            4,
+            5,
+            14
           ],
-          3
+          4
         ],
         "expected": 20,
         "coverage": "maximum-size"
@@ -261,7 +261,7 @@
             0,
             0
           ],
-          5
+          6
         ],
         "expected": -1,
         "coverage": "zero-or-minimum"
@@ -270,15 +270,15 @@
         "id": "path3-279-9",
         "input": [
           [
-            8,
-            3,
-            2,
-            8,
+            10,
+            12,
+            14,
+            14,
             1
           ],
-          2
+          7
         ],
-        "expected": 8,
+        "expected": 10,
         "coverage": "order-and-ties"
       }
     ],

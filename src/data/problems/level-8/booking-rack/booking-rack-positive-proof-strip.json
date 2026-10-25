@@ -19,7 +19,7 @@
   "summary": "Greedy interval selection. Keep the positive numbers.",
   "stage": "Sequence variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`drawers` is a list of bookings. Each row is [start, end].\n\nYour tasks\n1. Create a list `acceptedLengths`. Each booking is [start, end]. It uses time from start up to, but not including, end. Sort bookings by end time, from earliest to latest. For matching end times, put the earlier start first. Accept the first booking. Then accept a booking only if it starts at or after the end of the last one accepted. Record the length, end - start, of each accepted booking. Keep acceptance order. Negative times are allowed. With no bookings, `acceptedLengths` is empty.\n2. Create a list `positiveValues` that keeps only the numbers in `acceptedLengths` that are greater than 0, in the same order.\n3. Complete `bookingRackPositiveProofStrip` so it returns `positiveValues`. Return it, do not print it.\n\nExample\nIf `drawers` is [[6, 13], [0, 2], [8, 15], [5, 8]], then `acceptedLengths` is [2, 3, 7] and `bookingRackPositiveProofStrip` returns [2, 3, 7].\n\nRules\n- Keep repeated numbers.\n- If `acceptedLengths` is empty, return [].\n\nTest data\nTEST DATA 1: `drawers` is [[7, 8], [-2, 2], [9, 10], [3, 4], [16, 22]].\nTEST DATA 2: `drawers` is [[4, 9], [5, 10], [0, 3], [7, 12]].",
+  "descriptionMd": "Inputs\n`drawers` is a list of bookings. Each row is [start, end].\n\nYour tasks\n1. Create a list `acceptedLengths`. Each booking is [start, end]. It uses time from start up to, but not including, end. Sort bookings by end time, from earliest to latest. For matching end times, put the earlier start first. Accept the first booking. Then accept a booking only if it starts at or after the end of the last one accepted. Record the length, end - start, of each accepted booking. Keep acceptance order. Negative times are allowed. With no bookings, `acceptedLengths` is empty.\n2. Create a list `positiveValues` that keeps only the numbers in `acceptedLengths` that are greater than 0, in the same order.\n3. Complete `bookingRackPositiveProofStrip` so it returns `positiveValues`. Return it, do not print it.\n\nExample\nIf `drawers` is [[9, 12], [4, 8], [5, 9], [8, 14], [-4, -2]], then `acceptedLengths` is [2, 4, 3] and `bookingRackPositiveProofStrip` returns [2, 4, 3].\n\nRules\n- Keep repeated numbers.\n- If `acceptedLengths` is empty, return [].\n\nTest data\nTEST DATA 1: `drawers` is [[4, 9], [-8, -5], [6, 11], [10, 11], [4, 5]].\nTEST DATA 2: `drawers` is [[-4, 1], [6, 12], [7, 13], [8, 14]].",
   "unitIntro": "Each booking is [start, end]. It uses time from start up to, but not including, end. Sort bookings by end time, from earliest to latest. For matching end times, put the earlier start first. Accept the first booking. Then accept a booking only if it starts at or after the end of the last one accepted. Record the length, end - start, of each accepted booking. Keep acceptance order. Negative times are allowed. With no bookings, `acceptedLengths` is empty. Each problem in this unit builds `acceptedLengths` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -46,65 +46,63 @@
       "input": [
         [
           [
-            7,
-            8
+            4,
+            9
           ],
           [
-            -2,
-            2
+            -8,
+            -5
           ],
           [
-            9,
-            10
+            6,
+            11
           ],
           [
-            3,
-            4
+            10,
+            11
           ],
           [
-            16,
-            22
+            4,
+            5
           ]
         ]
       ],
       "expected": [
-        4,
+        3,
         1,
-        1,
-        1,
-        6
+        5
       ],
       "coverage": "worked",
-      "explanation": "`acceptedLengths` is [4, 1, 1, 1, 6]. Keep only numbers greater than 0, without changing their order. Return [4, 1, 1, 1, 6]."
+      "explanation": "`acceptedLengths` is [3, 1, 5]. Keep only numbers greater than 0, without changing their order. Return [3, 1, 5]."
     },
     {
       "id": "path3-419-2",
       "input": [
         [
           [
-            4,
-            9
+            -4,
+            1
           ],
           [
-            5,
-            10
-          ],
-          [
-            0,
-            3
+            6,
+            12
           ],
           [
             7,
-            12
+            13
+          ],
+          [
+            8,
+            14
           ]
         ]
       ],
       "expected": [
-        3,
-        5
+        5,
+        6
       ],
       "coverage": "worked",
-      "explanation": "`acceptedLengths` is [3, 5]. Keep only numbers greater than 0, without changing their order. Return [3, 5]."
+      "explanation": "`acceptedLengths` is [5, 6]. Keep only numbers greater than 0, without changing their order. Return [5, 6]."
     },
     {
       "id": "path3-419-3",
@@ -138,65 +136,63 @@
       "input": [
         [
           [
-            7,
-            8
+            4,
+            9
           ],
           [
-            -2,
-            2
+            -8,
+            -5
           ],
           [
-            9,
-            10
+            6,
+            11
           ],
           [
-            3,
-            4
+            10,
+            11
           ],
           [
-            16,
-            22
+            4,
+            5
           ]
         ]
       ],
       "expected": [
-        4,
+        3,
         1,
-        1,
-        1,
-        6
+        5
       ],
       "coverage": "worked",
-      "explanation": "`acceptedLengths` is [4, 1, 1, 1, 6]. Keep only numbers greater than 0, without changing their order. Return [4, 1, 1, 1, 6]."
+      "explanation": "`acceptedLengths` is [3, 1, 5]. Keep only numbers greater than 0, without changing their order. Return [3, 1, 5]."
     },
     {
       "id": "path3-419-2",
       "input": [
         [
           [
-            4,
-            9
+            -4,
+            1
           ],
           [
-            5,
-            10
-          ],
-          [
-            0,
-            3
+            6,
+            12
           ],
           [
             7,
-            12
+            13
+          ],
+          [
+            8,
+            14
           ]
         ]
       ],
       "expected": [
-        3,
-        5
+        5,
+        6
       ],
       "coverage": "worked",
-      "explanation": "`acceptedLengths` is [3, 5]. Keep only numbers greater than 0, without changing their order. Return [3, 5]."
+      "explanation": "`acceptedLengths` is [5, 6]. Keep only numbers greater than 0, without changing their order. Return [5, 6]."
     }
   ],
   "referenceSolutions": {
@@ -212,13 +208,13 @@
         "input": [
           [
             [
-              9,
-              12
+              12,
+              18
             ]
           ]
         ],
         "expected": [
-          3
+          6
         ],
         "coverage": "singleton"
       },
@@ -227,25 +223,28 @@
         "input": [
           [
             [
-              5,
-              11
-            ],
-            [
-              6,
-              12
-            ],
-            [
               7,
-              13
+              8
             ],
             [
               8,
-              14
+              9
+            ],
+            [
+              9,
+              10
+            ],
+            [
+              10,
+              11
             ]
           ]
         ],
         "expected": [
-          6
+          1,
+          1,
+          1,
+          1
         ],
         "coverage": "duplicates-or-redundancy"
       },
@@ -254,23 +253,23 @@
         "input": [
           [
             [
-              -20,
-              -13
+              -2,
+              1
             ],
             [
-              0,
-              2
+              -10,
+              -5
             ],
             [
-              -5,
-              -4
+              -15,
+              -11
             ]
           ]
         ],
         "expected": [
-          7,
-          1,
-          2
+          4,
+          5,
+          3
         ],
         "coverage": "lower-bound"
       },
@@ -283,283 +282,284 @@
               -13
             ],
             [
-              -6,
+              -10,
               -5
             ],
             [
-              8,
-              15
+              0,
+              3
             ],
             [
-              22,
-              28
+              10,
+              11
             ],
             [
-              -5,
-              -2
+              20,
+              23
+            ],
+            [
+              -11,
+              -8
+            ],
+            [
+              -1,
+              0
             ],
             [
               9,
-              14
+              12
+            ],
+            [
+              19,
+              24
+            ],
+            [
+              29,
+              36
+            ],
+            [
+              -2,
+              4
+            ],
+            [
+              8,
+              12
+            ],
+            [
+              18,
+              25
+            ],
+            [
+              28,
+              30
+            ],
+            [
+              -3,
+              1
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              17,
+              19
+            ],
+            [
+              27,
+              31
+            ],
+            [
+              37,
+              43
+            ],
+            [
+              6,
+              13
+            ],
+            [
+              16,
+              21
+            ],
+            [
+              26,
+              32
+            ],
+            [
+              36,
+              37
+            ],
+            [
+              5,
+              10
+            ],
+            [
+              15,
+              18
+            ],
+            [
+              25,
+              26
+            ],
+            [
+              35,
+              38
+            ],
+            [
+              45,
+              50
+            ],
+            [
+              14,
+              15
+            ],
+            [
+              24,
+              30
+            ],
+            [
+              34,
+              39
+            ],
+            [
+              44,
+              51
+            ],
+            [
+              13,
+              19
             ],
             [
               23,
               27
             ],
             [
-              -4,
-              1
-            ],
-            [
-              10,
-              13
-            ],
-            [
-              24,
-              26
-            ],
-            [
-              -3,
-              4
-            ],
-            [
-              11,
-              12
-            ],
-            [
-              25,
-              32
-            ],
-            [
-              -2,
-              0
-            ],
-            [
-              12,
-              15
-            ],
-            [
-              26,
-              31
-            ],
-            [
-              -1,
-              3
-            ],
-            [
-              13,
-              18
-            ],
-            [
-              27,
-              30
-            ],
-            [
-              0,
-              6
-            ],
-            [
-              14,
-              21
-            ],
-            [
-              28,
-              29
-            ],
-            [
-              42,
-              49
-            ],
-            [
-              15,
-              17
-            ],
-            [
-              29,
+              33,
               35
             ],
             [
               43,
-              48
+              45
             ],
             [
-              16,
-              20
+              53,
+              57
             ],
             [
-              30,
-              34
-            ],
-            [
-              44,
-              47
-            ],
-            [
-              17,
-              23
-            ],
-            [
-              31,
-              33
-            ],
-            [
-              45,
-              46
-            ],
-            [
-              18,
-              19
+              22,
+              24
             ],
             [
               32,
-              34
+              39
             ],
             [
-              46,
-              52
+              42,
+              46
             ],
             [
-              19,
-              22
-            ],
-            [
-              33,
-              37
-            ],
-            [
-              47,
-              51
-            ],
-            [
-              20,
-              25
-            ],
-            [
-              34,
-              40
-            ],
-            [
-              48,
-              50
+              52,
+              58
             ],
             [
               21,
               28
             ],
             [
-              35,
+              31,
               36
             ],
             [
-              49,
-              56
-            ],
-            [
-              63,
-              69
-            ],
-            [
-              36,
-              39
-            ],
-            [
-              50,
-              55
-            ],
-            [
-              64,
-              68
-            ],
-            [
-              37,
-              42
-            ],
-            [
-              51,
-              54
-            ],
-            [
-              65,
-              67
-            ],
-            [
-              38,
-              45
-            ],
-            [
-              52,
-              53
-            ],
-            [
-              66,
-              73
-            ],
-            [
-              39,
-              41
-            ],
-            [
-              53,
-              56
-            ],
-            [
-              67,
-              72
-            ],
-            [
-              40,
+              41,
               44
             ],
             [
-              54,
-              59
+              51,
+              52
             ],
             [
-              68,
-              71
+              61,
+              64
             ],
             [
-              41,
-              47
+              30,
+              33
             ],
             [
-              55,
-              62
+              40,
+              41
+            ],
+            [
+              50,
+              53
+            ],
+            [
+              60,
+              65
+            ],
+            [
+              70,
+              77
+            ],
+            [
+              39,
+              45
+            ],
+            [
+              49,
+              53
+            ],
+            [
+              59,
+              66
             ],
             [
               69,
-              70
+              71
             ],
             [
-              83,
-              90
+              38,
+              42
+            ],
+            [
+              48,
+              50
+            ],
+            [
+              58,
+              60
+            ],
+            [
+              68,
+              72
+            ],
+            [
+              78,
+              84
+            ],
+            [
+              47,
+              54
+            ],
+            [
+              57,
+              62
+            ],
+            [
+              67,
+              73
+            ],
+            [
+              77,
+              78
             ]
           ]
         ],
         "expected": [
           7,
-          1,
           3,
-          2,
-          6,
           1,
           3,
           2,
           1,
+          1,
+          3,
+          3,
+          1,
+          2,
           3,
           2,
           1,
-          2,
           1,
+          3,
+          5,
+          1,
+          4,
+          2,
           3,
           2,
           1,
-          2,
-          1,
-          3,
-          2,
-          1,
-          7
+          6
         ],
         "coverage": "maximum-size"
       },
@@ -593,32 +593,32 @@
         "input": [
           [
             [
-              8,
-              10
+              12,
+              18
             ],
             [
-              4,
-              8
-            ],
-            [
-              0,
-              3
+              -3,
+              2
             ],
             [
               11,
-              13
+              14
             ],
             [
-              5,
-              7
+              15,
+              21
+            ],
+            [
+              7,
+              11
             ]
           ]
         ],
         "expected": [
+          5,
+          4,
           3,
-          2,
-          2,
-          2
+          6
         ],
         "coverage": "order-and-ties"
       }

@@ -20,7 +20,7 @@
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Earlier foundation work; the first unit establishes the prerequisite",
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `kept`. Keep only numbers greater than 0 from `readings`. Put them in `kept` in their original order. Keep repeated numbers. Leave out 0 and negative numbers.\n2. Multiply each number in `kept` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `positiveTraysBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `kept` is [6, 6, 2] and `positiveTraysBossReceipt` returns 24.\n\nRules\n- If `kept` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `kept`. Keep only numbers greater than 0 from `readings`. Put them in `kept` in their original order. Keep repeated numbers. Leave out 0 and negative numbers.\n2. Multiply each number in `kept` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `positiveTraysBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [3, 3, -5, 4, 7], then `kept` is [3, 3, 4, 7] and `positiveTraysBossReceipt` returns 49.\n\nRules\n- If `kept` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [16, 0, -4, 6, 16].\nTEST DATA 2: `readings` is [4, -1, 4, 4].",
   "unitIntro": "Keep only numbers greater than 0 from `readings`. Put them in `kept` in their original order. Keep repeated numbers. Leave out 0 and negative numbers. Each problem in this unit builds `kept` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -46,24 +46,24 @@
       "id": "path3-060-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          16,
           0,
-          12
+          -4,
+          6,
+          16
         ]
       ],
-      "expected": 57,
+      "expected": 76,
       "coverage": "worked",
-      "explanation": "`kept` is [7, 7, 12]. Multiply by positions that start at 1: 1 * (7) + 2 * (7) + 3 * (12) = 57. Return 57."
+      "explanation": "`kept` is [16, 6, 16]. Multiply by positions that start at 1: 1 * (16) + 2 * (6) + 3 * (16) = 76. Return 76."
     },
     {
       "id": "path3-060-2",
       "input": [
         [
           4,
+          -1,
           4,
-          -2,
           4
         ]
       ],
@@ -102,24 +102,24 @@
       "id": "path3-060-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          16,
           0,
-          12
+          -4,
+          6,
+          16
         ]
       ],
-      "expected": 57,
+      "expected": 76,
       "coverage": "worked",
-      "explanation": "`kept` is [7, 7, 12]. Multiply by positions that start at 1: 1 * (7) + 2 * (7) + 3 * (12) = 57. Return 57."
+      "explanation": "`kept` is [16, 6, 16]. Multiply by positions that start at 1: 1 * (16) + 2 * (6) + 3 * (16) = 76. Return 76."
     },
     {
       "id": "path3-060-2",
       "input": [
         [
           4,
+          -1,
           4,
-          -2,
           4
         ]
       ],
@@ -140,32 +140,32 @@
         "id": "path3-060-4",
         "input": [
           [
-            9
+            14
           ]
         ],
-        "expected": 9,
+        "expected": 14,
         "coverage": "singleton"
       },
       {
         "id": "path3-060-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            3,
+            3,
+            3,
+            3
           ]
         ],
-        "expected": 50,
+        "expected": 30,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-060-6",
         "input": [
           [
-            -20,
-            -1,
-            -7
+            -7,
+            -17,
+            -6
           ]
         ],
         "expected": 0,
@@ -176,72 +176,72 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
             -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
-            -4,
-            9,
-            -19,
             -6,
-            7,
-            20,
-            -8,
-            5,
-            18,
-            -10,
-            3,
-            16,
-            -12,
             1,
-            14,
-            -14,
-            -1,
-            12,
-            -16,
-            -3,
-            10,
-            -18,
-            -5,
             8,
-            -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
             15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
-            -4,
-            9,
             -19,
-            -6,
+            -12,
+            -5,
+            2,
+            9,
+            16,
+            -18,
+            -11,
+            -4,
+            3,
+            10,
+            17,
+            -17,
+            -10,
+            -3,
+            4,
+            11,
+            18,
+            -16,
+            -9,
+            -2,
+            5,
+            12,
+            19,
+            -15,
+            -8,
+            -1,
+            6,
+            13,
+            20,
+            -14,
+            -7,
+            0,
             7,
-            20
+            14,
+            -20,
+            -13,
+            -6,
+            1,
+            8,
+            15,
+            -19,
+            -12,
+            -5,
+            2,
+            9,
+            16,
+            -18,
+            -11,
+            -4,
+            3,
+            10,
+            17,
+            -17,
+            -10,
+            -3,
+            4,
+            11
           ]
         ],
-        "expected": 5404,
+        "expected": 4996,
         "coverage": "maximum-size"
       },
       {
@@ -260,14 +260,14 @@
         "id": "path3-060-9",
         "input": [
           [
-            8,
-            3,
-            -2,
-            8,
-            1
+            -5,
+            5,
+            5,
+            14,
+            6
           ]
         ],
-        "expected": 42,
+        "expected": 81,
         "coverage": "order-and-ties"
       }
     ],

@@ -19,7 +19,7 @@
   "summary": "Adjacent array positions. Return the smallest number.",
   "stage": "Boundary variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `differences`. Start at the second number in `readings`. Subtract the number just before it from the current number. Repeat for each later number. Put the answers in order. For [5, 8, 2], `differences` is [3, -6]. A list with fewer than two numbers gives an empty `differences`.\n2. Find the smallest number in `differences`. Store it in `smallest`.\n3. Complete `neighborNotesFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `differences` is [-7, 7, -4] and `neighborNotesFloorTicket` returns -7.\n\nRules\n- If `differences` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `differences`. Start at the second number in `readings`. Subtract the number just before it from the current number. Repeat for each later number. Put the answers in order. For [5, 8, 2], `differences` is [3, -6]. A list with fewer than two numbers gives an empty `differences`.\n2. Find the smallest number in `differences`. Store it in `smallest`.\n3. Complete `neighborNotesFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `readings` is [9, 6, 9, 9, -9], then `differences` is [-3, 3, 0, -18] and `neighborNotesFloorTicket` returns -18.\n\nRules\n- If `differences` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [10, 18, 0, 10, -11].\nTEST DATA 2: `readings` is [2, 2, -7, 2].",
   "unitIntro": "Start at the second number in `readings`. Subtract the number just before it from the current number. Repeat for each later number. Put the answers in order. For [5, 8, 2], `differences` is [3, -6]. A list with fewer than two numbers gives an empty `differences`. Each problem in this unit builds `differences` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,30 +45,30 @@
       "id": "path3-036-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          10,
+          18,
           0,
-          12
+          10,
+          -11
         ]
       ],
-      "expected": -10,
+      "expected": -21,
       "coverage": "worked",
-      "explanation": "`differences` is [-10, 10, -7, 12]. The smallest number is -10. Return -10."
+      "explanation": "`differences` is [8, -18, 10, -21]. The smallest number is -21. Return -21."
     },
     {
       "id": "path3-036-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          2,
+          2,
+          -7,
+          2
         ]
       ],
-      "expected": -6,
+      "expected": -9,
       "coverage": "worked",
-      "explanation": "`differences` is [0, -6, 6]. The smallest number is -6. Return -6."
+      "explanation": "`differences` is [0, -9, 9]. The smallest number is -9. Return -9."
     },
     {
       "id": "path3-036-3",
@@ -101,30 +101,30 @@
       "id": "path3-036-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          10,
+          18,
           0,
-          12
+          10,
+          -11
         ]
       ],
-      "expected": -10,
+      "expected": -21,
       "coverage": "worked",
-      "explanation": "`differences` is [-10, 10, -7, 12]. The smallest number is -10. Return -10."
+      "explanation": "`differences` is [8, -18, 10, -21]. The smallest number is -21. Return -21."
     },
     {
       "id": "path3-036-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          2,
+          2,
+          -7,
+          2
         ]
       ],
-      "expected": -6,
+      "expected": -9,
       "coverage": "worked",
-      "explanation": "`differences` is [0, -6, 6]. The smallest number is -6. Return -6."
+      "explanation": "`differences` is [0, -9, 9]. The smallest number is -9. Return -9."
     }
   ],
   "referenceSolutions": {
@@ -139,7 +139,7 @@
         "id": "path3-036-4",
         "input": [
           [
-            9
+            7
           ]
         ],
         "expected": 0,
@@ -149,10 +149,10 @@
         "id": "path3-036-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            4,
+            4,
+            4,
+            4
           ]
         ],
         "expected": 0,
@@ -162,12 +162,12 @@
         "id": "path3-036-6",
         "input": [
           [
-            -20,
-            -1,
-            -7
+            -14,
+            -15,
+            -18
           ]
         ],
-        "expected": -6,
+        "expected": -3,
         "coverage": "lower-bound"
       },
       {
@@ -175,72 +175,72 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
-            -4,
-            9,
-            -19,
-            -6,
-            7,
-            20,
-            -8,
-            5,
-            18,
-            -10,
-            3,
-            16,
-            -12,
-            1,
-            14,
-            -14,
-            -1,
-            12,
-            -16,
             -3,
-            10,
-            -18,
-            -5,
-            8,
-            -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
-            -4,
-            9,
-            -19,
-            -6,
+            14,
+            -10,
             7,
-            20
+            -17,
+            0,
+            17,
+            -7,
+            10,
+            -14,
+            3,
+            20,
+            -4,
+            13,
+            -11,
+            6,
+            -18,
+            -1,
+            16,
+            -8,
+            9,
+            -15,
+            2,
+            19,
+            -5,
+            12,
+            -12,
+            5,
+            -19,
+            -2,
+            15,
+            -9,
+            8,
+            -16,
+            1,
+            18,
+            -6,
+            11,
+            -13,
+            4,
+            -20,
+            -3,
+            14,
+            -10,
+            7,
+            -17,
+            0,
+            17,
+            -7,
+            10,
+            -14,
+            3,
+            20,
+            -4,
+            13,
+            -11,
+            6,
+            -18,
+            -1,
+            16,
+            -8,
+            9,
+            -15
           ]
         ],
-        "expected": -28,
+        "expected": -24,
         "coverage": "maximum-size"
       },
       {
@@ -259,14 +259,14 @@
         "id": "path3-036-9",
         "input": [
           [
-            8,
-            3,
-            -2,
-            8,
-            1
+            4,
+            5,
+            5,
+            -3,
+            3
           ]
         ],
-        "expected": -7,
+        "expected": -8,
         "coverage": "order-and-ties"
       }
     ],

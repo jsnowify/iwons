@@ -19,7 +19,7 @@
   "summary": "Unbounded dynamic programming. Return the whole list.",
   "stage": "Warm-up",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `fewestStamps`. Each number in `readings` is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order.\n2. Complete `postageDrawerProofStrip` so it returns `fewestStamps`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 1, 6, 2], then `fewestStamps` is [3, 1, 3, 2] and `postageDrawerProofStrip` returns [3, 1, 3, 2].\n\nRules\n- If `fewestStamps` is empty, return [].\n\nTest data\nTEST DATA 1: `readings` is [7, 3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, 2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `fewestStamps`. Each number in `readings` is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order.\n2. Complete `postageDrawerProofStrip` so it returns `fewestStamps`. Return it, do not print it.\n\nExample\nIf `readings` is [3, 11, 5, 5, 5], then `fewestStamps` is [3, 3, 2, 2, 2] and `postageDrawerProofStrip` returns [3, 3, 2, 2, 2].\n\nRules\n- If `fewestStamps` is empty, return [].\n\nTest data\nTEST DATA 1: `readings` is [0, 12, 14, 11, 12].\nTEST DATA 2: `readings` is [9, 1, 9, 9].",
   "unitIntro": "Each number in `readings` is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order. Each problem in this unit builds `fewestStamps` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,41 +45,41 @@
       "id": "path3-431-1",
       "input": [
         [
-          7,
-          3,
-          7,
           0,
+          12,
+          14,
+          11,
           12
         ]
       ],
       "expected": [
-        4,
-        3,
-        4,
         0,
+        3,
+        3,
+        3,
         3
       ],
       "coverage": "worked",
-      "explanation": "`fewestStamps` is [4, 3, 4, 0, 3]. `postageDrawerProofStrip` returns that whole list, so return [4, 3, 4, 0, 3]."
+      "explanation": "`fewestStamps` is [0, 3, 3, 3, 3]. `postageDrawerProofStrip` returns that whole list, so return [0, 3, 3, 3, 3]."
     },
     {
       "id": "path3-431-2",
       "input": [
         [
-          4,
-          4,
-          2,
-          4
+          9,
+          1,
+          9,
+          9
         ]
       ],
       "expected": [
         1,
         1,
-        2,
+        1,
         1
       ],
       "coverage": "worked",
-      "explanation": "`fewestStamps` is [1, 1, 2, 1]. `postageDrawerProofStrip` returns that whole list, so return [1, 1, 2, 1]."
+      "explanation": "`fewestStamps` is [1, 1, 1, 1]. `postageDrawerProofStrip` returns that whole list, so return [1, 1, 1, 1]."
     },
     {
       "id": "path3-431-3",
@@ -112,41 +112,41 @@
       "id": "path3-431-1",
       "input": [
         [
-          7,
-          3,
-          7,
           0,
+          12,
+          14,
+          11,
           12
         ]
       ],
       "expected": [
-        4,
-        3,
-        4,
         0,
+        3,
+        3,
+        3,
         3
       ],
       "coverage": "worked",
-      "explanation": "`fewestStamps` is [4, 3, 4, 0, 3]. `postageDrawerProofStrip` returns that whole list, so return [4, 3, 4, 0, 3]."
+      "explanation": "`fewestStamps` is [0, 3, 3, 3, 3]. `postageDrawerProofStrip` returns that whole list, so return [0, 3, 3, 3, 3]."
     },
     {
       "id": "path3-431-2",
       "input": [
         [
-          4,
-          4,
-          2,
-          4
+          9,
+          1,
+          9,
+          9
         ]
       ],
       "expected": [
         1,
         1,
-        2,
+        1,
         1
       ],
       "coverage": "worked",
-      "explanation": "`fewestStamps` is [1, 1, 2, 1]. `postageDrawerProofStrip` returns that whole list, so return [1, 1, 2, 1]."
+      "explanation": "`fewestStamps` is [1, 1, 1, 1]. `postageDrawerProofStrip` returns that whole list, so return [1, 1, 1, 1]."
     }
   ],
   "referenceSolutions": {
@@ -161,11 +161,11 @@
         "id": "path3-431-4",
         "input": [
           [
-            9
+            12
           ]
         ],
         "expected": [
-          1
+          3
         ],
         "coverage": "singleton"
       },
@@ -173,17 +173,17 @@
         "id": "path3-431-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            3,
+            3,
+            3,
+            3
           ]
         ],
         "expected": [
-          2,
-          2,
-          2,
-          2
+          3,
+          3,
+          3,
+          3
         ],
         "coverage": "duplicates-or-redundancy"
       },
@@ -191,15 +191,15 @@
         "id": "path3-431-6",
         "input": [
           [
-            20,
-            1,
-            7
+            11,
+            7,
+            6
           ]
         ],
         "expected": [
+          3,
           4,
-          1,
-          4
+          3
         ],
         "coverage": "lower-bound"
       },
@@ -361,19 +361,19 @@
         "id": "path3-431-9",
         "input": [
           [
-            8,
-            3,
-            2,
-            8,
-            1
+            7,
+            14,
+            12,
+            7,
+            12
           ]
         ],
         "expected": [
-          2,
+          4,
           3,
-          2,
-          2,
-          1
+          3,
+          4,
+          3
         ],
         "coverage": "order-and-ties"
       }

@@ -20,17 +20,17 @@
           {
             "id": "read-0",
             "input": [
-              "inkk paaaper"
+              "ziijb bvvvo"
             ],
             "expected": [
-              4,
-              7
+              5,
+              5
             ]
           },
           {
             "id": "read-1",
             "input": [
-              "QQ qQQ"
+              "II iII"
             ],
             "expected": [
               2,
@@ -82,17 +82,17 @@
           {
             "id": "trace-0",
             "input": [
-              "inkk paaaper"
+              "ziijb bvvvo"
             ],
             "expected": [
-              4,
-              7
+              5,
+              5
             ]
           },
           {
             "id": "trace-1",
             "input": [
-              "QQ qQQ"
+              "II iII"
             ],
             "expected": [
               2,
@@ -208,17 +208,17 @@
           {
             "id": "rebuild-0",
             "input": [
-              "inkk paaaper"
+              "ziijb bvvvo"
             ],
             "expected": [
-              4,
-              7
+              5,
+              5
             ]
           },
           {
             "id": "rebuild-1",
             "input": [
-              "QQ qQQ"
+              "II iII"
             ],
             "expected": [
               2,
@@ -270,17 +270,17 @@
           {
             "id": "recall-0",
             "input": [
-              "inkk paaaper"
+              "ziijb bvvvo"
             ],
             "expected": [
-              4,
-              7
+              5,
+              5
             ]
           },
           {
             "id": "recall-1",
             "input": [
-              "QQ qQQ"
+              "II iII"
             ],
             "expected": [
               2,

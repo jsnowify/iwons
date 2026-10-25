@@ -19,7 +19,7 @@
   "summary": "Frequency maps. Return the total.",
   "stage": "Variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `counts`. Count how many times each different number appears in `readings`. Sort the different numbers from smallest to largest. Put their counts in that order in `counts`. For [5, 2, 5], the numbers are 2 and 5, so `counts` is [1, 2].\n2. Add up every number in `counts`. Store the sum in `total`.\n3. Complete `frequencyFilesTotalReceipt` so it returns `total`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `counts` is [1, 1, 2] and `frequencyFilesTotalReceipt` returns 4.\n\nRules\n- If `counts` is empty, `total` is 0.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `counts`. Count how many times each different number appears in `readings`. Sort the different numbers from smallest to largest. Put their counts in that order in `counts`. For [5, 2, 5], the numbers are 2 and 5, so `counts` is [1, 2].\n2. Add up every number in `counts`. Store the sum in `total`.\n3. Complete `frequencyFilesTotalReceipt` so it returns `total`. Return it, do not print it.\n\nExample\nIf `readings` is [4, 9, -9, 8, 9], then `counts` is [1, 1, 1, 2] and `frequencyFilesTotalReceipt` returns 5.\n\nRules\n- If `counts` is empty, `total` is 0.\n\nTest data\nTEST DATA 1: `readings` is [11, 0, 11, 20, -3].\nTEST DATA 2: `readings` is [3, 3, 3, -3].",
   "unitIntro": "Count how many times each different number appears in `readings`. Sort the different numbers from smallest to largest. Put their counts in that order in `counts`. For [5, 2, 5], the numbers are 2 and 5, so `counts` is [1, 2]. Each problem in this unit builds `counts` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,11 +45,11 @@
       "id": "path3-082-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          11,
           0,
-          12
+          11,
+          20,
+          -3
         ]
       ],
       "expected": 5,
@@ -60,10 +60,10 @@
       "id": "path3-082-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          3,
+          3,
+          3,
+          -3
         ]
       ],
       "expected": 4,
@@ -101,11 +101,11 @@
       "id": "path3-082-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          11,
           0,
-          12
+          11,
+          20,
+          -3
         ]
       ],
       "expected": 5,
@@ -116,10 +116,10 @@
       "id": "path3-082-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          3,
+          3,
+          3,
+          -3
         ]
       ],
       "expected": 4,
@@ -139,7 +139,7 @@
         "id": "path3-082-4",
         "input": [
           [
-            9
+            8
           ]
         ],
         "expected": 1,
@@ -149,10 +149,10 @@
         "id": "path3-082-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            4,
+            4,
+            4,
+            4
           ]
         ],
         "expected": 4,
@@ -162,9 +162,9 @@
         "id": "path3-082-6",
         "input": [
           [
-            -20,
-            -1,
-            -7
+            -2,
+            -15,
+            -10
           ]
         ],
         "expected": 3,
@@ -175,69 +175,69 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
-            -4,
             9,
-            -19,
-            -6,
-            7,
-            20,
-            -8,
-            5,
-            18,
-            -10,
-            3,
-            16,
-            -12,
-            1,
-            14,
-            -14,
-            -1,
-            12,
-            -16,
             -3,
-            10,
-            -18,
-            -5,
-            8,
-            -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
             -15,
-            -2,
-            11,
-            -17,
-            -4,
-            9,
-            -19,
-            -6,
+            14,
+            2,
+            -10,
+            19,
             7,
-            20
+            -5,
+            -17,
+            12,
+            0,
+            -12,
+            17,
+            5,
+            -7,
+            -19,
+            10,
+            -2,
+            -14,
+            15,
+            3,
+            -9,
+            20,
+            8,
+            -4,
+            -16,
+            13,
+            1,
+            -11,
+            18,
+            6,
+            -6,
+            -18,
+            11,
+            -1,
+            -13,
+            16,
+            4,
+            -8,
+            -20,
+            9,
+            -3,
+            -15,
+            14,
+            2,
+            -10,
+            19,
+            7,
+            -5,
+            -17,
+            12,
+            0,
+            -12,
+            17,
+            5,
+            -7,
+            -19,
+            10,
+            -2,
+            -14,
+            15,
+            3
           ]
         ],
         "expected": 64,
@@ -259,11 +259,11 @@
         "id": "path3-082-9",
         "input": [
           [
-            8,
-            3,
-            -2,
-            8,
-            1
+            10,
+            -5,
+            10,
+            14,
+            7
           ]
         ],
         "expected": 5,

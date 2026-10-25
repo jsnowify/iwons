@@ -21,7 +21,7 @@
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Level 0: loop accumulators",
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `sectionSums`. Start with the whole `readings` list as a section. Record the sum of that section. If it has more than one number, split it into a left half and a right half. Use the same steps on the left half first, then on the right half. When a section has an odd length, the left half has one fewer number. A section with one number is not split. Do not record empty sections. `sectionSums` contains the sums in the order you record them.\n2. Multiply each number in `sectionSums` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `recursiveShelvesBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `sectionSums` is [13, 5, 6, -1, 8, 6, 2] and `recursiveShelvesBossReceipt` returns 127.\n\nRules\n- If `sectionSums` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `sectionSums`. Start with the whole `readings` list as a section. Record the sum of that section. If it has more than one number, split it into a left half and a right half. Use the same steps on the left half first, then on the right half. When a section has an odd length, the left half has one fewer number. A section with one number is not split. Do not record empty sections. `sectionSums` contains the sums in the order you record them.\n2. Multiply each number in `sectionSums` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `recursiveShelvesBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 6, 2, -7, 8], then `sectionSums` is [15, 12, 6, 6, 3, 2, 1, -7, 8] and `recursiveShelvesBossReceipt` returns 131.\n\nRules\n- If `sectionSums` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [-4, 0, 15, 15, 6].\nTEST DATA 2: `readings` is [-5, 5, 5, 5].",
   "unitIntro": "Start with the whole `readings` list as a section. Record the sum of that section. If it has more than one number, split it into a left half and a right half. Use the same steps on the left half first, then on the right half. When a section has an odd length, the left half has one fewer number. A section with one number is not split. Do not record empty sections. `sectionSums` contains the sums in the order you record them. Each problem in this unit builds `sectionSums` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -47,30 +47,30 @@
       "id": "path3-239-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          -4,
           0,
-          12
+          15,
+          15,
+          6
         ]
       ],
-      "expected": 369,
+      "expected": 603,
       "coverage": "worked",
-      "explanation": "`sectionSums` is [23, 4, 7, -3, 19, 7, 12, 0, 12]. Multiply by positions that start at 1: 1 * (23) + 2 * (4) + 3 * (7) + 4 * (-3) + 5 * (19) + 6 * (7) + 7 * (12) + 8 * (0) + 9 * (12) = 369. Return 369."
+      "explanation": "`sectionSums` is [32, -4, -4, 0, 36, 15, 21, 15, 6]. Multiply by positions that start at 1: 1 * (32) + 2 * (-4) + 3 * (-4) + 4 * (0) + 5 * (36) + 6 * (15) + 7 * (21) + 8 * (15) + 9 * (6) = 603. Return 603."
     },
     {
       "id": "path3-239-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          -5,
+          5,
+          5,
+          5
         ]
       ],
-      "expected": 80,
+      "expected": 130,
       "coverage": "worked",
-      "explanation": "`sectionSums` is [10, 8, 4, 4, 2, -2, 4]. Multiply by positions that start at 1: 1 * (10) + 2 * (8) + 3 * (4) + 4 * (4) + 5 * (2) + 6 * (-2) + 7 * (4) = 80. Return 80."
+      "explanation": "`sectionSums` is [10, 0, -5, 5, 10, 5, 5]. Multiply by positions that start at 1: 1 * (10) + 2 * (0) + 3 * (-5) + 4 * (5) + 5 * (10) + 6 * (5) + 7 * (5) = 130. Return 130."
     },
     {
       "id": "path3-239-3",
@@ -103,30 +103,30 @@
       "id": "path3-239-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          -4,
           0,
-          12
+          15,
+          15,
+          6
         ]
       ],
-      "expected": 369,
+      "expected": 603,
       "coverage": "worked",
-      "explanation": "`sectionSums` is [23, 4, 7, -3, 19, 7, 12, 0, 12]. Multiply by positions that start at 1: 1 * (23) + 2 * (4) + 3 * (7) + 4 * (-3) + 5 * (19) + 6 * (7) + 7 * (12) + 8 * (0) + 9 * (12) = 369. Return 369."
+      "explanation": "`sectionSums` is [32, -4, -4, 0, 36, 15, 21, 15, 6]. Multiply by positions that start at 1: 1 * (32) + 2 * (-4) + 3 * (-4) + 4 * (0) + 5 * (36) + 6 * (15) + 7 * (21) + 8 * (15) + 9 * (6) = 603. Return 603."
     },
     {
       "id": "path3-239-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          -5,
+          5,
+          5,
+          5
         ]
       ],
-      "expected": 80,
+      "expected": 130,
       "coverage": "worked",
-      "explanation": "`sectionSums` is [10, 8, 4, 4, 2, -2, 4]. Multiply by positions that start at 1: 1 * (10) + 2 * (8) + 3 * (4) + 4 * (4) + 5 * (2) + 6 * (-2) + 7 * (4) = 80. Return 80."
+      "explanation": "`sectionSums` is [10, 0, -5, 5, 10, 5, 5]. Multiply by positions that start at 1: 1 * (10) + 2 * (0) + 3 * (-5) + 4 * (5) + 5 * (10) + 6 * (5) + 7 * (5) = 130. Return 130."
     }
   ],
   "referenceSolutions": {
@@ -151,13 +151,13 @@
         "id": "path3-239-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            8,
+            8,
+            8,
+            8
           ]
         ],
-        "expected": 190,
+        "expected": 304,
         "coverage": "duplicates-or-redundancy"
       },
       {
@@ -165,11 +165,11 @@
         "input": [
           [
             -20,
-            -1,
-            -7
+            -9,
+            -4
           ]
         ],
-        "expected": -131,
+        "expected": -168,
         "coverage": "lower-bound"
       },
       {
@@ -177,72 +177,72 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
             -9,
-            4,
-            17,
-            -11,
             2,
-            15,
-            -13,
-            0,
             13,
-            -15,
-            -2,
-            11,
             -17,
-            -4,
-            9,
-            -19,
             -6,
-            7,
-            20,
-            -8,
             5,
-            18,
-            -10,
-            3,
             16,
-            -12,
-            1,
-            14,
             -14,
-            -1,
-            12,
-            -16,
             -3,
-            10,
-            -18,
-            -5,
             8,
-            -20,
-            -7,
-            6,
             19,
-            -9,
-            4,
-            17,
             -11,
-            2,
-            15,
-            -13,
             0,
-            13,
-            -15,
-            -2,
             11,
-            -17,
-            -4,
-            9,
             -19,
-            -6,
+            -8,
+            3,
+            14,
+            -16,
+            -5,
+            6,
+            17,
+            -13,
+            -2,
+            9,
+            20,
+            -10,
+            1,
+            12,
+            -18,
+            -7,
+            4,
+            15,
+            -15,
+            -4,
             7,
-            20
+            18,
+            -12,
+            -1,
+            10,
+            -20,
+            -9,
+            2,
+            13,
+            -17,
+            -6,
+            5,
+            16,
+            -14,
+            -3,
+            8,
+            19,
+            -11,
+            0,
+            11,
+            -19,
+            -8,
+            3,
+            14,
+            -16,
+            -5,
+            6,
+            17
           ]
         ],
-        "expected": -3823,
+        "expected": 4200,
         "coverage": "maximum-size"
       },
       {
@@ -261,14 +261,14 @@
         "id": "path3-239-9",
         "input": [
           [
-            8,
-            3,
-            -2,
-            8,
-            1
+            -1,
+            10,
+            7,
+            10,
+            9
           ]
         ],
-        "expected": 235,
+        "expected": 556,
         "coverage": "order-and-ties"
       }
     ],

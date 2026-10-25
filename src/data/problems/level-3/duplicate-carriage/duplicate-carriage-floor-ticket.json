@@ -19,7 +19,7 @@
   "summary": "Read and write pointers. Return the smallest number.",
   "stage": "Boundary variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `distinctSorted`. `readings` is already sorted from smallest to largest. Keep only one copy of each number. Put these numbers in `distinctSorted` in sorted order.\n2. Find the smallest number in `distinctSorted`. Store it in `smallest`.\n3. Complete `duplicateCarriageFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `readings` is [-1, 2, 6, 6], then `distinctSorted` is [-1, 2, 6] and `duplicateCarriageFloorTicket` returns -1.\n\nRules\n- If `distinctSorted` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [-3, 0, 7, 7, 12].\nTEST DATA 2: `readings` is [-2, 4, 4, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `distinctSorted`. `readings` is already sorted from smallest to largest. Keep only one copy of each number. Put these numbers in `distinctSorted` in sorted order.\n2. Find the smallest number in `distinctSorted`. Store it in `smallest`.\n3. Complete `duplicateCarriageFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `readings` is [-6, 6, 8, 8, 10], then `distinctSorted` is [-6, 6, 8, 10] and `duplicateCarriageFloorTicket` returns -6.\n\nRules\n- If `distinctSorted` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [-9, 0, 13, 19, 19].\nTEST DATA 2: `readings` is [-4, 3, 3, 3].",
   "unitIntro": "`readings` is already sorted from smallest to largest. Keep only one copy of each number. Put these numbers in `distinctSorted` in sorted order. Each problem in this unit builds `distinctSorted` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,30 +45,30 @@
       "id": "path3-145-1",
       "input": [
         [
-          -3,
+          -9,
           0,
-          7,
-          7,
-          12
+          13,
+          19,
+          19
         ]
       ],
-      "expected": -3,
+      "expected": -9,
       "coverage": "worked",
-      "explanation": "`distinctSorted` is [-3, 0, 7, 12]. The smallest number is -3. Return -3."
+      "explanation": "`distinctSorted` is [-9, 0, 13, 19]. The smallest number is -9. Return -9."
     },
     {
       "id": "path3-145-2",
       "input": [
         [
-          -2,
-          4,
-          4,
-          4
+          -4,
+          3,
+          3,
+          3
         ]
       ],
-      "expected": -2,
+      "expected": -4,
       "coverage": "worked",
-      "explanation": "`distinctSorted` is [-2, 4]. The smallest number is -2. Return -2."
+      "explanation": "`distinctSorted` is [-4, 3]. The smallest number is -4. Return -4."
     },
     {
       "id": "path3-145-3",
@@ -101,30 +101,30 @@
       "id": "path3-145-1",
       "input": [
         [
-          -3,
+          -9,
           0,
-          7,
-          7,
-          12
+          13,
+          19,
+          19
         ]
       ],
-      "expected": -3,
+      "expected": -9,
       "coverage": "worked",
-      "explanation": "`distinctSorted` is [-3, 0, 7, 12]. The smallest number is -3. Return -3."
+      "explanation": "`distinctSorted` is [-9, 0, 13, 19]. The smallest number is -9. Return -9."
     },
     {
       "id": "path3-145-2",
       "input": [
         [
-          -2,
-          4,
-          4,
-          4
+          -4,
+          3,
+          3,
+          3
         ]
       ],
-      "expected": -2,
+      "expected": -4,
       "coverage": "worked",
-      "explanation": "`distinctSorted` is [-2, 4]. The smallest number is -2. Return -2."
+      "explanation": "`distinctSorted` is [-4, 3]. The smallest number is -4. Return -4."
     }
   ],
   "referenceSolutions": {
@@ -139,35 +139,35 @@
         "id": "path3-145-4",
         "input": [
           [
-            9
+            19
           ]
         ],
-        "expected": 9,
+        "expected": 19,
         "coverage": "singleton"
       },
       {
         "id": "path3-145-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            6,
+            6,
+            6,
+            6
           ]
         ],
-        "expected": 5,
+        "expected": 6,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-145-6",
         "input": [
           [
-            -20,
-            -7,
+            -14,
+            -8,
             -1
           ]
         ],
-        "expected": -20,
+        "expected": -14,
         "coverage": "lower-bound"
       },
       {
@@ -177,42 +177,42 @@
             -20,
             -20,
             -19,
-            -19,
             -18,
             -17,
             -17,
             -16,
-            -15,
+            -16,
             -15,
             -14,
             -13,
             -13,
             -12,
+            -12,
             -11,
             -11,
             -10,
             -9,
-            -9,
+            -8,
             -8,
             -7,
             -7,
-            -6,
             -6,
             -5,
             -4,
             -4,
             -3,
+            -3,
             -2,
             -2,
             -1,
             0,
-            0,
+            1,
             1,
             2,
             2,
             3,
             4,
-            4,
+            5,
             5,
             6,
             6,
@@ -220,18 +220,18 @@
             7,
             8,
             9,
-            9,
+            10,
             10,
             11,
             11,
             12,
             13,
-            13,
+            14,
             14,
             15,
             15,
             16,
-            17,
+            16,
             17,
             18,
             19,
@@ -259,14 +259,14 @@
         "id": "path3-145-9",
         "input": [
           [
-            -2,
-            1,
-            3,
-            8,
-            8
+            -1,
+            6,
+            6,
+            7,
+            14
           ]
         ],
-        "expected": -2,
+        "expected": -1,
         "coverage": "order-and-ties"
       }
     ],

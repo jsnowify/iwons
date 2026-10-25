@@ -19,7 +19,7 @@
   "summary": "Graph depth-first components. Return the total.",
   "stage": "Variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`links` is a square table of 0s and 1s. Points are numbered from 0. A 1 at `links`[a][b] joins points a and b in both directions. A 0 means no link.\n\nYour tasks\n1. Create a list `componentSizes`. This graph has two-way `links` between points. A group, also called a connected component, contains all points that can reach one another. Start at point 0, then check the other points in number order. Whenever a point has not been visited, explore its whole group depth first: follow a path as far as you can before going back. Record how many points are in that group. `componentSizes` follows the order in which you first find the groups. A graph with no points gives an empty `componentSizes`.\n2. Add up every number in `componentSizes`. Store the sum in `total`.\n3. Complete `islandLedgersTotalReceipt` so it returns `total`. Return it, do not print it.\n\nExample\nIf `links` is [[1, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 1, 0, 0, 1], [1, 0, 0, 1, 0], [0, 0, 1, 0, 0]], then `componentSizes` is [2, 3] and `islandLedgersTotalReceipt` returns 5.\n\nRules\n- If `componentSizes` is empty, `total` is 0.\n\nTest data\nTEST DATA 1: `links` is [[1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0], [1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0]].\nTEST DATA 2: `links` is [[0, 0, 1, 0, 0], [0, 1, 0, 0, 1], [1, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 1, 0, 0, 1]].",
+  "descriptionMd": "Inputs\n`links` is a square table of 0s and 1s. Points are numbered from 0. A 1 at `links`[a][b] joins points a and b in both directions. A 0 means no link.\n\nYour tasks\n1. Create a list `componentSizes`. This graph has two-way `links` between points. A group, also called a connected component, contains all points that can reach one another. Start at point 0, then check the other points in number order. Whenever a point has not been visited, explore its whole group depth first: follow a path as far as you can before going back. Record how many points are in that group. `componentSizes` follows the order in which you first find the groups. A graph with no points gives an empty `componentSizes`.\n2. Add up every number in `componentSizes`. Store the sum in `total`.\n3. Complete `islandLedgersTotalReceipt` so it returns `total`. Return it, do not print it.\n\nExample\nIf `links` is [[0, 0, 1, 1, 0, 1], [0, 0, 1, 0, 1, 0], [1, 1, 0, 0, 0, 1], [1, 0, 0, 0, 0, 1], [0, 1, 0, 0, 1, 0], [1, 0, 1, 1, 0, 0]], then `componentSizes` is [6] and `islandLedgersTotalReceipt` returns 6.\n\nRules\n- If `componentSizes` is empty, `total` is 0.\n\nTest data\nTEST DATA 1: `links` is [[0, 0, 1, 0, 0, 0], [0, 0, 1, 0, 0, 1], [1, 1, 0, 1, 0, 0], [0, 0, 1, 1, 0, 1], [0, 0, 0, 0, 0, 0], [0, 1, 0, 1, 0, 1]].\nTEST DATA 2: `links` is [[0, 1, 1, 0, 0], [1, 0, 0, 0, 0], [1, 0, 0, 0, 1], [0, 0, 0, 0, 0], [0, 0, 1, 0, 1]].",
   "unitIntro": "This graph has two-way `links` between points. A group, also called a connected component, contains all points that can reach one another. Start at point 0, then check the other points in number order. Whenever a point has not been visited, explore its whole group depth first: follow a path as far as you can before going back. Record how many points are in that group. `componentSizes` follows the order in which you first find the groups. A graph with no points gives an empty `componentSizes`. Each problem in this unit builds `componentSizes` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 16.",
@@ -47,10 +47,10 @@
       "input": [
         [
           [
-            1,
             0,
             0,
             1,
+            0,
             0,
             0
           ],
@@ -63,16 +63,8 @@
             1
           ],
           [
-            0,
             1,
-            0,
-            0,
             1,
-            0
-          ],
-          [
-            1,
-            0,
             0,
             1,
             0,
@@ -82,23 +74,31 @@
             0,
             0,
             1,
-            0,
+            1,
             0,
             1
           ],
           [
             0,
-            1,
             0,
             0,
-            1,
+            0,
+            0,
             0
+          ],
+          [
+            0,
+            1,
+            0,
+            1,
+            0,
+            1
           ]
         ]
       ],
       "expected": 6,
       "coverage": "worked",
-      "explanation": "`componentSizes` is [2, 4]. Add its numbers to get 6. Return 6."
+      "explanation": "`componentSizes` is [5, 1]. Add its numbers to get 6. Return 6."
     },
     {
       "id": "path3-402-2",
@@ -106,36 +106,36 @@
         [
           [
             0,
-            0,
+            1,
             1,
             0,
             0
           ],
           [
-            0,
             1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
             0,
             0,
             1
           ],
           [
-            1,
             0,
             0,
-            1,
+            0,
+            0,
             0
           ],
           [
             0,
             0,
             1,
-            0,
-            0
-          ],
-          [
-            0,
-            1,
-            0,
             0,
             1
           ]
@@ -143,7 +143,7 @@
       ],
       "expected": 5,
       "coverage": "worked",
-      "explanation": "`componentSizes` is [3, 2]. Add its numbers to get 5. Return 5."
+      "explanation": "`componentSizes` is [4, 1]. Add its numbers to get 5. Return 5."
     },
     {
       "id": "path3-402-3",
@@ -177,10 +177,10 @@
       "input": [
         [
           [
-            1,
             0,
             0,
             1,
+            0,
             0,
             0
           ],
@@ -193,16 +193,8 @@
             1
           ],
           [
-            0,
             1,
-            0,
-            0,
             1,
-            0
-          ],
-          [
-            1,
-            0,
             0,
             1,
             0,
@@ -212,23 +204,31 @@
             0,
             0,
             1,
-            0,
+            1,
             0,
             1
           ],
           [
             0,
-            1,
             0,
             0,
-            1,
+            0,
+            0,
             0
+          ],
+          [
+            0,
+            1,
+            0,
+            1,
+            0,
+            1
           ]
         ]
       ],
       "expected": 6,
       "coverage": "worked",
-      "explanation": "`componentSizes` is [2, 4]. Add its numbers to get 6. Return 6."
+      "explanation": "`componentSizes` is [5, 1]. Add its numbers to get 6. Return 6."
     },
     {
       "id": "path3-402-2",
@@ -236,36 +236,36 @@
         [
           [
             0,
-            0,
+            1,
             1,
             0,
             0
           ],
           [
-            0,
             1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
             0,
             0,
             1
           ],
           [
-            1,
             0,
             0,
-            1,
+            0,
+            0,
             0
           ],
           [
             0,
             0,
             1,
-            0,
-            0
-          ],
-          [
-            0,
-            1,
-            0,
             0,
             1
           ]
@@ -273,7 +273,7 @@
       ],
       "expected": 5,
       "coverage": "worked",
-      "explanation": "`componentSizes` is [3, 2]. Add its numbers to get 5. Return 5."
+      "explanation": "`componentSizes` is [4, 1]. Add its numbers to get 5. Return 5."
     }
   ],
   "referenceSolutions": {
@@ -708,52 +708,52 @@
         "input": [
           [
             [
-              0,
+              1,
+              1,
               1,
               0,
               0,
-              1,
               0
             ],
             [
               1,
               0,
               0,
-              1,
               0,
-              0
+              1,
+              1
             ],
             [
-              0,
-              0,
               1,
               0,
-              0,
+              1,
+              1,
+              1,
               1
             ],
             [
               0,
-              1,
-              0,
               0,
               1,
-              0
-            ],
-            [
-              1,
               0,
-              0,
-              1,
               0,
               0
             ],
             [
               0,
+              1,
+              1,
               0,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
               1,
               0,
               0,
-              1
+              0
             ]
           ]
         ],

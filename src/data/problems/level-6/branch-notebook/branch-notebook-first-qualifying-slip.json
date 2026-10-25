@@ -19,7 +19,7 @@
   "summary": "Tree preorder. Find the first number at least k.",
   "stage": "Combine",
   "boss": false,
-  "descriptionMd": "Inputs\n`root` is the top node of a binary tree. Examples list nodes one level at a time, from left to right. null marks a missing child; [] means no tree. Each node stores its number in val. Its left and right links point to children. The runner builds the nodes for you.\n\nYour tasks\n1. Create a list `visitOrder`. A binary tree is a set of nodes, each with a value and up to two children: left and right. `root` is the top node. Visit a node by recording its value, then visit its whole left branch, then its whole right branch. Use this same rule at every node. Skip missing children. `visitOrder` is the recorded values. An empty tree gives an empty `visitOrder`.\n2. Read `visitOrder` from left to right. Find the first number that is at least `k` and store that number, not its position, in `firstMatch`.\n3. Complete `branchNotebookFirstQualifyingSlip` so it returns `firstMatch`. Return it, do not print it.\n\nExample\nIf `root` is [6, null, -1, 6, 2] and `k` is 4, then `visitOrder` is [6, -1, 6, 2] and `branchNotebookFirstQualifyingSlip` returns 6.\n\nRules\n- If no number is at least `k`, return -1.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `root` is [7, null, -3, 7, 0] and `k` is 3.\nTEST DATA 2: `root` is [4, null, 4, -2, 4] and `k` is 2.",
+  "descriptionMd": "Inputs\n`root` is the top node of a binary tree. Examples list nodes one level at a time, from left to right. null marks a missing child; [] means no tree. Each node stores its number in val. Its left and right links point to children. The runner builds the nodes for you.\n\nYour tasks\n1. Create a list `visitOrder`. A binary tree is a set of nodes, each with a value and up to two children: left and right. `root` is the top node. Visit a node by recording its value, then visit its whole left branch, then its whole right branch. Use this same rule at every node. Skip missing children. `visitOrder` is the recorded values. An empty tree gives an empty `visitOrder`.\n2. Read `visitOrder` from left to right. Find the first number that is at least `k` and store that number, not its position, in `firstMatch`.\n3. Complete `branchNotebookFirstQualifyingSlip` so it returns `firstMatch`. Return it, do not print it.\n\nExample\nIf `root` is [7, null, 5, -3, 7] and `k` is 5, then `visitOrder` is [7, 5, -3, 7] and `branchNotebookFirstQualifyingSlip` returns 7.\n\nRules\n- If no number is at least `k`, return -1.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `root` is [5, null, -2, 0, 5] and `k` is 2.\nTEST DATA 2: `root` is [-1, null, 5, 5, 5] and `k` is 6.",
   "unitIntro": "A binary tree is a set of nodes, each with a value and up to two children: left and right. `root` is the top node. Visit a node by recording its value, then visit its whole left branch, then its whole right branch. Use this same rule at every node. Skip missing children. `visitOrder` is the recorded values. An empty tree gives an empty `visitOrder`. Each problem in this unit builds `visitOrder` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= node count <= 31; null marks a missing child and does not count as a node.",
@@ -46,43 +46,43 @@
       "id": "path3-316-1",
       "input": [
         [
-          7,
+          5,
           null,
-          -3,
-          7,
-          0
+          -2,
+          0,
+          5
         ],
-        3
+        2
       ],
-      "expected": 7,
+      "expected": 5,
       "coverage": "worked",
-      "explanation": "`visitOrder` is [7, -3, 7, 0]. Here `k` is 3. The first number at least 3 is 7. Return that value."
+      "explanation": "`visitOrder` is [5, -2, 0, 5]. Here `k` is 2. The first number at least 2 is 5. Return that value."
     },
     {
       "id": "path3-316-2",
       "input": [
         [
-          4,
+          -1,
           null,
-          4,
-          -2,
-          4
+          5,
+          5,
+          5
         ],
-        2
+        6
       ],
-      "expected": 4,
+      "expected": -1,
       "coverage": "worked",
-      "explanation": "`visitOrder` is [4, 4, -2, 4]. Here `k` is 2. The first number at least 2 is 4. Return that value."
+      "explanation": "`visitOrder` is [-1, 5, 5, 5]. Here `k` is 6. No number is at least 6, so return -1."
     },
     {
       "id": "path3-316-3",
       "input": [
         [],
-        1
+        8
       ],
       "expected": -1,
       "coverage": "empty",
-      "explanation": "`visitOrder` is []. Here `k` is 1. No number is at least 1, so return -1."
+      "explanation": "`visitOrder` is []. Here `k` is 8. No number is at least 8, so return -1."
     }
   ],
   "timeLimitMs": 2000,
@@ -110,33 +110,33 @@
       "id": "path3-316-1",
       "input": [
         [
-          7,
+          5,
           null,
-          -3,
-          7,
-          0
+          -2,
+          0,
+          5
         ],
-        3
+        2
       ],
-      "expected": 7,
+      "expected": 5,
       "coverage": "worked",
-      "explanation": "`visitOrder` is [7, -3, 7, 0]. Here `k` is 3. The first number at least 3 is 7. Return that value."
+      "explanation": "`visitOrder` is [5, -2, 0, 5]. Here `k` is 2. The first number at least 2 is 5. Return that value."
     },
     {
       "id": "path3-316-2",
       "input": [
         [
-          4,
+          -1,
           null,
-          4,
-          -2,
-          4
+          5,
+          5,
+          5
         ],
-        2
+        6
       ],
-      "expected": 4,
+      "expected": -1,
       "coverage": "worked",
-      "explanation": "`visitOrder` is [4, 4, -2, 4]. Here `k` is 2. The first number at least 2 is 4. Return that value."
+      "explanation": "`visitOrder` is [-1, 5, 5, 5]. Here `k` is 6. No number is at least 6, so return -1."
     }
   ],
   "referenceSolutions": {
@@ -151,39 +151,39 @@
         "id": "path3-316-4",
         "input": [
           [
-            9
+            17
           ],
-          1
+          3
         ],
-        "expected": 9,
+        "expected": 17,
         "coverage": "singleton"
       },
       {
         "id": "path3-316-5",
         "input": [
           [
-            5,
+            2,
             null,
-            5,
-            5,
-            5
+            2,
+            2,
+            2
           ],
-          4
+          5
         ],
-        "expected": 5,
+        "expected": -1,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-316-6",
         "input": [
           [
-            -20,
+            -4,
             null,
-            -1,
-            -7,
+            -3,
+            -12,
             null
           ],
-          8
+          6
         ],
         "expected": -1,
         "coverage": "lower-bound"
@@ -193,40 +193,40 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
-            -4,
             9,
-            -19,
-            -6,
-            7,
-            20,
-            -8,
-            5,
-            18,
+            -3,
+            -15,
+            14,
+            2,
             -10,
-            3,
-            16,
+            19,
+            7,
+            -5,
+            -17,
+            12,
+            0,
             -12,
-            1
+            17,
+            5,
+            -7,
+            -19,
+            10,
+            -2,
+            -14,
+            15,
+            3,
+            -9,
+            20,
+            8,
+            -4,
+            -16,
+            13,
+            1,
+            -11
           ],
-          3
+          1
         ],
-        "expected": 19,
+        "expected": 9,
         "coverage": "maximum-size"
       },
       {
@@ -239,7 +239,7 @@
             0,
             null
           ],
-          5
+          3
         ],
         "expected": -1,
         "coverage": "zero-or-minimum"
@@ -248,15 +248,15 @@
         "id": "path3-316-9",
         "input": [
           [
-            8,
+            11,
             null,
-            3,
             -2,
-            8
+            6,
+            2
           ],
-          2
+          7
         ],
-        "expected": 8,
+        "expected": 11,
         "coverage": "order-and-ties"
       }
     ],

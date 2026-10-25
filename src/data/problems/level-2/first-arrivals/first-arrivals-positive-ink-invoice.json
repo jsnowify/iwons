@@ -19,7 +19,7 @@
   "summary": "Set membership. Add the positive numbers.",
   "stage": "Filtered variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `firstCopies`. Keep the first copy of each number in `readings`. Skip any later copies of the same number. Keep the order in which the numbers first appear. For [4, 2, 4, 3, 2], `firstCopies` is [4, 2, 3].\n2. Add only the numbers in `firstCopies` that are greater than 0. Store the sum in `positiveTotal`.\n3. Complete `firstArrivalsPositiveInkInvoice` so it returns `positiveTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `firstCopies` is [6, -1, 2] and `firstArrivalsPositiveInkInvoice` returns 8.\n\nRules\n- Skip 0 and negative numbers.\n- If no number is greater than 0, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `firstCopies`. Keep the first copy of each number in `readings`. Skip any later copies of the same number. Keep the order in which the numbers first appear. For [4, 2, 4, 3, 2], `firstCopies` is [4, 2, 3].\n2. Add only the numbers in `firstCopies` that are greater than 0. Store the sum in `positiveTotal`.\n3. Complete `firstArrivalsPositiveInkInvoice` so it returns `positiveTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [0, -6, 7, 6, 7], then `firstCopies` is [0, -6, 7, 6] and `firstArrivalsPositiveInkInvoice` returns 13.\n\nRules\n- Skip 0 and negative numbers.\n- If no number is greater than 0, return 0.\n\nTest data\nTEST DATA 1: `readings` is [-7, 0, 14, 14, 15].\nTEST DATA 2: `readings` is [-2, 7, 7, 7].",
   "unitIntro": "Keep the first copy of each number in `readings`. Skip any later copies of the same number. Keep the order in which the numbers first appear. For [4, 2, 4, 3, 2], `firstCopies` is [4, 2, 3]. Each problem in this unit builds `firstCopies` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,30 +45,30 @@
       "id": "path3-098-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          -7,
           0,
-          12
+          14,
+          14,
+          15
         ]
       ],
-      "expected": 19,
+      "expected": 29,
       "coverage": "worked",
-      "explanation": "`firstCopies` is [7, -3, 0, 12]. Keep [7, 12] and add those numbers. Return 19."
+      "explanation": "`firstCopies` is [-7, 0, 14, 15]. Keep [14, 15] and add those numbers. Return 29."
     },
     {
       "id": "path3-098-2",
       "input": [
         [
-          4,
-          4,
           -2,
-          4
+          7,
+          7,
+          7
         ]
       ],
-      "expected": 4,
+      "expected": 7,
       "coverage": "worked",
-      "explanation": "`firstCopies` is [4, -2]. Keep [4] and add those numbers. Return 4."
+      "explanation": "`firstCopies` is [-2, 7]. Keep [7] and add those numbers. Return 7."
     },
     {
       "id": "path3-098-3",
@@ -101,30 +101,30 @@
       "id": "path3-098-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          -7,
           0,
-          12
+          14,
+          14,
+          15
         ]
       ],
-      "expected": 19,
+      "expected": 29,
       "coverage": "worked",
-      "explanation": "`firstCopies` is [7, -3, 0, 12]. Keep [7, 12] and add those numbers. Return 19."
+      "explanation": "`firstCopies` is [-7, 0, 14, 15]. Keep [14, 15] and add those numbers. Return 29."
     },
     {
       "id": "path3-098-2",
       "input": [
         [
-          4,
-          4,
           -2,
-          4
+          7,
+          7,
+          7
         ]
       ],
-      "expected": 4,
+      "expected": 7,
       "coverage": "worked",
-      "explanation": "`firstCopies` is [4, -2]. Keep [4] and add those numbers. Return 4."
+      "explanation": "`firstCopies` is [-2, 7]. Keep [7] and add those numbers. Return 7."
     }
   ],
   "referenceSolutions": {
@@ -139,32 +139,32 @@
         "id": "path3-098-4",
         "input": [
           [
-            9
+            1
           ]
         ],
-        "expected": 9,
+        "expected": 1,
         "coverage": "singleton"
       },
       {
         "id": "path3-098-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            3,
+            3,
+            3,
+            3
           ]
         ],
-        "expected": 5,
+        "expected": 3,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-098-6",
         "input": [
           [
-            -20,
-            -1,
-            -7
+            -11,
+            -18,
+            -12
           ]
         ],
         "expected": 0,
@@ -175,69 +175,69 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
-            -4,
-            9,
-            -19,
-            -6,
-            7,
-            20,
-            -8,
-            5,
-            18,
-            -10,
-            3,
-            16,
-            -12,
-            1,
-            14,
-            -14,
             -1,
-            12,
-            -16,
-            -3,
-            10,
-            -18,
-            -5,
-            8,
-            -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
+            18,
             -4,
+            15,
+            -7,
+            12,
+            -10,
             9,
+            -13,
+            6,
+            -16,
+            3,
             -19,
+            0,
+            19,
+            -3,
+            16,
             -6,
+            13,
+            -9,
+            10,
+            -12,
             7,
-            20
+            -15,
+            4,
+            -18,
+            1,
+            20,
+            -2,
+            17,
+            -5,
+            14,
+            -8,
+            11,
+            -11,
+            8,
+            -14,
+            5,
+            -17,
+            2,
+            -20,
+            -1,
+            18,
+            -4,
+            15,
+            -7,
+            12,
+            -10,
+            9,
+            -13,
+            6,
+            -16,
+            3,
+            -19,
+            0,
+            19,
+            -3,
+            16,
+            -6,
+            13,
+            -9,
+            10,
+            -12
           ]
         ],
         "expected": 210,
@@ -259,14 +259,14 @@
         "id": "path3-098-9",
         "input": [
           [
-            8,
-            3,
-            -2,
-            8,
-            1
+            4,
+            11,
+            -8,
+            12,
+            12
           ]
         ],
-        "expected": 12,
+        "expected": 27,
         "coverage": "order-and-ties"
       }
     ],

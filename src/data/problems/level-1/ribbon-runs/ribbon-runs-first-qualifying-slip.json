@@ -19,7 +19,7 @@
   "summary": "String runs. Find the first number at least k.",
   "stage": "Combine",
   "boss": false,
-  "descriptionMd": "Inputs\n`line` is text. A character is one letter, digit, space, or punctuation mark.\n\nYour tasks\n1. Create a list `runLengths`. A run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", `runLengths` is [2, 1, 2].\n2. Read `runLengths` from left to right. Find the first number that is at least `k` and store that number, not its position, in `firstMatch`.\n3. Complete `ribbonRunsFirstQualifyingSlip` so it returns `firstMatch`. Return it, do not print it.\n\nExample\nIf `line` is \"ok  zoo\" and `k` is 4, then `runLengths` is [1, 1, 2, 1, 2] and `ribbonRunsFirstQualifyingSlip` returns -1.\n\nRules\n- If no number is at least `k`, return -1.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `line` is \"inkk paaaper\" and `k` is 3.\nTEST DATA 2: `line` is \"QQ qQQ\" and `k` is 2.",
+  "descriptionMd": "Inputs\n`line` is text. A character is one letter, digit, space, or punctuation mark.\n\nYour tasks\n1. Create a list `runLengths`. A run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", `runLengths` is [2, 1, 2].\n2. Read `runLengths` from left to right. Find the first number that is at least `k` and store that number, not its position, in `firstMatch`.\n3. Complete `ribbonRunsFirstQualifyingSlip` so it returns `firstMatch`. Return it, do not print it.\n\nExample\nIf `line` is \"zu  gid\" and `k` is 1, then `runLengths` is [1, 1, 2, 1, 1, 1] and `ribbonRunsFirstQualifyingSlip` returns 1.\n\nRules\n- If no number is at least `k`, return -1.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `line` is \"niizx xvvvi\" and `k` is 4.\nTEST DATA 2: `line` is \"II iII\" and `k` is 1.",
   "unitIntro": "A run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", `runLengths` is [2, 1, 2]. Each problem in this unit builds `runLengths` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -44,32 +44,32 @@
     {
       "id": "path3-044-1",
       "input": [
-        "inkk paaaper",
-        3
+        "niizx xvvvi",
+        4
       ],
-      "expected": 3,
+      "expected": -1,
       "coverage": "worked",
-      "explanation": "`runLengths` is [1, 1, 2, 1, 1, 3, 1, 1, 1]. Here `k` is 3. The first number at least 3 is 3. Return that value."
+      "explanation": "`runLengths` is [1, 2, 1, 1, 1, 1, 3, 1]. Here `k` is 4. No number is at least 4, so return -1."
     },
     {
       "id": "path3-044-2",
       "input": [
-        "QQ qQQ",
-        2
+        "II iII",
+        1
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "`runLengths` is [2, 1, 1, 2]. Here `k` is 2. The first number at least 2 is 2. Return that value."
+      "explanation": "`runLengths` is [2, 1, 1, 2]. Here `k` is 1. The first number at least 1 is 2. Return that value."
     },
     {
       "id": "path3-044-3",
       "input": [
         "",
-        1
+        7
       ],
       "expected": -1,
       "coverage": "empty",
-      "explanation": "`runLengths` is []. Here `k` is 1. No number is at least 1, so return -1."
+      "explanation": "`runLengths` is []. Here `k` is 7. No number is at least 7, so return -1."
     }
   ],
   "timeLimitMs": 2000,
@@ -93,22 +93,22 @@
     {
       "id": "path3-044-1",
       "input": [
-        "inkk paaaper",
-        3
+        "niizx xvvvi",
+        4
       ],
-      "expected": 3,
+      "expected": -1,
       "coverage": "worked",
-      "explanation": "`runLengths` is [1, 1, 2, 1, 1, 3, 1, 1, 1]. Here `k` is 3. The first number at least 3 is 3. Return that value."
+      "explanation": "`runLengths` is [1, 2, 1, 1, 1, 1, 3, 1]. Here `k` is 4. No number is at least 4, so return -1."
     },
     {
       "id": "path3-044-2",
       "input": [
-        "QQ qQQ",
-        2
+        "II iII",
+        1
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "`runLengths` is [2, 1, 1, 2]. Here `k` is 2. The first number at least 2 is 2. Return that value."
+      "explanation": "`runLengths` is [2, 1, 1, 2]. Here `k` is 1. The first number at least 1 is 2. Return that value."
     }
   ],
   "referenceSolutions": {
@@ -123,25 +123,25 @@
         "id": "path3-044-4",
         "input": [
           " ",
-          1
+          5
         ],
-        "expected": 1,
+        "expected": -1,
         "coverage": "singleton"
       },
       {
         "id": "path3-044-5",
         "input": [
-          "aaaaa",
-          4
+          "eeeee",
+          8
         ],
-        "expected": 5,
+        "expected": -1,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-044-6",
         "input": [
-          " -!? ",
-          8
+          " ;-. ",
+          4
         ],
         "expected": -1,
         "coverage": "lower-bound"
@@ -149,8 +149,8 @@
       {
         "id": "path3-044-7",
         "input": [
-          "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",
-          3
+          "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          8
         ],
         "expected": 64,
         "coverage": "maximum-size"
@@ -159,18 +159,18 @@
         "id": "path3-044-8",
         "input": [
           "   ",
-          5
+          1
         ],
-        "expected": -1,
+        "expected": 3,
         "coverage": "zero-or-minimum"
       },
       {
         "id": "path3-044-9",
         "input": [
-          "a bb   ccc",
-          2
+          "i vv   eee",
+          6
         ],
-        "expected": 2,
+        "expected": -1,
         "coverage": "order-and-ties"
       }
     ],

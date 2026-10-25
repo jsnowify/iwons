@@ -19,7 +19,7 @@
   "summary": "Graph breadth-first distances. Add the positive numbers.",
   "stage": "Filtered variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`links` is a square table of 0s and 1s. Points are numbered from 0. A 1 at `links`[a][b] means a one-way path goes from point a to point b. A 0 means no path.\n\nYour tasks\n1. Create a list `distances`. A graph is a set of points joined by paths. Here, paths go in one direction. Start at point 0. For each point, find the fewest paths you must follow to reach it. Record these distances in point order: 0, 1, 2, and so on. The distance to point 0 is 0. Record -1 for a point you cannot reach. A graph with no points gives an empty `distances`.\n2. Add only the numbers in `distances` that are greater than 0. Store the sum in `positiveTotal`.\n3. Complete `switchboardRingsPositiveInkInvoice` so it returns `positiveTotal`. Return it, do not print it.\n\nExample\nIf `links` is [[1, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 1, 0, 0, 1], [1, 0, 0, 1, 0], [0, 0, 1, 0, 0]], then `distances` is [0, -1, -1, 1, -1] and `switchboardRingsPositiveInkInvoice` returns 1.\n\nRules\n- Skip 0 and negative numbers.\n- If no number is greater than 0, return 0.\n\nTest data\nTEST DATA 1: `links` is [[1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0], [1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0]].\nTEST DATA 2: `links` is [[0, 0, 1, 0, 0], [0, 1, 0, 0, 1], [1, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 1, 0, 0, 1]].",
+  "descriptionMd": "Inputs\n`links` is a square table of 0s and 1s. Points are numbered from 0. A 1 at `links`[a][b] means a one-way path goes from point a to point b. A 0 means no path.\n\nYour tasks\n1. Create a list `distances`. A graph is a set of points joined by paths. Here, paths go in one direction. Start at point 0. For each point, find the fewest paths you must follow to reach it. Record these distances in point order: 0, 1, 2, and so on. The distance to point 0 is 0. Record -1 for a point you cannot reach. A graph with no points gives an empty `distances`.\n2. Add only the numbers in `distances` that are greater than 0. Store the sum in `positiveTotal`.\n3. Complete `switchboardRingsPositiveInkInvoice` so it returns `positiveTotal`. Return it, do not print it.\n\nExample\nIf `links` is [[0, 1, 1, 1, 0, 0], [1, 1, 0, 1, 0, 1], [1, 0, 1, 0, 1, 0], [0, 1, 1, 1, 0, 0], [0, 0, 0, 1, 1, 1], [1, 0, 1, 0, 1, 0]], then `distances` is [0, 1, 1, 1, 2, 2] and `switchboardRingsPositiveInkInvoice` returns 7.\n\nRules\n- Skip 0 and negative numbers.\n- If no number is greater than 0, return 0.\n\nTest data\nTEST DATA 1: `links` is [[0, 0, 0, 0, 0, 0], [0, 0, 1, 1, 0, 0], [0, 1, 0, 1, 0, 1], [1, 1, 0, 0, 1, 1], [1, 0, 1, 1, 0, 0], [0, 1, 1, 0, 1, 1]].\nTEST DATA 2: `links` is [[0, 1, 0, 0, 1], [1, 0, 0, 0, 1], [1, 0, 1, 1, 1], [1, 1, 0, 0, 1], [1, 1, 1, 1, 1]].",
   "unitIntro": "A graph is a set of points joined by paths. Here, paths go in one direction. Start at point 0. For each point, find the fewest paths you must follow to reach it. Record these distances in point order: 0, 1, 2, and so on. The distance to point 0 is 0. Record -1 for a point you cannot reach. A graph with no points gives an empty `distances`. Each problem in this unit builds `distances` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 16.",
@@ -47,10 +47,10 @@
       "input": [
         [
           [
-            1,
             0,
             0,
-            1,
+            0,
+            0,
             0,
             0
           ],
@@ -58,47 +58,47 @@
             0,
             0,
             1,
+            1,
             0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            1,
             0,
             1
           ],
           [
-            0,
+            1,
             1,
             0,
             0,
             1,
-            0
-          ],
-          [
-            1,
-            0,
-            0,
-            1,
-            0,
-            0
-          ],
-          [
-            0,
-            0,
-            1,
-            0,
-            0,
             1
           ],
           [
-            0,
             1,
             0,
-            0,
             1,
+            1,
+            0,
             0
+          ],
+          [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1
           ]
         ]
       ],
-      "expected": 1,
+      "expected": 0,
       "coverage": "worked",
-      "explanation": "`distances` is [0, -1, -1, 1, -1, -1]. Keep [1] and add those numbers. Return 1."
+      "explanation": "`distances` is [0, -1, -1, -1, -1, -1]. Keep [] and add those numbers. Return 0."
     },
     {
       "id": "path3-348-2",
@@ -106,13 +106,6 @@
         [
           [
             0,
-            0,
-            1,
-            0,
-            0
-          ],
-          [
-            0,
             1,
             0,
             0,
@@ -122,28 +115,35 @@
             1,
             0,
             0,
-            1,
-            0
+            0,
+            1
           ],
           [
-            0,
-            0,
             1,
             0,
-            0
+            1,
+            1,
+            1
           ],
           [
-            0,
+            1,
             1,
             0,
             0,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
             1
           ]
         ]
       ],
-      "expected": 3,
+      "expected": 6,
       "coverage": "worked",
-      "explanation": "`distances` is [0, -1, 1, 2, -1]. Keep [1, 2] and add those numbers. Return 3."
+      "explanation": "`distances` is [0, 1, 2, 2, 1]. Keep [1, 2, 2, 1] and add those numbers. Return 6."
     },
     {
       "id": "path3-348-3",
@@ -177,10 +177,10 @@
       "input": [
         [
           [
-            1,
             0,
             0,
-            1,
+            0,
+            0,
             0,
             0
           ],
@@ -188,47 +188,47 @@
             0,
             0,
             1,
+            1,
             0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            1,
             0,
             1
           ],
           [
-            0,
+            1,
             1,
             0,
             0,
             1,
-            0
-          ],
-          [
-            1,
-            0,
-            0,
-            1,
-            0,
-            0
-          ],
-          [
-            0,
-            0,
-            1,
-            0,
-            0,
             1
           ],
           [
-            0,
             1,
             0,
-            0,
             1,
+            1,
+            0,
             0
+          ],
+          [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1
           ]
         ]
       ],
-      "expected": 1,
+      "expected": 0,
       "coverage": "worked",
-      "explanation": "`distances` is [0, -1, -1, 1, -1, -1]. Keep [1] and add those numbers. Return 1."
+      "explanation": "`distances` is [0, -1, -1, -1, -1, -1]. Keep [] and add those numbers. Return 0."
     },
     {
       "id": "path3-348-2",
@@ -236,13 +236,6 @@
         [
           [
             0,
-            0,
-            1,
-            0,
-            0
-          ],
-          [
-            0,
             1,
             0,
             0,
@@ -252,28 +245,35 @@
             1,
             0,
             0,
-            1,
-            0
+            0,
+            1
           ],
           [
-            0,
-            0,
             1,
             0,
-            0
+            1,
+            1,
+            1
           ],
           [
-            0,
+            1,
             1,
             0,
             0,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
             1
           ]
         ]
       ],
-      "expected": 3,
+      "expected": 6,
       "coverage": "worked",
-      "explanation": "`distances` is [0, -1, 1, 2, -1]. Keep [1, 2] and add those numbers. Return 3."
+      "explanation": "`distances` is [0, 1, 2, 2, 1]. Keep [1, 2, 2, 1] and add those numbers. Return 6."
     }
   ],
   "referenceSolutions": {
@@ -289,7 +289,7 @@
         "input": [
           [
             [
-              1
+              0
             ]
           ]
         ],
@@ -708,23 +708,7 @@
         "input": [
           [
             [
-              0,
               1,
-              0,
-              0,
-              1,
-              0
-            ],
-            [
-              1,
-              0,
-              0,
-              1,
-              0,
-              0
-            ],
-            [
-              0,
               0,
               1,
               0,
@@ -732,32 +716,48 @@
               1
             ],
             [
-              0,
               1,
               0,
               0,
-              1,
-              0
-            ],
-            [
-              1,
-              0,
-              0,
-              1,
-              0,
-              0
-            ],
-            [
-              0,
-              0,
-              1,
               0,
               0,
               1
+            ],
+            [
+              1,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              1,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1,
+              1,
+              0
             ]
           ]
         ],
-        "expected": 4,
+        "expected": 8,
         "coverage": "order-and-ties"
       }
     ],

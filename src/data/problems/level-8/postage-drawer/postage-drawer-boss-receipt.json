@@ -21,7 +21,7 @@
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Level 0: loop accumulators",
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `fewestStamps`. Each number in `readings` is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order.\n2. Multiply each number in `fewestStamps` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `postageDrawerBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 1, 6, 2], then `fewestStamps` is [3, 1, 3, 2] and `postageDrawerBossReceipt` returns 22.\n\nRules\n- If `fewestStamps` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, 3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, 2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `fewestStamps`. Each number in `readings` is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order.\n2. Multiply each number in `fewestStamps` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `postageDrawerBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [9, 1, 9, 10, 6], then `fewestStamps` is [1, 1, 1, 2, 3] and `postageDrawerBossReceipt` returns 29.\n\nRules\n- If `fewestStamps` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [9, 4, 7, 9, 0].\nTEST DATA 2: `readings` is [2, 9, 9, 9].",
   "unitIntro": "Each number in `readings` is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order. Each problem in this unit builds `fewestStamps` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -47,30 +47,30 @@
       "id": "path3-440-1",
       "input": [
         [
+          9,
+          4,
           7,
-          3,
-          7,
-          0,
-          12
+          9,
+          0
         ]
       ],
-      "expected": 37,
+      "expected": 19,
       "coverage": "worked",
-      "explanation": "`fewestStamps` is [4, 3, 4, 0, 3]. Multiply by positions that start at 1: 1 * (4) + 2 * (3) + 3 * (4) + 4 * (0) + 5 * (3) = 37. Return 37."
+      "explanation": "`fewestStamps` is [1, 1, 4, 1, 0]. Multiply by positions that start at 1: 1 * (1) + 2 * (1) + 3 * (4) + 4 * (1) + 5 * (0) = 19. Return 19."
     },
     {
       "id": "path3-440-2",
       "input": [
         [
-          4,
-          4,
           2,
-          4
+          9,
+          9,
+          9
         ]
       ],
-      "expected": 13,
+      "expected": 11,
       "coverage": "worked",
-      "explanation": "`fewestStamps` is [1, 1, 2, 1]. Multiply by positions that start at 1: 1 * (1) + 2 * (1) + 3 * (2) + 4 * (1) = 13. Return 13."
+      "explanation": "`fewestStamps` is [2, 1, 1, 1]. Multiply by positions that start at 1: 1 * (2) + 2 * (1) + 3 * (1) + 4 * (1) = 11. Return 11."
     },
     {
       "id": "path3-440-3",
@@ -103,30 +103,30 @@
       "id": "path3-440-1",
       "input": [
         [
+          9,
+          4,
           7,
-          3,
-          7,
-          0,
-          12
+          9,
+          0
         ]
       ],
-      "expected": 37,
+      "expected": 19,
       "coverage": "worked",
-      "explanation": "`fewestStamps` is [4, 3, 4, 0, 3]. Multiply by positions that start at 1: 1 * (4) + 2 * (3) + 3 * (4) + 4 * (0) + 5 * (3) = 37. Return 37."
+      "explanation": "`fewestStamps` is [1, 1, 4, 1, 0]. Multiply by positions that start at 1: 1 * (1) + 2 * (1) + 3 * (4) + 4 * (1) + 5 * (0) = 19. Return 19."
     },
     {
       "id": "path3-440-2",
       "input": [
         [
-          4,
-          4,
           2,
-          4
+          9,
+          9,
+          9
         ]
       ],
-      "expected": 13,
+      "expected": 11,
       "coverage": "worked",
-      "explanation": "`fewestStamps` is [1, 1, 2, 1]. Multiply by positions that start at 1: 1 * (1) + 2 * (1) + 3 * (2) + 4 * (1) = 13. Return 13."
+      "explanation": "`fewestStamps` is [2, 1, 1, 1]. Multiply by positions that start at 1: 1 * (2) + 2 * (1) + 3 * (1) + 4 * (1) = 11. Return 11."
     }
   ],
   "referenceSolutions": {
@@ -141,7 +141,7 @@
         "id": "path3-440-4",
         "input": [
           [
-            9
+            4
           ]
         ],
         "expected": 1,
@@ -151,10 +151,10 @@
         "id": "path3-440-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            2,
+            2,
+            2,
+            2
           ]
         ],
         "expected": 20,
@@ -165,11 +165,11 @@
         "input": [
           [
             20,
-            1,
-            7
+            17,
+            18
           ]
         ],
-        "expected": 18,
+        "expected": 16,
         "coverage": "lower-bound"
       },
       {
@@ -261,14 +261,14 @@
         "id": "path3-440-9",
         "input": [
           [
-            8,
-            3,
-            2,
-            8,
-            1
+            6,
+            7,
+            6,
+            11,
+            6
           ]
         ],
-        "expected": 27,
+        "expected": 47,
         "coverage": "order-and-ties"
       }
     ],

@@ -19,7 +19,7 @@
   "summary": "Sequence DP with binary search. Find the first number at least k.",
   "stage": "Combine",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `risingLengths`. A subsequence keeps numbers in their original order but may skip some numbers. For each position in `readings`, find the longest strictly increasing subsequence that ends at that position. Strictly increasing means each next number must be larger; equal numbers do not count as an increase. Record the length, not the chosen numbers. Put one length per position in `risingLengths`.\n2. Read `risingLengths` from left to right. Find the first number that is at least `k` and store that number, not its position, in `firstMatch`.\n3. Complete `risingLabelsFirstQualifyingSlip` so it returns `firstMatch`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2] and `k` is 4, then `risingLengths` is [1, 1, 2, 2] and `risingLabelsFirstQualifyingSlip` returns -1.\n\nRules\n- If no number is at least `k`, return -1.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12] and `k` is 3.\nTEST DATA 2: `readings` is [4, 4, -2, 4] and `k` is 2.",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `risingLengths`. A subsequence keeps numbers in their original order but may skip some numbers. For each position in `readings`, find the longest strictly increasing subsequence that ends at that position. Strictly increasing means each next number must be larger; equal numbers do not count as an increase. Record the length, not the chosen numbers. Put one length per position in `risingLengths`.\n2. Read `risingLengths` from left to right. Find the first number that is at least `k` and store that number, not its position, in `firstMatch`.\n3. Complete `risingLabelsFirstQualifyingSlip` so it returns `firstMatch`. Return it, do not print it.\n\nExample\nIf `readings` is [10, -5, 5, 8, 5] and `k` is 1, then `risingLengths` is [1, 1, 2, 3, 2] and `risingLabelsFirstQualifyingSlip` returns 1.\n\nRules\n- If no number is at least `k`, return -1.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `readings` is [13, -4, 4, 0, 13] and `k` is 3.\nTEST DATA 2: `readings` is [3, -4, 3, 3] and `k` is 7.",
   "unitIntro": "A subsequence keeps numbers in their original order but may skip some numbers. For each position in `readings`, find the longest strictly increasing subsequence that ends at that position. Strictly increasing means each next number must be larger; equal numbers do not count as an increase. Record the length, not the chosen numbers. Put one length per position in `risingLengths`. Each problem in this unit builds `risingLengths` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,11 +45,11 @@
       "id": "path3-454-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          13,
+          -4,
+          4,
           0,
-          12
+          13
         ],
         3
       ],
@@ -61,26 +61,26 @@
       "id": "path3-454-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          3,
+          -4,
+          3,
+          3
         ],
-        2
+        7
       ],
-      "expected": 2,
+      "expected": -1,
       "coverage": "worked",
-      "explanation": "`risingLengths` is [1, 1, 1, 2]. Here `k` is 2. The first number at least 2 is 2. Return that value."
+      "explanation": "`risingLengths` is [1, 1, 2, 2]. Here `k` is 7. No number is at least 7, so return -1."
     },
     {
       "id": "path3-454-3",
       "input": [
         [],
-        1
+        3
       ],
       "expected": -1,
       "coverage": "empty",
-      "explanation": "`risingLengths` is []. Here `k` is 1. No number is at least 1, so return -1."
+      "explanation": "`risingLengths` is []. Here `k` is 3. No number is at least 3, so return -1."
     }
   ],
   "timeLimitMs": 2000,
@@ -105,11 +105,11 @@
       "id": "path3-454-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          13,
+          -4,
+          4,
           0,
-          12
+          13
         ],
         3
       ],
@@ -121,16 +121,16 @@
       "id": "path3-454-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          3,
+          -4,
+          3,
+          3
         ],
-        2
+        7
       ],
-      "expected": 2,
+      "expected": -1,
       "coverage": "worked",
-      "explanation": "`risingLengths` is [1, 1, 1, 2]. Here `k` is 2. The first number at least 2 is 2. Return that value."
+      "explanation": "`risingLengths` is [1, 1, 2, 2]. Here `k` is 7. No number is at least 7, so return -1."
     }
   ],
   "referenceSolutions": {
@@ -145,21 +145,21 @@
         "id": "path3-454-4",
         "input": [
           [
-            9
+            17
           ],
-          1
+          3
         ],
-        "expected": 1,
+        "expected": -1,
         "coverage": "singleton"
       },
       {
         "id": "path3-454-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            8,
+            8,
+            8,
+            8
           ],
           4
         ],
@@ -170,11 +170,11 @@
         "id": "path3-454-6",
         "input": [
           [
-            -20,
-            -1,
-            -7
+            -2,
+            -4,
+            -13
           ],
-          8
+          5
         ],
         "expected": -1,
         "coverage": "lower-bound"
@@ -184,73 +184,73 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
-            -4,
-            9,
-            -19,
-            -6,
-            7,
-            20,
-            -8,
-            5,
-            18,
-            -10,
             3,
-            16,
-            -12,
-            1,
-            14,
-            -14,
-            -1,
-            12,
-            -16,
-            -3,
-            10,
-            -18,
-            -5,
-            8,
-            -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
             -15,
-            -2,
-            11,
-            -17,
-            -4,
-            9,
-            -19,
-            -6,
+            8,
+            -10,
+            13,
+            -5,
+            18,
+            0,
+            -18,
+            5,
+            -13,
+            10,
+            -8,
+            15,
+            -3,
+            20,
+            2,
+            -16,
             7,
-            20
+            -11,
+            12,
+            -6,
+            17,
+            -1,
+            -19,
+            4,
+            -14,
+            9,
+            -9,
+            14,
+            -4,
+            19,
+            1,
+            -17,
+            6,
+            -12,
+            11,
+            -7,
+            16,
+            -2,
+            -20,
+            3,
+            -15,
+            8,
+            -10,
+            13,
+            -5,
+            18,
+            0,
+            -18,
+            5,
+            -13,
+            10,
+            -8,
+            15,
+            -3,
+            20,
+            2,
+            -16,
+            7,
+            -11,
+            12,
+            -6
           ],
-          3
+          8
         ],
-        "expected": 3,
+        "expected": 8,
         "coverage": "maximum-size"
       },
       {
@@ -270,15 +270,15 @@
         "id": "path3-454-9",
         "input": [
           [
+            14,
+            -7,
             8,
-            3,
-            -2,
-            8,
-            1
+            9,
+            8
           ],
-          2
+          8
         ],
-        "expected": 2,
+        "expected": -1,
         "coverage": "order-and-ties"
       }
     ],

@@ -19,7 +19,7 @@
   "summary": "Unbounded dynamic programming. Count the even numbers.",
   "stage": "Counting variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `fewestStamps`. Each number in `readings` is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order.\n2. Count the even numbers in `fewestStamps`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder.\n3. Complete `postageDrawerEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 1, 6, 2], then `fewestStamps` is [3, 1, 3, 2] and `postageDrawerEvenKeyCensus` returns 1.\n\nRules\n- 0 counts as an even number.\n- If `fewestStamps` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, 3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, 2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `fewestStamps`. Each number in `readings` is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order.\n2. Count the even numbers in `fewestStamps`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder.\n3. Complete `postageDrawerEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nExample\nIf `readings` is [4, 7, 4, 4, 6], then `fewestStamps` is [1, 4, 1, 1, 3] and `postageDrawerEvenKeyCensus` returns 1.\n\nRules\n- 0 counts as an even number.\n- If `fewestStamps` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [0, 9, 9, 8, 14].\nTEST DATA 2: `readings` is [7, 8, 8, 8].",
   "unitIntro": "Each number in `readings` is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order. Each problem in this unit builds `fewestStamps` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,30 +45,30 @@
       "id": "path3-437-1",
       "input": [
         [
-          7,
-          3,
-          7,
           0,
-          12
+          9,
+          9,
+          8,
+          14
         ]
       ],
-      "expected": 3,
+      "expected": 2,
       "coverage": "worked",
-      "explanation": "`fewestStamps` is [4, 3, 4, 0, 3]. The even numbers are [4, 4, 0]. There are 3, so return 3."
+      "explanation": "`fewestStamps` is [0, 1, 1, 2, 3]. The even numbers are [0, 2]. There are 2, so return 2."
     },
     {
       "id": "path3-437-2",
       "input": [
         [
-          4,
-          4,
-          2,
-          4
+          7,
+          8,
+          8,
+          8
         ]
       ],
-      "expected": 1,
+      "expected": 4,
       "coverage": "worked",
-      "explanation": "`fewestStamps` is [1, 1, 2, 1]. The even numbers are [2]. There are 1, so return 1."
+      "explanation": "`fewestStamps` is [4, 2, 2, 2]. The even numbers are [4, 2, 2, 2]. There are 4, so return 4."
     },
     {
       "id": "path3-437-3",
@@ -101,30 +101,30 @@
       "id": "path3-437-1",
       "input": [
         [
-          7,
-          3,
-          7,
           0,
-          12
+          9,
+          9,
+          8,
+          14
         ]
       ],
-      "expected": 3,
+      "expected": 2,
       "coverage": "worked",
-      "explanation": "`fewestStamps` is [4, 3, 4, 0, 3]. The even numbers are [4, 4, 0]. There are 3, so return 3."
+      "explanation": "`fewestStamps` is [0, 1, 1, 2, 3]. The even numbers are [0, 2]. There are 2, so return 2."
     },
     {
       "id": "path3-437-2",
       "input": [
         [
-          4,
-          4,
-          2,
-          4
+          7,
+          8,
+          8,
+          8
         ]
       ],
-      "expected": 1,
+      "expected": 4,
       "coverage": "worked",
-      "explanation": "`fewestStamps` is [1, 1, 2, 1]. The even numbers are [2]. There are 1, so return 1."
+      "explanation": "`fewestStamps` is [4, 2, 2, 2]. The even numbers are [4, 2, 2, 2]. There are 4, so return 4."
     }
   ],
   "referenceSolutions": {
@@ -139,7 +139,7 @@
         "id": "path3-437-4",
         "input": [
           [
-            9
+            14
           ]
         ],
         "expected": 0,
@@ -149,25 +149,25 @@
         "id": "path3-437-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            3,
+            3,
+            3,
+            3
           ]
         ],
-        "expected": 4,
+        "expected": 0,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-437-6",
         "input": [
           [
-            20,
             1,
-            7
+            19,
+            11
           ]
         ],
-        "expected": 2,
+        "expected": 0,
         "coverage": "lower-bound"
       },
       {
@@ -259,14 +259,14 @@
         "id": "path3-437-9",
         "input": [
           [
-            8,
-            3,
-            2,
-            8,
+            13,
+            12,
+            12,
+            14,
             1
           ]
         ],
-        "expected": 3,
+        "expected": 1,
         "coverage": "order-and-ties"
       }
     ],

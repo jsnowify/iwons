@@ -21,7 +21,7 @@
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Level 0: loop accumulators",
-  "descriptionMd": "Inputs\n`words` is a list of `words`.\n\nYour tasks\n1. Create a list `prefixTotals`. A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order.\n2. Multiply each number in `prefixTotals` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `prefixCabinetBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `words` is [\"tap\", \"tape\", \"top\", \"tap\"], then `prefixTotals` is [10, 11, 6, 10] and `prefixCabinetBossReceipt` returns 90.\n\nRules\n- If `prefixTotals` is empty, return 0.\n\nTest data\nTEST DATA 1: `words` is [\"ink\", \"inside\", \"inn\", \"paper\"].\nTEST DATA 2: `words` is [\"aa\", \"aa\", \"ab\"].",
+  "descriptionMd": "Inputs\n`words` is a list of `words`.\n\nYour tasks\n1. Create a list `prefixTotals`. A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order.\n2. Multiply each number in `prefixTotals` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `prefixCabinetBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `words` is [\"tray\", \"tray\", \"trf\", \"lever\"], then `prefixTotals` is [10, 10, 7, 5] and `prefixCabinetBossReceipt` returns 71.\n\nRules\n- If `prefixTotals` is empty, return 0.\n\nTest data\nTEST DATA 1: `words` is [\"ink\", \"inker\", \"inow\", \"typebar\"].\nTEST DATA 2: `words` is [\"binder\", \"binder\", \"bindey\"].",
   "unitIntro": "A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order. Each problem in this unit builds `prefixTotals` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -48,27 +48,27 @@
       "input": [
         [
           "ink",
-          "inside",
-          "inn",
-          "paper"
+          "inker",
+          "inow",
+          "typebar"
         ]
       ],
-      "expected": 68,
+      "expected": 80,
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [7, 10, 7, 5]. Multiply by positions that start at 1: 1 * (7) + 2 * (10) + 3 * (7) + 4 * (5) = 68. Return 68."
+      "explanation": "`prefixTotals` is [8, 10, 8, 7]. Multiply by positions that start at 1: 1 * (8) + 2 * (10) + 3 * (8) + 4 * (7) = 80. Return 80."
     },
     {
       "id": "path3-400-2",
       "input": [
         [
-          "aa",
-          "aa",
-          "ab"
+          "binder",
+          "binder",
+          "bindey"
         ]
       ],
-      "expected": 27,
+      "expected": 99,
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [5, 5, 4]. Multiply by positions that start at 1: 1 * (5) + 2 * (5) + 3 * (4) = 27. Return 27."
+      "explanation": "`prefixTotals` is [17, 17, 16]. Multiply by positions that start at 1: 1 * (17) + 2 * (17) + 3 * (16) = 99. Return 99."
     },
     {
       "id": "path3-400-3",
@@ -102,27 +102,27 @@
       "input": [
         [
           "ink",
-          "inside",
-          "inn",
-          "paper"
+          "inker",
+          "inow",
+          "typebar"
         ]
       ],
-      "expected": 68,
+      "expected": 80,
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [7, 10, 7, 5]. Multiply by positions that start at 1: 1 * (7) + 2 * (10) + 3 * (7) + 4 * (5) = 68. Return 68."
+      "explanation": "`prefixTotals` is [8, 10, 8, 7]. Multiply by positions that start at 1: 1 * (8) + 2 * (10) + 3 * (8) + 4 * (7) = 80. Return 80."
     },
     {
       "id": "path3-400-2",
       "input": [
         [
-          "aa",
-          "aa",
-          "ab"
+          "binder",
+          "binder",
+          "bindey"
         ]
       ],
-      "expected": 27,
+      "expected": 99,
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [5, 5, 4]. Multiply by positions that start at 1: 1 * (5) + 2 * (5) + 3 * (4) = 27. Return 27."
+      "explanation": "`prefixTotals` is [17, 17, 16]. Multiply by positions that start at 1: 1 * (17) + 2 * (17) + 3 * (16) = 99. Return 99."
     }
   ],
   "referenceSolutions": {
@@ -137,29 +137,29 @@
         "id": "path3-400-4",
         "input": [
           [
-            "z"
+            "typebar"
           ]
         ],
-        "expected": 1,
+        "expected": 7,
         "coverage": "singleton"
       },
       {
         "id": "path3-400-5",
         "input": [
           [
-            "a",
-            "a",
-            "a"
+            "me",
+            "me",
+            "me"
           ]
         ],
-        "expected": 18,
+        "expected": 36,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-400-6",
         "input": [
           [
-            "a",
+            "b",
             "z"
           ]
         ],
@@ -170,81 +170,81 @@
         "id": "path3-400-7",
         "input": [
           [
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk"
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx",
+            "inktypebz",
+            "inktypebx"
           ]
         ],
-        "expected": 1331200,
+        "expected": 1131520,
         "coverage": "maximum-size"
       },
       {
         "id": "path3-400-8",
         "input": [
           [
-            "a",
-            "b"
+            "b",
+            "d"
           ]
         ],
         "expected": 3,
@@ -254,12 +254,12 @@
         "id": "path3-400-9",
         "input": [
           [
-            "paper",
-            "pa",
+            "folio",
+            "st",
             "p"
           ]
         ],
-        "expected": 27,
+        "expected": 12,
         "coverage": "order-and-ties"
       }
     ],

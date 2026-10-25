@@ -19,7 +19,7 @@
   "summary": "Stack cancellation. Return the smallest number.",
   "stage": "Boundary variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `remaining`. Treat `readings` as a row of stamps. Keep a stack, which is a pile where you can add or remove only the top stamp. Read the stamps from left to right. If the next stamp matches the top stamp, remove the top stamp and do not add the new one. Otherwise, put the new stamp on top. `remaining` is the final stack, from bottom to top.\n2. Find the smallest number in `remaining`. Store it in `smallest`.\n3. Complete `cancelingStampsFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `remaining` is [6, -1, 6, 2] and `cancelingStampsFloorTicket` returns -1.\n\nRules\n- If `remaining` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `remaining`. Treat `readings` as a row of stamps. Keep a stack, which is a pile where you can add or remove only the top stamp. Read the stamps from left to right. If the next stamp matches the top stamp, remove the top stamp and do not add the new one. Otherwise, put the new stamp on top. `remaining` is the final stack, from bottom to top.\n2. Find the smallest number in `remaining`. Store it in `smallest`.\n3. Complete `cancelingStampsFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `readings` is [1, 7, 7, -9, 11], then `remaining` is [1, -9, 11] and `cancelingStampsFloorTicket` returns -9.\n\nRules\n- If `remaining` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [-8, 4, 4, 20, 0].\nTEST DATA 2: `readings` is [9, -9, 9, 9].",
   "unitIntro": "Treat `readings` as a row of stamps. Keep a stack, which is a pile where you can add or remove only the top stamp. Read the stamps from left to right. If the next stamp matches the top stamp, remove the top stamp and do not add the new one. Otherwise, put the new stamp on top. `remaining` is the final stack, from bottom to top. Each problem in this unit builds `remaining` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,30 +45,30 @@
       "id": "path3-191-1",
       "input": [
         [
-          7,
-          -3,
-          7,
-          0,
-          12
+          -8,
+          4,
+          4,
+          20,
+          0
         ]
       ],
-      "expected": -3,
+      "expected": -8,
       "coverage": "worked",
-      "explanation": "`remaining` is [7, -3, 7, 0, 12]. The smallest number is -3. Return -3."
+      "explanation": "`remaining` is [-8, 20, 0]. The smallest number is -8. Return -8."
     },
     {
       "id": "path3-191-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          9,
+          -9,
+          9,
+          9
         ]
       ],
-      "expected": -2,
+      "expected": -9,
       "coverage": "worked",
-      "explanation": "`remaining` is [-2, 4]. The smallest number is -2. Return -2."
+      "explanation": "`remaining` is [9, -9]. The smallest number is -9. Return -9."
     },
     {
       "id": "path3-191-3",
@@ -101,30 +101,30 @@
       "id": "path3-191-1",
       "input": [
         [
-          7,
-          -3,
-          7,
-          0,
-          12
+          -8,
+          4,
+          4,
+          20,
+          0
         ]
       ],
-      "expected": -3,
+      "expected": -8,
       "coverage": "worked",
-      "explanation": "`remaining` is [7, -3, 7, 0, 12]. The smallest number is -3. Return -3."
+      "explanation": "`remaining` is [-8, 20, 0]. The smallest number is -8. Return -8."
     },
     {
       "id": "path3-191-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          9,
+          -9,
+          9,
+          9
         ]
       ],
-      "expected": -2,
+      "expected": -9,
       "coverage": "worked",
-      "explanation": "`remaining` is [-2, 4]. The smallest number is -2. Return -2."
+      "explanation": "`remaining` is [9, -9]. The smallest number is -9. Return -9."
     }
   ],
   "referenceSolutions": {
@@ -139,20 +139,20 @@
         "id": "path3-191-4",
         "input": [
           [
-            9
+            5
           ]
         ],
-        "expected": 9,
+        "expected": 5,
         "coverage": "singleton"
       },
       {
         "id": "path3-191-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            3,
+            3,
+            3,
+            3
           ]
         ],
         "expected": 0,
@@ -162,9 +162,9 @@
         "id": "path3-191-6",
         "input": [
           [
+            -4,
             -20,
-            -1,
-            -7
+            -15
           ]
         ],
         "expected": -20,
@@ -175,69 +175,69 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
             -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
             -2,
-            11,
-            -17,
-            -4,
-            9,
-            -19,
-            -6,
             7,
-            20,
-            -8,
-            5,
-            18,
-            -10,
-            3,
             16,
-            -12,
-            1,
-            14,
-            -14,
-            -1,
-            12,
             -16,
-            -3,
-            10,
-            -18,
-            -5,
-            8,
-            -20,
             -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
             2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
             11,
+            20,
+            -12,
+            -3,
+            6,
+            15,
             -17,
+            -8,
+            1,
+            10,
+            19,
+            -13,
             -4,
+            5,
+            14,
+            -18,
+            -9,
+            0,
             9,
+            18,
+            -14,
+            -5,
+            4,
+            13,
             -19,
+            -10,
+            -1,
+            8,
+            17,
+            -15,
             -6,
+            3,
+            12,
+            -20,
+            -11,
+            -2,
             7,
-            20
+            16,
+            -16,
+            -7,
+            2,
+            11,
+            20,
+            -12,
+            -3,
+            6,
+            15,
+            -17,
+            -8,
+            1,
+            10,
+            19,
+            -13,
+            -4,
+            5,
+            14
           ]
         ],
         "expected": -20,
@@ -259,14 +259,14 @@
         "id": "path3-191-9",
         "input": [
           [
-            8,
             3,
-            -2,
-            8,
-            1
+            12,
+            3,
+            -1,
+            14
           ]
         ],
-        "expected": -2,
+        "expected": -1,
         "coverage": "order-and-ties"
       }
     ],

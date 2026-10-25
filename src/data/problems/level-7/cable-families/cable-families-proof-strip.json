@@ -19,7 +19,7 @@
   "summary": "Union-find components. Return the whole list.",
   "stage": "Warm-up",
   "boss": false,
-  "descriptionMd": "Inputs\n`links` is a square table of 0s and 1s. Points are numbered from 0. A 1 at `links`[a][b] joins points a and b in both directions. A 0 means no link.\n\nYour tasks\n1. Create a list `groupSizes`. This graph has two-way `links` between points. Points belong to the same group if you can travel between them, even through other points. Use union-find: start with one group per point, then join groups when a link connects them. For each point, count all points in its group, including itself. Record these counts in point order. A link from a point to itself does not make a larger group. A graph with no points gives an empty `groupSizes`.\n2. Complete `cableFamiliesProofStrip` so it returns `groupSizes`. Return it, do not print it.\n\nExample\nIf `links` is [[1, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 1, 0, 0, 1], [1, 0, 0, 1, 0], [0, 0, 1, 0, 0]], then `groupSizes` is [2, 3, 3, 2, 3] and `cableFamiliesProofStrip` returns [2, 3, 3, 2, 3].\n\nRules\n- If `groupSizes` is empty, return [].\n\nTest data\nTEST DATA 1: `links` is [[1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0], [1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0]].\nTEST DATA 2: `links` is [[0, 0, 1, 0, 0], [0, 1, 0, 0, 1], [1, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 1, 0, 0, 1]].",
+  "descriptionMd": "Inputs\n`links` is a square table of 0s and 1s. Points are numbered from 0. A 1 at `links`[a][b] joins points a and b in both directions. A 0 means no link.\n\nYour tasks\n1. Create a list `groupSizes`. This graph has two-way `links` between points. Points belong to the same group if you can travel between them, even through other points. Use union-find: start with one group per point, then join groups when a link connects them. For each point, count all points in its group, including itself. Record these counts in point order. A link from a point to itself does not make a larger group. A graph with no points gives an empty `groupSizes`.\n2. Complete `cableFamiliesProofStrip` so it returns `groupSizes`. Return it, do not print it.\n\nExample\nIf `links` is [[0, 1, 0, 1, 0, 0], [1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [1, 0, 0, 1, 0, 1], [0, 0, 0, 0, 1, 1], [0, 0, 0, 1, 1, 1]], then `groupSizes` is [5, 5, 1, 5, 5, 5] and `cableFamiliesProofStrip` returns [5, 5, 1, 5, 5, 5].\n\nRules\n- If `groupSizes` is empty, return [].\n\nTest data\nTEST DATA 1: `links` is [[0, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 1], [0, 0, 0, 1, 1, 0], [0, 1, 1, 1, 0, 0], [0, 0, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0]].\nTEST DATA 2: `links` is [[0, 1, 0, 0, 0], [1, 1, 0, 0, 0], [0, 0, 0, 1, 0], [0, 0, 1, 1, 0], [0, 0, 0, 0, 1]].",
   "unitIntro": "This graph has two-way `links` between points. Points belong to the same group if you can travel between them, even through other points. Use union-find: start with one group per point, then join groups when a link connects them. For each point, count all points in its group, including itself. Record these counts in point order. A link from a point to itself does not make a larger group. A graph with no points gives an empty `groupSizes`. Each problem in this unit builds `groupSizes` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 16.",
@@ -47,33 +47,33 @@
       "input": [
         [
           [
-            1,
             0,
             0,
-            1,
+            0,
+            0,
             0,
             0
           ],
           [
             0,
             0,
-            1,
             0,
+            1,
             0,
             1
           ],
           [
             0,
+            0,
+            0,
             1,
-            0,
-            0,
             1,
             0
           ],
           [
+            0,
             1,
-            0,
-            0,
+            1,
             1,
             0,
             0
@@ -97,15 +97,15 @@
         ]
       ],
       "expected": [
-        2,
-        4,
-        4,
-        2,
-        4,
-        4
+        1,
+        5,
+        5,
+        5,
+        5,
+        5
       ],
       "coverage": "worked",
-      "explanation": "`groupSizes` is [2, 4, 4, 2, 4, 4]. `cableFamiliesProofStrip` returns that whole list, so return [2, 4, 4, 2, 4, 4]."
+      "explanation": "`groupSizes` is [1, 5, 5, 5, 5, 5]. `cableFamiliesProofStrip` returns that whole list, so return [1, 5, 5, 5, 5, 5]."
     },
     {
       "id": "path3-381-2",
@@ -113,20 +113,20 @@
         [
           [
             0,
-            0,
             1,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
             0,
             0
           ],
           [
             0,
-            1,
-            0,
-            0,
-            1
-          ],
-          [
-            1,
             0,
             0,
             1,
@@ -136,12 +136,12 @@
             0,
             0,
             1,
-            0,
+            1,
             0
           ],
           [
             0,
-            1,
+            0,
             0,
             0,
             1
@@ -149,14 +149,14 @@
         ]
       ],
       "expected": [
-        3,
         2,
-        3,
-        3,
-        2
+        2,
+        2,
+        2,
+        1
       ],
       "coverage": "worked",
-      "explanation": "`groupSizes` is [3, 2, 3, 3, 2]. `cableFamiliesProofStrip` returns that whole list, so return [3, 2, 3, 3, 2]."
+      "explanation": "`groupSizes` is [2, 2, 2, 2, 1]. `cableFamiliesProofStrip` returns that whole list, so return [2, 2, 2, 2, 1]."
     },
     {
       "id": "path3-381-3",
@@ -190,33 +190,33 @@
       "input": [
         [
           [
-            1,
             0,
             0,
-            1,
+            0,
+            0,
             0,
             0
           ],
           [
             0,
             0,
-            1,
             0,
+            1,
             0,
             1
           ],
           [
             0,
+            0,
+            0,
             1,
-            0,
-            0,
             1,
             0
           ],
           [
+            0,
             1,
-            0,
-            0,
+            1,
             1,
             0,
             0
@@ -240,15 +240,15 @@
         ]
       ],
       "expected": [
-        2,
-        4,
-        4,
-        2,
-        4,
-        4
+        1,
+        5,
+        5,
+        5,
+        5,
+        5
       ],
       "coverage": "worked",
-      "explanation": "`groupSizes` is [2, 4, 4, 2, 4, 4]. `cableFamiliesProofStrip` returns that whole list, so return [2, 4, 4, 2, 4, 4]."
+      "explanation": "`groupSizes` is [1, 5, 5, 5, 5, 5]. `cableFamiliesProofStrip` returns that whole list, so return [1, 5, 5, 5, 5, 5]."
     },
     {
       "id": "path3-381-2",
@@ -256,20 +256,20 @@
         [
           [
             0,
-            0,
             1,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
             0,
             0
           ],
           [
             0,
-            1,
-            0,
-            0,
-            1
-          ],
-          [
-            1,
             0,
             0,
             1,
@@ -279,12 +279,12 @@
             0,
             0,
             1,
-            0,
+            1,
             0
           ],
           [
             0,
-            1,
+            0,
             0,
             0,
             1
@@ -292,14 +292,14 @@
         ]
       ],
       "expected": [
-        3,
         2,
-        3,
-        3,
-        2
+        2,
+        2,
+        2,
+        1
       ],
       "coverage": "worked",
-      "explanation": "`groupSizes` is [3, 2, 3, 3, 2]. `cableFamiliesProofStrip` returns that whole list, so return [3, 2, 3, 3, 2]."
+      "explanation": "`groupSizes` is [2, 2, 2, 2, 1]. `cableFamiliesProofStrip` returns that whole list, so return [2, 2, 2, 2, 1]."
     }
   ],
   "referenceSolutions": {
@@ -769,14 +769,6 @@
         "input": [
           [
             [
-              0,
-              1,
-              0,
-              0,
-              1,
-              0
-            ],
-            [
               1,
               0,
               0,
@@ -786,32 +778,40 @@
             ],
             [
               0,
-              0,
               1,
-              0,
-              0,
+              1,
+              1,
+              1,
               1
             ],
             [
               0,
               1,
-              0,
+              1,
               0,
               1,
               0
             ],
             [
               1,
-              0,
-              0,
               1,
+              0,
+              0,
               0,
               0
             ],
             [
               0,
+              1,
+              1,
               0,
               1,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
               0,
               0,
               1
@@ -819,12 +819,12 @@
           ]
         ],
         "expected": [
-          4,
-          4,
-          2,
-          4,
-          4,
-          2
+          6,
+          6,
+          6,
+          6,
+          6,
+          6
         ],
         "coverage": "order-and-ties"
       }

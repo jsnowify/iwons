@@ -19,7 +19,7 @@
   "summary": "Graph breadth-first distances. Count the numbers at least k.",
   "stage": "Edge-case trap",
   "boss": false,
-  "descriptionMd": "Inputs\n`links` is a square table of 0s and 1s. Points are numbered from 0. A 1 at `links`[a][b] means a one-way path goes from point a to point b. A 0 means no path.\n\nYour tasks\n1. Create a list `distances`. A graph is a set of points joined by paths. Here, paths go in one direction. Start at point 0. For each point, find the fewest paths you must follow to reach it. Record these distances in point order: 0, 1, 2, and so on. The distance to point 0 is 0. Record -1 for a point you cannot reach. A graph with no points gives an empty `distances`.\n2. Count the numbers in `distances` that are at least `k` (greater than or equal to `k`). Store the count in `atLeastK`.\n3. Complete `switchboardRingsThresholdFile` so it returns `atLeastK`. Return it, do not print it.\n\nExample\nIf `links` is [[1, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 1, 0, 0, 1], [1, 0, 0, 1, 0], [0, 0, 1, 0, 0]] and `k` is 4, then `distances` is [0, -1, -1, 1, -1] and `switchboardRingsThresholdFile` returns 0.\n\nRules\n- If `distances` is empty, the count is 0.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `links` is [[1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0], [1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0]] and `k` is 3.\nTEST DATA 2: `links` is [[0, 0, 1, 0, 0], [0, 1, 0, 0, 1], [1, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 1, 0, 0, 1]] and `k` is 2.",
+  "descriptionMd": "Inputs\n`links` is a square table of 0s and 1s. Points are numbered from 0. A 1 at `links`[a][b] means a one-way path goes from point a to point b. A 0 means no path.\n\nYour tasks\n1. Create a list `distances`. A graph is a set of points joined by paths. Here, paths go in one direction. Start at point 0. For each point, find the fewest paths you must follow to reach it. Record these distances in point order: 0, 1, 2, and so on. The distance to point 0 is 0. Record -1 for a point you cannot reach. A graph with no points gives an empty `distances`.\n2. Count the numbers in `distances` that are at least `k` (greater than or equal to `k`). Store the count in `atLeastK`.\n3. Complete `switchboardRingsThresholdFile` so it returns `atLeastK`. Return it, do not print it.\n\nExample\nIf `links` is [[0, 1, 0, 0, 0, 1], [1, 0, 0, 0, 0, 1], [1, 1, 1, 1, 0, 1], [1, 0, 1, 0, 1, 0], [0, 1, 0, 0, 0, 0], [1, 1, 1, 1, 0, 1]] and `k` is 2, then `distances` is [0, 1, 2, 2, 3, 1] and `switchboardRingsThresholdFile` returns 3.\n\nRules\n- If `distances` is empty, the count is 0.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `links` is [[0, 0, 0, 1, 1, 0], [1, 1, 1, 0, 0, 0], [1, 1, 1, 1, 1, 1], [1, 0, 1, 1, 0, 0], [1, 0, 1, 0, 0, 1], [0, 0, 1, 0, 0, 0]] and `k` is 3.\nTEST DATA 2: `links` is [[1, 0, 0, 0, 0], [1, 0, 1, 1, 0], [0, 0, 0, 0, 1], [1, 1, 0, 1, 1], [1, 1, 0, 1, 1]] and `k` is 3.",
   "unitIntro": "A graph is a set of points joined by paths. Here, paths go in one direction. Start at point 0. For each point, find the fewest paths you must follow to reach it. Record these distances in point order: 0, 1, 2, and so on. The distance to point 0 is 0. Record -1 for a point you cannot reach. A graph with no points gives an empty `distances`. Each problem in this unit builds `distances` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 16.",
@@ -47,15 +47,39 @@
       "input": [
         [
           [
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
             1,
             0,
             0,
+            0
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            1,
             1,
             0,
             0
           ],
           [
-            0,
+            1,
             0,
             1,
             0,
@@ -64,98 +88,74 @@
           ],
           [
             0,
-            1,
-            0,
-            0,
-            1,
-            0
-          ],
-          [
-            1,
-            0,
-            0,
-            1,
-            0,
-            0
-          ],
-          [
-            0,
             0,
             1,
             0,
             0,
-            1
-          ],
-          [
-            0,
-            1,
-            0,
-            0,
-            1,
             0
           ]
         ],
         3
       ],
-      "expected": 0,
+      "expected": 1,
       "coverage": "worked",
-      "explanation": "`distances` is [0, -1, -1, 1, -1, -1]. Here `k` is 3. The numbers at least 3 are []. There are 0, so return 0."
+      "explanation": "`distances` is [0, 3, 2, 1, 1, 2]. Here `k` is 3. The numbers at least 3 are [3]. There are 1, so return 1."
     },
     {
       "id": "path3-343-2",
       "input": [
         [
           [
-            0,
-            0,
             1,
+            0,
+            0,
             0,
             0
           ],
           [
+            1,
             0,
             1,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
             0,
             0,
             1
           ],
           [
             1,
-            0,
+            1,
             0,
             1,
-            0
+            1
           ],
           [
-            0,
-            0,
+            1,
             1,
             0,
-            0
-          ],
-          [
-            0,
             1,
-            0,
-            0,
             1
           ]
         ],
-        2
+        3
       ],
-      "expected": 1,
+      "expected": 0,
       "coverage": "worked",
-      "explanation": "`distances` is [0, -1, 1, 2, -1]. Here `k` is 2. The numbers at least 2 are [2]. There are 1, so return 1."
+      "explanation": "`distances` is [0, -1, -1, -1, -1]. Here `k` is 3. The numbers at least 3 are []. There are 0, so return 0."
     },
     {
       "id": "path3-343-3",
       "input": [
         [],
-        1
+        5
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "`distances` is []. Here `k` is 1. The numbers at least 1 are []. There are 0, so return 0."
+      "explanation": "`distances` is []. Here `k` is 5. The numbers at least 5 are []. There are 0, so return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -181,15 +181,39 @@
       "input": [
         [
           [
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
             1,
             0,
             0,
+            0
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            1,
             1,
             0,
             0
           ],
           [
-            0,
+            1,
             0,
             1,
             0,
@@ -198,88 +222,64 @@
           ],
           [
             0,
-            1,
-            0,
-            0,
-            1,
-            0
-          ],
-          [
-            1,
-            0,
-            0,
-            1,
-            0,
-            0
-          ],
-          [
-            0,
             0,
             1,
             0,
             0,
-            1
-          ],
-          [
-            0,
-            1,
-            0,
-            0,
-            1,
             0
           ]
         ],
         3
       ],
-      "expected": 0,
+      "expected": 1,
       "coverage": "worked",
-      "explanation": "`distances` is [0, -1, -1, 1, -1, -1]. Here `k` is 3. The numbers at least 3 are []. There are 0, so return 0."
+      "explanation": "`distances` is [0, 3, 2, 1, 1, 2]. Here `k` is 3. The numbers at least 3 are [3]. There are 1, so return 1."
     },
     {
       "id": "path3-343-2",
       "input": [
         [
           [
-            0,
-            0,
             1,
+            0,
+            0,
             0,
             0
           ],
           [
+            1,
             0,
             1,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
             0,
             0,
             1
           ],
           [
             1,
-            0,
+            1,
             0,
             1,
-            0
+            1
           ],
           [
-            0,
-            0,
+            1,
             1,
             0,
-            0
-          ],
-          [
-            0,
             1,
-            0,
-            0,
             1
           ]
         ],
-        2
+        3
       ],
-      "expected": 1,
+      "expected": 0,
       "coverage": "worked",
-      "explanation": "`distances` is [0, -1, 1, 2, -1]. Here `k` is 2. The numbers at least 2 are [2]. There are 1, so return 1."
+      "explanation": "`distances` is [0, -1, -1, -1, -1]. Here `k` is 3. The numbers at least 3 are []. There are 0, so return 0."
     }
   ],
   "referenceSolutions": {
@@ -295,10 +295,10 @@
         "input": [
           [
             [
-              1
+              0
             ]
           ],
-          1
+          4
         ],
         "expected": 0,
         "coverage": "singleton"
@@ -343,7 +343,7 @@
               1
             ]
           ],
-          4
+          6
         ],
         "expected": 0,
         "coverage": "duplicates-or-redundancy"
@@ -377,7 +377,7 @@
               0
             ]
           ],
-          8
+          5
         ],
         "expected": 0,
         "coverage": "lower-bound"
@@ -675,7 +675,7 @@
               0
             ]
           ],
-          3
+          7
         ],
         "expected": 0,
         "coverage": "maximum-size"
@@ -709,7 +709,7 @@
               0
             ]
           ],
-          5
+          6
         ],
         "expected": 0,
         "coverage": "zero-or-minimum"
@@ -720,22 +720,30 @@
           [
             [
               0,
-              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
               0,
               0,
               1,
               0
             ],
             [
-              1,
               0,
               0,
-              1,
               0,
-              0
+              0,
+              0,
+              1
             ],
             [
-              0,
+              1,
               0,
               1,
               0,
@@ -744,32 +752,24 @@
             ],
             [
               0,
-              1,
               0,
               0,
-              1,
-              0
-            ],
-            [
-              1,
-              0,
-              0,
-              1,
-              0,
-              0
-            ],
-            [
-              0,
-              0,
-              1,
               0,
               0,
               1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
             ]
           ],
-          2
+          1
         ],
-        "expected": 1,
+        "expected": 0,
         "coverage": "order-and-ties"
       }
     ],

@@ -19,7 +19,7 @@
   "summary": "Nested array traversal. Keep the positive numbers.",
   "stage": "Sequence variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`drawers` is a list of rows. Each row is a list of numbers and may be empty.\n\nYour tasks\n1. Create a list `rowTotals`. `drawers` is a list of rows. Add the numbers in each row. Put one total per row in `rowTotals`, in row order. An empty row has a total of 0.\n2. Create a list `positiveValues` that keeps only the numbers in `rowTotals` that are greater than 0, in the same order.\n3. Complete `drawerGridsPositiveProofStrip` so it returns `positiveValues`. Return it, do not print it.\n\nExample\nIf `drawers` is [[6, 4], [], [6, 4], [2, 0]], then `rowTotals` is [10, 0, 10, 2] and `drawerGridsPositiveProofStrip` returns [10, 10, 2].\n\nRules\n- Keep repeated numbers.\n- If no number is greater than 0, return [].\n\nTest data\nTEST DATA 1: `drawers` is [[7, 5], [], [7, 5], [0, -2], [12, 10]].\nTEST DATA 2: `drawers` is [[4, 2], [], [-2, -4], [4, 2]].",
+  "descriptionMd": "Inputs\n`drawers` is a list of rows. Each row is a list of numbers and may be empty.\n\nYour tasks\n1. Create a list `rowTotals`. `drawers` is a list of rows. Add the numbers in each row. Put one total per row in `rowTotals`, in row order. An empty row has a total of 0.\n2. Create a list `positiveValues` that keeps only the numbers in `rowTotals` that are greater than 0, in the same order.\n3. Complete `drawerGridsPositiveProofStrip` so it returns `positiveValues`. Return it, do not print it.\n\nExample\nIf `drawers` is [[3, 1], [], [9, 7], [-3, -5], [3, 1]], then `rowTotals` is [4, 0, 16, -8, 4] and `drawerGridsPositiveProofStrip` returns [4, 16, 4].\n\nRules\n- Keep repeated numbers.\n- If no number is greater than 0, return [].\n\nTest data\nTEST DATA 1: `drawers` is [[-10, -12], [], [20, 18], [20, 18], [0, -2]].\nTEST DATA 2: `drawers` is [[5, 3], [], [5, 3], [5, 3]].",
   "unitIntro": "`drawers` is a list of rows. Add the numbers in each row. Put one total per row in `rowTotals`, in row order. An empty row has a total of 0. Each problem in this unit builds `rowTotals` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 16 per row.",
@@ -46,57 +46,57 @@
       "input": [
         [
           [
-            7,
-            5
+            -10,
+            -12
           ],
           [],
           [
-            7,
-            5
+            20,
+            18
+          ],
+          [
+            20,
+            18
           ],
           [
             0,
             -2
-          ],
-          [
-            12,
-            10
           ]
         ]
       ],
       "expected": [
-        12,
-        12,
-        22
+        38,
+        38
       ],
       "coverage": "worked",
-      "explanation": "`rowTotals` is [12, 0, 12, -2, 22]. Keep only numbers greater than 0, without changing their order. Return [12, 12, 22]."
+      "explanation": "`rowTotals` is [-22, 0, 38, 38, -2]. Keep only numbers greater than 0, without changing their order. Return [38, 38]."
     },
     {
       "id": "path3-069-2",
       "input": [
         [
           [
-            4,
-            2
+            5,
+            3
           ],
           [],
           [
-            -2,
-            -4
+            5,
+            3
           ],
           [
-            4,
-            2
+            5,
+            3
           ]
         ]
       ],
       "expected": [
-        6,
-        6
+        8,
+        8,
+        8
       ],
       "coverage": "worked",
-      "explanation": "`rowTotals` is [6, 0, -6, 6]. Keep only numbers greater than 0, without changing their order. Return [6, 6]."
+      "explanation": "`rowTotals` is [8, 0, 8, 8]. Keep only numbers greater than 0, without changing their order. Return [8, 8, 8]."
     },
     {
       "id": "path3-069-3",
@@ -130,57 +130,57 @@
       "input": [
         [
           [
-            7,
-            5
+            -10,
+            -12
           ],
           [],
           [
-            7,
-            5
+            20,
+            18
+          ],
+          [
+            20,
+            18
           ],
           [
             0,
             -2
-          ],
-          [
-            12,
-            10
           ]
         ]
       ],
       "expected": [
-        12,
-        12,
-        22
+        38,
+        38
       ],
       "coverage": "worked",
-      "explanation": "`rowTotals` is [12, 0, 12, -2, 22]. Keep only numbers greater than 0, without changing their order. Return [12, 12, 22]."
+      "explanation": "`rowTotals` is [-22, 0, 38, 38, -2]. Keep only numbers greater than 0, without changing their order. Return [38, 38]."
     },
     {
       "id": "path3-069-2",
       "input": [
         [
           [
-            4,
-            2
+            5,
+            3
           ],
           [],
           [
-            -2,
-            -4
+            5,
+            3
           ],
           [
-            4,
-            2
+            5,
+            3
           ]
         ]
       ],
       "expected": [
-        6,
-        6
+        8,
+        8,
+        8
       ],
       "coverage": "worked",
-      "explanation": "`rowTotals` is [6, 0, -6, 6]. Keep only numbers greater than 0, without changing their order. Return [6, 6]."
+      "explanation": "`rowTotals` is [8, 0, 8, 8]. Keep only numbers greater than 0, without changing their order. Return [8, 8, 8]."
     }
   ],
   "referenceSolutions": {
@@ -196,13 +196,13 @@
         "input": [
           [
             [
-              9,
-              7
+              8,
+              6
             ]
           ]
         ],
         "expected": [
-          16
+          14
         ],
         "coverage": "singleton"
       },
@@ -211,24 +211,24 @@
         "input": [
           [
             [
-              5,
-              3
+              3,
+              1
             ],
             [],
             [
-              5,
-              3
+              3,
+              1
             ],
             [
-              5,
-              3
+              3,
+              1
             ]
           ]
         ],
         "expected": [
-          8,
-          8,
-          8
+          4,
+          4,
+          4
         ],
         "coverage": "duplicates-or-redundancy"
       },
@@ -237,13 +237,13 @@
         "input": [
           [
             [
-              -20,
-              -22
+              -4,
+              -6
             ],
             [],
             [
-              -7,
-              -9
+              -11,
+              -13
             ]
           ]
         ],
@@ -254,42 +254,6 @@
         "id": "path3-069-7",
         "input": [
           [
-            [
-              -5,
-              -4,
-              -3,
-              -2,
-              -1,
-              0,
-              1,
-              2,
-              3,
-              4,
-              5,
-              -5,
-              -4,
-              -3,
-              -2,
-              -1
-            ],
-            [
-              -4,
-              -3,
-              -2,
-              -1,
-              0,
-              1,
-              2,
-              3,
-              4,
-              5,
-              -5,
-              -4,
-              -3,
-              -2,
-              -1,
-              0
-            ],
             [
               -3,
               -2,
@@ -541,6 +505,42 @@
               1,
               2,
               3
+            ],
+            [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            [
+              1,
+              2,
+              3,
+              4,
+              5,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
             ]
           ]
         ],
@@ -550,7 +550,9 @@
           15,
           9,
           3,
-          5
+          5,
+          10,
+          15
         ],
         "coverage": "maximum-size"
       },
@@ -577,27 +579,28 @@
         "input": [
           [
             [
-              8,
-              6
+              -7,
+              -9
             ],
             [],
             [
-              -2,
-              -4
+              9,
+              7
             ],
             [
-              8,
-              6
+              14,
+              12
             ],
             [
-              1,
-              -1
+              2,
+              0
             ]
           ]
         ],
         "expected": [
-          14,
-          14
+          16,
+          26,
+          2
         ],
         "coverage": "order-and-ties"
       }

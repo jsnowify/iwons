@@ -19,7 +19,7 @@
   "summary": "Loop accumulators. Return the total.",
   "stage": "Variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `runningTotals`. Start a total at 0. Read `readings` from left to right. Add each number to the total, then put the new total in `runningTotals`. For [2, 3, -1], `runningTotals` is [2, 5, 4].\n2. Add up every number in `runningTotals`. Store the sum in `total`.\n3. Complete `ribbonTotalsTotalReceipt` so it returns `total`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `runningTotals` is [6, 5, 11, 13] and `ribbonTotalsTotalReceipt` returns 35.\n\nRules\n- If `runningTotals` is empty, `total` is 0.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `runningTotals`. Start a total at 0. Read `readings` from left to right. Add each number to the total, then put the new total in `runningTotals`. For [2, 3, -1], `runningTotals` is [2, 5, 4].\n2. Add up every number in `runningTotals`. Store the sum in `total`.\n3. Complete `ribbonTotalsTotalReceipt` so it returns `total`. Return it, do not print it.\n\nExample\nIf `readings` is [4, 5, -5, 5, 4], then `runningTotals` is [4, 9, 4, 9, 13] and `ribbonTotalsTotalReceipt` returns 39.\n\nRules\n- If `runningTotals` is empty, `total` is 0.\n\nTest data\nTEST DATA 1: `readings` is [0, -11, 7, 13, 7].\nTEST DATA 2: `readings` is [9, 9, -3, 9].",
   "unitIntro": "Start a total at 0. Read `readings` from left to right. Add each number to the total, then put the new total in `runningTotals`. For [2, 3, -1], `runningTotals` is [2, 5, 4]. Each problem in this unit builds `runningTotals` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,30 +45,30 @@
       "id": "path3-014-1",
       "input": [
         [
-          7,
-          -3,
-          7,
           0,
-          12
+          -11,
+          7,
+          13,
+          7
         ]
       ],
-      "expected": 56,
+      "expected": 10,
       "coverage": "worked",
-      "explanation": "`runningTotals` is [7, 4, 11, 11, 23]. Add its numbers to get 56. Return 56."
+      "explanation": "`runningTotals` is [0, -11, -4, 9, 16]. Add its numbers to get 10. Return 10."
     },
     {
       "id": "path3-014-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          9,
+          9,
+          -3,
+          9
         ]
       ],
-      "expected": 28,
+      "expected": 66,
       "coverage": "worked",
-      "explanation": "`runningTotals` is [4, 8, 6, 10]. Add its numbers to get 28. Return 28."
+      "explanation": "`runningTotals` is [9, 18, 15, 24]. Add its numbers to get 66. Return 66."
     },
     {
       "id": "path3-014-3",
@@ -101,30 +101,30 @@
       "id": "path3-014-1",
       "input": [
         [
-          7,
-          -3,
-          7,
           0,
-          12
+          -11,
+          7,
+          13,
+          7
         ]
       ],
-      "expected": 56,
+      "expected": 10,
       "coverage": "worked",
-      "explanation": "`runningTotals` is [7, 4, 11, 11, 23]. Add its numbers to get 56. Return 56."
+      "explanation": "`runningTotals` is [0, -11, -4, 9, 16]. Add its numbers to get 10. Return 10."
     },
     {
       "id": "path3-014-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          9,
+          9,
+          -3,
+          9
         ]
       ],
-      "expected": 28,
+      "expected": 66,
       "coverage": "worked",
-      "explanation": "`runningTotals` is [4, 8, 6, 10]. Add its numbers to get 28. Return 28."
+      "explanation": "`runningTotals` is [9, 18, 15, 24]. Add its numbers to get 66. Return 66."
     }
   ],
   "referenceSolutions": {
@@ -139,35 +139,35 @@
         "id": "path3-014-4",
         "input": [
           [
-            9
+            16
           ]
         ],
-        "expected": 9,
+        "expected": 16,
         "coverage": "singleton"
       },
       {
         "id": "path3-014-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            6,
+            6,
+            6,
+            6
           ]
         ],
-        "expected": 50,
+        "expected": 60,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-014-6",
         "input": [
           [
-            -20,
-            -1,
-            -7
+            -18,
+            -5,
+            -9
           ]
         ],
-        "expected": -69,
+        "expected": -73,
         "coverage": "lower-bound"
       },
       {
@@ -175,72 +175,72 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
             -9,
-            4,
-            17,
-            -11,
             2,
-            15,
-            -13,
-            0,
             13,
-            -15,
-            -2,
-            11,
             -17,
-            -4,
-            9,
-            -19,
             -6,
-            7,
-            20,
-            -8,
             5,
-            18,
-            -10,
-            3,
             16,
-            -12,
-            1,
-            14,
             -14,
-            -1,
-            12,
-            -16,
             -3,
-            10,
-            -18,
-            -5,
             8,
-            -20,
-            -7,
-            6,
             19,
-            -9,
-            4,
-            17,
             -11,
-            2,
-            15,
-            -13,
             0,
-            13,
-            -15,
-            -2,
             11,
-            -17,
-            -4,
-            9,
             -19,
-            -6,
+            -8,
+            3,
+            14,
+            -16,
+            -5,
+            6,
+            17,
+            -13,
+            -2,
+            9,
+            20,
+            -10,
+            1,
+            12,
+            -18,
+            -7,
+            4,
+            15,
+            -15,
+            -4,
             7,
-            20
+            18,
+            -12,
+            -1,
+            10,
+            -20,
+            -9,
+            2,
+            13,
+            -17,
+            -6,
+            5,
+            16,
+            -14,
+            -3,
+            8,
+            19,
+            -11,
+            0,
+            11,
+            -19,
+            -8,
+            3,
+            14,
+            -16,
+            -5,
+            6,
+            17
           ]
         ],
-        "expected": -77,
+        "expected": -1337,
         "coverage": "maximum-size"
       },
       {
@@ -259,14 +259,14 @@
         "id": "path3-014-9",
         "input": [
           [
+            7,
+            -4,
+            7,
             8,
-            3,
-            -2,
-            8,
-            1
+            5
           ]
         ],
-        "expected": 63,
+        "expected": 61,
         "coverage": "order-and-ties"
       }
     ],

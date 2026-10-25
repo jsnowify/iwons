@@ -19,7 +19,7 @@
   "summary": "Backtracking with occupancy. Return the total.",
   "stage": "Variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of permission masks, one per desk. A mask is a whole number whose binary digits show which clerks are allowed.\n\nYour tasks\n1. Create a list `clerkCounts`. There are n desks and n clerks, both numbered from 0. Here, n is the length of `readings`. Each number in `readings` is a permission mask for one desk. A mask uses binary digits. Each digit is called a bit: a 1 in bit c allows clerk c to use that desk. Bit 0 is the rightmost digit. Assign exactly one clerk to each desk, with no clerk used twice. Follow every permission mask. For each clerk c, count the complete assignments where clerk c gets desk 0. Put those counts in clerk order. A forbidden first choice has count 0. With no desks, `clerkCounts` is empty.\n2. Add up every number in `clerkCounts`. Store the sum in `total`.\n3. Complete `rosterProofTotalReceipt` so it returns `total`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 1, 6, 2], then `clerkCounts` is [0, 0, 0, 0] and `rosterProofTotalReceipt` returns 0.\n\nRules\n- If `clerkCounts` is empty, `total` is 0.\n\nTest data\nTEST DATA 1: `readings` is [7, 3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, 2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of permission masks, one per desk. A mask is a whole number whose binary digits show which clerks are allowed.\n\nYour tasks\n1. Create a list `clerkCounts`. There are n desks and n clerks, both numbered from 0. Here, n is the length of `readings`. Each number in `readings` is a permission mask for one desk. A mask uses binary digits. Each digit is called a bit: a 1 in bit c allows clerk c to use that desk. Bit 0 is the rightmost digit. Assign exactly one clerk to each desk, with no clerk used twice. Follow every permission mask. For each clerk c, count the complete assignments where clerk c gets desk 0. Put those counts in clerk order. A forbidden first choice has count 0. With no desks, `clerkCounts` is empty.\n2. Add up every number in `clerkCounts`. Store the sum in `total`.\n3. Complete `rosterProofTotalReceipt` so it returns `total`. Return it, do not print it.\n\nExample\nIf `readings` is [3, 2, 1, 4, 2], then `clerkCounts` is [0, 0, 0, 0, 0] and `rosterProofTotalReceipt` returns 0.\n\nRules\n- If `clerkCounts` is empty, `total` is 0.\n\nTest data\nTEST DATA 1: `readings` is [6, 8, 0, 6, 11].\nTEST DATA 2: `readings` is [3, 5, 5, 5].",
   "unitIntro": "There are n desks and n clerks, both numbered from 0. Here, n is the length of `readings`. Each number in `readings` is a permission mask for one desk. A mask uses binary digits. Each digit is called a bit: a 1 in bit c allows clerk c to use that desk. Bit 0 is the rightmost digit. Assign exactly one clerk to each desk, with no clerk used twice. Follow every permission mask. For each clerk c, count the complete assignments where clerk c gets desk 0. Put those counts in clerk order. A forbidden first choice has count 0. With no desks, `clerkCounts` is empty. Each problem in this unit builds `clerkCounts` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 6.",
@@ -45,11 +45,11 @@
       "id": "path3-482-1",
       "input": [
         [
-          7,
-          3,
-          7,
+          6,
+          8,
           0,
-          12
+          6,
+          11
         ]
       ],
       "expected": 0,
@@ -60,10 +60,10 @@
       "id": "path3-482-2",
       "input": [
         [
-          4,
-          4,
-          2,
-          4
+          3,
+          5,
+          5,
+          5
         ]
       ],
       "expected": 0,
@@ -101,11 +101,11 @@
       "id": "path3-482-1",
       "input": [
         [
-          7,
-          3,
-          7,
+          6,
+          8,
           0,
-          12
+          6,
+          11
         ]
       ],
       "expected": 0,
@@ -116,10 +116,10 @@
       "id": "path3-482-2",
       "input": [
         [
-          4,
-          4,
-          2,
-          4
+          3,
+          5,
+          5,
+          5
         ]
       ],
       "expected": 0,
@@ -139,10 +139,10 @@
         "id": "path3-482-4",
         "input": [
           [
-            1
+            0
           ]
         ],
-        "expected": 1,
+        "expected": 0,
         "coverage": "singleton"
       },
       {
@@ -162,12 +162,12 @@
         "id": "path3-482-6",
         "input": [
           [
-            4,
-            1,
-            7
+            7,
+            3,
+            6
           ]
         ],
-        "expected": 1,
+        "expected": 3,
         "coverage": "lower-bound"
       },
       {
@@ -201,11 +201,11 @@
         "id": "path3-482-9",
         "input": [
           [
-            8,
-            3,
-            2,
-            8,
-            1
+            6,
+            14,
+            12,
+            12,
+            6
           ]
         ],
         "expected": 0,

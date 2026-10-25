@@ -19,7 +19,7 @@
   "summary": "Monotonic stacks. Return the whole list.",
   "stage": "Warm-up",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `stepsToTaller`. For each number in `readings`, look to its right. Find the first number that is larger, not equal. Record how many places to the right it is. Record 0 if no larger number is found. Keep the answers in input order.\n2. Complete `tallerKeycapsProofStrip` so it returns `stepsToTaller`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `stepsToTaller` is [0, 1, 0, 0] and `tallerKeycapsProofStrip` returns [0, 1, 0, 0].\n\nRules\n- If `stepsToTaller` is empty, return [].\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `stepsToTaller`. For each number in `readings`, look to its right. Find the first number that is larger, not equal. Record how many places to the right it is. Record 0 if no larger number is found. Keep the answers in input order.\n2. Complete `tallerKeycapsProofStrip` so it returns `stepsToTaller`. Return it, do not print it.\n\nExample\nIf `readings` is [4, 8, 4, -2, 7], then `stepsToTaller` is [1, 0, 2, 1, 0] and `tallerKeycapsProofStrip` returns [1, 0, 2, 1, 0].\n\nRules\n- If `stepsToTaller` is empty, return [].\n\nTest data\nTEST DATA 1: `readings` is [15, -9, 0, 6, 15].\nTEST DATA 2: `readings` is [-5, 4, 4, 4].",
   "unitIntro": "For each number in `readings`, look to its right. Find the first number that is larger, not equal. Record how many places to the right it is. Record 0 if no larger number is found. Keep the answers in input order. Each problem in this unit builds `stepsToTaller` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,41 +45,41 @@
       "id": "path3-195-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          15,
+          -9,
           0,
-          12
+          6,
+          15
         ]
       ],
       "expected": [
-        4,
+        0,
         1,
-        2,
+        1,
         1,
         0
       ],
       "coverage": "worked",
-      "explanation": "`stepsToTaller` is [4, 1, 2, 1, 0]. `tallerKeycapsProofStrip` returns that whole list, so return [4, 1, 2, 1, 0]."
+      "explanation": "`stepsToTaller` is [0, 1, 1, 1, 0]. `tallerKeycapsProofStrip` returns that whole list, so return [0, 1, 1, 1, 0]."
     },
     {
       "id": "path3-195-2",
       "input": [
         [
+          -5,
           4,
           4,
-          -2,
           4
         ]
       ],
       "expected": [
-        0,
-        0,
         1,
+        0,
+        0,
         0
       ],
       "coverage": "worked",
-      "explanation": "`stepsToTaller` is [0, 0, 1, 0]. `tallerKeycapsProofStrip` returns that whole list, so return [0, 0, 1, 0]."
+      "explanation": "`stepsToTaller` is [1, 0, 0, 0]. `tallerKeycapsProofStrip` returns that whole list, so return [1, 0, 0, 0]."
     },
     {
       "id": "path3-195-3",
@@ -112,41 +112,41 @@
       "id": "path3-195-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          15,
+          -9,
           0,
-          12
+          6,
+          15
         ]
       ],
       "expected": [
-        4,
+        0,
         1,
-        2,
+        1,
         1,
         0
       ],
       "coverage": "worked",
-      "explanation": "`stepsToTaller` is [4, 1, 2, 1, 0]. `tallerKeycapsProofStrip` returns that whole list, so return [4, 1, 2, 1, 0]."
+      "explanation": "`stepsToTaller` is [0, 1, 1, 1, 0]. `tallerKeycapsProofStrip` returns that whole list, so return [0, 1, 1, 1, 0]."
     },
     {
       "id": "path3-195-2",
       "input": [
         [
+          -5,
           4,
           4,
-          -2,
           4
         ]
       ],
       "expected": [
-        0,
-        0,
         1,
+        0,
+        0,
         0
       ],
       "coverage": "worked",
-      "explanation": "`stepsToTaller` is [0, 0, 1, 0]. `tallerKeycapsProofStrip` returns that whole list, so return [0, 0, 1, 0]."
+      "explanation": "`stepsToTaller` is [1, 0, 0, 0]. `tallerKeycapsProofStrip` returns that whole list, so return [1, 0, 0, 0]."
     }
   ],
   "referenceSolutions": {
@@ -161,7 +161,7 @@
         "id": "path3-195-4",
         "input": [
           [
-            9
+            6
           ]
         ],
         "expected": [
@@ -173,10 +173,10 @@
         "id": "path3-195-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            2,
+            2,
+            2,
+            2
           ]
         ],
         "expected": [
@@ -191,14 +191,14 @@
         "id": "path3-195-6",
         "input": [
           [
-            -20,
-            -1,
-            -7
+            -7,
+            -19,
+            -1
           ]
         ],
         "expected": [
+          2,
           1,
-          0,
           0
         ],
         "coverage": "lower-bound"
@@ -208,132 +208,132 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
             -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
             -2,
-            11,
-            -17,
-            -4,
-            9,
-            -19,
-            -6,
             7,
-            20,
-            -8,
-            5,
-            18,
-            -10,
-            3,
             16,
-            -12,
-            1,
-            14,
-            -14,
-            -1,
-            12,
             -16,
-            -3,
-            10,
-            -18,
-            -5,
-            8,
-            -20,
             -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
             2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
             11,
+            20,
+            -12,
+            -3,
+            6,
+            15,
             -17,
+            -8,
+            1,
+            10,
+            19,
+            -13,
             -4,
+            5,
+            14,
+            -18,
+            -9,
+            0,
             9,
+            18,
+            -14,
+            -5,
+            4,
+            13,
             -19,
+            -10,
+            -1,
+            8,
+            17,
+            -15,
             -6,
+            3,
+            12,
+            -20,
+            -11,
+            -2,
             7,
-            20
+            16,
+            -16,
+            -7,
+            2,
+            11,
+            20,
+            -12,
+            -3,
+            6,
+            15,
+            -17,
+            -8,
+            1,
+            10,
+            19,
+            -13,
+            -4,
+            5,
+            14
           ]
         ],
         "expected": [
           1,
           1,
           1,
-          19,
           1,
+          5,
           1,
-          16,
-          1,
-          1,
-          13,
-          1,
-          1,
-          10,
-          1,
-          1,
-          7,
-          1,
-          1,
-          4,
           1,
           1,
           1,
           0,
           1,
           1,
-          19,
           1,
-          1,
-          16,
-          1,
-          1,
-          13,
-          1,
-          1,
-          10,
-          1,
-          1,
-          7,
-          1,
-          1,
-          4,
+          5,
           1,
           1,
           1,
-          19,
+          1,
+          32,
           1,
           1,
-          16,
+          1,
+          5,
           1,
           1,
-          13,
           1,
           1,
-          10,
+          23,
           1,
           1,
-          7,
+          1,
+          5,
           1,
           1,
-          4,
+          1,
+          1,
+          14,
+          1,
+          1,
+          1,
+          5,
+          1,
+          1,
+          1,
+          1,
+          5,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          5,
+          1,
+          1,
+          1,
+          1,
+          0,
           1,
           1,
           1,
@@ -361,11 +361,11 @@
         "id": "path3-195-9",
         "input": [
           [
-            8,
+            10,
             3,
             -2,
-            8,
-            1
+            4,
+            3
           ]
         ],
         "expected": [

@@ -19,7 +19,7 @@
   "summary": "Interval dynamic programming. Count the numbers at least k.",
   "stage": "Edge-case trap",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of positive whole numbers that describe matrix sizes.\n\nYour tasks\n1. Create a list `leastCosts`. `readings` lists matrix sizes. A matrix is a table of numbers with rows and columns. Matrix 0 has `readings[0]` rows and `readings[1]` columns. Matrix 1 has `readings[1]` rows and `readings[2]` columns, and so on. Multiplying an a-by-b matrix by a b-by-c matrix costs a * b * c number multiplications. You may group the matrices with brackets, but must keep their order. Different groups can have different costs. For the first matrix alone, record 0. Then record the least total cost for the first two matrices, the first three, and so on. Fewer than two size numbers means there are no matrices, so `leastCosts` is empty.\n2. Count the numbers in `leastCosts` that are at least `k` (greater than or equal to `k`). Store the count in `atLeastK`.\n3. Complete `pressParenthesesThresholdFile` so it returns `atLeastK`. Return it, do not print it.\n\nExample\nIf `readings` is [7, 2, 7, 3] and `k` is 4, then `leastCosts` is [0, 98, 84] and `pressParenthesesThresholdFile` returns 2.\n\nRules\n- If `leastCosts` is empty, the count is 0.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `readings` is [8, 4, 8, 1, 3] and `k` is 3.\nTEST DATA 2: `readings` is [5, 5, 3, 5] and `k` is 2.",
+  "descriptionMd": "Inputs\n`readings` is a list of positive whole numbers that describe matrix sizes.\n\nYour tasks\n1. Create a list `leastCosts`. `readings` lists matrix sizes. A matrix is a table of numbers with rows and columns. Matrix 0 has `readings[0]` rows and `readings[1]` columns. Matrix 1 has `readings[1]` rows and `readings[2]` columns, and so on. Multiplying an a-by-b matrix by a b-by-c matrix costs a * b * c number multiplications. You may group the matrices with brackets, but must keep their order. Different groups can have different costs. For the first matrix alone, record 0. Then record the least total cost for the first two matrices, the first three, and so on. Fewer than two size numbers means there are no matrices, so `leastCosts` is empty.\n2. Count the numbers in `leastCosts` that are at least `k` (greater than or equal to `k`). Store the count in `atLeastK`.\n3. Complete `pressParenthesesThresholdFile` so it returns `atLeastK`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 1, 2, 7, 6] and `k` is 4, then `leastCosts` is [0, 12, 56, 92] and `pressParenthesesThresholdFile` returns 3.\n\nRules\n- If `leastCosts` is empty, the count is 0.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `readings` is [1, 1, 1, 9, 6] and `k` is 4.\nTEST DATA 2: `readings` is [4, 4, 4, 4] and `k` is 3.",
   "unitIntro": "`readings` lists matrix sizes. A matrix is a table of numbers with rows and columns. Matrix 0 has `readings[0]` rows and `readings[1]` columns. Matrix 1 has `readings[1]` rows and `readings[2]` columns, and so on. Multiplying an a-by-b matrix by a b-by-c matrix costs a * b * c number multiplications. You may group the matrices with brackets, but must keep their order. Different groups can have different costs. For the first matrix alone, record 0. Then record the least total cost for the first two matrices, the first three, and so on. Fewer than two size numbers means there are no matrices, so `leastCosts` is empty. Each problem in this unit builds `leastCosts` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 16.",
@@ -45,42 +45,42 @@
       "id": "path3-463-1",
       "input": [
         [
-          8,
-          4,
-          8,
           1,
-          3
+          1,
+          1,
+          9,
+          6
         ],
-        3
+        4
       ],
-      "expected": 3,
+      "expected": 2,
       "coverage": "worked",
-      "explanation": "`leastCosts` is [0, 256, 64, 88]. Here `k` is 3. The numbers at least 3 are [256, 64, 88]. There are 3, so return 3."
+      "explanation": "`leastCosts` is [0, 1, 10, 61]. Here `k` is 4. The numbers at least 4 are [10, 61]. There are 2, so return 2."
     },
     {
       "id": "path3-463-2",
       "input": [
         [
-          5,
-          5,
-          3,
-          5
+          4,
+          4,
+          4,
+          4
         ],
-        2
+        3
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "`leastCosts` is [0, 75, 150]. Here `k` is 2. The numbers at least 2 are [75, 150]. There are 2, so return 2."
+      "explanation": "`leastCosts` is [0, 64, 128]. Here `k` is 3. The numbers at least 3 are [64, 128]. There are 2, so return 2."
     },
     {
       "id": "path3-463-3",
       "input": [
         [],
-        1
+        6
       ],
       "expected": 0,
       "coverage": "empty",
-      "explanation": "`leastCosts` is []. Here `k` is 1. The numbers at least 1 are []. There are 0, so return 0."
+      "explanation": "`leastCosts` is []. Here `k` is 6. The numbers at least 6 are []. There are 0, so return 0."
     }
   ],
   "timeLimitMs": 2000,
@@ -105,32 +105,32 @@
       "id": "path3-463-1",
       "input": [
         [
-          8,
-          4,
-          8,
           1,
-          3
+          1,
+          1,
+          9,
+          6
         ],
-        3
+        4
       ],
-      "expected": 3,
+      "expected": 2,
       "coverage": "worked",
-      "explanation": "`leastCosts` is [0, 256, 64, 88]. Here `k` is 3. The numbers at least 3 are [256, 64, 88]. There are 3, so return 3."
+      "explanation": "`leastCosts` is [0, 1, 10, 61]. Here `k` is 4. The numbers at least 4 are [10, 61]. There are 2, so return 2."
     },
     {
       "id": "path3-463-2",
       "input": [
         [
-          5,
-          5,
-          3,
-          5
+          4,
+          4,
+          4,
+          4
         ],
-        2
+        3
       ],
       "expected": 2,
       "coverage": "worked",
-      "explanation": "`leastCosts` is [0, 75, 150]. Here `k` is 2. The numbers at least 2 are [75, 150]. There are 2, so return 2."
+      "explanation": "`leastCosts` is [0, 64, 128]. Here `k` is 3. The numbers at least 3 are [64, 128]. There are 2, so return 2."
     }
   ],
   "referenceSolutions": {
@@ -145,9 +145,9 @@
         "id": "path3-463-4",
         "input": [
           [
-            10
+            4
           ],
-          1
+          5
         ],
         "expected": 0,
         "coverage": "singleton"
@@ -156,12 +156,12 @@
         "id": "path3-463-5",
         "input": [
           [
-            6,
-            6,
-            6,
-            6
+            3,
+            3,
+            3,
+            3
           ],
-          4
+          3
         ],
         "expected": 2,
         "coverage": "duplicates-or-redundancy"
@@ -170,11 +170,11 @@
         "id": "path3-463-6",
         "input": [
           [
-            1,
             2,
-            8
+            10,
+            10
           ],
-          8
+          6
         ],
         "expected": 1,
         "coverage": "lower-bound"
@@ -184,23 +184,23 @@
         "input": [
           [
             1,
+            10,
+            3,
+            4,
             8,
             7,
-            10,
-            10,
+            6,
+            7,
             5,
-            8,
+            4,
+            9,
+            10,
             2,
-            3,
-            6,
-            4,
             1,
-            4,
-            6,
-            3,
-            2
+            2,
+            10
           ],
-          3
+          7
         ],
         "expected": 14,
         "coverage": "maximum-size"
@@ -213,7 +213,7 @@
             1,
             1
           ],
-          5
+          4
         ],
         "expected": 0,
         "coverage": "zero-or-minimum"
@@ -222,13 +222,13 @@
         "id": "path3-463-9",
         "input": [
           [
-            9,
-            4,
-            3,
-            9,
+            8,
+            1,
+            7,
+            8,
             2
           ],
-          2
+          8
         ],
         "expected": 3,
         "coverage": "order-and-ties"

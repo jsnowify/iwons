@@ -19,7 +19,7 @@
   "summary": "Bit counting. Return the whole list.",
   "stage": "Warm-up",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `oneCounts`. Write each number in `readings` in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order.\n2. Complete `bitRibbonsProofStrip` so it returns `oneCounts`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 1, 6, 2], then `oneCounts` is [2, 1, 2, 1] and `bitRibbonsProofStrip` returns [2, 1, 2, 1].\n\nRules\n- If `oneCounts` is empty, return [].\n\nTest data\nTEST DATA 1: `readings` is [7, 3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, 2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `oneCounts`. Write each number in `readings` in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order.\n2. Complete `bitRibbonsProofStrip` so it returns `oneCounts`. Return it, do not print it.\n\nExample\nIf `readings` is [8, 4, 1, 8, 4], then `oneCounts` is [1, 1, 1, 1, 1] and `bitRibbonsProofStrip` returns [1, 1, 1, 1, 1].\n\nRules\n- If `oneCounts` is empty, return [].\n\nTest data\nTEST DATA 1: `readings` is [0, 15, 2, 15, 7].\nTEST DATA 2: `readings` is [6, 9, 6, 6].",
   "unitIntro": "Write each number in `readings` in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order. Each problem in this unit builds `oneCounts` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,41 +45,41 @@
       "id": "path3-267-1",
       "input": [
         [
-          7,
-          3,
-          7,
           0,
-          12
+          15,
+          2,
+          15,
+          7
         ]
       ],
       "expected": [
-        3,
-        2,
-        3,
         0,
-        2
+        4,
+        1,
+        4,
+        3
       ],
       "coverage": "worked",
-      "explanation": "`oneCounts` is [3, 2, 3, 0, 2]. `bitRibbonsProofStrip` returns that whole list, so return [3, 2, 3, 0, 2]."
+      "explanation": "`oneCounts` is [0, 4, 1, 4, 3]. `bitRibbonsProofStrip` returns that whole list, so return [0, 4, 1, 4, 3]."
     },
     {
       "id": "path3-267-2",
       "input": [
         [
-          4,
-          4,
-          2,
-          4
+          6,
+          9,
+          6,
+          6
         ]
       ],
       "expected": [
-        1,
-        1,
-        1,
-        1
+        2,
+        2,
+        2,
+        2
       ],
       "coverage": "worked",
-      "explanation": "`oneCounts` is [1, 1, 1, 1]. `bitRibbonsProofStrip` returns that whole list, so return [1, 1, 1, 1]."
+      "explanation": "`oneCounts` is [2, 2, 2, 2]. `bitRibbonsProofStrip` returns that whole list, so return [2, 2, 2, 2]."
     },
     {
       "id": "path3-267-3",
@@ -112,41 +112,41 @@
       "id": "path3-267-1",
       "input": [
         [
-          7,
-          3,
-          7,
           0,
-          12
+          15,
+          2,
+          15,
+          7
         ]
       ],
       "expected": [
-        3,
-        2,
-        3,
         0,
-        2
+        4,
+        1,
+        4,
+        3
       ],
       "coverage": "worked",
-      "explanation": "`oneCounts` is [3, 2, 3, 0, 2]. `bitRibbonsProofStrip` returns that whole list, so return [3, 2, 3, 0, 2]."
+      "explanation": "`oneCounts` is [0, 4, 1, 4, 3]. `bitRibbonsProofStrip` returns that whole list, so return [0, 4, 1, 4, 3]."
     },
     {
       "id": "path3-267-2",
       "input": [
         [
-          4,
-          4,
-          2,
-          4
+          6,
+          9,
+          6,
+          6
         ]
       ],
       "expected": [
-        1,
-        1,
-        1,
-        1
+        2,
+        2,
+        2,
+        2
       ],
       "coverage": "worked",
-      "explanation": "`oneCounts` is [1, 1, 1, 1]. `bitRibbonsProofStrip` returns that whole list, so return [1, 1, 1, 1]."
+      "explanation": "`oneCounts` is [2, 2, 2, 2]. `bitRibbonsProofStrip` returns that whole list, so return [2, 2, 2, 2]."
     }
   ],
   "referenceSolutions": {
@@ -161,11 +161,11 @@
         "id": "path3-267-4",
         "input": [
           [
-            9
+            14
           ]
         ],
         "expected": [
-          2
+          3
         ],
         "coverage": "singleton"
       },
@@ -173,17 +173,17 @@
         "id": "path3-267-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            2,
+            2,
+            2,
+            2
           ]
         ],
         "expected": [
-          2,
-          2,
-          2,
-          2
+          1,
+          1,
+          1,
+          1
         ],
         "coverage": "duplicates-or-redundancy"
       },
@@ -191,14 +191,14 @@
         "id": "path3-267-6",
         "input": [
           [
-            20,
-            1,
-            7
+            9,
+            3,
+            11
           ]
         ],
         "expected": [
           2,
-          1,
+          2,
           3
         ],
         "coverage": "lower-bound"
@@ -361,19 +361,19 @@
         "id": "path3-267-9",
         "input": [
           [
+            11,
+            11,
             8,
-            3,
-            2,
-            8,
-            1
+            5,
+            14
           ]
         ],
         "expected": [
+          3,
+          3,
           1,
           2,
-          1,
-          1,
-          1
+          3
         ],
         "coverage": "order-and-ties"
       }

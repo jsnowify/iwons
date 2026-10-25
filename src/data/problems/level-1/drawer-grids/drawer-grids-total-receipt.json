@@ -19,7 +19,7 @@
   "summary": "Nested array traversal. Return the total.",
   "stage": "Variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`drawers` is a list of rows. Each row is a list of numbers and may be empty.\n\nYour tasks\n1. Create a list `rowTotals`. `drawers` is a list of rows. Add the numbers in each row. Put one total per row in `rowTotals`, in row order. An empty row has a total of 0.\n2. Add up every number in `rowTotals`. Store the sum in `total`.\n3. Complete `drawerGridsTotalReceipt` so it returns `total`. Return it, do not print it.\n\nExample\nIf `drawers` is [[6, 4], [], [6, 4], [2, 0]], then `rowTotals` is [10, 0, 10, 2] and `drawerGridsTotalReceipt` returns 22.\n\nRules\n- If `rowTotals` is empty, `total` is 0.\n\nTest data\nTEST DATA 1: `drawers` is [[7, 5], [], [7, 5], [0, -2], [12, 10]].\nTEST DATA 2: `drawers` is [[4, 2], [], [-2, -4], [4, 2]].",
+  "descriptionMd": "Inputs\n`drawers` is a list of rows. Each row is a list of numbers and may be empty.\n\nYour tasks\n1. Create a list `rowTotals`. `drawers` is a list of rows. Add the numbers in each row. Put one total per row in `rowTotals`, in row order. An empty row has a total of 0.\n2. Add up every number in `rowTotals`. Store the sum in `total`.\n3. Complete `drawerGridsTotalReceipt` so it returns `total`. Return it, do not print it.\n\nExample\nIf `drawers` is [[2, 0], [], [12, 10], [5, 3], [-6, -8]], then `rowTotals` is [2, 0, 22, 8, -14] and `drawerGridsTotalReceipt` returns 18.\n\nRules\n- If `rowTotals` is empty, `total` is 0.\n\nTest data\nTEST DATA 1: `drawers` is [[-7, -9], [], [16, 14], [6, 4], [6, 4]].\nTEST DATA 2: `drawers` is [[8, 6], [], [-8, -10], [8, 6]].",
   "unitIntro": "`drawers` is a list of rows. Add the numbers in each row. Put one total per row in `rowTotals`, in row order. An empty row has a total of 0. Each problem in this unit builds `rowTotals` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 16 per row.",
@@ -46,50 +46,50 @@
       "input": [
         [
           [
-            7,
-            5
+            -7,
+            -9
           ],
           [],
           [
-            7,
-            5
+            16,
+            14
           ],
           [
-            0,
-            -2
+            6,
+            4
           ],
           [
-            12,
-            10
+            6,
+            4
           ]
         ]
       ],
-      "expected": 44,
+      "expected": 34,
       "coverage": "worked",
-      "explanation": "`rowTotals` is [12, 0, 12, -2, 22]. Add its numbers to get 44. Return 44."
+      "explanation": "`rowTotals` is [-16, 0, 30, 10, 10]. Add its numbers to get 34. Return 34."
     },
     {
       "id": "path3-062-2",
       "input": [
         [
           [
-            4,
-            2
+            8,
+            6
           ],
           [],
           [
-            -2,
-            -4
+            -8,
+            -10
           ],
           [
-            4,
-            2
+            8,
+            6
           ]
         ]
       ],
-      "expected": 6,
+      "expected": 10,
       "coverage": "worked",
-      "explanation": "`rowTotals` is [6, 0, -6, 6]. Add its numbers to get 6. Return 6."
+      "explanation": "`rowTotals` is [14, 0, -18, 14]. Add its numbers to get 10. Return 10."
     },
     {
       "id": "path3-062-3",
@@ -123,50 +123,50 @@
       "input": [
         [
           [
-            7,
-            5
+            -7,
+            -9
           ],
           [],
           [
-            7,
-            5
+            16,
+            14
           ],
           [
-            0,
-            -2
+            6,
+            4
           ],
           [
-            12,
-            10
+            6,
+            4
           ]
         ]
       ],
-      "expected": 44,
+      "expected": 34,
       "coverage": "worked",
-      "explanation": "`rowTotals` is [12, 0, 12, -2, 22]. Add its numbers to get 44. Return 44."
+      "explanation": "`rowTotals` is [-16, 0, 30, 10, 10]. Add its numbers to get 34. Return 34."
     },
     {
       "id": "path3-062-2",
       "input": [
         [
           [
-            4,
-            2
+            8,
+            6
           ],
           [],
           [
-            -2,
-            -4
+            -8,
+            -10
           ],
           [
-            4,
-            2
+            8,
+            6
           ]
         ]
       ],
-      "expected": 6,
+      "expected": 10,
       "coverage": "worked",
-      "explanation": "`rowTotals` is [6, 0, -6, 6]. Add its numbers to get 6. Return 6."
+      "explanation": "`rowTotals` is [14, 0, -18, 14]. Add its numbers to get 10. Return 10."
     }
   ],
   "referenceSolutions": {
@@ -182,12 +182,12 @@
         "input": [
           [
             [
-              9,
-              7
+              17,
+              15
             ]
           ]
         ],
-        "expected": 16,
+        "expected": 32,
         "coverage": "singleton"
       },
       {
@@ -217,17 +217,17 @@
         "input": [
           [
             [
-              -20,
-              -22
+              -4,
+              -6
             ],
             [],
             [
-              -7,
-              -9
+              -20,
+              -22
             ]
           ]
         ],
-        "expected": -58,
+        "expected": -52,
         "coverage": "lower-bound"
       },
       {
@@ -550,25 +550,25 @@
         "input": [
           [
             [
-              8,
-              6
+              4,
+              2
             ],
             [],
             [
-              -2,
-              -4
+              10,
+              8
             ],
             [
-              8,
-              6
+              -3,
+              -5
             ],
             [
-              1,
-              -1
+              5,
+              3
             ]
           ]
         ],
-        "expected": 22,
+        "expected": 24,
         "coverage": "order-and-ties"
       }
     ],

@@ -19,7 +19,7 @@
   "summary": "Trie prefix counts. Add the positive numbers.",
   "stage": "Filtered variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`words` is a list of `words`.\n\nYour tasks\n1. Create a list `prefixTotals`. A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order.\n2. Add only the numbers in `prefixTotals` that are greater than 0. Store the sum in `positiveTotal`.\n3. Complete `prefixCabinetPositiveInkInvoice` so it returns `positiveTotal`. Return it, do not print it.\n\nExample\nIf `words` is [\"tap\", \"tape\", \"top\", \"tap\"], then `prefixTotals` is [10, 11, 6, 10] and `prefixCabinetPositiveInkInvoice` returns 37.\n\nRules\n- If `prefixTotals` is empty, return 0.\n\nTest data\nTEST DATA 1: `words` is [\"ink\", \"inside\", \"inn\", \"paper\"].\nTEST DATA 2: `words` is [\"aa\", \"aa\", \"ab\"].",
+  "descriptionMd": "Inputs\n`words` is a list of `words`.\n\nYour tasks\n1. Create a list `prefixTotals`. A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order.\n2. Add only the numbers in `prefixTotals` that are greater than 0. Store the sum in `positiveTotal`.\n3. Complete `prefixCabinetPositiveInkInvoice` so it returns `positiveTotal`. Return it, do not print it.\n\nExample\nIf `words` is [\"slip\", \"slip\", \"slr\", \"binder\"], then `prefixTotals` is [10, 10, 7, 6] and `prefixCabinetPositiveInkInvoice` returns 33.\n\nRules\n- If `prefixTotals` is empty, return 0.\n\nTest data\nTEST DATA 1: `words` is [\"key\", \"keyer\", \"kexb\", \"tray\"].\nTEST DATA 2: `words` is [\"ledger\", \"ledger\", \"ledges\"].",
   "unitIntro": "A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order. Each problem in this unit builds `prefixTotals` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,28 +45,28 @@
       "id": "path3-398-1",
       "input": [
         [
-          "ink",
-          "inside",
-          "inn",
-          "paper"
+          "key",
+          "keyer",
+          "kexb",
+          "tray"
         ]
       ],
-      "expected": 29,
+      "expected": 30,
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [7, 10, 7, 5]. Keep [7, 10, 7, 5] and add those numbers. Return 29."
+      "explanation": "`prefixTotals` is [8, 10, 8, 4]. Keep [8, 10, 8, 4] and add those numbers. Return 30."
     },
     {
       "id": "path3-398-2",
       "input": [
         [
-          "aa",
-          "aa",
-          "ab"
+          "ledger",
+          "ledger",
+          "ledges"
         ]
       ],
-      "expected": 14,
+      "expected": 50,
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [5, 5, 4]. Keep [5, 5, 4] and add those numbers. Return 14."
+      "explanation": "`prefixTotals` is [17, 17, 16]. Keep [17, 17, 16] and add those numbers. Return 50."
     },
     {
       "id": "path3-398-3",
@@ -99,28 +99,28 @@
       "id": "path3-398-1",
       "input": [
         [
-          "ink",
-          "inside",
-          "inn",
-          "paper"
+          "key",
+          "keyer",
+          "kexb",
+          "tray"
         ]
       ],
-      "expected": 29,
+      "expected": 30,
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [7, 10, 7, 5]. Keep [7, 10, 7, 5] and add those numbers. Return 29."
+      "explanation": "`prefixTotals` is [8, 10, 8, 4]. Keep [8, 10, 8, 4] and add those numbers. Return 30."
     },
     {
       "id": "path3-398-2",
       "input": [
         [
-          "aa",
-          "aa",
-          "ab"
+          "ledger",
+          "ledger",
+          "ledges"
         ]
       ],
-      "expected": 14,
+      "expected": 50,
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [5, 5, 4]. Keep [5, 5, 4] and add those numbers. Return 14."
+      "explanation": "`prefixTotals` is [17, 17, 16]. Keep [17, 17, 16] and add those numbers. Return 50."
     }
   ],
   "referenceSolutions": {
@@ -135,30 +135,30 @@
         "id": "path3-398-4",
         "input": [
           [
-            "z"
+            "ribbon"
           ]
         ],
-        "expected": 1,
+        "expected": 6,
         "coverage": "singleton"
       },
       {
         "id": "path3-398-5",
         "input": [
           [
-            "a",
-            "a",
-            "a"
+            "me",
+            "me",
+            "me"
           ]
         ],
-        "expected": 9,
+        "expected": 18,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-398-6",
         "input": [
           [
-            "a",
-            "z"
+            "c",
+            "x"
           ]
         ],
         "expected": 2,
@@ -168,81 +168,81 @@
         "id": "path3-398-7",
         "input": [
           [
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk"
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx",
+            "keytrayt",
+            "keytrayx"
           ]
         ],
-        "expected": 40960,
+        "expected": 30720,
         "coverage": "maximum-size"
       },
       {
         "id": "path3-398-8",
         "input": [
           [
-            "a",
-            "b"
+            "c",
+            "f"
           ]
         ],
         "expected": 2,
@@ -252,12 +252,12 @@
         "id": "path3-398-9",
         "input": [
           [
-            "paper",
-            "pa",
-            "p"
+            "tray",
+            "ke",
+            "t"
           ]
         ],
-        "expected": 16,
+        "expected": 9,
         "coverage": "order-and-ties"
       }
     ],

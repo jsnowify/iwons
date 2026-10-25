@@ -19,7 +19,7 @@
   "summary": "Bit counting. Count the even numbers.",
   "stage": "Counting variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `oneCounts`. Write each number in `readings` in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order.\n2. Count the even numbers in `oneCounts`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder.\n3. Complete `bitRibbonsEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 1, 6, 2], then `oneCounts` is [2, 1, 2, 1] and `bitRibbonsEvenKeyCensus` returns 2.\n\nRules\n- 0 counts as an even number.\n- If `oneCounts` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, 3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, 2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `oneCounts`. Write each number in `readings` in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order.\n2. Count the even numbers in `oneCounts`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder.\n3. Complete `bitRibbonsEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nExample\nIf `readings` is [8, 9, 8, 9, 8], then `oneCounts` is [1, 2, 1, 2, 1] and `bitRibbonsEvenKeyCensus` returns 2.\n\nRules\n- 0 counts as an even number.\n- If `oneCounts` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [0, 10, 20, 9, 20].\nTEST DATA 2: `readings` is [9, 9, 9, 9].",
   "unitIntro": "Write each number in `readings` in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order. Each problem in this unit builds `oneCounts` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,30 +45,30 @@
       "id": "path3-273-1",
       "input": [
         [
-          7,
-          3,
-          7,
           0,
-          12
+          10,
+          20,
+          9,
+          20
         ]
       ],
-      "expected": 3,
+      "expected": 5,
       "coverage": "worked",
-      "explanation": "`oneCounts` is [3, 2, 3, 0, 2]. The even numbers are [2, 0, 2]. There are 3, so return 3."
+      "explanation": "`oneCounts` is [0, 2, 2, 2, 2]. The even numbers are [0, 2, 2, 2, 2]. There are 5, so return 5."
     },
     {
       "id": "path3-273-2",
       "input": [
         [
-          4,
-          4,
-          2,
-          4
+          9,
+          9,
+          9,
+          9
         ]
       ],
-      "expected": 0,
+      "expected": 4,
       "coverage": "worked",
-      "explanation": "`oneCounts` is [1, 1, 1, 1]. The even numbers are []. There are 0, so return 0."
+      "explanation": "`oneCounts` is [2, 2, 2, 2]. The even numbers are [2, 2, 2, 2]. There are 4, so return 4."
     },
     {
       "id": "path3-273-3",
@@ -101,30 +101,30 @@
       "id": "path3-273-1",
       "input": [
         [
-          7,
-          3,
-          7,
           0,
-          12
+          10,
+          20,
+          9,
+          20
         ]
       ],
-      "expected": 3,
+      "expected": 5,
       "coverage": "worked",
-      "explanation": "`oneCounts` is [3, 2, 3, 0, 2]. The even numbers are [2, 0, 2]. There are 3, so return 3."
+      "explanation": "`oneCounts` is [0, 2, 2, 2, 2]. The even numbers are [0, 2, 2, 2, 2]. There are 5, so return 5."
     },
     {
       "id": "path3-273-2",
       "input": [
         [
-          4,
-          4,
-          2,
-          4
+          9,
+          9,
+          9,
+          9
         ]
       ],
-      "expected": 0,
+      "expected": 4,
       "coverage": "worked",
-      "explanation": "`oneCounts` is [1, 1, 1, 1]. The even numbers are []. There are 0, so return 0."
+      "explanation": "`oneCounts` is [2, 2, 2, 2]. The even numbers are [2, 2, 2, 2]. There are 4, so return 4."
     }
   ],
   "referenceSolutions": {
@@ -139,7 +139,7 @@
         "id": "path3-273-4",
         "input": [
           [
-            9
+            17
           ]
         ],
         "expected": 1,
@@ -149,10 +149,10 @@
         "id": "path3-273-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            9,
+            9,
+            9,
+            9
           ]
         ],
         "expected": 4,
@@ -162,12 +162,12 @@
         "id": "path3-273-6",
         "input": [
           [
-            20,
-            1,
-            7
+            3,
+            15,
+            8
           ]
         ],
-        "expected": 1,
+        "expected": 2,
         "coverage": "lower-bound"
       },
       {
@@ -259,11 +259,11 @@
         "id": "path3-273-9",
         "input": [
           [
-            8,
-            3,
             2,
-            8,
-            1
+            12,
+            1,
+            2,
+            7
           ]
         ],
         "expected": 1,

@@ -19,7 +19,7 @@
   "summary": "Trie prefix counts. Return the largest number.",
   "stage": "Optimize",
   "boss": false,
-  "descriptionMd": "Inputs\n`words` is a list of `words`.\n\nYour tasks\n1. Create a list `prefixTotals`. A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order.\n2. Find the largest number in `prefixTotals`. Store it in `largest`.\n3. Complete `prefixCabinetPeakTicket` so it returns `largest`. Return it, do not print it.\n\nExample\nIf `words` is [\"tap\", \"tape\", \"top\", \"tap\"], then `prefixTotals` is [10, 11, 6, 10] and `prefixCabinetPeakTicket` returns 11.\n\nRules\n- If `prefixTotals` is empty, return 0.\n\nTest data\nTEST DATA 1: `words` is [\"ink\", \"inside\", \"inn\", \"paper\"].\nTEST DATA 2: `words` is [\"aa\", \"aa\", \"ab\"].",
+  "descriptionMd": "Inputs\n`words` is a list of `words`.\n\nYour tasks\n1. Create a list `prefixTotals`. A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order.\n2. Find the largest number in `prefixTotals`. Store it in `largest`.\n3. Complete `prefixCabinetPeakTicket` so it returns `largest`. Return it, do not print it.\n\nExample\nIf `words` is [\"key\", \"key\", \"keh\", \"ledger\"], then `prefixTotals` is [8, 8, 7, 6] and `prefixCabinetPeakTicket` returns 8.\n\nRules\n- If `prefixTotals` is empty, return 0.\n\nTest data\nTEST DATA 1: `words` is [\"margin\", \"marer\", \"malk\", \"ink\"].\nTEST DATA 2: `words` is [\"folio\", \"folio\", \"folip\"].",
   "unitIntro": "A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order. Each problem in this unit builds `prefixTotals` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,28 +45,28 @@
       "id": "path3-395-1",
       "input": [
         [
-          "ink",
-          "inside",
-          "inn",
-          "paper"
+          "margin",
+          "marer",
+          "malk",
+          "ink"
         ]
       ],
-      "expected": 10,
+      "expected": 11,
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [7, 10, 7, 5]. The largest number is 10. Return 10."
+      "explanation": "`prefixTotals` is [11, 10, 8, 3]. The largest number is 11. Return 11."
     },
     {
       "id": "path3-395-2",
       "input": [
         [
-          "aa",
-          "aa",
-          "ab"
+          "folio",
+          "folio",
+          "folip"
         ]
       ],
-      "expected": 5,
+      "expected": 14,
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [5, 5, 4]. The largest number is 5. Return 5."
+      "explanation": "`prefixTotals` is [14, 14, 13]. The largest number is 14. Return 14."
     },
     {
       "id": "path3-395-3",
@@ -99,28 +99,28 @@
       "id": "path3-395-1",
       "input": [
         [
-          "ink",
-          "inside",
-          "inn",
-          "paper"
+          "margin",
+          "marer",
+          "malk",
+          "ink"
         ]
       ],
-      "expected": 10,
+      "expected": 11,
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [7, 10, 7, 5]. The largest number is 10. Return 10."
+      "explanation": "`prefixTotals` is [11, 10, 8, 3]. The largest number is 11. Return 11."
     },
     {
       "id": "path3-395-2",
       "input": [
         [
-          "aa",
-          "aa",
-          "ab"
+          "folio",
+          "folio",
+          "folip"
         ]
       ],
-      "expected": 5,
+      "expected": 14,
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [5, 5, 4]. The largest number is 5. Return 5."
+      "explanation": "`prefixTotals` is [14, 14, 13]. The largest number is 14. Return 14."
     }
   ],
   "referenceSolutions": {
@@ -135,29 +135,29 @@
         "id": "path3-395-4",
         "input": [
           [
-            "z"
+            "slip"
           ]
         ],
-        "expected": 1,
+        "expected": 4,
         "coverage": "singleton"
       },
       {
         "id": "path3-395-5",
         "input": [
           [
-            "a",
-            "a",
-            "a"
+            "ab",
+            "ab",
+            "ab"
           ]
         ],
-        "expected": 3,
+        "expected": 6,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-395-6",
         "input": [
           [
-            "a",
+            "c",
             "z"
           ]
         ],
@@ -168,81 +168,81 @@
         "id": "path3-395-7",
         "input": [
           [
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk"
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx",
+            "margiinkj",
+            "margiinkx"
           ]
         ],
-        "expected": 640,
+        "expected": 544,
         "coverage": "maximum-size"
       },
       {
         "id": "path3-395-8",
         "input": [
           [
-            "a",
-            "b"
+            "c",
+            "f"
           ]
         ],
         "expected": 1,
@@ -252,12 +252,12 @@
         "id": "path3-395-9",
         "input": [
           [
-            "paper",
-            "pa",
-            "p"
+            "roller",
+            "ri",
+            "f"
           ]
         ],
-        "expected": 8,
+        "expected": 7,
         "coverage": "order-and-ties"
       }
     ],

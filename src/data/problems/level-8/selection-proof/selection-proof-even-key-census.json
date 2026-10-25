@@ -19,7 +19,7 @@
   "summary": "Backtracking choices. Count the even numbers.",
   "stage": "Counting variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `subsetTotals`. Choose any positions from `readings`, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in `subsetTotals`.\n2. Count the even numbers in `subsetTotals`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder.\n3. Complete `selectionProofEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `subsetTotals` is [-1, 0, 1, 2, 5, 6, 7, 8, 11, 12, 13, 14] and `selectionProofEvenKeyCensus` returns 6.\n\nRules\n- 0 and negative even numbers count too.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `subsetTotals`. Choose any positions from `readings`, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in `subsetTotals`.\n2. Count the even numbers in `subsetTotals`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder.\n3. Complete `selectionProofEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nExample\nIf `readings` is [2, 9, 7, -9, 9], then `subsetTotals` is [-9, -7, -2, 0, 2, 7, 9, 11, 16, 18, 20, 25, 27] and `selectionProofEvenKeyCensus` returns 6.\n\nRules\n- 0 and negative even numbers count too.\n\nTest data\nTEST DATA 1: `readings` is [4, -6, 11, 0, 11].\nTEST DATA 2: `readings` is [2, 2, -7, 2].",
   "unitIntro": "Choose any positions from `readings`, or choose none. Add the numbers at those positions. List every different total you can make, from smallest to largest. Choosing no positions gives a total of 0. Each position can be chosen at most once. Equal numbers at different positions are separate choices, but each total appears only once in `subsetTotals`. Each problem in this unit builds `subsetTotals` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 10.",
@@ -45,30 +45,30 @@
       "id": "path3-477-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          4,
+          -6,
+          11,
           0,
-          12
+          11
         ]
       ],
-      "expected": 6,
+      "expected": 8,
       "coverage": "worked",
-      "explanation": "`subsetTotals` is [-3, 0, 4, 7, 9, 11, 12, 14, 16, 19, 23, 26]. The even numbers are [0, 4, 12, 14, 16, 26]. There are 6, so return 6."
+      "explanation": "`subsetTotals` is [-6, -2, 0, 4, 5, 9, 11, 15, 16, 20, 22, 26]. The even numbers are [-6, -2, 0, 4, 16, 20, 22, 26]. There are 8, so return 8."
     },
     {
       "id": "path3-477-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          2,
+          2,
+          -7,
+          2
         ]
       ],
-      "expected": 8,
+      "expected": 4,
       "coverage": "worked",
-      "explanation": "`subsetTotals` is [-2, 0, 2, 4, 6, 8, 10, 12]. The even numbers are [-2, 0, 2, 4, 6, 8, 10, 12]. There are 8, so return 8."
+      "explanation": "`subsetTotals` is [-7, -5, -3, -1, 0, 2, 4, 6]. The even numbers are [0, 2, 4, 6]. There are 4, so return 4."
     },
     {
       "id": "path3-477-3",
@@ -101,30 +101,30 @@
       "id": "path3-477-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          4,
+          -6,
+          11,
           0,
-          12
+          11
         ]
       ],
-      "expected": 6,
+      "expected": 8,
       "coverage": "worked",
-      "explanation": "`subsetTotals` is [-3, 0, 4, 7, 9, 11, 12, 14, 16, 19, 23, 26]. The even numbers are [0, 4, 12, 14, 16, 26]. There are 6, so return 6."
+      "explanation": "`subsetTotals` is [-6, -2, 0, 4, 5, 9, 11, 15, 16, 20, 22, 26]. The even numbers are [-6, -2, 0, 4, 16, 20, 22, 26]. There are 8, so return 8."
     },
     {
       "id": "path3-477-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          2,
+          2,
+          -7,
+          2
         ]
       ],
-      "expected": 8,
+      "expected": 4,
       "coverage": "worked",
-      "explanation": "`subsetTotals` is [-2, 0, 2, 4, 6, 8, 10, 12]. The even numbers are [-2, 0, 2, 4, 6, 8, 10, 12]. There are 8, so return 8."
+      "explanation": "`subsetTotals` is [-7, -5, -3, -1, 0, 2, 4, 6]. The even numbers are [0, 2, 4, 6]. There are 4, so return 4."
     }
   ],
   "referenceSolutions": {
@@ -139,10 +139,10 @@
         "id": "path3-477-4",
         "input": [
           [
-            9
+            12
           ]
         ],
-        "expected": 1,
+        "expected": 2,
         "coverage": "singleton"
       },
       {
@@ -162,9 +162,9 @@
         "id": "path3-477-6",
         "input": [
           [
-            -20,
-            -1,
-            -7
+            -3,
+            -17,
+            -12
           ]
         ],
         "expected": 4,
@@ -205,11 +205,11 @@
         "id": "path3-477-9",
         "input": [
           [
-            8,
-            3,
-            -2,
-            8,
-            1
+            9,
+            9,
+            -7,
+            6,
+            5
           ]
         ],
         "expected": 12,

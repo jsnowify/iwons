@@ -21,7 +21,7 @@
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Level 0: loop accumulators",
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `pairSums`. `readings` is already sorted from smallest to largest. Pair its first and last numbers, then its second and second-last numbers. Keep moving toward the middle. Add the two numbers in each pair and record that sum. If one middle number is left, record it by itself. Keep this pair order in `pairSums`.\n2. Multiply each number in `pairSums` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `facingCardsBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [-1, 2, 6, 6], then `pairSums` is [5, 8] and `facingCardsBossReceipt` returns 21.\n\nRules\n- If `pairSums` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [-3, 0, 7, 7, 12].\nTEST DATA 2: `readings` is [-2, 4, 4, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `pairSums`. `readings` is already sorted from smallest to largest. Pair its first and last numbers, then its second and second-last numbers. Keep moving toward the middle. Add the two numbers in each pair and record that sum. If one middle number is left, record it by itself. Keep this pair order in `pairSums`.\n2. Multiply each number in `pairSums` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `facingCardsBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [-3, 2, 2, 8, 9], then `pairSums` is [6, 10, 2] and `facingCardsBossReceipt` returns 32.\n\nRules\n- If `pairSums` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [-6, 0, 17, 17, 20].\nTEST DATA 2: `readings` is [-5, 7, 7, 7].",
   "unitIntro": "`readings` is already sorted from smallest to largest. Pair its first and last numbers, then its second and second-last numbers. Keep moving toward the middle. Add the two numbers in each pair and record that sum. If one middle number is left, record it by itself. Keep this pair order in `pairSums`. Each problem in this unit builds `pairSums` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -47,30 +47,30 @@
       "id": "path3-139-1",
       "input": [
         [
-          -3,
+          -6,
           0,
-          7,
-          7,
-          12
+          17,
+          17,
+          20
         ]
       ],
-      "expected": 44,
+      "expected": 99,
       "coverage": "worked",
-      "explanation": "`pairSums` is [9, 7, 7]. Multiply by positions that start at 1: 1 * (9) + 2 * (7) + 3 * (7) = 44. Return 44."
+      "explanation": "`pairSums` is [14, 17, 17]. Multiply by positions that start at 1: 1 * (14) + 2 * (17) + 3 * (17) = 99. Return 99."
     },
     {
       "id": "path3-139-2",
       "input": [
         [
-          -2,
-          4,
-          4,
-          4
+          -5,
+          7,
+          7,
+          7
         ]
       ],
-      "expected": 18,
+      "expected": 30,
       "coverage": "worked",
-      "explanation": "`pairSums` is [2, 8]. Multiply by positions that start at 1: 1 * (2) + 2 * (8) = 18. Return 18."
+      "explanation": "`pairSums` is [2, 14]. Multiply by positions that start at 1: 1 * (2) + 2 * (14) = 30. Return 30."
     },
     {
       "id": "path3-139-3",
@@ -103,30 +103,30 @@
       "id": "path3-139-1",
       "input": [
         [
-          -3,
+          -6,
           0,
-          7,
-          7,
-          12
+          17,
+          17,
+          20
         ]
       ],
-      "expected": 44,
+      "expected": 99,
       "coverage": "worked",
-      "explanation": "`pairSums` is [9, 7, 7]. Multiply by positions that start at 1: 1 * (9) + 2 * (7) + 3 * (7) = 44. Return 44."
+      "explanation": "`pairSums` is [14, 17, 17]. Multiply by positions that start at 1: 1 * (14) + 2 * (17) + 3 * (17) = 99. Return 99."
     },
     {
       "id": "path3-139-2",
       "input": [
         [
-          -2,
-          4,
-          4,
-          4
+          -5,
+          7,
+          7,
+          7
         ]
       ],
-      "expected": 18,
+      "expected": 30,
       "coverage": "worked",
-      "explanation": "`pairSums` is [2, 8]. Multiply by positions that start at 1: 1 * (2) + 2 * (8) = 18. Return 18."
+      "explanation": "`pairSums` is [2, 14]. Multiply by positions that start at 1: 1 * (2) + 2 * (14) = 30. Return 30."
     }
   ],
   "referenceSolutions": {
@@ -141,35 +141,35 @@
         "id": "path3-139-4",
         "input": [
           [
-            9
+            4
           ]
         ],
-        "expected": 9,
+        "expected": 4,
         "coverage": "singleton"
       },
       {
         "id": "path3-139-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            6,
+            6,
+            6,
+            6
           ]
         ],
-        "expected": 30,
+        "expected": 36,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-139-6",
         "input": [
           [
-            -20,
+            -13,
             -7,
-            -1
+            -6
           ]
         ],
-        "expected": -35,
+        "expected": -33,
         "coverage": "lower-bound"
       },
       {
@@ -179,42 +179,42 @@
             -20,
             -20,
             -19,
-            -19,
             -18,
             -17,
             -17,
             -16,
-            -15,
+            -16,
             -15,
             -14,
             -13,
             -13,
             -12,
+            -12,
             -11,
             -11,
             -10,
             -9,
-            -9,
+            -8,
             -8,
             -7,
             -7,
-            -6,
             -6,
             -5,
             -4,
             -4,
             -3,
+            -3,
             -2,
             -2,
             -1,
             0,
-            0,
+            1,
             1,
             2,
             2,
             3,
             4,
-            4,
+            5,
             5,
             6,
             6,
@@ -222,18 +222,18 @@
             7,
             8,
             9,
-            9,
+            10,
             10,
             11,
             11,
             12,
             13,
-            13,
+            14,
             14,
             15,
             15,
             16,
-            17,
+            16,
             17,
             18,
             19,
@@ -242,7 +242,7 @@
             20
           ]
         ],
-        "expected": 0,
+        "expected": 226,
         "coverage": "maximum-size"
       },
       {
@@ -261,14 +261,14 @@
         "id": "path3-139-9",
         "input": [
           [
-            -2,
-            1,
+            -7,
             3,
-            8,
-            8
+            5,
+            12,
+            12
           ]
         ],
-        "expected": 33,
+        "expected": 50,
         "coverage": "order-and-ties"
       }
     ],

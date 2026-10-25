@@ -21,7 +21,7 @@
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Level 0: loop accumulators",
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `sorted`. Sort `readings` from smallest to largest using merge sort. To use merge sort, split the list into smaller parts, sort those parts, then join the sorted parts in order. Keep all repeated numbers. `sorted` is the sorted list.\n2. Multiply each number in `sorted` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `sortingPressBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `sorted` is [-1, 2, 6, 6] and `sortingPressBossReceipt` returns 45.\n\nRules\n- If `sorted` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `sorted`. Sort `readings` from smallest to largest using merge sort. To use merge sort, split the list into smaller parts, sort those parts, then join the sorted parts in order. Keep all repeated numbers. `sorted` is the sorted list.\n2. Multiply each number in `sorted` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `sortingPressBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [1, 11, 8, -8, 8], then `sorted` is [-8, 1, 8, 8, 11] and `sortingPressBossReceipt` returns 105.\n\nRules\n- If `sorted` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [8, 8, 0, 10, -1].\nTEST DATA 2: `readings` is [-6, 9, 9, 9].",
   "unitIntro": "Sort `readings` from smallest to largest using merge sort. To use merge sort, split the list into smaller parts, sort those parts, then join the sorted parts in order. Keep all repeated numbers. `sorted` is the sorted list. Each problem in this unit builds `sorted` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -47,30 +47,30 @@
       "id": "path3-248-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          8,
+          8,
           0,
-          12
+          10,
+          -1
         ]
       ],
-      "expected": 106,
+      "expected": 105,
       "coverage": "worked",
-      "explanation": "`sorted` is [-3, 0, 7, 7, 12]. Multiply by positions that start at 1: 1 * (-3) + 2 * (0) + 3 * (7) + 4 * (7) + 5 * (12) = 106. Return 106."
+      "explanation": "`sorted` is [-1, 0, 8, 8, 10]. Multiply by positions that start at 1: 1 * (-1) + 2 * (0) + 3 * (8) + 4 * (8) + 5 * (10) = 105. Return 105."
     },
     {
       "id": "path3-248-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          -6,
+          9,
+          9,
+          9
         ]
       ],
-      "expected": 34,
+      "expected": 75,
       "coverage": "worked",
-      "explanation": "`sorted` is [-2, 4, 4, 4]. Multiply by positions that start at 1: 1 * (-2) + 2 * (4) + 3 * (4) + 4 * (4) = 34. Return 34."
+      "explanation": "`sorted` is [-6, 9, 9, 9]. Multiply by positions that start at 1: 1 * (-6) + 2 * (9) + 3 * (9) + 4 * (9) = 75. Return 75."
     },
     {
       "id": "path3-248-3",
@@ -103,30 +103,30 @@
       "id": "path3-248-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          8,
+          8,
           0,
-          12
+          10,
+          -1
         ]
       ],
-      "expected": 106,
+      "expected": 105,
       "coverage": "worked",
-      "explanation": "`sorted` is [-3, 0, 7, 7, 12]. Multiply by positions that start at 1: 1 * (-3) + 2 * (0) + 3 * (7) + 4 * (7) + 5 * (12) = 106. Return 106."
+      "explanation": "`sorted` is [-1, 0, 8, 8, 10]. Multiply by positions that start at 1: 1 * (-1) + 2 * (0) + 3 * (8) + 4 * (8) + 5 * (10) = 105. Return 105."
     },
     {
       "id": "path3-248-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          -6,
+          9,
+          9,
+          9
         ]
       ],
-      "expected": 34,
+      "expected": 75,
       "coverage": "worked",
-      "explanation": "`sorted` is [-2, 4, 4, 4]. Multiply by positions that start at 1: 1 * (-2) + 2 * (4) + 3 * (4) + 4 * (4) = 34. Return 34."
+      "explanation": "`sorted` is [-6, 9, 9, 9]. Multiply by positions that start at 1: 1 * (-6) + 2 * (9) + 3 * (9) + 4 * (9) = 75. Return 75."
     }
   ],
   "referenceSolutions": {
@@ -141,35 +141,35 @@
         "id": "path3-248-4",
         "input": [
           [
-            9
+            10
           ]
         ],
-        "expected": 9,
+        "expected": 10,
         "coverage": "singleton"
       },
       {
         "id": "path3-248-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            2,
+            2,
+            2,
+            2
           ]
         ],
-        "expected": 50,
+        "expected": 20,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-248-6",
         "input": [
           [
-            -20,
+            -10,
             -1,
-            -7
+            -4
           ]
         ],
-        "expected": -37,
+        "expected": -21,
         "coverage": "lower-bound"
       },
       {
@@ -177,72 +177,72 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
             -9,
-            4,
-            17,
-            -11,
             2,
-            15,
-            -13,
-            0,
             13,
-            -15,
-            -2,
-            11,
             -17,
-            -4,
-            9,
-            -19,
             -6,
-            7,
-            20,
-            -8,
             5,
-            18,
-            -10,
-            3,
             16,
-            -12,
-            1,
-            14,
             -14,
-            -1,
-            12,
-            -16,
             -3,
-            10,
-            -18,
-            -5,
             8,
-            -20,
-            -7,
-            6,
             19,
-            -9,
-            4,
-            17,
             -11,
-            2,
-            15,
-            -13,
             0,
-            13,
-            -15,
-            -2,
             11,
-            -17,
-            -4,
-            9,
             -19,
-            -6,
+            -8,
+            3,
+            14,
+            -16,
+            -5,
+            6,
+            17,
+            -13,
+            -2,
+            9,
+            20,
+            -10,
+            1,
+            12,
+            -18,
+            -7,
+            4,
+            15,
+            -15,
+            -4,
             7,
-            20
+            18,
+            -12,
+            -1,
+            10,
+            -20,
+            -9,
+            2,
+            13,
+            -17,
+            -6,
+            5,
+            16,
+            -14,
+            -3,
+            8,
+            19,
+            -11,
+            0,
+            11,
+            -19,
+            -8,
+            3,
+            14,
+            -16,
+            -5,
+            6,
+            17
           ]
         ],
-        "expected": 14203,
+        "expected": 13641,
         "coverage": "maximum-size"
       },
       {
@@ -261,14 +261,14 @@
         "id": "path3-248-9",
         "input": [
           [
-            8,
-            3,
-            -2,
-            8,
-            1
+            -5,
+            2,
+            6,
+            6,
+            13
           ]
         ],
-        "expected": 81,
+        "expected": 106,
         "coverage": "order-and-ties"
       }
     ],

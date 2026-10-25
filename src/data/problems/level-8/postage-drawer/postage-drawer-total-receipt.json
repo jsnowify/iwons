@@ -19,7 +19,7 @@
   "summary": "Unbounded dynamic programming. Return the total.",
   "stage": "Variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `fewestStamps`. Each number in `readings` is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order.\n2. Add up every number in `fewestStamps`. Store the sum in `total`.\n3. Complete `postageDrawerTotalReceipt` so it returns `total`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 1, 6, 2], then `fewestStamps` is [3, 1, 3, 2] and `postageDrawerTotalReceipt` returns 9.\n\nRules\n- If `fewestStamps` is empty, `total` is 0.\n\nTest data\nTEST DATA 1: `readings` is [7, 3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, 2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `fewestStamps`. Each number in `readings` is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order.\n2. Add up every number in `fewestStamps`. Store the sum in `total`.\n3. Complete `postageDrawerTotalReceipt` so it returns `total`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 2, 6, 6, 6], then `fewestStamps` is [3, 2, 3, 3, 3] and `postageDrawerTotalReceipt` returns 14.\n\nRules\n- If `fewestStamps` is empty, `total` is 0.\n\nTest data\nTEST DATA 1: `readings` is [5, 9, 0, 5, 4].\nTEST DATA 2: `readings` is [6, 6, 8, 6].",
   "unitIntro": "Each number in `readings` is an amount of postage. You can use as many stamps of value 1, 4, or 9 as you need. Find the fewest stamps whose values add up to each amount exactly. For amount 8, two stamps of value 4 are enough. Amount 0 needs 0 stamps. Put the answers in input order. Each problem in this unit builds `fewestStamps` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,30 +45,30 @@
       "id": "path3-432-1",
       "input": [
         [
-          7,
-          3,
-          7,
+          5,
+          9,
           0,
-          12
+          5,
+          4
         ]
       ],
-      "expected": 14,
+      "expected": 6,
       "coverage": "worked",
-      "explanation": "`fewestStamps` is [4, 3, 4, 0, 3]. Add its numbers to get 14. Return 14."
+      "explanation": "`fewestStamps` is [2, 1, 0, 2, 1]. Add its numbers to get 6. Return 6."
     },
     {
       "id": "path3-432-2",
       "input": [
         [
-          4,
-          4,
-          2,
-          4
+          6,
+          6,
+          8,
+          6
         ]
       ],
-      "expected": 5,
+      "expected": 11,
       "coverage": "worked",
-      "explanation": "`fewestStamps` is [1, 1, 2, 1]. Add its numbers to get 5. Return 5."
+      "explanation": "`fewestStamps` is [3, 3, 2, 3]. Add its numbers to get 11. Return 11."
     },
     {
       "id": "path3-432-3",
@@ -101,30 +101,30 @@
       "id": "path3-432-1",
       "input": [
         [
-          7,
-          3,
-          7,
+          5,
+          9,
           0,
-          12
+          5,
+          4
         ]
       ],
-      "expected": 14,
+      "expected": 6,
       "coverage": "worked",
-      "explanation": "`fewestStamps` is [4, 3, 4, 0, 3]. Add its numbers to get 14. Return 14."
+      "explanation": "`fewestStamps` is [2, 1, 0, 2, 1]. Add its numbers to get 6. Return 6."
     },
     {
       "id": "path3-432-2",
       "input": [
         [
-          4,
-          4,
-          2,
-          4
+          6,
+          6,
+          8,
+          6
         ]
       ],
-      "expected": 5,
+      "expected": 11,
       "coverage": "worked",
-      "explanation": "`fewestStamps` is [1, 1, 2, 1]. Add its numbers to get 5. Return 5."
+      "explanation": "`fewestStamps` is [3, 3, 2, 3]. Add its numbers to get 11. Return 11."
     }
   ],
   "referenceSolutions": {
@@ -139,7 +139,7 @@
         "id": "path3-432-4",
         "input": [
           [
-            9
+            1
           ]
         ],
         "expected": 1,
@@ -149,25 +149,25 @@
         "id": "path3-432-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            6,
+            6,
+            6,
+            6
           ]
         ],
-        "expected": 8,
+        "expected": 12,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-432-6",
         "input": [
           [
-            20,
-            1,
-            7
+            9,
+            12,
+            17
           ]
         ],
-        "expected": 9,
+        "expected": 7,
         "coverage": "lower-bound"
       },
       {
@@ -260,13 +260,13 @@
         "input": [
           [
             8,
-            3,
-            2,
-            8,
-            1
+            5,
+            4,
+            9,
+            4
           ]
         ],
-        "expected": 10,
+        "expected": 7,
         "coverage": "order-and-ties"
       }
     ],

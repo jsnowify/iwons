@@ -19,7 +19,7 @@
   "summary": "Two sorted streams. Return the largest number.",
   "stage": "Optimize",
   "boss": false,
-  "descriptionMd": "Inputs\n`drawers` contains exactly two lists of numbers. The first list is `drawers[0]`; the second is `drawers[1]`.\n\nYour tasks\n1. Create a list `merged`. `drawers` contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted `merged`. Keep all repeated numbers, including copies from both input lists.\n2. Find the largest number in `merged`. Store it in `largest`.\n3. Complete `pairedDrawersPeakTicket` so it returns `largest`. Return it, do not print it.\n\nExample\nIf `drawers` is [[-1, 2, 6, 6], [-1, 2, 6, 6]], then `merged` is [-1, -1, 2, 2, 6, 6, 6, 6] and `pairedDrawersPeakTicket` returns 6.\n\nRules\n- If `merged` is empty, return 0.\n\nTest data\nTEST DATA 1: `drawers` is [[-3, 0, 7, 7, 12], []].\nTEST DATA 2: `drawers` is [[-2, 4, 4, 4], [9]].",
+  "descriptionMd": "Inputs\n`drawers` contains exactly two lists of numbers. The first list is `drawers[0]`; the second is `drawers[1]`.\n\nYour tasks\n1. Create a list `merged`. `drawers` contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted `merged`. Keep all repeated numbers, including copies from both input lists.\n2. Find the largest number in `merged`. Store it in `largest`.\n3. Complete `pairedDrawersPeakTicket` so it returns `largest`. Return it, do not print it.\n\nExample\nIf `drawers` is [[-7, 3, 6, 6, 11], [-7, 3, 6, 6, 11]], then `merged` is [-7, -7, 3, 3, 6, 6, 6, 6, 11, 11] and `pairedDrawersPeakTicket` returns 11.\n\nRules\n- If `merged` is empty, return 0.\n\nTest data\nTEST DATA 1: `drawers` is [[-11, 0, 7, 17, 17], []].\nTEST DATA 2: `drawers` is [[-5, 5, 5, 5], [4]].",
   "unitIntro": "`drawers` contains two lists, each already sorted from smallest to largest. Combine their numbers into one sorted `merged`. Keep all repeated numbers, including copies from both input lists. Each problem in this unit builds `merged` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 50000 per row.",
@@ -47,37 +47,37 @@
       "input": [
         [
           [
-            -3,
+            -11,
             0,
             7,
-            7,
-            12
+            17,
+            17
           ],
           []
         ]
       ],
-      "expected": 12,
+      "expected": 17,
       "coverage": "worked",
-      "explanation": "`merged` is [-3, 0, 7, 7, 12]. The largest number is 12. Return 12."
+      "explanation": "`merged` is [-11, 0, 7, 17, 17]. The largest number is 17. Return 17."
     },
     {
       "id": "path3-180-2",
       "input": [
         [
           [
-            -2,
-            4,
-            4,
-            4
+            -5,
+            5,
+            5,
+            5
           ],
           [
-            9
+            4
           ]
         ]
       ],
-      "expected": 9,
+      "expected": 5,
       "coverage": "worked",
-      "explanation": "`merged` is [-2, 4, 4, 4, 9]. The largest number is 9. Return 9."
+      "explanation": "`merged` is [-5, 4, 5, 5, 5]. The largest number is 5. Return 5."
     },
     {
       "id": "path3-180-3",
@@ -114,37 +114,37 @@
       "input": [
         [
           [
-            -3,
+            -11,
             0,
             7,
-            7,
-            12
+            17,
+            17
           ],
           []
         ]
       ],
-      "expected": 12,
+      "expected": 17,
       "coverage": "worked",
-      "explanation": "`merged` is [-3, 0, 7, 7, 12]. The largest number is 12. Return 12."
+      "explanation": "`merged` is [-11, 0, 7, 17, 17]. The largest number is 17. Return 17."
     },
     {
       "id": "path3-180-2",
       "input": [
         [
           [
-            -2,
-            4,
-            4,
-            4
+            -5,
+            5,
+            5,
+            5
           ],
           [
-            9
+            4
           ]
         ]
       ],
-      "expected": 9,
+      "expected": 5,
       "coverage": "worked",
-      "explanation": "`merged` is [-2, 4, 4, 4, 9]. The largest number is 9. Return 9."
+      "explanation": "`merged` is [-5, 4, 5, 5, 5]. The largest number is 5. Return 5."
     }
   ],
   "referenceSolutions": {
@@ -160,16 +160,16 @@
         "input": [
           [
             [
-              9
+              4
             ],
             [
-              -20,
-              -7,
-              -1
+              -14,
+              -6,
+              -4
             ]
           ]
         ],
-        "expected": 9,
+        "expected": 4,
         "coverage": "singleton"
       },
       {
@@ -2622,7 +2622,6 @@
               -19,
               -19,
               -19,
-              -19,
               -18,
               -18,
               -18,
@@ -3842,7 +3841,7 @@
               -18,
               -18,
               -18,
-              -17,
+              -18,
               -17,
               -17,
               -17,
@@ -5062,6 +5061,7 @@
               -17,
               -17,
               -17,
+              -16,
               -16,
               -16,
               -16,
@@ -13598,7 +13598,7 @@
               -10,
               -10,
               -10,
-              -9,
+              -10,
               -9,
               -9,
               -9,
@@ -16037,7 +16037,7 @@
               -8,
               -8,
               -8,
-              -7,
+              -8,
               -7,
               -7,
               -7,
@@ -18476,7 +18476,6 @@
               -6,
               -6,
               -6,
-              -6,
               -5,
               -5,
               -5,
@@ -19696,7 +19695,7 @@
               -5,
               -5,
               -5,
-              -4,
+              -5,
               -4,
               -4,
               -4,
@@ -22135,7 +22134,7 @@
               -3,
               -3,
               -3,
-              -2,
+              -3,
               -2,
               -2,
               -2,
@@ -29452,7 +29451,7 @@
               3,
               3,
               3,
-              4,
+              3,
               4,
               4,
               4,
@@ -31891,7 +31890,7 @@
               5,
               5,
               5,
-              6,
+              5,
               6,
               6,
               6,
@@ -34330,6 +34329,7 @@
               7,
               7,
               7,
+              7,
               8,
               8,
               8,
@@ -35549,7 +35549,7 @@
               8,
               8,
               8,
-              9,
+              8,
               9,
               9,
               9,
@@ -37988,7 +37988,7 @@
               10,
               10,
               10,
-              11,
+              10,
               11,
               11,
               11,
@@ -46524,7 +46524,6 @@
               17,
               17,
               17,
-              17,
               18,
               18,
               18,
@@ -47744,7 +47743,7 @@
               18,
               18,
               18,
-              19,
+              18,
               19,
               19,
               19,
@@ -48964,6 +48963,7 @@
               19,
               19,
               19,
+              20,
               20,
               20,
               20,
@@ -50194,9 +50194,9 @@
         "input": [
           [
             [
-              -20,
-              -7,
-              -1
+              -14,
+              -6,
+              -4
             ],
             [
               0,
@@ -52652,7 +52652,6 @@
               -19,
               -19,
               -19,
-              -19,
               -18,
               -18,
               -18,
@@ -53872,7 +53871,7 @@
               -18,
               -18,
               -18,
-              -17,
+              -18,
               -17,
               -17,
               -17,
@@ -55092,6 +55091,7 @@
               -17,
               -17,
               -17,
+              -16,
               -16,
               -16,
               -16,
@@ -63628,7 +63628,7 @@
               -10,
               -10,
               -10,
-              -9,
+              -10,
               -9,
               -9,
               -9,
@@ -66067,7 +66067,7 @@
               -8,
               -8,
               -8,
-              -7,
+              -8,
               -7,
               -7,
               -7,
@@ -68506,7 +68506,6 @@
               -6,
               -6,
               -6,
-              -6,
               -5,
               -5,
               -5,
@@ -69726,7 +69725,7 @@
               -5,
               -5,
               -5,
-              -4,
+              -5,
               -4,
               -4,
               -4,
@@ -72165,7 +72164,7 @@
               -3,
               -3,
               -3,
-              -2,
+              -3,
               -2,
               -2,
               -2,
@@ -79482,7 +79481,7 @@
               3,
               3,
               3,
-              4,
+              3,
               4,
               4,
               4,
@@ -81921,7 +81920,7 @@
               5,
               5,
               5,
-              6,
+              5,
               6,
               6,
               6,
@@ -84360,6 +84359,7 @@
               7,
               7,
               7,
+              7,
               8,
               8,
               8,
@@ -85579,7 +85579,7 @@
               8,
               8,
               8,
-              9,
+              8,
               9,
               9,
               9,
@@ -88018,7 +88018,7 @@
               10,
               10,
               10,
-              11,
+              10,
               11,
               11,
               11,
@@ -96554,7 +96554,6 @@
               17,
               17,
               17,
-              17,
               18,
               18,
               18,
@@ -97774,7 +97773,7 @@
               18,
               18,
               18,
-              19,
+              18,
               19,
               19,
               19,
@@ -98994,6 +98993,7 @@
               19,
               19,
               19,
+              20,
               20,
               20,
               20,
@@ -105052,7 +105052,6 @@
               -13,
               -13,
               -13,
-              -13,
               -12,
               -12,
               -12,
@@ -113117,6 +113116,7 @@
               -8,
               -8,
               -8,
+              -8,
               -7,
               -7,
               -7,
@@ -114730,7 +114730,6 @@
               -7,
               -7,
               -7,
-              -6,
               -6,
               -6,
               -6,
@@ -117955,7 +117954,8 @@
               -5,
               -5,
               -5,
-              -4,
+              -5,
+              -5,
               -4,
               -4,
               -4,
@@ -121181,7 +121181,6 @@
               -3,
               -3,
               -3,
-              -2,
               -2,
               -2,
               -2,
@@ -122794,7 +122793,6 @@
               -2,
               -2,
               -2,
-              -2,
               -1,
               -1,
               -1,
@@ -124407,6 +124405,7 @@
               -1,
               -1,
               -1,
+              -1,
               0,
               0,
               0,
@@ -126020,7 +126019,6 @@
               0,
               0,
               0,
-              1,
               1,
               1,
               1,
@@ -129246,7 +129244,7 @@
               2,
               2,
               2,
-              3,
+              2,
               3,
               3,
               3,
@@ -135698,6 +135696,7 @@
               6,
               6,
               6,
+              6,
               7,
               7,
               7,
@@ -137311,7 +137310,6 @@
               7,
               7,
               7,
-              8,
               8,
               8,
               8,
@@ -138925,7 +138923,7 @@
               8,
               8,
               8,
-              8,
+              9,
               9,
               9,
               9,
@@ -142151,6 +142149,8 @@
               10,
               10,
               10,
+              10,
+              10,
               11,
               11,
               11,
@@ -145377,6 +145377,7 @@
               12,
               12,
               12,
+              13,
               13,
               13,
               13,
@@ -146989,7 +146990,6 @@
               13,
               13,
               13,
-              14,
               14,
               14,
               14,
@@ -150231,15 +150231,15 @@
               0
             ],
             [
-              -3,
+              -11,
               0,
               7,
-              7,
-              12
+              17,
+              17
             ]
           ]
         ],
-        "expected": 12,
+        "expected": 17,
         "coverage": "zero-or-minimum"
       },
       {
@@ -150247,21 +150247,21 @@
         "input": [
           [
             [
-              -2,
-              1,
-              3,
-              8,
-              8
+              -5,
+              5,
+              7,
+              10,
+              10
             ],
             [
-              -2,
-              4,
-              4,
-              4
+              -5,
+              5,
+              5,
+              5
             ]
           ]
         ],
-        "expected": 8,
+        "expected": 10,
         "coverage": "order-and-ties"
       }
     ],

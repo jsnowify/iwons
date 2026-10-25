@@ -19,7 +19,7 @@
   "summary": "Frequency maps. Find the first number at least k.",
   "stage": "Combine",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `counts`. Count how many times each different number appears in `readings`. Sort the different numbers from smallest to largest. Put their counts in that order in `counts`. For [5, 2, 5], the numbers are 2 and 5, so `counts` is [1, 2].\n2. Read `counts` from left to right. Find the first number that is at least `k` and store that number, not its position, in `firstMatch`.\n3. Complete `frequencyFilesFirstQualifyingSlip` so it returns `firstMatch`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2] and `k` is 4, then `counts` is [1, 1, 2] and `frequencyFilesFirstQualifyingSlip` returns -1.\n\nRules\n- If no number is at least `k`, return -1.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12] and `k` is 3.\nTEST DATA 2: `readings` is [4, 4, -2, 4] and `k` is 2.",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `counts`. Count how many times each different number appears in `readings`. Sort the different numbers from smallest to largest. Put their counts in that order in `counts`. For [5, 2, 5], the numbers are 2 and 5, so `counts` is [1, 2].\n2. Read `counts` from left to right. Find the first number that is at least `k` and store that number, not its position, in `firstMatch`.\n3. Complete `frequencyFilesFirstQualifyingSlip` so it returns `firstMatch`. Return it, do not print it.\n\nExample\nIf `readings` is [2, 5, -5, 2, 4] and `k` is 5, then `counts` is [1, 2, 1, 1] and `frequencyFilesFirstQualifyingSlip` returns -1.\n\nRules\n- If no number is at least `k`, return -1.\n- `k` (a whole number from 1 to 8) is the threshold in task 2: compare each number with it.\n\nTest data\nTEST DATA 1: `readings` is [6, 0, 4, 6, -9] and `k` is 5.\nTEST DATA 2: `readings` is [2, 2, -9, 2] and `k` is 8.",
   "unitIntro": "Count how many times each different number appears in `readings`. Sort the different numbers from smallest to largest. Put their counts in that order in `counts`. For [5, 2, 5], the numbers are 2 and 5, so `counts` is [1, 2]. Each problem in this unit builds `counts` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,42 +45,42 @@
       "id": "path3-084-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          6,
           0,
-          12
+          4,
+          6,
+          -9
         ],
-        3
+        5
       ],
       "expected": -1,
       "coverage": "worked",
-      "explanation": "`counts` is [1, 1, 2, 1]. Here `k` is 3. No number is at least 3, so return -1."
+      "explanation": "`counts` is [1, 1, 1, 2]. Here `k` is 5. No number is at least 5, so return -1."
     },
     {
       "id": "path3-084-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          2,
+          2,
+          -9,
+          2
         ],
-        2
+        8
       ],
-      "expected": 3,
+      "expected": -1,
       "coverage": "worked",
-      "explanation": "`counts` is [1, 3]. Here `k` is 2. The first number at least 2 is 3. Return that value."
+      "explanation": "`counts` is [1, 3]. Here `k` is 8. No number is at least 8, so return -1."
     },
     {
       "id": "path3-084-3",
       "input": [
         [],
-        1
+        8
       ],
       "expected": -1,
       "coverage": "empty",
-      "explanation": "`counts` is []. Here `k` is 1. No number is at least 1, so return -1."
+      "explanation": "`counts` is []. Here `k` is 8. No number is at least 8, so return -1."
     }
   ],
   "timeLimitMs": 2000,
@@ -105,32 +105,32 @@
       "id": "path3-084-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          6,
           0,
-          12
+          4,
+          6,
+          -9
         ],
-        3
+        5
       ],
       "expected": -1,
       "coverage": "worked",
-      "explanation": "`counts` is [1, 1, 2, 1]. Here `k` is 3. No number is at least 3, so return -1."
+      "explanation": "`counts` is [1, 1, 1, 2]. Here `k` is 5. No number is at least 5, so return -1."
     },
     {
       "id": "path3-084-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          2,
+          2,
+          -9,
+          2
         ],
-        2
+        8
       ],
-      "expected": 3,
+      "expected": -1,
       "coverage": "worked",
-      "explanation": "`counts` is [1, 3]. Here `k` is 2. The first number at least 2 is 3. Return that value."
+      "explanation": "`counts` is [1, 3]. Here `k` is 8. No number is at least 8, so return -1."
     }
   ],
   "referenceSolutions": {
@@ -145,21 +145,21 @@
         "id": "path3-084-4",
         "input": [
           [
-            9
+            17
           ],
-          1
+          7
         ],
-        "expected": 1,
+        "expected": -1,
         "coverage": "singleton"
       },
       {
         "id": "path3-084-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            2,
+            2,
+            2,
+            2
           ],
           4
         ],
@@ -170,11 +170,11 @@
         "id": "path3-084-6",
         "input": [
           [
-            -20,
-            -1,
-            -7
+            -10,
+            -16,
+            -20
           ],
-          8
+          7
         ],
         "expected": -1,
         "coverage": "lower-bound"
@@ -184,69 +184,69 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
-            -4,
-            9,
-            -19,
-            -6,
-            7,
-            20,
-            -8,
-            5,
-            18,
-            -10,
-            3,
-            16,
-            -12,
-            1,
-            14,
-            -14,
             -1,
-            12,
-            -16,
-            -3,
-            10,
-            -18,
-            -5,
-            8,
-            -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
+            18,
             -4,
+            15,
+            -7,
+            12,
+            -10,
             9,
+            -13,
+            6,
+            -16,
+            3,
             -19,
+            0,
+            19,
+            -3,
+            16,
             -6,
+            13,
+            -9,
+            10,
+            -12,
             7,
-            20
+            -15,
+            4,
+            -18,
+            1,
+            20,
+            -2,
+            17,
+            -5,
+            14,
+            -8,
+            11,
+            -11,
+            8,
+            -14,
+            5,
+            -17,
+            2,
+            -20,
+            -1,
+            18,
+            -4,
+            15,
+            -7,
+            12,
+            -10,
+            9,
+            -13,
+            6,
+            -16,
+            3,
+            -19,
+            0,
+            19,
+            -3,
+            16,
+            -6,
+            13,
+            -9,
+            10,
+            -12
           ],
           3
         ],
@@ -261,7 +261,7 @@
             0,
             0
           ],
-          5
+          8
         ],
         "expected": -1,
         "coverage": "zero-or-minimum"
@@ -270,15 +270,15 @@
         "id": "path3-084-9",
         "input": [
           [
-            8,
-            3,
-            -2,
-            8,
-            1
+            -6,
+            5,
+            11,
+            14,
+            14
           ],
-          2
+          4
         ],
-        "expected": 2,
+        "expected": -1,
         "coverage": "order-and-ties"
       }
     ],

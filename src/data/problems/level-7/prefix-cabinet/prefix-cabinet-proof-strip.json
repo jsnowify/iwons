@@ -19,7 +19,7 @@
   "summary": "Trie prefix counts. Return the whole list.",
   "stage": "Warm-up",
   "boss": false,
-  "descriptionMd": "Inputs\n`words` is a list of `words`.\n\nYour tasks\n1. Create a list `prefixTotals`. A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order.\n2. Complete `prefixCabinetProofStrip` so it returns `prefixTotals`. Return it, do not print it.\n\nExample\nIf `words` is [\"tap\", \"tape\", \"top\", \"tap\"], then `prefixTotals` is [10, 11, 6, 10] and `prefixCabinetProofStrip` returns [10, 11, 6, 10].\n\nRules\n- If `prefixTotals` is empty, return [].\n\nTest data\nTEST DATA 1: `words` is [\"ink\", \"inside\", \"inn\", \"paper\"].\nTEST DATA 2: `words` is [\"aa\", \"aa\", \"ab\"].",
+  "descriptionMd": "Inputs\n`words` is a list of `words`.\n\nYour tasks\n1. Create a list `prefixTotals`. A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order.\n2. Complete `prefixCabinetProofStrip` so it returns `prefixTotals`. Return it, do not print it.\n\nExample\nIf `words` is [\"binder\", \"binder\", \"bia\", \"paper\"], then `prefixTotals` is [14, 14, 7, 5] and `prefixCabinetProofStrip` returns [14, 14, 7, 5].\n\nRules\n- If `prefixTotals` is empty, return [].\n\nTest data\nTEST DATA 1: `words` is [\"lever\", \"lever\", \"leyk\", \"carriage\"].\nTEST DATA 2: `words` is [\"lever\", \"lever\", \"levef\"].",
   "unitIntro": "A prefix is the start of a word. For example, \"c\", \"ca\", and \"cat\" are the prefixes with at least one letter of \"cat\". For each word in `words`, look at all its prefixes with at least one letter. Count how many input `words` start with each prefix, then add those counts. Count repeated input `words` separately, and include the word itself. Put one total per word in `prefixTotals`, in input order. Each problem in this unit builds `prefixTotals` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,37 +45,37 @@
       "id": "path3-391-1",
       "input": [
         [
-          "ink",
-          "inside",
-          "inn",
-          "paper"
+          "lever",
+          "lever",
+          "leyk",
+          "carriage"
         ]
       ],
       "expected": [
-        7,
-        10,
-        7,
-        5
+        12,
+        12,
+        8,
+        8
       ],
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [7, 10, 7, 5]. `prefixCabinetProofStrip` returns that whole list, so return [7, 10, 7, 5]."
+      "explanation": "`prefixTotals` is [12, 12, 8, 8]. `prefixCabinetProofStrip` returns that whole list, so return [12, 12, 8, 8]."
     },
     {
       "id": "path3-391-2",
       "input": [
         [
-          "aa",
-          "aa",
-          "ab"
+          "lever",
+          "lever",
+          "levef"
         ]
       ],
       "expected": [
-        5,
-        5,
-        4
+        14,
+        14,
+        13
       ],
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [5, 5, 4]. `prefixCabinetProofStrip` returns that whole list, so return [5, 5, 4]."
+      "explanation": "`prefixTotals` is [14, 14, 13]. `prefixCabinetProofStrip` returns that whole list, so return [14, 14, 13]."
     },
     {
       "id": "path3-391-3",
@@ -108,37 +108,37 @@
       "id": "path3-391-1",
       "input": [
         [
-          "ink",
-          "inside",
-          "inn",
-          "paper"
+          "lever",
+          "lever",
+          "leyk",
+          "carriage"
         ]
       ],
       "expected": [
-        7,
-        10,
-        7,
-        5
+        12,
+        12,
+        8,
+        8
       ],
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [7, 10, 7, 5]. `prefixCabinetProofStrip` returns that whole list, so return [7, 10, 7, 5]."
+      "explanation": "`prefixTotals` is [12, 12, 8, 8]. `prefixCabinetProofStrip` returns that whole list, so return [12, 12, 8, 8]."
     },
     {
       "id": "path3-391-2",
       "input": [
         [
-          "aa",
-          "aa",
-          "ab"
+          "lever",
+          "lever",
+          "levef"
         ]
       ],
       "expected": [
-        5,
-        5,
-        4
+        14,
+        14,
+        13
       ],
       "coverage": "worked",
-      "explanation": "`prefixTotals` is [5, 5, 4]. `prefixCabinetProofStrip` returns that whole list, so return [5, 5, 4]."
+      "explanation": "`prefixTotals` is [14, 14, 13]. `prefixCabinetProofStrip` returns that whole list, so return [14, 14, 13]."
     }
   ],
   "referenceSolutions": {
@@ -153,11 +153,11 @@
         "id": "path3-391-4",
         "input": [
           [
-            "z"
+            "ledger"
           ]
         ],
         "expected": [
-          1
+          6
         ],
         "coverage": "singleton"
       },
@@ -182,7 +182,7 @@
         "input": [
           [
             "a",
-            "z"
+            "y"
           ]
         ],
         "expected": [
@@ -195,137 +195,137 @@
         "id": "path3-391-7",
         "input": [
           [
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk",
-            "inkpaperpage",
-            "inkpaperdesk"
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix",
+            "levercarrif",
+            "levercarrix"
           ]
         ],
         "expected": [
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640,
-          640
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672,
+          672
         ],
         "coverage": "maximum-size"
       },
@@ -333,8 +333,8 @@
         "id": "path3-391-8",
         "input": [
           [
-            "a",
-            "b"
+            "b",
+            "e"
           ]
         ],
         "expected": [
@@ -348,14 +348,14 @@
         "input": [
           [
             "paper",
-            "pa",
-            "p"
+            "le",
+            "k"
           ]
         ],
         "expected": [
-          8,
           5,
-          3
+          2,
+          1
         ],
         "coverage": "order-and-ties"
       }

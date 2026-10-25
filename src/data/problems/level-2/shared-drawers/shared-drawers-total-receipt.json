@@ -19,7 +19,7 @@
   "summary": "Set intersection. Return the total.",
   "stage": "Variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`drawers` contains exactly two lists of numbers. The first list is `drawers[0]`; the second is `drawers[1]`.\n\nYour tasks\n1. Create a list `shared`. `drawers` contains two lists of numbers. Find the numbers that appear in both lists. Put each matching number in `shared` only once. Sort `shared` from smallest to largest.\n2. Add up every number in `shared`. Store the sum in `total`.\n3. Complete `sharedDrawersTotalReceipt` so it returns `total`. Return it, do not print it.\n\nExample\nIf `drawers` is [[6, -1, 6, 2], [6, -1, 6, 2]], then `shared` is [-1, 2, 6] and `sharedDrawersTotalReceipt` returns 7.\n\nRules\n- If `shared` is empty, `total` is 0.\n\nTest data\nTEST DATA 1: `drawers` is [[7, -3, 7, 0, 12], []].\nTEST DATA 2: `drawers` is [[4, 4, -2, 4], [9]].",
+  "descriptionMd": "Inputs\n`drawers` contains exactly two lists of numbers. The first list is `drawers[0]`; the second is `drawers[1]`.\n\nYour tasks\n1. Create a list `shared`. `drawers` contains two lists of numbers. Find the numbers that appear in both lists. Put each matching number in `shared` only once. Sort `shared` from smallest to largest.\n2. Add up every number in `shared`. Store the sum in `total`.\n3. Complete `sharedDrawersTotalReceipt` so it returns `total`. Return it, do not print it.\n\nExample\nIf `drawers` is [[-1, 4, 9, 4, 3], [-1, 4, 9, 4, 3]], then `shared` is [-1, 3, 4, 9] and `sharedDrawersTotalReceipt` returns 15.\n\nRules\n- If `shared` is empty, `total` is 0.\n\nTest data\nTEST DATA 1: `drawers` is [[-8, 5, 0, 5, 14], []].\nTEST DATA 2: `drawers` is [[5, 5, -5, 5], [19]].",
   "unitIntro": "`drawers` contains two lists of numbers. Find the numbers that appear in both lists. Put each matching number in `shared` only once. Sort `shared` from smallest to largest. Each problem in this unit builds `shared` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64 per row.",
@@ -47,11 +47,11 @@
       "input": [
         [
           [
-            7,
-            -3,
-            7,
+            -8,
+            5,
             0,
-            12
+            5,
+            14
           ],
           []
         ]
@@ -65,13 +65,13 @@
       "input": [
         [
           [
-            4,
-            4,
-            -2,
-            4
+            5,
+            5,
+            -5,
+            5
           ],
           [
-            9
+            19
           ]
         ]
       ],
@@ -114,11 +114,11 @@
       "input": [
         [
           [
-            7,
-            -3,
-            7,
+            -8,
+            5,
             0,
-            12
+            5,
+            14
           ],
           []
         ]
@@ -132,13 +132,13 @@
       "input": [
         [
           [
-            4,
-            4,
-            -2,
-            4
+            5,
+            5,
+            -5,
+            5
           ],
           [
-            9
+            19
           ]
         ]
       ],
@@ -160,12 +160,12 @@
         "input": [
           [
             [
-              9
+              19
             ],
             [
-              -20,
-              -1,
-              -7
+              -5,
+              -2,
+              -15
             ]
           ]
         ],
@@ -177,80 +177,80 @@
         "input": [
           [
             [
-              5,
-              5,
-              5,
-              5
+              9,
+              9,
+              9,
+              9
             ],
             [
               -20,
-              -7,
-              6,
-              19,
               -9,
-              4,
-              17,
-              -11,
               2,
-              15,
-              -13,
-              0,
               13,
-              -15,
-              -2,
-              11,
               -17,
-              -4,
-              9,
-              -19,
               -6,
-              7,
-              20,
-              -8,
               5,
-              18,
-              -10,
-              3,
               16,
-              -12,
-              1,
-              14,
               -14,
-              -1,
-              12,
-              -16,
               -3,
-              10,
-              -18,
-              -5,
               8,
-              -20,
-              -7,
-              6,
               19,
-              -9,
-              4,
-              17,
               -11,
-              2,
-              15,
-              -13,
               0,
-              13,
-              -15,
-              -2,
               11,
-              -17,
-              -4,
-              9,
               -19,
-              -6,
+              -8,
+              3,
+              14,
+              -16,
+              -5,
+              6,
+              17,
+              -13,
+              -2,
+              9,
+              20,
+              -10,
+              1,
+              12,
+              -18,
+              -7,
+              4,
+              15,
+              -15,
+              -4,
               7,
-              20
+              18,
+              -12,
+              -1,
+              10,
+              -20,
+              -9,
+              2,
+              13,
+              -17,
+              -6,
+              5,
+              16,
+              -14,
+              -3,
+              8,
+              19,
+              -11,
+              0,
+              11,
+              -19,
+              -8,
+              3,
+              14,
+              -16,
+              -5,
+              6,
+              17
             ]
           ]
         ],
-        "expected": 5,
+        "expected": 9,
         "coverage": "duplicates-or-redundancy"
       },
       {
@@ -258,9 +258,9 @@
         "input": [
           [
             [
-              -20,
-              -1,
-              -7
+              -5,
+              -2,
+              -15
             ],
             [
               0,
@@ -278,76 +278,76 @@
           [
             [
               -20,
-              -7,
-              6,
-              19,
               -9,
-              4,
-              17,
-              -11,
               2,
-              15,
-              -13,
-              0,
               13,
-              -15,
-              -2,
-              11,
               -17,
-              -4,
-              9,
-              -19,
               -6,
-              7,
-              20,
-              -8,
               5,
-              18,
-              -10,
-              3,
               16,
-              -12,
-              1,
-              14,
               -14,
-              -1,
-              12,
-              -16,
               -3,
-              10,
-              -18,
-              -5,
               8,
-              -20,
-              -7,
-              6,
               19,
-              -9,
-              4,
-              17,
               -11,
-              2,
-              15,
-              -13,
               0,
-              13,
-              -15,
-              -2,
               11,
-              -17,
-              -4,
-              9,
               -19,
-              -6,
+              -8,
+              3,
+              14,
+              -16,
+              -5,
+              6,
+              17,
+              -13,
+              -2,
+              9,
+              20,
+              -10,
+              1,
+              12,
+              -18,
+              -7,
+              4,
+              15,
+              -15,
+              -4,
               7,
-              20
+              18,
+              -12,
+              -1,
+              10,
+              -20,
+              -9,
+              2,
+              13,
+              -17,
+              -6,
+              5,
+              16,
+              -14,
+              -3,
+              8,
+              19,
+              -11,
+              0,
+              11,
+              -19,
+              -8,
+              3,
+              14,
+              -16,
+              -5,
+              6,
+              17
             ],
             [
-              8,
-              3,
-              -2,
-              8,
-              1,
+              4,
+              -5,
+              4,
+              12,
+              5,
               -11,
               -4,
               3,
@@ -423,11 +423,11 @@
               0
             ],
             [
-              7,
-              -3,
-              7,
+              -8,
+              5,
               0,
-              12
+              5,
+              14
             ]
           ]
         ],
@@ -439,21 +439,21 @@
         "input": [
           [
             [
-              8,
-              3,
-              -2,
-              8,
-              1
+              4,
+              -5,
+              4,
+              12,
+              5
             ],
             [
-              4,
-              4,
-              -2,
-              4
+              5,
+              5,
+              -5,
+              5
             ]
           ]
         ],
-        "expected": -2,
+        "expected": 0,
         "coverage": "order-and-ties"
       }
     ],

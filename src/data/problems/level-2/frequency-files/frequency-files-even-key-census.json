@@ -19,7 +19,7 @@
   "summary": "Frequency maps. Count the even numbers.",
   "stage": "Counting variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `counts`. Count how many times each different number appears in `readings`. Sort the different numbers from smallest to largest. Put their counts in that order in `counts`. For [5, 2, 5], the numbers are 2 and 5, so `counts` is [1, 2].\n2. Count the even numbers in `counts`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder.\n3. Complete `frequencyFilesEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `counts` is [1, 1, 2] and `frequencyFilesEvenKeyCensus` returns 1.\n\nRules\n- If `counts` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `counts`. Count how many times each different number appears in `readings`. Sort the different numbers from smallest to largest. Put their counts in that order in `counts`. For [5, 2, 5], the numbers are 2 and 5, so `counts` is [1, 2].\n2. Count the even numbers in `counts`. Store the count in `evenCount`. A number is even when it divides by 2 with no remainder.\n3. Complete `frequencyFilesEvenKeyCensus` so it returns `evenCount`. Return it, do not print it.\n\nExample\nIf `readings` is [5, 9, -2, 5, 5], then `counts` is [1, 3, 1] and `frequencyFilesEvenKeyCensus` returns 0.\n\nRules\n- If `counts` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [15, 0, 5, 5, -1].\nTEST DATA 2: `readings` is [3, 3, -2, 3].",
   "unitIntro": "Count how many times each different number appears in `readings`. Sort the different numbers from smallest to largest. Put their counts in that order in `counts`. For [5, 2, 5], the numbers are 2 and 5, so `counts` is [1, 2]. Each problem in this unit builds `counts` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,11 +45,11 @@
       "id": "path3-087-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          15,
           0,
-          12
+          5,
+          5,
+          -1
         ]
       ],
       "expected": 1,
@@ -60,10 +60,10 @@
       "id": "path3-087-2",
       "input": [
         [
-          4,
-          4,
+          3,
+          3,
           -2,
-          4
+          3
         ]
       ],
       "expected": 0,
@@ -101,11 +101,11 @@
       "id": "path3-087-1",
       "input": [
         [
-          7,
-          -3,
-          7,
+          15,
           0,
-          12
+          5,
+          5,
+          -1
         ]
       ],
       "expected": 1,
@@ -116,10 +116,10 @@
       "id": "path3-087-2",
       "input": [
         [
-          4,
-          4,
+          3,
+          3,
           -2,
-          4
+          3
         ]
       ],
       "expected": 0,
@@ -139,7 +139,7 @@
         "id": "path3-087-4",
         "input": [
           [
-            9
+            12
           ]
         ],
         "expected": 0,
@@ -149,10 +149,10 @@
         "id": "path3-087-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            4,
+            4,
+            4,
+            4
           ]
         ],
         "expected": 1,
@@ -162,9 +162,9 @@
         "id": "path3-087-6",
         "input": [
           [
-            -20,
-            -1,
-            -7
+            -16,
+            -2,
+            -19
           ]
         ],
         "expected": 0,
@@ -175,69 +175,69 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
             -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
-            -4,
-            9,
-            -19,
             -6,
-            7,
-            20,
-            -8,
-            5,
-            18,
-            -10,
-            3,
-            16,
-            -12,
             1,
-            14,
-            -14,
-            -1,
-            12,
-            -16,
-            -3,
-            10,
-            -18,
-            -5,
             8,
-            -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
             15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
-            -4,
-            9,
             -19,
-            -6,
+            -12,
+            -5,
+            2,
+            9,
+            16,
+            -18,
+            -11,
+            -4,
+            3,
+            10,
+            17,
+            -17,
+            -10,
+            -3,
+            4,
+            11,
+            18,
+            -16,
+            -9,
+            -2,
+            5,
+            12,
+            19,
+            -15,
+            -8,
+            -1,
+            6,
+            13,
+            20,
+            -14,
+            -7,
+            0,
             7,
-            20
+            14,
+            -20,
+            -13,
+            -6,
+            1,
+            8,
+            15,
+            -19,
+            -12,
+            -5,
+            2,
+            9,
+            16,
+            -18,
+            -11,
+            -4,
+            3,
+            10,
+            17,
+            -17,
+            -10,
+            -3,
+            4,
+            11
           ]
         ],
         "expected": 23,
@@ -259,11 +259,11 @@
         "id": "path3-087-9",
         "input": [
           [
-            8,
+            6,
+            4,
+            -6,
             3,
-            -2,
-            8,
-            1
+            4
           ]
         ],
         "expected": 1,

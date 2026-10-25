@@ -19,7 +19,7 @@
   "summary": "String runs. Keep the positive numbers.",
   "stage": "Sequence variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`line` is text. A character is one letter, digit, space, or punctuation mark.\n\nYour tasks\n1. Create a list `runLengths`. A run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", `runLengths` is [2, 1, 2].\n2. Create a list `positiveValues` that keeps only the numbers in `runLengths` that are greater than 0, in the same order.\n3. Complete `ribbonRunsPositiveProofStrip` so it returns `positiveValues`. Return it, do not print it.\n\nExample\nIf `line` is \"ok  zoo\", then `runLengths` is [1, 1, 2, 1, 2] and `ribbonRunsPositiveProofStrip` returns [1, 1, 2, 1, 2].\n\nRules\n- Keep repeated numbers.\n- If `runLengths` is empty, return [].\n\nTest data\nTEST DATA 1: `line` is \"inkk paaaper\".\nTEST DATA 2: `line` is \"QQ qQQ\".",
+  "descriptionMd": "Inputs\n`line` is text. A character is one letter, digit, space, or punctuation mark.\n\nYour tasks\n1. Create a list `runLengths`. A run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", `runLengths` is [2, 1, 2].\n2. Create a list `positiveValues` that keeps only the numbers in `runLengths` that are greater than 0, in the same order.\n3. Complete `ribbonRunsPositiveProofStrip` so it returns `positiveValues`. Return it, do not print it.\n\nExample\nIf `line` is \"rg  zci\", then `runLengths` is [1, 1, 2, 1, 1, 1] and `ribbonRunsPositiveProofStrip` returns [1, 1, 2, 1, 1, 1].\n\nRules\n- Keep repeated numbers.\n- If `runLengths` is empty, return [].\n\nTest data\nTEST DATA 1: `line` is \"illrx mrrri\".\nTEST DATA 2: `line` is \"LL lLL\".",
   "unitIntro": "A run is a group of matching characters next to each other. End a run only when the character changes or the text ends. Record the length of each run, from left to right. Spaces count as characters too. For \"aa bb\", `runLengths` is [2, 1, 2]. Each problem in this unit builds `runLengths` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -44,26 +44,25 @@
     {
       "id": "path3-049-1",
       "input": [
-        "inkk paaaper"
+        "illrx mrrri"
       ],
       "expected": [
-        1,
         1,
         2,
         1,
         1,
+        1,
+        1,
         3,
-        1,
-        1,
         1
       ],
       "coverage": "worked",
-      "explanation": "`runLengths` is [1, 1, 2, 1, 1, 3, 1, 1, 1]. Keep only numbers greater than 0, without changing their order. Return [1, 1, 2, 1, 1, 3, 1, 1, 1]."
+      "explanation": "`runLengths` is [1, 2, 1, 1, 1, 1, 3, 1]. Keep only numbers greater than 0, without changing their order. Return [1, 2, 1, 1, 1, 1, 3, 1]."
     },
     {
       "id": "path3-049-2",
       "input": [
-        "QQ qQQ"
+        "LL lLL"
       ],
       "expected": [
         2,
@@ -104,26 +103,25 @@
     {
       "id": "path3-049-1",
       "input": [
-        "inkk paaaper"
+        "illrx mrrri"
       ],
       "expected": [
-        1,
         1,
         2,
         1,
         1,
+        1,
+        1,
         3,
-        1,
-        1,
         1
       ],
       "coverage": "worked",
-      "explanation": "`runLengths` is [1, 1, 2, 1, 1, 3, 1, 1, 1]. Keep only numbers greater than 0, without changing their order. Return [1, 1, 2, 1, 1, 3, 1, 1, 1]."
+      "explanation": "`runLengths` is [1, 2, 1, 1, 1, 1, 3, 1]. Keep only numbers greater than 0, without changing their order. Return [1, 2, 1, 1, 1, 1, 3, 1]."
     },
     {
       "id": "path3-049-2",
       "input": [
-        "QQ qQQ"
+        "LL lLL"
       ],
       "expected": [
         2,
@@ -156,7 +154,7 @@
       {
         "id": "path3-049-5",
         "input": [
-          "aaaaa"
+          "eeeee"
         ],
         "expected": [
           5
@@ -166,13 +164,12 @@
       {
         "id": "path3-049-6",
         "input": [
-          " -!? "
+          " -,, "
         ],
         "expected": [
           1,
           1,
-          1,
-          1,
+          2,
           1
         ],
         "coverage": "lower-bound"
@@ -180,7 +177,7 @@
       {
         "id": "path3-049-7",
         "input": [
-          "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
+          "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu"
         ],
         "expected": [
           64
@@ -200,7 +197,7 @@
       {
         "id": "path3-049-9",
         "input": [
-          "a bb   ccc"
+          "l rr   eee"
         ],
         "expected": [
           1,

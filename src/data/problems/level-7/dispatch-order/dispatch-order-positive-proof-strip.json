@@ -19,7 +19,7 @@
   "summary": "Topological queues. Keep the positive numbers.",
   "stage": "Sequence variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`links` is a square table of 0s and 1s. Points are numbered from 0. A 1 at `links`[a][b] means a one-way path goes from point a to point b. A 0 means no path.\n\nYour tasks\n1. Create a list `taskOrder`. Each point in this graph is a task. A path from task a to task b means a must happen before b. Put all tasks with no paths coming into them in a queue, in number order. A queue serves the task at its front first. Remove that task, record its number, and remove its outgoing paths. Check its next tasks in number order. Add a task to the back of the queue as soon as it has no paths left coming in. If you cannot record every task, the rules contain a loop: use an empty `taskOrder` instead.\n2. Create a list `positiveValues` that keeps only the numbers in `taskOrder` that are greater than 0, in the same order.\n3. Complete `dispatchOrderPositiveProofStrip` so it returns `positiveValues`. Return it, do not print it.\n\nExample\nIf `links` is [[1, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 1, 0, 0, 1], [1, 0, 0, 1, 0], [0, 0, 1, 0, 0]], then `taskOrder` is [] and `dispatchOrderPositiveProofStrip` returns [].\n\nRules\n- If no number is greater than 0, return [].\n\nTest data\nTEST DATA 1: `links` is [[1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0], [1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0]].\nTEST DATA 2: `links` is [[0, 0, 1, 0, 0], [0, 1, 0, 0, 1], [1, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 1, 0, 0, 1]].",
+  "descriptionMd": "Inputs\n`links` is a square table of 0s and 1s. Points are numbered from 0. A 1 at `links`[a][b] means a one-way path goes from point a to point b. A 0 means no path.\n\nYour tasks\n1. Create a list `taskOrder`. Each point in this graph is a task. A path from task a to task b means a must happen before b. Put all tasks with no paths coming into them in a queue, in number order. A queue serves the task at its front first. Remove that task, record its number, and remove its outgoing paths. Check its next tasks in number order. Add a task to the back of the queue as soon as it has no paths left coming in. If you cannot record every task, the rules contain a loop: use an empty `taskOrder` instead.\n2. Create a list `positiveValues` that keeps only the numbers in `taskOrder` that are greater than 0, in the same order.\n3. Complete `dispatchOrderPositiveProofStrip` so it returns `positiveValues`. Return it, do not print it.\n\nExample\nIf `links` is [[1, 0, 1, 0, 1, 1], [1, 1, 1, 1, 0, 0], [1, 0, 0, 1, 0, 1], [0, 1, 0, 0, 0, 0], [1, 1, 0, 1, 0, 1], [1, 1, 1, 1, 0, 1]], then `taskOrder` is [] and `dispatchOrderPositiveProofStrip` returns [].\n\nRules\n- If no number is greater than 0, return [].\n\nTest data\nTEST DATA 1: `links` is [[1, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0], [1, 0, 1, 1, 0, 0], [0, 0, 0, 1, 0, 0], [0, 1, 1, 0, 0, 0], [1, 0, 0, 1, 1, 0]].\nTEST DATA 2: `links` is [[0, 0, 1, 0, 0], [0, 1, 0, 0, 0], [0, 1, 1, 0, 0], [0, 1, 1, 0, 0], [0, 1, 0, 0, 0]].",
   "unitIntro": "Each point in this graph is a task. A path from task a to task b means a must happen before b. Put all tasks with no paths coming into them in a queue, in number order. A queue serves the task at its front first. Remove that task, record its number, and remove its outgoing paths. Check its next tasks in number order. Add a task to the back of the queue as soon as it has no paths left coming in. If you cannot record every task, the rules contain a loop: use an empty `taskOrder` instead. Each problem in this unit builds `taskOrder` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 16.",
@@ -50,24 +50,40 @@
             1,
             0,
             0,
-            1,
-            0,
-            0
-          ],
-          [
-            0,
-            0,
-            1,
             0,
             0,
             1
           ],
           [
             0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
             1,
             0,
             0,
-            1,
             0
           ],
           [
@@ -75,22 +91,6 @@
             0,
             0,
             1,
-            0,
-            0
-          ],
-          [
-            0,
-            0,
-            1,
-            0,
-            0,
-            1
-          ],
-          [
-            0,
-            1,
-            0,
-            0,
             1,
             0
           ]
@@ -116,18 +116,11 @@
             1,
             0,
             0,
-            1
-          ],
-          [
-            1,
-            0,
-            0,
-            1,
             0
           ],
           [
             0,
-            0,
+            1,
             1,
             0,
             0
@@ -135,9 +128,16 @@
           [
             0,
             1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
             0,
             0,
-            1
+            0
           ]
         ]
       ],
@@ -180,24 +180,40 @@
             1,
             0,
             0,
-            1,
-            0,
-            0
-          ],
-          [
-            0,
-            0,
-            1,
             0,
             0,
             1
           ],
           [
             0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
             1,
             0,
             0,
-            1,
             0
           ],
           [
@@ -205,22 +221,6 @@
             0,
             0,
             1,
-            0,
-            0
-          ],
-          [
-            0,
-            0,
-            1,
-            0,
-            0,
-            1
-          ],
-          [
-            0,
-            1,
-            0,
-            0,
             1,
             0
           ]
@@ -246,18 +246,11 @@
             1,
             0,
             0,
-            1
-          ],
-          [
-            1,
-            0,
-            0,
-            1,
             0
           ],
           [
             0,
-            0,
+            1,
             1,
             0,
             0
@@ -265,9 +258,16 @@
           [
             0,
             1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
             0,
             0,
-            1
+            0
           ]
         ]
       ],
@@ -289,7 +289,7 @@
         "input": [
           [
             [
-              1
+              0
             ]
           ]
         ],
@@ -732,52 +732,52 @@
         "input": [
           [
             [
-              0,
               1,
               0,
               0,
-              1,
+              0,
+              0,
               0
             ],
             [
               1,
-              0,
-              0,
               1,
               0,
-              0
-            ],
-            [
-              0,
-              0,
               1,
-              0,
-              0,
+              1,
               1
             ],
             [
               0,
-              1,
               0,
+              1,
               0,
               1,
               0
             ],
             [
-              1,
               0,
               0,
-              1,
+              0,
+              0,
               0,
               0
             ],
             [
               0,
-              0,
+              1,
               1,
               0,
               0,
-              1
+              0
+            ],
+            [
+              0,
+              1,
+              1,
+              0,
+              0,
+              0
             ]
           ]
         ],

@@ -19,7 +19,7 @@
   "summary": "Linked pointer reversal. Return the whole list.",
   "stage": "Warm-up",
   "boss": false,
-  "descriptionMd": "Inputs\n`head` is the first node of a linked list. In examples, [4, 7] means nodes 4 then 7, linked in that order. [] means no nodes. The runner builds the nodes for you.\n\nYour tasks\n1. Create a list `reversedValues`. Reverse the links in the linked list given by `head`. Each node has a number in val and a link in next. After the links are reversed, follow the new list from start to end. Record its values in that order. An empty list gives an empty `reversedValues`.\n2. Complete `chainTurntableProofStrip` so it returns `reversedValues`. Return it, do not print it.\n\nExample\nIf `head` is [6, -1, 6, 2], then `reversedValues` is [2, 6, -1, 6] and `chainTurntableProofStrip` returns [2, 6, -1, 6].\n\nRules\n- If `reversedValues` is empty, return [].\n\nTest data\nTEST DATA 1: `head` is [7, -3, 7, 0, 12].\nTEST DATA 2: `head` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`head` is the first node of a linked list. In examples, [4, 7] means nodes 4 then 7, linked in that order. [] means no nodes. The runner builds the nodes for you.\n\nYour tasks\n1. Create a list `reversedValues`. Reverse the links in the linked list given by `head`. Each node has a number in val and a link in next. After the links are reversed, follow the new list from start to end. Record its values in that order. An empty list gives an empty `reversedValues`.\n2. Complete `chainTurntableProofStrip` so it returns `reversedValues`. Return it, do not print it.\n\nExample\nIf `head` is [4, -3, 2, 3, 4], then `reversedValues` is [4, 3, 2, -3, 4] and `chainTurntableProofStrip` returns [4, 3, 2, -3, 4].\n\nRules\n- If `reversedValues` is empty, return [].\n\nTest data\nTEST DATA 1: `head` is [3, -3, 0, 3, 12].\nTEST DATA 2: `head` is [6, 6, 6, -5].",
   "unitIntro": "Reverse the links in the linked list given by `head`. Each node has a number in val and a link in next. After the links are reversed, follow the new list from start to end. Record its values in that order. An empty list gives an empty `reversedValues`. Each problem in this unit builds `reversedValues` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -46,41 +46,41 @@
       "id": "path3-295-1",
       "input": [
         [
-          7,
+          3,
           -3,
-          7,
           0,
+          3,
           12
         ]
       ],
       "expected": [
         12,
+        3,
         0,
-        7,
         -3,
-        7
+        3
       ],
       "coverage": "worked",
-      "explanation": "`reversedValues` is [12, 0, 7, -3, 7]. `chainTurntableProofStrip` returns that whole list, so return [12, 0, 7, -3, 7]."
+      "explanation": "`reversedValues` is [12, 3, 0, -3, 3]. `chainTurntableProofStrip` returns that whole list, so return [12, 3, 0, -3, 3]."
     },
     {
       "id": "path3-295-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          6,
+          6,
+          6,
+          -5
         ]
       ],
       "expected": [
-        4,
-        -2,
-        4,
-        4
+        -5,
+        6,
+        6,
+        6
       ],
       "coverage": "worked",
-      "explanation": "`reversedValues` is [4, -2, 4, 4]. `chainTurntableProofStrip` returns that whole list, so return [4, -2, 4, 4]."
+      "explanation": "`reversedValues` is [-5, 6, 6, 6]. `chainTurntableProofStrip` returns that whole list, so return [-5, 6, 6, 6]."
     },
     {
       "id": "path3-295-3",
@@ -116,41 +116,41 @@
       "id": "path3-295-1",
       "input": [
         [
-          7,
+          3,
           -3,
-          7,
           0,
+          3,
           12
         ]
       ],
       "expected": [
         12,
+        3,
         0,
-        7,
         -3,
-        7
+        3
       ],
       "coverage": "worked",
-      "explanation": "`reversedValues` is [12, 0, 7, -3, 7]. `chainTurntableProofStrip` returns that whole list, so return [12, 0, 7, -3, 7]."
+      "explanation": "`reversedValues` is [12, 3, 0, -3, 3]. `chainTurntableProofStrip` returns that whole list, so return [12, 3, 0, -3, 3]."
     },
     {
       "id": "path3-295-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          6,
+          6,
+          6,
+          -5
         ]
       ],
       "expected": [
-        4,
-        -2,
-        4,
-        4
+        -5,
+        6,
+        6,
+        6
       ],
       "coverage": "worked",
-      "explanation": "`reversedValues` is [4, -2, 4, 4]. `chainTurntableProofStrip` returns that whole list, so return [4, -2, 4, 4]."
+      "explanation": "`reversedValues` is [-5, 6, 6, 6]. `chainTurntableProofStrip` returns that whole list, so return [-5, 6, 6, 6]."
     }
   ],
   "referenceSolutions": {
@@ -165,11 +165,11 @@
         "id": "path3-295-4",
         "input": [
           [
-            9
+            12
           ]
         ],
         "expected": [
-          9
+          12
         ],
         "coverage": "singleton"
       },
@@ -177,17 +177,17 @@
         "id": "path3-295-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            2,
+            2,
+            2,
+            2
           ]
         ],
         "expected": [
-          5,
-          5,
-          5,
-          5
+          2,
+          2,
+          2,
+          2
         ],
         "coverage": "duplicates-or-redundancy"
       },
@@ -195,15 +195,15 @@
         "id": "path3-295-6",
         "input": [
           [
-            -20,
-            -1,
-            -7
+            -12,
+            -7,
+            -13
           ]
         ],
         "expected": [
+          -13,
           -7,
-          -1,
-          -20
+          -12
         ],
         "coverage": "lower-bound"
       },
@@ -365,19 +365,19 @@
         "id": "path3-295-9",
         "input": [
           [
-            8,
-            3,
-            -2,
-            8,
-            1
+            2,
+            9,
+            9,
+            11,
+            -8
           ]
         ],
         "expected": [
-          1,
-          8,
-          -2,
-          3,
-          8
+          -8,
+          11,
+          9,
+          9,
+          2
         ],
         "coverage": "order-and-ties"
       }

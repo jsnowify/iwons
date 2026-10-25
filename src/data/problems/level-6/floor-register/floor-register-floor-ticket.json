@@ -19,7 +19,7 @@
   "summary": "Tree breadth-first traversal. Return the smallest number.",
   "stage": "Boundary variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`root` is the top node of a binary tree. Examples list nodes one level at a time, from left to right. null marks a missing child; [] means no tree. Each node stores its number in val. Its left and right links point to children. The runner builds the nodes for you.\n\nYour tasks\n1. Create a list `levelSums`. `root` is the top node of a binary tree. Each node has a value and up to two children. The `root` is at depth 0, its children are at depth 1, and so on. Add the values at each depth. Put one sum per depth in `levelSums`, starting at depth 0. Missing children add nothing. An empty tree gives an empty `levelSums`.\n2. Find the smallest number in `levelSums`. Store it in `smallest`.\n3. Complete `floorRegisterFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `root` is [6, null, -1, 6, 2], then `levelSums` is [6, -1, 8] and `floorRegisterFloorTicket` returns -1.\n\nRules\n- If `levelSums` is empty, return 0.\n\nTest data\nTEST DATA 1: `root` is [7, null, -3, 7, 0].\nTEST DATA 2: `root` is [4, null, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`root` is the top node of a binary tree. Examples list nodes one level at a time, from left to right. null marks a missing child; [] means no tree. Each node stores its number in val. Its left and right links point to children. The runner builds the nodes for you.\n\nYour tasks\n1. Create a list `levelSums`. `root` is the top node of a binary tree. Each node has a value and up to two children. The `root` is at depth 0, its children are at depth 1, and so on. Add the values at each depth. Put one sum per depth in `levelSums`, starting at depth 0. Missing children add nothing. An empty tree gives an empty `levelSums`.\n2. Find the smallest number in `levelSums`. Store it in `smallest`.\n3. Complete `floorRegisterFloorTicket` so it returns `smallest`. Return it, do not print it.\n\nExample\nIf `root` is [2, null, -8, 3, 2], then `levelSums` is [2, -8, 5] and `floorRegisterFloorTicket` returns -8.\n\nRules\n- If `levelSums` is empty, return 0.\n\nTest data\nTEST DATA 1: `root` is [2, null, 11, -11, 11].\nTEST DATA 2: `root` is [-1, null, 4, 4, 4].",
   "unitIntro": "`root` is the top node of a binary tree. Each node has a value and up to two children. The `root` is at depth 0, its children are at depth 1, and so on. Add the values at each depth. Put one sum per depth in `levelSums`, starting at depth 0. Missing children add nothing. An empty tree gives an empty `levelSums`. Each problem in this unit builds `levelSums` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= node count <= 31; null marks a missing child and does not count as a node.",
@@ -46,31 +46,31 @@
       "id": "path3-327-1",
       "input": [
         [
-          7,
+          2,
           null,
-          -3,
-          7,
-          0
+          11,
+          -11,
+          11
         ]
       ],
-      "expected": -3,
+      "expected": 0,
       "coverage": "worked",
-      "explanation": "`levelSums` is [7, -3, 7]. The smallest number is -3. Return -3."
+      "explanation": "`levelSums` is [2, 11, 0]. The smallest number is 0. Return 0."
     },
     {
       "id": "path3-327-2",
       "input": [
         [
-          4,
+          -1,
           null,
           4,
-          -2,
+          4,
           4
         ]
       ],
-      "expected": 2,
+      "expected": -1,
       "coverage": "worked",
-      "explanation": "`levelSums` is [4, 4, 2]. The smallest number is 2. Return 2."
+      "explanation": "`levelSums` is [-1, 4, 8]. The smallest number is -1. Return -1."
     },
     {
       "id": "path3-327-3",
@@ -106,31 +106,31 @@
       "id": "path3-327-1",
       "input": [
         [
-          7,
+          2,
           null,
-          -3,
-          7,
-          0
+          11,
+          -11,
+          11
         ]
       ],
-      "expected": -3,
+      "expected": 0,
       "coverage": "worked",
-      "explanation": "`levelSums` is [7, -3, 7]. The smallest number is -3. Return -3."
+      "explanation": "`levelSums` is [2, 11, 0]. The smallest number is 0. Return 0."
     },
     {
       "id": "path3-327-2",
       "input": [
         [
-          4,
+          -1,
           null,
           4,
-          -2,
+          4,
           4
         ]
       ],
-      "expected": 2,
+      "expected": -1,
       "coverage": "worked",
-      "explanation": "`levelSums` is [4, 4, 2]. The smallest number is 2. Return 2."
+      "explanation": "`levelSums` is [-1, 4, 8]. The smallest number is -1. Return -1."
     }
   ],
   "referenceSolutions": {
@@ -145,34 +145,34 @@
         "id": "path3-327-4",
         "input": [
           [
-            9
+            3
           ]
         ],
-        "expected": 9,
+        "expected": 3,
         "coverage": "singleton"
       },
       {
         "id": "path3-327-5",
         "input": [
           [
-            5,
+            2,
             null,
-            5,
-            5,
-            5
+            2,
+            2,
+            2
           ]
         ],
-        "expected": 5,
+        "expected": 2,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-327-6",
         "input": [
           [
-            -20,
+            -16,
             null,
-            -1,
-            -7,
+            -20,
+            -8,
             null
           ]
         ],
@@ -184,36 +184,36 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
             -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
             -2,
-            11,
-            -17,
-            -4,
-            9,
-            -19,
-            -6,
             7,
-            20,
-            -8,
-            5,
-            18,
-            -10,
-            3,
             16,
+            -16,
+            -7,
+            2,
+            11,
+            20,
             -12,
-            1
+            -3,
+            6,
+            15,
+            -17,
+            -8,
+            1,
+            10,
+            19,
+            -13,
+            -4,
+            5,
+            14,
+            -18,
+            -9,
+            0,
+            9,
+            18,
+            -14,
+            -5,
+            4
           ]
         ],
         "expected": -20,
@@ -237,14 +237,14 @@
         "id": "path3-327-9",
         "input": [
           [
-            8,
+            2,
             null,
+            8,
             3,
-            -2,
             8
           ]
         ],
-        "expected": 3,
+        "expected": 2,
         "coverage": "order-and-ties"
       }
     ],

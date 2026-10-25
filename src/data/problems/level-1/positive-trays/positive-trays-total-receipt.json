@@ -19,7 +19,7 @@
   "summary": "Stable array filtering. Return the total.",
   "stage": "Variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `kept`. Keep only numbers greater than 0 from `readings`. Put them in `kept` in their original order. Keep repeated numbers. Leave out 0 and negative numbers.\n2. Add up every number in `kept`. Store the sum in `total`.\n3. Complete `positiveTraysTotalReceipt` so it returns `total`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `kept` is [6, 6, 2] and `positiveTraysTotalReceipt` returns 14.\n\nRules\n- If `kept` is empty, `total` is 0.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `kept`. Keep only numbers greater than 0 from `readings`. Put them in `kept` in their original order. Keep repeated numbers. Leave out 0 and negative numbers.\n2. Add up every number in `kept`. Store the sum in `total`.\n3. Complete `positiveTraysTotalReceipt` so it returns `total`. Return it, do not print it.\n\nExample\nIf `readings` is [8, 8, -5, 8, 9], then `kept` is [8, 8, 8, 9] and `positiveTraysTotalReceipt` returns 33.\n\nRules\n- If `kept` is empty, `total` is 0.\n\nTest data\nTEST DATA 1: `readings` is [0, 8, -5, 18, 18].\nTEST DATA 2: `readings` is [6, 6, -7, 6].",
   "unitIntro": "Keep only numbers greater than 0 from `readings`. Put them in `kept` in their original order. Keep repeated numbers. Leave out 0 and negative numbers. Each problem in this unit builds `kept` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,30 +45,30 @@
       "id": "path3-052-1",
       "input": [
         [
-          7,
-          -3,
-          7,
           0,
-          12
+          8,
+          -5,
+          18,
+          18
         ]
       ],
-      "expected": 26,
+      "expected": 44,
       "coverage": "worked",
-      "explanation": "`kept` is [7, 7, 12]. Add its numbers to get 26. Return 26."
+      "explanation": "`kept` is [8, 18, 18]. Add its numbers to get 44. Return 44."
     },
     {
       "id": "path3-052-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          6,
+          6,
+          -7,
+          6
         ]
       ],
-      "expected": 12,
+      "expected": 18,
       "coverage": "worked",
-      "explanation": "`kept` is [4, 4, 4]. Add its numbers to get 12. Return 12."
+      "explanation": "`kept` is [6, 6, 6]. Add its numbers to get 18. Return 18."
     },
     {
       "id": "path3-052-3",
@@ -101,30 +101,30 @@
       "id": "path3-052-1",
       "input": [
         [
-          7,
-          -3,
-          7,
           0,
-          12
+          8,
+          -5,
+          18,
+          18
         ]
       ],
-      "expected": 26,
+      "expected": 44,
       "coverage": "worked",
-      "explanation": "`kept` is [7, 7, 12]. Add its numbers to get 26. Return 26."
+      "explanation": "`kept` is [8, 18, 18]. Add its numbers to get 44. Return 44."
     },
     {
       "id": "path3-052-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          6,
+          6,
+          -7,
+          6
         ]
       ],
-      "expected": 12,
+      "expected": 18,
       "coverage": "worked",
-      "explanation": "`kept` is [4, 4, 4]. Add its numbers to get 12. Return 12."
+      "explanation": "`kept` is [6, 6, 6]. Add its numbers to get 18. Return 18."
     }
   ],
   "referenceSolutions": {
@@ -139,10 +139,10 @@
         "id": "path3-052-4",
         "input": [
           [
-            9
+            19
           ]
         ],
-        "expected": 9,
+        "expected": 19,
         "coverage": "singleton"
       },
       {
@@ -162,9 +162,9 @@
         "id": "path3-052-6",
         "input": [
           [
-            -20,
-            -1,
-            -7
+            -16,
+            -9,
+            -1
           ]
         ],
         "expected": 0,
@@ -175,72 +175,72 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
-            -4,
-            9,
-            -19,
-            -6,
-            7,
-            20,
-            -8,
-            5,
-            18,
-            -10,
-            3,
-            16,
-            -12,
-            1,
-            14,
-            -14,
             -1,
-            12,
-            -16,
-            -3,
-            10,
-            -18,
-            -5,
-            8,
-            -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
+            18,
             -4,
+            15,
+            -7,
+            12,
+            -10,
             9,
+            -13,
+            6,
+            -16,
+            3,
             -19,
+            0,
+            19,
+            -3,
+            16,
             -6,
+            13,
+            -9,
+            10,
+            -12,
             7,
-            20
+            -15,
+            4,
+            -18,
+            1,
+            20,
+            -2,
+            17,
+            -5,
+            14,
+            -8,
+            11,
+            -11,
+            8,
+            -14,
+            5,
+            -17,
+            2,
+            -20,
+            -1,
+            18,
+            -4,
+            15,
+            -7,
+            12,
+            -10,
+            9,
+            -13,
+            6,
+            -16,
+            3,
+            -19,
+            0,
+            19,
+            -3,
+            16,
+            -6,
+            13,
+            -9,
+            10,
+            -12
           ]
         ],
-        "expected": 333,
+        "expected": 331,
         "coverage": "maximum-size"
       },
       {
@@ -259,14 +259,14 @@
         "id": "path3-052-9",
         "input": [
           [
-            8,
-            3,
-            -2,
-            8,
-            1
+            -7,
+            10,
+            13,
+            10,
+            11
           ]
         ],
-        "expected": 20,
+        "expected": 44,
         "coverage": "order-and-ties"
       }
     ],

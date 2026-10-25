@@ -21,7 +21,7 @@
   "stage": "Boss · revisit",
   "boss": true,
   "revisit": "Level 0: loop accumulators",
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `oneCounts`. Write each number in `readings` in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order.\n2. Multiply each number in `oneCounts` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `bitRibbonsBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 1, 6, 2], then `oneCounts` is [2, 1, 2, 1] and `bitRibbonsBossReceipt` returns 14.\n\nRules\n- If `oneCounts` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [7, 3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, 2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `oneCounts`. Write each number in `readings` in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order.\n2. Multiply each number in `oneCounts` by its position, counting from 1: the first number by 1, the second by 2, and so on.\n3. Add those products. Store the sum in `weightedTotal`.\n4. Complete `bitRibbonsBossReceipt` so it returns `weightedTotal`. Return it, do not print it.\n\nExample\nIf `readings` is [3, 3, 2, 3, 9], then `oneCounts` is [2, 2, 1, 2, 2] and `bitRibbonsBossReceipt` returns 27.\n\nRules\n- If `oneCounts` is empty, return 0.\n\nTest data\nTEST DATA 1: `readings` is [0, 18, 5, 18, 8].\nTEST DATA 2: `readings` is [8, 8, 8, 8].",
   "unitIntro": "Write each number in `readings` in binary, the number system that uses only 0 and 1. Count the 1s in that form. For example, 5 is 101 in binary, so its count is 2. The count for 0 is 0. Put the counts in input order. Each problem in this unit builds `oneCounts` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -47,25 +47,25 @@
       "id": "path3-275-1",
       "input": [
         [
-          7,
-          3,
-          7,
           0,
-          12
+          18,
+          5,
+          18,
+          8
         ]
       ],
-      "expected": 26,
+      "expected": 23,
       "coverage": "worked",
-      "explanation": "`oneCounts` is [3, 2, 3, 0, 2]. Multiply by positions that start at 1: 1 * (3) + 2 * (2) + 3 * (3) + 4 * (0) + 5 * (2) = 26. Return 26."
+      "explanation": "`oneCounts` is [0, 2, 2, 2, 1]. Multiply by positions that start at 1: 1 * (0) + 2 * (2) + 3 * (2) + 4 * (2) + 5 * (1) = 23. Return 23."
     },
     {
       "id": "path3-275-2",
       "input": [
         [
-          4,
-          4,
-          2,
-          4
+          8,
+          8,
+          8,
+          8
         ]
       ],
       "expected": 10,
@@ -103,25 +103,25 @@
       "id": "path3-275-1",
       "input": [
         [
-          7,
-          3,
-          7,
           0,
-          12
+          18,
+          5,
+          18,
+          8
         ]
       ],
-      "expected": 26,
+      "expected": 23,
       "coverage": "worked",
-      "explanation": "`oneCounts` is [3, 2, 3, 0, 2]. Multiply by positions that start at 1: 1 * (3) + 2 * (2) + 3 * (3) + 4 * (0) + 5 * (2) = 26. Return 26."
+      "explanation": "`oneCounts` is [0, 2, 2, 2, 1]. Multiply by positions that start at 1: 1 * (0) + 2 * (2) + 3 * (2) + 4 * (2) + 5 * (1) = 23. Return 23."
     },
     {
       "id": "path3-275-2",
       "input": [
         [
-          4,
-          4,
-          2,
-          4
+          8,
+          8,
+          8,
+          8
         ]
       ],
       "expected": 10,
@@ -141,35 +141,35 @@
         "id": "path3-275-4",
         "input": [
           [
-            9
+            1
           ]
         ],
-        "expected": 2,
+        "expected": 1,
         "coverage": "singleton"
       },
       {
         "id": "path3-275-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            8,
+            8,
+            8,
+            8
           ]
         ],
-        "expected": 20,
+        "expected": 10,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-275-6",
         "input": [
           [
-            20,
-            1,
-            7
+            19,
+            13,
+            8
           ]
         ],
-        "expected": 13,
+        "expected": 12,
         "coverage": "lower-bound"
       },
       {
@@ -262,13 +262,13 @@
         "input": [
           [
             8,
-            3,
-            2,
+            5,
             8,
-            1
+            11,
+            10
           ]
         ],
-        "expected": 17,
+        "expected": 30,
         "coverage": "order-and-ties"
       }
     ],

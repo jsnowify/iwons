@@ -19,7 +19,7 @@
   "summary": "State in a loop. Return the total.",
   "stage": "Variation",
   "boss": false,
-  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `tallies`. Start a total at 0. Read `readings` from left to right. If the next number is 0, reset the total to 0. Otherwise, add that number to the total. Put the total in `tallies` after each number.\n2. Add up every number in `tallies`. Store the sum in `total`.\n3. Complete `resetTalliesTotalReceipt` so it returns `total`. Return it, do not print it.\n\nExample\nIf `readings` is [6, -1, 6, 2], then `tallies` is [6, 5, 11, 13] and `resetTalliesTotalReceipt` returns 35.\n\nRules\n- If `tallies` is empty, `total` is 0.\n\nTest data\nTEST DATA 1: `readings` is [7, -3, 7, 0, 12].\nTEST DATA 2: `readings` is [4, 4, -2, 4].",
+  "descriptionMd": "Inputs\n`readings` is a list of integers (numbers with no decimal part). It may be empty, and numbers may repeat unless task 1 says otherwise.\n\nYour tasks\n1. Create a list `tallies`. Start a total at 0. Read `readings` from left to right. If the next number is 0, reset the total to 0. Otherwise, add that number to the total. Put the total in `tallies` after each number.\n2. Add up every number in `tallies`. Store the sum in `total`.\n3. Complete `resetTalliesTotalReceipt` so it returns `total`. Return it, do not print it.\n\nExample\nIf `readings` is [6, 8, 6, -3, 8], then `tallies` is [6, 14, 20, 17, 25] and `resetTalliesTotalReceipt` returns 82.\n\nRules\n- If `tallies` is empty, `total` is 0.\n\nTest data\nTEST DATA 1: `readings` is [0, 12, 14, -5, 12].\nTEST DATA 2: `readings` is [5, -6, 5, 5].",
   "unitIntro": "Start a total at 0. Read `readings` from left to right. If the next number is 0, reset the total to 0. Otherwise, add that number to the total. Put the total in `tallies` after each number. Each problem in this unit builds `tallies` first, then returns a different answer from it. Start with the first problem. The last problem also counts positions from 1.",
   "constraints": [
     "0 <= input size <= 64.",
@@ -45,30 +45,30 @@
       "id": "path3-020-1",
       "input": [
         [
-          7,
-          -3,
-          7,
           0,
+          12,
+          14,
+          -5,
           12
         ]
       ],
-      "expected": 34,
+      "expected": 92,
       "coverage": "worked",
-      "explanation": "`tallies` is [7, 4, 11, 0, 12]. Add its numbers to get 34. Return 34."
+      "explanation": "`tallies` is [0, 12, 26, 21, 33]. Add its numbers to get 92. Return 92."
     },
     {
       "id": "path3-020-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          5,
+          -6,
+          5,
+          5
         ]
       ],
-      "expected": 28,
+      "expected": 17,
       "coverage": "worked",
-      "explanation": "`tallies` is [4, 8, 6, 10]. Add its numbers to get 28. Return 28."
+      "explanation": "`tallies` is [5, -1, 4, 9]. Add its numbers to get 17. Return 17."
     },
     {
       "id": "path3-020-3",
@@ -101,30 +101,30 @@
       "id": "path3-020-1",
       "input": [
         [
-          7,
-          -3,
-          7,
           0,
+          12,
+          14,
+          -5,
           12
         ]
       ],
-      "expected": 34,
+      "expected": 92,
       "coverage": "worked",
-      "explanation": "`tallies` is [7, 4, 11, 0, 12]. Add its numbers to get 34. Return 34."
+      "explanation": "`tallies` is [0, 12, 26, 21, 33]. Add its numbers to get 92. Return 92."
     },
     {
       "id": "path3-020-2",
       "input": [
         [
-          4,
-          4,
-          -2,
-          4
+          5,
+          -6,
+          5,
+          5
         ]
       ],
-      "expected": 28,
+      "expected": 17,
       "coverage": "worked",
-      "explanation": "`tallies` is [4, 8, 6, 10]. Add its numbers to get 28. Return 28."
+      "explanation": "`tallies` is [5, -1, 4, 9]. Add its numbers to get 17. Return 17."
     }
   ],
   "referenceSolutions": {
@@ -139,35 +139,35 @@
         "id": "path3-020-4",
         "input": [
           [
-            9
+            7
           ]
         ],
-        "expected": 9,
+        "expected": 7,
         "coverage": "singleton"
       },
       {
         "id": "path3-020-5",
         "input": [
           [
-            5,
-            5,
-            5,
-            5
+            2,
+            2,
+            2,
+            2
           ]
         ],
-        "expected": 50,
+        "expected": 20,
         "coverage": "duplicates-or-redundancy"
       },
       {
         "id": "path3-020-6",
         "input": [
           [
-            -20,
-            -1,
-            -7
+            -11,
+            -14,
+            -4
           ]
         ],
-        "expected": -69,
+        "expected": -65,
         "coverage": "lower-bound"
       },
       {
@@ -175,72 +175,72 @@
         "input": [
           [
             -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
-            -15,
-            -2,
-            11,
-            -17,
-            -4,
             9,
-            -19,
-            -6,
-            7,
-            20,
-            -8,
-            5,
-            18,
-            -10,
-            3,
-            16,
-            -12,
-            1,
-            14,
-            -14,
-            -1,
-            12,
-            -16,
             -3,
-            10,
-            -18,
-            -5,
-            8,
-            -20,
-            -7,
-            6,
-            19,
-            -9,
-            4,
-            17,
-            -11,
-            2,
-            15,
-            -13,
-            0,
-            13,
             -15,
-            -2,
-            11,
-            -17,
-            -4,
-            9,
-            -19,
-            -6,
+            14,
+            2,
+            -10,
+            19,
             7,
-            20
+            -5,
+            -17,
+            12,
+            0,
+            -12,
+            17,
+            5,
+            -7,
+            -19,
+            10,
+            -2,
+            -14,
+            15,
+            3,
+            -9,
+            20,
+            8,
+            -4,
+            -16,
+            13,
+            1,
+            -11,
+            18,
+            6,
+            -6,
+            -18,
+            11,
+            -1,
+            -13,
+            16,
+            4,
+            -8,
+            -20,
+            9,
+            -3,
+            -15,
+            14,
+            2,
+            -10,
+            19,
+            7,
+            -5,
+            -17,
+            12,
+            0,
+            -12,
+            17,
+            5,
+            -7,
+            -19,
+            10,
+            -2,
+            -14,
+            15,
+            3
           ]
         ],
-        "expected": -236,
+        "expected": -211,
         "coverage": "maximum-size"
       },
       {
@@ -259,14 +259,14 @@
         "id": "path3-020-9",
         "input": [
           [
-            8,
-            3,
-            -2,
-            8,
-            1
+            7,
+            -1,
+            10,
+            7,
+            5
           ]
         ],
-        "expected": 63,
+        "expected": 80,
         "coverage": "order-and-ties"
       }
     ],

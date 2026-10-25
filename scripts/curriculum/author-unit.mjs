@@ -41,7 +41,7 @@ export function authorUnit(slug, rewrite = problem => problem) {
     const mode=modes[index],projection=projections[mode],withK=usesK(unit.kernel,mode),ref=referenceFor(entry,kernel,mode,withK);
     const large = mode===4 && ["array","text","list","tree","bst","pair","queries"].includes(kernel.family) && !["recursive","subsets","matrixChain"].includes(unit.kernel);
     const caseKernel = large ? { ...kernel, max: 50000 } : kernel;
-    const rawCases = casesFor(caseKernel);
+    const rawCases = casesFor(caseKernel, entry.slug);
     const sequences=[],kValues=rawCases.map(c=>c.input[1]);
     const cases=rawCases.map((c,i)=>{
       const args=structuredClone(c.input);args[0]=nodes(args[0],kernel.family);
@@ -50,7 +50,9 @@ export function authorUnit(slug, rewrite = problem => problem) {
       return {id:`${entry.id}-${i+1}`,input:withK?c.input:[c.input[0]],expected,coverage:c.coverage,...(i<3?{explanation:`The derived sequence is ${JSON.stringify(sequence)}. ${mode===9?`Its weighted products are ${JSON.stringify(sequence.map((x,j)=>(j+1)*x))}. `:""}${projection.task} This gives ${JSON.stringify(expected)}.`}:{})};
     });
     // The description's worked example uses its own input, so no test answer is printed in the task text.
-    const sample=exampleCase(kernel),sampleArgs=structuredClone(sample.input);sampleArgs[0]=nodes(sampleArgs[0],kernel.family);
+    let sample;
+    for(let salt=0;salt<40;salt++){sample=exampleCase(kernel,`${entry.slug}~${salt}`);if(!rawCases.some(c=>JSON.stringify(c.input[0])===JSON.stringify(sample.input[0])))break;}
+    const sampleArgs=structuredClone(sample.input);sampleArgs[0]=nodes(sampleArgs[0],kernel.family);
     if(rawCases.some(c=>JSON.stringify(c.input[0])===JSON.stringify(sample.input[0])))throw new Error(`${entry.slug}: example input matches a test case`);
     const sampleSequence=candidateFunction(...sampleArgs);
     const example={input:withK?sample.input:[sample.input[0]],sequence:sampleSequence,expected:receipts[mode](sampleSequence,sample.input[1])};
