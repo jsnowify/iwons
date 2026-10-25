@@ -93,6 +93,8 @@ function CodeEditor({
         padding: { top: 20, bottom: 20 },
         lineNumbersMinChars: 3,
         scrollBeyondLastLine: false,
+        // Let the wheel scroll the page once the code itself has nothing left to scroll.
+        scrollbar: { alwaysConsumeMouseWheel: false },
         automaticLayout: true,
         wordWrap: "on",
         renderLineHighlight: "none",

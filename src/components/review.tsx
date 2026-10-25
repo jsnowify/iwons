@@ -8,6 +8,7 @@ import { useStore } from "@/store/use-store";
 import { problemUrl } from "@/lib/presentation";
 import { rateReview, intervals, type Rating } from "@/lib/srs";
 import { Button, Empty, Badge, useToast } from "./ui";
+import { Inline } from "./inline-code";
 export function ReviewPage({problems}:{problems:CatalogEntry[]}) {
   const store = useStore(),
     toast = useToast();
@@ -55,7 +56,7 @@ export function ReviewPage({problems}:{problems:CatalogEntry[]}) {
             <div className="stack" style={{ marginTop: 24, textAlign: "left" }}>
               <div className="screen-note">
                 <strong>{p.patterns.join(", ")}</strong>
-                <p>{p.overview}</p>
+                <p><Inline text={p.overview} /></p>
                 <p>
                   Time {p.complexity.time} · Space {p.complexity.space}
                 </p>

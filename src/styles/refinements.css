@@ -258,3 +258,22 @@ dialog.modal[open] { display: grid; place-items: center; }
 .settings-cards h2 { font-size: 20px; }
 .settings-cards .avatar-editor, .settings-cards .recovery-panel { border-top: 0; padding-top: 0; }
 @media (max-width: 860px) { .profile-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Guided problem statements: numbered tasks, rule bullets and inline names */
+.description-content .task-list, .description-content .rule-list { margin: 0; padding-left: 1.4em; display: grid; gap: 8px; line-height: 1.7; }
+.description-content .task-list li::marker { font-weight: 700; color: var(--accent-text); }
+.description-content code, .hint-item code { padding: 1px 5px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--heat-empty); font: 0.92em var(--font-code); overflow-wrap: anywhere; }
+.description-content .test-data { margin: 0 0 6px; }
+
+/* Problem page: keep navigation and context apart from the task itself */
+.description-content .problem-meta { display: grid; gap: 8px; margin: 16px 0 8px; padding: 12px 14px; border: 1px dashed var(--border); border-radius: var(--radius-sm); background: color-mix(in srgb, var(--ink) 5%, var(--surface)); font-size: 12px; line-height: 1.6; }
+.description-content .problem-meta p { margin: 0; font-size: inherit; }
+.problem-meta-stage { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.problem-stage { padding: 1px 8px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); background: var(--accent-2); color: var(--on-accent); font: 700 11px/1.6 var(--font-ui); letter-spacing: 1px; text-transform: uppercase; }
+.description-content .problem-tasks { margin-top: 20px; padding: 16px 18px; border: 2px solid var(--border); border-radius: var(--radius-sm); background: var(--accent-soft); box-shadow: 3px 3px 0 var(--shadow-ink); }
+.description-content .problem-tasks h2 { margin-top: 0; }
+.description-content .task-list { list-style: decimal; }
+.description-content .rule-list { list-style: disc; }
+
+/* Names inside worked examples: full-contrast text on a raised chip, not the faded example text */
+.description-content .example code { color: var(--text); background: var(--elevated); opacity: 1; }

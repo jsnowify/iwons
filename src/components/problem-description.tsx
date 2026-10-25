@@ -3,6 +3,15 @@ import type { Problem, ProblemSummary } from "@/lib/types";
 import { problemUrl, topicSlug } from "@/lib/presentation";
 import { getVisualizerForProblem } from "@/visualizer/problem-map";
 import { relatedFoundationLessons } from "@/lib/foundation-track";
+import { Inline } from "./inline-code";
+const headings = ["Inputs", "Your tasks", "Example", "Rules", "Test data", "Your task", "Step 1: Build the result list", "Step 2: Return the answer", "Write your function"];
+/** A section body: "1. " lines become a numbered list, "- " lines a bullet list, other lines paragraphs. */
+function SectionBody({ lines }: { lines: string[] }) {
+  if (lines.every(line => /^\d+\. /.test(line))) return <ol className="task-list">{lines.map((line, i) => <li key={i}><Inline text={line.replace(/^\d+\. /, "")} /></li>)}</ol>;
+  if (lines.every(line => line.startsWith("- "))) return <ul className="rule-list">{lines.map((line, i) => <li key={i}><Inline text={line.slice(2)} /></li>)}</ul>;
+  if (lines.length > 1 && lines.every(line => /^TEST DATA \d+:/.test(line))) return <>{lines.map((line, i) => <p key={i} className="test-data"><strong>{line.slice(0, line.indexOf(":") + 1)}</strong><Inline text={line.slice(line.indexOf(":") + 1)} /></p>)}</>;
+  return <p><Inline text={lines.join(" ")} /></p>;
+}
 export function ProblemDescription({ problem: p, related = [] }: { problem: Problem; related?: Pick<ProblemSummary,"id"|"slug"|"title">[] }) {
   const visualizer = getVisualizerForProblem(p);
   const lessons = relatedFoundationLessons(p.topics);
@@ -36,16 +45,18 @@ export function ProblemDescription({ problem: p, related = [] }: { problem: Prob
           </Link>
         </p>
       ) : null}
-      {p.unit ? <Link prefetch={false} className="text-link" href={`/path/${p.level}/#${p.unit}`}>Back to this unit</Link> : null}
-      {lessons.length ? <p className="related-foundation">Related lessons (optional): {lessons.map((lesson, index) => <span key={lesson.id}>
-        {index > 0 ? ", " : ""}<Link prefetch={false} className="text-link" href={`/foundation/${lesson.id}/`}>{lesson.title}</Link>
-      </span>)}</p> : null}
-      {p.stage ? <p><strong>{p.stage}</strong>{p.revisit ? ` · ${p.revisit}` : ""}</p> : null}
+      {p.unit || lessons.length || p.stage ? <aside className="problem-meta" aria-label="About this problem">
+        {p.stage ? <p className="problem-meta-stage"><span className="problem-stage">{p.stage}</span>{p.revisit ? <span className="muted">{p.revisit}</span> : null}</p> : null}
+        {p.unit ? <Link prefetch={false} className="text-link" href={`/path/${p.level}/#${p.unit}`}>← Back to this unit</Link> : null}
+        {lessons.length ? <p className="related-foundation"><span className="muted">Related lessons (optional): </span>{lessons.map((lesson, index) => <span key={lesson.id}>
+          {index > 0 ? ", " : ""}<Link prefetch={false} className="text-link" href={`/foundation/${lesson.id}/`}>{lesson.title}</Link>
+        </span>)}</p> : null}
+      </aside> : null}
       {p.descriptionMd.split("\n\n").map((paragraph, index) => {
         const [heading, ...body] = paragraph.split("\n");
-        return body.length && ["Your task", "Inputs", "Step 1: Build the result list", "Step 2: Return the answer", "Write your function"].includes(heading)
-          ? <section key={index}><h2>{heading}</h2><p>{body.join(" ")}</p></section>
-          : <p key={index}>{paragraph}</p>;
+        return body.length && headings.includes(heading)
+          ? <section key={index} className={heading === "Your tasks" ? "problem-tasks" : undefined}><h2>{heading}</h2><SectionBody lines={body} /></section>
+          : <p key={index}><Inline text={paragraph} /></p>;
       })}
       <h2>Examples</h2>
       {p.cases.map((c, i) => (
@@ -58,7 +69,7 @@ export function ProblemDescription({ problem: p, related = [] }: { problem: Prob
             <span className="muted">Output: </span>
             {JSON.stringify(c.expected)}
           </pre>
-          {c.explanation ? <p>{c.explanation}</p> : null}
+          {c.explanation ? <p><Inline text={c.explanation} /></p> : null}
         </div>
       ))}
       <h2>Input limits</h2>
@@ -69,7 +80,7 @@ export function ProblemDescription({ problem: p, related = [] }: { problem: Prob
       </ul>
       {p.constraints.some(c => c.startsWith("Efficiency goal:")) ? <details className="efficiency-goal"><summary>Efficiency goal</summary><p>Big-O describes how the work or memory needed grows as the input gets larger.</p>{p.constraints.filter(c => c.startsWith("Efficiency goal:")).map(c => <p key={c}>{c}</p>)}</details> : null}
       <h2>Practice focus</h2>
-      <p>{p.overview}</p>
+      <p><Inline text={p.overview} /></p>
       {p.topics.map((t) => (
         <Link
           prefetch={false}

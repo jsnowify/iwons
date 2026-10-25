@@ -29,6 +29,7 @@ export interface Problem {
   topics: string[];
   patterns: string[];
   descriptionMd: string;
+  summary?: string;
   constraints: string[];
   hints: string[];
   functionName: string;

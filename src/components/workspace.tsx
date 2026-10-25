@@ -41,6 +41,7 @@ import { useStore } from "@/store/use-store";
 import { playBell } from "@/lib/sound";
 import { useWatch } from "@/lib/watch/use-watch";
 import { ComplexityPanel } from "./complexity-panel";
+import { Inline } from "./inline-code";
 import { Button, Modal, EditorSkeleton, useToast, Badge } from "./ui";
 import { Onboarding } from "./onboarding";
 import { useAccount } from "./account-provider";
@@ -516,7 +517,7 @@ export function Workspace({
                       {p.hints.slice(0, hints).map((h, i) => (
                         <div className="hint-item" key={h}>
                           <span className="eyebrow accent">HINT {i + 1}</span>
-                          <p>{h}</p>
+                          <p><Inline text={h} /></p>
                         </div>
                       ))}
                       <Button

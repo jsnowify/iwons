@@ -22,7 +22,7 @@ export async function generateMetadata({
   if (!p) return {title:"A new chapter",robots:{index:false,follow:true},description:"The old exercise has retired. Your work is archived; explore the new Iwons Path."};
   return {
     title: p.title,
-    description: p.descriptionMd.slice(0, 155),
+    description: (p.summary ?? p.descriptionMd).replaceAll("`", "").slice(0, 155),
     alternates: { canonical: `/problems/${slug}/` },
     openGraph: {
       title: `${p.title} | Iwons`,

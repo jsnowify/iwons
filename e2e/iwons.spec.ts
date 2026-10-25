@@ -195,7 +195,7 @@ test("responsive dark and light pages, SEO HTML, and offline refresh", async ({
 }) => {
   const response = await request.get(`/problems/${first.slug}/`);
   const html = await response.text();
-  expect(html).toContain("Build a result list");
+  expect(html).toContain("Your tasks");
   expect(html).not.toContain("hiddenCases");
   expect(html).not.toContain("JavaScript reference");
   expect((await request.get("/sitemap.xml")).status()).toBe(200);
