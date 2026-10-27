@@ -4,6 +4,8 @@ import { AuthLink } from "./auth-link";
 import { AvatarEditor } from "./avatar-editor";
 import { AccountAvatar } from "./account-avatar";
 import { RecoveryPanel } from "./recovery-panel";
+import { ExportDataPanel } from "./export-data-panel";
+import { DeleteAccountPanel } from "./delete-account-panel";
 import { LevelBadges } from "./level-badges";
 import { ProfileEditor } from "./profile-editor";
 import { ProfileStats, type CatalogLevel } from "./profile-stats";
@@ -41,6 +43,8 @@ export function AccountProfile({ catalog }: { catalog: CatalogLevel[] }) {
         <div className="card"><ProfileEditor key={`${account.user.handle}:${account.user.name}`} /></div>
         <div className="card"><AvatarEditor /></div>
         <div className="card"><RecoveryPanel /></div>
+        <div className="card"><ExportDataPanel /></div>
+        <div className="card"><DeleteAccountPanel /></div>
       </div>
     </section> : null}
   </div>;

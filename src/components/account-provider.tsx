@@ -73,11 +73,11 @@ function summarize(snapshot: DeviceImport): ImportSummary {
 interface AccountContextValue {
   ready: boolean; progressVersion: number; syncState: SyncState; importSummary: ImportSummary | null;
   user: AccountUser | null; providers: string[]; credentialAccount: boolean; error: string; importing: boolean; hasImport: boolean;
-  refresh: () => Promise<void>; refreshIdentity: () => Promise<void>; importDevice: () => Promise<void>; skipImport: () => void; logout: () => Promise<void>;
+  refresh: () => Promise<void>; refreshIdentity: () => Promise<void>; importDevice: () => Promise<void>; skipImport: () => void; logout: () => Promise<void>; accountDeleted: () => Promise<void>;
 }
 const Context = createContext<AccountContextValue>({ ready: false, progressVersion: 0, syncState: "synced", importSummary: null,
   user: null, providers: [], credentialAccount: false, error: "", importing: false, hasImport: false,
-  refresh: async () => {}, refreshIdentity: async () => {}, importDevice: async () => {}, skipImport: () => {}, logout: async () => {} });
+  refresh: async () => {}, refreshIdentity: async () => {}, importDevice: async () => {}, skipImport: () => {}, logout: async () => {}, accountDeleted: async () => {} });
 export const useAccount = () => useContext(Context);
 export function AccountProvider({ children }: { children: ReactNode }) {
   const hydrated = useStore(state => state.hydrated);
@@ -189,6 +189,13 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     finally { setImporting(false); muted.current = false; }
   }
   function skipImport() { if (user) storage.syncChoice(user.id, true); setHasImport(false); pendingImport.current = null; }
+  // The server already deleted the account and cleared its cookie. Drop the account scope and go back to guest data.
+  async function accountDeleted() {
+    muted.current = true;
+    storage.switchAccount(null); await useStore.persist.rehydrate();
+    setUser(null); setHasImport(false); pendingImport.current = null; setError("");
+    setProgressVersion(value => value + 1); muted.current = false;
+  }
   async function logout() {
     if (credentialAccount) {
       await flushRef.current();
@@ -204,5 +211,5 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     await signOut({ callbackUrl: "/settings/" });
   }
   const importSummary = hasImport && pendingImport.current ? summarize(pendingImport.current) : null;
-  return <Context.Provider value={{ ready, progressVersion, syncState, importSummary, user, providers, credentialAccount, error, hasImport, importing, refresh, refreshIdentity, importDevice, skipImport, logout }}>{children}</Context.Provider>;
+  return <Context.Provider value={{ ready, progressVersion, syncState, importSummary, user, providers, credentialAccount, error, hasImport, importing, refresh, refreshIdentity, importDevice, skipImport, logout, accountDeleted }}>{children}</Context.Provider>;
 }

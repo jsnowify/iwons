@@ -1,5 +1,6 @@
 import { optionalUser, enabledProviders } from "@/lib/accounts/auth";
 import { requireUser } from "@/lib/accounts/http";
+import { deleteEndpoint } from "@/lib/accounts/delete-http";
 import { accounts, publicUser } from "@/lib/db/accounts";
 import { database } from "@/lib/db/client";
 import { accountPatch } from "@/lib/accounts/contracts";
@@ -20,8 +21,9 @@ export async function PATCH(request: Request) {
 }
 export async function DELETE(request: Request) {
   try {
+    // Credential accounts confirm with their password and have their own handler.
+    if ((await optionalUser(request))?.username) return await deleteEndpoint(request);
     sameOrigin(request); const user = await requireUser(request);
-    if (user.username) return json({ error: "Account deletion is not available yet." }, 404);
     await accounts(await database()).delete(user._id);
     return json({ deleted: true });
   } catch (error) { return errorResponse(error); }

@@ -14,6 +14,6 @@ export async function GET(request: Request) {
       db.collection("solves").find({ userId: user._id }).limit(5000).toArray(),
     ]);
     return json({ version: 1, exportedAt: new Date().toISOString(), account: { name: user.name, handle: user.handle,
-      leaderboardOptIn: user.leaderboardOptIn }, progress, submissions, solves });
+      leaderboardOptIn: user.leaderboardOptIn, ...(user.username ? { username: user.username, displayName: user.displayName, email: user.email, createdAt: user.createdAt } : {}) }, progress, submissions, solves });
   } catch (error) { return errorResponse(error); }
 }
